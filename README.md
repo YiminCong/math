@@ -28,6 +28,20 @@ Open **[`index.html`](index.html)**. It offers three ways in:
 | 7 · Advanced | Differential equations | [`differential-equations.html`](calculus/differential-equations.html) |
 | 8 · Expertise | Foundations of analysis (rigor) | [`analysis-foundations.html`](calculus/analysis-foundations.html) |
 
+## The topology learning path
+
+| Step | Focus | Where |
+| --- | --- | --- |
+| 0 · Foundations | Sets, functions & metric spaces | [`general-topology.html#s1`](topology/general-topology.html#s1) |
+| 1 · Point-set | Topological spaces, basis, closure | [`general-topology.html#s3`](topology/general-topology.html#s3) |
+| 2 · Point-set | Continuity & constructions | [`general-topology.html#s7`](topology/general-topology.html#s7) |
+| 3 · Point-set | Connectedness & compactness | [`general-topology.html#s10`](topology/general-topology.html#s10) |
+| 4 · Point-set | Separation, countability & metrization | [`general-topology.html#s16`](topology/general-topology.html#s16) |
+| 5 · Point-set | Convergence & completeness (nets, filters, Baire) | [`general-topology.html#s20`](topology/general-topology.html#s20) |
+| 6 · Algebraic | Homotopy & the fundamental group | [`algebraic-topology.html#s0`](topology/algebraic-topology.html#s0) |
+| 7 · Algebraic | Covering spaces | [`algebraic-topology.html#s6`](topology/algebraic-topology.html#s6) |
+| 8 · Expertise | Homology & cohomology | [`algebraic-topology.html#s9`](topology/algebraic-topology.html#s9) |
+
 ## What's inside
 
 ### Calculus — [`calculus/`](calculus/)
@@ -48,6 +62,14 @@ Open **[`index.html`](index.html)**. It offers three ways in:
 | Derived from Scratch | [`derived-from-scratch.html`](calculus/derived-from-scratch.html) | A proof-first companion to single-variable calculus |
 | From the Ground Up | [`connected-map.html`](calculus/connected-map.html) | A fast, big-picture map of how the ideas connect |
 | Glossary (EN ↔ 中文) | [`glossary.html`](calculus/glossary.html) | Searchable English ↔ Simplified-Chinese term reference |
+
+### Topology — [`topology/`](topology/)
+
+| Guide | File | Covers |
+| --- | --- | --- |
+| General Topology | [`general-topology.html`](topology/general-topology.html) | Point-set: metric & topological spaces, continuity, connectedness & compactness, separation axioms, metrization, nets/filters, Baire (23 sections) |
+| Algebraic Topology | [`algebraic-topology.html`](topology/algebraic-topology.html) | Homotopy & the fundamental group, covering spaces, singular/simplicial homology & cohomology (15 sections) |
+| Glossary (EN ↔ 中文) | [`glossary.html`](topology/glossary.html) | Searchable English ↔ Simplified-Chinese topology term reference |
 
 ### Statistics — [`statistics/`](statistics/)
 

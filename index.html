@@ -72,6 +72,7 @@
   a.card.cal .kicker{color:var(--amber);}
   a.card.sta .kicker{color:var(--plum);}
   a.card.ref .kicker{color:var(--teal);}
+  a.card.top .kicker{color:var(--blue-soft);}
   a.card h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.35rem; line-height:1.1; color:var(--blue); margin:0 0 8px; letter-spacing:-.01em;}
   a.card p{margin:0; font-size:.96rem; color:var(--ink-soft);}
   a.card .meta{margin-top:12px; font-size:.8rem; color:var(--ink-soft); font-style:italic;}
@@ -87,6 +88,7 @@
   a.res .tag.cal{color:var(--amber); background:#f7ecda;}
   a.res .tag.sta{color:var(--plum); background:#f3eaf0;}
   a.res .tag.ref{color:var(--teal); background:#e9f3f1;}
+  a.res .tag.top{color:var(--blue); background:#e7edf4;}
   a.res .title{font-size:1rem; color:var(--ink);}
   a.res .where{margin-left:auto; flex:0 0 auto; font-size:.8rem; color:var(--ink-soft); font-style:italic;}
   mark{background:#f6d99b; color:inherit; border-radius:3px; padding:0 1px;}
@@ -101,15 +103,15 @@
 <body>
 <div class="container">
   <header>
-    <h1>Calculus, <em>from starter to expertise.</em></h1>
-    <p class="lede">An illustrated, self-contained course — every formula stated cleanly, demonstrated where it comes from, and linked to the ideas around it. Follow the <strong>learning path</strong> in order, jump in <strong>by topic</strong>, or search every section of every guide at once.</p>
+    <h1>Mathematics, <em>from starter to expertise.</em></h1>
+    <p class="lede">An illustrated, self-contained library — every idea stated cleanly, demonstrated where it comes from, and linked to the ideas around it. Each subject has a <strong>learning path</strong> to follow in order and a <strong>topic</strong> index to jump around; search runs across every section of every guide at once.</p>
     <div class="rule"></div>
   </header>
 
   <div class="toolbar">
     <div class="search">
       <span class="ico">🔍</span>
-      <input id="search" type="text" placeholder="Search every guide…  (e.g. chain rule / gradient / Laplace / Bayes / 导数)" autocomplete="off" autofocus>
+      <input id="search" type="text" placeholder="Search every guide…  (e.g. chain rule / gradient / compact / fundamental group / 紧性)" autocomplete="off" autofocus>
       <kbd>/</kbd>
     </div>
     <div class="count" id="count"></div>
@@ -122,8 +124,8 @@
 
   <div id="hideOnSearch">
 
-    <!-- ================= LEARNING PATH ================= -->
-    <div class="grp">The learning path</div>
+    <!-- ================= CALCULUS ================= -->
+    <div class="grp">Calculus · the learning path</div>
     <div class="grpsub">Nine steps from precalculus to graduate-level rigor. Each links straight into the relevant guide.</div>
     <div class="path">
       <a class="step" href="calculus/complete-guide.html#s1">
@@ -183,7 +185,7 @@
     </div>
 
     <!-- ================= BROWSE BY TOPIC ================= -->
-    <div class="grp">Browse by topic</div>
+    <div class="grp">Calculus · browse by topic</div>
     <div class="grpsub">Jump to a single idea, wherever it lives.</div>
     <div class="topics">
       <a class="topic" href="calculus/complete-guide.html#s3"><div class="t">Limits &amp; continuity</div><div class="d">the idea, ε–δ, computing</div></a>
@@ -202,7 +204,7 @@
     </div>
 
     <!-- ================= ALL GUIDES ================= -->
-    <div class="grp">Core course</div>
+    <div class="grp">Calculus · core course</div>
     <div class="cards">
       <a class="card cal" href="calculus/complete-guide.html">
         <div class="kicker">Single-variable · 30 sections</div>
@@ -230,7 +232,7 @@
       </a>
     </div>
 
-    <div class="grp">Companions &amp; reference</div>
+    <div class="grp">Calculus · companions &amp; reference</div>
     <div class="cards">
       <a class="card cal" href="calculus/derived-from-scratch.html">
         <div class="kicker">With proofs · 13 sections</div>
@@ -249,6 +251,107 @@
         <h3>Calculus Glossary</h3>
         <p>A searchable English ↔ Simplified-Chinese term reference across single- and multivariable calculus.</p>
         <div class="meta">微积分术语对照 · 300+ terms in 10 categories</div>
+      </a>
+    </div>
+
+    <!-- ================= TOPOLOGY ================= -->
+    <div class="grp">Topology · the learning path</div>
+    <div class="grpsub">Nine steps from point-set foundations to algebraic topology. Each links straight into the relevant guide.</div>
+    <div class="path">
+      <a class="step" href="topology/general-topology.html#s1">
+        <span class="dot">0</span>
+        <span class="body"><span class="where">Foundations</span><span class="lvl">Starter</span>
+          <h3>Sets, functions &amp; metric spaces</h3>
+          <p>The set-theory toolkit and metric spaces — the concrete prototype where "nearness" first gets a definition.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s3">
+        <span class="dot">1</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Beginner</span>
+          <h3>Topological spaces</h3>
+          <p>Open sets as the primitive notion; basis &amp; subbasis; closure, interior and boundary.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s7">
+        <span class="dot">2</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Core</span>
+          <h3>Continuity &amp; constructions</h3>
+          <p>Continuous maps, homeomorphisms, and building new spaces: subspace, product and quotient topologies.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s10">
+        <span class="dot">3</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Core</span>
+          <h3>Connectedness &amp; compactness</h3>
+          <p>The two great topological properties — and what continuous maps do to them.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s16">
+        <span class="dot">4</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Intermediate</span>
+          <h3>Separation, countability &amp; metrization</h3>
+          <p>The T-axioms, countability, Urysohn's lemma and Tietze — leading to when a space is metrizable.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s20">
+        <span class="dot">5</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Advanced</span>
+          <h3>Convergence &amp; completeness</h3>
+          <p>Nets &amp; filters for general convergence, complete metric spaces, and the Baire category theorem.</p></span>
+      </a>
+      <a class="step" href="topology/algebraic-topology.html#s0">
+        <span class="dot">6</span>
+        <span class="body"><span class="where">Algebraic</span><span class="lvl">Advanced</span>
+          <h3>Homotopy &amp; the fundamental group</h3>
+          <p>Deforming maps, \(\pi_1\), \(\pi_1(S^1)\cong\mathbb{Z}\), and Seifert–van Kampen.</p></span>
+      </a>
+      <a class="step" href="topology/algebraic-topology.html#s6">
+        <span class="dot">7</span>
+        <span class="body"><span class="where">Algebraic</span><span class="lvl">Advanced</span>
+          <h3>Covering spaces</h3>
+          <p>Lifting, the Galois-style correspondence with subgroups of \(\pi_1\), and the universal cover.</p></span>
+      </a>
+      <a class="step cap" href="topology/algebraic-topology.html#s9">
+        <span class="dot">8</span>
+        <span class="body"><span class="where">Algebraic</span><span class="lvl">Expertise</span>
+          <h3>Homology &amp; cohomology</h3>
+          <p>Simplicial/CW complexes, singular homology, exact sequences, Betti numbers and the cup product.</p></span>
+      </a>
+    </div>
+
+    <div class="grp">Topology · browse by topic</div>
+    <div class="grpsub">Jump to a single idea, wherever it lives.</div>
+    <div class="topics">
+      <a class="topic" href="topology/general-topology.html#s2"><div class="t">Metric spaces</div><div class="d">balls, convergence, the prototype</div></a>
+      <a class="topic" href="topology/general-topology.html#s3"><div class="t">Topological spaces</div><div class="d">open sets, basis, subbasis</div></a>
+      <a class="topic" href="topology/general-topology.html#s5"><div class="t">Closure &amp; interior</div><div class="d">boundary, limit points, dense</div></a>
+      <a class="topic" href="topology/general-topology.html#s7"><div class="t">Continuity</div><div class="d">maps &amp; homeomorphisms</div></a>
+      <a class="topic" href="topology/general-topology.html#s8"><div class="t">Product &amp; quotient</div><div class="d">building new spaces</div></a>
+      <a class="topic" href="topology/general-topology.html#s10"><div class="t">Connectedness</div><div class="d">components, path-connected</div></a>
+      <a class="topic" href="topology/general-topology.html#s12"><div class="t">Compactness</div><div class="d">covers, Heine–Borel, Tychonoff</div></a>
+      <a class="topic" href="topology/general-topology.html#s17"><div class="t">Separation axioms</div><div class="d">Hausdorff, regular, normal</div></a>
+      <a class="topic" href="topology/general-topology.html#s19"><div class="t">Metrization</div><div class="d">when is a space a metric space?</div></a>
+      <a class="topic" href="topology/general-topology.html#s20"><div class="t">Nets, filters &amp; Baire</div><div class="d">convergence &amp; completeness</div></a>
+      <a class="topic" href="topology/algebraic-topology.html#s2"><div class="t">Fundamental group</div><div class="d">\(\pi_1\), van Kampen</div></a>
+      <a class="topic" href="topology/algebraic-topology.html#s6"><div class="t">Covering spaces</div><div class="d">lifting, universal cover</div></a>
+      <a class="topic" href="topology/algebraic-topology.html#s10"><div class="t">Homology</div><div class="d">complexes, Betti, Euler χ</div></a>
+      <a class="topic" href="topology/glossary.html"><div class="t">Glossary EN↔中文</div><div class="d">topology terms, searchable</div></a>
+    </div>
+
+    <div class="grp">Topology · guides</div>
+    <div class="cards">
+      <a class="card top" href="topology/general-topology.html">
+        <div class="kicker">Point-set · 23 sections</div>
+        <h3>General Topology</h3>
+        <p>From metric spaces to topological spaces, continuity, connectedness and compactness, the separation axioms, metrization, and the Baire category theorem.</p>
+        <div class="meta">Open sets · compactness · Tychonoff · Urysohn · nets &amp; filters</div>
+      </a>
+      <a class="card top" href="topology/algebraic-topology.html">
+        <div class="kicker">Algebraic · 15 sections</div>
+        <h3>Algebraic Topology</h3>
+        <p>Homotopy and the fundamental group, covering spaces, and singular/simplicial homology and cohomology — turning spaces into algebra.</p>
+        <div class="meta">π₁ · van Kampen · covering spaces · homology · cup product</div>
+      </a>
+      <a class="card ref" href="topology/glossary.html">
+        <div class="kicker">Reference · EN ↔ 中文</div>
+        <h3>Topology Glossary</h3>
+        <p>A searchable English ↔ Simplified-Chinese term reference across point-set and algebraic topology.</p>
+        <div class="meta">拓扑学术语对照 · 250+ terms in 10 categories</div>
       </a>
     </div>
 
@@ -396,6 +499,60 @@
     ["ref","Glossary","calculus/glossary.html","c9","Multivariable & Vector Calculus · 多元与向量微积分"],
     ["ref","Glossary","calculus/glossary.html","c10","General Mathematical Terms · 通用数学术语"],
 
+    // ---- Topology · General (point-set) ----
+    ["top","General","topology/general-topology.html","s0","The big picture: what topology is"],
+    ["top","General","topology/general-topology.html","s1","Set-theory toolkit: functions, relations, cardinality, Zorn's lemma"],
+    ["top","General","topology/general-topology.html","s2","Metric spaces: open balls, convergence, the prototype"],
+    ["top","General","topology/general-topology.html","s3","Topological spaces & open sets"],
+    ["top","General","topology/general-topology.html","s4","Basis & subbasis for a topology"],
+    ["top","General","topology/general-topology.html","s5","Closure, interior, boundary & limit points"],
+    ["top","General","topology/general-topology.html","s6","The subspace topology"],
+    ["top","General","topology/general-topology.html","s7","Continuous functions & homeomorphisms"],
+    ["top","General","topology/general-topology.html","s8","The product topology"],
+    ["top","General","topology/general-topology.html","s9","The quotient topology"],
+    ["top","General","topology/general-topology.html","s10","Connectedness"],
+    ["top","General","topology/general-topology.html","s11","Path-connectedness & components"],
+    ["top","General","topology/general-topology.html","s12","Compactness"],
+    ["top","General","topology/general-topology.html","s13","Compactness in metric spaces: sequential compactness & Heine–Borel"],
+    ["top","General","topology/general-topology.html","s14","Tychonoff's theorem"],
+    ["top","General","topology/general-topology.html","s15","Local compactness & the one-point compactification"],
+    ["top","General","topology/general-topology.html","s16","Countability axioms: first/second countable, separable, Lindelöf"],
+    ["top","General","topology/general-topology.html","s17","Separation axioms: T0–T4, Hausdorff, regular, normal"],
+    ["top","General","topology/general-topology.html","s18","Urysohn's lemma & the Tietze extension theorem"],
+    ["top","General","topology/general-topology.html","s19","The Urysohn metrization theorem"],
+    ["top","General","topology/general-topology.html","s20","Nets & filters: convergence in general spaces"],
+    ["top","General","topology/general-topology.html","s21","Complete metric spaces & completion"],
+    ["top","General","topology/general-topology.html","s22","The Baire category theorem"],
+
+    // ---- Topology · Algebraic ----
+    ["top","Algebraic","topology/algebraic-topology.html","s0","The big picture: turning spaces into algebra"],
+    ["top","Algebraic","topology/algebraic-topology.html","s1","Homotopy of maps & homotopy equivalence"],
+    ["top","Algebraic","topology/algebraic-topology.html","s2","The fundamental group π₁"],
+    ["top","Algebraic","topology/algebraic-topology.html","s3","The circle: π₁(S¹) ≅ ℤ and the winding number"],
+    ["top","Algebraic","topology/algebraic-topology.html","s4","The Seifert–van Kampen theorem"],
+    ["top","Algebraic","topology/algebraic-topology.html","s5","Applications: Brouwer, the fundamental theorem of algebra, no retraction"],
+    ["top","Algebraic","topology/algebraic-topology.html","s6","Covering spaces & the lifting theorems"],
+    ["top","Algebraic","topology/algebraic-topology.html","s7","Classifying covers & deck transformations"],
+    ["top","Algebraic","topology/algebraic-topology.html","s8","The universal cover"],
+    ["top","Algebraic","topology/algebraic-topology.html","s9","Simplicial & CW complexes"],
+    ["top","Algebraic","topology/algebraic-topology.html","s10","Singular homology"],
+    ["top","Algebraic","topology/algebraic-topology.html","s11","Homotopy invariance & exact sequences (Mayer–Vietoris)"],
+    ["top","Algebraic","topology/algebraic-topology.html","s12","Computing homology: degree, Euler characteristic, Betti numbers"],
+    ["top","Algebraic","topology/algebraic-topology.html","s13","Cohomology & the cup product"],
+    ["top","Algebraic","topology/algebraic-topology.html","s14","A glimpse beyond: higher homotopy, manifolds & Poincaré duality"],
+
+    // ---- Topology · Glossary (categories) ----
+    ["ref","Top. Glossary","topology/glossary.html","c1","Foundations & Set Theory · 基础与集合论"],
+    ["ref","Top. Glossary","topology/glossary.html","c2","Metric Spaces · 度量空间"],
+    ["ref","Top. Glossary","topology/glossary.html","c3","Topological Spaces & Open Sets · 拓扑空间与开集"],
+    ["ref","Top. Glossary","topology/glossary.html","c4","Constructions: basis, subspace, product, quotient · 拓扑的构造"],
+    ["ref","Top. Glossary","topology/glossary.html","c5","Continuity & Maps · 连续与映射"],
+    ["ref","Top. Glossary","topology/glossary.html","c6","Connectedness & Compactness · 连通性与紧性"],
+    ["ref","Top. Glossary","topology/glossary.html","c7","Separation & Countability Axioms · 分离与可数性公理"],
+    ["ref","Top. Glossary","topology/glossary.html","c8","Convergence & Completeness · 收敛与完备性"],
+    ["ref","Top. Glossary","topology/glossary.html","c9","Algebraic Topology · 代数拓扑"],
+    ["ref","Top. Glossary","topology/glossary.html","c10","Manifolds & Further Topics · 流形与进阶主题"],
+
     // ---- Statistics ----
     ["sta","Statistics","statistics/complete-guide.html","s0","The big picture"],
     ["sta","Statistics","statistics/complete-guide.html","s2","Describing center & spread"],
@@ -425,6 +582,15 @@
     "calculus/analysis-foundations.html#s1":"completeness supremum infimum least upper bound real numbers",
     "calculus/analysis-foundations.html#s2":"epsilon n sequence limit convergence",
     "calculus/analysis-foundations.html#s10":"uniform convergence pointwise weierstrass m-test",
+    "topology/general-topology.html#s3":"open set topology axioms",
+    "topology/general-topology.html#s7":"continuous homeomorphism map",
+    "topology/general-topology.html#s12":"compact open cover heine borel finite subcover",
+    "topology/general-topology.html#s17":"hausdorff regular normal separation t2 t3 t4",
+    "topology/general-topology.html#s22":"baire category complete",
+    "topology/algebraic-topology.html#s2":"fundamental group pi1 loop homotopy",
+    "topology/algebraic-topology.html#s6":"covering space lift universal cover deck",
+    "topology/algebraic-topology.html#s10":"homology singular betti euler characteristic",
+    "topology/algebraic-topology.html#s13":"cohomology cup product",
   };
 
   const search = document.getElementById('search');
