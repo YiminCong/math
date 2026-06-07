@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebraic Topology — The Complete Companion</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper-2:#efe7d6; --ink:#26221b; --ink-soft:#564f43;
+    --blue:#1f3a5f; --blue-soft:#3a5a82; --amber:#b5651d; --teal:#0f6f6a;
+    --plum:#6d3b5e; --line:#d8cdb8; --shadow:rgba(38,34,27,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:radial-gradient(circle at 20% -10%,#fbf6ec 0%,transparent 55%),radial-gradient(circle at 90% 5%,#f0e9da 0%,transparent 45%),var(--paper); color:var(--ink); font-family:"Spectral",Georgia,serif; font-size:18px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:42px 42px; opacity:.12;}
+  .wrap{position:relative; z-index:1; display:flex; max-width:1360px; margin:0 auto;}
+
+  aside{width:300px; flex:0 0 300px; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:40px 22px 60px 30px; border-right:1px solid var(--line);}
+  aside .brand{font-family:"Fraunces",serif; font-weight:900; font-size:1.32rem; line-height:1.05; color:var(--blue); letter-spacing:-.01em; margin-bottom:4px;}
+  aside .brand em{font-style:italic; color:var(--amber); font-weight:500;}
+  aside .sub{font-size:.76rem; color:var(--ink-soft); letter-spacing:.02em; margin-bottom:20px;}
+  nav a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.88rem; padding:3px 0 3px 12px; border-left:2px solid transparent; transition:.16s;}
+  nav a .n{font-family:"Fraunces",serif; color:var(--amber); font-weight:600; margin-right:6px; font-variant-numeric:tabular-nums;}
+  nav a:hover{color:var(--blue); border-left-color:var(--amber); padding-left:16px;}
+  nav .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.09em; color:var(--teal); margin:18px 0 4px;}
+
+  main{flex:1 1 auto; min-width:0; padding:46px 54px 120px; max-width:900px;}
+  header.hero{margin-bottom:42px;}
+  header.hero h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2.2rem,5vw,3.6rem); line-height:.98; letter-spacing:-.02em; margin:0 0 8px; color:var(--ink);}
+  header.hero h1 em{font-style:italic; color:var(--amber); font-weight:500;}
+  header.hero p.lede{font-size:1.1rem; color:var(--ink-soft); max-width:64ch; margin:12px 0 0;}
+  .rule{height:3px; width:90px; background:var(--amber); margin:22px 0 0; border-radius:3px;}
+  .howto{background:#fffdf7; border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:20px 0 0; font-size:.92rem;}
+  .howto b{color:var(--blue); font-family:"Fraunces",serif;}
+  .swatch{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:middle;}
+
+  .part{font-family:"Fraunces",serif; font-weight:900; color:var(--plum); font-size:1.1rem; letter-spacing:.16em; text-transform:uppercase; margin:48px 0 4px; padding-bottom:6px; border-bottom:2px solid var(--plum);}
+  section{margin:0 0 50px; scroll-margin-top:20px;}
+  .secnum{font-family:"Fraunces",serif; font-weight:900; font-size:.88rem; color:var(--amber); letter-spacing:.13em; text-transform:uppercase; display:block; margin-bottom:2px;}
+  h2{font-family:"Fraunces",serif; font-weight:600; font-size:1.8rem; line-height:1.06; margin:0 0 6px; color:var(--blue); letter-spacing:-.01em;}
+  h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--ink); margin:28px 0 8px;}
+  .intro{color:var(--ink-soft); font-style:italic; margin:6px 0 18px; max-width:66ch;}
+  p{margin:12px 0;} strong{color:var(--blue); font-weight:600;}
+
+  .fcard{background:linear-gradient(180deg,#fffdf7,#f7f0e1); border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:14px 0; box-shadow:0 2px 9px var(--shadow);}
+  .fcard .lab{font-family:"Fraunces",serif; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--amber); font-weight:600; margin-bottom:2px;}
+  .fcard .math{font-size:1.06rem; overflow-x:auto; overflow-y:hidden; padding:3px 0;}
+  .fcard .note{font-size:.88rem; color:var(--ink-soft); margin-top:5px; font-style:italic;}
+
+  .concept{border-left:4px solid var(--plum); background:#f3eaf0; border-radius:0 10px 10px 0; padding:13px 19px; margin:18px 0;}
+  .concept .tag{font-family:"Fraunces",serif; font-weight:700; color:var(--plum); font-size:.78rem; text-transform:uppercase; letter-spacing:.07em;}
+  .concept p{margin:6px 0 0; font-size:.96rem;}
+
+  .rel{border-left:4px solid var(--teal); background:#e9f3f1; border-radius:0 10px 10px 0; padding:12px 18px; margin:18px 0;}
+  .rel .tag{font-family:"Fraunces",serif; font-weight:600; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.07em;}
+  .rel p{margin:6px 0 0; font-size:.95rem;}
+
+  .demo{border:1px solid var(--blue-soft); background:#eef2f7; border-radius:10px; padding:15px 20px 16px; margin:16px 0;}
+  .demo .tag{font-family:"Fraunces",serif; font-weight:700; color:var(--blue); font-size:.8rem; text-transform:uppercase; letter-spacing:.07em; display:flex; align-items:center; gap:8px;}
+  .demo .tag::before{content:"▸"; color:var(--amber);}
+  .demo ol{margin:11px 0 0; padding-left:0; counter-reset:step; list-style:none;}
+  .demo ol li{position:relative; padding:7px 0 7px 38px; border-top:1px dashed #c4cedb;}
+  .demo ol li:first-child{border-top:none;}
+  .demo ol li::before{counter-increment:step; content:counter(step); position:absolute; left:0; top:7px; width:25px; height:25px; background:var(--blue); color:#f5efe2; border-radius:50%; font-family:"Fraunces",serif; font-size:.82rem; font-weight:600; display:flex; align-items:center; justify-content:center;}
+  .demo ol li .mq{display:block; overflow-x:auto; padding:2px 0;}
+  .demo .qed{text-align:right; font-style:italic; color:var(--ink-soft); margin-top:7px; font-size:.9rem;}
+
+  ul.clean{margin:11px 0; padding-left:22px;} ul.clean li{margin:6px 0;}
+  table.tbl{width:100%; border-collapse:collapse; margin:14px 0; font-size:.95rem; background:#fffdf7; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  table.tbl th{background:var(--blue); color:#f5efe2; font-family:"Fraunces",serif; font-weight:600; text-align:left; padding:8px 12px; font-size:.88rem;}
+  table.tbl td{padding:7px 12px; border-top:1px solid var(--line); vertical-align:top;}
+  table.tbl tr:nth-child(even) td{background:#f7f0e1;}
+
+  .map{background:#fffdf7; border:1px dashed var(--blue-soft); border-radius:12px; padding:18px 22px; margin:16px 0;}
+  .map h3{margin-top:0;}
+  .flow{font-family:"Fraunces",serif; color:var(--blue); font-weight:600; text-align:center; font-size:1rem; line-height:2;}
+  .flow .arrow{color:var(--amber); margin:0 6px;}
+
+  footer{border-top:1px solid var(--line); padding-top:22px; color:var(--ink-soft); font-size:.9rem; font-style:italic;}
+  section, header.hero, .part{animation:rise .6s ease both;}
+  @keyframes rise{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+
+  .menubtn{display:none;}
+  @media(max-width:920px){
+    body{font-size:17px;}
+    .wrap{flex-direction:column;}
+    aside{position:static; width:auto; height:auto; flex:none; border-right:none; border-bottom:1px solid var(--line); padding:22px 20px;}
+    nav{display:none;} nav.open{display:block;}
+    .menubtn{display:inline-block; margin-top:12px; cursor:pointer; font-family:"Fraunces",serif; font-weight:600; color:var(--blue); background:var(--paper-2); border:1px solid var(--line); border-radius:8px; padding:8px 16px; font-size:.92rem;}
+    main{padding:28px 20px 90px; max-width:none;}
+    .demo ol li{padding-left:34px;}
+  }
+  /* in-page section search */
+  .gsearch{margin:0 0 6px; display:flex; align-items:center; gap:8px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:24px; padding:8px 14px; box-shadow:0 2px 8px var(--shadow);}
+  .gsearch .ico{color:var(--blue); font-size:.95rem;}
+  .gsearch input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:.95rem; width:100%; color:var(--ink);}
+  .gsearch input::placeholder{color:#a99e87;}
+  .gsearch-count{font-size:.76rem; color:var(--ink-soft); font-style:italic; margin:4px 0 14px; padding-left:6px; min-height:1em;}
+  section.gs-hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <div class="brand">Algebraic<br><em>topology</em></div>
+    <div class="sub">Homotopy · covering spaces · homology — the invariants that turn shape into algebra, and the demonstrations behind them</div>
+    <button class="menubtn" onclick="document.getElementById('nav').classList.toggle('open')">☰ Contents</button>
+        <div class="gsearch"><span class="ico">🔍</span><input id="gsearch-input" type="text" placeholder="Search this guide…  ( / )" autocomplete="off"></div>
+    <div class="gsearch-count" id="gsearch-count"></div>
+    <nav id="nav">
+      <div class="grp">A · Homotopy &amp; the fundamental group</div>
+      <a href="#s0"><span class="n">0</span>The big picture</a>
+      <a href="#s1"><span class="n">1</span>Homotopy &amp; equivalence</a>
+      <a href="#s2"><span class="n">2</span>The fundamental group \(\pi_1\)</a>
+      <a href="#s3"><span class="n">3</span>The circle: \(\pi_1(S^1)\cong\mathbb{Z}\)</a>
+      <a href="#s4"><span class="n">4</span>Seifert–van Kampen</a>
+      <a href="#s5"><span class="n">5</span>Applications: Brouwer &amp; co.</a>
+      <div class="grp">B · Covering spaces</div>
+      <a href="#s6"><span class="n">6</span>Coverings &amp; lifting</a>
+      <a href="#s7"><span class="n">7</span>The Galois correspondence</a>
+      <a href="#s8"><span class="n">8</span>The universal cover</a>
+      <div class="grp">C · Homology &amp; beyond</div>
+      <a href="#s9"><span class="n">9</span>Simplicial &amp; CW complexes</a>
+      <a href="#s10"><span class="n">10</span>Singular homology</a>
+      <a href="#s11"><span class="n">11</span>Invariance &amp; exact sequences</a>
+      <a href="#s12"><span class="n">12</span>Computing homology</a>
+      <a href="#s13"><span class="n">13</span>Cohomology &amp; the cup product</a>
+      <a href="#s14"><span class="n">14</span>A glimpse beyond</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <h1>Topology, <em>turned into algebra.</em></h1>
+      <p class="lede">A full first course in algebraic topology — how to attach groups, rings, and exact sequences to spaces so that continuous maps become homomorphisms and "shape" becomes computable. Every core theorem is <strong>demonstrated</strong>, and the functorial thread that ties them all together is made explicit.</p>
+      <div class="rule"></div>
+      <div class="howto">
+        <b>The four kinds of box:</b><br>
+        <span class="swatch" style="background:#f3eaf0;border:1px solid #6d3b5e;"></span><b>Concept / Definition</b> — the idea in words. &nbsp;
+        <span class="swatch" style="background:#f7f0e1;border:1px solid #d8cdb8;"></span><b>Theorem / Formula</b> — the result. &nbsp;
+        <span class="swatch" style="background:#eef2f7;border:1px solid #3a5a82;"></span><b>Demonstration</b> — proof or worked computation. &nbsp;
+        <span class="swatch" style="background:#e9f3f1;border:1px solid #0f6f6a;"></span><b>Connection</b> — links to other algebra.
+      </div>
+    </header>
+
+    <!-- ===================== PART A ===================== -->
+    <div class="part">Part A · Homotopy &amp; the fundamental group</div>
+
+    <!-- 0 -->
+    <section id="s0">
+      <span class="secnum">Section 0</span>
+      <h2>The big picture: turning spaces into algebra</h2>
+      <p>Topology studies properties of spaces preserved by continuous deformation — properties invariant under <em>homeomorphism</em>. But proving two spaces are <em>not</em> homeomorphic is hard directly: you would have to rule out every possible map. Algebraic topology offers a way out.</p>
+      <ul class="clean">
+        <li><strong>Attach</strong> an algebraic object (a group, a ring, a sequence of groups) to every space.</li>
+        <li><strong>Functoriality</strong> — every continuous map induces a homomorphism, respecting composition and identities.</li>
+        <li><strong>Invariance</strong> — homeomorphic (indeed homotopy-equivalent) spaces get isomorphic algebra, so different algebra proves different spaces.</li>
+      </ul>
+      <div class="concept"><span class="tag">Principle — the central strategy</span><p>An <strong>invariant</strong> is a functor \(F\) from spaces &amp; continuous maps to groups &amp; homomorphisms. Because \(F(f\circ g)=F(f)\circ F(g)\) and \(F(\mathrm{id})=\mathrm{id}\), a homeomorphism \(X\cong Y\) forces an isomorphism \(F(X)\cong F(Y)\). Contrapositive: if \(F(X)\not\cong F(Y)\), then \(X\) and \(Y\) are <em>not</em> homeomorphic. We trade a hard topological question for a tractable algebraic one.</p></div>
+      <div class="rel"><span class="tag">Connection — why "functor" is the load-bearing word</span><p>Every chapter is one functor: \(\pi_1\) (a group), \(\pi_n\) (abelian groups), \(H_n\) (homology, abelian groups), \(H^n\) (cohomology, a graded ring). The proofs differ; the logic — induced maps, invariance, computation — never does.</p></div>
+      <div class="map"><h3>The whole course on one line</h3><div class="flow">Homotopy <span class="arrow">→</span> \(\pi_1\) <span class="arrow">→</span> \(\pi_1(S^1)\cong\mathbb{Z}\) <span class="arrow">→</span> van Kampen <span class="arrow">→</span> covering spaces <span class="arrow">→</span> homology <span class="arrow">→</span> cohomology &amp; duality</div></div>
+    </section>
+
+    <!-- 1 -->
+    <section id="s1">
+      <span class="secnum">Section 1</span>
+      <h2>Homotopy of maps &amp; homotopy equivalence</h2>
+      <p class="intro">The slackening of "equal" to "continuously deformable" is the move that makes everything compute. Most invariants see only homotopy type, not homeomorphism type.</p>
+
+      <div class="concept"><span class="tag">Definition — homotopy</span><p>Two continuous maps \(f,g:X\to Y\) are <strong>homotopic</strong>, written \(f\simeq g\), if there is a continuous \(H:X\times[0,1]\to Y\) with \(H(x,0)=f(x)\) and \(H(x,1)=g(x)\). Think of \(H\) as a movie: at each time \(t\), \(H(-,t)\) is a map, sliding continuously from \(f\) to \(g\). For paths we usually demand <strong>endpoints fixed</strong> (homotopy rel \(\{0,1\}\)).</p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — homotopy is an equivalence relation</span>
+        <ol>
+          <li><strong>Reflexive:</strong> \(f\simeq f\) via the constant homotopy \(H(x,t)=f(x)\), which is continuous as a composite of continuous maps.</li>
+          <li><strong>Symmetric:</strong> if \(H\) is a homotopy \(f\simeq g\), then \(\overline H(x,t)=H(x,1-t)\) is continuous (composition with \(t\mapsto 1-t\)) and runs \(g\simeq f\).</li>
+          <li><strong>Transitive:</strong> given \(H:f\simeq g\) and \(K:g\simeq h\), splice them: <span class="mq">\[ L(x,t)=\begin{cases} H(x,2t), &amp; 0\le t\le \tfrac12,\\[2pt] K(x,2t-1), &amp; \tfrac12\le t\le 1.\end{cases} \]</span> At \(t=\tfrac12\) both pieces equal \(g(x)\), so by the <em>pasting lemma</em> (continuous on two closed sets that agree on the overlap) \(L\) is continuous.</li>
+        </ol>
+        <div class="qed">Equivalence classes \([f]\) are well defined; this is the raw material of every homotopy invariant.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Definition — homotopy equivalence &amp; contractibility</span><p>A map \(f:X\to Y\) is a <strong>homotopy equivalence</strong> if there is \(g:Y\to X\) with \(g\circ f\simeq \mathrm{id}_X\) and \(f\circ g\simeq \mathrm{id}_Y\); then \(X\simeq Y\) are <strong>homotopy equivalent</strong>. A space homotopy equivalent to a point is <strong>contractible</strong>. A <strong>deformation retraction</strong> of \(X\) onto a subspace \(A\) is a homotopy from \(\mathrm{id}_X\) to a retraction \(r:X\to A\) fixing \(A\); it exhibits \(A\hookrightarrow X\) as a homotopy equivalence.</p></div>
+
+      <div class="fcard"><div class="lab">Examples to keep in mind</div>
+        <div class="note">\(\mathbb{R}^n\) is contractible (slide everything to the origin: \(H(x,t)=(1-t)x\)). The punctured plane \(\mathbb{R}^2\setminus\{0\}\) deformation-retracts onto \(S^1\) via \(H(x,t)=(1-t)x+t\,x/|x|\). An annulus, a Möbius band, and \(S^1\) are all homotopy equivalent though pairwise non-homeomorphic — homotopy is genuinely coarser.</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — to general topology</span><p>Homeomorphism \(\Rightarrow\) homotopy equivalence, never the reverse. Algebraic-topology invariants are designed to be <em>homotopy</em> invariants, so they are automatically topological invariants — but they cannot, by construction, distinguish a disk from a point.</p></div>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <span class="secnum">Section 2</span>
+      <h2>The fundamental group \(\pi_1\)</h2>
+      <p class="intro">The first and most intuitive functor: loops at a basepoint, up to homotopy, with concatenation as the operation. It detects one-dimensional holes.</p>
+
+      <div class="concept"><span class="tag">Definition — loops, concatenation, the group</span><p>Fix \(x_0\in X\). A <strong>loop</strong> at \(x_0\) is a path \(\gamma:[0,1]\to X\) with \(\gamma(0)=\gamma(1)=x_0\). The <strong>fundamental group</strong> \(\pi_1(X,x_0)\) is the set of homotopy classes (rel endpoints) of loops, with product \([\,\alpha\,][\,\beta\,]=[\alpha\cdot\beta]\) where <span class="mq">\[ (\alpha\cdot\beta)(s)=\begin{cases}\alpha(2s),&amp;0\le s\le\tfrac12,\\ \beta(2s-1),&amp;\tfrac12\le s\le1.\end{cases} \]</span></p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — \(\pi_1(X,x_0)\) is a group</span>
+        <ol>
+          <li><strong>Well defined:</strong> if \(\alpha\simeq\alpha'\) and \(\beta\simeq\beta'\) rel endpoints, the side-by-side homotopy \(H\cdot K\) shows \(\alpha\cdot\beta\simeq\alpha'\cdot\beta'\). So the product on classes is unambiguous.</li>
+          <li><strong>Associativity:</strong> \((\alpha\cdot\beta)\cdot\gamma\) and \(\alpha\cdot(\beta\cdot\gamma)\) differ only in the <em>speeds</em> at which the three loops are traversed. A reparametrization \(\varphi:[0,1]\to[0,1]\) (a homotopy of the time-axis) carries one to the other, so the classes are equal.</li>
+          <li><strong>Identity:</strong> the constant loop \(c_{x_0}\) satisfies \([c]\,[\alpha]=[\alpha]=[\alpha]\,[c]\): the loop "wait then go" is reparametrized to "go," again by a homotopy of \([0,1]\).</li>
+          <li><strong>Inverses:</strong> let \(\bar\alpha(s)=\alpha(1-s)\). The homotopy \(H(s,t)=\alpha\big(\text{shrink}\big)\) that pulls the round trip \(\alpha\cdot\bar\alpha\) back to \(x_0\) shows \([\alpha][\bar\alpha]=[c]\).</li>
+        </ol>
+        <div class="qed">All four axioms hold up to endpoint-fixing homotopy — which is exactly why we quotient by it.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — basepoint independence on a path-connected space</span>
+        <ol>
+          <li>Let \(h:[0,1]\to X\) be a path from \(x_0\) to \(x_1\). Define the <strong>change-of-basepoint map</strong> <span class="mq">\[ \beta_h:\pi_1(X,x_1)\to\pi_1(X,x_0),\qquad \beta_h[\gamma]=[\,h\cdot\gamma\cdot\bar h\,]. \]</span></li>
+          <li>It is a homomorphism: \(\beta_h[\gamma\cdot\delta]=[h\cdot\gamma\cdot\delta\cdot\bar h]=[h\cdot\gamma\cdot\bar h]\,[h\cdot\delta\cdot\bar h]\), inserting \(\bar h\cdot h\simeq c\).</li>
+          <li>It is invertible with inverse \(\beta_{\bar h}\), since \(\beta_h\beta_{\bar h}=\beta_{h\cdot\bar h}=\beta_c=\mathrm{id}\).</li>
+        </ol>
+        <div class="qed">So \(\pi_1(X,x_0)\cong\pi_1(X,x_1)\): on a path-connected space we may write \(\pi_1(X)\) up to isomorphism. (The isomorphism is canonical only up to inner automorphism.)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Functoriality &amp; the induced homomorphism</div>
+        <div class="math">\[ f:X\to Y,\ f(x_0)=y_0 \ \Longrightarrow\ f_*:\pi_1(X,x_0)\to\pi_1(Y,y_0),\quad f_*[\gamma]=[f\circ\gamma] \]</div>
+        <div class="math">\[ (g\circ f)_*=g_*\circ f_*,\qquad (\mathrm{id}_X)_*=\mathrm{id},\qquad f\simeq g\ (\text{rel }x_0)\Rightarrow f_*=g_* \]</div>
+        <div class="note">These three lines make \(\pi_1\) a functor and prove homotopy invariance: \(X\simeq Y\) gives \(\pi_1(X)\cong\pi_1(Y)\).</div>
+      </div>
+
+      <div class="concept"><span class="tag">Definition — simply connected</span><p>\(X\) is <strong>simply connected</strong> if it is path-connected and \(\pi_1(X)=0\) (every loop contracts). Examples: \(\mathbb{R}^n\), any convex set, and \(S^n\) for \(n\ge 2\).</p></div>
+
+      <div class="rel"><span class="tag">Connection — to group theory</span><p>\(\pi_1\) is generally <em>non-abelian</em> (e.g. surfaces, wedges of circles), so the full machinery of free groups, presentations \(\langle\text{gens}\mid\text{rels}\rangle\), and normal subgroups enters. This is the bridge into combinatorial group theory.</p></div>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <span class="secnum">Section 3</span>
+      <h2>The circle: \(\pi_1(S^1)\cong\mathbb{Z}\) and the winding number</h2>
+      <p class="intro">The foundational computation. Once \(\pi_1(S^1)\cong\mathbb{Z}\) is in hand, the great applications fall out almost for free.</p>
+
+      <div class="fcard"><div class="lab">Theorem</div>
+        <div class="math">\[ \pi_1(S^1,\,1)\ \cong\ \mathbb{Z},\qquad [\gamma]\ \longmapsto\ \deg(\gamma)=\text{winding number}. \]</div>
+        <div class="note">The generator is the loop \(\omega(s)=e^{2\pi i s}\); the integer is how many net times a loop wraps around.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — the exponential covering</span><p>The key tool is \(p:\mathbb{R}\to S^1,\ p(t)=e^{2\pi i t}\). It wraps the line around the circle, with each point having a discrete fiber \(p^{-1}(1)=\mathbb{Z}\). \(\mathbb{R}\) is contractible, so loops downstairs become genuine displacements upstairs — a number.</p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — the covering-space proof</span>
+        <ol>
+          <li><strong>Path lifting.</strong> Every path \(\gamma:[0,1]\to S^1\) with \(\gamma(0)=1\) has a unique lift \(\tilde\gamma:[0,1]\to\mathbb{R}\) with \(\tilde\gamma(0)=0\) and \(p\circ\tilde\gamma=\gamma\). (Cover \(S^1\) by evenly-covered arcs; lift piecewise using the local inverses of \(p\); uniqueness because two lifts differ by a locally constant — hence constant — integer.)</li>
+          <li><strong>Homotopy lifting.</strong> A homotopy of paths \(\gamma_t\) lifts to a homotopy \(\tilde\gamma_t\) with \(\tilde\gamma_t(0)=0\); by uniqueness the endpoints \(\tilde\gamma_t(1)\) vary continuously in the discrete set \(\mathbb{Z}\), hence are <em>constant</em>.</li>
+          <li><strong>The degree map.</strong> Define \(\Phi[\gamma]=\tilde\gamma(1)\in\mathbb{Z}\). Step 2 shows it depends only on the homotopy class; it is well defined.</li>
+          <li><strong>Homomorphism.</strong> To lift \(\alpha\cdot\beta\) starting at \(0\): lift \(\alpha\) to \(\tilde\alpha\) ending at \(m\), then lift \(\beta\) starting at \(m\) — that lift is \(m+\tilde\beta\), ending at \(m+n\). So \(\Phi[\alpha\cdot\beta]=m+n=\Phi[\alpha]+\Phi[\beta]\).</li>
+          <li><strong>Surjective:</strong> \(\omega_n(s)=e^{2\pi i n s}\) lifts to \(t\mapsto nt\), so \(\Phi[\omega_n]=n\).</li>
+          <li><strong>Injective:</strong> if \(\Phi[\gamma]=0\) then \(\tilde\gamma\) is a loop in the contractible \(\mathbb{R}\), so \(\tilde\gamma\simeq 0\) rel endpoints; pushing down by \(p\) gives \(\gamma\simeq c\). Hence \([\gamma]=1\).</li>
+        </ol>
+        <div class="qed">\(\Phi\) is a bijective homomorphism, so \(\pi_1(S^1)\cong\mathbb{Z}\). \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — winding number = a contour integral</span><p>For a loop in \(\mathbb{C}\setminus\{0\}\) the same integer is \(\dfrac{1}{2\pi i}\displaystyle\oint \dfrac{dz}{z}\). The topological degree and the complex-analytic winding number are literally the same invariant — the seam between algebraic topology and complex analysis.</p></div>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <span class="secnum">Section 4</span>
+      <h2>The Seifert–van Kampen theorem</h2>
+      <p class="intro">A "divide and conquer" theorem: it computes \(\pi_1\) of a union from the \(\pi_1\) of the pieces and their overlap — exactly the tool that turns geometry into group presentations.</p>
+
+      <div class="fcard"><div class="lab">Theorem (Seifert–van Kampen)</div>
+        <div class="note">Let \(X=U\cup V\) with \(U,V\) open, path-connected, \(U\cap V\) path-connected and containing the basepoint \(x_0\). Then \(\pi_1(X,x_0)\) is the <strong>pushout</strong> (amalgamated free product)</div>
+        <div class="math">\[ \pi_1(X)\ \cong\ \pi_1(U)\ *_{\pi_1(U\cap V)}\ \pi_1(V), \]</div>
+        <div class="note">i.e. the free product \(\pi_1(U)*\pi_1(V)\) modulo the relations \(i_*(w)=j_*(w)\) for every \(w\in\pi_1(U\cap V)\), where \(i,j\) are the two inclusions.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — \(\pi_1\) of a wedge of \(n\) circles is free</span>
+        <ol>
+          <li>Take \(X=S^1\vee\cdots\vee S^1\) (\(n\) circles glued at one point). Thicken each circle to an open set \(U_k\simeq S^1\) so that any overlap \(U_j\cap U_k\) deformation-retracts to the wedge point, hence is contractible: \(\pi_1(U_j\cap U_k)=0\).</li>
+          <li>With trivial amalgamating group, the pushout is the plain free product. Iterating van Kampen, <span class="mq">\[ \pi_1\Big(\bigvee_{k=1}^n S^1\Big)\cong\underbrace{\mathbb{Z}*\cdots*\mathbb{Z}}_{n}=F_n, \]</span> the <strong>free group on \(n\) generators</strong>, one generator per circle.</li>
+        </ol>
+        <div class="qed">For \(n\ge 2\) this is non-abelian: \(ab\ne ba\), reflecting that the two loops cannot be slid past each other.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — \(\pi_1\) of the orientable genus-\(g\) surface</span>
+        <ol>
+          <li>Build \(\Sigma_g\) as a \(4g\)-gon with edges identified in the word \(a_1b_1a_1^{-1}b_1^{-1}\cdots a_gb_ga_g^{-1}b_g^{-1}\). Let \(U\) be the open polygon (a disk, contractible) and \(V\) a neighborhood of its boundary 1-skeleton (a wedge of \(2g\) circles), with \(U\cap V\) an annulus \(\simeq S^1\).</li>
+          <li>\(\pi_1(U)=1\), \(\pi_1(V)=F_{2g}=\langle a_1,b_1,\dots,a_g,b_g\rangle\). The generator of \(\pi_1(U\cap V)\) maps to the boundary word in \(V\) and to \(1\) in \(U\).</li>
+          <li>The pushout therefore imposes one relation — the boundary word equals \(1\): <span class="mq">\[ \pi_1(\Sigma_g)=\big\langle\, a_1,b_1,\dots,a_g,b_g \ \big|\ \textstyle\prod_{i=1}^g [a_i,b_i]=1 \,\big\rangle. \]</span></li>
+        </ol>
+        <div class="qed">For the torus (\(g=1\)) this is \(\langle a,b\mid aba^{-1}b^{-1}=1\rangle\cong\mathbb{Z}^2\). Abelianizing gives \(\mathbb{Z}^{2g}\), recovering \(H_1\).</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — pushouts &amp; presentations</span><p>Van Kampen says \(\pi_1\) sends gluing of spaces (pushouts in topology) to amalgamated free products (pushouts in groups). Every CW complex thus yields a <em>presentation</em> of its \(\pi_1\): generators from 1-cells, relations from 2-cells.</p></div>
+    </section>
+
+    <!-- 5 -->
+    <section id="s5">
+      <span class="secnum">Section 5</span>
+      <h2>Applications: Brouwer (2D), the fundamental theorem of algebra, no retraction</h2>
+      <p class="intro">A single computation, \(\pi_1(S^1)\cong\mathbb{Z}\), now does real work. Each proof is the same move: a hypothetical map would induce an impossible homomorphism.</p>
+
+      <div class="demo">
+        <span class="tag">Demonstration — no retraction \(r:D^2\to S^1\)</span>
+        <ol>
+          <li>Suppose a retraction exists: \(r:D^2\to S^1\) continuous with \(r\circ\iota=\mathrm{id}_{S^1}\), where \(\iota:S^1\hookrightarrow D^2\) is the inclusion of the boundary.</li>
+          <li>Apply the functor \(\pi_1\): <span class="mq">\[ r_*\circ \iota_*=(\,r\circ\iota\,)_*=(\mathrm{id}_{S^1})_*=\mathrm{id}_{\mathbb{Z}}. \]</span></li>
+          <li>But \(\iota_*:\pi_1(S^1)\to\pi_1(D^2)\) is \(\mathbb{Z}\to 0\) (the disk is contractible), so \(r_*\circ\iota_*\) factors through the trivial group and must be the zero map — it cannot be \(\mathrm{id}_{\mathbb{Z}}\).</li>
+        </ol>
+        <div class="qed">Contradiction: no such retraction exists. \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — Brouwer fixed-point theorem in 2D</span>
+        <ol>
+          <li>Let \(f:D^2\to D^2\) be continuous with <em>no</em> fixed point, so \(f(x)\ne x\) for all \(x\).</li>
+          <li>Define \(r(x)\) = the point where the ray from \(f(x)\) through \(x\) meets \(S^1\). Since \(f(x)\ne x\) the ray is well defined and \(r\) is continuous.</li>
+          <li>If \(x\in S^1\) the ray already starts on the boundary at \(x\), so \(r(x)=x\): thus \(r\) is a retraction \(D^2\to S^1\) — impossible by the previous demonstration.</li>
+        </ol>
+        <div class="qed">Hence every continuous self-map of the disk has a fixed point. \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — the fundamental theorem of algebra</span>
+        <ol>
+          <li>Let \(p(z)=z^n+a_{n-1}z^{n-1}+\cdots+a_0\) with \(n\ge 1\), and suppose \(p\) has no root in \(\mathbb{C}\).</li>
+          <li>For each radius \(R\ge0\), the loop \(\gamma_R(s)=\dfrac{p(Re^{2\pi i s})/p(R)}{|p(Re^{2\pi i s})/p(R)|}\) lives in \(S^1\). As \(R\) varies these are all homotopic (no root means the denominator never vanishes), so the winding number \(\deg(\gamma_R)\) is constant in \(R\); at \(R=0\) it is \(0\).</li>
+          <li>For \(R\) very large, \(z^n\) dominates, so \(p(Re^{2\pi i s})\) winds like \((Re^{2\pi i s})^n\): \(\deg(\gamma_R)=n\).</li>
+          <li>Constancy forces \(n=0\), contradicting \(n\ge1\).</li>
+        </ol>
+        <div class="qed">So \(p\) must have a root: \(\mathbb{C}\) is algebraically closed — proved by winding numbers. \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — one template, many theorems</span><p>Each proof builds an impossible homomorphism out of a hypothetical map, leveraging \(\pi_1(S^1)\cong\mathbb{Z}\ne 0\). Brouwer in all dimensions, the Borsuk–Ulam theorem, and the hairy-ball theorem follow the same pattern with higher invariants (\(H_n\), degree).</p></div>
+    </section>
+
+    <!-- ===================== PART B ===================== -->
+    <div class="part">Part B · Covering spaces</div>
+
+    <!-- 6 -->
+    <section id="s6">
+      <span class="secnum">Section 6</span>
+      <h2>Covering spaces &amp; the lifting theorems</h2>
+      <p class="intro">Covering spaces are the geometric incarnation of subgroups of \(\pi_1\). Lifting is the engine that already powered the circle computation.</p>
+
+      <div class="concept"><span class="tag">Definition — covering space</span><p>A continuous surjection \(p:\tilde X\to X\) is a <strong>covering map</strong> if every \(x\in X\) has an open neighborhood \(U\) that is <em>evenly covered</em>: \(p^{-1}(U)=\bigsqcup_\alpha V_\alpha\), a disjoint union of opens each mapped homeomorphically onto \(U\) by \(p\). The fibers \(p^{-1}(x)\) are discrete; their common cardinality is the number of <strong>sheets</strong>. Examples: \(\mathbb{R}\to S^1\) (infinite sheets), \(S^1\xrightarrow{z\mapsto z^n}S^1\) (\(n\) sheets), \(S^n\to\mathbb{RP}^n\) (2 sheets).</p></div>
+
+      <div class="fcard"><div class="lab">Lifting theorems</div>
+        <div class="note"><strong>Unique path lifting.</strong> A path in \(X\) and a chosen preimage of its start lift to a unique path in \(\tilde X\). <strong>Homotopy lifting (covering homotopy property).</strong> A homotopy in \(X\) lifts uniquely given a lift of its initial map. <strong>General lifting criterion.</strong> For \(p:(\tilde X,\tilde x_0)\to(X,x_0)\) and \(f:(Y,y_0)\to(X,x_0)\) with \(Y\) path-connected and locally path-connected, a lift \(\tilde f\) exists iff</div>
+        <div class="math">\[ f_*\big(\pi_1(Y,y_0)\big)\ \subseteq\ p_*\big(\pi_1(\tilde X,\tilde x_0)\big), \]</div>
+        <div class="note">and when it exists, it is unique.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — \(p_*\) is injective; sheets count the index</span>
+        <ol>
+          <li><strong>Injectivity of \(p_*\).</strong> If \(\tilde\gamma\) is a loop in \(\tilde X\) with \(p\circ\tilde\gamma\simeq c\) in \(X\), lift that nullhomotopy by the homotopy lifting property; uniqueness makes the lift a nullhomotopy of \(\tilde\gamma\). So \(\ker p_*=1\) and \(p_*\pi_1(\tilde X)\hookrightarrow\pi_1(X)\) is a subgroup.</li>
+          <li><strong>Fiber = cosets.</strong> For connected \(\tilde X\), send a loop class \([\gamma]\in\pi_1(X,x_0)\) to the endpoint of its lift starting at \(\tilde x_0\). This gives a bijection <span class="mq">\[ p^{-1}(x_0)\ \longleftrightarrow\ p_*\pi_1(\tilde X,\tilde x_0)\ \backslash\ \pi_1(X,x_0), \]</span> the right cosets of the subgroup.</li>
+        </ol>
+        <div class="qed">Number of sheets \(=\) index \([\pi_1(X):p_*\pi_1(\tilde X)]\). Covers are subgroups made visible.</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — local-to-global</span><p>"Evenly covered" is a purely local condition, yet it forces the global lifting properties. This local-to-global passage is the same spirit as sheaf theory and as the gluing in van Kampen.</p></div>
+    </section>
+
+    <!-- 7 -->
+    <section id="s7">
+      <span class="secnum">Section 7</span>
+      <h2>The Galois correspondence: classifying covers &amp; deck transformations</h2>
+      <p class="intro">Covering spaces of a nice space \(X\) are classified by subgroups of \(\pi_1(X)\) — a dictionary formally identical to Galois theory's correspondence between field extensions and subgroups.</p>
+
+      <div class="fcard"><div class="lab">Theorem (Galois correspondence for covers)</div>
+        <div class="note">If \(X\) is path-connected, locally path-connected and <strong>semilocally simply connected</strong>, then there is a bijection</div>
+        <div class="math">\[ \left\{\begin{array}{c}\text{connected covers}\\ p:(\tilde X,\tilde x_0)\to(X,x_0)\end{array}\right\}\ \longleftrightarrow\ \left\{\begin{array}{c}\text{subgroups}\\ H\le\pi_1(X,x_0)\end{array}\right\},\qquad p\mapsto p_*\pi_1(\tilde X,\tilde x_0). \]</div>
+        <div class="note">Forgetting basepoints, isomorphism classes of covers \(\leftrightarrow\) conjugacy classes of subgroups. Smaller subgroup \(=\) bigger cover; the trivial subgroup \(=\) the universal cover.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Definition — deck transformations &amp; normality</span><p>A <strong>deck transformation</strong> of \(p:\tilde X\to X\) is a homeomorphism \(\varphi:\tilde X\to\tilde X\) with \(p\circ\varphi=p\); they form a group \(\mathrm{Deck}(\tilde X/X)\). A cover is <strong>normal (regular/Galois)</strong> when \(H=p_*\pi_1(\tilde X)\) is a normal subgroup — equivalently when deck transformations act transitively on each fiber.</p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — \(\mathrm{Deck}\cong N(H)/H\)</span>
+        <ol>
+          <li>A deck transformation is a self-lift of \(p\) along \(p\); by the lifting criterion such lifts correspond to elements of \(\pi_1(X)\) that conjugate \(H\) into itself, i.e. to the <strong>normalizer</strong> \(N(H)\).</li>
+          <li>Two such elements give the same deck transformation iff they differ by an element of \(H\) (which lifts to a loop, the identity deck map). Hence <span class="mq">\[ \mathrm{Deck}(\tilde X/X)\ \cong\ N(H)/H. \]</span></li>
+          <li>For a <em>normal</em> cover \(N(H)=\pi_1(X)\), so \(\mathrm{Deck}\cong\pi_1(X)/H\). For the universal cover \(H=1\) and \(\mathrm{Deck}\cong\pi_1(X)\).</li>
+        </ol>
+        <div class="qed">The deck group plays the role of the Galois group; \(\pi_1(X)/H\) is its "Galois group over the base."</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — to field theory</span><p>Replace "cover" by "field extension," "subgroup of \(\pi_1\)" by "subgroup of \(\mathrm{Gal}\)," "deck group" by "Galois group," "universal cover" by "separable closure." Both are instances of one categorical pattern: a fundamental group acting, with subgroups indexing intermediate objects.</p></div>
+    </section>
+
+    <!-- 8 -->
+    <section id="s8">
+      <span class="secnum">Section 8</span>
+      <h2>The universal cover</h2>
+      <p class="intro">The biggest connected cover: simply connected, sitting above all the others. It is where \(\pi_1\) materializes as a group of symmetries.</p>
+
+      <div class="fcard"><div class="lab">Theorem — existence &amp; universal property</div>
+        <div class="note">If \(X\) is path-connected, locally path-connected and semilocally simply connected, it has a <strong>universal cover</strong> \(\tilde X\) with \(\pi_1(\tilde X)=1\). It is universal: for any connected cover \(Y\to X\) there is a covering map \(\tilde X\to Y\). It is unique up to isomorphism, and</div>
+        <div class="math">\[ X\ \cong\ \tilde X/\pi_1(X),\qquad \mathrm{Deck}(\tilde X/X)\cong\pi_1(X). \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — construction by homotopy classes of paths</span>
+        <ol>
+          <li>Fix \(x_0\). Let \(\tilde X=\{\,[\gamma]: \gamma \text{ a path from } x_0,\ \text{taken rel endpoints}\,\}\), with \(p[\gamma]=\gamma(1)\).</li>
+          <li>Topologize \(\tilde X\) using basic sets indexed by an evenly-covering neighborhood and a path class into it; semilocal simple connectivity makes this consistent (small loops are nullhomotopic in \(X\)).</li>
+          <li>\(\tilde X\) is path-connected (concatenate to slide between classes) and simply connected: a loop upstairs is a homotopy of \(\gamma\) downstairs, so its class is constant — it is the trivial loop.</li>
+          <li>\(\pi_1(X)\) acts on \(\tilde X\) by \([\alpha]\cdot[\gamma]=[\alpha\cdot\gamma]\), freely and properly discontinuously, with quotient \(X\). This realizes \(\pi_1(X)\) as the deck group.</li>
+        </ol>
+        <div class="qed">Examples: \(\widetilde{S^1}=\mathbb{R}\), \(\widetilde{T^2}=\mathbb{R}^2\) with deck group \(\mathbb{Z}^2\), \(\widetilde{\mathbb{RP}^n}=S^n\) with deck group \(\mathbb{Z}/2\).</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — geometry &amp; group actions</span><p>A free, properly discontinuous action of \(G\) on a simply connected \(\tilde X\) gives \(\pi_1(\tilde X/G)\cong G\). This is how flat tori, hyperbolic surfaces, and lens spaces are built — geometry from group actions on a universal cover.</p></div>
+    </section>
+
+    <!-- ===================== PART C ===================== -->
+    <div class="part">Part C · Homology &amp; beyond</div>
+
+    <!-- 9 -->
+    <section id="s9">
+      <span class="secnum">Section 9</span>
+      <h2>Simplicial &amp; CW complexes</h2>
+      <p class="intro">To compute, we need spaces built from standard bricks. Simplices and cells make homology a problem in linear algebra.</p>
+
+      <div class="concept"><span class="tag">Definition — simplices &amp; \(\Delta\)-complexes</span><p>The <strong>standard \(n\)-simplex</strong> is \(\Delta^n=\{(t_0,\dots,t_n):t_i\ge0,\ \sum t_i=1\}\): a point, segment, triangle, tetrahedron, ... Its faces are obtained by deleting a vertex. A <strong>\(\Delta\)-complex</strong> glues simplices along faces by affine identifications, with a chosen vertex order fixing orientations.</p></div>
+
+      <div class="concept"><span class="tag">Definition — CW complex</span><p>A <strong>CW complex</strong> is built skeleton by skeleton: start with discrete \(0\)-cells, then attach \(n\)-cells \(e^n\) by maps \(\varphi:\partial D^n=S^{n-1}\to X^{(n-1)}\). "C" = closure-finite, "W" = weak topology. Spheres, projective spaces, surfaces, and Grassmannians all have small, explicit CW structures.</p></div>
+
+      <div class="fcard"><div class="lab">The boundary operator on simplices</div>
+        <div class="math">\[ \partial_n[v_0,\dots,v_n]=\sum_{i=0}^{n}(-1)^i\,[v_0,\dots,\widehat{v_i},\dots,v_n] \]</div>
+        <div class="note">Drop each vertex in turn; the sign \((-1)^i\) encodes orientation. \([\,\widehat{v_i}\,]\) means "omit \(v_i\)."</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — the fundamental identity \(\partial^2=0\)</span>
+        <ol>
+          <li>Apply \(\partial\) twice: \(\partial_{n-1}\partial_n[v_0,\dots,v_n]=\sum_i(-1)^i\,\partial_{n-1}[\dots\widehat{v_i}\dots]\), expanding each inner boundary over the remaining vertices.</li>
+          <li>Each face \([\dots\widehat{v_i}\dots\widehat{v_j}\dots]\) with \(i\lt j\) appears twice: once removing \(v_i\) then \(v_j\) (sign \((-1)^i(-1)^{j-1}\), since \(v_j\) shifts left by one), and once removing \(v_j\) then \(v_i\) (sign \((-1)^j(-1)^i\)).</li>
+          <li>The two signs are opposite, so every term cancels: \(\partial_{n-1}\circ\partial_n=0\).</li>
+        </ol>
+        <div class="qed">"The boundary of a boundary is zero" is the algebraic heart of homology — it makes \(\operatorname{im}\partial_{n+1}\subseteq\ker\partial_n\).</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — to linear algebra</span><p>Fix a ring (usually \(\mathbb{Z}\)): the \(n\)-chains \(C_n\) are the free module on the \(n\)-cells, and \(\partial_n\) is a matrix. Homology is then just \(\ker/\operatorname{im}\) of integer matrices — solvable by Smith normal form.</p></div>
+    </section>
+
+    <!-- 10 -->
+    <section id="s10">
+      <span class="secnum">Section 10</span>
+      <h2>Singular homology</h2>
+      <p class="intro">A definition that works for <em>every</em> space, no triangulation required — at the cost of enormous chain groups, redeemed by powerful theorems.</p>
+
+      <div class="fcard"><div class="lab">The singular chain complex</div>
+        <div class="note">A <strong>singular \(n\)-simplex</strong> is any continuous \(\sigma:\Delta^n\to X\). Let \(C_n(X)\) be the free abelian group on all of them, with \(\partial_n\) defined by the same alternating-face formula. Then \(\partial^2=0\), giving a chain complex</div>
+        <div class="math">\[ \cdots\xrightarrow{\ \partial_{n+1}\ }C_n(X)\xrightarrow{\ \partial_n\ }C_{n-1}(X)\xrightarrow{\ \partial_{n-1}\ }\cdots\xrightarrow{\ \partial_1\ }C_0(X)\to 0. \]</div>
+        <div class="math">\[ H_n(X)=\frac{\ker\partial_n}{\operatorname{im}\partial_{n+1}}=\frac{\text{cycles }Z_n}{\text{boundaries }B_n}. \]</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — what \(H_n\) measures</span><p>A <strong>cycle</strong> is a chain with no boundary (a "closed loop/surface"); a <strong>boundary</strong> is one that bounds. \(H_n\) counts \(n\)-dimensional holes: cycles that are <em>not</em> filled in. \(H_0\) counts path-components; \(H_1\) is the abelianization of \(\pi_1\); higher \(H_n\) see higher-dimensional voids.</p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — \(H_0(X)\cong\mathbb{Z}^{\#\text{path-components}}\)</span>
+        <ol>
+          <li>\(\partial_0=0\), so \(Z_0=C_0(X)\), the free group on points. A 1-simplex (path) \(\sigma\) has \(\partial_1\sigma=\sigma(1)-\sigma(0)\), so \(B_0\) is generated by all differences of points joined by a path.</li>
+          <li>Thus two points are homologous iff they lie in the same path-component; \(H_0=Z_0/B_0\) is free abelian with one generator per path-component.</li>
+        </ol>
+        <div class="qed">For path-connected \(X\), \(H_0(X)\cong\mathbb{Z}\). The "augmentation" \(\sum n_i\sigma_i\mapsto\sum n_i\) makes this precise.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Hurewicz (degree 1)</div>
+        <div class="math">\[ X\text{ path-connected}\ \Longrightarrow\ H_1(X)\ \cong\ \pi_1(X)^{\mathrm{ab}}=\pi_1(X)/[\pi_1,\pi_1]. \]</div>
+        <div class="note">Homology is \(\pi_1\) made abelian: it forgets the order of loops. So \(H_1(\Sigma_g)\cong\mathbb{Z}^{2g}\), \(H_1(\bigvee_n S^1)\cong\mathbb{Z}^n\).</div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section id="s11">
+      <span class="secnum">Section 11</span>
+      <h2>Homotopy invariance &amp; the exact sequences</h2>
+      <p class="intro">The three pillars that make homology computable: invariance, the long exact sequence of a pair, and Mayer–Vietoris.</p>
+
+      <div class="fcard"><div class="lab">Functoriality &amp; homotopy invariance</div>
+        <div class="math">\[ f:X\to Y\ \Rightarrow\ f_*:H_n(X)\to H_n(Y),\qquad (g\circ f)_*=g_*f_*,\qquad f\simeq g\Rightarrow f_*=g_*. \]</div>
+        <div class="note">Consequently \(X\simeq Y\Rightarrow H_n(X)\cong H_n(Y)\): homology is a homotopy invariant, so a contractible space has \(H_n=0\) for \(n\gt 0\) and \(H_0=\mathbb{Z}\).</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — exact sequences</span><p>A sequence \(\cdots\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to\cdots\) is <strong>exact</strong> at \(B\) if \(\operatorname{im}f=\ker g\). Exactness is a bookkeeping device that lets unknown groups be pinned down by their neighbors. A <strong>short exact sequence</strong> \(0\to A\to B\to C\to 0\) says \(A\hookrightarrow B\) and \(B\twoheadrightarrow C\) with kernel \(A\).</p></div>
+
+      <div class="fcard"><div class="lab">Long exact sequence of a pair \((X,A)\)</div>
+        <div class="math">\[ \cdots\to H_n(A)\xrightarrow{i_*}H_n(X)\xrightarrow{j_*}H_n(X,A)\xrightarrow{\ \partial\ }H_{n-1}(A)\xrightarrow{i_*}H_{n-1}(X)\to\cdots \]</div>
+        <div class="note">Relative homology \(H_n(X,A)\) measures \(X\) "modulo" \(A\); the connecting map \(\partial\) takes a relative cycle to the boundary it leaves behind in \(A\). Exactness chains the three together.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Mayer–Vietoris</div>
+        <div class="math">\[ \cdots\to H_n(U\cap V)\xrightarrow{(i_*,j_*)}H_n(U)\oplus H_n(V)\xrightarrow{k_*-l_*}H_n(X)\xrightarrow{\ \partial\ }H_{n-1}(U\cap V)\to\cdots \]</div>
+        <div class="note">For \(X=U\cup V\) (interiors covering \(X\)). This is the homology analogue of van Kampen: it computes the whole from overlapping pieces.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — Mayer–Vietoris gives \(H_n(S^k)\)</span>
+        <ol>
+          <li>Cover \(S^k\) by two slightly overlapping hemispheres \(U,V\), each contractible (so \(H_*(U)=H_*(V)=H_*(\text{pt})\)); the overlap \(U\cap V\simeq S^{k-1}\) (an equatorial band).</li>
+          <li>For \(n\ge 2\), the sequence has \(H_n(U)\oplus H_n(V)=0\) on the left and \(H_{n-1}(U)\oplus H_{n-1}(V)=0\) on the right, so \(\partial:H_n(S^k)\xrightarrow{\cong}H_{n-1}(S^{k-1})\) is an isomorphism.</li>
+          <li>Induct from the base case \(S^0\) (two points): \(\tilde H_0(S^0)=\mathbb{Z}\). Shifting up \(k\) times gives \(\tilde H_n(S^k)=\mathbb{Z}\) when \(n=k\), else \(0\).</li>
+        </ol>
+        <div class="qed">\(\displaystyle H_n(S^k)=\begin{cases}\mathbb{Z},&amp; n=0 \text{ or } n=k,\\ 0,&amp;\text{otherwise}\end{cases}\) (with \(\mathbb{Z}^2\) at \(n=0=k\) for \(S^0\)). \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — homological algebra</span><p>The connecting map \(\partial\) and the long exact sequence come from the <em>snake lemma</em> applied to a short exact sequence of chain complexes. This is the same machinery used throughout algebra — for \(\mathrm{Tor}\), \(\mathrm{Ext}\), and derived functors.</p></div>
+    </section>
+
+    <!-- 12 -->
+    <section id="s12">
+      <span class="secnum">Section 12</span>
+      <h2>Computing homology: degree, Euler characteristic, Betti numbers</h2>
+      <p class="intro">Now we compute, and read the numerical invariants — Betti numbers and the Euler characteristic — straight off the homology.</p>
+
+      <div class="demo">
+        <span class="tag">Demonstration — simplicial homology of \(S^1\), \(S^2\), and the torus</span>
+        <ol>
+          <li><strong>\(S^1\)</strong> as one vertex \(v\) and one edge \(a\) (a loop). Then \(\partial_1 a=v-v=0\), so \(Z_1=\mathbb{Z}\langle a\rangle\), \(B_1=0\): \(H_1=\mathbb{Z}\). And \(H_0=\mathbb{Z}\). So \(H_*(S^1)=(\mathbb{Z},\mathbb{Z},0,\dots)\).</li>
+          <li><strong>\(S^2\)</strong> with two triangular faces glued along their common boundary: chain groups give \(H_0=\mathbb{Z}\), \(H_1=0\), \(H_2=\mathbb{Z}\) (the two faces with opposite orientation sum to a 2-cycle bounding nothing).</li>
+          <li><strong>Torus \(T^2\)</strong> from the square \(aba^{-1}b^{-1}\): one vertex, two edges \(a,b\), one face \(f\). Then \(\partial_2 f=a+b-a-b=0\) so \(H_2=\mathbb{Z}\langle f\rangle\); \(\partial_1 a=\partial_1 b=0\) so \(Z_1=\mathbb{Z}^2\) with \(B_1=0\), giving \(H_1=\mathbb{Z}^2\); and \(H_0=\mathbb{Z}\).</li>
+        </ol>
+        <div class="qed">\(H_*(T^2)=(\mathbb{Z},\ \mathbb{Z}^2,\ \mathbb{Z},\ 0,\dots)\) — one component, two independent loops, one void. \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Degree of a map \(f:S^n\to S^n\)</div>
+        <div class="math">\[ f_*:H_n(S^n)=\mathbb{Z}\to H_n(S^n)=\mathbb{Z}\quad\text{is multiplication by }\deg f. \]</div>
+        <div class="note">\(\deg(\mathrm{id})=1\), \(\deg(\text{constant})=0\), \(\deg(g\circ f)=\deg g\cdot\deg f\), and the antipodal map has degree \((-1)^{n+1}\). Degree powers the hairy-ball theorem and higher-dimensional Brouwer.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Betti numbers &amp; Euler characteristic</div>
+        <div class="math">\[ b_n=\operatorname{rank} H_n(X)=\dim_{\mathbb{Q}} H_n(X;\mathbb{Q}),\qquad \chi(X)=\sum_{n\ge0}(-1)^n b_n. \]</div>
+        <div class="note">\(b_0=\#\)components, \(b_1=\#\)independent loops, \(b_2=\#\)independent voids. Torsion (e.g. the \(\mathbb{Z}/2\) in \(\mathbb{RP}^2\)) does not affect \(b_n\) or \(\chi\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — Euler characteristic via Betti numbers</span>
+        <ol>
+          <li>For a finite complex let \(c_n\) be the number of \(n\)-cells and \(z_n=\operatorname{rank}Z_n\), \(b_n^{\partial}=\operatorname{rank}B_n\). Rank–nullity on \(\partial_n:C_n\to C_{n-1}\) gives \(c_n=z_n+b_{n-1}^{\partial}\).</li>
+          <li>By definition \(b_n=z_n-b_n^{\partial}\) (rank of \(\ker\) minus rank of \(\operatorname{im}\)). Form the alternating sum: <span class="mq">\[ \sum_n(-1)^n c_n=\sum_n(-1)^n\big(z_n+b_{n-1}^{\partial}\big). \]</span></li>
+          <li>The \(b^{\partial}\) terms telescope against the \(z\) terms, leaving <span class="mq">\[ \sum_n(-1)^n c_n=\sum_n(-1)^n b_n=\chi(X). \]</span></li>
+        </ol>
+        <div class="qed">So \(\chi\) computed from <em>cells</em> equals \(\chi\) from <em>homology</em> — a topological invariant. For surfaces \(V-E+F=2-2g\). \(\;\blacksquare\)</div>
+      </div>
+
+      <table class="tbl">
+        <tr><th>Space</th><th>\(\pi_1\)</th><th>\(H_0,H_1,H_2,\dots\)</th><th>\(\chi\)</th></tr>
+        <tr><td>Point</td><td>\(1\)</td><td>\(\mathbb{Z},0,0,\dots\)</td><td>\(1\)</td></tr>
+        <tr><td>\(S^1\)</td><td>\(\mathbb{Z}\)</td><td>\(\mathbb{Z},\mathbb{Z},0,\dots\)</td><td>\(0\)</td></tr>
+        <tr><td>\(S^n\ (n\ge2)\)</td><td>\(1\)</td><td>\(\mathbb{Z},0,\dots,\mathbb{Z}\,(\deg n),0,\dots\)</td><td>\(1+(-1)^n\)</td></tr>
+        <tr><td>Torus \(T^2\)</td><td>\(\mathbb{Z}^2\)</td><td>\(\mathbb{Z},\mathbb{Z}^2,\mathbb{Z},0,\dots\)</td><td>\(0\)</td></tr>
+        <tr><td>\(\Sigma_g\) (genus \(g\))</td><td>\(\langle a_i,b_i\mid\prod[a_i,b_i]\rangle\)</td><td>\(\mathbb{Z},\mathbb{Z}^{2g},\mathbb{Z},0,\dots\)</td><td>\(2-2g\)</td></tr>
+        <tr><td>\(\bigvee_n S^1\)</td><td>\(F_n\) (free)</td><td>\(\mathbb{Z},\mathbb{Z}^n,0,\dots\)</td><td>\(1-n\)</td></tr>
+        <tr><td>\(\mathbb{RP}^2\)</td><td>\(\mathbb{Z}/2\)</td><td>\(\mathbb{Z},\ \mathbb{Z}/2,\ 0,\dots\)</td><td>\(1\)</td></tr>
+        <tr><td>\(\mathbb{RP}^n\) (\(n\) odd)</td><td>\(\mathbb{Z}/2\)</td><td>\(\mathbb{Z},\mathbb{Z}/2,\dots,\mathbb{Z}\)</td><td>\(0\)</td></tr>
+        <tr><td>\(\mathbb{RP}^n\) (\(n\) even)</td><td>\(\mathbb{Z}/2\)</td><td>\(\mathbb{Z},\mathbb{Z}/2,\dots,0\)</td><td>\(1\)</td></tr>
+      </table>
+
+      <div class="rel"><span class="tag">Connection — abstract algebra reappears</span><p>Over \(\mathbb{Z}\), the structure theorem for finitely generated abelian groups splits \(H_n\cong\mathbb{Z}^{b_n}\oplus(\text{torsion})\). Betti numbers are the free rank; torsion (like \(\mathbb{Z}/2\) for \(\mathbb{RP}^n\)) records subtler "twisting" invisible to \(\chi\).</p></div>
+    </section>
+
+    <!-- 13 -->
+    <section id="s13">
+      <span class="secnum">Section 13</span>
+      <h2>Cohomology &amp; the cup product</h2>
+      <p class="intro">Dualizing chains gives cohomology — the same Betti numbers, but now with a <em>ring</em> structure that homology lacks. The extra multiplication separates spaces homology cannot.</p>
+
+      <div class="fcard"><div class="lab">The cochain complex &amp; cohomology</div>
+        <div class="math">\[ C^n(X;R)=\operatorname{Hom}(C_n(X),R),\qquad \delta=\partial^{*}:C^n\to C^{n+1},\qquad H^n(X;R)=\frac{\ker\delta}{\operatorname{im}\delta}. \]</div>
+        <div class="note">Coboundary \(\delta\) is the transpose of \(\partial\); \(\delta^2=0\) since \(\partial^2=0\). Arrows now point <em>up</em> in degree, making cohomology contravariant: \(f:X\to Y\) gives \(f^*:H^n(Y)\to H^n(X)\).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Universal coefficients</div>
+        <div class="math">\[ 0\to \operatorname{Ext}^1_{\mathbb{Z}}(H_{n-1}(X),R)\to H^n(X;R)\to \operatorname{Hom}(H_n(X),R)\to 0. \]</div>
+        <div class="note">Over a field, \(\operatorname{Ext}=0\) and \(H^n\cong\operatorname{Hom}(H_n,\text{field})\): same Betti numbers as homology. The novelty is multiplicative, not additive.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Definition — the cup product &amp; cohomology ring</span><p>The <strong>cup product</strong> \(\smile:H^p(X;R)\times H^q(X;R)\to H^{p+q}(X;R)\) makes \(H^*(X;R)=\bigoplus_n H^n\) a graded ring. It is graded-commutative: \(\alpha\smile\beta=(-1)^{pq}\,\beta\smile\alpha\), and natural: \(f^*(\alpha\smile\beta)=f^*\alpha\smile f^*\beta\).</p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — cup product separates \(T^2\) from \(S^2\vee S^1\vee S^1\)</span>
+        <ol>
+          <li>Both spaces have identical homology and cohomology <em>groups</em>: \(H^0=\mathbb{Z}\), \(H^1=\mathbb{Z}^2\), \(H^2=\mathbb{Z}\). Additive invariants cannot tell them apart.</li>
+          <li>For the <strong>torus</strong>, with \(H^1=\langle\alpha,\beta\rangle\), the cup product is nondegenerate: \(\alpha\smile\beta\) generates \(H^2=\mathbb{Z}\) (and \(\alpha\smile\alpha=0\)). The ring is the exterior algebra \(\Lambda[\alpha,\beta]\).</li>
+          <li>For the <strong>wedge</strong> \(S^2\vee S^1\vee S^1\), any product of two classes from different wedge summands is \(0\) (they share only the basepoint): \(\alpha\smile\beta=0\). The product is trivial.</li>
+        </ol>
+        <div class="qed">Different ring structures \(\Rightarrow\) the spaces are not homotopy equivalent — a distinction invisible to homology alone. \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — to differential geometry</span><p>For smooth manifolds, <strong>de Rham cohomology</strong> (closed modulo exact differential forms) computes \(H^*(X;\mathbb{R})\), and the cup product becomes the <em>wedge product</em> of forms. Topology, calculus on manifolds, and ring theory meet in one object.</p></div>
+    </section>
+
+    <!-- 14 -->
+    <section id="s14">
+      <span class="secnum">Section 14</span>
+      <h2>A glimpse beyond: higher homotopy groups, manifolds &amp; Poincaré duality</h2>
+      <p class="intro">Where the subject opens up: higher \(\pi_n\) (hard but rich), the special structure of manifolds, and the duality that organizes their (co)homology.</p>
+
+      <div class="concept"><span class="tag">Definition — higher homotopy groups \(\pi_n\)</span><p>\(\pi_n(X,x_0)\) is homotopy classes of based maps \(S^n\to X\). For \(n\ge2\) they are <strong>abelian</strong> (the Eckmann–Hilton argument: two commuting unital products on the same set must coincide and be commutative). Unlike homology, \(\pi_n\) is brutally hard — even \(\pi_k(S^n)\) for \(k\gt n\) is largely mysterious (the "stable homotopy groups of spheres").</p></div>
+
+      <div class="fcard"><div class="lab">Hurewicz theorem (general)</div>
+        <div class="math">\[ \pi_k(X)=0\ \text{for } k\lt n\ (n\ge2)\ \Longrightarrow\ H_k(X)=0\ (0\lt k\lt n)\ \text{and}\ \pi_n(X)\cong H_n(X). \]</div>
+        <div class="note">The first nonzero homotopy and homology groups agree. This is the bridge from the computable (\(H_*\)) back to the elusive (\(\pi_*\)).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Poincaré duality</div>
+        <div class="math">\[ M\text{ closed oriented }n\text{-manifold}\ \Longrightarrow\ H_k(M;\mathbb{Z})\ \cong\ H^{n-k}(M;\mathbb{Z}). \]</div>
+        <div class="math">\[ \text{In particular}\quad b_k(M)=b_{n-k}(M). \]</div>
+        <div class="note">Cap product with the fundamental class \([M]\in H_n(M)\) gives the isomorphism. Betti numbers are symmetric; for odd-dimensional closed orientable \(M\) this forces \(\chi(M)=0\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — duality on the genus-\(g\) surface</span>
+        <ol>
+          <li>\(\Sigma_g\) is a closed oriented \(2\)-manifold with \(b_0=1,\ b_1=2g,\ b_2=1\).</li>
+          <li>Poincaré duality predicts \(b_0=b_2\) (\(\;1=1\;\checkmark\)) and \(b_1=b_1\) (trivially). The pairing \(H^1\times H^1\to H^2\cong\mathbb{Z}\) is the cup product of Section 13 — the <em>intersection form</em>, a nondegenerate skew-symmetric pairing of rank \(2g\).</li>
+        </ol>
+        <div class="qed">Geometrically, each loop \(a_i\) has a dual loop \(b_i\) crossing it exactly once: holes come in dual pairs. \(\;\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — the larger landscape</span><p>From here: fiber bundles and the long exact sequence of a fibration, spectral sequences, characteristic classes (Chern, Stiefel–Whitney), K-theory, and the cobordism / surgery program that classifies manifolds. Every road still starts from one idea — a functor from spaces to algebra, computed via exact sequences.</p></div>
+    </section>
+
+    <footer>
+      A first course in algebraic topology — concepts, definitions, theorems, and the demonstrations behind them — built as a companion to the Complete Statistics and Calculus guides. Read once for the shape; return to any box as a reference. Remember: every chapter is one functor turning continuous maps into homomorphisms, so that different algebra proves different spaces.
+    </footer>
+  </main>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+<script>
+(function(){
+  var input=document.getElementById('gsearch-input');
+  if(!input) return;
+  var countEl=document.getElementById('gsearch-count');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var parts=Array.prototype.slice.call(document.querySelectorAll('main .part'));
+  var links={};
+  Array.prototype.forEach.call(document.querySelectorAll('nav#nav a[href^="#"]'),function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  function run(){
+    var q=input.value.trim().toLowerCase(), shown=0;
+    sections.forEach(function(sec){
+      var match=!q||sec.textContent.toLowerCase().indexOf(q)>-1;
+      sec.classList.toggle('gs-hidden',!match);
+      var a=links[sec.id]; if(a) a.style.display=match?'':'none';
+      if(match) shown++;
+    });
+    parts.forEach(function(p){p.style.display=q?'none':'';});
+    countEl.textContent=q?(shown+' section'+(shown===1?'':'s')+' match “'+input.value.trim()+'”'):'';
+  }
+  input.addEventListener('input',run);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==input){e.preventDefault();input.focus();}
+    if(e.key==='Escape'){input.value='';run();input.blur();}
+  });
+})();
+</script>
+</body>
+</html>

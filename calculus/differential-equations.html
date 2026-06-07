@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Differential Equations — The Complete Companion</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper-2:#efe7d6; --ink:#26221b; --ink-soft:#564f43;
+    --blue:#1f3a5f; --blue-soft:#3a5a82; --amber:#b5651d; --teal:#0f6f6a;
+    --plum:#6d3b5e; --line:#d8cdb8; --shadow:rgba(38,34,27,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:radial-gradient(circle at 20% -10%,#fbf6ec 0%,transparent 55%),radial-gradient(circle at 90% 5%,#f0e9da 0%,transparent 45%),var(--paper); color:var(--ink); font-family:"Spectral",Georgia,serif; font-size:18px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:42px 42px; opacity:.12;}
+  .wrap{position:relative; z-index:1; display:flex; max-width:1360px; margin:0 auto;}
+
+  aside{width:300px; flex:0 0 300px; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:40px 22px 60px 30px; border-right:1px solid var(--line);}
+  aside .brand{font-family:"Fraunces",serif; font-weight:900; font-size:1.32rem; line-height:1.05; color:var(--blue); letter-spacing:-.01em; margin-bottom:4px;}
+  aside .brand em{font-style:italic; color:var(--amber); font-weight:500;}
+  aside .sub{font-size:.76rem; color:var(--ink-soft); letter-spacing:.02em; margin-bottom:20px;}
+  nav a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.88rem; padding:3px 0 3px 12px; border-left:2px solid transparent; transition:.16s;}
+  nav a .n{font-family:"Fraunces",serif; color:var(--amber); font-weight:600; margin-right:6px; font-variant-numeric:tabular-nums;}
+  nav a:hover{color:var(--blue); border-left-color:var(--amber); padding-left:16px;}
+  nav .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.09em; color:var(--teal); margin:18px 0 4px;}
+
+  main{flex:1 1 auto; min-width:0; padding:46px 54px 120px; max-width:900px;}
+  header.hero{margin-bottom:42px;}
+  header.hero h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2.2rem,5vw,3.6rem); line-height:.98; letter-spacing:-.02em; margin:0 0 8px; color:var(--ink);}
+  header.hero h1 em{font-style:italic; color:var(--amber); font-weight:500;}
+  header.hero p.lede{font-size:1.1rem; color:var(--ink-soft); max-width:64ch; margin:12px 0 0;}
+  .rule{height:3px; width:90px; background:var(--amber); margin:22px 0 0; border-radius:3px;}
+  .howto{background:#fffdf7; border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:20px 0 0; font-size:.92rem;}
+  .howto b{color:var(--blue); font-family:"Fraunces",serif;}
+  .swatch{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:middle;}
+
+  .part{font-family:"Fraunces",serif; font-weight:900; color:var(--plum); font-size:1.1rem; letter-spacing:.16em; text-transform:uppercase; margin:48px 0 4px; padding-bottom:6px; border-bottom:2px solid var(--plum);}
+  section{margin:0 0 50px; scroll-margin-top:20px;}
+  .secnum{font-family:"Fraunces",serif; font-weight:900; font-size:.88rem; color:var(--amber); letter-spacing:.13em; text-transform:uppercase; display:block; margin-bottom:2px;}
+  h2{font-family:"Fraunces",serif; font-weight:600; font-size:1.8rem; line-height:1.06; margin:0 0 6px; color:var(--blue); letter-spacing:-.01em;}
+  h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--ink); margin:28px 0 8px;}
+  .intro{color:var(--ink-soft); font-style:italic; margin:6px 0 18px; max-width:66ch;}
+  p{margin:12px 0;} strong{color:var(--blue); font-weight:600;}
+
+  .fcard{background:linear-gradient(180deg,#fffdf7,#f7f0e1); border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:14px 0; box-shadow:0 2px 9px var(--shadow);}
+  .fcard .lab{font-family:"Fraunces",serif; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--amber); font-weight:600; margin-bottom:2px;}
+  .fcard .math{font-size:1.06rem; overflow-x:auto; overflow-y:hidden; padding:3px 0;}
+  .fcard .note{font-size:.88rem; color:var(--ink-soft); margin-top:5px; font-style:italic;}
+
+  .concept{border-left:4px solid var(--plum); background:#f3eaf0; border-radius:0 10px 10px 0; padding:13px 19px; margin:18px 0;}
+  .concept .tag{font-family:"Fraunces",serif; font-weight:700; color:var(--plum); font-size:.78rem; text-transform:uppercase; letter-spacing:.07em;}
+  .concept p{margin:6px 0 0; font-size:.96rem;}
+
+  .rel{border-left:4px solid var(--teal); background:#e9f3f1; border-radius:0 10px 10px 0; padding:12px 18px; margin:18px 0;}
+  .rel .tag{font-family:"Fraunces",serif; font-weight:600; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.07em;}
+  .rel p{margin:6px 0 0; font-size:.95rem;}
+
+  .demo{border:1px solid var(--blue-soft); background:#eef2f7; border-radius:10px; padding:15px 20px 16px; margin:16px 0;}
+  .demo .tag{font-family:"Fraunces",serif; font-weight:700; color:var(--blue); font-size:.8rem; text-transform:uppercase; letter-spacing:.07em; display:flex; align-items:center; gap:8px;}
+  .demo .tag::before{content:"▸"; color:var(--amber);}
+  .demo ol{margin:11px 0 0; padding-left:0; counter-reset:step; list-style:none;}
+  .demo ol li{position:relative; padding:7px 0 7px 38px; border-top:1px dashed #c4cedb;}
+  .demo ol li:first-child{border-top:none;}
+  .demo ol li::before{counter-increment:step; content:counter(step); position:absolute; left:0; top:7px; width:25px; height:25px; background:var(--blue); color:#f5efe2; border-radius:50%; font-family:"Fraunces",serif; font-size:.82rem; font-weight:600; display:flex; align-items:center; justify-content:center;}
+  .demo ol li .mq{display:block; overflow-x:auto; padding:2px 0;}
+  .demo .qed{text-align:right; font-style:italic; color:var(--ink-soft); margin-top:7px; font-size:.9rem;}
+
+  ul.clean{margin:11px 0; padding-left:22px;} ul.clean li{margin:6px 0;}
+  table.tbl{width:100%; border-collapse:collapse; margin:14px 0; font-size:.95rem; background:#fffdf7; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  table.tbl th{background:var(--blue); color:#f5efe2; font-family:"Fraunces",serif; font-weight:600; text-align:left; padding:8px 12px; font-size:.88rem;}
+  table.tbl td{padding:7px 12px; border-top:1px solid var(--line); vertical-align:top;}
+  table.tbl tr:nth-child(even) td{background:#f7f0e1;}
+
+  .map{background:#fffdf7; border:1px dashed var(--blue-soft); border-radius:12px; padding:18px 22px; margin:16px 0;}
+  .map h3{margin-top:0;}
+  .flow{font-family:"Fraunces",serif; color:var(--blue); font-weight:600; text-align:center; font-size:1rem; line-height:2;}
+  .flow .arrow{color:var(--amber); margin:0 6px;}
+
+  footer{border-top:1px solid var(--line); padding-top:22px; color:var(--ink-soft); font-size:.9rem; font-style:italic;}
+  section, header.hero, .part{animation:rise .6s ease both;}
+  @keyframes rise{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+
+  .menubtn{display:none;}
+  @media(max-width:920px){
+    body{font-size:17px;}
+    .wrap{flex-direction:column;}
+    aside{position:static; width:auto; height:auto; flex:none; border-right:none; border-bottom:1px solid var(--line); padding:22px 20px;}
+    nav{display:none;} nav.open{display:block;}
+    .menubtn{display:inline-block; margin-top:12px; cursor:pointer; font-family:"Fraunces",serif; font-weight:600; color:var(--blue); background:var(--paper-2); border:1px solid var(--line); border-radius:8px; padding:8px 16px; font-size:.92rem;}
+    main{padding:28px 20px 90px; max-width:none;}
+    .demo ol li{padding-left:34px;}
+  }
+  /* in-page section search */
+  .gsearch{margin:0 0 6px; display:flex; align-items:center; gap:8px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:24px; padding:8px 14px; box-shadow:0 2px 8px var(--shadow);}
+  .gsearch .ico{color:var(--blue); font-size:.95rem;}
+  .gsearch input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:.95rem; width:100%; color:var(--ink);}
+  .gsearch input::placeholder{color:#a99e87;}
+  .gsearch-count{font-size:.76rem; color:var(--ink-soft); font-style:italic; margin:4px 0 14px; padding-left:6px; min-height:1em;}
+  section.gs-hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <div class="brand">Differential<br><em>equations</em></div>
+    <div class="sub">First-order · second-order · systems, transforms &amp; series — methods, formulas &amp; the derivations behind them</div>
+    <button class="menubtn" onclick="document.getElementById('nav').classList.toggle('open')">☰ Contents</button>
+        <div class="gsearch"><span class="ico">🔍</span><input id="gsearch-input" type="text" placeholder="Search this guide…  ( / )" autocomplete="off"></div>
+    <div class="gsearch-count" id="gsearch-count"></div>
+    <nav id="nav">
+      <div class="grp">A · First-order equations</div>
+      <a href="#s0"><span class="n">0</span>The big picture</a>
+      <a href="#s1"><span class="n">1</span>Slope fields &amp; separable</a>
+      <a href="#s2"><span class="n">2</span>Linear &amp; integrating factor</a>
+      <a href="#s3"><span class="n">3</span>Exact equations</a>
+      <a href="#s4"><span class="n">4</span>Homogeneous &amp; Bernoulli</a>
+      <a href="#s5"><span class="n">5</span>Existence &amp; stability</a>
+      <a href="#s6"><span class="n">6</span>Modeling: growth, mixing, logistic</a>
+      <div class="grp">B · Second-order linear</div>
+      <a href="#s7"><span class="n">7</span>Theory &amp; the Wronskian</a>
+      <a href="#s8"><span class="n">8</span>Constant coefficients</a>
+      <a href="#s9"><span class="n">9</span>Undetermined coefficients</a>
+      <a href="#s10"><span class="n">10</span>Variation of parameters</a>
+      <a href="#s11"><span class="n">11</span>Vibrations &amp; resonance</a>
+      <div class="grp">C · Systems, transforms &amp; series</div>
+      <a href="#s12"><span class="n">12</span>Systems &amp; the phase plane</a>
+      <a href="#s13"><span class="n">13</span>The Laplace transform</a>
+      <a href="#s14"><span class="n">14</span>Laplace IVPs; step &amp; impulse</a>
+      <a href="#s15"><span class="n">15</span>Series solutions &amp; Frobenius</a>
+      <a href="#s16"><span class="n">16</span>Numerical methods</a>
+      <a href="#s17"><span class="n">17</span>PDEs &amp; Fourier series</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <h1>Differential equations, <em>solved.</em></h1>
+      <p class="lede">A full first course — from a single separable equation to systems, the Laplace transform, and the heat equation — laid out basics → expert. Every core method is <strong>demonstrated</strong> on a worked example, and the threads back to integration and linear algebra are made explicit.</p>
+      <div class="rule"></div>
+      <div class="howto">
+        <b>The four kinds of box:</b><br>
+        <span class="swatch" style="background:#f3eaf0;border:1px solid #6d3b5e;"></span><b>Concept / Principle</b> — the idea in words. &nbsp;
+        <span class="swatch" style="background:#f7f0e1;border:1px solid #d8cdb8;"></span><b>Formula / Method</b> — the result. &nbsp;
+        <span class="swatch" style="background:#eef2f7;border:1px solid #3a5a82;"></span><b>Demonstration</b> — a worked solution or derivation. &nbsp;
+        <span class="swatch" style="background:#e9f3f1;border:1px solid #0f6f6a;"></span><b>Connection</b> — links to other ideas.
+      </div>
+    </header>
+
+    <!-- ===================== PART A ===================== -->
+    <div class="part">Part A · First-order equations</div>
+
+    <!-- 0 -->
+    <section id="s0">
+      <span class="secnum">Section 0</span>
+      <h2>The big picture: what a differential equation is</h2>
+      <p class="intro">A differential equation is a sentence about <em>change</em>. Instead of telling you a quantity, it tells you the rule its rate of change obeys — and solving it means finding the quantity itself.</p>
+      <p>An <strong>ordinary differential equation</strong> (ODE) relates an unknown function \(y(x)\) to its derivatives. A <strong>solution</strong> is a function — not a number — that satisfies the equation on some interval.</p>
+      <ul class="clean">
+        <li><strong>Order</strong> — the highest derivative present. \(y'=ky\) is first order; \(y''+y=0\) is second order.</li>
+        <li><strong>Linear vs nonlinear</strong> — linear means \(y\) and its derivatives appear only to the first power and are not multiplied together: \(a_n(x)y^{(n)}+\cdots+a_1(x)y'+a_0(x)y=g(x)\).</li>
+        <li><strong>ODE vs PDE</strong> — one independent variable (ODE) versus several, giving partial derivatives (PDE, Section 17).</li>
+      </ul>
+      <div class="concept"><span class="tag">Principle — solving = integrating with structure</span><p>The simplest ODE is \(y'=f(x)\), solved by one integration: \(y=\int f\,dx+C\). Every method in this guide is a way of <strong>reducing a harder equation to integrations you can do</strong>. The arbitrary constant \(C\) is the signature of a differential equation: a first-order ODE has a one-parameter family of solutions, and an <strong>initial condition</strong> \(y(x_0)=y_0\) selects one curve from the family.</p></div>
+      <div class="fcard"><div class="lab">General vs particular solution</div>
+        <div class="math">\[ y'=f(x)\ \Longrightarrow\ y=\int f(x)\,dx+C \quad(\text{general}),\qquad y(x_0)=y_0\ \text{fixes}\ C\ (\text{particular}). \]</div>
+        <div class="note">An \(n\)th-order ODE carries \(n\) arbitrary constants and needs \(n\) conditions to pin down a unique solution.</div>
+      </div>
+      <div class="map"><h3>The whole course on one line</h3><div class="flow">First-order (separable, linear) <span class="arrow">→</span> Modeling <span class="arrow">→</span> Second-order linear <span class="arrow">→</span> Systems &amp; phase plane <span class="arrow">→</span> Laplace transform <span class="arrow">→</span> Series &amp; numerics <span class="arrow">→</span> PDEs &amp; Fourier</div></div>
+      <div class="rel"><span class="tag">Connection — this is calculus, aimed</span><p>You already know how to differentiate and integrate. Differential equations turn that machinery into a tool for prediction: physics, biology, finance and engineering all speak in rates of change, so their laws are differential equations. Learning to solve them is learning to run the laws forward.</p></div>
+    </section>
+
+    <!-- 1 -->
+    <section id="s1">
+      <span class="secnum">Section 1</span>
+      <h2>Slope fields, solution curves &amp; separable equations</h2>
+      <p class="intro">Before any formula, you can <em>see</em> a first-order equation: \(y'=f(x,y)\) assigns a slope to every point of the plane. Solutions are the curves that follow those slopes.</p>
+
+      <div class="concept"><span class="tag">Concept — the slope field</span><p>An equation \(y'=f(x,y)\) is a field of little arrows: at each \((x,y)\) draw a short segment with slope \(f(x,y)\). A <strong>solution curve</strong> is one that is tangent to the arrows everywhere. This geometric picture exists even when no formula does, and an <strong>initial point</strong> picks out exactly one curve threading through the field.</p></div>
+
+      <div class="fcard"><div class="lab">Separable equations</div>
+        <div class="math">\[ \frac{dy}{dx}=g(x)\,h(y)\ \Longrightarrow\ \int\frac{dy}{h(y)}=\int g(x)\,dx+C. \]</div>
+        <div class="note">If the right-hand side factors into an \(x\)-part times a \(y\)-part, gather each variable on its own side and integrate. Watch for constant solutions where \(h(y)=0\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — solving a separable IVP</span>
+        <ol>
+          <li>Solve \(\dfrac{dy}{dx}=\dfrac{x}{y}\) with \(y(0)=3\). Separate the variables: <span class="mq">\[ y\,dy = x\,dx. \]</span></li>
+          <li>Integrate both sides: <span class="mq">\[ \int y\,dy=\int x\,dx \ \Longrightarrow\ \tfrac12 y^2=\tfrac12 x^2+C_1. \]</span></li>
+          <li>Multiply by 2 and rename the constant: <span class="mq">\[ y^2 = x^2 + C. \]</span></li>
+          <li>Apply \(y(0)=3\): \(\,9=0+C\), so \(C=9\) and the solution curve is <span class="mq">\[ y=\sqrt{x^2+9}\quad(\text{positive root, to match }y(0)=3>0). \]</span></li>
+        </ol>
+        <div class="qed">The general solution \(y^2-x^2=C\) is a family of hyperbolas; the initial condition selects one.</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — why "separating" is legitimate</span><p>The shorthand "multiply by \(dx\)" is justified by the chain rule: if \(\frac1{h(y)}\frac{dy}{dx}=g(x)\), integrate both sides in \(x\); substitution turns \(\int \frac1{h(y)}\frac{dy}{dx}\,dx\) into \(\int \frac{dy}{h(y)}\). Separation is the chain rule run backward.</p></div>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <span class="secnum">Section 2</span>
+      <h2>First-order linear equations &amp; the integrating factor</h2>
+      <p class="intro">The most important first-order class. A clever multiplier turns the whole left side into a single derivative, after which one integration finishes the job.</p>
+
+      <div class="fcard"><div class="lab">Standard form &amp; the integrating factor</div>
+        <div class="math">\[ \frac{dy}{dx}+P(x)\,y = Q(x),\qquad \mu(x)=e^{\int P(x)\,dx}. \]</div>
+        <div class="math">\[ y=\frac{1}{\mu(x)}\!\left(\int \mu(x)\,Q(x)\,dx + C\right). \]</div>
+        <div class="note">Always put the equation in standard form first (coefficient of \(y'\) equal to 1) before reading off \(P\) and \(Q\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — deriving the integrating factor \(\mu=e^{\int P\,dx}\)</span>
+        <ol>
+          <li>We want a multiplier \(\mu(x)\) so that \(\mu y' + \mu P y\) becomes the derivative of a product \((\mu y)'\). By the product rule, \((\mu y)'=\mu y'+\mu' y\).</li>
+          <li>Matching the two requires the coefficient of \(y\) to agree: <span class="mq">\[ \mu' = \mu P. \]</span></li>
+          <li>This is itself separable: \(\dfrac{d\mu}{\mu}=P\,dx\), so integrating gives <span class="mq">\[ \ln|\mu| = \int P\,dx \ \Longrightarrow\ \mu=e^{\int P\,dx}. \]</span></li>
+          <li>With this \(\mu\), the equation collapses to \((\mu y)'=\mu Q\); integrate once: <span class="mq">\[ \mu y=\int \mu Q\,dx + C. \]</span></li>
+        </ol>
+        <div class="qed">The integrating factor is precisely the function that makes the left side an exact derivative.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — a worked linear equation</span>
+        <ol>
+          <li>Solve \(x y' + 2y = x^3\). First divide by \(x\) to reach standard form: <span class="mq">\[ y' + \frac{2}{x}\,y = x^2,\qquad P=\frac{2}{x},\ Q=x^2. \]</span></li>
+          <li>Integrating factor: <span class="mq">\[ \mu=e^{\int (2/x)\,dx}=e^{2\ln|x|}=x^2. \]</span></li>
+          <li>Multiply through: \((x^2 y)' = x^2\cdot x^2 = x^4\). Integrate: <span class="mq">\[ x^2 y = \frac{x^5}{5}+C. \]</span></li>
+          <li>Solve for \(y\): <span class="mq">\[ y=\frac{x^3}{5}+\frac{C}{x^2}. \]</span></li>
+        </ol>
+        <div class="qed">The \(C/x^2\) piece is the solution of the homogeneous part \(y'+\tfrac2x y=0\); the \(x^3/5\) is a particular response to \(Q\).</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — superposition appears early</span><p>The answer splits as <em>homogeneous</em> \(+\) <em>particular</em> — the same structure that will organize all of Part B. The integrating factor is the first-order shadow of the broader linear theory.</p></div>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <span class="secnum">Section 3</span>
+      <h2>Exact equations</h2>
+      <p class="intro">Some equations are already the differential of a hidden function \(F(x,y)\). Recognizing this lets you solve them by reading off level curves.</p>
+
+      <div class="fcard"><div class="lab">Exactness test &amp; solution</div>
+        <div class="math">\[ M(x,y)\,dx+N(x,y)\,dy=0 \ \text{ is exact} \iff \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}. \]</div>
+        <div class="math">\[ \text{Then } \exists\,F:\ F_x=M,\ F_y=N,\quad\text{and the solution is}\quad F(x,y)=C. \]</div>
+        <div class="note">Exactness says \(M\,dx+N\,dy\) is the total differential \(dF=F_x\,dx+F_y\,dy\). Solutions are the level curves of \(F\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — testing and solving an exact equation</span>
+        <ol>
+          <li>Solve \((2xy+3)\,dx+(x^2-1)\,dy=0\). Here \(M=2xy+3,\ N=x^2-1\).</li>
+          <li>Test exactness: <span class="mq">\[ M_y=2x,\qquad N_x=2x. \]</span> Equal, so the equation is exact.</li>
+          <li>Integrate \(F_x=M\) in \(x\), treating \(y\) as constant: <span class="mq">\[ F=\int(2xy+3)\,dx = x^2 y+3x+g(y). \]</span></li>
+          <li>Differentiate in \(y\) and match \(F_y=N\): \(x^2+g'(y)=x^2-1\), so \(g'(y)=-1\), giving \(g(y)=-y\).</li>
+          <li>Therefore the implicit solution is <span class="mq">\[ x^2 y + 3x - y = C. \]</span></li>
+        </ol>
+        <div class="qed">When \(M_y\ne N_x\), one can sometimes restore exactness with an integrating factor \(\mu\) — the same idea as Section 2, generalized.</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — Clairaut's theorem is the engine</span><p>The test \(M_y=N_x\) is exactly the equality of mixed partials \(F_{xy}=F_{yx}\). Exact equations are vector calculus in disguise: \(M\,dx+N\,dy\) is exact iff the field \((M,N)\) is conservative, with \(F\) its potential.</p></div>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <span class="secnum">Section 4</span>
+      <h2>Substitutions: homogeneous &amp; Bernoulli equations</h2>
+      <p class="intro">When an equation is neither separable nor linear, the right change of variable can convert it into one that is. Two classic substitutions cover a wide range.</p>
+
+      <div class="fcard"><div class="lab">Homogeneous equations</div>
+        <div class="math">\[ \frac{dy}{dx}=F\!\left(\frac{y}{x}\right)\quad\text{substitute}\quad v=\frac{y}{x},\ y=vx,\ \frac{dy}{dx}=v+x\frac{dv}{dx}. \]</div>
+        <div class="note">The substitution always makes the equation separable in \(v\) and \(x\).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Bernoulli equations</div>
+        <div class="math">\[ \frac{dy}{dx}+P(x)\,y = Q(x)\,y^{n}\quad\text{substitute}\quad v=y^{1-n}. \]</div>
+        <div class="math">\[ \Longrightarrow\ \frac{dv}{dx}+(1-n)P(x)\,v=(1-n)Q(x)\quad(\text{now linear in }v). \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — solving a Bernoulli equation</span>
+        <ol>
+          <li>Solve \(y'+\dfrac{1}{x}y = x y^2\). Here \(n=2\), so set \(v=y^{1-2}=y^{-1}\), giving \(v'=-y^{-2}y'\).</li>
+          <li>Divide the equation by \(y^2\): \(\,y^{-2}y' + \tfrac1x y^{-1} = x\). In terms of \(v\): <span class="mq">\[ -v' + \frac1x v = x \ \Longrightarrow\ v' - \frac1x v = -x. \]</span></li>
+          <li>This is linear with \(P=-\tfrac1x\): \(\mu=e^{-\int dx/x}=x^{-1}\). Then \((x^{-1}v)'=-1\): <span class="mq">\[ x^{-1}v=-x+C \ \Longrightarrow\ v=-x^2+Cx. \]</span></li>
+          <li>Return to \(y\) via \(y=1/v\): <span class="mq">\[ y=\frac{1}{Cx-x^2}. \]</span></li>
+        </ol>
+        <div class="qed">Bernoulli's trick linearizes a nonlinear equation by raising \(y\) to a clever power.</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — a recurring strategy</span><p>"Find the substitution that flattens the nonlinearity" returns throughout: \(v=y/x\) here, \(v=y^{1-n}\) for Bernoulli, reduction of order in Section 8, and the moving frame of the phase plane in Section 12.</p></div>
+    </section>
+
+    <!-- 5 -->
+    <section id="s5">
+      <span class="secnum">Section 5</span>
+      <h2>Existence, uniqueness &amp; autonomous equations (stability)</h2>
+      <p class="intro">Before solving, two questions matter: does a solution exist, and is it the only one? And for equations that don't depend on \(x\) explicitly, we can read off long-term behavior without solving at all.</p>
+
+      <div class="fcard"><div class="lab">Existence &amp; uniqueness (Picard–Lindelöf)</div>
+        <div class="math">\[ y'=f(x,y),\ y(x_0)=y_0:\quad \text{if } f \text{ and } \frac{\partial f}{\partial y}\text{ are continuous near }(x_0,y_0), \]</div>
+        <div class="note">then a unique solution exists on some interval around \(x_0\). Continuity of \(f\) alone guarantees existence; continuity of \(f_y\) guarantees uniqueness.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — why uniqueness can fail</span><p>\(y'=\sqrt{y},\ y(0)=0\) has both \(y\equiv0\) and \(y=\tfrac14 x^2\) as solutions, because \(f_y=\tfrac1{2\sqrt y}\) blows up at \(y=0\). The hypotheses of the theorem are exactly what rules out such branching: solution curves can never cross where they hold.</p></div>
+
+      <div class="fcard"><div class="lab">Autonomous equations &amp; equilibria</div>
+        <div class="math">\[ \frac{dy}{dx}=f(y):\quad \text{equilibria are roots } f(y^*)=0. \]</div>
+        <div class="math">\[ f'(y^*)<0\Rightarrow\text{stable (sink)},\qquad f'(y^*)>0\Rightarrow\text{unstable (source)}. \]</div>
+        <div class="note">A <strong>phase line</strong> marks where \(f(y)>0\) (arrows up) and \(f(y)<0\) (arrows down); arrows point toward stable equilibria.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — stability by linearization</span>
+        <ol>
+          <li>Take \(y'=y(1-y)\). Equilibria: \(f(y)=y-y^2=0\) at \(y^*=0\) and \(y^*=1\).</li>
+          <li>Compute \(f'(y)=1-2y\). Evaluate at each equilibrium: <span class="mq">\[ f'(0)=1>0\ (\text{unstable}),\qquad f'(1)=-1<0\ (\text{stable}). \]</span></li>
+          <li>So any positive start drifts away from 0 and toward 1: \(y=1\) is the carrying capacity (the logistic story of Section 6).</li>
+        </ol>
+        <div class="qed">Near an equilibrium, \(y'\approx f'(y^*)(y-y^*)\): exponential growth or decay, whose sign is the whole verdict.</div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section id="s6">
+      <span class="secnum">Section 6</span>
+      <h2>Modeling: growth/decay, mixing, cooling, the logistic equation</h2>
+      <p class="intro">The payoff of Part A: real phenomena translate into first-order ODEs, and the methods above solve them. Modeling is the art of writing "rate of change \(=\) ..." correctly.</p>
+
+      <div class="fcard"><div class="lab">Exponential growth/decay &amp; Newton's cooling</div>
+        <div class="math">\[ \frac{dy}{dt}=ky \ \Rightarrow\ y=y_0 e^{kt},\qquad \frac{dT}{dt}=-k\,(T-T_{\text{env}}) \ \Rightarrow\ T=T_{\text{env}}+(T_0-T_{\text{env}})e^{-kt}. \]</div>
+        <div class="note">\(k>0\): growth (populations, interest). \(k<0\): decay (radioactivity, half-life \(t_{1/2}=\ln 2/|k|\)).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">The logistic equation</div>
+        <div class="math">\[ \frac{dP}{dt}=rP\!\left(1-\frac{P}{K}\right)\ \Longrightarrow\ P(t)=\frac{K}{1+A e^{-rt}},\quad A=\frac{K-P_0}{P_0}. \]</div>
+        <div class="note">\(r\) is the intrinsic growth rate, \(K\) the carrying capacity. \(P\to K\) as \(t\to\infty\) — the stable equilibrium of Section 5.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — a mixing (tank) problem</span>
+        <ol>
+          <li>A 100 L tank holds pure water. Brine at 2 g/L flows in at 5 L/min; the well-stirred mixture flows out at 5 L/min. Let \(S(t)\) be grams of salt. Rate in \(=2\cdot5=10\) g/min; rate out \(=\dfrac{S}{100}\cdot5\) g/min.</li>
+          <li>The balance law gives a linear ODE: <span class="mq">\[ \frac{dS}{dt}=10-\frac{S}{20},\qquad S(0)=0. \]</span></li>
+          <li>Standard form \(S'+\tfrac1{20}S=10\), integrating factor \(\mu=e^{t/20}\): <span class="mq">\[ (e^{t/20}S)'=10\,e^{t/20}\ \Rightarrow\ e^{t/20}S=200\,e^{t/20}+C. \]</span></li>
+          <li>So \(S=200+Ce^{-t/20}\); \(S(0)=0\) gives \(C=-200\): <span class="mq">\[ S(t)=200\big(1-e^{-t/20}\big). \]</span></li>
+        </ol>
+        <div class="qed">As \(t\to\infty\), \(S\to200\) g — i.e. 2 g/L throughout, the inflow concentration. The model agrees with intuition.</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — the logistic solution comes from partial fractions</span><p>Separating \(\frac{dP}{P(1-P/K)}=r\,dt\) requires the integral \(\int\frac{dP}{P(1-P/K)}\), which splits via <strong>partial fractions</strong> into \(\frac1P+\frac{1/K}{1-P/K}\). The algebra you learned for integration is exactly what produces the S-curve.</p></div>
+    </section>
+
+    <!-- ===================== PART B ===================== -->
+    <div class="part">Part B · Second-order linear equations</div>
+
+    <!-- 7 -->
+    <section id="s7">
+      <span class="secnum">Section 7</span>
+      <h2>Linear ODE theory: superposition, independence &amp; the Wronskian</h2>
+      <p class="intro">Second-order linear equations have a beautiful, complete structure borrowed from linear algebra: their solutions form a vector space, and a basis of two functions describes them all.</p>
+
+      <div class="fcard"><div class="lab">The linear second-order equation</div>
+        <div class="math">\[ y''+p(x)\,y'+q(x)\,y=g(x). \]</div>
+        <div class="note">If \(g\equiv0\) the equation is <strong>homogeneous</strong>; otherwise <strong>nonhomogeneous</strong>. \(p,q,g\) continuous guarantees a unique solution to any IVP \(y(x_0)=a,\ y'(x_0)=b\).</div>
+      </div>
+
+      <div class="concept"><span class="tag">Principle — superposition &amp; the solution structure</span><p>For the homogeneous equation, any linear combination of solutions is again a solution. The general solution is \(y=c_1 y_1+c_2 y_2\) for two <strong>linearly independent</strong> solutions \(y_1,y_2\). For the nonhomogeneous equation, the general solution is <strong>\(y=y_h+y_p\)</strong>: the full homogeneous family plus any one particular solution.</p></div>
+
+      <div class="fcard"><div class="lab">The Wronskian &amp; independence</div>
+        <div class="math">\[ W(y_1,y_2)=\begin{vmatrix} y_1 & y_2\\ y_1' & y_2'\end{vmatrix}=y_1 y_2'-y_2 y_1'. \]</div>
+        <div class="note">For solutions of the same linear ODE, \(W\ne0\) at one point \(\iff\) \(y_1,y_2\) are linearly independent (a <strong>fundamental set</strong>). Abel's theorem: \(W(x)=W(x_0)\,e^{-\int p\,dx}\), so \(W\) is either always zero or never zero.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — independence via the Wronskian</span>
+        <ol>
+          <li>Are \(y_1=e^{x}\) and \(y_2=e^{2x}\) independent? Compute the Wronskian: <span class="mq">\[ W=\begin{vmatrix} e^{x} & e^{2x}\\ e^{x} & 2e^{2x}\end{vmatrix}=2e^{3x}-e^{3x}=e^{3x}. \]</span></li>
+          <li>Since \(e^{3x}\ne0\) for all \(x\), the functions are linearly independent and form a fundamental set.</li>
+        </ol>
+        <div class="qed">Two solutions with nonzero Wronskian span the whole 2-dimensional solution space.</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — this is linear algebra</span><p>The solution set of a homogeneous linear ODE is a <strong>vector space</strong>; \(y_1,y_2\) are a basis, and "order \(n\)" means "dimension \(n\)." The Wronskian is the determinant that tests for a basis — the function-space analog of independence of vectors.</p></div>
+    </section>
+
+    <!-- 8 -->
+    <section id="s8">
+      <span class="secnum">Section 8</span>
+      <h2>Homogeneous equations with constant coefficients</h2>
+      <p class="intro">The workhorse case. Guessing \(y=e^{rx}\) converts the differential equation into an algebraic one — and the roots of that polynomial dictate everything.</p>
+
+      <div class="fcard"><div class="lab">The characteristic equation</div>
+        <div class="math">\[ ay''+by'+cy=0\ \xrightarrow{\ y=e^{rx}\ }\ ar^2+br+c=0. \]</div>
+        <div class="note">Each root \(r\) gives a solution \(e^{rx}\); the discriminant \(b^2-4ac\) decides which of three cases applies.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">The three cases</div>
+        <div class="math">\[ \textbf{Distinct real } r_1\ne r_2:\quad y=c_1e^{r_1 x}+c_2e^{r_2 x}. \]</div>
+        <div class="math">\[ \textbf{Repeated } r:\quad y=(c_1+c_2 x)\,e^{r x}. \]</div>
+        <div class="math">\[ \textbf{Complex } r=\alpha\pm\beta i:\quad y=e^{\alpha x}\big(c_1\cos\beta x+c_2\sin\beta x\big). \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — all three cases, worked</span>
+        <ol>
+          <li><strong>Distinct real.</strong> \(y''-5y'+6y=0\): characteristic \(r^2-5r+6=(r-2)(r-3)=0\), so <span class="mq">\[ y=c_1 e^{2x}+c_2 e^{3x}. \]</span></li>
+          <li><strong>Repeated root.</strong> \(y''-4y'+4y=0\): \(r^2-4r+4=(r-2)^2=0\), giving \(r=2\) twice. The second solution is \(xe^{2x}\): <span class="mq">\[ y=(c_1+c_2 x)\,e^{2x}. \]</span></li>
+          <li><strong>Complex roots.</strong> \(y''+2y'+5y=0\): \(r^2+2r+5=0\Rightarrow r=\dfrac{-2\pm\sqrt{4-20}}{2}=-1\pm2i\). Hence <span class="mq">\[ y=e^{-x}\big(c_1\cos 2x+c_2\sin 2x\big). \]</span></li>
+        </ol>
+        <div class="qed">Euler's formula \(e^{i\beta x}=\cos\beta x+i\sin\beta x\) is what turns complex exponentials into real sinusoids.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — where \(xe^{rx}\) comes from (reduction of order)</span>
+        <ol>
+          <li>With a repeated root \(r\), one solution is \(y_1=e^{rx}\). Seek a second as \(y_2=u(x)e^{rx}\) and substitute into \(y''-2ry'+r^2y=0\).</li>
+          <li>The \(u\) and \(u'\) terms cancel by construction (because \(r\) solves the characteristic equation twice), leaving <span class="mq">\[ u''e^{rx}=0\ \Rightarrow\ u''=0. \]</span></li>
+          <li>So \(u=c_1+c_2 x\), and the independent new piece is \(y_2=xe^{rx}\).</li>
+        </ol>
+        <div class="qed">A repeated root costs a degree of freedom; multiplying by \(x\) restores it — exactly as in resonance (Section 11).</div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section id="s9">
+      <span class="secnum">Section 9</span>
+      <h2>Nonhomogeneous: undetermined coefficients</h2>
+      <p class="intro">To solve \(ay''+by'+cy=g(x)\), find the homogeneous solution \(y_h\) (Section 8), then guess a particular \(y_p\) shaped like \(g\). The general solution is \(y_h+y_p\).</p>
+
+      <div class="fcard"><div class="lab">The guess table</div>
+        <div class="math">\[ g(x)=e^{\alpha x}\ \to\ Ae^{\alpha x};\quad g=\sin\beta x\text{ or }\cos\beta x\ \to\ A\cos\beta x+B\sin\beta x. \]</div>
+        <div class="math">\[ g=\text{polynomial of degree }n\ \to\ A_n x^n+\cdots+A_1 x+A_0. \]</div>
+        <div class="note">Products and sums of these use products and sums of the guesses. Solve for the coefficients by substituting.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Principle — the modification rule</span><p>If your guess already solves the homogeneous equation, it contributes nothing on substitution. <strong>Multiply the guess by \(x\)</strong> (or \(x^2\) for a double root) until no term duplicates a homogeneous solution. This is the same "\(x\) saves a degenerate case" phenomenon as the repeated root.</p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — undetermined coefficients, worked</span>
+        <ol>
+          <li>Solve \(y''-3y'+2y=4e^{3x}\). Homogeneous: \(r^2-3r+2=(r-1)(r-2)\Rightarrow y_h=c_1e^{x}+c_2 e^{2x}\).</li>
+          <li>\(g=4e^{3x}\), and \(r=3\) is <em>not</em> a root, so guess \(y_p=Ae^{3x}\). Then \(y_p'=3Ae^{3x},\ y_p''=9Ae^{3x}\).</li>
+          <li>Substitute: \((9A-9A+2A)e^{3x}=4e^{3x}\Rightarrow 2A=4\Rightarrow A=2\), so \(y_p=2e^{3x}\).</li>
+          <li>General solution: <span class="mq">\[ y=c_1 e^{x}+c_2 e^{2x}+2e^{3x}. \]</span></li>
+        </ol>
+        <div class="qed">Had \(g\) been \(4e^{2x}\) (a homogeneous root), we would instead guess \(Axe^{2x}\) by the modification rule.</div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section id="s10">
+      <span class="secnum">Section 10</span>
+      <h2>Nonhomogeneous: variation of parameters</h2>
+      <p class="intro">When \(g(x)\) is not a nice exponential/polynomial/sinusoid (say \(\sec x\) or \(\ln x\)), undetermined coefficients fails. Variation of parameters always works — at the cost of two integrals.</p>
+
+      <div class="fcard"><div class="lab">The formula</div>
+        <div class="math">\[ y_p=-y_1\!\int\frac{y_2\,g}{W}\,dx + y_2\!\int\frac{y_1\,g}{W}\,dx,\qquad W=W(y_1,y_2). \]</div>
+        <div class="note">Here \(y_1,y_2\) are a fundamental set of the homogeneous equation, \(g\) is the right side in standard form (coefficient of \(y''\) equal to 1), and \(W\) is their Wronskian.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — deriving variation of parameters</span>
+        <ol>
+          <li>Replace the constants in \(y_h=c_1y_1+c_2y_2\) by functions: seek \(y_p=u_1 y_1+u_2 y_2\).</li>
+          <li>Two unknowns need two equations. Impose the convenient constraint \(u_1'y_1+u_2'y_2=0\) (it kills extra terms in \(y_p'\)).</li>
+          <li>Substituting \(y_p\) into \(y''+py'+qy=g\) and using that \(y_1,y_2\) solve the homogeneous equation leaves the second equation: <span class="mq">\[ u_1'y_1'+u_2'y_2'=g. \]</span></li>
+          <li>Solve the 2×2 linear system for \(u_1',u_2'\) by Cramer's rule: <span class="mq">\[ u_1'=-\frac{y_2\,g}{W},\qquad u_2'=\frac{y_1\,g}{W}. \]</span></li>
+          <li>Integrate to get \(u_1,u_2\), giving the boxed formula.</li>
+        </ol>
+        <div class="qed">The Wronskian in the denominator is the determinant of that very linear system — Section 7 reappears.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — applying it to \(y''+y=\sec x\)</span>
+        <ol>
+          <li>Homogeneous: \(y_1=\cos x,\ y_2=\sin x\), with \(W=\cos^2x+\sin^2x=1\).</li>
+          <li>Then \(u_1'=-\dfrac{\sin x\sec x}{1}=-\tan x\Rightarrow u_1=\ln|\cos x|\), and \(u_2'=\dfrac{\cos x\sec x}{1}=1\Rightarrow u_2=x\).</li>
+          <li>Assemble \(y_p=u_1\cos x+u_2\sin x\): <span class="mq">\[ y_p=\cos x\,\ln|\cos x|+x\sin x. \]</span></li>
+          <li>General solution: <span class="mq">\[ y=c_1\cos x+c_2\sin x+\cos x\,\ln|\cos x|+x\sin x. \]</span></li>
+        </ol>
+        <div class="qed">No finite guess could have produced the \(\ln|\cos x|\) term — variation of parameters is the universal method.</div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section id="s11">
+      <span class="secnum">Section 11</span>
+      <h2>Applications: mechanical &amp; electrical vibrations, resonance</h2>
+      <p class="intro">The same constant-coefficient equation \(my''+cy'+ky=F(t)\) governs a mass on a spring and a series RLC circuit. One piece of mathematics, two physical worlds.</p>
+
+      <div class="fcard"><div class="lab">The vibration equation &amp; its analogs</div>
+        <div class="math">\[ m y'' + c y' + k y = F(t)\qquad\Longleftrightarrow\qquad L q'' + R q' + \tfrac1C q = E(t). \]</div>
+        <div class="note">mass \(m\leftrightarrow\) inductance \(L\); damping \(c\leftrightarrow\) resistance \(R\); stiffness \(k\leftrightarrow\) inverse capacitance \(1/C\); displacement \(y\leftrightarrow\) charge \(q\).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Damping regimes (free, \(F=0\))</div>
+        <div class="math">\[ \omega_0=\sqrt{k/m};\quad c^2-4mk>0:\text{ overdamped},\ =0:\text{ critically damped},\ <0:\text{ underdamped}. \]</div>
+        <div class="note">Underdamped motion is a decaying oscillation \(e^{-(c/2m)t}\cos(\omega_d t-\phi)\); the three regimes are precisely the three discriminant cases of Section 8.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — pure resonance</span>
+        <ol>
+          <li>Undamped, driven at the natural frequency: \(y''+\omega_0^2 y=F_0\cos\omega_0 t\). Homogeneous solution: \(c_1\cos\omega_0 t+c_2\sin\omega_0 t\).</li>
+          <li>The driving term \(\cos\omega_0 t\) <em>already</em> solves the homogeneous equation, so by the modification rule guess \(y_p=t(A\cos\omega_0 t+B\sin\omega_0 t)\).</li>
+          <li>Substituting and matching gives <span class="mq">\[ y_p=\frac{F_0}{2\omega_0}\,t\,\sin\omega_0 t. \]</span></li>
+          <li>The factor \(t\) means the amplitude grows without bound: <strong>resonance</strong>.</li>
+        </ol>
+        <div class="qed">Driving a system at its natural frequency feeds energy in step every cycle — the bridge-and-soldiers, wineglass-shattering effect.</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — resonance is the repeated-root \(x\) again</span><p>The runaway \(t\sin\omega_0 t\) is the same mechanism as the \(xe^{rx}\) of a double characteristic root: when the forcing frequency hits the natural one, the would-be solution degenerates and \(t\) appears to restore independence. Adding even a little damping \(c>0\) shifts the roots off the imaginary axis and caps the amplitude.</p></div>
+    </section>
+
+    <!-- ===================== PART C ===================== -->
+    <div class="part">Part C · Systems, transforms &amp; series</div>
+
+    <!-- 12 -->
+    <section id="s12">
+      <span class="secnum">Section 12</span>
+      <h2>Systems of linear ODEs: the eigenvalue method &amp; phase plane</h2>
+      <p class="intro">Coupled equations, and any higher-order equation, become a single vector equation \(\mathbf{x}'=A\mathbf{x}\). Its solutions are read straight off the eigenvalues and eigenvectors of \(A\).</p>
+
+      <div class="fcard"><div class="lab">The eigenvalue method</div>
+        <div class="math">\[ \mathbf{x}'=A\mathbf{x},\quad \text{try } \mathbf{x}=\mathbf{v}\,e^{\lambda t}\ \Rightarrow\ A\mathbf{v}=\lambda\mathbf{v}. \]</div>
+        <div class="math">\[ \mathbf{x}(t)=c_1\mathbf{v}_1 e^{\lambda_1 t}+c_2\mathbf{v}_2 e^{\lambda_2 t}\quad(\text{distinct eigenvalues}). \]</div>
+        <div class="note">Eigenvalues \(\lambda\) solve \(\det(A-\lambda I)=0\); each eigenvector \(\mathbf v\) gives a straight-line solution. Complex \(\lambda\) give spirals; repeated \(\lambda\) need a generalized eigenvector.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Phase-plane classification by eigenvalues</div>
+        <div class="math">\[ \lambda_1,\lambda_2<0:\text{ stable node};\quad >0:\text{ unstable node};\quad \text{opposite signs}:\text{ saddle}. \]</div>
+        <div class="math">\[ \lambda=\alpha\pm\beta i:\ \alpha<0\ \text{stable spiral},\ \alpha>0\ \text{unstable spiral},\ \alpha=0\ \text{center}. \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — solving a 2×2 system</span>
+        <ol>
+          <li>Solve \(\mathbf{x}'=\begin{pmatrix}1&2\\2&1\end{pmatrix}\mathbf{x}\). Characteristic: \(\det(A-\lambda I)=(1-\lambda)^2-4=0\Rightarrow \lambda=3,\,-1\).</li>
+          <li>For \(\lambda=3\): \((A-3I)\mathbf v=0\) gives \(\begin{pmatrix}-2&2\\2&-2\end{pmatrix}\mathbf v=0\), so \(\mathbf v_1=\begin{pmatrix}1\\1\end{pmatrix}\).</li>
+          <li>For \(\lambda=-1\): \(\begin{pmatrix}2&2\\2&2\end{pmatrix}\mathbf v=0\), so \(\mathbf v_2=\begin{pmatrix}1\\-1\end{pmatrix}\).</li>
+          <li>General solution: <span class="mq">\[ \mathbf{x}(t)=c_1\begin{pmatrix}1\\1\end{pmatrix}e^{3t}+c_2\begin{pmatrix}1\\-1\end{pmatrix}e^{-t}. \]</span></li>
+        </ol>
+        <div class="qed">Opposite-sign eigenvalues \(\Rightarrow\) a <strong>saddle</strong>: trajectories rush in along \(\mathbf v_2\) and out along \(\mathbf v_1\).</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — second-order = a 2D system</span><p>Setting \(x_1=y,\ x_2=y'\) turns \(y''+by'+cy=0\) into \(\mathbf{x}'=\begin{pmatrix}0&1\\-c&-b\end{pmatrix}\mathbf{x}\). The characteristic polynomial of this matrix is exactly \(r^2+br+c\) from Section 8 — the eigenvalue method and the characteristic equation are the same computation.</p></div>
+    </section>
+
+    <!-- 13 -->
+    <section id="s13">
+      <span class="secnum">Section 13</span>
+      <h2>The Laplace transform</h2>
+      <p class="intro">A transform that turns calculus into algebra: derivatives become multiplication, and differential equations become equations you can solve by hand, then invert.</p>
+
+      <div class="fcard"><div class="lab">Definition &amp; the key property</div>
+        <div class="math">\[ \mathcal{L}\{f(t)\}=F(s)=\int_0^\infty e^{-st}f(t)\,dt. \]</div>
+        <div class="math">\[ \mathcal{L}\{f'\}=sF(s)-f(0),\qquad \mathcal{L}\{f''\}=s^2F(s)-sf(0)-f'(0). \]</div>
+        <div class="note">The derivative rule bakes the initial conditions in from the start — that is the whole point.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — computing \(\mathcal{L}\{e^{at}\}\) from the definition</span>
+        <ol>
+          <li>Apply the definition: <span class="mq">\[ \mathcal{L}\{e^{at}\}=\int_0^\infty e^{-st}e^{at}\,dt=\int_0^\infty e^{-(s-a)t}\,dt. \]</span></li>
+          <li>Integrate, assuming \(s>a\) so the exponential decays: <span class="mq">\[ =\left[\frac{-1}{s-a}e^{-(s-a)t}\right]_0^\infty=0-\left(\frac{-1}{s-a}\right). \]</span></li>
+          <li>Therefore <span class="mq">\[ \mathcal{L}\{e^{at}\}=\frac{1}{s-a},\quad s>a. \]</span></li>
+        </ol>
+        <div class="qed">Setting \(a=0\) recovers \(\mathcal{L}\{1\}=1/s\). The same definite integral builds the whole table below.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Transform table</div>
+        <table class="tbl">
+          <tr><th>\(f(t)\)</th><th>\(F(s)=\mathcal{L}\{f\}\)</th><th>Region</th></tr>
+          <tr><td>\(1\)</td><td>\(\dfrac1s\)</td><td>\(s>0\)</td></tr>
+          <tr><td>\(t^n\)</td><td>\(\dfrac{n!}{s^{n+1}}\)</td><td>\(s>0\)</td></tr>
+          <tr><td>\(e^{at}\)</td><td>\(\dfrac{1}{s-a}\)</td><td>\(s>a\)</td></tr>
+          <tr><td>\(\cos\omega t\)</td><td>\(\dfrac{s}{s^2+\omega^2}\)</td><td>\(s>0\)</td></tr>
+          <tr><td>\(\sin\omega t\)</td><td>\(\dfrac{\omega}{s^2+\omega^2}\)</td><td>\(s>0\)</td></tr>
+          <tr><td>\(e^{at}f(t)\)</td><td>\(F(s-a)\)</td><td>shift</td></tr>
+          <tr><td>\(u_c(t)\,f(t-c)\)</td><td>\(e^{-cs}F(s)\)</td><td>step shift</td></tr>
+          <tr><td>\(\delta(t-c)\)</td><td>\(e^{-cs}\)</td><td>impulse</td></tr>
+          <tr><td>\(t\,f(t)\)</td><td>\(-F'(s)\)</td><td>—</td></tr>
+          <tr><td>\((f*g)(t)\)</td><td>\(F(s)\,G(s)\)</td><td>convolution</td></tr>
+        </table>
+      </div>
+      <div class="rel"><span class="tag">Connection — linearity &amp; partial fractions return</span><p>Like integration, the Laplace transform is <strong>linear</strong>: \(\mathcal{L}\{af+bg\}=aF+bG\). Inverting almost always means splitting a rational \(F(s)\) by partial fractions until each piece matches a table row — the same algebra used for the logistic integral in Section 6.</p></div>
+    </section>
+
+    <!-- 14 -->
+    <section id="s14">
+      <span class="secnum">Section 14</span>
+      <h2>Solving initial-value problems with Laplace; step &amp; impulse inputs</h2>
+      <p class="intro">The transform's reason for existing: solve an IVP in three moves — transform, solve the algebra for \(Y(s)\), invert. It shines exactly where other methods struggle: discontinuous and impulsive forcing.</p>
+
+      <div class="fcard"><div class="lab">Step and impulse functions</div>
+        <div class="math">\[ u_c(t)=\begin{cases}0,&t<c\\ 1,&t\ge c\end{cases},\qquad \mathcal{L}\{u_c\}=\frac{e^{-cs}}{s},\qquad \mathcal{L}\{\delta(t-c)\}=e^{-cs}. \]</div>
+        <div class="note">\(u_c\) switches a forcing term on at \(t=c\); the Dirac delta \(\delta\) models an instantaneous kick (a hammer blow, a voltage spike).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — solving an IVP by Laplace</span>
+        <ol>
+          <li>Solve \(y''+y=0,\ y(0)=0,\ y'(0)=1\). Transform termwise using the derivative rules: <span class="mq">\[ \big(s^2 Y - s\cdot0 - 1\big) + Y = 0. \]</span></li>
+          <li>Solve the algebra for \(Y(s)\): <span class="mq">\[ (s^2+1)Y=1\ \Rightarrow\ Y=\frac{1}{s^2+1}. \]</span></li>
+          <li>Invert via the table (\(\sin t\) row with \(\omega=1\)): <span class="mq">\[ y(t)=\sin t. \]</span></li>
+        </ol>
+        <div class="qed">No homogeneous-plus-particular bookkeeping: the initial data entered automatically at step 1.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — an impulse input</span>
+        <ol>
+          <li>Solve \(y''+y=\delta(t-\pi),\ y(0)=0,\ y'(0)=0\). Transform: \((s^2+1)Y=e^{-\pi s}\), so \(Y=\dfrac{e^{-\pi s}}{s^2+1}\).</li>
+          <li>Recognize \(\dfrac{1}{s^2+1}\leftrightarrow \sin t\), and the factor \(e^{-\pi s}\) is a time shift by \(\pi\): <span class="mq">\[ y(t)=u_\pi(t)\,\sin(t-\pi). \]</span></li>
+          <li>So the system stays at rest until \(t=\pi\), then oscillates: the kick sets it ringing.</li>
+        </ol>
+        <div class="qed">Discontinuous and impulsive inputs are routine for Laplace and awkward for every method in Part B.</div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section id="s15">
+      <span class="secnum">Section 15</span>
+      <h2>Series solutions &amp; the method of Frobenius</h2>
+      <p class="intro">When coefficients are variable (\(p,q\) functions of \(x\)), there may be no elementary solution. We build one as a power series, determining its coefficients one recurrence at a time.</p>
+
+      <div class="fcard"><div class="lab">Power-series solution about an ordinary point</div>
+        <div class="math">\[ y=\sum_{n=0}^\infty a_n (x-x_0)^n,\qquad y'=\sum_{n\ge1} n a_n x^{n-1},\ \ y''=\sum_{n\ge2} n(n-1)a_n x^{n-2}. \]</div>
+        <div class="note">An <strong>ordinary point</strong> is where \(p,q\) are analytic. Substitute, align powers, and force the coefficient of each \(x^n\) to zero to get a recurrence for the \(a_n\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — series solution of \(y'=y\)</span>
+        <ol>
+          <li>Assume \(y=\sum_{n\ge0}a_n x^n\), so \(y'=\sum_{n\ge1} n a_n x^{n-1}=\sum_{n\ge0}(n+1)a_{n+1}x^{n}\).</li>
+          <li>Set \(y'=y\) coefficient by coefficient: \((n+1)a_{n+1}=a_n\), the recurrence <span class="mq">\[ a_{n+1}=\frac{a_n}{n+1}. \]</span></li>
+          <li>Iterating from \(a_0\): \(a_n=\dfrac{a_0}{n!}\). Hence <span class="mq">\[ y=a_0\sum_{n\ge0}\frac{x^n}{n!}=a_0 e^{x}. \]</span></li>
+        </ol>
+        <div class="qed">The series machinery rediscovers \(e^x\) — reassuring, and the method works when no closed form exists (Airy, Hermite, Bessel).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Frobenius: regular singular points</div>
+        <div class="math">\[ y=x^{r}\sum_{n=0}^\infty a_n x^{n},\qquad \text{indicial equation}\ r(r-1)+p_0 r+q_0=0. \]</div>
+        <div class="note">At a <strong>regular singular point</strong>, prepend the factor \(x^r\). The two roots \(r\) of the indicial equation give the leading behavior; they generate Bessel and Legendre functions, central to physics.</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — this is the Taylor series, solved for</span><p>A power-series solution is just a Taylor series whose coefficients are unknown until the ODE pins them down. Differentiating a series term-by-term — legitimate inside its radius of convergence — is the calculus that makes the recurrence possible.</p></div>
+    </section>
+
+    <!-- 16 -->
+    <section id="s16">
+      <span class="secnum">Section 16</span>
+      <h2>Numerical methods: Euler, improved Euler &amp; Runge–Kutta</h2>
+      <p class="intro">Most differential equations cannot be solved in closed form. Numerical methods march the solution forward in small steps, trading exactness for universality.</p>
+
+      <div class="fcard"><div class="lab">The three workhorse schemes</div>
+        <div class="math">\[ \textbf{Euler:}\quad y_{n+1}=y_n+h\,f(x_n,y_n). \]</div>
+        <div class="math">\[ \textbf{Improved (Heun):}\quad y_{n+1}=y_n+\tfrac{h}{2}\big[f(x_n,y_n)+f(x_{n+1},\,y_n+hf(x_n,y_n))\big]. \]</div>
+        <div class="math">\[ \textbf{RK4:}\quad y_{n+1}=y_n+\tfrac{h}{6}\big(k_1+2k_2+2k_3+k_4\big). \]</div>
+        <div class="note">Local error per step: Euler \(O(h^2)\), Heun \(O(h^3)\), RK4 \(O(h^5)\) — so RK4 is far more accurate for the same step.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — Euler is the tangent-line approximation</span><p>At each point the slope field gives a direction \(f(x_n,y_n)\); Euler simply steps a distance \(h\) along that tangent line and repeats. It is the linear approximation \(y(x+h)\approx y(x)+hy'(x)\) iterated — accurate for small \(h\), drifting for large \(h\).</p></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — one Euler-method table</span>
+        <ol>
+          <li>Approximate \(y'=x+y,\ y(0)=1\) on \([0,0.3]\) with step \(h=0.1\). Update rule: \(y_{n+1}=y_n+0.1\,(x_n+y_n)\).</li>
+          <li>Step through:
+            <span class="mq">\[
+            \begin{array}{c|c|c|c}
+            n & x_n & y_n & f=x_n+y_n\\\hline
+            0 & 0.0 & 1.0000 & 1.0000\\
+            1 & 0.1 & 1.1000 & 1.2000\\
+            2 & 0.2 & 1.2200 & 1.4200\\
+            3 & 0.3 & 1.3620 & \\
+            \end{array}
+            \]</span>
+          </li>
+          <li>Each row: \(y_{n+1}=y_n+0.1\,f\). E.g. \(y_1=1+0.1(1.0)=1.10\); \(y_2=1.10+0.1(1.20)=1.22\); \(y_3=1.22+0.1(1.42)=1.362\).</li>
+          <li>The exact solution is \(y=2e^{x}-x-1\), giving \(y(0.3)=2e^{0.3}-1.3\approx1.3997\). Euler's \(1.3620\) trails it — the truncation error.</li>
+        </ol>
+        <div class="qed">Halving \(h\) roughly halves Euler's error; RK4 would nail \(y(0.3)\) to several digits in the same three steps.</div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section id="s17">
+      <span class="secnum">Section 17</span>
+      <h2>A first look at PDEs &amp; Fourier series</h2>
+      <p class="intro">When a quantity varies in both space and time — temperature along a rod, a vibrating string — its law is a partial differential equation. Separation of variables reduces it to ODEs, and Fourier series stitch the pieces back together.</p>
+
+      <div class="fcard"><div class="lab">The three classic linear PDEs</div>
+        <div class="math">\[ \textbf{Heat:}\ u_t=\alpha\,u_{xx},\qquad \textbf{Wave:}\ u_{tt}=c^2 u_{xx},\qquad \textbf{Laplace:}\ u_{xx}+u_{yy}=0. \]</div>
+        <div class="note">Heat (diffusion) smooths data over time; wave propagates it; Laplace describes steady states.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — separating variables in the heat equation</span>
+        <ol>
+          <li>Seek a product solution \(u(x,t)=X(x)\,T(t)\) for \(u_t=\alpha u_{xx}\). Substitute: <span class="mq">\[ X T' = \alpha X'' T. \]</span></li>
+          <li>Divide by \(\alpha X T\) to separate the variables: <span class="mq">\[ \frac{T'}{\alpha T}=\frac{X''}{X}. \]</span></li>
+          <li>The left side depends only on \(t\), the right only on \(x\); equal functions of independent variables must be a constant \(-\lambda\): <span class="mq">\[ \frac{X''}{X}=-\lambda,\qquad \frac{T'}{\alpha T}=-\lambda. \]</span></li>
+          <li>This yields two ODEs — \(X''+\lambda X=0\) and \(T'+\alpha\lambda T=0\) — solved by the methods of Part B: <span class="mq">\[ X_n=\sin\!\Big(\frac{n\pi x}{L}\Big),\qquad T_n=e^{-\alpha(n\pi/L)^2 t}. \]</span></li>
+        </ol>
+        <div class="qed">Boundary conditions \(u(0,t)=u(L,t)=0\) force \(\lambda=(n\pi/L)^2\): the allowed modes are quantized.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Fourier series: building the full solution</div>
+        <div class="math">\[ f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty\!\Big(a_n\cos\frac{n\pi x}{L}+b_n\sin\frac{n\pi x}{L}\Big),\quad b_n=\frac{2}{L}\!\int_0^L f(x)\sin\frac{n\pi x}{L}\,dx. \]</div>
+        <div class="note">Superpose the modes \(X_n T_n\) and choose the coefficients \(b_n\) (the Fourier coefficients of the initial temperature) so the sum matches \(u(x,0)=f(x)\).</div>
+      </div>
+      <div class="rel"><span class="tag">Connection — orthogonality, the inner product of functions</span><p>The coefficient formula works because \(\int_0^L \sin\frac{m\pi x}{L}\sin\frac{n\pi x}{L}\,dx=0\) for \(m\ne n\): the sines are <strong>orthogonal</strong>, like perpendicular basis vectors. Fourier series are the eigenfunction expansion of Section 12 carried into infinite dimensions — linear algebra, integration, and differential equations meeting in one idea.</p></div>
+    </section>
+
+    <footer>
+      A first course in differential equations — first-order methods, the full second-order linear theory, systems and the phase plane, the Laplace transform, series solutions, numerics, and a gateway to PDEs and Fourier analysis. Every method is demonstrated on a worked example, and the threads back to integration and linear algebra are made explicit. Read once for the architecture; return to any box as a reference. Remember: solving a differential equation is always reducing it to integrations you can do.
+    </footer>
+  </main>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+<script>
+(function(){
+  var input=document.getElementById('gsearch-input');
+  if(!input) return;
+  var countEl=document.getElementById('gsearch-count');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var parts=Array.prototype.slice.call(document.querySelectorAll('main .part'));
+  var links={};
+  Array.prototype.forEach.call(document.querySelectorAll('nav#nav a[href^="#"]'),function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  function run(){
+    var q=input.value.trim().toLowerCase(), shown=0;
+    sections.forEach(function(sec){
+      var match=!q||sec.textContent.toLowerCase().indexOf(q)>-1;
+      sec.classList.toggle('gs-hidden',!match);
+      var a=links[sec.id]; if(a) a.style.display=match?'':'none';
+      if(match) shown++;
+    });
+    parts.forEach(function(p){p.style.display=q?'none':'';});
+    countEl.textContent=q?(shown+' section'+(shown===1?'':'s')+' match “'+input.value.trim()+'”'):'';
+  }
+  input.addEventListener('input',run);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==input){e.preventDefault();input.focus();}
+    if(e.key==='Escape'){input.value='';run();input.blur();}
+  });
+})();
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Math Guides · Calculus &amp; Statistics</title>
+<title>Math Guides · A Calculus Curriculum</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 
   header h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2.4rem,6vw,4rem); line-height:.96; letter-spacing:-.02em; margin:0 0 8px; color:var(--ink);}
   header h1 em{font-style:italic; color:var(--amber); font-weight:500;}
-  header p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:62ch; margin:14px 0 0;}
+  header p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:64ch; margin:14px 0 0;}
   .rule{height:3px; width:90px; background:var(--amber); margin:24px 0 0; border-radius:3px;}
 
   /* ---- search ---- */
@@ -43,15 +43,36 @@
   .search kbd{font-family:"Fraunces",serif; font-size:.7rem; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:6px; padding:2px 7px; white-space:nowrap;}
   .count{font-size:.85rem; color:var(--ink-soft); margin-top:9px; font-style:italic;}
 
+  .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.82rem; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin:44px 0 4px;}
+  .grp + .grpsub{color:var(--ink-soft); font-style:italic; font-size:.95rem; margin:0 0 14px;}
+
+  /* ---- learning path ---- */
+  .path{border-left:2px solid var(--line); margin:8px 0 0 6px; padding-left:0;}
+  a.step{display:flex; gap:16px; text-decoration:none; color:inherit; padding:14px 16px 14px 0; position:relative; border-radius:0 12px 12px 0; transition:.15s;}
+  a.step:hover{background:#fffdf7;}
+  a.step .dot{flex:0 0 auto; width:34px; height:34px; margin-left:-18px; background:var(--blue); color:var(--paper); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:"Fraunces",serif; font-weight:600; font-size:.95rem; box-shadow:0 2px 6px var(--shadow);}
+  a.step.cap .dot{background:var(--plum);}
+  a.step .body h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--blue); margin:2px 0 2px; letter-spacing:-.01em;}
+  a.step .body p{margin:0; font-size:.95rem; color:var(--ink-soft);}
+  a.step .body .where{font-size:.78rem; color:var(--amber); font-family:"Fraunces",serif; font-weight:600; text-transform:uppercase; letter-spacing:.06em;}
+  .lvl{display:inline-block; font-size:.68rem; font-family:"Fraunces",serif; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:1px 9px; margin-left:8px; vertical-align:middle;}
+
+  /* ---- topic grid ---- */
+  .topics{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:6px;}
+  a.topic{display:block; text-decoration:none; color:inherit; background:#fffdf7; border:1px solid var(--line); border-radius:11px; padding:13px 16px; transition:.15s;}
+  a.topic:hover{transform:translateY(-2px); box-shadow:0 6px 16px var(--shadow); border-color:var(--blue-soft);}
+  a.topic .t{font-family:"Fraunces",serif; font-weight:600; color:var(--blue); font-size:1.02rem;}
+  a.topic .d{font-size:.82rem; color:var(--ink-soft); margin-top:2px;}
+
   /* ---- guide cards ---- */
-  .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin:38px 0 12px;}
-  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px; margin-top:6px;}
   a.card{display:block; text-decoration:none; color:inherit; background:linear-gradient(180deg,#fffdf7,#f7f0e1); border:1px solid var(--line); border-radius:14px; padding:22px 24px; box-shadow:0 2px 10px var(--shadow); transition:.16s;}
   a.card:hover{transform:translateY(-3px); box-shadow:0 8px 22px var(--shadow); border-color:var(--blue-soft);}
   a.card .kicker{font-family:"Fraunces",serif; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; font-weight:600; margin-bottom:6px;}
   a.card.cal .kicker{color:var(--amber);}
   a.card.sta .kicker{color:var(--plum);}
   a.card.ref .kicker{color:var(--teal);}
+  a.card.top .kicker{color:var(--blue-soft);}
   a.card h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.35rem; line-height:1.1; color:var(--blue); margin:0 0 8px; letter-spacing:-.01em;}
   a.card p{margin:0; font-size:.96rem; color:var(--ink-soft);}
   a.card .meta{margin-top:12px; font-size:.8rem; color:var(--ink-soft); font-style:italic;}
@@ -63,10 +84,11 @@
   a.res{display:flex; align-items:baseline; gap:12px; text-decoration:none; color:inherit; padding:11px 18px; border-top:1px solid var(--line);}
   a.res:first-child{border-top:none;}
   a.res:hover{background:#f7f0e1;}
-  a.res .tag{flex:0 0 auto; font-family:"Fraunces",serif; font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; border-radius:20px; padding:2px 10px; border:1px solid var(--line);}
+  a.res .tag{flex:0 0 auto; font-family:"Fraunces",serif; font-size:.66rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; border-radius:20px; padding:2px 9px; border:1px solid var(--line); min-width:84px; text-align:center;}
   a.res .tag.cal{color:var(--amber); background:#f7ecda;}
   a.res .tag.sta{color:var(--plum); background:#f3eaf0;}
   a.res .tag.ref{color:var(--teal); background:#e9f3f1;}
+  a.res .tag.top{color:var(--blue); background:#e7edf4;}
   a.res .title{font-size:1rem; color:var(--ink);}
   a.res .where{margin-left:auto; flex:0 0 auto; font-size:.8rem; color:var(--ink-soft); font-style:italic;}
   mark{background:#f6d99b; color:inherit; border-radius:3px; padding:0 1px;}
@@ -75,21 +97,21 @@
 
   footer{margin-top:54px; padding-top:22px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.9rem; font-style:italic;}
   footer code{font-family:"Fraunces",serif; background:var(--paper-2); border:1px solid var(--line); border-radius:5px; padding:1px 6px; font-size:.82rem;}
-  @media(max-width:560px){ a.res .where{display:none;} }
+  @media(max-width:560px){ a.res .where{display:none;} a.res .tag{min-width:0;} }
 </style>
 </head>
 <body>
 <div class="container">
   <header>
-    <h1>Math Guides, <em>connected.</em></h1>
-    <p class="lede">A small library of illustrated references for <strong>calculus</strong> and <strong>statistics</strong> — every formula stated cleanly, demonstrated where it comes from, and linked to the ideas around it. Search across every section below, or open a full guide.</p>
+    <h1>Mathematics, <em>from starter to expertise.</em></h1>
+    <p class="lede">An illustrated, self-contained library — every idea stated cleanly, demonstrated where it comes from, and linked to the ideas around it. Each subject has a <strong>learning path</strong> to follow in order and a <strong>topic</strong> index to jump around; search runs across every section of every guide at once.</p>
     <div class="rule"></div>
   </header>
 
   <div class="toolbar">
     <div class="search">
       <span class="ico">🔍</span>
-      <input id="search" type="text" placeholder="Search every guide…  (e.g. chain rule / Bayes / 导数 / Taylor series)" autocomplete="off" autofocus>
+      <input id="search" type="text" placeholder="Search every guide…  (e.g. chain rule / gradient / compact / fundamental group / 紧性)" autocomplete="off" autofocus>
       <kbd>/</kbd>
     </div>
     <div class="count" id="count"></div>
@@ -97,29 +119,132 @@
 
   <div id="results">
     <div class="reslist" id="reslist"></div>
-    <div class="noresult" id="noresult">No matching topics — try another word, or browse the guides below.</div>
+    <div class="noresult" id="noresult">No matching topics — try another word, or browse the path below.</div>
   </div>
 
   <div id="hideOnSearch">
-    <div class="grp">Calculus</div>
+
+    <!-- ================= CALCULUS ================= -->
+    <div class="grp">Calculus · the learning path</div>
+    <div class="grpsub">Nine steps from precalculus to graduate-level rigor. Each links straight into the relevant guide.</div>
+    <div class="path">
+      <a class="step" href="calculus/complete-guide.html#s1">
+        <span class="dot">0</span>
+        <span class="body"><span class="where">Foundations</span><span class="lvl">Starter</span>
+          <h3>Functions, lines &amp; trigonometry</h3>
+          <p>The precalculus toolkit every later idea leans on: functions and graphs, lines, and the trig you'll differentiate.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s3">
+        <span class="dot">1</span>
+        <span class="body"><span class="where">Calculus I</span><span class="lvl">Beginner</span>
+          <h3>Limits &amp; continuity</h3>
+          <p>The single idea under everything — letting a gap shrink to zero — made precise, then computed.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s6">
+        <span class="dot">2</span>
+        <span class="body"><span class="where">Calculus I</span><span class="lvl">Core</span>
+          <h3>Derivatives &amp; their uses</h3>
+          <p>The definition, every differentiation rule (each proven), then extrema, the MVT, curve sketching, optimization and L'Hôpital.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s14">
+        <span class="dot">3</span>
+        <span class="body"><span class="where">Calculus II</span><span class="lvl">Core</span>
+          <h3>Integrals &amp; their uses</h3>
+          <p>Riemann sums, the Fundamental Theorem, the integral table, every technique, improper &amp; numerical integration, volumes and arc length.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s23">
+        <span class="dot">4</span>
+        <span class="body"><span class="where">Calculus II</span><span class="lvl">Intermediate</span>
+          <h3>Sequences &amp; series</h3>
+          <p>Convergence tests, Taylor &amp; power series — rebuilding functions from their derivatives.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s26">
+        <span class="dot">5</span>
+        <span class="body"><span class="where">Calculus II</span><span class="lvl">Intermediate</span>
+          <h3>Parametric, polar &amp; complex</h3>
+          <p>Curves beyond \(y=f(x)\), polar coordinates, and complex numbers up to Euler's formula.</p></span>
+      </a>
+      <a class="step" href="calculus/multivariable-vector.html#s0">
+        <span class="dot">6</span>
+        <span class="body"><span class="where">Calculus III</span><span class="lvl">Advanced</span>
+          <h3>Multivariable &amp; vector calculus</h3>
+          <p>Partial derivatives, gradients, Lagrange multipliers, multiple integrals, and the great theorems: Green's, Stokes' and Divergence.</p></span>
+      </a>
+      <a class="step" href="calculus/differential-equations.html#s0">
+        <span class="dot">7</span>
+        <span class="body"><span class="where">Differential equations</span><span class="lvl">Advanced</span>
+          <h3>Differential equations</h3>
+          <p>First- and second-order ODEs, systems, the Laplace transform, series &amp; numerical methods — calculus turned into a modeling tool.</p></span>
+      </a>
+      <a class="step cap" href="calculus/analysis-foundations.html#s0">
+        <span class="dot">8</span>
+        <span class="body"><span class="where">Analysis</span><span class="lvl">Expertise</span>
+          <h3>Foundations of analysis</h3>
+          <p>The rigorous "why it all works": completeness, ε–δ, uniform convergence, the Riemann integral and the theorems behind every shortcut above.</p></span>
+      </a>
+    </div>
+
+    <!-- ================= BROWSE BY TOPIC ================= -->
+    <div class="grp">Calculus · browse by topic</div>
+    <div class="grpsub">Jump to a single idea, wherever it lives.</div>
+    <div class="topics">
+      <a class="topic" href="calculus/complete-guide.html#s3"><div class="t">Limits &amp; continuity</div><div class="d">the idea, ε–δ, computing</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s6"><div class="t">Derivatives</div><div class="d">rules, proofs, every function</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s10"><div class="t">Using derivatives</div><div class="d">extrema, MVT, optimization</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s14"><div class="t">Integrals</div><div class="d">FTC, table, techniques</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s22"><div class="t">Applications</div><div class="d">volumes, arc length, area</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s24"><div class="t">Series</div><div class="d">convergence, Taylor, power</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s26"><div class="t">Parametric &amp; polar</div><div class="d">curves &amp; coordinates</div></a>
+      <a class="topic" href="calculus/multivariable-vector.html#s5"><div class="t">Partial derivatives</div><div class="d">gradient, chain rule, Lagrange</div></a>
+      <a class="topic" href="calculus/multivariable-vector.html#s12"><div class="t">Multiple integrals</div><div class="d">double, triple, Jacobian</div></a>
+      <a class="topic" href="calculus/multivariable-vector.html#s18"><div class="t">Vector calculus</div><div class="d">Green's, Stokes', Divergence</div></a>
+      <a class="topic" href="calculus/differential-equations.html#s0"><div class="t">Differential equations</div><div class="d">ODEs, Laplace, systems</div></a>
+      <a class="topic" href="calculus/analysis-foundations.html#s0"><div class="t">Rigorous analysis</div><div class="d">ε–δ, proofs, convergence</div></a>
+      <a class="topic" href="calculus/glossary.html"><div class="t">Glossary EN↔中文</div><div class="d">300+ terms, searchable</div></a>
+    </div>
+
+    <!-- ================= ALL GUIDES ================= -->
+    <div class="grp">Calculus · core course</div>
     <div class="cards">
       <a class="card cal" href="calculus/complete-guide.html">
-        <div class="kicker">Complete course · 30 sections</div>
+        <div class="kicker">Single-variable · 30 sections</div>
         <h3>The Complete Companion</h3>
-        <p>A full single-variable course — concepts, principles, formulas and the demonstrations behind them. Chapter flow follows Banner's <em>Calculus Lifesaver</em>.</p>
-        <div class="meta">Foundations → limits → derivatives → integrals → series → ODEs</div>
+        <p>The full Calc I &amp; II course — concepts, formulas and the demonstrations behind them. Flow follows Banner's <em>Calculus Lifesaver</em>.</p>
+        <div class="meta">Foundations → limits → derivatives → integrals → series → parametric/polar/complex</div>
       </a>
+      <a class="card cal" href="calculus/multivariable-vector.html">
+        <div class="kicker">Calculus III · 28 sections</div>
+        <h3>Multivariable &amp; Vector Calculus</h3>
+        <p>Partial derivatives and gradients through multiple integrals to the great theorems of vector calculus.</p>
+        <div class="meta">Gradients · Lagrange · multiple integrals · Green's / Stokes' / Divergence</div>
+      </a>
+      <a class="card cal" href="calculus/differential-equations.html">
+        <div class="kicker">Advanced · 18 sections</div>
+        <h3>Differential Equations</h3>
+        <p>First- and second-order ODEs, systems, Laplace transforms, series and numerical methods.</p>
+        <div class="meta">Separable · linear · Laplace · eigenvalue systems · Runge–Kutta</div>
+      </a>
+      <a class="card cal" href="calculus/analysis-foundations.html">
+        <div class="kicker">Expertise · 14 sections</div>
+        <h3>Foundations of Analysis</h3>
+        <p>The rigorous theory beneath calculus — completeness, ε–δ, uniform convergence, the Riemann integral, proved.</p>
+        <div class="meta">For the "why it all works" capstone</div>
+      </a>
+    </div>
+
+    <div class="grp">Calculus · companions &amp; reference</div>
+    <div class="cards">
       <a class="card cal" href="calculus/derived-from-scratch.html">
         <div class="kicker">With proofs · 13 sections</div>
         <h3>Derived from Scratch</h3>
-        <p>Every core formula is demonstrated step by step — shown where it comes from, basics to advanced.</p>
-        <div class="meta">Best when you want the "why," not just the "what"</div>
+        <p>Every core single-variable formula demonstrated step by step — the "why," compactly.</p>
+        <div class="meta">A proof-first companion to the core course</div>
       </a>
       <a class="card cal" href="calculus/connected-map.html">
         <div class="kicker">Overview map · 13 sections</div>
         <h3>From the Ground Up</h3>
-        <p>A connected map of the whole subject: how each formula grows out of the limit and the one before it.</p>
-        <div class="meta">Best for a fast, big-picture read</div>
+        <p>A connected map of how each idea grows out of the limit and the one before it.</p>
+        <div class="meta">Best for a fast big-picture read</div>
       </a>
       <a class="card ref" href="calculus/glossary.html">
         <div class="kicker">Reference · EN ↔ 中文</div>
@@ -129,86 +254,344 @@
       </a>
     </div>
 
-    <div class="grp">Statistics</div>
+    <!-- ================= TOPOLOGY ================= -->
+    <div class="grp">Topology · the learning path</div>
+    <div class="grpsub">Nine steps from point-set foundations to algebraic topology. Each links straight into the relevant guide.</div>
+    <div class="path">
+      <a class="step" href="topology/general-topology.html#s1">
+        <span class="dot">0</span>
+        <span class="body"><span class="where">Foundations</span><span class="lvl">Starter</span>
+          <h3>Sets, functions &amp; metric spaces</h3>
+          <p>The set-theory toolkit and metric spaces — the concrete prototype where "nearness" first gets a definition.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s3">
+        <span class="dot">1</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Beginner</span>
+          <h3>Topological spaces</h3>
+          <p>Open sets as the primitive notion; basis &amp; subbasis; closure, interior and boundary.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s7">
+        <span class="dot">2</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Core</span>
+          <h3>Continuity &amp; constructions</h3>
+          <p>Continuous maps, homeomorphisms, and building new spaces: subspace, product and quotient topologies.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s10">
+        <span class="dot">3</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Core</span>
+          <h3>Connectedness &amp; compactness</h3>
+          <p>The two great topological properties — and what continuous maps do to them.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s16">
+        <span class="dot">4</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Intermediate</span>
+          <h3>Separation, countability &amp; metrization</h3>
+          <p>The T-axioms, countability, Urysohn's lemma and Tietze — leading to when a space is metrizable.</p></span>
+      </a>
+      <a class="step" href="topology/general-topology.html#s20">
+        <span class="dot">5</span>
+        <span class="body"><span class="where">Point-set</span><span class="lvl">Advanced</span>
+          <h3>Convergence &amp; completeness</h3>
+          <p>Nets &amp; filters for general convergence, complete metric spaces, and the Baire category theorem.</p></span>
+      </a>
+      <a class="step" href="topology/algebraic-topology.html#s0">
+        <span class="dot">6</span>
+        <span class="body"><span class="where">Algebraic</span><span class="lvl">Advanced</span>
+          <h3>Homotopy &amp; the fundamental group</h3>
+          <p>Deforming maps, \(\pi_1\), \(\pi_1(S^1)\cong\mathbb{Z}\), and Seifert–van Kampen.</p></span>
+      </a>
+      <a class="step" href="topology/algebraic-topology.html#s6">
+        <span class="dot">7</span>
+        <span class="body"><span class="where">Algebraic</span><span class="lvl">Advanced</span>
+          <h3>Covering spaces</h3>
+          <p>Lifting, the Galois-style correspondence with subgroups of \(\pi_1\), and the universal cover.</p></span>
+      </a>
+      <a class="step cap" href="topology/algebraic-topology.html#s9">
+        <span class="dot">8</span>
+        <span class="body"><span class="where">Algebraic</span><span class="lvl">Expertise</span>
+          <h3>Homology &amp; cohomology</h3>
+          <p>Simplicial/CW complexes, singular homology, exact sequences, Betti numbers and the cup product.</p></span>
+      </a>
+    </div>
+
+    <div class="grp">Topology · browse by topic</div>
+    <div class="grpsub">Jump to a single idea, wherever it lives.</div>
+    <div class="topics">
+      <a class="topic" href="topology/general-topology.html#s2"><div class="t">Metric spaces</div><div class="d">balls, convergence, the prototype</div></a>
+      <a class="topic" href="topology/general-topology.html#s3"><div class="t">Topological spaces</div><div class="d">open sets, basis, subbasis</div></a>
+      <a class="topic" href="topology/general-topology.html#s5"><div class="t">Closure &amp; interior</div><div class="d">boundary, limit points, dense</div></a>
+      <a class="topic" href="topology/general-topology.html#s7"><div class="t">Continuity</div><div class="d">maps &amp; homeomorphisms</div></a>
+      <a class="topic" href="topology/general-topology.html#s8"><div class="t">Product &amp; quotient</div><div class="d">building new spaces</div></a>
+      <a class="topic" href="topology/general-topology.html#s10"><div class="t">Connectedness</div><div class="d">components, path-connected</div></a>
+      <a class="topic" href="topology/general-topology.html#s12"><div class="t">Compactness</div><div class="d">covers, Heine–Borel, Tychonoff</div></a>
+      <a class="topic" href="topology/general-topology.html#s17"><div class="t">Separation axioms</div><div class="d">Hausdorff, regular, normal</div></a>
+      <a class="topic" href="topology/general-topology.html#s19"><div class="t">Metrization</div><div class="d">when is a space a metric space?</div></a>
+      <a class="topic" href="topology/general-topology.html#s20"><div class="t">Nets, filters &amp; Baire</div><div class="d">convergence &amp; completeness</div></a>
+      <a class="topic" href="topology/algebraic-topology.html#s2"><div class="t">Fundamental group</div><div class="d">\(\pi_1\), van Kampen</div></a>
+      <a class="topic" href="topology/algebraic-topology.html#s6"><div class="t">Covering spaces</div><div class="d">lifting, universal cover</div></a>
+      <a class="topic" href="topology/algebraic-topology.html#s10"><div class="t">Homology</div><div class="d">complexes, Betti, Euler χ</div></a>
+      <a class="topic" href="topology/glossary.html"><div class="t">Glossary EN↔中文</div><div class="d">topology terms, searchable</div></a>
+    </div>
+
+    <div class="grp">Topology · guides</div>
+    <div class="cards">
+      <a class="card top" href="topology/general-topology.html">
+        <div class="kicker">Point-set · 23 sections</div>
+        <h3>General Topology</h3>
+        <p>From metric spaces to topological spaces, continuity, connectedness and compactness, the separation axioms, metrization, and the Baire category theorem.</p>
+        <div class="meta">Open sets · compactness · Tychonoff · Urysohn · nets &amp; filters</div>
+      </a>
+      <a class="card top" href="topology/algebraic-topology.html">
+        <div class="kicker">Algebraic · 15 sections</div>
+        <h3>Algebraic Topology</h3>
+        <p>Homotopy and the fundamental group, covering spaces, and singular/simplicial homology and cohomology — turning spaces into algebra.</p>
+        <div class="meta">π₁ · van Kampen · covering spaces · homology · cup product</div>
+      </a>
+      <a class="card ref" href="topology/glossary.html">
+        <div class="kicker">Reference · EN ↔ 中文</div>
+        <h3>Topology Glossary</h3>
+        <p>A searchable English ↔ Simplified-Chinese term reference across point-set and algebraic topology.</p>
+        <div class="meta">拓扑学术语对照 · 250+ terms in 10 categories</div>
+      </a>
+    </div>
+
+    <!-- ================= STATISTICS ================= -->
+    <div class="grp">Statistics · the learning path</div>
+    <div class="grpsub">Nine steps from describing data to mathematical-statistics expertise. Each links straight into the relevant guide.</div>
+    <div class="path">
+      <a class="step" href="statistics/complete-guide.html#s1">
+        <span class="dot">0</span>
+        <span class="body"><span class="where">First course</span><span class="lvl">Starter</span>
+          <h3>Describing data</h3>
+          <p>Variables, sampling, center &amp; spread, shape and the z-score — the vocabulary the rest is built on.</p></span>
+      </a>
+      <a class="step" href="statistics/complete-guide.html#s4">
+        <span class="dot">1</span>
+        <span class="body"><span class="where">First course</span><span class="lvl">Beginner</span>
+          <h3>Probability basics</h3>
+          <p>The rules of chance, conditional probability and Bayes — the engine that lets a sample speak.</p></span>
+      </a>
+      <a class="step" href="statistics/complete-guide.html#s7">
+        <span class="dot">2</span>
+        <span class="body"><span class="where">First course</span><span class="lvl">Core</span>
+          <h3>Distributions &amp; the CLT</h3>
+          <p>Random variables, the common distributions, the Normal, and the Central Limit Theorem.</p></span>
+      </a>
+      <a class="step" href="statistics/complete-guide.html#s9">
+        <span class="dot">3</span>
+        <span class="body"><span class="where">First course</span><span class="lvl">Core</span>
+          <h3>Inference: intervals &amp; tests</h3>
+          <p>Standard error, confidence intervals, hypothesis testing and the common tests, with their pitfalls.</p></span>
+      </a>
+      <a class="step" href="statistics/probability.html#s0">
+        <span class="dot">4</span>
+        <span class="body"><span class="where">Probability</span><span class="lvl">Intermediate</span>
+          <h3>Probability theory</h3>
+          <p>Kolmogorov's axioms, random variables, moments &amp; MGFs, joint distributions and conditional expectation.</p></span>
+      </a>
+      <a class="step" href="statistics/probability.html#s14">
+        <span class="dot">5</span>
+        <span class="body"><span class="where">Probability</span><span class="lvl">Advanced</span>
+          <h3>Limit theorems</h3>
+          <p>Inequalities, modes of convergence, the Laws of Large Numbers and a proof of the CLT.</p></span>
+      </a>
+      <a class="step" href="statistics/inference.html#s0">
+        <span class="dot">6</span>
+        <span class="body"><span class="where">Inference</span><span class="lvl">Advanced</span>
+          <h3>Mathematical inference</h3>
+          <p>Likelihood, MLE, Fisher information &amp; Cramér–Rao, Neyman–Pearson and likelihood-ratio tests.</p></span>
+      </a>
+      <a class="step" href="statistics/regression.html#s0">
+        <span class="dot">7</span>
+        <span class="body"><span class="where">Regression</span><span class="lvl">Advanced</span>
+          <h3>Regression &amp; linear models</h3>
+          <p>Least squares in matrix form, the hat matrix, ANOVA, logistic regression and GLMs, regularization.</p></span>
+      </a>
+      <a class="step cap" href="statistics/inference.html#s13">
+        <span class="dot">8</span>
+        <span class="body"><span class="where">Inference</span><span class="lvl">Expertise</span>
+          <h3>Bayesian inference &amp; beyond</h3>
+          <p>Priors, posteriors &amp; conjugacy, credible intervals, the bootstrap, decision theory and asymptotics.</p></span>
+      </a>
+    </div>
+
+    <div class="grp">Statistics · browse by topic</div>
+    <div class="grpsub">Jump to a single idea, wherever it lives.</div>
+    <div class="topics">
+      <a class="topic" href="statistics/complete-guide.html#s2"><div class="t">Describing data</div><div class="d">center, spread, shape</div></a>
+      <a class="topic" href="statistics/probability.html#s1"><div class="t">Probability</div><div class="d">axioms, counting, rules</div></a>
+      <a class="topic" href="statistics/probability.html#s3"><div class="t">Bayes' theorem</div><div class="d">conditioning &amp; base rates</div></a>
+      <a class="topic" href="statistics/probability.html#s4"><div class="t">Random variables</div><div class="d">CDF, PMF, PDF</div></a>
+      <a class="topic" href="statistics/probability.html#s7"><div class="t">Distributions</div><div class="d">discrete &amp; continuous</div></a>
+      <a class="topic" href="statistics/probability.html#s16"><div class="t">Limit theorems</div><div class="d">LLN &amp; the CLT</div></a>
+      <a class="topic" href="statistics/inference.html#s5"><div class="t">Estimation</div><div class="d">MLE, method of moments</div></a>
+      <a class="topic" href="statistics/inference.html#s9"><div class="t">Confidence intervals</div><div class="d">pivots &amp; coverage</div></a>
+      <a class="topic" href="statistics/inference.html#s10"><div class="t">Hypothesis testing</div><div class="d">power, Neyman–Pearson</div></a>
+      <a class="topic" href="statistics/inference.html#s13"><div class="t">Bayesian inference</div><div class="d">priors, posteriors</div></a>
+      <a class="topic" href="statistics/regression.html#s1"><div class="t">Regression</div><div class="d">least squares, the hat matrix</div></a>
+      <a class="topic" href="statistics/regression.html#s8"><div class="t">ANOVA &amp; GLMs</div><div class="d">F-test, logistic, ridge/lasso</div></a>
+      <a class="topic" href="statistics/glossary.html"><div class="t">Glossary EN↔中文</div><div class="d">statistics terms, searchable</div></a>
+    </div>
+
+    <div class="grp">Statistics · core course</div>
     <div class="cards">
       <a class="card sta" href="statistics/complete-guide.html">
-        <div class="kicker">Complete course · 15 sections</div>
+        <div class="kicker">First course · 15 sections</div>
         <h3>The Complete Companion</h3>
-        <p>A first course in describing data, the probability beneath it, and the inference it powers — every core formula demonstrated.</p>
+        <p>Describing data, the probability beneath it, and the inference it powers — every core formula demonstrated.</p>
         <div class="meta">Describe → probability → distributions → inference → regression</div>
+      </a>
+      <a class="card sta" href="statistics/probability.html">
+        <div class="kicker">Probability · 19 sections</div>
+        <h3>Probability Theory</h3>
+        <p>Axioms through random variables, moments and joint distributions to the laws of large numbers and the CLT.</p>
+        <div class="meta">Kolmogorov · MGFs · convergence · LLN &amp; CLT</div>
+      </a>
+      <a class="card sta" href="statistics/inference.html">
+        <div class="kicker">Inference · 17 sections</div>
+        <h3>Statistical Inference</h3>
+        <p>Mathematical statistics: likelihood, MLE, Cramér–Rao, Neyman–Pearson, plus Bayesian &amp; nonparametric methods.</p>
+        <div class="meta">MLE · sufficiency · NP lemma · Bayesian · bootstrap</div>
+      </a>
+      <a class="card sta" href="statistics/regression.html">
+        <div class="kicker">Linear models · 14 sections</div>
+        <h3>Regression &amp; Linear Models</h3>
+        <p>Simple &amp; multiple regression in matrix form, ANOVA, logistic regression, GLMs and regularization.</p>
+        <div class="meta">Least squares · hat matrix · ANOVA · GLMs · ridge/lasso</div>
+      </a>
+    </div>
+
+    <div class="grp">Statistics · reference</div>
+    <div class="cards">
+      <a class="card ref" href="statistics/glossary.html">
+        <div class="kicker">Reference · EN ↔ 中文</div>
+        <h3>Statistics Glossary</h3>
+        <p>A searchable English ↔ Simplified-Chinese term reference across probability, inference and regression.</p>
+        <div class="meta">统计学术语对照 · 280+ terms in 10 categories</div>
       </a>
     </div>
   </div>
 
   <footer>
-    Open any guide directly, or serve the folder locally with <code>python3 -m http.server</code> and visit <code>localhost:8000</code>. Formulas render with KaTeX; an internet connection loads the fonts and math fonts.
+    Open any guide directly, or serve the folder with <code>python3 -m http.server</code> and visit <code>localhost:8000</code>. Formulas render with KaTeX; an internet connection loads the fonts. Inside each guide, press <code>/</code> to search its sections.
   </footer>
 </div>
 
 <script>
-  // Search index: every section of every guide, with deep links.
+  // Cross-guide search index: every section of every guide, with deep links.
+  // Columns: [category, guideLabel, file, anchor, title]
   const INDEX = [
-    // ---- Calculus · Complete Companion ----
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s0","The big picture"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s1","Functions, graphs & lines"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s2","Trigonometry review"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s3","Limits: the idea"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s4","Computing limits"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s5","Continuity & differentiability"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s6","Definition of the derivative"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s7","The differentiation rules, each proven"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s8","Derivatives of every function"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s9","Implicit differentiation & related rates"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s10","Extrema, Rolle & the Mean Value Theorem"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s11","Curve sketching"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s12","Optimization, linearization, Newton's method"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s13","L'Hôpital — every form"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s14","Sums, area & the integral"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s15","The definite integral"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s16","The Fundamental Theorem of Calculus"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s17","The integral table"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s18","Techniques I: substitution, parts, partial fractions"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s19","Techniques II: trig & reduction"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s20","Improper integrals"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s21","Numerical integration"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s22","Volumes, arc length, surface area"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s23","Sequences"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s24","Series & convergence tests"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s25","Taylor & power series"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s26","Parametric equations"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s27","Polar coordinates"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s28","Complex numbers & Euler's formula"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s29","Differential equations"],
+    // ---- Calculus · Complete Companion (Calc I & II) ----
+    ["cal","Complete","calculus/complete-guide.html","s0","The big picture"],
+    ["cal","Complete","calculus/complete-guide.html","s1","Functions, graphs & lines"],
+    ["cal","Complete","calculus/complete-guide.html","s2","Trigonometry review"],
+    ["cal","Complete","calculus/complete-guide.html","s3","Limits: the idea"],
+    ["cal","Complete","calculus/complete-guide.html","s4","Computing limits"],
+    ["cal","Complete","calculus/complete-guide.html","s5","Continuity & differentiability"],
+    ["cal","Complete","calculus/complete-guide.html","s6","Definition of the derivative"],
+    ["cal","Complete","calculus/complete-guide.html","s7","The differentiation rules, each proven"],
+    ["cal","Complete","calculus/complete-guide.html","s8","Derivatives of every function"],
+    ["cal","Complete","calculus/complete-guide.html","s9","Implicit differentiation & related rates"],
+    ["cal","Complete","calculus/complete-guide.html","s10","Extrema, Rolle & the Mean Value Theorem"],
+    ["cal","Complete","calculus/complete-guide.html","s11","Curve sketching"],
+    ["cal","Complete","calculus/complete-guide.html","s12","Optimization, linearization, Newton's method"],
+    ["cal","Complete","calculus/complete-guide.html","s13","L'Hôpital — every form"],
+    ["cal","Complete","calculus/complete-guide.html","s14","Sums, area & the integral"],
+    ["cal","Complete","calculus/complete-guide.html","s15","The definite integral"],
+    ["cal","Complete","calculus/complete-guide.html","s16","The Fundamental Theorem of Calculus"],
+    ["cal","Complete","calculus/complete-guide.html","s17","The integral table"],
+    ["cal","Complete","calculus/complete-guide.html","s18","Techniques I: substitution, parts, partial fractions"],
+    ["cal","Complete","calculus/complete-guide.html","s19","Techniques II: trig & reduction"],
+    ["cal","Complete","calculus/complete-guide.html","s20","Improper integrals"],
+    ["cal","Complete","calculus/complete-guide.html","s21","Numerical integration"],
+    ["cal","Complete","calculus/complete-guide.html","s22","Volumes, arc length, surface area"],
+    ["cal","Complete","calculus/complete-guide.html","s23","Sequences"],
+    ["cal","Complete","calculus/complete-guide.html","s24","Series & convergence tests"],
+    ["cal","Complete","calculus/complete-guide.html","s25","Taylor & power series"],
+    ["cal","Complete","calculus/complete-guide.html","s26","Parametric equations"],
+    ["cal","Complete","calculus/complete-guide.html","s27","Polar coordinates"],
+    ["cal","Complete","calculus/complete-guide.html","s28","Complex numbers & Euler's formula"],
+    ["cal","Complete","calculus/complete-guide.html","s29","Differential equations (intro)"],
+
+    // ---- Calculus · Multivariable & Vector (Calc III) ----
+    ["cal","Multivariable","calculus/multivariable-vector.html","s0","The big picture: from one variable to many"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s1","Vectors, dot product & cross product"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s2","Lines, planes & quadric surfaces"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s3","Functions of several variables; level curves & surfaces"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s4","Limits & continuity in several variables"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s5","Partial derivatives"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s6","The multivariable chain rule"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s7","Directional derivatives & the gradient"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s8","Tangent planes, linear approximation & differentials"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s9","Higher-order partials & Clairaut's theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s10","Local extrema & the second-derivative test"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s11","Lagrange multipliers (constrained optimization)"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s12","Double integrals over rectangles & general regions"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s13","Double integrals in polar coordinates"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s14","Triple integrals"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s15","Cylindrical & spherical coordinates"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s16","Change of variables & the Jacobian"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s17","Applications: mass, moments & center of mass"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s18","Vector fields"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s19","Line integrals (scalar & vector); work"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s20","The Fundamental Theorem for line integrals & conservative fields"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s21","Green's theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s22","Curl & divergence"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s23","Parametric surfaces & surface area"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s24","Surface integrals & flux"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s25","Stokes' theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s26","The Divergence (Gauss) theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s27","The unifying picture: one theorem behind them all"],
+
+    // ---- Differential Equations ----
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s0","The big picture: what a differential equation is"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s1","Slope fields, solution curves & separable equations"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s2","First-order linear equations & the integrating factor"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s3","Exact equations"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s4","Substitutions: homogeneous & Bernoulli equations"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s5","Existence, uniqueness & autonomous equations (stability)"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s6","Modeling: growth/decay, mixing, cooling, the logistic equation"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s7","Linear ODE theory: superposition, independence & the Wronskian"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s8","Homogeneous equations with constant coefficients"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s9","Nonhomogeneous: undetermined coefficients"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s10","Nonhomogeneous: variation of parameters"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s11","Applications: mechanical & electrical vibrations, resonance"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s12","Systems of linear ODEs: the eigenvalue method & phase plane"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s13","The Laplace transform"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s14","Solving initial-value problems with Laplace; step & impulse inputs"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s15","Series solutions & the method of Frobenius"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s16","Numerical methods: Euler, improved Euler & Runge–Kutta"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s17","A first look at PDEs & Fourier series"],
+
+    // ---- Foundations of Analysis ----
+    ["cal","Analysis","calculus/analysis-foundations.html","s0","The big picture: why rigor, and the role of ε"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s1","The real numbers: ordered field, completeness & the supremum"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s2","Sequences and their limits (the ε–N definition)"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s3","Monotone convergence, Bolzano–Weierstrass & Cauchy sequences"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s4","Limit superior & limit inferior"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s5","Limits of functions and continuity (ε–δ)"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s6","Theorems on continuous functions: IVT, EVT & uniform continuity"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s7","Differentiation: the Mean Value Theorem & Taylor's theorem with remainder"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s8","The Riemann integral: Darboux sums & the integrability criterion"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s9","The Fundamental Theorem of Calculus, proved"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s10","Sequences & series of functions: pointwise vs uniform convergence"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s11","Consequences of uniform convergence"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s12","Power series & analytic functions"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s13","A glimpse beyond: metric spaces, multivariable rigor & Lebesgue"],
 
     // ---- Calculus · Derived from Scratch ----
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s0","The big picture"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s1","Limits & continuity"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s2","Definition of the derivative"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s3","The rules, each proven"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s4","Derivatives of every function"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s5","Implicit, logarithmic & higher-order derivatives"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s6","Using derivatives"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s7","Antiderivative & the Fundamental Theorem"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s8","The integral table"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s9","Integration techniques, each proven"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s10","Using integrals"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s11","Sequences & series"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s12","A peek at multivariable calculus"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s1","Limits & continuity"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s2","Definition of the derivative"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s3","The rules, each proven"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s4","Derivatives of every function"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s7","Antiderivative & the Fundamental Theorem"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s9","Integration techniques, each proven"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s11","Sequences & series"],
 
-    // ---- Calculus · From the Ground Up ----
-    ["cal","Calculus · Map","calculus/connected-map.html","s0","The big picture"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s1","Limits & continuity"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s2","What a derivative is"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s3","Differentiation rules"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s4","Derivatives of the standard functions"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s5","Implicit & higher-order derivatives"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s6","Using derivatives"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s7","The antiderivative & the FTC"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s8","Basic integral table"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s9","Integration techniques"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s10","Using integrals"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s11","Sequences & series"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s12","A peek at multivariable"],
+    // ---- Calculus · From the Ground Up (map) ----
+    ["cal","Map","calculus/connected-map.html","s0","The big picture"],
+    ["cal","Map","calculus/connected-map.html","s7","The antiderivative & the FTC"],
+    ["cal","Map","calculus/connected-map.html","s12","A peek at multivariable"],
 
     // ---- Calculus · Glossary (categories) ----
     ["ref","Glossary","calculus/glossary.html","c1","Foundations & Functions · 基础与函数"],
@@ -222,38 +605,188 @@
     ["ref","Glossary","calculus/glossary.html","c9","Multivariable & Vector Calculus · 多元与向量微积分"],
     ["ref","Glossary","calculus/glossary.html","c10","General Mathematical Terms · 通用数学术语"],
 
-    // ---- Statistics · Complete Companion ----
-    ["sta","Statistics","statistics/complete-guide.html","s0","The big picture"],
-    ["sta","Statistics","statistics/complete-guide.html","s1","Data & variables"],
-    ["sta","Statistics","statistics/complete-guide.html","s2","Describing center & spread"],
-    ["sta","Statistics","statistics/complete-guide.html","s3","Distributions & visualizing data"],
-    ["sta","Statistics","statistics/complete-guide.html","s4","Probability basics"],
-    ["sta","Statistics","statistics/complete-guide.html","s5","Conditional probability & Bayes' theorem"],
-    ["sta","Statistics","statistics/complete-guide.html","s6","Random variables & expectation"],
-    ["sta","Statistics","statistics/complete-guide.html","s7","Common distributions"],
-    ["sta","Statistics","statistics/complete-guide.html","s8","The Normal distribution & the CLT"],
-    ["sta","Statistics","statistics/complete-guide.html","s9","Sampling distributions & the standard error"],
-    ["sta","Statistics","statistics/complete-guide.html","s10","Confidence intervals"],
-    ["sta","Statistics","statistics/complete-guide.html","s11","Hypothesis testing"],
-    ["sta","Statistics","statistics/complete-guide.html","s12","The common tests"],
-    ["sta","Statistics","statistics/complete-guide.html","s13","Correlation & regression"],
-    ["sta","Statistics","statistics/complete-guide.html","s14","Pitfalls & the bigger picture"],
+    // ---- Topology · General (point-set) ----
+    ["top","General","topology/general-topology.html","s0","The big picture: what topology is"],
+    ["top","General","topology/general-topology.html","s1","Set-theory toolkit: functions, relations, cardinality, Zorn's lemma"],
+    ["top","General","topology/general-topology.html","s2","Metric spaces: open balls, convergence, the prototype"],
+    ["top","General","topology/general-topology.html","s3","Topological spaces & open sets"],
+    ["top","General","topology/general-topology.html","s4","Basis & subbasis for a topology"],
+    ["top","General","topology/general-topology.html","s5","Closure, interior, boundary & limit points"],
+    ["top","General","topology/general-topology.html","s6","The subspace topology"],
+    ["top","General","topology/general-topology.html","s7","Continuous functions & homeomorphisms"],
+    ["top","General","topology/general-topology.html","s8","The product topology"],
+    ["top","General","topology/general-topology.html","s9","The quotient topology"],
+    ["top","General","topology/general-topology.html","s10","Connectedness"],
+    ["top","General","topology/general-topology.html","s11","Path-connectedness & components"],
+    ["top","General","topology/general-topology.html","s12","Compactness"],
+    ["top","General","topology/general-topology.html","s13","Compactness in metric spaces: sequential compactness & Heine–Borel"],
+    ["top","General","topology/general-topology.html","s14","Tychonoff's theorem"],
+    ["top","General","topology/general-topology.html","s15","Local compactness & the one-point compactification"],
+    ["top","General","topology/general-topology.html","s16","Countability axioms: first/second countable, separable, Lindelöf"],
+    ["top","General","topology/general-topology.html","s17","Separation axioms: T0–T4, Hausdorff, regular, normal"],
+    ["top","General","topology/general-topology.html","s18","Urysohn's lemma & the Tietze extension theorem"],
+    ["top","General","topology/general-topology.html","s19","The Urysohn metrization theorem"],
+    ["top","General","topology/general-topology.html","s20","Nets & filters: convergence in general spaces"],
+    ["top","General","topology/general-topology.html","s21","Complete metric spaces & completion"],
+    ["top","General","topology/general-topology.html","s22","The Baire category theorem"],
+
+    // ---- Topology · Algebraic ----
+    ["top","Algebraic","topology/algebraic-topology.html","s0","The big picture: turning spaces into algebra"],
+    ["top","Algebraic","topology/algebraic-topology.html","s1","Homotopy of maps & homotopy equivalence"],
+    ["top","Algebraic","topology/algebraic-topology.html","s2","The fundamental group π₁"],
+    ["top","Algebraic","topology/algebraic-topology.html","s3","The circle: π₁(S¹) ≅ ℤ and the winding number"],
+    ["top","Algebraic","topology/algebraic-topology.html","s4","The Seifert–van Kampen theorem"],
+    ["top","Algebraic","topology/algebraic-topology.html","s5","Applications: Brouwer, the fundamental theorem of algebra, no retraction"],
+    ["top","Algebraic","topology/algebraic-topology.html","s6","Covering spaces & the lifting theorems"],
+    ["top","Algebraic","topology/algebraic-topology.html","s7","Classifying covers & deck transformations"],
+    ["top","Algebraic","topology/algebraic-topology.html","s8","The universal cover"],
+    ["top","Algebraic","topology/algebraic-topology.html","s9","Simplicial & CW complexes"],
+    ["top","Algebraic","topology/algebraic-topology.html","s10","Singular homology"],
+    ["top","Algebraic","topology/algebraic-topology.html","s11","Homotopy invariance & exact sequences (Mayer–Vietoris)"],
+    ["top","Algebraic","topology/algebraic-topology.html","s12","Computing homology: degree, Euler characteristic, Betti numbers"],
+    ["top","Algebraic","topology/algebraic-topology.html","s13","Cohomology & the cup product"],
+    ["top","Algebraic","topology/algebraic-topology.html","s14","A glimpse beyond: higher homotopy, manifolds & Poincaré duality"],
+
+    // ---- Topology · Glossary (categories) ----
+    ["ref","Top. Glossary","topology/glossary.html","c1","Foundations & Set Theory · 基础与集合论"],
+    ["ref","Top. Glossary","topology/glossary.html","c2","Metric Spaces · 度量空间"],
+    ["ref","Top. Glossary","topology/glossary.html","c3","Topological Spaces & Open Sets · 拓扑空间与开集"],
+    ["ref","Top. Glossary","topology/glossary.html","c4","Constructions: basis, subspace, product, quotient · 拓扑的构造"],
+    ["ref","Top. Glossary","topology/glossary.html","c5","Continuity & Maps · 连续与映射"],
+    ["ref","Top. Glossary","topology/glossary.html","c6","Connectedness & Compactness · 连通性与紧性"],
+    ["ref","Top. Glossary","topology/glossary.html","c7","Separation & Countability Axioms · 分离与可数性公理"],
+    ["ref","Top. Glossary","topology/glossary.html","c8","Convergence & Completeness · 收敛与完备性"],
+    ["ref","Top. Glossary","topology/glossary.html","c9","Algebraic Topology · 代数拓扑"],
+    ["ref","Top. Glossary","topology/glossary.html","c10","Manifolds & Further Topics · 流形与进阶主题"],
+
+    // ---- Statistics · First course ----
+    ["sta","First course","statistics/complete-guide.html","s0","The big picture"],
+    ["sta","First course","statistics/complete-guide.html","s1","Data & variables"],
+    ["sta","First course","statistics/complete-guide.html","s2","Describing center & spread"],
+    ["sta","First course","statistics/complete-guide.html","s3","Distributions & visualizing data"],
+    ["sta","First course","statistics/complete-guide.html","s4","Probability basics"],
+    ["sta","First course","statistics/complete-guide.html","s5","Conditional probability & Bayes' theorem"],
+    ["sta","First course","statistics/complete-guide.html","s6","Random variables & expectation"],
+    ["sta","First course","statistics/complete-guide.html","s7","Common distributions"],
+    ["sta","First course","statistics/complete-guide.html","s8","The Normal distribution & the CLT"],
+    ["sta","First course","statistics/complete-guide.html","s9","Sampling distributions & the standard error"],
+    ["sta","First course","statistics/complete-guide.html","s10","Confidence intervals"],
+    ["sta","First course","statistics/complete-guide.html","s11","Hypothesis testing"],
+    ["sta","First course","statistics/complete-guide.html","s12","The common tests"],
+    ["sta","First course","statistics/complete-guide.html","s13","Correlation & regression"],
+    ["sta","First course","statistics/complete-guide.html","s14","Pitfalls & the bigger picture"],
+
+    // ---- Statistics · Probability Theory ----
+    ["sta","Probability","statistics/probability.html","s0","The big picture: chance made rigorous"],
+    ["sta","Probability","statistics/probability.html","s1","Sample spaces, events & the axioms (Kolmogorov)"],
+    ["sta","Probability","statistics/probability.html","s2","Counting: permutations, combinations & the binomial theorem"],
+    ["sta","Probability","statistics/probability.html","s3","Conditional probability, independence & Bayes' theorem"],
+    ["sta","Probability","statistics/probability.html","s4","Random variables & distribution functions (CDF, PMF, PDF)"],
+    ["sta","Probability","statistics/probability.html","s5","Expectation, variance & moments"],
+    ["sta","Probability","statistics/probability.html","s6","Moment generating & characteristic functions"],
+    ["sta","Probability","statistics/probability.html","s7","Common discrete distributions"],
+    ["sta","Probability","statistics/probability.html","s8","Common continuous distributions"],
+    ["sta","Probability","statistics/probability.html","s9","Functions & transformations of random variables"],
+    ["sta","Probability","statistics/probability.html","s10","Joint, marginal & conditional distributions"],
+    ["sta","Probability","statistics/probability.html","s11","Covariance, correlation & independence"],
+    ["sta","Probability","statistics/probability.html","s12","Conditional expectation & the tower property"],
+    ["sta","Probability","statistics/probability.html","s13","Sums of random variables & convolutions"],
+    ["sta","Probability","statistics/probability.html","s14","Probability inequalities (Markov, Chebyshev, Jensen)"],
+    ["sta","Probability","statistics/probability.html","s15","Modes of convergence"],
+    ["sta","Probability","statistics/probability.html","s16","The Laws of Large Numbers"],
+    ["sta","Probability","statistics/probability.html","s17","The Central Limit Theorem"],
+    ["sta","Probability","statistics/probability.html","s18","A glimpse beyond: measure-theoretic probability & martingales"],
+
+    // ---- Statistics · Inference ----
+    ["sta","Inference","statistics/inference.html","s0","The big picture: from data to conclusions"],
+    ["sta","Inference","statistics/inference.html","s1","Populations, samples & sampling distributions"],
+    ["sta","Inference","statistics/inference.html","s2","Statistics, sufficiency & the factorization theorem"],
+    ["sta","Inference","statistics/inference.html","s3","The likelihood function"],
+    ["sta","Inference","statistics/inference.html","s4","The method of moments"],
+    ["sta","Inference","statistics/inference.html","s5","Maximum likelihood estimation"],
+    ["sta","Inference","statistics/inference.html","s6","Evaluating estimators: bias, variance, MSE & consistency"],
+    ["sta","Inference","statistics/inference.html","s7","Fisher information & the Cramér–Rao lower bound"],
+    ["sta","Inference","statistics/inference.html","s8","Rao–Blackwell & minimum-variance unbiased estimators"],
+    ["sta","Inference","statistics/inference.html","s9","Confidence intervals via pivotal quantities"],
+    ["sta","Inference","statistics/inference.html","s10","Hypothesis testing: errors, power & the Neyman–Pearson lemma"],
+    ["sta","Inference","statistics/inference.html","s11","Likelihood-ratio, Wald & score tests"],
+    ["sta","Inference","statistics/inference.html","s12","The standard tests & their sampling distributions (t, χ², F)"],
+    ["sta","Inference","statistics/inference.html","s13","Bayesian inference: priors, posteriors & conjugacy"],
+    ["sta","Inference","statistics/inference.html","s14","Bayesian estimation & credible intervals"],
+    ["sta","Inference","statistics/inference.html","s15","Nonparametric methods & the bootstrap"],
+    ["sta","Inference","statistics/inference.html","s16","A glimpse beyond: decision theory & large-sample asymptotics"],
+
+    // ---- Statistics · Regression & Linear Models ----
+    ["sta","Regression","statistics/regression.html","s0","The big picture: modeling relationships"],
+    ["sta","Regression","statistics/regression.html","s1","Simple linear regression & least squares"],
+    ["sta","Regression","statistics/regression.html","s2","The Gauss–Markov theorem & properties of the estimators"],
+    ["sta","Regression","statistics/regression.html","s3","Inference for slope & intercept; confidence & prediction intervals"],
+    ["sta","Regression","statistics/regression.html","s4","Assessing fit: R², residuals & diagnostics"],
+    ["sta","Regression","statistics/regression.html","s5","The multiple regression model in matrix form"],
+    ["sta","Regression","statistics/regression.html","s6","Least squares via linear algebra: the normal equations & hat matrix"],
+    ["sta","Regression","statistics/regression.html","s7","Inference, multicollinearity & model selection"],
+    ["sta","Regression","statistics/regression.html","s8","ANOVA & the F-test"],
+    ["sta","Regression","statistics/regression.html","s9","Categorical predictors, interactions & transformations"],
+    ["sta","Regression","statistics/regression.html","s10","Logistic regression"],
+    ["sta","Regression","statistics/regression.html","s11","Generalized linear models (GLMs)"],
+    ["sta","Regression","statistics/regression.html","s12","Regularization: ridge, lasso & the bias–variance tradeoff"],
+    ["sta","Regression","statistics/regression.html","s13","A glimpse beyond: mixed models, time series & nonparametric regression"],
+
+    // ---- Statistics · Glossary (categories) ----
+    ["ref","Stat. Glossary","statistics/glossary.html","c1","Data, Variables & Sampling · 数据、变量与抽样"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c2","Descriptive Statistics · 描述统计"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c3","Probability · 概率"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c4","Random Variables & Distributions · 随机变量与分布"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c5","Expectation & Moments · 期望与矩"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c6","Sampling Distributions & Limit Theorems · 抽样分布与极限定理"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c7","Estimation · 估计"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c8","Hypothesis Testing · 假设检验"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c9","Regression & Correlation · 回归与相关"],
+    ["ref","Stat. Glossary","statistics/glossary.html","c10","Bayesian, Experimental Design & Advanced · 贝叶斯、实验设计与进阶"],
   ];
 
   // Extra keywords so topical searches land even when the word isn't in the title.
   const KEYWORDS = {
     "calculus/complete-guide.html#s7":"product rule quotient rule chain rule power rule",
-    "calculus/derived-from-scratch.html#s3":"product rule quotient rule chain rule power rule proof",
-    "calculus/connected-map.html#s3":"product rule quotient rule chain rule power rule",
-    "calculus/complete-guide.html#s8":"sin cos exp log derivative table trig",
-    "calculus/complete-guide.html#s25":"taylor maclaurin power series euler",
-    "calculus/derived-from-scratch.html#s11":"taylor maclaurin geometric series convergence",
+    "calculus/complete-guide.html#s8":"sin cos exp log derivative table trig hyperbolic",
+    "calculus/complete-guide.html#s25":"taylor maclaurin power series",
     "calculus/complete-guide.html#s18":"u-substitution integration by parts partial fractions",
-    "statistics/complete-guide.html#s5":"bayes conditional probability base rate",
-    "statistics/complete-guide.html#s8":"normal gaussian bell curve central limit theorem clt z-score",
-    "statistics/complete-guide.html#s11":"p-value null hypothesis type i type ii error power alpha",
-    "statistics/complete-guide.html#s13":"correlation least squares regression r squared covariance",
-    "statistics/complete-guide.html#s7":"binomial poisson bernoulli geometric uniform exponential distribution",
+    "calculus/multivariable-vector.html#s7":"gradient nabla del directional derivative steepest ascent",
+    "calculus/multivariable-vector.html#s11":"lagrange multiplier constraint optimization",
+    "calculus/multivariable-vector.html#s16":"jacobian change of variables",
+    "calculus/multivariable-vector.html#s21":"green's theorem circulation",
+    "calculus/multivariable-vector.html#s25":"stokes theorem curl",
+    "calculus/multivariable-vector.html#s26":"divergence theorem gauss flux",
+    "calculus/differential-equations.html#s2":"integrating factor first order linear",
+    "calculus/differential-equations.html#s8":"characteristic equation homogeneous constant coefficient",
+    "calculus/differential-equations.html#s13":"laplace transform",
+    "calculus/differential-equations.html#s16":"euler runge kutta numerical",
+    "calculus/differential-equations.html#s17":"partial differential equation fourier series heat wave",
+    "calculus/analysis-foundations.html#s1":"completeness supremum infimum least upper bound real numbers",
+    "calculus/analysis-foundations.html#s2":"epsilon n sequence limit convergence",
+    "calculus/analysis-foundations.html#s10":"uniform convergence pointwise weierstrass m-test",
+    "topology/general-topology.html#s3":"open set topology axioms",
+    "topology/general-topology.html#s7":"continuous homeomorphism map",
+    "topology/general-topology.html#s12":"compact open cover heine borel finite subcover",
+    "topology/general-topology.html#s17":"hausdorff regular normal separation t2 t3 t4",
+    "topology/general-topology.html#s22":"baire category complete",
+    "topology/algebraic-topology.html#s2":"fundamental group pi1 loop homotopy",
+    "topology/algebraic-topology.html#s6":"covering space lift universal cover deck",
+    "topology/algebraic-topology.html#s10":"homology singular betti euler characteristic",
+    "topology/algebraic-topology.html#s13":"cohomology cup product",
+    "statistics/probability.html#s3":"bayes conditional independence",
+    "statistics/probability.html#s7":"binomial poisson geometric bernoulli distribution",
+    "statistics/probability.html#s8":"normal exponential gamma beta uniform distribution",
+    "statistics/probability.html#s16":"law of large numbers lln",
+    "statistics/probability.html#s17":"central limit theorem clt",
+    "statistics/inference.html#s5":"maximum likelihood mle estimation",
+    "statistics/inference.html#s7":"fisher information cramer rao bound",
+    "statistics/inference.html#s10":"hypothesis test power neyman pearson type error",
+    "statistics/inference.html#s13":"bayesian prior posterior conjugate",
+    "statistics/regression.html#s1":"least squares ols slope intercept",
+    "statistics/regression.html#s6":"hat matrix normal equations design matrix",
+    "statistics/regression.html#s10":"logistic regression logit",
+    "statistics/regression.html#s12":"ridge lasso regularization bias variance",
   };
 
   const search = document.getElementById('search');
@@ -281,9 +814,9 @@
     });
     reslist.innerHTML = hits.map(([cat,guide,file,anchor,title]) =>
       `<a class="res" href="${file}#${anchor}">
-         <span class="tag ${cat}">${guide.split('·')[0].trim()}</span>
+         <span class="tag ${cat}">${escHtml(guide)}</span>
          <span class="title">${mark(title, q)}</span>
-         <span class="where">${escHtml(guide)}</span>
+         <span class="where">${escHtml(file.split('/')[0])}</span>
        </a>`).join('');
     noresult.style.display = hits.length ? 'none' : 'block';
     countEl.textContent = ql
@@ -300,7 +833,6 @@
   }
 
   search.addEventListener('input', update);
-  // "/" focuses the search box; Esc clears it.
   document.addEventListener('keydown', e => {
     if(e.key === '/' && document.activeElement !== search){ e.preventDefault(); search.focus(); }
     if(e.key === 'Escape'){ search.value=''; update(); search.blur(); }
