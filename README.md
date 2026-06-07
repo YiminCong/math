@@ -71,11 +71,29 @@ Open **[`index.html`](index.html)**. It offers three ways in:
 | Algebraic Topology | [`algebraic-topology.html`](topology/algebraic-topology.html) | Homotopy & the fundamental group, covering spaces, singular/simplicial homology & cohomology (15 sections) |
 | Glossary (EN ↔ 中文) | [`glossary.html`](topology/glossary.html) | Searchable English ↔ Simplified-Chinese topology term reference |
 
+## The statistics learning path
+
+| Step | Focus | Where |
+| --- | --- | --- |
+| 0 · First course | Describing data | [`complete-guide.html#s1`](statistics/complete-guide.html#s1) |
+| 1 · First course | Probability basics | [`complete-guide.html#s4`](statistics/complete-guide.html#s4) |
+| 2 · First course | Distributions & the CLT | [`complete-guide.html#s7`](statistics/complete-guide.html#s7) |
+| 3 · First course | Inference: intervals & tests | [`complete-guide.html#s9`](statistics/complete-guide.html#s9) |
+| 4 · Probability | Probability theory | [`probability.html#s0`](statistics/probability.html#s0) |
+| 5 · Probability | Limit theorems (LLN & CLT) | [`probability.html#s14`](statistics/probability.html#s14) |
+| 6 · Inference | Mathematical inference | [`inference.html#s0`](statistics/inference.html#s0) |
+| 7 · Regression | Regression & linear models | [`regression.html#s0`](statistics/regression.html#s0) |
+| 8 · Expertise | Bayesian inference & beyond | [`inference.html#s13`](statistics/inference.html#s13) |
+
 ### Statistics — [`statistics/`](statistics/)
 
 | Guide | File | Covers |
 | --- | --- | --- |
 | The Complete Companion | [`complete-guide.html`](statistics/complete-guide.html) | A first course: describing data, probability, and inference (15 sections) |
+| Probability Theory | [`probability.html`](statistics/probability.html) | Axioms, random variables, moments & MGFs, joint distributions, LLN & the CLT (19 sections) |
+| Statistical Inference | [`inference.html`](statistics/inference.html) | Mathematical statistics: likelihood, MLE, Cramér–Rao, Neyman–Pearson, Bayesian & nonparametric (17 sections) |
+| Regression & Linear Models | [`regression.html`](statistics/regression.html) | Least squares in matrix form, ANOVA, logistic regression, GLMs, regularization (14 sections) |
+| Glossary (EN ↔ 中文) | [`glossary.html`](statistics/glossary.html) | Searchable English ↔ Simplified-Chinese statistics term reference |
 
 *(More subjects can be added alongside these.)*
 
