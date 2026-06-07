@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistics Glossary · 统计学术语对照表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper-2:#efe7d6; --ink:#26221b; --ink-soft:#564f43;
+    --blue:#1f3a5f; --amber:#b5651d; --teal:#0f6f6a; --plum:#6d3b5e; --line:#d8cdb8; --shadow:rgba(38,34,27,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:radial-gradient(circle at 18% -10%,#fbf6ec 0%,transparent 55%),radial-gradient(circle at 92% 4%,#f0e9da 0%,transparent 45%),var(--paper); color:var(--ink); font-family:"Spectral",Georgia,serif; font-size:17px; line-height:1.6;}
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:42px 42px; opacity:.1;}
+  .container{position:relative; z-index:1; max-width:960px; margin:0 auto; padding:40px 26px 100px;}
+
+  header h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2rem,5vw,3rem); line-height:1; margin:0 0 4px; color:var(--ink); letter-spacing:-.02em;}
+  header h1 .cn{font-family:"Noto Sans SC",sans-serif; color:var(--amber); font-weight:700;}
+  header p{color:var(--ink-soft); margin:8px 0 0; max-width:64ch;}
+  .rule{height:3px; width:84px; background:var(--amber); margin:18px 0 0; border-radius:3px;}
+
+  .toolbar{position:sticky; top:0; z-index:5; background:rgba(245,239,226,.94); backdrop-filter:blur(6px); padding:16px 0 12px; margin:22px 0 8px; border-bottom:1px solid var(--line);}
+  .search{display:flex; align-items:center; gap:10px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:30px; padding:10px 18px; box-shadow:0 2px 10px var(--shadow);}
+  .search input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:1.05rem; width:100%; color:var(--ink);}
+  .search input::placeholder{color:#a99e87;}
+  .search .ico{color:var(--blue); font-size:1.1rem;}
+  .count{font-size:.85rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .jump{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  .jump a{font-size:.78rem; text-decoration:none; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:3px 11px; transition:.15s;}
+  .jump a:hover{color:#fff; background:var(--blue); border-color:var(--blue);}
+
+  section.cat{margin:34px 0 0; scroll-margin-top:120px;}
+  section.cat h2{font-family:"Fraunces",serif; font-weight:600; font-size:1.35rem; color:var(--blue); margin:0 0 2px; display:flex; align-items:baseline; gap:10px;}
+  section.cat h2 .zh{font-family:"Noto Sans SC",sans-serif; color:var(--plum); font-weight:500; font-size:1.1rem;}
+  section.cat h2 .badge{margin-left:auto; font-family:"Spectral",serif; font-size:.74rem; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:1px 9px; font-weight:400;}
+
+  table{width:100%; border-collapse:collapse; margin:10px 0 0; background:#fffdf7; border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 2px 9px var(--shadow);}
+  thead th{background:var(--blue); color:#f5efe2; font-family:"Fraunces",serif; font-weight:600; text-align:left; padding:8px 14px; font-size:.85rem; letter-spacing:.02em;}
+  tbody td{padding:7px 14px; border-top:1px solid var(--line); vertical-align:top;}
+  tbody tr:nth-child(even) td{background:#f7f0e1;}
+  td.en{width:54%; color:var(--ink);}
+  td.zh{font-family:"Noto Sans SC",sans-serif; color:var(--blue); font-size:1.02rem;}
+  td.zh .alt{color:var(--ink-soft); font-size:.86rem;}
+  mark{background:#f6d99b; color:inherit; border-radius:3px; padding:0 1px;}
+  .noresult{display:none; text-align:center; color:var(--ink-soft); font-style:italic; padding:40px 0; font-size:1.05rem;}
+  footer{margin-top:46px; padding-top:20px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.86rem; font-style:italic;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Statistics Glossary <span class="cn">统计学术语对照</span></h1>
+    <p>A comprehensive English ↔ Simplified-Chinese reference covering statistics and probability — from sampling and descriptive measures through inference, regression, and Bayesian methods. Type in the box to filter every term at once.</p>
+    <div class="rule"></div>
+  </header>
+
+  <div class="toolbar">
+    <div class="search">
+      <span class="ico">🔍</span>
+      <input id="search" type="text" placeholder="Search English or 中文 …  (e.g. variance / 方差 / p-value)" autocomplete="off">
+    </div>
+    <div class="count" id="count"></div>
+    <div class="jump" id="jump"></div>
+  </div>
+
+  <div id="glossary">
+
+  <!-- 1 -->
+  <section class="cat" id="c1" data-title="Data, Variables &amp; Sampling · 数据、变量与抽样">
+    <h2><span>Data, Variables &amp; Sampling</span><span class="zh">数据、变量与抽样</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">statistics</td><td class="zh">统计学</td></tr>
+      <tr class="term"><td class="en">data</td><td class="zh">数据</td></tr>
+      <tr class="term"><td class="en">dataset</td><td class="zh">数据集</td></tr>
+      <tr class="term"><td class="en">observation</td><td class="zh">观测（观测值）</td></tr>
+      <tr class="term"><td class="en">unit / case</td><td class="zh">个体（观测单位）</td></tr>
+      <tr class="term"><td class="en">population</td><td class="zh">总体</td></tr>
+      <tr class="term"><td class="en">sample</td><td class="zh">样本</td></tr>
+      <tr class="term"><td class="en">sample size</td><td class="zh">样本量（样本容量）</td></tr>
+      <tr class="term"><td class="en">parameter</td><td class="zh">参数（总体参数）</td></tr>
+      <tr class="term"><td class="en">statistic</td><td class="zh">统计量</td></tr>
+      <tr class="term"><td class="en">sampling</td><td class="zh">抽样</td></tr>
+      <tr class="term"><td class="en">sampling frame</td><td class="zh">抽样框</td></tr>
+      <tr class="term"><td class="en">simple random sample</td><td class="zh">简单随机样本</td></tr>
+      <tr class="term"><td class="en">stratified sampling</td><td class="zh">分层抽样</td></tr>
+      <tr class="term"><td class="en">cluster sampling</td><td class="zh">整群抽样</td></tr>
+      <tr class="term"><td class="en">systematic sampling</td><td class="zh">系统抽样</td></tr>
+      <tr class="term"><td class="en">convenience sampling</td><td class="zh">方便抽样（便利抽样）</td></tr>
+      <tr class="term"><td class="en">sampling with replacement</td><td class="zh">有放回抽样</td></tr>
+      <tr class="term"><td class="en">sampling without replacement</td><td class="zh">无放回抽样</td></tr>
+      <tr class="term"><td class="en">census</td><td class="zh">普查</td></tr>
+      <tr class="term"><td class="en">bias</td><td class="zh">偏差（偏倚）</td></tr>
+      <tr class="term"><td class="en">selection bias</td><td class="zh">选择偏差</td></tr>
+      <tr class="term"><td class="en">sampling error</td><td class="zh">抽样误差</td></tr>
+      <tr class="term"><td class="en">nonsampling error</td><td class="zh">非抽样误差</td></tr>
+      <tr class="term"><td class="en">observational study</td><td class="zh">观察性研究</td></tr>
+      <tr class="term"><td class="en">experiment</td><td class="zh">试验（实验）</td></tr>
+      <tr class="term"><td class="en">treatment</td><td class="zh">处理</td></tr>
+      <tr class="term"><td class="en">control group</td><td class="zh">对照组</td></tr>
+      <tr class="term"><td class="en">treatment group</td><td class="zh">处理组（实验组）</td></tr>
+      <tr class="term"><td class="en">confounding</td><td class="zh">混杂（混淆）</td></tr>
+      <tr class="term"><td class="en">confounding variable</td><td class="zh">混杂变量</td></tr>
+      <tr class="term"><td class="en">variable</td><td class="zh">变量</td></tr>
+      <tr class="term"><td class="en">categorical variable</td><td class="zh">分类变量</td></tr>
+      <tr class="term"><td class="en">nominal variable</td><td class="zh">名义变量（定类变量）</td></tr>
+      <tr class="term"><td class="en">ordinal variable</td><td class="zh">有序变量（定序变量）</td></tr>
+      <tr class="term"><td class="en">numerical variable</td><td class="zh">数值变量</td></tr>
+      <tr class="term"><td class="en">discrete variable</td><td class="zh">离散变量</td></tr>
+      <tr class="term"><td class="en">continuous variable</td><td class="zh">连续变量</td></tr>
+      <tr class="term"><td class="en">response variable</td><td class="zh">响应变量（因变量）</td></tr>
+      <tr class="term"><td class="en">explanatory variable</td><td class="zh">解释变量（自变量）</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 2 -->
+  <section class="cat" id="c2" data-title="Descriptive Statistics · 描述统计">
+    <h2><span>Descriptive Statistics</span><span class="zh">描述统计</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">descriptive statistics</td><td class="zh">描述统计（描述性统计）</td></tr>
+      <tr class="term"><td class="en">measure of central tendency</td><td class="zh">集中趋势度量</td></tr>
+      <tr class="term"><td class="en">mean (average)</td><td class="zh">均值（平均数）</td></tr>
+      <tr class="term"><td class="en">arithmetic mean</td><td class="zh">算术平均数</td></tr>
+      <tr class="term"><td class="en">weighted mean</td><td class="zh">加权平均数</td></tr>
+      <tr class="term"><td class="en">geometric mean</td><td class="zh">几何平均数</td></tr>
+      <tr class="term"><td class="en">harmonic mean</td><td class="zh">调和平均数</td></tr>
+      <tr class="term"><td class="en">median</td><td class="zh">中位数</td></tr>
+      <tr class="term"><td class="en">mode</td><td class="zh">众数</td></tr>
+      <tr class="term"><td class="en">measure of dispersion</td><td class="zh">离散程度度量</td></tr>
+      <tr class="term"><td class="en">range</td><td class="zh">极差（全距）</td></tr>
+      <tr class="term"><td class="en">variance</td><td class="zh">方差</td></tr>
+      <tr class="term"><td class="en">standard deviation</td><td class="zh">标准差</td></tr>
+      <tr class="term"><td class="en">sample variance</td><td class="zh">样本方差</td></tr>
+      <tr class="term"><td class="en">interquartile range (IQR)</td><td class="zh">四分位距</td></tr>
+      <tr class="term"><td class="en">quartile</td><td class="zh">四分位数</td></tr>
+      <tr class="term"><td class="en">percentile</td><td class="zh">百分位数</td></tr>
+      <tr class="term"><td class="en">quantile</td><td class="zh">分位数</td></tr>
+      <tr class="term"><td class="en">five-number summary</td><td class="zh">五数概括</td></tr>
+      <tr class="term"><td class="en">coefficient of variation</td><td class="zh">变异系数</td></tr>
+      <tr class="term"><td class="en">frequency</td><td class="zh">频数</td></tr>
+      <tr class="term"><td class="en">relative frequency</td><td class="zh">频率（相对频数）</td></tr>
+      <tr class="term"><td class="en">frequency distribution</td><td class="zh">频数分布</td></tr>
+      <tr class="term"><td class="en">cumulative frequency</td><td class="zh">累积频数</td></tr>
+      <tr class="term"><td class="en">histogram</td><td class="zh">直方图</td></tr>
+      <tr class="term"><td class="en">bar chart</td><td class="zh">条形图（柱状图）</td></tr>
+      <tr class="term"><td class="en">boxplot (box-and-whisker plot)</td><td class="zh">箱线图（盒须图）</td></tr>
+      <tr class="term"><td class="en">scatterplot</td><td class="zh">散点图</td></tr>
+      <tr class="term"><td class="en">stem-and-leaf plot</td><td class="zh">茎叶图</td></tr>
+      <tr class="term"><td class="en">skewness</td><td class="zh">偏度</td></tr>
+      <tr class="term"><td class="en">kurtosis</td><td class="zh">峰度</td></tr>
+      <tr class="term"><td class="en">outlier</td><td class="zh">异常值（离群点）</td></tr>
+      <tr class="term"><td class="en">z-score (standard score)</td><td class="zh">标准分数（Z 分数）</td></tr>
+      <tr class="term"><td class="en">standardization</td><td class="zh">标准化</td></tr>
+      <tr class="term"><td class="en">empirical rule (68-95-99.7 rule)</td><td class="zh">经验法则（68-95-99.7 法则）</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 3 -->
+  <section class="cat" id="c3" data-title="Probability · 概率">
+    <h2><span>Probability</span><span class="zh">概率</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">probability</td><td class="zh">概率（几率）</td></tr>
+      <tr class="term"><td class="en">probability theory</td><td class="zh">概率论</td></tr>
+      <tr class="term"><td class="en">random experiment</td><td class="zh">随机试验</td></tr>
+      <tr class="term"><td class="en">sample space</td><td class="zh">样本空间</td></tr>
+      <tr class="term"><td class="en">outcome</td><td class="zh">结果（基本事件）</td></tr>
+      <tr class="term"><td class="en">event</td><td class="zh">事件</td></tr>
+      <tr class="term"><td class="en">elementary event</td><td class="zh">基本事件</td></tr>
+      <tr class="term"><td class="en">certain event</td><td class="zh">必然事件</td></tr>
+      <tr class="term"><td class="en">impossible event</td><td class="zh">不可能事件</td></tr>
+      <tr class="term"><td class="en">union</td><td class="zh">并（和事件）</td></tr>
+      <tr class="term"><td class="en">intersection</td><td class="zh">交（积事件）</td></tr>
+      <tr class="term"><td class="en">complement</td><td class="zh">补（对立事件）</td></tr>
+      <tr class="term"><td class="en">mutually exclusive</td><td class="zh">互斥（互不相容）</td></tr>
+      <tr class="term"><td class="en">collectively exhaustive</td><td class="zh">完备（穷尽）</td></tr>
+      <tr class="term"><td class="en">independent events</td><td class="zh">独立事件</td></tr>
+      <tr class="term"><td class="en">dependent events</td><td class="zh">相依事件（不独立事件）</td></tr>
+      <tr class="term"><td class="en">conditional probability</td><td class="zh">条件概率</td></tr>
+      <tr class="term"><td class="en">joint probability</td><td class="zh">联合概率</td></tr>
+      <tr class="term"><td class="en">marginal probability</td><td class="zh">边缘概率</td></tr>
+      <tr class="term"><td class="en">multiplication rule</td><td class="zh">乘法公式（乘法法则）</td></tr>
+      <tr class="term"><td class="en">addition rule</td><td class="zh">加法公式（加法法则）</td></tr>
+      <tr class="term"><td class="en">law of total probability</td><td class="zh">全概率公式</td></tr>
+      <tr class="term"><td class="en">Bayes' theorem</td><td class="zh">贝叶斯定理（贝叶斯公式）</td></tr>
+      <tr class="term"><td class="en">prior probability</td><td class="zh">先验概率</td></tr>
+      <tr class="term"><td class="en">posterior probability</td><td class="zh">后验概率</td></tr>
+      <tr class="term"><td class="en">likelihood</td><td class="zh">似然</td></tr>
+      <tr class="term"><td class="en">odds</td><td class="zh">几率（胜算比）</td></tr>
+      <tr class="term"><td class="en">permutation</td><td class="zh">排列</td></tr>
+      <tr class="term"><td class="en">combination</td><td class="zh">组合</td></tr>
+      <tr class="term"><td class="en">counting principle</td><td class="zh">计数原理</td></tr>
+      <tr class="term"><td class="en">classical probability</td><td class="zh">古典概率</td></tr>
+      <tr class="term"><td class="en">empirical probability</td><td class="zh">经验概率（频率概率）</td></tr>
+      <tr class="term"><td class="en">subjective probability</td><td class="zh">主观概率</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 4 -->
+  <section class="cat" id="c4" data-title="Random Variables &amp; Distributions · 随机变量与分布">
+    <h2><span>Random Variables &amp; Distributions</span><span class="zh">随机变量与分布</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">random variable</td><td class="zh">随机变量</td></tr>
+      <tr class="term"><td class="en">discrete random variable</td><td class="zh">离散型随机变量</td></tr>
+      <tr class="term"><td class="en">continuous random variable</td><td class="zh">连续型随机变量</td></tr>
+      <tr class="term"><td class="en">probability distribution</td><td class="zh">概率分布</td></tr>
+      <tr class="term"><td class="en">probability mass function (PMF)</td><td class="zh">概率质量函数（分布列）</td></tr>
+      <tr class="term"><td class="en">probability density function (PDF)</td><td class="zh">概率密度函数</td></tr>
+      <tr class="term"><td class="en">cumulative distribution function (CDF)</td><td class="zh">累积分布函数（分布函数）</td></tr>
+      <tr class="term"><td class="en">support</td><td class="zh">支撑集</td></tr>
+      <tr class="term"><td class="en">Bernoulli distribution</td><td class="zh">伯努利分布（两点分布）</td></tr>
+      <tr class="term"><td class="en">binomial distribution</td><td class="zh">二项分布</td></tr>
+      <tr class="term"><td class="en">geometric distribution</td><td class="zh">几何分布</td></tr>
+      <tr class="term"><td class="en">negative binomial distribution</td><td class="zh">负二项分布</td></tr>
+      <tr class="term"><td class="en">hypergeometric distribution</td><td class="zh">超几何分布</td></tr>
+      <tr class="term"><td class="en">Poisson distribution</td><td class="zh">泊松分布</td></tr>
+      <tr class="term"><td class="en">discrete uniform distribution</td><td class="zh">离散均匀分布</td></tr>
+      <tr class="term"><td class="en">uniform distribution</td><td class="zh">均匀分布</td></tr>
+      <tr class="term"><td class="en">normal (Gaussian) distribution</td><td class="zh">正态分布（高斯分布）</td></tr>
+      <tr class="term"><td class="en">standard normal distribution</td><td class="zh">标准正态分布</td></tr>
+      <tr class="term"><td class="en">exponential distribution</td><td class="zh">指数分布</td></tr>
+      <tr class="term"><td class="en">gamma distribution</td><td class="zh">伽马分布</td></tr>
+      <tr class="term"><td class="en">beta distribution</td><td class="zh">贝塔分布</td></tr>
+      <tr class="term"><td class="en">chi-square distribution</td><td class="zh">卡方分布</td></tr>
+      <tr class="term"><td class="en">t-distribution (Student's t)</td><td class="zh">t 分布（学生 t 分布）</td></tr>
+      <tr class="term"><td class="en">F-distribution</td><td class="zh">F 分布</td></tr>
+      <tr class="term"><td class="en">lognormal distribution</td><td class="zh">对数正态分布</td></tr>
+      <tr class="term"><td class="en">Weibull distribution</td><td class="zh">威布尔分布</td></tr>
+      <tr class="term"><td class="en">multinomial distribution</td><td class="zh">多项分布</td></tr>
+      <tr class="term"><td class="en">joint distribution</td><td class="zh">联合分布</td></tr>
+      <tr class="term"><td class="en">marginal distribution</td><td class="zh">边缘分布</td></tr>
+      <tr class="term"><td class="en">conditional distribution</td><td class="zh">条件分布</td></tr>
+      <tr class="term"><td class="en">bivariate normal distribution</td><td class="zh">二元正态分布</td></tr>
+      <tr class="term"><td class="en">independent and identically distributed (i.i.d.)</td><td class="zh">独立同分布</td></tr>
+      <tr class="term"><td class="en">tail of a distribution</td><td class="zh">分布的尾部</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 5 -->
+  <section class="cat" id="c5" data-title="Expectation &amp; Moments · 期望与矩">
+    <h2><span>Expectation &amp; Moments</span><span class="zh">期望与矩</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">expectation (expected value)</td><td class="zh">期望（数学期望）</td></tr>
+      <tr class="term"><td class="en">mean of a random variable</td><td class="zh">随机变量的均值</td></tr>
+      <tr class="term"><td class="en">linearity of expectation</td><td class="zh">期望的线性性</td></tr>
+      <tr class="term"><td class="en">variance</td><td class="zh">方差</td></tr>
+      <tr class="term"><td class="en">standard deviation</td><td class="zh">标准差</td></tr>
+      <tr class="term"><td class="en">moment</td><td class="zh">矩</td></tr>
+      <tr class="term"><td class="en">raw moment</td><td class="zh">原点矩</td></tr>
+      <tr class="term"><td class="en">central moment</td><td class="zh">中心矩</td></tr>
+      <tr class="term"><td class="en">kth moment</td><td class="zh">k 阶矩</td></tr>
+      <tr class="term"><td class="en">moment generating function (MGF)</td><td class="zh">矩生成函数（矩母函数）</td></tr>
+      <tr class="term"><td class="en">characteristic function</td><td class="zh">特征函数</td></tr>
+      <tr class="term"><td class="en">probability generating function</td><td class="zh">概率生成函数</td></tr>
+      <tr class="term"><td class="en">covariance</td><td class="zh">协方差</td></tr>
+      <tr class="term"><td class="en">correlation</td><td class="zh">相关</td></tr>
+      <tr class="term"><td class="en">correlation coefficient</td><td class="zh">相关系数</td></tr>
+      <tr class="term"><td class="en">uncorrelated</td><td class="zh">不相关</td></tr>
+      <tr class="term"><td class="en">conditional expectation</td><td class="zh">条件期望</td></tr>
+      <tr class="term"><td class="en">conditional variance</td><td class="zh">条件方差</td></tr>
+      <tr class="term"><td class="en">law of total expectation</td><td class="zh">全期望公式（重期望公式）</td></tr>
+      <tr class="term"><td class="en">law of total variance</td><td class="zh">全方差公式</td></tr>
+      <tr class="term"><td class="en">skewness</td><td class="zh">偏度</td></tr>
+      <tr class="term"><td class="en">kurtosis</td><td class="zh">峰度</td></tr>
+      <tr class="term"><td class="en">excess kurtosis</td><td class="zh">超额峰度</td></tr>
+      <tr class="term"><td class="en">Markov's inequality</td><td class="zh">马尔可夫不等式</td></tr>
+      <tr class="term"><td class="en">Chebyshev's inequality</td><td class="zh">切比雪夫不等式</td></tr>
+      <tr class="term"><td class="en">Jensen's inequality</td><td class="zh">詹森不等式</td></tr>
+      <tr class="term"><td class="en">Cauchy–Schwarz inequality</td><td class="zh">柯西-施瓦茨不等式</td></tr>
+      <tr class="term"><td class="en">variance-covariance matrix</td><td class="zh">方差-协方差矩阵</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 6 -->
+  <section class="cat" id="c6" data-title="Sampling Distributions &amp; Limit Theorems · 抽样分布与极限定理">
+    <h2><span>Sampling Distributions &amp; Limit Theorems</span><span class="zh">抽样分布与极限定理</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">sampling distribution</td><td class="zh">抽样分布</td></tr>
+      <tr class="term"><td class="en">sampling distribution of the mean</td><td class="zh">样本均值的抽样分布</td></tr>
+      <tr class="term"><td class="en">sample mean</td><td class="zh">样本均值</td></tr>
+      <tr class="term"><td class="en">sample proportion</td><td class="zh">样本比例</td></tr>
+      <tr class="term"><td class="en">standard error</td><td class="zh">标准误（标准误差）</td></tr>
+      <tr class="term"><td class="en">central limit theorem (CLT)</td><td class="zh">中心极限定理</td></tr>
+      <tr class="term"><td class="en">law of large numbers</td><td class="zh">大数定律</td></tr>
+      <tr class="term"><td class="en">weak law of large numbers</td><td class="zh">弱大数定律</td></tr>
+      <tr class="term"><td class="en">strong law of large numbers</td><td class="zh">强大数定律</td></tr>
+      <tr class="term"><td class="en">degrees of freedom</td><td class="zh">自由度</td></tr>
+      <tr class="term"><td class="en">t-distribution</td><td class="zh">t 分布</td></tr>
+      <tr class="term"><td class="en">chi-square distribution</td><td class="zh">卡方分布</td></tr>
+      <tr class="term"><td class="en">F-distribution</td><td class="zh">F 分布</td></tr>
+      <tr class="term"><td class="en">convergence in probability</td><td class="zh">依概率收敛</td></tr>
+      <tr class="term"><td class="en">convergence in distribution</td><td class="zh">依分布收敛</td></tr>
+      <tr class="term"><td class="en">almost sure convergence</td><td class="zh">几乎必然收敛</td></tr>
+      <tr class="term"><td class="en">convergence in mean square</td><td class="zh">均方收敛</td></tr>
+      <tr class="term"><td class="en">consistency</td><td class="zh">相合性（一致性）</td></tr>
+      <tr class="term"><td class="en">asymptotic distribution</td><td class="zh">渐近分布</td></tr>
+      <tr class="term"><td class="en">asymptotic normality</td><td class="zh">渐近正态性</td></tr>
+      <tr class="term"><td class="en">delta method</td><td class="zh">delta 方法（增量法）</td></tr>
+      <tr class="term"><td class="en">Slutsky's theorem</td><td class="zh">斯卢茨基定理</td></tr>
+      <tr class="term"><td class="en">continuity correction</td><td class="zh">连续性校正</td></tr>
+      <tr class="term"><td class="en">normal approximation</td><td class="zh">正态近似</td></tr>
+      <tr class="term"><td class="en">order statistic</td><td class="zh">次序统计量</td></tr>
+      <tr class="term"><td class="en">empirical distribution function</td><td class="zh">经验分布函数</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 7 -->
+  <section class="cat" id="c7" data-title="Estimation · 估计">
+    <h2><span>Estimation</span><span class="zh">估计</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">estimation</td><td class="zh">估计</td></tr>
+      <tr class="term"><td class="en">estimator</td><td class="zh">估计量</td></tr>
+      <tr class="term"><td class="en">estimate</td><td class="zh">估计值</td></tr>
+      <tr class="term"><td class="en">point estimate</td><td class="zh">点估计</td></tr>
+      <tr class="term"><td class="en">interval estimate</td><td class="zh">区间估计</td></tr>
+      <tr class="term"><td class="en">confidence interval</td><td class="zh">置信区间</td></tr>
+      <tr class="term"><td class="en">confidence level</td><td class="zh">置信水平（置信度）</td></tr>
+      <tr class="term"><td class="en">margin of error</td><td class="zh">误差边际（误差范围）</td></tr>
+      <tr class="term"><td class="en">bias (of an estimator)</td><td class="zh">偏倚（估计的偏差）</td></tr>
+      <tr class="term"><td class="en">unbiased estimator</td><td class="zh">无偏估计量</td></tr>
+      <tr class="term"><td class="en">biased estimator</td><td class="zh">有偏估计量</td></tr>
+      <tr class="term"><td class="en">asymptotically unbiased</td><td class="zh">渐近无偏</td></tr>
+      <tr class="term"><td class="en">efficiency</td><td class="zh">有效性</td></tr>
+      <tr class="term"><td class="en">efficient estimator</td><td class="zh">有效估计量</td></tr>
+      <tr class="term"><td class="en">consistency</td><td class="zh">相合性（一致性）</td></tr>
+      <tr class="term"><td class="en">mean squared error (MSE)</td><td class="zh">均方误差</td></tr>
+      <tr class="term"><td class="en">bias-variance tradeoff</td><td class="zh">偏差-方差权衡</td></tr>
+      <tr class="term"><td class="en">maximum likelihood estimation (MLE)</td><td class="zh">极大似然估计（最大似然估计）</td></tr>
+      <tr class="term"><td class="en">likelihood function</td><td class="zh">似然函数</td></tr>
+      <tr class="term"><td class="en">log-likelihood</td><td class="zh">对数似然</td></tr>
+      <tr class="term"><td class="en">method of moments</td><td class="zh">矩估计法</td></tr>
+      <tr class="term"><td class="en">least squares estimation</td><td class="zh">最小二乘估计</td></tr>
+      <tr class="term"><td class="en">Fisher information</td><td class="zh">费希尔信息（信息量）</td></tr>
+      <tr class="term"><td class="en">Cramér–Rao lower bound</td><td class="zh">克拉默-拉奥下界</td></tr>
+      <tr class="term"><td class="en">sufficient statistic</td><td class="zh">充分统计量</td></tr>
+      <tr class="term"><td class="en">minimal sufficient statistic</td><td class="zh">最小充分统计量</td></tr>
+      <tr class="term"><td class="en">ancillary statistic</td><td class="zh">辅助统计量</td></tr>
+      <tr class="term"><td class="en">complete statistic</td><td class="zh">完备统计量</td></tr>
+      <tr class="term"><td class="en">minimum-variance unbiased estimator (MVUE)</td><td class="zh">最小方差无偏估计量</td></tr>
+      <tr class="term"><td class="en">interval coverage probability</td><td class="zh">区间覆盖概率</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 8 -->
+  <section class="cat" id="c8" data-title="Hypothesis Testing · 假设检验">
+    <h2><span>Hypothesis Testing</span><span class="zh">假设检验</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">hypothesis</td><td class="zh">假设</td></tr>
+      <tr class="term"><td class="en">hypothesis testing</td><td class="zh">假设检验</td></tr>
+      <tr class="term"><td class="en">null hypothesis</td><td class="zh">原假设（零假设）</td></tr>
+      <tr class="term"><td class="en">alternative hypothesis</td><td class="zh">备择假设</td></tr>
+      <tr class="term"><td class="en">test statistic</td><td class="zh">检验统计量</td></tr>
+      <tr class="term"><td class="en">p-value</td><td class="zh">p 值</td></tr>
+      <tr class="term"><td class="en">significance level (alpha)</td><td class="zh">显著性水平</td></tr>
+      <tr class="term"><td class="en">statistical significance</td><td class="zh">统计显著性</td></tr>
+      <tr class="term"><td class="en">Type I error</td><td class="zh">第一类错误（弃真错误）</td></tr>
+      <tr class="term"><td class="en">Type II error</td><td class="zh">第二类错误（取伪错误）</td></tr>
+      <tr class="term"><td class="en">power (of a test)</td><td class="zh">检验功效（势）</td></tr>
+      <tr class="term"><td class="en">power function</td><td class="zh">功效函数（势函数）</td></tr>
+      <tr class="term"><td class="en">critical value</td><td class="zh">临界值</td></tr>
+      <tr class="term"><td class="en">rejection region</td><td class="zh">拒绝域</td></tr>
+      <tr class="term"><td class="en">acceptance region</td><td class="zh">接受域</td></tr>
+      <tr class="term"><td class="en">one-tailed test</td><td class="zh">单尾检验（单侧检验）</td></tr>
+      <tr class="term"><td class="en">two-tailed test</td><td class="zh">双尾检验（双侧检验）</td></tr>
+      <tr class="term"><td class="en">t-test</td><td class="zh">t 检验</td></tr>
+      <tr class="term"><td class="en">one-sample t-test</td><td class="zh">单样本 t 检验</td></tr>
+      <tr class="term"><td class="en">two-sample t-test</td><td class="zh">双样本 t 检验</td></tr>
+      <tr class="term"><td class="en">paired t-test</td><td class="zh">配对 t 检验</td></tr>
+      <tr class="term"><td class="en">z-test</td><td class="zh">z 检验</td></tr>
+      <tr class="term"><td class="en">chi-square test</td><td class="zh">卡方检验</td></tr>
+      <tr class="term"><td class="en">goodness-of-fit test</td><td class="zh">拟合优度检验</td></tr>
+      <tr class="term"><td class="en">test of independence</td><td class="zh">独立性检验</td></tr>
+      <tr class="term"><td class="en">analysis of variance (ANOVA)</td><td class="zh">方差分析</td></tr>
+      <tr class="term"><td class="en">F-test</td><td class="zh">F 检验</td></tr>
+      <tr class="term"><td class="en">Neyman–Pearson lemma</td><td class="zh">奈曼-皮尔逊引理</td></tr>
+      <tr class="term"><td class="en">likelihood-ratio test</td><td class="zh">似然比检验</td></tr>
+      <tr class="term"><td class="en">multiple comparisons</td><td class="zh">多重比较</td></tr>
+      <tr class="term"><td class="en">Bonferroni correction</td><td class="zh">邦费罗尼校正</td></tr>
+      <tr class="term"><td class="en">effect size</td><td class="zh">效应量</td></tr>
+      <tr class="term"><td class="en">nonparametric test</td><td class="zh">非参数检验</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 9 -->
+  <section class="cat" id="c9" data-title="Regression &amp; Correlation · 回归与相关">
+    <h2><span>Regression &amp; Correlation</span><span class="zh">回归与相关</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">correlation</td><td class="zh">相关（相关性）</td></tr>
+      <tr class="term"><td class="en">correlation coefficient</td><td class="zh">相关系数</td></tr>
+      <tr class="term"><td class="en">Pearson correlation</td><td class="zh">皮尔逊相关系数</td></tr>
+      <tr class="term"><td class="en">Spearman rank correlation</td><td class="zh">斯皮尔曼秩相关</td></tr>
+      <tr class="term"><td class="en">covariance</td><td class="zh">协方差</td></tr>
+      <tr class="term"><td class="en">regression</td><td class="zh">回归</td></tr>
+      <tr class="term"><td class="en">regression analysis</td><td class="zh">回归分析</td></tr>
+      <tr class="term"><td class="en">simple linear regression</td><td class="zh">一元线性回归（简单线性回归）</td></tr>
+      <tr class="term"><td class="en">multiple linear regression</td><td class="zh">多元线性回归</td></tr>
+      <tr class="term"><td class="en">least squares method</td><td class="zh">最小二乘法</td></tr>
+      <tr class="term"><td class="en">ordinary least squares (OLS)</td><td class="zh">普通最小二乘法</td></tr>
+      <tr class="term"><td class="en">regression coefficient</td><td class="zh">回归系数</td></tr>
+      <tr class="term"><td class="en">slope</td><td class="zh">斜率</td></tr>
+      <tr class="term"><td class="en">intercept</td><td class="zh">截距</td></tr>
+      <tr class="term"><td class="en">residual</td><td class="zh">残差</td></tr>
+      <tr class="term"><td class="en">residual sum of squares (RSS)</td><td class="zh">残差平方和</td></tr>
+      <tr class="term"><td class="en">fitted value</td><td class="zh">拟合值</td></tr>
+      <tr class="term"><td class="en">prediction</td><td class="zh">预测</td></tr>
+      <tr class="term"><td class="en">prediction interval</td><td class="zh">预测区间</td></tr>
+      <tr class="term"><td class="en">coefficient of determination (R²)</td><td class="zh">决定系数</td></tr>
+      <tr class="term"><td class="en">adjusted R-squared</td><td class="zh">调整决定系数</td></tr>
+      <tr class="term"><td class="en">multicollinearity</td><td class="zh">多重共线性</td></tr>
+      <tr class="term"><td class="en">heteroscedasticity</td><td class="zh">异方差性</td></tr>
+      <tr class="term"><td class="en">homoscedasticity</td><td class="zh">同方差性</td></tr>
+      <tr class="term"><td class="en">dummy variable</td><td class="zh">虚拟变量（哑变量）</td></tr>
+      <tr class="term"><td class="en">interaction term</td><td class="zh">交互项</td></tr>
+      <tr class="term"><td class="en">logistic regression</td><td class="zh">逻辑回归</td></tr>
+      <tr class="term"><td class="en">generalized linear model (GLM)</td><td class="zh">广义线性模型</td></tr>
+      <tr class="term"><td class="en">link function</td><td class="zh">连接函数</td></tr>
+      <tr class="term"><td class="en">overfitting</td><td class="zh">过拟合</td></tr>
+      <tr class="term"><td class="en">underfitting</td><td class="zh">欠拟合</td></tr>
+      <tr class="term"><td class="en">regularization</td><td class="zh">正则化</td></tr>
+      <tr class="term"><td class="en">ridge regression</td><td class="zh">岭回归</td></tr>
+      <tr class="term"><td class="en">lasso regression</td><td class="zh">套索回归（LASSO 回归）</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 10 -->
+  <section class="cat" id="c10" data-title="Bayesian, Experimental Design &amp; Advanced · 贝叶斯、实验设计与进阶">
+    <h2><span>Bayesian, Experimental Design &amp; Advanced</span><span class="zh">贝叶斯、实验设计与进阶</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">Bayesian inference</td><td class="zh">贝叶斯推断</td></tr>
+      <tr class="term"><td class="en">Bayesian statistics</td><td class="zh">贝叶斯统计</td></tr>
+      <tr class="term"><td class="en">frequentist statistics</td><td class="zh">频率派统计（经典统计）</td></tr>
+      <tr class="term"><td class="en">prior distribution</td><td class="zh">先验分布</td></tr>
+      <tr class="term"><td class="en">posterior distribution</td><td class="zh">后验分布</td></tr>
+      <tr class="term"><td class="en">conjugate prior</td><td class="zh">共轭先验</td></tr>
+      <tr class="term"><td class="en">noninformative prior</td><td class="zh">无信息先验</td></tr>
+      <tr class="term"><td class="en">credible interval</td><td class="zh">可信区间</td></tr>
+      <tr class="term"><td class="en">Bayes factor</td><td class="zh">贝叶斯因子</td></tr>
+      <tr class="term"><td class="en">maximum a posteriori (MAP)</td><td class="zh">最大后验估计</td></tr>
+      <tr class="term"><td class="en">Markov chain Monte Carlo (MCMC)</td><td class="zh">马尔可夫链蒙特卡罗</td></tr>
+      <tr class="term"><td class="en">Gibbs sampling</td><td class="zh">吉布斯抽样</td></tr>
+      <tr class="term"><td class="en">Metropolis–Hastings algorithm</td><td class="zh">梅特罗波利斯-黑斯廷斯算法</td></tr>
+      <tr class="term"><td class="en">experimental design</td><td class="zh">实验设计</td></tr>
+      <tr class="term"><td class="en">randomization</td><td class="zh">随机化</td></tr>
+      <tr class="term"><td class="en">randomized controlled trial</td><td class="zh">随机对照试验</td></tr>
+      <tr class="term"><td class="en">blocking</td><td class="zh">区组化（分块）</td></tr>
+      <tr class="term"><td class="en">randomized block design</td><td class="zh">随机区组设计</td></tr>
+      <tr class="term"><td class="en">factorial design</td><td class="zh">析因设计</td></tr>
+      <tr class="term"><td class="en">factor</td><td class="zh">因子（因素）</td></tr>
+      <tr class="term"><td class="en">level</td><td class="zh">水平</td></tr>
+      <tr class="term"><td class="en">replication</td><td class="zh">重复</td></tr>
+      <tr class="term"><td class="en">blinding</td><td class="zh">盲法</td></tr>
+      <tr class="term"><td class="en">time series</td><td class="zh">时间序列</td></tr>
+      <tr class="term"><td class="en">autocorrelation</td><td class="zh">自相关</td></tr>
+      <tr class="term"><td class="en">stationarity</td><td class="zh">平稳性</td></tr>
+      <tr class="term"><td class="en">moving average</td><td class="zh">移动平均</td></tr>
+      <tr class="term"><td class="en">bootstrap</td><td class="zh">自助法（Bootstrap）</td></tr>
+      <tr class="term"><td class="en">resampling</td><td class="zh">重抽样</td></tr>
+      <tr class="term"><td class="en">cross-validation</td><td class="zh">交叉验证</td></tr>
+      <tr class="term"><td class="en">nonparametric statistics</td><td class="zh">非参数统计</td></tr>
+      <tr class="term"><td class="en">kernel density estimation</td><td class="zh">核密度估计</td></tr>
+      <tr class="term"><td class="en">survival analysis</td><td class="zh">生存分析</td></tr>
+      <tr class="term"><td class="en">hazard function</td><td class="zh">风险函数（危险率函数）</td></tr>
+      <tr class="term"><td class="en">Monte Carlo simulation</td><td class="zh">蒙特卡罗模拟</td></tr>
+    </tbody></table>
+  </section>
+
+  </div>
+  <div class="noresult" id="noresult">No matching terms — try another spelling or the Chinese word. · 没有匹配的术语</div>
+
+  <footer>
+    English ↔ 简体中文 (Mainland conventions). Covers introductory through intermediate statistics and probability. Some terms have more than one accepted translation; common alternatives appear in parentheses.
+  </footer>
+</div>
+
+<script>
+  const search = document.getElementById('search');
+  const rows = Array.from(document.querySelectorAll('tr.term'));
+  const sections = Array.from(document.querySelectorAll('section.cat'));
+  const countEl = document.getElementById('count');
+  const noResult = document.getElementById('noresult');
+  const jump = document.getElementById('jump');
+  const totalTerms = rows.length;
+
+  // build per-section count badges + jump links
+  sections.forEach(sec => {
+    const n = sec.querySelectorAll('tr.term').length;
+    const h2 = sec.querySelector('h2');
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.textContent = n;
+    h2.appendChild(badge);
+    const link = document.createElement('a');
+    link.href = '#' + sec.id;
+    link.textContent = sec.dataset.title.split('·')[0].trim();
+    jump.appendChild(link);
+  });
+
+  function escapeRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+  function highlight(td, q){
+    const text = td.dataset.orig || (td.dataset.orig = td.textContent);
+    if(!q){ td.textContent = text; return; }
+    const re = new RegExp('('+escapeRe(q)+')','ig');
+    td.innerHTML = text.replace(re,'<mark>$1</mark>');
+  }
+
+  function update(){
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    rows.forEach(tr => {
+      const en = tr.children[0].textContent.toLowerCase();
+      const zh = tr.children[1].textContent.toLowerCase();
+      const match = !q || en.includes(q) || zh.includes(q);
+      tr.style.display = match ? '' : 'none';
+      if(match){
+        shown++;
+        highlight(tr.children[0], q);
+        highlight(tr.children[1], q);
+      }
+    });
+    sections.forEach(sec => {
+      const anyVisible = Array.from(sec.querySelectorAll('tr.term')).some(tr => tr.style.display !== 'none');
+      sec.style.display = anyVisible ? '' : 'none';
+    });
+    noResult.style.display = shown === 0 ? 'block' : 'none';
+    countEl.textContent = q
+      ? shown + ' of ' + totalTerms + ' terms match "' + search.value.trim() + '"'
+      : totalTerms + ' terms across ' + sections.length + ' categories';
+  }
+
+  search.addEventListener('input', update);
+  update();
+</script>
+</body>
+</html>
