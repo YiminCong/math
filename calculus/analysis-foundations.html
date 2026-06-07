@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundations of Analysis — Calculus Made Rigorous</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper-2:#efe7d6; --ink:#26221b; --ink-soft:#564f43;
+    --blue:#1f3a5f; --blue-soft:#3a5a82; --amber:#b5651d; --teal:#0f6f6a;
+    --plum:#6d3b5e; --line:#d8cdb8; --shadow:rgba(38,34,27,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:radial-gradient(circle at 20% -10%,#fbf6ec 0%,transparent 55%),radial-gradient(circle at 90% 5%,#f0e9da 0%,transparent 45%),var(--paper); color:var(--ink); font-family:"Spectral",Georgia,serif; font-size:18px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:42px 42px; opacity:.12;}
+  .wrap{position:relative; z-index:1; display:flex; max-width:1360px; margin:0 auto;}
+
+  aside{width:300px; flex:0 0 300px; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:40px 22px 60px 30px; border-right:1px solid var(--line);}
+  aside .brand{font-family:"Fraunces",serif; font-weight:900; font-size:1.32rem; line-height:1.05; color:var(--blue); letter-spacing:-.01em; margin-bottom:4px;}
+  aside .brand em{font-style:italic; color:var(--amber); font-weight:500;}
+  aside .sub{font-size:.76rem; color:var(--ink-soft); letter-spacing:.02em; margin-bottom:20px;}
+  nav a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.88rem; padding:3px 0 3px 12px; border-left:2px solid transparent; transition:.16s;}
+  nav a .n{font-family:"Fraunces",serif; color:var(--amber); font-weight:600; margin-right:6px; font-variant-numeric:tabular-nums;}
+  nav a:hover{color:var(--blue); border-left-color:var(--amber); padding-left:16px;}
+  nav .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.09em; color:var(--teal); margin:18px 0 4px;}
+
+  main{flex:1 1 auto; min-width:0; padding:46px 54px 120px; max-width:900px;}
+  header.hero{margin-bottom:42px;}
+  header.hero h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2.2rem,5vw,3.6rem); line-height:.98; letter-spacing:-.02em; margin:0 0 8px; color:var(--ink);}
+  header.hero h1 em{font-style:italic; color:var(--amber); font-weight:500;}
+  header.hero p.lede{font-size:1.1rem; color:var(--ink-soft); max-width:64ch; margin:12px 0 0;}
+  .rule{height:3px; width:90px; background:var(--amber); margin:22px 0 0; border-radius:3px;}
+  .howto{background:#fffdf7; border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:20px 0 0; font-size:.92rem;}
+  .howto b{color:var(--blue); font-family:"Fraunces",serif;}
+  .swatch{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:middle;}
+
+  .part{font-family:"Fraunces",serif; font-weight:900; color:var(--plum); font-size:1.1rem; letter-spacing:.16em; text-transform:uppercase; margin:48px 0 4px; padding-bottom:6px; border-bottom:2px solid var(--plum);}
+  section{margin:0 0 50px; scroll-margin-top:20px;}
+  .secnum{font-family:"Fraunces",serif; font-weight:900; font-size:.88rem; color:var(--amber); letter-spacing:.13em; text-transform:uppercase; display:block; margin-bottom:2px;}
+  h2{font-family:"Fraunces",serif; font-weight:600; font-size:1.8rem; line-height:1.06; margin:0 0 6px; color:var(--blue); letter-spacing:-.01em;}
+  h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--ink); margin:28px 0 8px;}
+  .intro{color:var(--ink-soft); font-style:italic; margin:6px 0 18px; max-width:66ch;}
+  p{margin:12px 0;} strong{color:var(--blue); font-weight:600;}
+
+  .fcard{background:linear-gradient(180deg,#fffdf7,#f7f0e1); border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:14px 0; box-shadow:0 2px 9px var(--shadow);}
+  .fcard .lab{font-family:"Fraunces",serif; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--amber); font-weight:600; margin-bottom:2px;}
+  .fcard .math{font-size:1.06rem; overflow-x:auto; overflow-y:hidden; padding:3px 0;}
+  .fcard .note{font-size:.88rem; color:var(--ink-soft); margin-top:5px; font-style:italic;}
+
+  .concept{border-left:4px solid var(--plum); background:#f3eaf0; border-radius:0 10px 10px 0; padding:13px 19px; margin:18px 0;}
+  .concept .tag{font-family:"Fraunces",serif; font-weight:700; color:var(--plum); font-size:.78rem; text-transform:uppercase; letter-spacing:.07em;}
+  .concept p{margin:6px 0 0; font-size:.96rem;}
+
+  .rel{border-left:4px solid var(--teal); background:#e9f3f1; border-radius:0 10px 10px 0; padding:12px 18px; margin:18px 0;}
+  .rel .tag{font-family:"Fraunces",serif; font-weight:600; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.07em;}
+  .rel p{margin:6px 0 0; font-size:.95rem;}
+
+  .demo{border:1px solid var(--blue-soft); background:#eef2f7; border-radius:10px; padding:15px 20px 16px; margin:16px 0;}
+  .demo .tag{font-family:"Fraunces",serif; font-weight:700; color:var(--blue); font-size:.8rem; text-transform:uppercase; letter-spacing:.07em; display:flex; align-items:center; gap:8px;}
+  .demo .tag::before{content:"▸"; color:var(--amber);}
+  .demo ol{margin:11px 0 0; padding-left:0; counter-reset:step; list-style:none;}
+  .demo ol li{position:relative; padding:7px 0 7px 38px; border-top:1px dashed #c4cedb;}
+  .demo ol li:first-child{border-top:none;}
+  .demo ol li::before{counter-increment:step; content:counter(step); position:absolute; left:0; top:7px; width:25px; height:25px; background:var(--blue); color:#f5efe2; border-radius:50%; font-family:"Fraunces",serif; font-size:.82rem; font-weight:600; display:flex; align-items:center; justify-content:center;}
+  .demo ol li .mq{display:block; overflow-x:auto; padding:2px 0;}
+  .demo .qed{text-align:right; font-style:italic; color:var(--ink-soft); margin-top:7px; font-size:.9rem;}
+
+  ul.clean{margin:11px 0; padding-left:22px;} ul.clean li{margin:6px 0;}
+  table.tbl{width:100%; border-collapse:collapse; margin:14px 0; font-size:.95rem; background:#fffdf7; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  table.tbl th{background:var(--blue); color:#f5efe2; font-family:"Fraunces",serif; font-weight:600; text-align:left; padding:8px 12px; font-size:.88rem;}
+  table.tbl td{padding:7px 12px; border-top:1px solid var(--line); vertical-align:top;}
+  table.tbl tr:nth-child(even) td{background:#f7f0e1;}
+
+  .map{background:#fffdf7; border:1px dashed var(--blue-soft); border-radius:12px; padding:18px 22px; margin:16px 0;}
+  .map h3{margin-top:0;}
+  .flow{font-family:"Fraunces",serif; color:var(--blue); font-weight:600; text-align:center; font-size:1rem; line-height:2;}
+  .flow .arrow{color:var(--amber); margin:0 6px;}
+
+  footer{border-top:1px solid var(--line); padding-top:22px; color:var(--ink-soft); font-size:.9rem; font-style:italic;}
+  section, header.hero, .part{animation:rise .6s ease both;}
+  @keyframes rise{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+
+  .menubtn{display:none;}
+  @media(max-width:920px){
+    body{font-size:17px;}
+    .wrap{flex-direction:column;}
+    aside{position:static; width:auto; height:auto; flex:none; border-right:none; border-bottom:1px solid var(--line); padding:22px 20px;}
+    nav{display:none;} nav.open{display:block;}
+    .menubtn{display:inline-block; margin-top:12px; cursor:pointer; font-family:"Fraunces",serif; font-weight:600; color:var(--blue); background:var(--paper-2); border:1px solid var(--line); border-radius:8px; padding:8px 16px; font-size:.92rem;}
+    main{padding:28px 20px 90px; max-width:none;}
+    .demo ol li{padding-left:34px;}
+  }
+  /* in-page section search */
+  .gsearch{margin:0 0 6px; display:flex; align-items:center; gap:8px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:24px; padding:8px 14px; box-shadow:0 2px 8px var(--shadow);}
+  .gsearch .ico{color:var(--blue); font-size:.95rem;}
+  .gsearch input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:.95rem; width:100%; color:var(--ink);}
+  .gsearch input::placeholder{color:#a99e87;}
+  .gsearch-count{font-size:.76rem; color:var(--ink-soft); font-style:italic; margin:4px 0 14px; padding-left:6px; min-height:1em;}
+  section.gs-hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <div class="brand">Foundations<br><em>of analysis</em></div>
+    <div class="sub">The rigorous theory behind calculus — \(\varepsilon\), limits, completeness, and the proofs that make it all true</div>
+    <button class="menubtn" onclick="document.getElementById('nav').classList.toggle('open')">☰ Contents</button>
+        <div class="gsearch"><span class="ico">🔍</span><input id="gsearch-input" type="text" placeholder="Search this guide…  ( / )" autocomplete="off"></div>
+    <div class="gsearch-count" id="gsearch-count"></div>
+    <nav id="nav">
+      <div class="grp">A · Numbers &amp; sequences</div>
+      <a href="#s0"><span class="n">0</span>The big picture: why rigor &amp; \(\varepsilon\)</a>
+      <a href="#s1"><span class="n">1</span>The real numbers &amp; completeness</a>
+      <a href="#s2"><span class="n">2</span>Sequences &amp; their limits</a>
+      <a href="#s3"><span class="n">3</span>Monotone, B–W &amp; Cauchy</a>
+      <a href="#s4"><span class="n">4</span>Limit superior &amp; inferior</a>
+      <div class="grp">B · Continuity &amp; differentiation</div>
+      <a href="#s5"><span class="n">5</span>Limits of functions &amp; continuity</a>
+      <a href="#s6"><span class="n">6</span>IVT, EVT &amp; uniform continuity</a>
+      <a href="#s7"><span class="n">7</span>The MVT &amp; Taylor's theorem</a>
+      <div class="grp">C · Integration, series &amp; beyond</div>
+      <a href="#s8"><span class="n">8</span>The Riemann integral</a>
+      <a href="#s9"><span class="n">9</span>The Fundamental Theorem, proved</a>
+      <a href="#s10"><span class="n">10</span>Sequences &amp; series of functions</a>
+      <a href="#s11"><span class="n">11</span>Consequences of uniform convergence</a>
+      <a href="#s12"><span class="n">12</span>Power series &amp; analytic functions</a>
+      <a href="#s13"><span class="n">13</span>A glimpse beyond</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <h1>Calculus, <em>made rigorous.</em></h1>
+      <p class="lede">The companion that goes underneath the formulas. Here every limit is an \(\varepsilon\), every theorem is <strong>stated precisely and proved</strong>, and the whole edifice — continuity, derivatives, integrals, series — is rebuilt from one foundation: the <strong>completeness</strong> of the real numbers.</p>
+      <div class="rule"></div>
+      <div class="howto">
+        <b>The four kinds of box:</b><br>
+        <span class="swatch" style="background:#f3eaf0;border:1px solid #6d3b5e;"></span><b>Concept / Definition</b> — the idea in words. &nbsp;
+        <span class="swatch" style="background:#f7f0e1;border:1px solid #d8cdb8;"></span><b>Statement</b> — a definition or theorem, cleanly. &nbsp;
+        <span class="swatch" style="background:#eef2f7;border:1px solid #3a5a82;"></span><b>Proof</b> — the rigorous demonstration. &nbsp;
+        <span class="swatch" style="background:#e9f3f1;border:1px solid #0f6f6a;"></span><b>Connection</b> — link to the informal calculus.
+      </div>
+    </header>
+
+    <!-- ===================== PART A ===================== -->
+    <div class="part">Part A · Numbers &amp; sequences</div>
+
+    <!-- 0 -->
+    <section id="s0">
+      <span class="secnum">Section 0</span>
+      <h2>The big picture: why rigor, and the role of \(\varepsilon\)</h2>
+      <p class="intro">Calculus computes with infinity. Analysis is the discipline that makes those computations <em>true</em> rather than merely suggestive.</p>
+
+      <p>For two centuries calculus ran on intuition about "infinitely small" quantities. It worked spectacularly — and it also produced paradoxes: divergent series summed to nonsense, "continuous" functions with no derivative anywhere, and arguments that proved \(1=0\). The nineteenth-century project of <strong>Cauchy, Weierstrass, Bolzano, Dedekind</strong> and others replaced the vague infinitesimal with a single precise idea: the <strong>limit</strong>, defined by \(\varepsilon\).</p>
+
+      <div class="concept"><span class="tag">Principle — what "rigor" buys you</span><p>The informal idea "\(f(x)\) gets close to \(L\) as \(x\) gets close to \(a\)" hides the questions: <em>how</em> close, and <em>who chooses first?</em> The \(\varepsilon\)–\(\delta\) definition answers both: <strong>an adversary names a tolerance \(\varepsilon&gt;0\), and you must produce a \(\delta\) that meets it.</strong> Every theorem of calculus becomes a guarantee you can actually deliver on, not a picture you hope is right.</p></div>
+
+      <div class="concept"><span class="tag">Concept — the one foundation: completeness</span><p>The rationals \(\mathbb{Q}\) have a hole at \(\sqrt 2\); the sequence \(1,1.4,1.41,1.414,\dots\) "wants" to converge but has nowhere in \(\mathbb{Q}\) to land. The real numbers \(\mathbb{R}\) are built precisely to have <strong>no holes</strong>. That single property — <strong>completeness</strong> — is the engine behind every existence theorem ahead: that bounded monotone sequences converge, that continuous functions attain maxima, that integrals exist.</p></div>
+
+      <div class="map"><h3>The whole subject on one line</h3><div class="flow">Real numbers &amp; completeness <span class="arrow">→</span> limits of sequences <span class="arrow">→</span> continuity <span class="arrow">→</span> derivatives <span class="arrow">→</span> integrals <span class="arrow">→</span> series of functions <span class="arrow">→</span> power series</div></div>
+
+      <div class="rel"><span class="tag">Connection — this guide vs. the others</span><p>The <em>Complete Calculus</em> and <em>Derived from Scratch</em> guides tell you the rules and show you the manipulations. This guide answers the next question — <strong>why are those rules valid?</strong> Whenever you used a limit, a continuity assumption, or "\(dx\)," there was a theorem underneath; here we name it and prove it.</p></div>
+    </section>
+
+    <!-- 1 -->
+    <section id="s1">
+      <span class="secnum">Section 1</span>
+      <h2>The real numbers: ordered field, completeness &amp; the supremum</h2>
+      <p class="intro">Everything rests on knowing exactly what \(\mathbb{R}\) is. It is the unique complete ordered field — and the word "complete" is what distinguishes it from \(\mathbb{Q}\).</p>
+
+      <div class="fcard"><div class="lab">The ordered-field axioms</div>
+        <div class="note">\(\mathbb{R}\) is a <strong>field</strong>: \(+\) and \(\cdot\) are associative, commutative, distributive, with identities \(0,1\) and inverses (\(-x\), and \(x^{-1}\) for \(x\ne 0\)). It is <strong>ordered</strong>: a relation \(\lt\) that is total, transitive, respects addition (\(a\lt b\Rightarrow a+c\lt b+c\)) and respects multiplication by positives (\(a\lt b,\ c\gt 0\Rightarrow ac\lt bc\)). The rationals \(\mathbb{Q}\) satisfy all of this too — so the axioms so far do <em>not</em> single out \(\mathbb{R}\).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Bounds, supremum &amp; infimum</div>
+        <div class="math">\[ u \text{ is an upper bound of } S \iff \forall x\in S,\ x\le u. \]</div>
+        <div class="math">\[ \sup S = \text{the } least \text{ upper bound of } S;\qquad \inf S = \text{the } greatest \text{ lower bound.} \]</div>
+        <div class="note">\(M=\sup S\) means: (i) \(M\) is an upper bound, and (ii) for every \(\varepsilon&gt;0\) there is \(x\in S\) with \(x\gt M-\varepsilon\) (nothing smaller than \(M\) works as a bound). This characterization is used in nearly every proof below.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Axiom — completeness (the least-upper-bound property)</span><p>This is the defining axiom of \(\mathbb{R}\): <strong>every nonempty subset of \(\mathbb{R}\) that is bounded above has a supremum in \(\mathbb{R}\).</strong> The set \(\{x\in\mathbb{Q}: x^2\lt 2\}\) is bounded above but has no supremum <em>in \(\mathbb{Q}\)</em> — its would-be sup is \(\sqrt 2\), which is missing. Completeness says \(\mathbb{R}\) has no such gaps.</p></div>
+
+      <div class="demo">
+        <span class="tag">Proof — the Archimedean property: \(\mathbb{N}\) is unbounded in \(\mathbb{R}\)</span>
+        <ol>
+          <li>Claim: for every \(x\in\mathbb{R}\) there is \(n\in\mathbb{N}\) with \(n\gt x\). Suppose not — then \(\mathbb{N}\) is bounded above.</li>
+          <li>Since \(\mathbb{N}\ne\varnothing\) is bounded above, completeness gives \(s=\sup\mathbb{N}\in\mathbb{R}\).</li>
+          <li>Then \(s-1\) is not an upper bound (it is less than the least one), so some \(m\in\mathbb{N}\) satisfies \(m\gt s-1\), i.e. \(m+1\gt s\). <span class="mq">\[ m+1\in\mathbb{N}\ \text{yet}\ m+1\gt s=\sup\mathbb{N}. \]</span></li>
+          <li>That contradicts \(s\) being an upper bound of \(\mathbb{N}\). Hence \(\mathbb{N}\) is unbounded.</li>
+        </ol>
+        <div class="qed">Corollary: for any \(\varepsilon&gt;0\) there is \(n\) with \(1/n\lt\varepsilon\) (take \(n\gt 1/\varepsilon\)). This tiny fact is what lets \(1/n\to 0\) drive countless limits. \(\blacksquare\)</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — \(\mathbb{Q}\) is dense in \(\mathbb{R}\)</span>
+        <ol>
+          <li>Given \(a\lt b\), we find a rational in \((a,b)\). By Archimedes pick \(n\) with \(1/n\lt b-a\), so \(nb-na\gt 1\).</li>
+          <li>An interval of length greater than \(1\) contains an integer: let \(m\) be the least integer with \(m\gt na\). Then \(m-1\le na\), so \(m\le na+1\lt nb\).</li>
+          <li>Thus \(na\lt m\lt nb\), and dividing by \(n\): <span class="mq">\[ a\lt \frac{m}{n}\lt b. \]</span></li>
+        </ol>
+        <div class="qed">Between any two reals lies a rational — the reason rational approximation works everywhere. \(\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — why this comes first</span><p>Every "the limit exists" claim you took on faith in calculus is ultimately cashed out as a supremum produced by completeness. Lose this axiom and continuous functions can skip over zero, bounded sequences need not converge, and the integral may not exist. \(\mathbb{R}\) is engineered so none of that happens.</p></div>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <span class="secnum">Section 2</span>
+      <h2>Sequences and their limits (the \(\varepsilon\)–\(N\) definition)</h2>
+      <p class="intro">The simplest infinite process. Master the \(\varepsilon\)–\(N\) definition here and the \(\varepsilon\)–\(\delta\) of continuity is the same idea with a different clock.</p>
+
+      <div class="fcard"><div class="lab">Definition — convergence of a sequence</div>
+        <div class="math">\[ a_n \to L \iff \forall\varepsilon&gt;0\ \ \exists N\in\mathbb{N}\ \ \forall n\ge N:\ \ |a_n-L|\lt\varepsilon. \]</div>
+        <div class="note">Read it as a game: the adversary picks any tolerance \(\varepsilon\); you must name a threshold \(N\) past which <em>all</em> terms sit within \(\varepsilon\) of \(L\). If you can always answer, the limit is \(L\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — limits are unique</span>
+        <ol>
+          <li>Suppose \(a_n\to L\) and \(a_n\to L'\) with \(L\ne L'\). Let \(\varepsilon=\tfrac{|L-L'|}{2}\gt 0\).</li>
+          <li>Get \(N_1\) with \(|a_n-L|\lt\varepsilon\) for \(n\ge N_1\), and \(N_2\) with \(|a_n-L'|\lt\varepsilon\) for \(n\ge N_2\). For \(n\ge\max(N_1,N_2)\), both hold.</li>
+          <li>Triangle inequality: <span class="mq">\[ |L-L'|\le|L-a_n|+|a_n-L'|\lt\varepsilon+\varepsilon=|L-L'|, \]</span> i.e. \(|L-L'|\lt|L-L'|\), impossible.</li>
+        </ol>
+        <div class="qed">A sequence cannot converge to two different values — "the" limit is well defined. \(\blacksquare\)</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — convergent sequences are bounded</span>
+        <ol>
+          <li>Let \(a_n\to L\). Take \(\varepsilon=1\): there is \(N\) with \(|a_n-L|\lt 1\), hence \(|a_n|\lt|L|+1\) for all \(n\ge N\).</li>
+          <li>Only finitely many terms remain: \(a_1,\dots,a_{N-1}\). Set <span class="mq">\[ M=\max\big(|a_1|,\dots,|a_{N-1}|,\ |L|+1\big). \]</span></li>
+          <li>Then \(|a_n|\le M\) for every \(n\).</li>
+        </ol>
+        <div class="qed">Boundedness is necessary for convergence — though, as we'll see, not sufficient. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — the algebra of limits</div>
+        <div class="math">\[ \text{If } a_n\to A,\ b_n\to B,\text{ then } a_n+b_n\to A+B,\ \ a_nb_n\to AB,\ \ \tfrac{a_n}{b_n}\to\tfrac{A}{B}\ (B\ne 0). \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — the limit of a sum is the sum of limits</span>
+        <ol>
+          <li>Let \(a_n\to A\), \(b_n\to B\), and fix \(\varepsilon&gt;0\). The trick: spend half the budget on each sequence.</li>
+          <li>Choose \(N_1\) so that \(n\ge N_1\Rightarrow|a_n-A|\lt\tfrac{\varepsilon}{2}\), and \(N_2\) so that \(n\ge N_2\Rightarrow|b_n-B|\lt\tfrac{\varepsilon}{2}\).</li>
+          <li>For \(n\ge N=\max(N_1,N_2)\), the triangle inequality gives <span class="mq">\[ |(a_n+b_n)-(A+B)|\le|a_n-A|+|b_n-B|\lt\tfrac{\varepsilon}{2}+\tfrac{\varepsilon}{2}=\varepsilon. \]</span></li>
+        </ol>
+        <div class="qed">The "\(\varepsilon/2\) trick" — split the tolerance among the pieces — recurs throughout analysis. \(\blacksquare\)</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — the limit of a product is the product of limits</span>
+        <ol>
+          <li>Write the difference and insert a cross term: <span class="mq">\[ a_nb_n-AB=a_n b_n - a_n B + a_n B - AB = a_n(b_n-B)+B(a_n-A). \]</span></li>
+          <li>Since \((a_n)\) converges it is bounded: \(|a_n|\le M\) for all \(n\) (previous proof). So <span class="mq">\[ |a_nb_n-AB|\le M\,|b_n-B|+|B|\,|a_n-A|. \]</span></li>
+          <li>Given \(\varepsilon&gt;0\), make \(|b_n-B|\lt\dfrac{\varepsilon}{2M}\) and \(|a_n-A|\lt\dfrac{\varepsilon}{2(|B|+1)}\) for large \(n\); then the right side is \(\lt\tfrac{\varepsilon}{2}+\tfrac{\varepsilon}{2}=\varepsilon\).</li>
+        </ol>
+        <div class="qed">Inserting \(\pm a_nB\) is the "add and subtract" technique — the workhorse of multiplicative limit proofs. \(\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — the rules you used informally</span><p>"The limit of a sum/product is the sum/product of limits" was a rule you applied without thought. It is a <em>theorem</em>, and this is its proof. The same statements for functions (Section 5) follow by exactly this argument with \(\delta\) in place of \(N\).</p></div>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <span class="secnum">Section 3</span>
+      <h2>Monotone convergence, Bolzano–Weierstrass &amp; Cauchy sequences</h2>
+      <p class="intro">Three existence theorems — each a different way completeness guarantees a limit you can't compute by hand.</p>
+
+      <div class="fcard"><div class="lab">Theorem — Monotone Convergence</div>
+        <div class="math">\[ \text{Every bounded monotone sequence converges.} \]</div>
+        <div class="note">If \((a_n)\) is increasing and bounded above, then \(a_n\to\sup\{a_n\}\); if decreasing and bounded below, \(a_n\to\inf\{a_n\}\). Monotone <em>and</em> bounded is enough — you needn't know the limit in advance.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — monotone &amp; bounded \(\Rightarrow\) convergent (via the supremum)</span>
+        <ol>
+          <li>Let \((a_n)\) be increasing and bounded above. The set \(S=\{a_n:n\in\mathbb{N}\}\) is nonempty and bounded above, so by <strong>completeness</strong> \(L=\sup S\) exists.</li>
+          <li>Fix \(\varepsilon&gt;0\). Since \(L-\varepsilon\) is not an upper bound, some term \(a_N\gt L-\varepsilon\).</li>
+          <li>Because the sequence increases, for all \(n\ge N\): \(a_N\le a_n\le L\). Therefore <span class="mq">\[ L-\varepsilon\lt a_N\le a_n\le L\lt L+\varepsilon\ \Rightarrow\ |a_n-L|\lt\varepsilon. \]</span></li>
+        </ol>
+        <div class="qed">This is the cleanest place to see completeness <em>create</em> a limit out of thin air. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — Bolzano–Weierstrass</div>
+        <div class="math">\[ \text{Every bounded sequence in } \mathbb{R} \text{ has a convergent subsequence.} \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — Bolzano–Weierstrass by bisection</span>
+        <ol>
+          <li>Let \((a_n)\) lie in \([A,B]\). Bisect: at least one half contains infinitely many terms — call it \(I_1\), of length \(\tfrac{B-A}{2}\). Pick \(a_{n_1}\in I_1\).</li>
+          <li>Repeat: bisect \(I_1\), keep a half \(I_2\) with infinitely many terms (length \(\tfrac{B-A}{4}\)), and pick \(a_{n_2}\in I_2\) with \(n_2\gt n_1\). Continue, building nested intervals \(I_1\supset I_2\supset\cdots\) with lengths \(\to 0\).</li>
+          <li>The left endpoints increase and are bounded, so by Monotone Convergence they tend to a point \(L\) (the unique point in all \(I_k\), by the Nested Interval Property). Since \(a_{n_k}\in I_k\) and \(|I_k|\to 0\): <span class="mq">\[ |a_{n_k}-L|\le|I_k|=\frac{B-A}{2^{k}}\to 0. \]</span></li>
+        </ol>
+        <div class="qed">A bounded sequence may wander forever, but it must <em>cluster</em> somewhere. This is the compactness of \([A,B]\) in disguise. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Definition — Cauchy sequence</div>
+        <div class="math">\[ (a_n) \text{ is Cauchy} \iff \forall\varepsilon&gt;0\ \exists N\ \forall m,n\ge N:\ |a_n-a_m|\lt\varepsilon. \]</div>
+        <div class="note">The terms eventually cluster among <em>themselves</em> — no mention of a limit \(L\). This lets you prove convergence without knowing the target.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — every convergent sequence is Cauchy</span>
+        <ol>
+          <li>Suppose \(a_n\to L\) and fix \(\varepsilon&gt;0\). Choose \(N\) with \(|a_n-L|\lt\tfrac{\varepsilon}{2}\) for all \(n\ge N\).</li>
+          <li>For any \(m,n\ge N\), route through \(L\): <span class="mq">\[ |a_n-a_m|\le|a_n-L|+|L-a_m|\lt\tfrac{\varepsilon}{2}+\tfrac{\varepsilon}{2}=\varepsilon. \]</span></li>
+        </ol>
+        <div class="qed">Convergence \(\Rightarrow\) Cauchy is easy and holds in any metric space. \(\blacksquare\)</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — every Cauchy sequence in \(\mathbb{R}\) converges (completeness of \(\mathbb{R}\))</span>
+        <ol>
+          <li>A Cauchy sequence is bounded: take \(\varepsilon=1\), get \(N\) with \(|a_n-a_N|\lt 1\) for \(n\ge N\), then bound as in Section 2.</li>
+          <li>By Bolzano–Weierstrass it has a convergent subsequence \(a_{n_k}\to L\).</li>
+          <li>Now show the <em>whole</em> sequence \(\to L\). Fix \(\varepsilon&gt;0\); get \(N\) with \(|a_n-a_m|\lt\tfrac{\varepsilon}{2}\) for \(m,n\ge N\), and pick \(n_k\ge N\) with \(|a_{n_k}-L|\lt\tfrac{\varepsilon}{2}\). For \(n\ge N\): <span class="mq">\[ |a_n-L|\le|a_n-a_{n_k}|+|a_{n_k}-L|\lt\tfrac{\varepsilon}{2}+\tfrac{\varepsilon}{2}=\varepsilon. \]</span></li>
+        </ol>
+        <div class="qed">In \(\mathbb{R}\), Cauchy \(\iff\) convergent. This <strong>Cauchy criterion</strong> is "completeness" restated for sequences, and underlies the convergence of series and integrals. \(\blacksquare\)</div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <span class="secnum">Section 4</span>
+      <h2>Limit superior &amp; limit inferior</h2>
+      <p class="intro">Even sequences that don't converge have a "ceiling" and "floor" of long-run behavior — and these <em>always</em> exist.</p>
+
+      <div class="fcard"><div class="lab">Definition — \(\limsup\) and \(\liminf\)</div>
+        <div class="math">\[ \limsup_{n\to\infty} a_n=\lim_{n\to\infty}\Big(\sup_{k\ge n} a_k\Big),\qquad \liminf_{n\to\infty} a_n=\lim_{n\to\infty}\Big(\inf_{k\ge n} a_k\Big). \]</div>
+        <div class="note">Let \(s_n=\sup_{k\ge n}a_k\). As \(n\) grows we sup over a smaller tail, so \(s_n\) is decreasing; if bounded below it converges (Monotone Convergence) — that limit is \(\limsup\). For a bounded sequence both always exist in \(\mathbb{R}\).</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — what they capture</span><p>\(\limsup a_n\) is the largest value the sequence approaches infinitely often (its biggest subsequential limit); \(\liminf a_n\) is the smallest. For \(a_n=(-1)^n\): \(\limsup=1\), \(\liminf=-1\). They pin down a sequence's eventual range even when no single limit exists.</p></div>
+
+      <div class="demo">
+        <span class="tag">Proof — \(a_n\to L \iff \limsup a_n=\liminf a_n=L\)</span>
+        <ol>
+          <li>(\(\Rightarrow\)) If \(a_n\to L\), then for \(\varepsilon&gt;0\) all terms past some \(N\) lie in \((L-\varepsilon,L+\varepsilon)\), so for \(n\ge N\) both \(\sup_{k\ge n}a_k\) and \(\inf_{k\ge n}a_k\) lie in \([L-\varepsilon,L+\varepsilon]\). Letting \(\varepsilon\to 0\) forces both to \(L\).</li>
+          <li>(\(\Leftarrow\)) Suppose \(\liminf=\limsup=L\). Always \(\inf_{k\ge n}a_k\le a_n\le\sup_{k\ge n}a_k\). <span class="mq">\[ \liminf a_n\ \le\ a_n\ \le\ \limsup a_n. \]</span></li>
+          <li>The outer two both tend to \(L\), so by the Squeeze Theorem \(a_n\to L\).</li>
+        </ol>
+        <div class="qed">Convergence is exactly the collapse of the gap between the eventual ceiling and floor. \(\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — the root and ratio tests</span><p>The convergence tests for series you used (root test, ratio test) are stated rigorously with \(\limsup\): a series \(\sum a_n\) converges absolutely if \(\limsup|a_n|^{1/n}\lt 1\). Because \(\limsup\) always exists, these tests always have something to say — even for erratic terms.</p></div>
+    </section>
+
+    <!-- ===================== PART B ===================== -->
+    <div class="part">Part B · Continuity &amp; differentiation</div>
+
+    <!-- 5 -->
+    <section id="s5">
+      <span class="secnum">Section 5</span>
+      <h2>Limits of functions and continuity (\(\varepsilon\)–\(\delta\))</h2>
+      <p class="intro">The same game as \(\varepsilon\)–\(N\), now with input distance \(\delta\) controlling output distance \(\varepsilon\).</p>
+
+      <div class="fcard"><div class="lab">Definition — limit of a function</div>
+        <div class="math">\[ \lim_{x\to a} f(x)=L \iff \forall\varepsilon&gt;0\ \exists\delta&gt;0:\ 0\lt|x-a|\lt\delta\ \Rightarrow\ |f(x)-L|\lt\varepsilon. \]</div>
+        <div class="note">"\(0\lt|x-a|\)" excludes \(x=a\) itself: the limit is about approach, not the value at \(a\).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Definition — continuity at a point</div>
+        <div class="math">\[ f \text{ continuous at } a \iff \forall\varepsilon&gt;0\ \exists\delta&gt;0:\ |x-a|\lt\delta\ \Rightarrow\ |f(x)-f(a)|\lt\varepsilon. \]</div>
+        <div class="note">Equivalently \(\lim_{x\to a}f(x)=f(a)\): the limit exists, \(f(a)\) is defined, and they agree. Now \(x=a\) is allowed (it trivially satisfies the conclusion).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — \(f(x)=x^2\) is continuous at every \(a\)</span>
+        <ol>
+          <li>Fix \(a\) and \(\varepsilon&gt;0\). We must control \(|x^2-a^2|=|x-a|\,|x+a|\).</li>
+          <li>Restrict the search to \(|x-a|\lt 1\); then \(|x|\lt|a|+1\), so \(|x+a|\le|x|+|a|\lt 2|a|+1\).</li>
+          <li>Choose \(\delta=\min\!\Big(1,\ \dfrac{\varepsilon}{2|a|+1}\Big)\). Then \(|x-a|\lt\delta\) gives <span class="mq">\[ |x^2-a^2|=|x-a|\,|x+a|\lt\frac{\varepsilon}{2|a|+1}\cdot(2|a|+1)=\varepsilon. \]</span></li>
+        </ol>
+        <div class="qed">The "bound the awkward factor first, then choose \(\delta\)" pattern handles most explicit \(\varepsilon\)–\(\delta\) proofs. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — sequential criterion for continuity</div>
+        <div class="math">\[ f \text{ continuous at } a \iff \big(x_n\to a \Rightarrow f(x_n)\to f(a)\big)\ \text{for every sequence } x_n. \]</div>
+        <div class="note">A bridge between Part A and Part B: it lets you reuse all sequence theorems for functions, and lets you <em>disprove</em> continuity by exhibiting one bad sequence.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — composition of continuous functions is continuous</span>
+        <ol>
+          <li>Let \(g\) be continuous at \(a\) and \(f\) continuous at \(b=g(a)\); show \(f\circ g\) is continuous at \(a\). Fix \(\varepsilon&gt;0\).</li>
+          <li>By continuity of \(f\) at \(b\): there is \(\eta&gt;0\) with \(|y-b|\lt\eta\Rightarrow|f(y)-f(b)|\lt\varepsilon\).</li>
+          <li>By continuity of \(g\) at \(a\): there is \(\delta&gt;0\) with \(|x-a|\lt\delta\Rightarrow|g(x)-b|\lt\eta\). Chain them: <span class="mq">\[ |x-a|\lt\delta\ \Rightarrow\ |g(x)-b|\lt\eta\ \Rightarrow\ |f(g(x))-f(b)|\lt\varepsilon. \]</span></li>
+        </ol>
+        <div class="qed">Continuity passes through composition — the rigorous basis for differentiating composite functions. \(\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — "you can plug in"</span><p>In the first calculus course, evaluating a limit by "plugging in" worked precisely <em>because</em> the function was continuous. Continuity is the formal statement that \(\lim_{x\to a}f=f(a)\) — the permission slip for substitution.</p></div>
+    </section>
+
+    <!-- 6 -->
+    <section id="s6">
+      <span class="secnum">Section 6</span>
+      <h2>Theorems on continuous functions: IVT, EVT &amp; uniform continuity</h2>
+      <p class="intro">On a closed bounded interval, continuity is astonishingly strong. Three theorems show why — and all three need completeness.</p>
+
+      <div class="fcard"><div class="lab">Theorem — Intermediate Value Theorem (IVT)</div>
+        <div class="math">\[ f \text{ continuous on } [a,b],\ \ f(a)\lt y\lt f(b)\ \Rightarrow\ \exists c\in(a,b):\ f(c)=y. \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — IVT via the supremum</span>
+        <ol>
+          <li>WLOG \(y=0\) with \(f(a)\lt 0\lt f(b)\) (replace \(f\) by \(f-y\)). Let \(S=\{x\in[a,b]:f(x)\lt 0\}\). It is nonempty (\(a\in S\)) and bounded above by \(b\), so \(c=\sup S\) exists by completeness.</li>
+          <li>Suppose \(f(c)\lt 0\). By continuity \(f\) stays negative on a small interval around \(c\), so points slightly right of \(c\) are in \(S\) — contradicting \(c=\sup S\).</li>
+          <li>Suppose \(f(c)\gt 0\). By continuity \(f\) stays positive just left of \(c\), so a smaller number is already an upper bound for \(S\) — again contradicting \(c=\sup S\). Hence <span class="mq">\[ f(c)=0. \]</span></li>
+        </ol>
+        <div class="qed">A continuous graph cannot jump across a value — proved, not drawn. This is the root of every root-finding bisection method. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — Extreme Value Theorem (EVT)</div>
+        <div class="math">\[ f \text{ continuous on } [a,b]\ \Rightarrow\ f \text{ is bounded and attains a max and a min on } [a,b]. \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — EVT via Bolzano–Weierstrass</span>
+        <ol>
+          <li><em>Bounded:</em> if not, there are \(x_n\in[a,b]\) with \(|f(x_n)|\to\infty\). By Bolzano–Weierstrass a subsequence \(x_{n_k}\to x^*\in[a,b]\); continuity gives \(f(x_{n_k})\to f(x^*)\), a finite number — contradicting \(|f(x_{n_k})|\to\infty\).</li>
+          <li><em>Attained:</em> let \(M=\sup_{[a,b]}f\) (exists, now that \(f\) is bounded). Pick \(x_n\) with \(f(x_n)\to M\).</li>
+          <li>By Bolzano–Weierstrass, \(x_{n_k}\to c\in[a,b]\); continuity gives \(f(c)=\lim f(x_{n_k})=M\). <span class="mq">\[ f(c)=M=\max_{[a,b]}f. \]</span> The min is identical applied to \(-f\).</li>
+        </ol>
+        <div class="qed">The closed, bounded interval (compactness) is essential: \(f(x)=1/x\) on \((0,1]\) is continuous but unbounded. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Definition — uniform continuity</div>
+        <div class="math">\[ f \text{ uniformly continuous on } I \iff \forall\varepsilon&gt;0\ \exists\delta&gt;0\ \forall x,y\in I:\ |x-y|\lt\delta\Rightarrow|f(x)-f(y)|\lt\varepsilon. \]</div>
+        <div class="note">The crucial difference from ordinary continuity: <strong>one \(\delta\) works for the whole interval at once</strong> — it may not depend on the point. \(f(x)=1/x\) on \((0,1)\) is continuous but not uniformly so: near 0 you need ever-tinier \(\delta\).</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — Heine–Cantor: continuous on \([a,b]\) \(\Rightarrow\) uniformly continuous</span>
+        <ol>
+          <li>Suppose not. Then there is \(\varepsilon_0&gt;0\) such that for every \(\delta=\tfrac1n\) there exist \(x_n,y_n\in[a,b]\) with \(|x_n-y_n|\lt\tfrac1n\) yet \(|f(x_n)-f(y_n)|\ge\varepsilon_0\).</li>
+          <li>By Bolzano–Weierstrass, a subsequence \(x_{n_k}\to c\in[a,b]\). Since \(|x_{n_k}-y_{n_k}|\lt\tfrac{1}{n_k}\to 0\), also \(y_{n_k}\to c\).</li>
+          <li>By continuity at \(c\), both \(f(x_{n_k})\to f(c)\) and \(f(y_{n_k})\to f(c)\), so their difference \(\to 0\) — contradicting \(|f(x_{n_k})-f(y_{n_k})|\ge\varepsilon_0\). <span class="mq">\[ 0=\lim|f(x_{n_k})-f(y_{n_k})|\ge\varepsilon_0\gt 0. \]</span></li>
+        </ol>
+        <div class="qed">Compactness upgrades pointwise continuity to uniform — the fact that makes the Riemann integral of a continuous function exist (Section 8). \(\blacksquare\)</div>
+      </div>
+
+      <div class="concept"><span class="tag">Theorem — Heine–Borel (named)</span><p>A subset of \(\mathbb{R}\) (or \(\mathbb{R}^n\)) is <strong>compact</strong> — every open cover has a finite subcover — <em>if and only if</em> it is <strong>closed and bounded</strong>. This is the abstract engine behind EVT and Heine–Cantor; "closed bounded interval" is the simplest compact set.</p></div>
+    </section>
+
+    <!-- 7 -->
+    <section id="s7">
+      <span class="secnum">Section 7</span>
+      <h2>Differentiation: the Mean Value Theorem &amp; Taylor's theorem with remainder</h2>
+      <p class="intro">The derivative is a limit; the MVT is the theorem that turns it into global information; Taylor's theorem quantifies the error of polynomial approximation.</p>
+
+      <div class="fcard"><div class="lab">Definition — the derivative</div>
+        <div class="math">\[ f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}, \]</div>
+        <div class="note">when this limit exists. Differentiability is strictly stronger than continuity, as the next result shows.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — differentiable \(\Rightarrow\) continuous</span>
+        <ol>
+          <li>Suppose \(f'(a)\) exists. For \(x\ne a\) write <span class="mq">\[ f(x)-f(a)=\frac{f(x)-f(a)}{x-a}\cdot(x-a). \]</span></li>
+          <li>As \(x\to a\), the first factor \(\to f'(a)\) and the second \(\to 0\); by the product rule for limits the product \(\to f'(a)\cdot 0=0\).</li>
+          <li>Hence \(\lim_{x\to a}f(x)=f(a)\), i.e. \(f\) is continuous at \(a\).</li>
+        </ol>
+        <div class="qed">The converse fails: \(|x|\) is continuous but not differentiable at 0; Weierstrass's function is continuous <em>everywhere</em> yet differentiable <em>nowhere</em>. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — Rolle &amp; the Mean Value Theorem</div>
+        <div class="math">\[ \textbf{Rolle: } f\in C[a,b],\ \text{diff. on }(a,b),\ f(a)=f(b)\ \Rightarrow\ \exists c:\ f'(c)=0. \]</div>
+        <div class="math">\[ \textbf{MVT: } \exists c\in(a,b):\ f'(c)=\frac{f(b)-f(a)}{b-a}. \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — Rolle's theorem, then the MVT from it</span>
+        <ol>
+          <li><em>Rolle:</em> \(f\) is continuous on \([a,b]\), so by EVT it attains a max and min. If both occur at endpoints then \(f\) is constant and \(f'\equiv 0\). Otherwise an extremum occurs at an interior point \(c\).</li>
+          <li>At an interior extremum the one-sided difference quotients have opposite signs in the limit, forcing \(f'(c)=0\) (Fermat's interior-extremum lemma). <span class="mq">\[ f'(c)=0. \]</span></li>
+          <li><em>MVT:</em> apply Rolle to the auxiliary function that subtracts the secant line, <span class="mq">\[ g(x)=f(x)-\Big[f(a)+\frac{f(b)-f(a)}{b-a}(x-a)\Big], \]</span> which satisfies \(g(a)=g(b)=0\). Rolle gives \(c\) with \(g'(c)=0\), i.e. \(f'(c)=\dfrac{f(b)-f(a)}{b-a}\).</li>
+        </ol>
+        <div class="qed">EVT \(\to\) Fermat \(\to\) Rolle \(\to\) MVT: a chain straight back to completeness. \(\blacksquare\)</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — MVT consequence: \(f'=0\) everywhere \(\Rightarrow f\) constant</span>
+        <ol>
+          <li>Take any \(x_1\lt x_2\) in the interval. Apply the MVT on \([x_1,x_2]\): there is \(c\) with <span class="mq">\[ f(x_2)-f(x_1)=f'(c)\,(x_2-x_1). \]</span></li>
+          <li>Since \(f'(c)=0\), the right side is \(0\), so \(f(x_2)=f(x_1)\). As \(x_1,x_2\) were arbitrary, \(f\) is constant.</li>
+        </ol>
+        <div class="qed">This is exactly why "\(+C\)" appears in every antiderivative — two antiderivatives of the same function differ by a constant. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — Taylor's theorem with Lagrange remainder</div>
+        <div class="math">\[ f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+R_n,\qquad R_n=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1} \]</div>
+        <div class="note">for some \(\xi\) between \(a\) and \(x\), assuming \(f\) is \((n+1)\)-times differentiable. The remainder is an <em>exact</em> error, and \(n=0\) is precisely the MVT.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — Taylor is a higher-order MVT</span><p>Taylor's theorem is proved by the same device as the MVT: subtract the degree-\(n\) Taylor polynomial, build an auxiliary function vanishing to high order at \(a\) and \(x\), and apply Rolle (or Cauchy's MVT) repeatedly. The Lagrange remainder is the leftover from one final application — generalizing \(f'(c)\) to \(f^{(n+1)}(\xi)\).</p></div>
+
+      <div class="rel"><span class="tag">Connection — error bounds you trusted</span><p>When you approximated \(\sin x\approx x-\tfrac{x^3}{6}\) and claimed "the error is tiny," the Lagrange remainder is the rigorous bound: \(|R_n|\le\dfrac{\max|f^{(n+1)}|}{(n+1)!}|x-a|^{n+1}\). It's what makes Taylor series trustworthy, not just formal.</p></div>
+    </section>
+
+    <!-- ===================== PART C ===================== -->
+    <div class="part">Part C · Integration, series &amp; beyond</div>
+
+    <!-- 8 -->
+    <section id="s8">
+      <span class="secnum">Section 8</span>
+      <h2>The Riemann integral: Darboux sums &amp; the integrability criterion</h2>
+      <p class="intro">"Area under the curve" becomes a precise number squeezed between over- and under-estimates. The integral exists exactly when the squeeze closes.</p>
+
+      <div class="fcard"><div class="lab">Definition — Darboux upper &amp; lower sums</div>
+        <div class="math">\[ L(f,P)=\sum_{i} m_i\,\Delta x_i,\quad U(f,P)=\sum_{i} M_i\,\Delta x_i,\quad m_i=\inf_{[x_{i-1},x_i]}f,\ M_i=\sup_{[x_{i-1},x_i]}f \]</div>
+        <div class="note">for a partition \(P\) of \([a,b]\). \(L\) under-estimates, \(U\) over-estimates the area, using the true inf/sup on each subinterval.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Definition — the Riemann (Darboux) integral</div>
+        <div class="math">\[ \underline{\int_a^b} f=\sup_P L(f,P),\qquad \overline{\int_a^b} f=\inf_P U(f,P). \]</div>
+        <div class="math">\[ f \text{ is integrable} \iff \underline{\int_a^b} f=\overline{\int_a^b} f,\ \text{the common value } \int_a^b f. \]</div>
+        <div class="note">Refining a partition raises \(L\) and lowers \(U\); the lower integral never exceeds the upper. Integrability means the gap can be driven to zero.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — Riemann's criterion</div>
+        <div class="math">\[ f \text{ integrable on } [a,b] \iff \forall\varepsilon&gt;0\ \exists\text{ partition } P:\ U(f,P)-L(f,P)\lt\varepsilon. \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — every continuous \(f\) on \([a,b]\) is integrable</span>
+        <ol>
+          <li>By Heine–Cantor (Section 6), \(f\) is <strong>uniformly</strong> continuous on \([a,b]\). Fix \(\varepsilon&gt;0\) and choose \(\delta\) so that \(|x-y|\lt\delta\Rightarrow|f(x)-f(y)|\lt\dfrac{\varepsilon}{b-a}\).</li>
+          <li>Take any partition with all subintervals of width \(\lt\delta\). On each, \(M_i-m_i=\sup-\inf\le\dfrac{\varepsilon}{b-a}\) (the sup and inf are attained by EVT, at points within \(\delta\)).</li>
+          <li>Then <span class="mq">\[ U(f,P)-L(f,P)=\sum_i (M_i-m_i)\,\Delta x_i\le\frac{\varepsilon}{b-a}\sum_i\Delta x_i=\frac{\varepsilon}{b-a}\cdot(b-a)=\varepsilon. \]</span></li>
+          <li>By Riemann's criterion, \(f\) is integrable.</li>
+        </ol>
+        <div class="qed">Uniform continuity is exactly what lets <em>one</em> mesh size control the oscillation everywhere at once. \(\blacksquare\)</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — what fails to be integrable</span><p>The Dirichlet function (1 on rationals, 0 on irrationals) has \(L=0\) but \(U=b-a\) on every partition, since each subinterval contains both kinds of point — so it is <em>not</em> Riemann integrable. Riemann integrability requires the discontinuities to be "small" (measure zero, by Lebesgue's criterion). This limitation motivates Section 13.</p></div>
+    </section>
+
+    <!-- 9 -->
+    <section id="s9">
+      <span class="secnum">Section 9</span>
+      <h2>The Fundamental Theorem of Calculus, proved</h2>
+      <p class="intro">The theorem that fuses the two halves of calculus: integration and differentiation are inverse operations. Both directions, proved.</p>
+
+      <div class="fcard"><div class="lab">FTC — Part I (differentiating an integral)</div>
+        <div class="math">\[ f \text{ continuous on } [a,b],\quad F(x)=\int_a^x f(t)\,dt\ \Rightarrow\ F'(x)=f(x). \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — FTC Part I</span>
+        <ol>
+          <li>Form the difference quotient and use additivity of the integral: <span class="mq">\[ \frac{F(x+h)-F(x)}{h}=\frac1h\int_x^{x+h} f(t)\,dt. \]</span></li>
+          <li>Let \(m_h,M_h\) be the min and max of \(f\) on \([x,x+h]\) (exist by EVT). Then \(m_h\,h\le\int_x^{x+h}f\le M_h\,h\), so dividing by \(h\gt 0\): <span class="mq">\[ m_h\le\frac{F(x+h)-F(x)}{h}\le M_h. \]</span></li>
+          <li>As \(h\to 0\), continuity forces \(m_h\to f(x)\) and \(M_h\to f(x)\). By the Squeeze Theorem the difference quotient \(\to f(x)\), i.e. \(F'(x)=f(x)\).</li>
+        </ol>
+        <div class="qed">Every continuous function <em>has</em> an antiderivative — namely its own running integral. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">FTC — Part II (evaluating an integral)</div>
+        <div class="math">\[ G'=f \text{ on } [a,b],\ f \text{ integrable}\ \Rightarrow\ \int_a^b f(x)\,dx=G(b)-G(a). \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — FTC Part II via the MVT</span>
+        <ol>
+          <li>Take any partition \(a=x_0\lt x_1\lt\cdots\lt x_n=b\). Telescope: <span class="mq">\[ G(b)-G(a)=\sum_{i=1}^{n}\big(G(x_i)-G(x_{i-1})\big). \]</span></li>
+          <li>Apply the MVT to \(G\) on each \([x_{i-1},x_i]\): there is \(c_i\) with \(G(x_i)-G(x_{i-1})=G'(c_i)\,\Delta x_i=f(c_i)\,\Delta x_i\).</li>
+          <li>So \(G(b)-G(a)=\sum f(c_i)\,\Delta x_i\), a Riemann sum, trapped between \(L(f,P)\) and \(U(f,P)\): <span class="mq">\[ L(f,P)\le G(b)-G(a)\le U(f,P). \]</span></li>
+          <li>Since \(f\) is integrable, refining \(P\) squeezes both bounds to \(\int_a^b f\). The constant \(G(b)-G(a)\) is caught in the middle, so it equals \(\int_a^b f\).</li>
+        </ol>
+        <div class="qed">The MVT (hence completeness) is the hinge: it converts increments of \(G\) into samples of \(f\). \(\blacksquare\)</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — "find the antiderivative, plug in the endpoints"</span><p>The computational rule \(\int_a^b f = G(b)-G(a)\) you used from day one <em>is</em> FTC Part II. Part I is its silent partner: it guarantees the antiderivative \(G\) exists in the first place for any continuous \(f\), so the rule always has something to apply.</p></div>
+    </section>
+
+    <!-- 10 -->
+    <section id="s10">
+      <span class="secnum">Section 10</span>
+      <h2>Sequences &amp; series of functions: pointwise vs uniform convergence</h2>
+      <p class="intro">When a limit is itself a function, "how" it converges matters enormously. The distinction between pointwise and uniform is where naïve calculus breaks.</p>
+
+      <div class="fcard"><div class="lab">Definition — pointwise convergence</div>
+        <div class="math">\[ f_n\to f \text{ pointwise} \iff \forall x\ \forall\varepsilon&gt;0\ \exists N(x,\varepsilon):\ n\ge N\Rightarrow|f_n(x)-f(x)|\lt\varepsilon. \]</div>
+        <div class="note">Here \(N\) may depend on \(x\) — different points may converge at wildly different rates.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Definition — uniform convergence</div>
+        <div class="math">\[ f_n\to f \text{ uniformly} \iff \forall\varepsilon&gt;0\ \exists N\ \forall x\ \forall n\ge N:\ |f_n(x)-f(x)|\lt\varepsilon. \]</div>
+        <div class="math">\[ \text{equivalently}\quad \sup_x|f_n(x)-f(x)|\to 0. \]</div>
+        <div class="note">One \(N\) works for <em>all</em> \(x\) simultaneously — the whole graph of \(f_n\) lies in an \(\varepsilon\)-band around \(f\). Quantifier order is everything: uniform moves "\(\exists N\)" in front of "\(\forall x\)."</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — the cautionary example</span><p>On \([0,1]\), \(f_n(x)=x^n\) converges pointwise to \(f(x)=0\) for \(x\lt 1\) and \(f(1)=1\) — a <strong>discontinuous</strong> limit of continuous functions. The convergence is <em>not</em> uniform: near \(x=1\) you always need a larger \(n\). Pointwise convergence does not preserve continuity; uniform convergence will.</p></div>
+
+      <div class="fcard"><div class="lab">Theorem — Weierstrass M-test</div>
+        <div class="math">\[ |f_n(x)|\le M_n\ \forall x,\quad \sum_n M_n\lt\infty\ \Rightarrow\ \sum_n f_n \text{ converges uniformly (and absolutely).} \]</div>
+        <div class="note">A convergent numerical series of bounds forces uniform convergence of the function series — the everyday tool for proving power series converge uniformly.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — the M-test (via the Cauchy criterion for uniform convergence)</span>
+        <ol>
+          <li>Let \(S_n=\sum_{k=1}^n f_k\). For \(m\gt n\) and any \(x\): <span class="mq">\[ |S_m(x)-S_n(x)|=\Big|\sum_{k=n+1}^{m} f_k(x)\Big|\le\sum_{k=n+1}^{m}|f_k(x)|\le\sum_{k=n+1}^{m} M_k. \]</span></li>
+          <li>Since \(\sum M_k\) converges, its tails \(\to 0\): given \(\varepsilon&gt;0\) there is \(N\) with \(\sum_{k=n+1}^{m}M_k\lt\varepsilon\) for all \(m\gt n\ge N\) — a bound <em>independent of \(x\)</em>.</li>
+          <li>Hence \(\sup_x|S_m(x)-S_n(x)|\lt\varepsilon\): the partial sums are uniformly Cauchy, so they converge uniformly to some \(S\).</li>
+        </ol>
+        <div class="qed">The numerical tail controls the function tail uniformly. \(\blacksquare\)</div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section id="s11">
+      <span class="secnum">Section 11</span>
+      <h2>Consequences of uniform convergence</h2>
+      <p class="intro">Uniform convergence is precisely the strength needed to interchange limits with continuity, integration, and (with care) differentiation.</p>
+
+      <div class="fcard"><div class="lab">Theorem — uniform limit of continuous functions is continuous</div>
+        <div class="math">\[ f_n \text{ continuous},\ f_n\to f \text{ uniformly}\ \Rightarrow\ f \text{ continuous.} \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — continuity is preserved (the \(\varepsilon/3\) argument)</span>
+        <ol>
+          <li>Fix \(a\) and \(\varepsilon&gt;0\). By uniform convergence pick \(n\) with \(\sup_x|f_n(x)-f(x)|\lt\tfrac{\varepsilon}{3}\).</li>
+          <li>That \(f_n\) is continuous at \(a\): pick \(\delta\) with \(|x-a|\lt\delta\Rightarrow|f_n(x)-f_n(a)|\lt\tfrac{\varepsilon}{3}\).</li>
+          <li>Split the target through \(f_n\): for \(|x-a|\lt\delta\), <span class="mq">\[ |f(x)-f(a)|\le|f(x)-f_n(x)|+|f_n(x)-f_n(a)|+|f_n(a)-f(a)|\lt\tfrac{\varepsilon}{3}+\tfrac{\varepsilon}{3}+\tfrac{\varepsilon}{3}=\varepsilon. \]</span></li>
+        </ol>
+        <div class="qed">The outer two thirds need uniformity (one \(n\) for all \(x\)); the middle third is plain continuity. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — interchange of limit and integral</div>
+        <div class="math">\[ f_n\to f \text{ uniformly on } [a,b],\ f_n \text{ integrable}\ \Rightarrow\ \int_a^b f_n\to\int_a^b f. \]</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — uniform convergence lets you integrate term-by-term</span>
+        <ol>
+          <li>Let \(\varepsilon_n=\sup_x|f_n(x)-f(x)|\). Uniform convergence means \(\varepsilon_n\to 0\). (One shows \(f\) is integrable too; assume it for the estimate.)</li>
+          <li>Bound the difference of integrals by the integral of the difference: <span class="mq">\[ \Big|\int_a^b f_n-\int_a^b f\Big|=\Big|\int_a^b (f_n-f)\Big|\le\int_a^b |f_n-f|. \]</span></li>
+          <li>Use the uniform bound \(|f_n-f|\le\varepsilon_n\) pointwise: <span class="mq">\[ \int_a^b|f_n-f|\le\varepsilon_n\,(b-a)\ \longrightarrow\ 0. \]</span></li>
+        </ol>
+        <div class="qed">The \(\sup\)-bound \(\varepsilon_n\) times the interval length controls the whole integral. Pointwise convergence is <em>not</em> enough — moving "spike" functions converge pointwise to 0 yet keep area 1. \(\blacksquare\)</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Theorem — differentiating a limit (the delicate case)</div>
+        <div class="math">\[ f_n\to f \text{ pointwise},\ f_n' \text{ continuous},\ f_n'\to g \text{ uniformly}\ \Rightarrow\ f'=g. \]</div>
+        <div class="note">Differentiation does <em>not</em> commute with mere uniform convergence of \(f_n\); you must assume the <strong>derivatives</strong> converge uniformly. Proof: integrate \(f_n'\to g\) (previous theorem), then apply FTC.</div>
+      </div>
+
+      <div class="rel"><span class="tag">Connection — when "swap the order" is legal</span><p>Casually swapping \(\lim\) with \(\int\) or \(\frac{d}{dx}\), or summing a series term-by-term, is justified <em>exactly</em> by uniform convergence. The famous failures of interchange in early calculus are all cases where convergence was only pointwise.</p></div>
+    </section>
+
+    <!-- 12 -->
+    <section id="s12">
+      <span class="secnum">Section 12</span>
+      <h2>Power series &amp; analytic functions</h2>
+      <p class="intro">Power series are the best-behaved infinite sums — inside their disk they converge uniformly on compacts and may be differentiated and integrated term-by-term freely.</p>
+
+      <div class="fcard"><div class="lab">Definition &amp; theorem — radius of convergence</div>
+        <div class="math">\[ \sum_{n=0}^{\infty} c_n (x-a)^n,\qquad \frac1R=\limsup_{n\to\infty}|c_n|^{1/n}\quad(\text{Cauchy–Hadamard}). \]</div>
+        <div class="note">The series converges absolutely for \(|x-a|\lt R\) and diverges for \(|x-a|\gt R\). The use of \(\limsup\) (Section 4) is what makes \(R\) always well-defined.</div>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Proof — convergence inside the radius, with uniform convergence on compacts</span>
+        <ol>
+          <li>Fix \(r\lt R\). Pick \(\rho\) with \(r\lt\rho\lt R\); then \(\limsup|c_n|^{1/n}\lt 1/\rho\), so for large \(n\), \(|c_n|^{1/n}\lt 1/\rho\), i.e. \(|c_n|\lt\rho^{-n}\).</li>
+          <li>For \(|x-a|\le r\): \(|c_n(x-a)^n|\le|c_n|r^n\lt (r/\rho)^n=:M_n\), and \(\sum M_n\) is a convergent geometric series since \(r/\rho\lt 1\).</li>
+          <li>By the Weierstrass M-test (Section 10) the power series converges <strong>uniformly</strong> on \(\{|x-a|\le r\}\): <span class="mq">\[ \sum |c_n(x-a)^n|\le\sum (r/\rho)^n=\frac{1}{1-r/\rho}\lt\infty. \]</span></li>
+        </ol>
+        <div class="qed">Uniform convergence on every closed sub-disk is what licenses all the nice operations below. \(\blacksquare\)</div>
+      </div>
+
+      <div class="concept"><span class="tag">Theorem — term-by-term calculus</span><p>Inside \(|x-a|\lt R\), a power series defines an infinitely differentiable function; it may be <strong>differentiated and integrated term-by-term</strong>, and the resulting series have the same radius \(R\). Consequently \(c_n=\dfrac{f^{(n)}(a)}{n!}\): the series is its own Taylor series. This follows from Section 11 applied on each compact sub-disk where convergence is uniform.</p></div>
+
+      <div class="concept"><span class="tag">Concept — analytic, and why \(C^\infty\ne\) analytic</span><p>A function is <strong>analytic</strong> at \(a\) if it equals a convergent power series near \(a\). Analytic \(\Rightarrow C^\infty\), but not conversely: \(f(x)=e^{-1/x^2}\) (with \(f(0)=0\)) is smooth yet has <em>all</em> derivatives zero at 0, so its Taylor series is \(0\) and does not represent \(f\). Smoothness is weaker than analyticity.</p></div>
+
+      <div class="rel"><span class="tag">Connection — Taylor series, finally justified</span><p>Writing \(e^x=\sum x^n/n!\) or \(\sin x=\sum(-1)^n x^{2n+1}/(2n+1)!\) and manipulating them termwise — differentiating, integrating, multiplying — is rigorous precisely because power series converge uniformly on compacts. The remainder estimate of Section 7 tells you <em>when</em> the Taylor series actually converges back to \(f\).</p></div>
+    </section>
+
+    <!-- 13 -->
+    <section id="s13">
+      <span class="secnum">Section 13</span>
+      <h2>A glimpse beyond: metric spaces, multivariable rigor &amp; Lebesgue</h2>
+      <p class="intro">The same \(\varepsilon\)-ideas generalize far past the real line. A short tour of where analysis goes next.</p>
+
+      <div class="fcard"><div class="lab">Metric spaces — abstracting distance</div>
+        <div class="math">\[ d(x,y)\ge 0,\ \ d(x,y)=0\iff x=y,\ \ d(x,y)=d(y,x),\ \ d(x,z)\le d(x,y)+d(y,z). \]</div>
+        <div class="note">Replace \(|x-y|\) by any function \(d\) satisfying these axioms and every \(\varepsilon\)-definition transfers verbatim: limits, continuity, Cauchy sequences, compactness. \(\mathbb{R}^n\), function spaces, and sequence spaces all become arenas for the same theorems.</div>
+      </div>
+
+      <div class="concept"><span class="tag">Concept — completeness, abstractly &amp; the contraction principle</span><p>A metric space is <strong>complete</strong> if every Cauchy sequence converges — the abstract version of Section 3's theorem for \(\mathbb{R}\). In a complete space, the <strong>Banach fixed-point theorem</strong> guarantees a contraction \(d(Tx,Ty)\le k\,d(x,y)\) with \(k\lt 1\) has a unique fixed point. This single result proves existence and uniqueness for differential equations (Picard–Lindelöf) and the inverse function theorem.</p></div>
+
+      <div class="concept"><span class="tag">Concept — multivariable rigor</span><p>In \(\mathbb{R}^n\) the derivative becomes a <strong>linear map</strong> (the total derivative / Jacobian): \(f(a+h)=f(a)+Df(a)\,h+o(\|h\|)\). Partial derivatives existing is <em>not</em> enough for differentiability; one needs them continuous. The MVT weakens to an inequality, and the Implicit and Inverse Function Theorems — proved via the contraction principle — replace the one-variable algebra.</p></div>
+
+      <div class="concept"><span class="tag">Concept — the Lebesgue integral</span><p>The Riemann integral chokes on badly discontinuous functions (the Dirichlet function, Section 8) and behaves poorly under limits. <strong>Lebesgue's</strong> idea: partition the <em>range</em>, not the domain, and measure how much domain maps into each range slice. This integrates far more functions, and yields clean convergence theorems (Monotone &amp; Dominated Convergence) where \(\lim\int=\int\lim\) holds under mild hypotheses — repairing the fragility of interchanging limits with Riemann integrals.</p></div>
+
+      <div class="rel"><span class="tag">Connection — one idea, endlessly reused</span><p>From \(\varepsilon\)–\(N\) for sequences to \(\varepsilon\)–\(\delta\) for functions, to \(d(x,y)\) in metric spaces, to measure-theoretic integration — it is the <em>same</em> move: control a quantity to within any prescribed tolerance. Master that one habit and all of analysis, however abstract, is familiar territory.</p></div>
+    </section>
+
+    <footer>
+      A rigorous first course in real analysis — the theory beneath the Complete Calculus and Derived from Scratch guides. Every limit is an \(\varepsilon\); every theorem is proved from the completeness of \(\mathbb{R}\). Read once for the architecture, then return to any proof box as a reference. Remember the single thread: control any quantity to within any tolerance, and infinity becomes safe.
+    </footer>
+  </main>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+<script>
+(function(){
+  var input=document.getElementById('gsearch-input');
+  if(!input) return;
+  var countEl=document.getElementById('gsearch-count');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var parts=Array.prototype.slice.call(document.querySelectorAll('main .part'));
+  var links={};
+  Array.prototype.forEach.call(document.querySelectorAll('nav#nav a[href^="#"]'),function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  function run(){
+    var q=input.value.trim().toLowerCase(), shown=0;
+    sections.forEach(function(sec){
+      var match=!q||sec.textContent.toLowerCase().indexOf(q)>-1;
+      sec.classList.toggle('gs-hidden',!match);
+      var a=links[sec.id]; if(a) a.style.display=match?'':'none';
+      if(match) shown++;
+    });
+    parts.forEach(function(p){p.style.display=q?'none':'';});
+    countEl.textContent=q?(shown+' section'+(shown===1?'':'s')+' match “'+input.value.trim()+'”'):'';
+  }
+  input.addEventListener('input',run);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==input){e.preventDefault();input.focus();}
+    if(e.key==='Escape'){input.value='';run();input.blur();}
+  });
+})();
+</script>
+</body>
+</html>
