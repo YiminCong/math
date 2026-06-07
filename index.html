@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Math Guides · Calculus &amp; Statistics</title>
+<title>Math Guides · A Calculus Curriculum</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 
   header h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2.4rem,6vw,4rem); line-height:.96; letter-spacing:-.02em; margin:0 0 8px; color:var(--ink);}
   header h1 em{font-style:italic; color:var(--amber); font-weight:500;}
-  header p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:62ch; margin:14px 0 0;}
+  header p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:64ch; margin:14px 0 0;}
   .rule{height:3px; width:90px; background:var(--amber); margin:24px 0 0; border-radius:3px;}
 
   /* ---- search ---- */
@@ -43,9 +43,29 @@
   .search kbd{font-family:"Fraunces",serif; font-size:.7rem; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:6px; padding:2px 7px; white-space:nowrap;}
   .count{font-size:.85rem; color:var(--ink-soft); margin-top:9px; font-style:italic;}
 
+  .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.82rem; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin:44px 0 4px;}
+  .grp + .grpsub{color:var(--ink-soft); font-style:italic; font-size:.95rem; margin:0 0 14px;}
+
+  /* ---- learning path ---- */
+  .path{border-left:2px solid var(--line); margin:8px 0 0 6px; padding-left:0;}
+  a.step{display:flex; gap:16px; text-decoration:none; color:inherit; padding:14px 16px 14px 0; position:relative; border-radius:0 12px 12px 0; transition:.15s;}
+  a.step:hover{background:#fffdf7;}
+  a.step .dot{flex:0 0 auto; width:34px; height:34px; margin-left:-18px; background:var(--blue); color:var(--paper); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:"Fraunces",serif; font-weight:600; font-size:.95rem; box-shadow:0 2px 6px var(--shadow);}
+  a.step.cap .dot{background:var(--plum);}
+  a.step .body h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--blue); margin:2px 0 2px; letter-spacing:-.01em;}
+  a.step .body p{margin:0; font-size:.95rem; color:var(--ink-soft);}
+  a.step .body .where{font-size:.78rem; color:var(--amber); font-family:"Fraunces",serif; font-weight:600; text-transform:uppercase; letter-spacing:.06em;}
+  .lvl{display:inline-block; font-size:.68rem; font-family:"Fraunces",serif; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:1px 9px; margin-left:8px; vertical-align:middle;}
+
+  /* ---- topic grid ---- */
+  .topics{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:6px;}
+  a.topic{display:block; text-decoration:none; color:inherit; background:#fffdf7; border:1px solid var(--line); border-radius:11px; padding:13px 16px; transition:.15s;}
+  a.topic:hover{transform:translateY(-2px); box-shadow:0 6px 16px var(--shadow); border-color:var(--blue-soft);}
+  a.topic .t{font-family:"Fraunces",serif; font-weight:600; color:var(--blue); font-size:1.02rem;}
+  a.topic .d{font-size:.82rem; color:var(--ink-soft); margin-top:2px;}
+
   /* ---- guide cards ---- */
-  .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin:38px 0 12px;}
-  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px; margin-top:6px;}
   a.card{display:block; text-decoration:none; color:inherit; background:linear-gradient(180deg,#fffdf7,#f7f0e1); border:1px solid var(--line); border-radius:14px; padding:22px 24px; box-shadow:0 2px 10px var(--shadow); transition:.16s;}
   a.card:hover{transform:translateY(-3px); box-shadow:0 8px 22px var(--shadow); border-color:var(--blue-soft);}
   a.card .kicker{font-family:"Fraunces",serif; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; font-weight:600; margin-bottom:6px;}
@@ -63,7 +83,7 @@
   a.res{display:flex; align-items:baseline; gap:12px; text-decoration:none; color:inherit; padding:11px 18px; border-top:1px solid var(--line);}
   a.res:first-child{border-top:none;}
   a.res:hover{background:#f7f0e1;}
-  a.res .tag{flex:0 0 auto; font-family:"Fraunces",serif; font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; border-radius:20px; padding:2px 10px; border:1px solid var(--line);}
+  a.res .tag{flex:0 0 auto; font-family:"Fraunces",serif; font-size:.66rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; border-radius:20px; padding:2px 9px; border:1px solid var(--line); min-width:84px; text-align:center;}
   a.res .tag.cal{color:var(--amber); background:#f7ecda;}
   a.res .tag.sta{color:var(--plum); background:#f3eaf0;}
   a.res .tag.ref{color:var(--teal); background:#e9f3f1;}
@@ -75,21 +95,21 @@
 
   footer{margin-top:54px; padding-top:22px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.9rem; font-style:italic;}
   footer code{font-family:"Fraunces",serif; background:var(--paper-2); border:1px solid var(--line); border-radius:5px; padding:1px 6px; font-size:.82rem;}
-  @media(max-width:560px){ a.res .where{display:none;} }
+  @media(max-width:560px){ a.res .where{display:none;} a.res .tag{min-width:0;} }
 </style>
 </head>
 <body>
 <div class="container">
   <header>
-    <h1>Math Guides, <em>connected.</em></h1>
-    <p class="lede">A small library of illustrated references for <strong>calculus</strong> and <strong>statistics</strong> — every formula stated cleanly, demonstrated where it comes from, and linked to the ideas around it. Search across every section below, or open a full guide.</p>
+    <h1>Calculus, <em>from starter to expertise.</em></h1>
+    <p class="lede">An illustrated, self-contained course — every formula stated cleanly, demonstrated where it comes from, and linked to the ideas around it. Follow the <strong>learning path</strong> in order, jump in <strong>by topic</strong>, or search every section of every guide at once.</p>
     <div class="rule"></div>
   </header>
 
   <div class="toolbar">
     <div class="search">
       <span class="ico">🔍</span>
-      <input id="search" type="text" placeholder="Search every guide…  (e.g. chain rule / Bayes / 导数 / Taylor series)" autocomplete="off" autofocus>
+      <input id="search" type="text" placeholder="Search every guide…  (e.g. chain rule / gradient / Laplace / Bayes / 导数)" autocomplete="off" autofocus>
       <kbd>/</kbd>
     </div>
     <div class="count" id="count"></div>
@@ -97,29 +117,132 @@
 
   <div id="results">
     <div class="reslist" id="reslist"></div>
-    <div class="noresult" id="noresult">No matching topics — try another word, or browse the guides below.</div>
+    <div class="noresult" id="noresult">No matching topics — try another word, or browse the path below.</div>
   </div>
 
   <div id="hideOnSearch">
-    <div class="grp">Calculus</div>
+
+    <!-- ================= LEARNING PATH ================= -->
+    <div class="grp">The learning path</div>
+    <div class="grpsub">Nine steps from precalculus to graduate-level rigor. Each links straight into the relevant guide.</div>
+    <div class="path">
+      <a class="step" href="calculus/complete-guide.html#s1">
+        <span class="dot">0</span>
+        <span class="body"><span class="where">Foundations</span><span class="lvl">Starter</span>
+          <h3>Functions, lines &amp; trigonometry</h3>
+          <p>The precalculus toolkit every later idea leans on: functions and graphs, lines, and the trig you'll differentiate.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s3">
+        <span class="dot">1</span>
+        <span class="body"><span class="where">Calculus I</span><span class="lvl">Beginner</span>
+          <h3>Limits &amp; continuity</h3>
+          <p>The single idea under everything — letting a gap shrink to zero — made precise, then computed.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s6">
+        <span class="dot">2</span>
+        <span class="body"><span class="where">Calculus I</span><span class="lvl">Core</span>
+          <h3>Derivatives &amp; their uses</h3>
+          <p>The definition, every differentiation rule (each proven), then extrema, the MVT, curve sketching, optimization and L'Hôpital.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s14">
+        <span class="dot">3</span>
+        <span class="body"><span class="where">Calculus II</span><span class="lvl">Core</span>
+          <h3>Integrals &amp; their uses</h3>
+          <p>Riemann sums, the Fundamental Theorem, the integral table, every technique, improper &amp; numerical integration, volumes and arc length.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s23">
+        <span class="dot">4</span>
+        <span class="body"><span class="where">Calculus II</span><span class="lvl">Intermediate</span>
+          <h3>Sequences &amp; series</h3>
+          <p>Convergence tests, Taylor &amp; power series — rebuilding functions from their derivatives.</p></span>
+      </a>
+      <a class="step" href="calculus/complete-guide.html#s26">
+        <span class="dot">5</span>
+        <span class="body"><span class="where">Calculus II</span><span class="lvl">Intermediate</span>
+          <h3>Parametric, polar &amp; complex</h3>
+          <p>Curves beyond \(y=f(x)\), polar coordinates, and complex numbers up to Euler's formula.</p></span>
+      </a>
+      <a class="step" href="calculus/multivariable-vector.html#s0">
+        <span class="dot">6</span>
+        <span class="body"><span class="where">Calculus III</span><span class="lvl">Advanced</span>
+          <h3>Multivariable &amp; vector calculus</h3>
+          <p>Partial derivatives, gradients, Lagrange multipliers, multiple integrals, and the great theorems: Green's, Stokes' and Divergence.</p></span>
+      </a>
+      <a class="step" href="calculus/differential-equations.html#s0">
+        <span class="dot">7</span>
+        <span class="body"><span class="where">Differential equations</span><span class="lvl">Advanced</span>
+          <h3>Differential equations</h3>
+          <p>First- and second-order ODEs, systems, the Laplace transform, series &amp; numerical methods — calculus turned into a modeling tool.</p></span>
+      </a>
+      <a class="step cap" href="calculus/analysis-foundations.html#s0">
+        <span class="dot">8</span>
+        <span class="body"><span class="where">Analysis</span><span class="lvl">Expertise</span>
+          <h3>Foundations of analysis</h3>
+          <p>The rigorous "why it all works": completeness, ε–δ, uniform convergence, the Riemann integral and the theorems behind every shortcut above.</p></span>
+      </a>
+    </div>
+
+    <!-- ================= BROWSE BY TOPIC ================= -->
+    <div class="grp">Browse by topic</div>
+    <div class="grpsub">Jump to a single idea, wherever it lives.</div>
+    <div class="topics">
+      <a class="topic" href="calculus/complete-guide.html#s3"><div class="t">Limits &amp; continuity</div><div class="d">the idea, ε–δ, computing</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s6"><div class="t">Derivatives</div><div class="d">rules, proofs, every function</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s10"><div class="t">Using derivatives</div><div class="d">extrema, MVT, optimization</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s14"><div class="t">Integrals</div><div class="d">FTC, table, techniques</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s22"><div class="t">Applications</div><div class="d">volumes, arc length, area</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s24"><div class="t">Series</div><div class="d">convergence, Taylor, power</div></a>
+      <a class="topic" href="calculus/complete-guide.html#s26"><div class="t">Parametric &amp; polar</div><div class="d">curves &amp; coordinates</div></a>
+      <a class="topic" href="calculus/multivariable-vector.html#s5"><div class="t">Partial derivatives</div><div class="d">gradient, chain rule, Lagrange</div></a>
+      <a class="topic" href="calculus/multivariable-vector.html#s12"><div class="t">Multiple integrals</div><div class="d">double, triple, Jacobian</div></a>
+      <a class="topic" href="calculus/multivariable-vector.html#s18"><div class="t">Vector calculus</div><div class="d">Green's, Stokes', Divergence</div></a>
+      <a class="topic" href="calculus/differential-equations.html#s0"><div class="t">Differential equations</div><div class="d">ODEs, Laplace, systems</div></a>
+      <a class="topic" href="calculus/analysis-foundations.html#s0"><div class="t">Rigorous analysis</div><div class="d">ε–δ, proofs, convergence</div></a>
+      <a class="topic" href="calculus/glossary.html"><div class="t">Glossary EN↔中文</div><div class="d">300+ terms, searchable</div></a>
+    </div>
+
+    <!-- ================= ALL GUIDES ================= -->
+    <div class="grp">Core course</div>
     <div class="cards">
       <a class="card cal" href="calculus/complete-guide.html">
-        <div class="kicker">Complete course · 30 sections</div>
+        <div class="kicker">Single-variable · 30 sections</div>
         <h3>The Complete Companion</h3>
-        <p>A full single-variable course — concepts, principles, formulas and the demonstrations behind them. Chapter flow follows Banner's <em>Calculus Lifesaver</em>.</p>
-        <div class="meta">Foundations → limits → derivatives → integrals → series → ODEs</div>
+        <p>The full Calc I &amp; II course — concepts, formulas and the demonstrations behind them. Flow follows Banner's <em>Calculus Lifesaver</em>.</p>
+        <div class="meta">Foundations → limits → derivatives → integrals → series → parametric/polar/complex</div>
       </a>
+      <a class="card cal" href="calculus/multivariable-vector.html">
+        <div class="kicker">Calculus III · 28 sections</div>
+        <h3>Multivariable &amp; Vector Calculus</h3>
+        <p>Partial derivatives and gradients through multiple integrals to the great theorems of vector calculus.</p>
+        <div class="meta">Gradients · Lagrange · multiple integrals · Green's / Stokes' / Divergence</div>
+      </a>
+      <a class="card cal" href="calculus/differential-equations.html">
+        <div class="kicker">Advanced · 18 sections</div>
+        <h3>Differential Equations</h3>
+        <p>First- and second-order ODEs, systems, Laplace transforms, series and numerical methods.</p>
+        <div class="meta">Separable · linear · Laplace · eigenvalue systems · Runge–Kutta</div>
+      </a>
+      <a class="card cal" href="calculus/analysis-foundations.html">
+        <div class="kicker">Expertise · 14 sections</div>
+        <h3>Foundations of Analysis</h3>
+        <p>The rigorous theory beneath calculus — completeness, ε–δ, uniform convergence, the Riemann integral, proved.</p>
+        <div class="meta">For the "why it all works" capstone</div>
+      </a>
+    </div>
+
+    <div class="grp">Companions &amp; reference</div>
+    <div class="cards">
       <a class="card cal" href="calculus/derived-from-scratch.html">
         <div class="kicker">With proofs · 13 sections</div>
         <h3>Derived from Scratch</h3>
-        <p>Every core formula is demonstrated step by step — shown where it comes from, basics to advanced.</p>
-        <div class="meta">Best when you want the "why," not just the "what"</div>
+        <p>Every core single-variable formula demonstrated step by step — the "why," compactly.</p>
+        <div class="meta">A proof-first companion to the core course</div>
       </a>
       <a class="card cal" href="calculus/connected-map.html">
         <div class="kicker">Overview map · 13 sections</div>
         <h3>From the Ground Up</h3>
-        <p>A connected map of the whole subject: how each formula grows out of the limit and the one before it.</p>
-        <div class="meta">Best for a fast, big-picture read</div>
+        <p>A connected map of how each idea grows out of the limit and the one before it.</p>
+        <div class="meta">Best for a fast big-picture read</div>
       </a>
       <a class="card ref" href="calculus/glossary.html">
         <div class="kicker">Reference · EN ↔ 中文</div>
@@ -129,86 +252,137 @@
       </a>
     </div>
 
-    <div class="grp">Statistics</div>
+    <div class="grp">Other subjects</div>
     <div class="cards">
       <a class="card sta" href="statistics/complete-guide.html">
-        <div class="kicker">Complete course · 15 sections</div>
-        <h3>The Complete Companion</h3>
-        <p>A first course in describing data, the probability beneath it, and the inference it powers — every core formula demonstrated.</p>
+        <div class="kicker">Statistics · 15 sections</div>
+        <h3>Statistics — The Complete Companion</h3>
+        <p>A first course in describing data, probability, and inference. (More subjects coming.)</p>
         <div class="meta">Describe → probability → distributions → inference → regression</div>
       </a>
     </div>
   </div>
 
   <footer>
-    Open any guide directly, or serve the folder locally with <code>python3 -m http.server</code> and visit <code>localhost:8000</code>. Formulas render with KaTeX; an internet connection loads the fonts and math fonts.
+    Open any guide directly, or serve the folder with <code>python3 -m http.server</code> and visit <code>localhost:8000</code>. Formulas render with KaTeX; an internet connection loads the fonts. Inside each guide, press <code>/</code> to search its sections.
   </footer>
 </div>
 
 <script>
-  // Search index: every section of every guide, with deep links.
+  // Cross-guide search index: every section of every guide, with deep links.
+  // Columns: [category, guideLabel, file, anchor, title]
   const INDEX = [
-    // ---- Calculus · Complete Companion ----
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s0","The big picture"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s1","Functions, graphs & lines"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s2","Trigonometry review"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s3","Limits: the idea"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s4","Computing limits"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s5","Continuity & differentiability"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s6","Definition of the derivative"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s7","The differentiation rules, each proven"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s8","Derivatives of every function"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s9","Implicit differentiation & related rates"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s10","Extrema, Rolle & the Mean Value Theorem"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s11","Curve sketching"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s12","Optimization, linearization, Newton's method"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s13","L'Hôpital — every form"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s14","Sums, area & the integral"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s15","The definite integral"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s16","The Fundamental Theorem of Calculus"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s17","The integral table"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s18","Techniques I: substitution, parts, partial fractions"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s19","Techniques II: trig & reduction"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s20","Improper integrals"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s21","Numerical integration"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s22","Volumes, arc length, surface area"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s23","Sequences"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s24","Series & convergence tests"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s25","Taylor & power series"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s26","Parametric equations"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s27","Polar coordinates"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s28","Complex numbers & Euler's formula"],
-    ["cal","Calculus · Complete","calculus/complete-guide.html","s29","Differential equations"],
+    // ---- Calculus · Complete Companion (Calc I & II) ----
+    ["cal","Complete","calculus/complete-guide.html","s0","The big picture"],
+    ["cal","Complete","calculus/complete-guide.html","s1","Functions, graphs & lines"],
+    ["cal","Complete","calculus/complete-guide.html","s2","Trigonometry review"],
+    ["cal","Complete","calculus/complete-guide.html","s3","Limits: the idea"],
+    ["cal","Complete","calculus/complete-guide.html","s4","Computing limits"],
+    ["cal","Complete","calculus/complete-guide.html","s5","Continuity & differentiability"],
+    ["cal","Complete","calculus/complete-guide.html","s6","Definition of the derivative"],
+    ["cal","Complete","calculus/complete-guide.html","s7","The differentiation rules, each proven"],
+    ["cal","Complete","calculus/complete-guide.html","s8","Derivatives of every function"],
+    ["cal","Complete","calculus/complete-guide.html","s9","Implicit differentiation & related rates"],
+    ["cal","Complete","calculus/complete-guide.html","s10","Extrema, Rolle & the Mean Value Theorem"],
+    ["cal","Complete","calculus/complete-guide.html","s11","Curve sketching"],
+    ["cal","Complete","calculus/complete-guide.html","s12","Optimization, linearization, Newton's method"],
+    ["cal","Complete","calculus/complete-guide.html","s13","L'Hôpital — every form"],
+    ["cal","Complete","calculus/complete-guide.html","s14","Sums, area & the integral"],
+    ["cal","Complete","calculus/complete-guide.html","s15","The definite integral"],
+    ["cal","Complete","calculus/complete-guide.html","s16","The Fundamental Theorem of Calculus"],
+    ["cal","Complete","calculus/complete-guide.html","s17","The integral table"],
+    ["cal","Complete","calculus/complete-guide.html","s18","Techniques I: substitution, parts, partial fractions"],
+    ["cal","Complete","calculus/complete-guide.html","s19","Techniques II: trig & reduction"],
+    ["cal","Complete","calculus/complete-guide.html","s20","Improper integrals"],
+    ["cal","Complete","calculus/complete-guide.html","s21","Numerical integration"],
+    ["cal","Complete","calculus/complete-guide.html","s22","Volumes, arc length, surface area"],
+    ["cal","Complete","calculus/complete-guide.html","s23","Sequences"],
+    ["cal","Complete","calculus/complete-guide.html","s24","Series & convergence tests"],
+    ["cal","Complete","calculus/complete-guide.html","s25","Taylor & power series"],
+    ["cal","Complete","calculus/complete-guide.html","s26","Parametric equations"],
+    ["cal","Complete","calculus/complete-guide.html","s27","Polar coordinates"],
+    ["cal","Complete","calculus/complete-guide.html","s28","Complex numbers & Euler's formula"],
+    ["cal","Complete","calculus/complete-guide.html","s29","Differential equations (intro)"],
+
+    // ---- Calculus · Multivariable & Vector (Calc III) ----
+    ["cal","Multivariable","calculus/multivariable-vector.html","s0","The big picture: from one variable to many"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s1","Vectors, dot product & cross product"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s2","Lines, planes & quadric surfaces"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s3","Functions of several variables; level curves & surfaces"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s4","Limits & continuity in several variables"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s5","Partial derivatives"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s6","The multivariable chain rule"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s7","Directional derivatives & the gradient"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s8","Tangent planes, linear approximation & differentials"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s9","Higher-order partials & Clairaut's theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s10","Local extrema & the second-derivative test"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s11","Lagrange multipliers (constrained optimization)"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s12","Double integrals over rectangles & general regions"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s13","Double integrals in polar coordinates"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s14","Triple integrals"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s15","Cylindrical & spherical coordinates"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s16","Change of variables & the Jacobian"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s17","Applications: mass, moments & center of mass"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s18","Vector fields"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s19","Line integrals (scalar & vector); work"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s20","The Fundamental Theorem for line integrals & conservative fields"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s21","Green's theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s22","Curl & divergence"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s23","Parametric surfaces & surface area"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s24","Surface integrals & flux"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s25","Stokes' theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s26","The Divergence (Gauss) theorem"],
+    ["cal","Multivariable","calculus/multivariable-vector.html","s27","The unifying picture: one theorem behind them all"],
+
+    // ---- Differential Equations ----
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s0","The big picture: what a differential equation is"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s1","Slope fields, solution curves & separable equations"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s2","First-order linear equations & the integrating factor"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s3","Exact equations"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s4","Substitutions: homogeneous & Bernoulli equations"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s5","Existence, uniqueness & autonomous equations (stability)"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s6","Modeling: growth/decay, mixing, cooling, the logistic equation"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s7","Linear ODE theory: superposition, independence & the Wronskian"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s8","Homogeneous equations with constant coefficients"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s9","Nonhomogeneous: undetermined coefficients"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s10","Nonhomogeneous: variation of parameters"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s11","Applications: mechanical & electrical vibrations, resonance"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s12","Systems of linear ODEs: the eigenvalue method & phase plane"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s13","The Laplace transform"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s14","Solving initial-value problems with Laplace; step & impulse inputs"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s15","Series solutions & the method of Frobenius"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s16","Numerical methods: Euler, improved Euler & Runge–Kutta"],
+    ["cal","Diff. Eq.","calculus/differential-equations.html","s17","A first look at PDEs & Fourier series"],
+
+    // ---- Foundations of Analysis ----
+    ["cal","Analysis","calculus/analysis-foundations.html","s0","The big picture: why rigor, and the role of ε"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s1","The real numbers: ordered field, completeness & the supremum"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s2","Sequences and their limits (the ε–N definition)"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s3","Monotone convergence, Bolzano–Weierstrass & Cauchy sequences"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s4","Limit superior & limit inferior"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s5","Limits of functions and continuity (ε–δ)"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s6","Theorems on continuous functions: IVT, EVT & uniform continuity"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s7","Differentiation: the Mean Value Theorem & Taylor's theorem with remainder"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s8","The Riemann integral: Darboux sums & the integrability criterion"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s9","The Fundamental Theorem of Calculus, proved"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s10","Sequences & series of functions: pointwise vs uniform convergence"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s11","Consequences of uniform convergence"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s12","Power series & analytic functions"],
+    ["cal","Analysis","calculus/analysis-foundations.html","s13","A glimpse beyond: metric spaces, multivariable rigor & Lebesgue"],
 
     // ---- Calculus · Derived from Scratch ----
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s0","The big picture"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s1","Limits & continuity"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s2","Definition of the derivative"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s3","The rules, each proven"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s4","Derivatives of every function"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s5","Implicit, logarithmic & higher-order derivatives"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s6","Using derivatives"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s7","Antiderivative & the Fundamental Theorem"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s8","The integral table"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s9","Integration techniques, each proven"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s10","Using integrals"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s11","Sequences & series"],
-    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s12","A peek at multivariable calculus"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s1","Limits & continuity"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s2","Definition of the derivative"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s3","The rules, each proven"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s4","Derivatives of every function"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s7","Antiderivative & the Fundamental Theorem"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s9","Integration techniques, each proven"],
+    ["cal","Derived","calculus/derived-from-scratch.html","s11","Sequences & series"],
 
-    // ---- Calculus · From the Ground Up ----
-    ["cal","Calculus · Map","calculus/connected-map.html","s0","The big picture"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s1","Limits & continuity"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s2","What a derivative is"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s3","Differentiation rules"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s4","Derivatives of the standard functions"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s5","Implicit & higher-order derivatives"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s6","Using derivatives"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s7","The antiderivative & the FTC"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s8","Basic integral table"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s9","Integration techniques"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s10","Using integrals"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s11","Sequences & series"],
-    ["cal","Calculus · Map","calculus/connected-map.html","s12","A peek at multivariable"],
+    // ---- Calculus · From the Ground Up (map) ----
+    ["cal","Map","calculus/connected-map.html","s0","The big picture"],
+    ["cal","Map","calculus/connected-map.html","s7","The antiderivative & the FTC"],
+    ["cal","Map","calculus/connected-map.html","s12","A peek at multivariable"],
 
     // ---- Calculus · Glossary (categories) ----
     ["ref","Glossary","calculus/glossary.html","c1","Foundations & Functions · 基础与函数"],
@@ -222,38 +396,35 @@
     ["ref","Glossary","calculus/glossary.html","c9","Multivariable & Vector Calculus · 多元与向量微积分"],
     ["ref","Glossary","calculus/glossary.html","c10","General Mathematical Terms · 通用数学术语"],
 
-    // ---- Statistics · Complete Companion ----
+    // ---- Statistics ----
     ["sta","Statistics","statistics/complete-guide.html","s0","The big picture"],
-    ["sta","Statistics","statistics/complete-guide.html","s1","Data & variables"],
     ["sta","Statistics","statistics/complete-guide.html","s2","Describing center & spread"],
-    ["sta","Statistics","statistics/complete-guide.html","s3","Distributions & visualizing data"],
-    ["sta","Statistics","statistics/complete-guide.html","s4","Probability basics"],
     ["sta","Statistics","statistics/complete-guide.html","s5","Conditional probability & Bayes' theorem"],
-    ["sta","Statistics","statistics/complete-guide.html","s6","Random variables & expectation"],
-    ["sta","Statistics","statistics/complete-guide.html","s7","Common distributions"],
     ["sta","Statistics","statistics/complete-guide.html","s8","The Normal distribution & the CLT"],
-    ["sta","Statistics","statistics/complete-guide.html","s9","Sampling distributions & the standard error"],
-    ["sta","Statistics","statistics/complete-guide.html","s10","Confidence intervals"],
     ["sta","Statistics","statistics/complete-guide.html","s11","Hypothesis testing"],
-    ["sta","Statistics","statistics/complete-guide.html","s12","The common tests"],
     ["sta","Statistics","statistics/complete-guide.html","s13","Correlation & regression"],
-    ["sta","Statistics","statistics/complete-guide.html","s14","Pitfalls & the bigger picture"],
   ];
 
   // Extra keywords so topical searches land even when the word isn't in the title.
   const KEYWORDS = {
     "calculus/complete-guide.html#s7":"product rule quotient rule chain rule power rule",
-    "calculus/derived-from-scratch.html#s3":"product rule quotient rule chain rule power rule proof",
-    "calculus/connected-map.html#s3":"product rule quotient rule chain rule power rule",
-    "calculus/complete-guide.html#s8":"sin cos exp log derivative table trig",
-    "calculus/complete-guide.html#s25":"taylor maclaurin power series euler",
-    "calculus/derived-from-scratch.html#s11":"taylor maclaurin geometric series convergence",
+    "calculus/complete-guide.html#s8":"sin cos exp log derivative table trig hyperbolic",
+    "calculus/complete-guide.html#s25":"taylor maclaurin power series",
     "calculus/complete-guide.html#s18":"u-substitution integration by parts partial fractions",
-    "statistics/complete-guide.html#s5":"bayes conditional probability base rate",
-    "statistics/complete-guide.html#s8":"normal gaussian bell curve central limit theorem clt z-score",
-    "statistics/complete-guide.html#s11":"p-value null hypothesis type i type ii error power alpha",
-    "statistics/complete-guide.html#s13":"correlation least squares regression r squared covariance",
-    "statistics/complete-guide.html#s7":"binomial poisson bernoulli geometric uniform exponential distribution",
+    "calculus/multivariable-vector.html#s7":"gradient nabla del directional derivative steepest ascent",
+    "calculus/multivariable-vector.html#s11":"lagrange multiplier constraint optimization",
+    "calculus/multivariable-vector.html#s16":"jacobian change of variables",
+    "calculus/multivariable-vector.html#s21":"green's theorem circulation",
+    "calculus/multivariable-vector.html#s25":"stokes theorem curl",
+    "calculus/multivariable-vector.html#s26":"divergence theorem gauss flux",
+    "calculus/differential-equations.html#s2":"integrating factor first order linear",
+    "calculus/differential-equations.html#s8":"characteristic equation homogeneous constant coefficient",
+    "calculus/differential-equations.html#s13":"laplace transform",
+    "calculus/differential-equations.html#s16":"euler runge kutta numerical",
+    "calculus/differential-equations.html#s17":"partial differential equation fourier series heat wave",
+    "calculus/analysis-foundations.html#s1":"completeness supremum infimum least upper bound real numbers",
+    "calculus/analysis-foundations.html#s2":"epsilon n sequence limit convergence",
+    "calculus/analysis-foundations.html#s10":"uniform convergence pointwise weierstrass m-test",
   };
 
   const search = document.getElementById('search');
@@ -281,9 +452,9 @@
     });
     reslist.innerHTML = hits.map(([cat,guide,file,anchor,title]) =>
       `<a class="res" href="${file}#${anchor}">
-         <span class="tag ${cat}">${guide.split('·')[0].trim()}</span>
+         <span class="tag ${cat}">${escHtml(guide)}</span>
          <span class="title">${mark(title, q)}</span>
-         <span class="where">${escHtml(guide)}</span>
+         <span class="where">${escHtml(file.split('/')[0])}</span>
        </a>`).join('');
     noresult.style.display = hits.length ? 'none' : 'block';
     countEl.textContent = ql
@@ -300,7 +471,6 @@
   }
 
   search.addEventListener('input', update);
-  // "/" focuses the search box; Esc clears it.
   document.addEventListener('keydown', e => {
     if(e.key === '/' && document.activeElement !== search){ e.preventDefault(); search.focus(); }
     if(e.key === 'Escape'){ search.value=''; update(); search.blur(); }
