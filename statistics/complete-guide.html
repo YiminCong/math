@@ -97,6 +97,13 @@
     main{padding:28px 20px 90px; max-width:none;}
     .demo ol li{padding-left:34px;}
   }
+  /* in-page section search */
+  .gsearch{margin:0 0 6px; display:flex; align-items:center; gap:8px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:24px; padding:8px 14px; box-shadow:0 2px 8px var(--shadow);}
+  .gsearch .ico{color:var(--blue); font-size:.95rem;}
+  .gsearch input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:.95rem; width:100%; color:var(--ink);}
+  .gsearch input::placeholder{color:#a99e87;}
+  .gsearch-count{font-size:.76rem; color:var(--ink-soft); font-style:italic; margin:4px 0 14px; padding-left:6px; min-height:1em;}
+  section.gs-hidden{display:none !important;}
 </style>
 </head>
 <body>
@@ -105,6 +112,8 @@
     <div class="brand">Statistics,<br><em>the complete companion</em></div>
     <div class="sub">Data · probability · inference — concepts, principles, formulas &amp; the demonstrations behind them</div>
     <button class="menubtn" onclick="document.getElementById('nav').classList.toggle('open')">☰ Contents</button>
+        <div class="gsearch"><span class="ico">🔍</span><input id="gsearch-input" type="text" placeholder="Search this guide…  ( / )" autocomplete="off"></div>
+    <div class="gsearch-count" id="gsearch-count"></div>
     <nav id="nav">
       <div class="grp">A · Describing data</div>
       <a href="#s0"><span class="n">0</span>The big picture</a>
@@ -488,6 +497,35 @@
       throwOnError: false
     });
   });
+</script>
+<script>
+(function(){
+  var input=document.getElementById('gsearch-input');
+  if(!input) return;
+  var countEl=document.getElementById('gsearch-count');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var parts=Array.prototype.slice.call(document.querySelectorAll('main .part'));
+  var links={};
+  Array.prototype.forEach.call(document.querySelectorAll('nav#nav a[href^="#"]'),function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  function run(){
+    var q=input.value.trim().toLowerCase(), shown=0;
+    sections.forEach(function(sec){
+      var match=!q||sec.textContent.toLowerCase().indexOf(q)>-1;
+      sec.classList.toggle('gs-hidden',!match);
+      var a=links[sec.id]; if(a) a.style.display=match?'':'none';
+      if(match) shown++;
+    });
+    parts.forEach(function(p){p.style.display=q?'none':'';});
+    countEl.textContent=q?(shown+' section'+(shown===1?'':'s')+' match “'+input.value.trim()+'”'):'';
+  }
+  input.addEventListener('input',run);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==input){e.preventDefault();input.focus();}
+    if(e.key==='Escape'){input.value='';run();input.blur();}
+  });
+})();
 </script>
 </body>
 </html>
