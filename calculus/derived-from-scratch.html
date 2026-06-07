@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculus, Derived from Scratch</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper-2:#efe7d6; --ink:#26221b; --ink-soft:#564f43;
+    --blue:#1f3a5f; --blue-soft:#3a5a82; --amber:#b5651d; --teal:#0f6f6a;
+    --plum:#6d3b5e; --line:#d8cdb8; --shadow:rgba(38,34,27,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 20% -10%, #fbf6ec 0%, transparent 55%),
+      radial-gradient(circle at 90% 5%, #f0e9da 0%, transparent 45%),
+      var(--paper);
+    color:var(--ink); font-family:"Spectral",Georgia,serif; font-size:18px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:42px 42px; opacity:.12;
+  }
+  .wrap{position:relative; z-index:1; display:flex; max-width:1320px; margin:0 auto;}
+
+  aside{
+    width:290px; flex:0 0 290px; position:sticky; top:0; align-self:flex-start;
+    height:100vh; overflow-y:auto; padding:42px 24px 60px 32px; border-right:1px solid var(--line);
+  }
+  aside .brand{font-family:"Fraunces",serif; font-weight:900; font-size:1.4rem; line-height:1.05; color:var(--blue); letter-spacing:-.01em; margin-bottom:4px;}
+  aside .brand em{font-style:italic; color:var(--amber); font-weight:500;}
+  aside .sub{font-size:.8rem; color:var(--ink-soft); letter-spacing:.03em; text-transform:uppercase; margin-bottom:24px;}
+  nav a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.92rem; padding:4px 0 4px 14px; border-left:2px solid transparent; transition:.18s;}
+  nav a .n{font-family:"Fraunces",serif; color:var(--amber); font-weight:600; margin-right:7px; font-variant-numeric:tabular-nums;}
+  nav a:hover{color:var(--blue); border-left-color:var(--amber); padding-left:18px;}
+  nav .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); margin:20px 0 5px;}
+
+  main{flex:1 1 auto; min-width:0; padding:48px 56px 120px; max-width:880px;}
+  header.hero{margin-bottom:48px;}
+  header.hero h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2.4rem,5.5vw,3.9rem); line-height:.96; letter-spacing:-.02em; margin:0 0 8px; color:var(--ink);}
+  header.hero h1 em{font-style:italic; color:var(--amber); font-weight:500;}
+  header.hero p.lede{font-size:1.14rem; color:var(--ink-soft); max-width:62ch; margin:14px 0 0;}
+  .rule{height:3px; width:90px; background:var(--amber); margin:24px 0 0; border-radius:3px;}
+  .howto{background:#fffdf7; border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:22px 0 0; font-size:.95rem;}
+  .howto b{color:var(--blue); font-family:"Fraunces",serif;}
+  .swatch{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:6px; vertical-align:middle;}
+
+  section{margin:0 0 60px; scroll-margin-top:24px;}
+  .secnum{font-family:"Fraunces",serif; font-weight:900; font-size:.92rem; color:var(--amber); letter-spacing:.14em; text-transform:uppercase; display:block; margin-bottom:2px;}
+  h2{font-family:"Fraunces",serif; font-weight:600; font-size:1.95rem; line-height:1.05; margin:0 0 6px; color:var(--blue); letter-spacing:-.01em;}
+  h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.24rem; color:var(--ink); margin:32px 0 8px;}
+  .intro{color:var(--ink-soft); font-style:italic; margin:6px 0 20px; max-width:64ch;}
+  p{margin:13px 0;} strong{color:var(--blue); font-weight:600;}
+
+  .fcard{background:linear-gradient(180deg,#fffdf7,#f7f0e1); border:1px solid var(--line); border-radius:10px; padding:15px 22px; margin:15px 0; box-shadow:0 2px 10px var(--shadow);}
+  .fcard .lab{font-family:"Fraunces",serif; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--amber); font-weight:600; margin-bottom:2px;}
+  .fcard .math{font-size:1.1rem; overflow-x:auto; overflow-y:hidden; padding:4px 0;}
+  .fcard .note{font-size:.9rem; color:var(--ink-soft); margin-top:6px; font-style:italic;}
+
+  .rel{border-left:4px solid var(--teal); background:#e9f3f1; border-radius:0 10px 10px 0; padding:13px 20px; margin:20px 0;}
+  .rel .tag{font-family:"Fraunces",serif; font-weight:600; color:var(--teal); font-size:.8rem; text-transform:uppercase; letter-spacing:.07em;}
+  .rel p{margin:6px 0 0; font-size:.96rem;}
+
+  /* DEMONSTRATION box — the heart of this version */
+  .demo{border:1px solid var(--blue-soft); background:#eef2f7; border-radius:10px; padding:16px 22px 18px; margin:18px 0;}
+  .demo .tag{font-family:"Fraunces",serif; font-weight:700; color:var(--blue); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; display:flex; align-items:center; gap:8px;}
+  .demo .tag::before{content:"▸"; color:var(--amber);}
+  .demo ol{margin:12px 0 0; padding-left:0; counter-reset:step; list-style:none;}
+  .demo ol li{position:relative; padding:8px 0 8px 40px; border-top:1px dashed #c4cedb;}
+  .demo ol li:first-child{border-top:none;}
+  .demo ol li::before{counter-increment:step; content:counter(step); position:absolute; left:0; top:8px; width:26px; height:26px; background:var(--blue); color:#f5efe2; border-radius:50%; font-family:"Fraunces",serif; font-size:.85rem; font-weight:600; display:flex; align-items:center; justify-content:center;}
+  .demo ol li .mq{display:block; overflow-x:auto; padding:3px 0;}
+  .demo .qed{text-align:right; font-style:italic; color:var(--ink-soft); margin-top:8px; font-size:.92rem;}
+
+  ul.clean{margin:12px 0; padding-left:22px;} ul.clean li{margin:7px 0;}
+  .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0;}
+  .pill{font-size:.84rem; background:var(--paper-2); border:1px solid var(--line); border-radius:20px; padding:4px 14px; color:var(--ink-soft);}
+
+  table.tbl{width:100%; border-collapse:collapse; margin:16px 0; font-size:.97rem; background:#fffdf7; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  table.tbl th{background:var(--blue); color:#f5efe2; font-family:"Fraunces",serif; font-weight:600; text-align:left; padding:9px 13px; font-size:.9rem;}
+  table.tbl td{padding:8px 13px; border-top:1px solid var(--line); vertical-align:middle;}
+  table.tbl tr:nth-child(even) td{background:#f7f0e1;}
+
+  .map{background:#fffdf7; border:1px dashed var(--blue-soft); border-radius:12px; padding:20px 24px; margin:18px 0;}
+  .map h3{margin-top:0;}
+  .flow{font-family:"Fraunces",serif; color:var(--blue); font-weight:600; text-align:center; font-size:1.02rem; line-height:2.1;}
+  .flow .arrow{color:var(--amber); margin:0 7px;}
+
+  footer{border-top:1px solid var(--line); padding-top:24px; color:var(--ink-soft); font-size:.92rem; font-style:italic;}
+  section, header.hero{animation:rise .7s ease both;}
+  @keyframes rise{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
+
+  .menubtn{display:none;}
+  @media(max-width:900px){
+    body{font-size:17px;}
+    .wrap{flex-direction:column;}
+    aside{position:static; width:auto; height:auto; flex:none; border-right:none; border-bottom:1px solid var(--line); padding:24px 22px;}
+    nav{display:none;} nav.open{display:block;}
+    .menubtn{display:inline-block; margin-top:14px; cursor:pointer; font-family:"Fraunces",serif; font-weight:600; color:var(--blue); background:var(--paper-2); border:1px solid var(--line); border-radius:8px; padding:8px 16px; font-size:.95rem;}
+    main{padding:30px 22px 90px; max-width:none;}
+    .demo ol li{padding-left:36px;}
+  }
+  /* in-page section search */
+  .gsearch{margin:0 0 6px; display:flex; align-items:center; gap:8px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:24px; padding:8px 14px; box-shadow:0 2px 8px var(--shadow);}
+  .gsearch .ico{color:var(--blue); font-size:.95rem;}
+  .gsearch input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:.95rem; width:100%; color:var(--ink);}
+  .gsearch input::placeholder{color:#a99e87;}
+  .gsearch-count{font-size:.76rem; color:var(--ink-soft); font-style:italic; margin:4px 0 14px; padding-left:6px; min-height:1em;}
+  section.gs-hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <div class="brand">Calculus,<br><em>derived from scratch</em></div>
+    <div class="sub">Every formula, demonstrated</div>
+    <button class="menubtn" onclick="document.getElementById('nav').classList.toggle('open')">☰ Contents</button>
+        <div class="gsearch"><span class="ico">🔍</span><input id="gsearch-input" type="text" placeholder="Search this guide…  ( / )" autocomplete="off"></div>
+    <div class="gsearch-count" id="gsearch-count"></div>
+    <nav id="nav">
+      <div class="grp">Foundations</div>
+      <a href="#s0"><span class="n">0</span>The big picture</a>
+      <a href="#s1"><span class="n">1</span>Limits &amp; continuity</a>
+      <div class="grp">The Derivative</div>
+      <a href="#s2"><span class="n">2</span>Definition of the derivative</a>
+      <a href="#s3"><span class="n">3</span>The rules, each proven</a>
+      <a href="#s4"><span class="n">4</span>Derivatives of every function</a>
+      <a href="#s5"><span class="n">5</span>Implicit, log, higher order</a>
+      <a href="#s6"><span class="n">6</span>Using derivatives</a>
+      <div class="grp">The Integral</div>
+      <a href="#s7"><span class="n">7</span>Antiderivative &amp; the FTC</a>
+      <a href="#s8"><span class="n">8</span>The integral table</a>
+      <a href="#s9"><span class="n">9</span>Techniques, each proven</a>
+      <a href="#s10"><span class="n">10</span>Using integrals</a>
+      <div class="grp">Beyond</div>
+      <a href="#s11"><span class="n">11</span>Sequences &amp; series</a>
+      <a href="#s12"><span class="n">12</span>Multivariable peek</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <h1>Calculus, <em>derived.</em></h1>
+      <p class="lede">Not just a list of formulas — every core formula below is <strong>demonstrated</strong>: shown where it comes from, step by step. The order runs basics → advanced, and each piece is built from the one before it.</p>
+      <div class="rule"></div>
+      <div class="howto">
+        <b>How to read the boxes:</b><br>
+        <span class="swatch" style="background:#f7f0e1;border:1px solid #d8cdb8;"></span><b>Formula</b> — the result, stated cleanly. &nbsp;
+        <span class="swatch" style="background:#eef2f7;border:1px solid #3a5a82;"></span><b>Demonstration</b> — the numbered derivation/proof. &nbsp;
+        <span class="swatch" style="background:#e9f3f1;border:1px solid #0f6f6a;"></span><b>Connection</b> — how it links to another formula.
+      </div>
+    </header>
+
+    <!-- 0 -->
+    <section id="s0">
+      <span class="secnum">Section 0</span>
+      <h2>The big picture before any symbols</h2>
+      <p class="intro">One map to hold in your head.</p>
+      <p>All of calculus is two questions about change, plus a discovery that they are opposites.</p>
+      <ul class="clean">
+        <li><strong>The derivative</strong> asks: <em>how fast is this changing right now?</em> (a slope, a speed, a rate)</li>
+        <li><strong>The integral</strong> asks: <em>how much has accumulated in total?</em> (an area, a distance, a sum)</li>
+      </ul>
+      <p>Both are built by taking something simple — a slope between two points, the area of a rectangle — and pushing it to a <strong>limit</strong>, letting a gap shrink to zero. So limits come first.</p>
+      <div class="map">
+        <h3>The whole course on one line</h3>
+        <div class="flow">Limits <span class="arrow">→</span> Derivatives <span class="arrow">→</span> Integrals <span class="arrow">↔</span> (linked by the FTC) <span class="arrow">→</span> Series <span class="arrow">→</span> Multivariable</div>
+      </div>
+      <div class="rel"><span class="tag">The thread to follow</span><p>The <strong>Fundamental Theorem of Calculus</strong> (Section 7) says differentiation and integration undo each other. Because of it, every integration formula in Sections 8–9 is a differentiation formula from Sections 3–4 read backwards — and we will literally derive them that way.</p></div>
+    </section>
+
+    <!-- 1 -->
+    <section id="s1">
+      <span class="secnum">Section 1</span>
+      <h2>Limits &amp; continuity</h2>
+      <p class="intro">A limit answers: where is the function heading as the input approaches a value — even if it never arrives?</p>
+
+      <div class="fcard"><div class="lab">Intuitive limit</div><div class="math">\[ \lim_{x \to a} f(x) = L \]</div><div class="note">As \(x\) gets arbitrarily close to \(a\), \(f(x)\) gets arbitrarily close to \(L\).</div></div>
+
+      <div class="fcard"><div class="lab">Formal (ε–δ) definition</div><div class="math">\[ \forall\, \varepsilon>0,\; \exists\, \delta>0 \;:\; 0<|x-a|<\delta \implies |f(x)-L|<\varepsilon \]</div><div class="note">Name any tolerance ε around L; I can find a window δ around a that keeps me inside it.</div></div>
+
+      <div class="fcard"><div class="lab">One-sided &amp; existence</div><div class="math">\[ \lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=L \iff \lim_{x\to a}f(x)=L \]</div><div class="note">The two-sided limit exists only when the left and right approaches agree.</div></div>
+
+      <div class="fcard"><div class="lab">Limits at infinity / infinite limits</div><div class="math">\[ \lim_{x\to\infty}\frac{1}{x}=0, \qquad \lim_{x\to 0^+}\frac{1}{x}=+\infty \]</div></div>
+
+      <h3>Limit laws (how limits combine)</h3>
+      <p>If \(\lim f = L\) and \(\lim g = M\):</p>
+      <div class="fcard"><div class="math">\[ \lim (f \pm g)=L\pm M,\quad \lim (fg)=LM,\quad \lim \tfrac{f}{g}=\tfrac{L}{M}\,(M\neq0),\quad \lim cf=cL \]</div></div>
+
+      <div class="fcard"><div class="lab">Squeeze (sandwich) theorem</div><div class="math">\[ g(x)\le f(x)\le h(x)\ \text{and}\ \lim g=\lim h=L \implies \lim f=L \]</div></div>
+
+      <h3>The special limits — and where they come from</h3>
+      <div class="fcard"><div class="lab">Three limits to know</div><div class="math">\[ \lim_{x\to0}\frac{\sin x}{x}=1,\qquad \lim_{x\to0}\frac{1-\cos x}{x}=0,\qquad \lim_{x\to0}\frac{e^{x}-1}{x}=1 \]</div></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — why \( \lim_{x\to0}\frac{\sin x}{x}=1 \)</span>
+        <ol>
+          <li>For a small angle \(x\) (in radians, \(0<x<\tfrac{\pi}{2}\)), compare three areas in the unit circle: a small triangle, the circular sector, and a larger triangle. Their areas give the inequality <span class="mq">\[ \sin x < x < \tan x. \]</span></li>
+          <li>Divide every part by \(\sin x>0\): <span class="mq">\[ 1 < \frac{x}{\sin x} < \frac{1}{\cos x}. \]</span></li>
+          <li>Flip all three (reversing the inequalities): <span class="mq">\[ \cos x < \frac{\sin x}{x} < 1. \]</span></li>
+          <li>As \(x\to0\), \(\cos x\to1\). The fraction is squeezed between two things heading to 1, so by the Squeeze Theorem it also \(\to1\).</li>
+        </ol>
+        <div class="qed">This single limit is what makes \((\sin x)'=\cos x\) work in Section 4.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Continuity at a point</div><div class="math">\[ f \text{ continuous at } a \iff \lim_{x\to a} f(x)=f(a) \]</div><div class="note">Limit exists, value exists, and they match — no hole, jump, or break.</div></div>
+
+      <div class="fcard"><div class="lab">Intermediate Value Theorem</div><div class="math">\[ f \text{ continuous on } [a,b],\ N \text{ between } f(a),f(b) \implies \exists\, c\in(a,b):\ f(c)=N \]</div><div class="note">A continuous curve can't skip a value — it must pass through every height in between. (This is why root-finding works.)</div></div>
+
+      <div class="rel"><span class="tag">Why this matters next</span><p>Differentiability requires continuity, and the derivative is itself <em>defined</em> as a limit. Section 2 is one careful application of everything above.</p></div>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <span class="secnum">Section 2</span>
+      <h2>The definition of the derivative</h2>
+      <p class="intro">Take the slope between two points, then slide them together.</p>
+
+      <div class="fcard"><div class="lab">Definition (limit of a difference quotient)</div><div class="math">\[ f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h} \]</div><div class="note">\(\frac{f(x+h)-f(x)}{h}\) is the slope of a secant line through two nearby points; \(h\to0\) tilts it into the tangent.</div></div>
+
+      <div class="fcard"><div class="lab">Equivalent form at a point</div><div class="math">\[ f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a} \]</div></div>
+
+      <div class="pillrow">
+        <span class="pill">\(f'(x)\) — Lagrange</span><span class="pill">\(\dfrac{dy}{dx}\) — Leibniz</span><span class="pill">\(\dot y\) — Newton</span><span class="pill">\(D_xf\) — operator</span>
+      </div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — derivative of \(f(x)=x^2\) from the definition</span>
+        <ol>
+          <li>Substitute into the definition: <span class="mq">\[ f'(x)=\lim_{h\to0}\frac{(x+h)^2-x^2}{h}. \]</span></li>
+          <li>Expand the top: <span class="mq">\[ (x+h)^2-x^2 = x^2+2xh+h^2-x^2 = 2xh+h^2. \]</span></li>
+          <li>Divide by \(h\) (allowed since \(h\neq0\) inside the limit): <span class="mq">\[ \frac{2xh+h^2}{h}=2x+h. \]</span></li>
+          <li>Let \(h\to0\): <span class="mq">\[ f'(x)=2x. \]</span></li>
+        </ol>
+        <div class="qed">Matches the power rule \(nx^{n-1}\). Next we prove that rule in general.</div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <span class="secnum">Section 3</span>
+      <h2>The differentiation rules — each one proven</h2>
+      <p class="intro">Every rule below is derived from the limit definition. Once proven, you never touch the definition again.</p>
+
+      <div class="fcard"><div class="lab">Constant &amp; basic rules</div><div class="math">\[ \frac{d}{dx}[c]=0,\quad \frac{d}{dx}[cf]=cf',\quad (f\pm g)'=f'\pm g' \]</div><div class="note">These fall straight out of the limit laws in Section 1 (the limit of a sum is the sum of limits).</div></div>
+
+      <div class="fcard"><div class="lab">Power rule</div><div class="math">\[ \frac{d}{dx}\big[x^{n}\big]=n\,x^{\,n-1} \]</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — power rule (via the binomial theorem)</span>
+        <ol>
+          <li>Definition: <span class="mq">\[ f'(x)=\lim_{h\to0}\frac{(x+h)^n-x^n}{h}. \]</span></li>
+          <li>Binomial expansion: <span class="mq">\[ (x+h)^n = x^n + n x^{n-1}h + \tfrac{n(n-1)}{2}x^{n-2}h^2+\cdots+h^n. \]</span></li>
+          <li>Subtract \(x^n\); every surviving term has at least one factor of \(h\): <span class="mq">\[ (x+h)^n-x^n = n x^{n-1}h + \tfrac{n(n-1)}{2}x^{n-2}h^2+\cdots \]</span></li>
+          <li>Divide by \(h\): <span class="mq">\[ n x^{n-1} + \tfrac{n(n-1)}{2}x^{n-2}h + \cdots \]</span></li>
+          <li>Let \(h\to0\): every term still carrying an \(h\) vanishes, leaving <span class="mq">\[ f'(x)=n x^{n-1}. \]</span></li>
+        </ol>
+      </div>
+
+      <div class="fcard" style="border-color:var(--amber);">
+        <div class="lab" style="color:var(--blue);">★ The famous, everyday derivatives you'll reach for most</div>
+        <div class="math">\[ \frac{d}{dx}\,e^{x}=e^{x} \qquad \frac{d}{dx}\sqrt{x}=\frac{1}{2\sqrt{x}} \qquad \frac{d}{dx}\,\frac{1}{x}=-\frac{1}{x^{2}} \]</div>
+        <div class="note">\(e^x\) is the single most famous derivative in mathematics — the only function (up to a constant multiple) that is its own derivative, which is why it governs growth, decay, and compound interest. The other two are the everyday special cases of the power rule that appear constantly.</div>
+      </div>
+      <div class="demo">
+        <span class="tag">Demonstration — the two everyday cases are just the power rule</span>
+        <ol>
+          <li>Square root: write \(\sqrt{x}=x^{1/2}\) and apply \(nx^{n-1}\): <span class="mq">\[ \frac{d}{dx}x^{1/2}=\tfrac{1}{2}x^{-1/2}=\frac{1}{2\sqrt{x}}. \]</span></li>
+          <li>Reciprocal: write \(\dfrac{1}{x}=x^{-1}\) and apply the same rule: <span class="mq">\[ \frac{d}{dx}x^{-1}=-1\cdot x^{-2}=-\frac{1}{x^{2}}. \]</span></li>
+        </ol>
+        <div class="qed">The power rule works for any exponent — fractional or negative — not just whole numbers.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Product rule</div><div class="math">\[ (fg)' = f'g + fg' \]</div><div class="note">"Derivative of first times second, plus first times derivative of second." Not \(f'g'\).</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — product rule (the add-and-subtract trick)</span>
+        <ol>
+          <li>Definition: <span class="mq">\[ (fg)'=\lim_{h\to0}\frac{f(x+h)g(x+h)-f(x)g(x)}{h}. \]</span></li>
+          <li>Add and subtract \(f(x+h)g(x)\) in the numerator (it cancels to zero, so nothing changes): <span class="mq">\[ f(x+h)g(x+h)-f(x+h)g(x)+f(x+h)g(x)-f(x)g(x). \]</span></li>
+          <li>Group and factor: <span class="mq">\[ f(x+h)\big[g(x+h)-g(x)\big]+g(x)\big[f(x+h)-f(x)\big]. \]</span></li>
+          <li>Divide by \(h\) and split the limit: <span class="mq">\[ \lim f(x+h)\frac{g(x+h)-g(x)}{h}+\lim g(x)\frac{f(x+h)-f(x)}{h}. \]</span></li>
+          <li>As \(h\to0\): \(f(x+h)\to f(x)\), and the two quotients become \(g'\) and \(f'\): <span class="mq">\[ (fg)'=f g' + g f'. \]</span></li>
+        </ol>
+      </div>
+
+      <div class="fcard"><div class="lab">Quotient rule</div><div class="math">\[ \left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^{2}} \]</div><div class="note">"Low d-high minus high d-low, over low squared."</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — quotient rule (straight from the product rule)</span>
+        <ol>
+          <li>Let \(Q=\dfrac{f}{g}\), so that \(f = Q\,g\).</li>
+          <li>Differentiate both sides with the product rule: <span class="mq">\[ f' = Q'g + Q g'. \]</span></li>
+          <li>Solve for \(Q'\): <span class="mq">\[ Q' = \frac{f'-Qg'}{g}. \]</span></li>
+          <li>Replace \(Q\) with \(f/g\) and simplify over a common denominator: <span class="mq">\[ Q'=\frac{f'-\frac{f}{g}g'}{g}=\frac{f'g-fg'}{g^2}. \]</span></li>
+        </ol>
+        <div class="qed">Notice the quotient rule isn't separate magic — it's the product rule, rearranged.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Chain rule (functions inside functions)</div><div class="math">\[ \frac{d}{dx}\,f\big(g(x)\big)=f'\big(g(x)\big)\cdot g'(x) \qquad\Big(\tfrac{dy}{dx}=\tfrac{dy}{du}\cdot\tfrac{du}{dx}\Big) \]</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — chain rule (the intuition that makes it obvious)</span>
+        <ol>
+          <li>Write the change in \(y\) caused by a change in \(x\) as a product of ratios (multiply top and bottom by \(\Delta u\)): <span class="mq">\[ \frac{\Delta y}{\Delta x}=\frac{\Delta y}{\Delta u}\cdot\frac{\Delta u}{\Delta x}. \]</span></li>
+          <li>As \(\Delta x\to0\), the inside change \(\Delta u\to0\) too (since \(g\) is continuous).</li>
+          <li>Each ratio becomes a derivative in the limit: <span class="mq">\[ \frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx}=f'(g(x))\,g'(x). \]</span></li>
+        </ol>
+        <div class="qed">Differentiate the outer layer, keep the inside intact, multiply by the inside's derivative.</div>
+      </div>
+
+      <div class="rel"><span class="tag">Forward link (remember these two)</span><p>Read backwards, the <strong>product rule becomes integration by parts</strong> and the <strong>chain rule becomes u-substitution</strong> — the two main integration techniques in Section 9. We'll derive both from these.</p></div>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <span class="secnum">Section 4</span>
+      <h2>Derivatives of every standard function</h2>
+      <p class="intro">With the rules above plus a few key limits, each of these can be demonstrated.</p>
+
+      <div class="fcard"><div class="lab">Trigonometric</div>
+        <div class="math">\[ (\sin x)'=\cos x,\quad (\cos x)'=-\sin x,\quad (\tan x)'=\sec^2 x \]</div>
+        <div class="math">\[ (\cot x)'=-\csc^2 x,\quad (\sec x)'=\sec x\tan x,\quad (\csc x)'=-\csc x\cot x \]</div>
+      </div>
+      <div class="demo">
+        <span class="tag">Demonstration — \((\sin x)'=\cos x\)</span>
+        <ol>
+          <li>Definition: <span class="mq">\[ (\sin x)'=\lim_{h\to0}\frac{\sin(x+h)-\sin x}{h}. \]</span></li>
+          <li>Use the addition formula \(\sin(x+h)=\sin x\cos h+\cos x\sin h\): <span class="mq">\[ =\lim_{h\to0}\frac{\sin x\cos h+\cos x\sin h-\sin x}{h}. \]</span></li>
+          <li>Group the \(\sin x\) terms and split: <span class="mq">\[ =\sin x\lim_{h\to0}\frac{\cos h-1}{h}+\cos x\lim_{h\to0}\frac{\sin h}{h}. \]</span></li>
+          <li>Insert the special limits from Section 1 \(\big(\frac{\cos h-1}{h}\to0,\ \frac{\sin h}{h}\to1\big)\): <span class="mq">\[ =\sin x\cdot 0 + \cos x\cdot 1 = \cos x. \]</span></li>
+        </ol>
+        <div class="qed">\(\tan,\sec,\csc,\cot\) then follow by the quotient rule on \(\sin/\cos\).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Exponential &amp; logarithmic</div>
+        <div class="math">\[ (e^{x})'=e^{x},\quad (a^{x})'=a^{x}\ln a,\quad (\ln x)'=\frac{1}{x},\quad (\log_a x)'=\frac{1}{x\ln a} \]</div>
+      </div>
+      <div class="demo">
+        <span class="tag">Demonstration — \((e^x)'=e^x\)</span>
+        <ol>
+          <li>Definition: <span class="mq">\[ (e^x)'=\lim_{h\to0}\frac{e^{x+h}-e^{x}}{h}. \]</span></li>
+          <li>Factor \(e^{x}\) out (it doesn't depend on \(h\)): <span class="mq">\[ =e^{x}\lim_{h\to0}\frac{e^{h}-1}{h}. \]</span></li>
+          <li>That remaining limit equals \(1\) (a special limit from Section 1 — in fact it's the property that <em>defines</em> \(e\)): <span class="mq">\[ =e^{x}\cdot 1 = e^{x}. \]</span></li>
+        </ol>
+        <div class="qed">\(e^x\) is the unique function that is its own derivative.</div>
+      </div>
+      <div class="demo">
+        <span class="tag">Demonstration — \((\ln x)'=\tfrac1x\) (via inverse functions)</span>
+        <ol>
+          <li>Let \(y=\ln x\). By definition this means <span class="mq">\[ e^{y}=x. \]</span></li>
+          <li>Differentiate both sides with respect to \(x\), using the chain rule on the left: <span class="mq">\[ e^{y}\cdot\frac{dy}{dx}=1. \]</span></li>
+          <li>Solve for \(dy/dx\) and recall \(e^{y}=x\): <span class="mq">\[ \frac{dy}{dx}=\frac{1}{e^{y}}=\frac{1}{x}. \]</span></li>
+        </ol>
+      </div>
+
+      <div class="fcard"><div class="lab">Inverse trigonometric</div>
+        <div class="math">\[ (\arcsin x)'=\frac{1}{\sqrt{1-x^2}},\quad (\arccos x)'=-\frac{1}{\sqrt{1-x^2}},\quad (\arctan x)'=\frac{1}{1+x^2} \]</div>
+      </div>
+      <div class="demo">
+        <span class="tag">Demonstration — \((\arctan x)'=\tfrac{1}{1+x^2}\)</span>
+        <ol>
+          <li>Let \(y=\arctan x\), so <span class="mq">\[ \tan y = x. \]</span></li>
+          <li>Differentiate both sides: <span class="mq">\[ \sec^2 y\cdot\frac{dy}{dx}=1 \;\Rightarrow\; \frac{dy}{dx}=\frac{1}{\sec^2 y}. \]</span></li>
+          <li>Use the identity \(\sec^2 y = 1+\tan^2 y\) and \(\tan y = x\): <span class="mq">\[ \frac{dy}{dx}=\frac{1}{1+\tan^2 y}=\frac{1}{1+x^2}. \]</span></li>
+        </ol>
+      </div>
+
+      <div class="fcard"><div class="lab">Hyperbolic functions</div>
+        <div class="math">\[ \sinh x=\frac{e^x-e^{-x}}{2},\quad \cosh x=\frac{e^x+e^{-x}}{2} \]</div>
+        <div class="math">\[ (\sinh x)'=\cosh x,\quad (\cosh x)'=\sinh x,\quad (\tanh x)'=\operatorname{sech}^2 x \]</div>
+        <div class="note">Defined from \(e^x\); their derivatives follow in one line from \((e^x)'=e^x\). Note \((\cosh)'=+\sinh\), unlike the trig minus sign.</div>
+      </div>
+
+      <div class="rel"><span class="tag">A quiet symmetry</span><p>Differentiating \(\sin\) four times returns to \(\sin\). That cycle is exactly why sine and cosine describe everything that oscillates — and it reappears in their Taylor series in Section 11.</p></div>
+    </section>
+
+    <!-- 5 -->
+    <section id="s5">
+      <span class="secnum">Section 5</span>
+      <h2>Implicit, logarithmic &amp; higher-order derivatives</h2>
+      <p class="intro">For when y is tangled up, the exponents are messy, or you differentiate more than once.</p>
+
+      <div class="fcard"><div class="lab">Implicit differentiation</div><div class="math">\[ \frac{d}{dx}[y]=\frac{dy}{dx},\qquad \frac{d}{dx}\big[y^{2}\big]=2y\frac{dy}{dx} \]</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — slope on the circle \(x^2+y^2=25\)</span>
+        <ol>
+          <li>Differentiate both sides, treating \(y\) as a function of \(x\) (so \(y^2\) needs the chain rule): <span class="mq">\[ 2x+2y\frac{dy}{dx}=0. \]</span></li>
+          <li>Solve for the slope: <span class="mq">\[ \frac{dy}{dx}=-\frac{x}{y}. \]</span></li>
+        </ol>
+        <div class="qed">Every \(y\)-term picks up a \(dy/dx\) — that's the chain rule from Section 3 doing the work.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Logarithmic differentiation</div><div class="math">\[ y=f(x)^{g(x)} \Rightarrow \ln y=g\ln f \Rightarrow \frac{y'}{y}=\big(g\ln f\big)' \]</div><div class="note">Take \(\ln\) first to turn an awkward power into a product. Essential for things like \(x^{x}\).</div></div>
+
+      <div class="fcard"><div class="lab">Higher-order derivatives</div><div class="math">\[ f''(x)=\frac{d}{dx}f'(x),\qquad f^{(n)}(x)=\frac{d^{\,n}y}{dx^{\,n}} \]</div><div class="note">If \(s(t)\) is position: \(s'\) is velocity, \(s''\) is acceleration. The second derivative also controls concavity (Section 6).</div></div>
+    </section>
+
+    <!-- 6 -->
+    <section id="s6">
+      <span class="secnum">Section 6</span>
+      <h2>Putting derivatives to work</h2>
+      <p class="intro">Tangent lines, curve shapes, optimization, and impossible-looking limits.</p>
+
+      <div class="fcard"><div class="lab">Tangent line at \(x=a\)</div><div class="math">\[ y-f(a)=f'(a)(x-a) \]</div></div>
+
+      <h3>Reading a curve from its derivatives</h3>
+      <ul class="clean">
+        <li>\(f'>0\): increasing &nbsp; \(f'<0\): decreasing</li>
+        <li><strong>Critical points</strong>: where \(f'(x)=0\) or undefined — candidates for max/min</li>
+        <li>\(f''>0\): concave up (cup) &nbsp; \(f''<0\): concave down (cap)</li>
+        <li><strong>Inflection point</strong>: where \(f''\) changes sign</li>
+      </ul>
+
+      <div class="fcard"><div class="lab">First &amp; second derivative tests</div><div class="math">\[ f'(c)=0:\quad f''(c)>0 \Rightarrow \text{local min},\qquad f''(c)<0 \Rightarrow \text{local max} \]</div></div>
+
+      <div class="fcard"><div class="lab">Mean Value Theorem (and Rolle's case)</div><div class="math">\[ \exists\,c\in(a,b):\ f'(c)=\frac{f(b)-f(a)}{b-a} \]</div><div class="note">Somewhere the instantaneous slope equals the average slope. Rolle's theorem is the case \(f(a)=f(b)\), giving \(f'(c)=0\).</div></div>
+
+      <div class="fcard"><div class="lab">L'Hôpital's rule (for \(0/0\) or \(\infty/\infty\))</div><div class="math">\[ \lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)} \]</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — why it works (the local-linear picture)</span>
+        <ol>
+          <li>Near \(x=a\) with \(f(a)=g(a)=0\), replace each function by its tangent line (Section 6): <span class="mq">\[ f(x)\approx f'(a)(x-a),\qquad g(x)\approx g'(a)(x-a). \]</span></li>
+          <li>Form the ratio; the common factor \((x-a)\) cancels: <span class="mq">\[ \frac{f(x)}{g(x)}\approx\frac{f'(a)(x-a)}{g'(a)(x-a)}=\frac{f'(a)}{g'(a)}. \]</span></li>
+        </ol>
+        <div class="qed">An indeterminate ratio is governed by the ratio of slopes. A neat loop back to Section 1.</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Linear approximation &amp; differentials</div><div class="math">\[ f(x)\approx f(a)+f'(a)(x-a),\qquad dy=f'(x)\,dx \]</div><div class="note">Near a point, every smooth curve looks like its tangent line. Extended to infinitely many derivatives, this becomes the Taylor series in Section 11.</div></div>
+    </section>
+
+    <!-- 7 -->
+    <section id="s7">
+      <span class="secnum">Section 7</span>
+      <h2>The antiderivative &amp; the Fundamental Theorem</h2>
+      <p class="intro">The hinge of the entire subject: derivative and integral are revealed to be opposites.</p>
+
+      <div class="fcard"><div class="lab">Indefinite integral (antiderivative)</div><div class="math">\[ \int f(x)\,dx=F(x)+C \quad\text{where}\quad F'(x)=f(x) \]</div><div class="note">"What function has THIS as its derivative?" The \(+C\) appears because constants vanish when differentiated.</div></div>
+
+      <div class="fcard"><div class="lab">Definite integral as a limit of Riemann sums</div><div class="math">\[ \int_{a}^{b} f(x)\,dx=\lim_{n\to\infty}\sum_{i=1}^{n} f(x_i^{*})\,\Delta x,\qquad \Delta x=\frac{b-a}{n} \]</div><div class="note">Slice the area into n thin rectangles, add them, let the slices vanish. The integral IS an infinite sum — the same "push to a limit" that built the derivative.</div></div>
+
+      <div class="map">
+        <h3>The Fundamental Theorem of Calculus</h3>
+        <div class="fcard" style="margin-top:8px;"><div class="lab">Part 1 — differentiation undoes integration</div><div class="math">\[ \frac{d}{dx}\int_{a}^{x} f(t)\,dt=f(x) \]</div></div>
+        <div class="fcard"><div class="lab">Part 2 — integrals are evaluated by antiderivatives</div><div class="math">\[ \int_{a}^{b} f(x)\,dx=F(b)-F(a),\quad F'=f \]</div></div>
+      </div>
+      <div class="demo">
+        <span class="tag">Demonstration — why Part 1 is true (the thin-strip argument)</span>
+        <ol>
+          <li>Define the running-area function <span class="mq">\[ A(x)=\int_a^x f(t)\,dt. \]</span></li>
+          <li>Increasing \(x\) by a tiny \(h\) adds a thin strip of width \(h\) and height \(\approx f(x)\): <span class="mq">\[ A(x+h)-A(x)\approx f(x)\cdot h. \]</span></li>
+          <li>Divide by \(h\): <span class="mq">\[ \frac{A(x+h)-A(x)}{h}\approx f(x). \]</span></li>
+          <li>Let \(h\to0\). The left side is exactly the definition of \(A'(x)\): <span class="mq">\[ A'(x)=f(x). \]</span></li>
+        </ol>
+        <div class="qed">So the area function's derivative is the original function — accumulation and rate are inverse operations. Part 2 follows because any two antiderivatives differ by a constant.</div>
+      </div>
+
+      <div class="rel"><span class="tag">The payoff</span><p>To find an area (an infinite sum), you don't add anything — you find an antiderivative and subtract two values. This is why the entire integral table in Section 8 is just the derivative tables of Sections 3–4 read backwards.</p></div>
+    </section>
+
+    <!-- 8 -->
+    <section id="s8">
+      <span class="secnum">Section 8</span>
+      <h2>The basic integral table</h2>
+      <p class="intro">Each line is a derivative rule reversed — verify any of them by differentiating the right-hand side.</p>
+
+      <div class="fcard"><div class="lab">Power rule for integrals</div><div class="math">\[ \int x^{n}\,dx=\frac{x^{\,n+1}}{n+1}+C \quad(n\neq-1) \]</div><div class="note">Check: differentiate \(\frac{x^{n+1}}{n+1}\) and the power rule gives back \(x^n\).</div></div>
+      <div class="fcard"><div class="lab">The \(n=-1\) exception</div><div class="math">\[ \int \frac{1}{x}\,dx=\ln|x|+C \]</div></div>
+
+      <table class="tbl">
+        <tr><th>Integral</th><th>Result</th><th>Reverse of…</th></tr>
+        <tr><td>\(\int e^{x}\,dx\)</td><td>\(e^{x}+C\)</td><td>\((e^x)'=e^x\)</td></tr>
+        <tr><td>\(\int a^{x}\,dx\)</td><td>\(\dfrac{a^{x}}{\ln a}+C\)</td><td>\((a^x)'=a^x\ln a\)</td></tr>
+        <tr><td>\(\int \cos x\,dx\)</td><td>\(\sin x+C\)</td><td>\((\sin x)'=\cos x\)</td></tr>
+        <tr><td>\(\int \sin x\,dx\)</td><td>\(-\cos x+C\)</td><td>\((\cos x)'=-\sin x\)</td></tr>
+        <tr><td>\(\int \sec^{2}x\,dx\)</td><td>\(\tan x+C\)</td><td>\((\tan x)'=\sec^2 x\)</td></tr>
+        <tr><td>\(\int \sec x\tan x\,dx\)</td><td>\(\sec x+C\)</td><td>\((\sec x)'=\sec x\tan x\)</td></tr>
+        <tr><td>\(\int \dfrac{1}{1+x^{2}}\,dx\)</td><td>\(\arctan x+C\)</td><td>\((\arctan x)'=\frac{1}{1+x^2}\)</td></tr>
+        <tr><td>\(\int \dfrac{1}{\sqrt{1-x^{2}}}\,dx\)</td><td>\(\arcsin x+C\)</td><td>\((\arcsin x)'=\frac{1}{\sqrt{1-x^2}}\)</td></tr>
+        <tr><td>\(\int \sinh x\,dx\)</td><td>\(\cosh x+C\)</td><td>\((\cosh x)'=\sinh x\)</td></tr>
+      </table>
+
+      <h3>Three integrals that need a small trick</h3>
+      <table class="tbl">
+        <tr><th>Integral</th><th>Result</th><th>How</th></tr>
+        <tr><td>\(\int \tan x\,dx\)</td><td>\(\ln|\sec x|+C\)</td><td>u-sub with \(u=\cos x\)</td></tr>
+        <tr><td>\(\int \ln x\,dx\)</td><td>\(x\ln x-x+C\)</td><td>by parts (see §9)</td></tr>
+        <tr><td>\(\int \sec x\,dx\)</td><td>\(\ln|\sec x+\tan x|+C\)</td><td>multiply by a clever 1</td></tr>
+      </table>
+
+      <div class="why" style="border-left:4px solid var(--amber);background:#f7ecda;border-radius:0 10px 10px 0;padding:14px 20px;margin:20px 0;">
+        <span style="font-family:'Fraunces',serif;font-weight:600;color:var(--amber);font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;">How to use this section</span>
+        <p style="margin:8px 0 0;font-size:.96rem;">Don't memorize this table separately. If you know the derivative tables in Sections 3–4, you already know this — just flip the arrow. That is the Fundamental Theorem in action.</p>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section id="s9">
+      <span class="secnum">Section 9</span>
+      <h2>Integration techniques — each one proven</h2>
+      <p class="intro">When an integral doesn't match the table, reshape it until it does. Two of these are differentiation rules in reverse, and we derive them that way.</p>
+
+      <div class="fcard"><div class="lab">u-substitution</div><div class="math">\[ \int f\big(g(x)\big)g'(x)\,dx=\int f(u)\,du,\qquad u=g(x) \]</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — u-sub is the chain rule, reversed</span>
+        <ol>
+          <li>Let \(F\) be an antiderivative of \(f\), so \(F'=f\). By the chain rule: <span class="mq">\[ \frac{d}{dx}F\big(g(x)\big)=F'\big(g(x)\big)g'(x)=f\big(g(x)\big)g'(x). \]</span></li>
+          <li>Integrate both sides (integration undoes the derivative): <span class="mq">\[ \int f\big(g(x)\big)g'(x)\,dx=F\big(g(x)\big)+C. \]</span></li>
+          <li>That right side is exactly \(\int f(u)\,du\) with \(u=g(x)\).</li>
+        </ol>
+      </div>
+
+      <div class="fcard"><div class="lab">Integration by parts</div><div class="math">\[ \int u\,dv=uv-\int v\,du \]</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — by parts is the product rule, reversed</span>
+        <ol>
+          <li>Start from the product rule: <span class="mq">\[ (uv)'=u'v+uv'. \]</span></li>
+          <li>Integrate both sides over \(x\): <span class="mq">\[ uv=\int u'v\,dx+\int uv'\,dx. \]</span></li>
+          <li>Solve for one of the integrals: <span class="mq">\[ \int uv'\,dx=uv-\int u'v\,dx, \]</span> i.e. \(\displaystyle\int u\,dv=uv-\int v\,du.\)</li>
+        </ol>
+        <div class="qed">Use it on products like \(\int x e^{x}\,dx\) or \(\int \ln x\,dx\) (take \(u=\ln x,\ dv=dx\)).</div>
+      </div>
+
+      <div class="fcard"><div class="lab">Trigonometric substitution</div><div class="math">\[ \sqrt{a^2-x^2}\!: x=a\sin\theta,\quad \sqrt{a^2+x^2}\!: x=a\tan\theta,\quad \sqrt{x^2-a^2}\!: x=a\sec\theta \]</div><div class="note">Trade an awkward square root for a clean trig identity.</div></div>
+
+      <div class="fcard"><div class="lab">Partial fractions</div><div class="math">\[ \frac{P(x)}{(x-r_1)(x-r_2)}=\frac{A}{x-r_1}+\frac{B}{x-r_2} \]</div><div class="note">Break a rational function into simple pieces, each integrating to a log or arctangent.</div></div>
+
+      <div class="fcard"><div class="lab">Improper integrals</div><div class="math">\[ \int_{a}^{\infty} f(x)\,dx=\lim_{t\to\infty}\int_{a}^{t} f(x)\,dx \]</div><div class="note">Infinite bounds (or vertical asymptotes) are handled as a limit; the integral "converges" if that limit is finite.</div></div>
+
+      <h3>Properties of definite integrals</h3>
+      <div class="fcard"><div class="math">\[ \int_a^b f=-\int_b^a f,\qquad \int_a^a f=0,\qquad \int_a^b f=\int_a^c f+\int_c^b f \]</div></div>
+
+      <div class="rel"><span class="tag">The mirror, made explicit</span><p>Chain rule ⟷ u-substitution. Product rule ⟷ integration by parts. Differentiation has clean rules that always work; integration is the reverse search, so it needs clever moves. Same relationships, harder direction.</p></div>
+    </section>
+
+    <!-- 10 -->
+    <section id="s10">
+      <span class="secnum">Section 10</span>
+      <h2>Putting integrals to work</h2>
+      <p class="intro">Anything that accumulates — area, volume, length, average — is an integral.</p>
+
+      <div class="fcard"><div class="lab">Area between two curves</div><div class="math">\[ A=\int_a^b\big[f(x)-g(x)\big]\,dx \]</div></div>
+      <div class="fcard"><div class="lab">Volume of revolution — disk method</div><div class="math">\[ V=\pi\int_a^b\big[f(x)\big]^2\,dx \]</div></div>
+      <div class="fcard"><div class="lab">Volume of revolution — shell method</div><div class="math">\[ V=2\pi\int_a^b x\,f(x)\,dx \]</div></div>
+      <div class="fcard"><div class="lab">Arc length</div><div class="math">\[ L=\int_a^b\sqrt{1+\big[f'(x)\big]^2}\;dx \]</div></div>
+      <div class="fcard"><div class="lab">Average value of a function</div><div class="math">\[ \bar f=\frac{1}{b-a}\int_a^b f(x)\,dx \]</div></div>
+
+      <div class="demo">
+        <span class="tag">Demonstration — where the arc-length formula comes from</span>
+        <ol>
+          <li>Approximate the curve by tiny straight segments. Each has horizontal run \(dx\) and vertical rise \(dy\).</li>
+          <li>By the Pythagorean theorem, the segment length is <span class="mq">\[ ds=\sqrt{dx^2+dy^2}. \]</span></li>
+          <li>Factor \(dx\) out of the root and use \(\frac{dy}{dx}=f'(x)\): <span class="mq">\[ ds=\sqrt{1+\big(\tfrac{dy}{dx}\big)^2}\,dx=\sqrt{1+[f'(x)]^2}\,dx. \]</span></li>
+          <li>Integrate (add up) all the tiny lengths from \(a\) to \(b\): <span class="mq">\[ L=\int_a^b\sqrt{1+[f'(x)]^2}\,dx. \]</span></li>
+        </ol>
+        <div class="qed">Every formula here uses the same recipe: write one tiny slice, then integrate to sum infinitely many — the Riemann idea from Section 7.</div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section id="s11">
+      <span class="secnum">Section 11</span>
+      <h2>Sequences &amp; series</h2>
+      <p class="intro">Adding infinitely many terms — when the total is finite, we can rebuild functions from their derivatives.</p>
+
+      <div class="fcard"><div class="lab">Geometric series</div><div class="math">\[ \sum_{n=0}^{\infty} a r^{n}=\frac{a}{1-r}\quad(|r|<1) \]</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — the geometric sum formula</span>
+        <ol>
+          <li>Write the partial sum: <span class="mq">\[ S_n=a+ar+ar^2+\cdots+ar^{n-1}. \]</span></li>
+          <li>Multiply by \(r\): <span class="mq">\[ rS_n=ar+ar^2+\cdots+ar^{n}. \]</span></li>
+          <li>Subtract — almost everything cancels: <span class="mq">\[ S_n-rS_n=a-ar^{n}\;\Rightarrow\; S_n=\frac{a(1-r^{n})}{1-r}. \]</span></li>
+          <li>If \(|r|<1\), then \(r^{n}\to0\) as \(n\to\infty\): <span class="mq">\[ S=\frac{a}{1-r}. \]</span></li>
+        </ol>
+      </div>
+
+      <div class="fcard"><div class="lab">p-series</div><div class="math">\[ \sum_{n=1}^{\infty}\frac{1}{n^{p}}\ \text{converges} \iff p>1 \]</div></div>
+
+      <h3>The full toolkit of convergence tests</h3>
+      <table class="tbl">
+        <tr><th>Test</th><th>Statement</th></tr>
+        <tr><td>nth-term (divergence)</td><td>If \(\lim a_n\neq 0\), the series diverges</td></tr>
+        <tr><td>Ratio test</td><td>\(\lim\left|\frac{a_{n+1}}{a_n}\right|=L\); converges if \(L<1\), diverges if \(L>1\)</td></tr>
+        <tr><td>Root test</td><td>\(\lim |a_n|^{1/n}=L\); converges if \(L<1\)</td></tr>
+        <tr><td>Comparison</td><td>Bound \(a_n\) above/below by a known convergent/divergent series</td></tr>
+        <tr><td>Limit comparison</td><td>If \(\lim \frac{a_n}{b_n}\) is finite &amp; positive, both behave the same way</td></tr>
+        <tr><td>Integral test</td><td>\(\sum a_n\) and \(\int_1^\infty f\,dx\) converge or diverge together</td></tr>
+        <tr><td>Alternating series</td><td>\(\sum(-1)^n b_n\) converges if \(b_n\) decreases to \(0\)</td></tr>
+      </table>
+
+      <div class="fcard"><div class="lab">Taylor series — a function rebuilt from its derivatives</div><div class="math">\[ f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^{n} \]</div><div class="note">Maclaurin series is the case \(a=0\). It is linear approximation (Section 6) continued to infinitely many derivatives.</div></div>
+      <div class="demo">
+        <span class="tag">Demonstration — why the coefficients are \(f^{(n)}(a)/n!\)</span>
+        <ol>
+          <li>Suppose \(f(x)=c_0+c_1(x-a)+c_2(x-a)^2+\cdots\). Set \(x=a\): every term but the first dies, so \(c_0=f(a)\).</li>
+          <li>Differentiate once, then set \(x=a\): only the linear term survives, giving \(c_1=f'(a)\).</li>
+          <li>Differentiate \(n\) times: the \((x-a)^n\) term becomes the constant \(n!\,c_n\) and all others vanish at \(x=a\): <span class="mq">\[ f^{(n)}(a)=n!\,c_n \;\Rightarrow\; c_n=\frac{f^{(n)}(a)}{n!}. \]</span></li>
+        </ol>
+      </div>
+
+      <h3>The famous expansions</h3>
+      <div class="fcard">
+        <div class="math">\[ e^{x}=\sum_{n=0}^{\infty}\frac{x^{n}}{n!}=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots \]</div>
+        <div class="math">\[ \sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots,\qquad \cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots \]</div>
+        <div class="math">\[ \ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots,\qquad \frac{1}{1-x}=\sum_{n=0}^{\infty}x^n\ (|x|<1) \]</div>
+      </div>
+
+      <div class="rel"><span class="tag">A glimpse of the unity</span><p>Put \(x=i\theta\) into the \(e^x\) series and regroup using the \(\sin\) and \(\cos\) series: you land on Euler's formula \(e^{i\theta}=\cos\theta+i\sin\theta\). The series built from derivatives quietly tie exponentials to oscillation.</p></div>
+    </section>
+
+    <!-- 12 -->
+    <section id="s12">
+      <span class="secnum">Section 12</span>
+      <h2>A peek at multivariable calculus</h2>
+      <p class="intro">The same two ideas — slope and accumulation — in more than one dimension.</p>
+
+      <div class="fcard"><div class="lab">Partial derivative</div><div class="math">\[ \frac{\partial f}{\partial x}=\lim_{h\to0}\frac{f(x+h,\,y)-f(x,\,y)}{h} \]</div><div class="note">Differentiate with respect to one variable while holding the others constant — the Section 2 definition, with \(y\) frozen.</div></div>
+
+      <div class="fcard"><div class="lab">Gradient (vector of all partials)</div><div class="math">\[ \nabla f=\left\langle \frac{\partial f}{\partial x},\ \frac{\partial f}{\partial y},\ \frac{\partial f}{\partial z}\right\rangle \]</div><div class="note">Points in the direction of steepest increase — the multivariable cousin of the derivative.</div></div>
+
+      <div class="fcard"><div class="lab">Multivariable chain rule</div><div class="math">\[ \frac{df}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt} \]</div></div>
+
+      <div class="fcard"><div class="lab">Double integral (accumulation over a region)</div><div class="math">\[ \iint_{R} f(x,y)\,dA=\int_{c}^{d}\!\int_{a}^{b} f(x,y)\,dx\,dy \]</div><div class="note">Volume under a surface — the Riemann idea again, stacking tiny boxes instead of rectangles.</div></div>
+
+      <div class="rel"><span class="tag">Where it all leads</span><p>From here the path runs to the great integral theorems (Green's, Stokes', Divergence) — each a higher-dimensional Fundamental Theorem, saying again that behavior on a boundary is governed by behavior inside.</p></div>
+    </section>
+
+    <footer>
+      Read once for the shape, then return to any box as a reference. The habit that makes calculus click: whenever you meet a new formula, ask which earlier one it is secretly a version of — and try to reproduce its demonstration from memory. Almost everything here is built from limits, the product rule, and the chain rule.
+    </footer>
+  </main>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+<script>
+(function(){
+  var input=document.getElementById('gsearch-input');
+  if(!input) return;
+  var countEl=document.getElementById('gsearch-count');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var parts=Array.prototype.slice.call(document.querySelectorAll('main .part'));
+  var links={};
+  Array.prototype.forEach.call(document.querySelectorAll('nav#nav a[href^="#"]'),function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  function run(){
+    var q=input.value.trim().toLowerCase(), shown=0;
+    sections.forEach(function(sec){
+      var match=!q||sec.textContent.toLowerCase().indexOf(q)>-1;
+      sec.classList.toggle('gs-hidden',!match);
+      var a=links[sec.id]; if(a) a.style.display=match?'':'none';
+      if(match) shown++;
+    });
+    parts.forEach(function(p){p.style.display=q?'none':'';});
+    countEl.textContent=q?(shown+' section'+(shown===1?'':'s')+' match “'+input.value.trim()+'”'):'';
+  }
+  input.addEventListener('input',run);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==input){e.preventDefault();input.focus();}
+    if(e.key==='Escape'){input.value='';run();input.blur();}
+  });
+})();
+</script>
+</body>
+</html>

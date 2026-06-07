@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculus Glossary · 微积分术语对照表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper-2:#efe7d6; --ink:#26221b; --ink-soft:#564f43;
+    --blue:#1f3a5f; --amber:#b5651d; --teal:#0f6f6a; --plum:#6d3b5e; --line:#d8cdb8; --shadow:rgba(38,34,27,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:radial-gradient(circle at 18% -10%,#fbf6ec 0%,transparent 55%),radial-gradient(circle at 92% 4%,#f0e9da 0%,transparent 45%),var(--paper); color:var(--ink); font-family:"Spectral",Georgia,serif; font-size:17px; line-height:1.6;}
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:42px 42px; opacity:.1;}
+  .container{position:relative; z-index:1; max-width:960px; margin:0 auto; padding:40px 26px 100px;}
+
+  header h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2rem,5vw,3rem); line-height:1; margin:0 0 4px; color:var(--ink); letter-spacing:-.02em;}
+  header h1 .cn{font-family:"Noto Sans SC",sans-serif; color:var(--amber); font-weight:700;}
+  header p{color:var(--ink-soft); margin:8px 0 0; max-width:64ch;}
+  .rule{height:3px; width:84px; background:var(--amber); margin:18px 0 0; border-radius:3px;}
+
+  .toolbar{position:sticky; top:0; z-index:5; background:rgba(245,239,226,.94); backdrop-filter:blur(6px); padding:16px 0 12px; margin:22px 0 8px; border-bottom:1px solid var(--line);}
+  .search{display:flex; align-items:center; gap:10px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:30px; padding:10px 18px; box-shadow:0 2px 10px var(--shadow);}
+  .search input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:1.05rem; width:100%; color:var(--ink);}
+  .search input::placeholder{color:#a99e87;}
+  .search .ico{color:var(--blue); font-size:1.1rem;}
+  .count{font-size:.85rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .jump{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  .jump a{font-size:.78rem; text-decoration:none; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:3px 11px; transition:.15s;}
+  .jump a:hover{color:#fff; background:var(--blue); border-color:var(--blue);}
+
+  section.cat{margin:34px 0 0; scroll-margin-top:120px;}
+  section.cat h2{font-family:"Fraunces",serif; font-weight:600; font-size:1.35rem; color:var(--blue); margin:0 0 2px; display:flex; align-items:baseline; gap:10px;}
+  section.cat h2 .zh{font-family:"Noto Sans SC",sans-serif; color:var(--plum); font-weight:500; font-size:1.1rem;}
+  section.cat h2 .badge{margin-left:auto; font-family:"Spectral",serif; font-size:.74rem; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:1px 9px; font-weight:400;}
+
+  table{width:100%; border-collapse:collapse; margin:10px 0 0; background:#fffdf7; border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 2px 9px var(--shadow);}
+  thead th{background:var(--blue); color:#f5efe2; font-family:"Fraunces",serif; font-weight:600; text-align:left; padding:8px 14px; font-size:.85rem; letter-spacing:.02em;}
+  tbody td{padding:7px 14px; border-top:1px solid var(--line); vertical-align:top;}
+  tbody tr:nth-child(even) td{background:#f7f0e1;}
+  td.en{width:54%; color:var(--ink);}
+  td.zh{font-family:"Noto Sans SC",sans-serif; color:var(--blue); font-size:1.02rem;}
+  td.zh .alt{color:var(--ink-soft); font-size:.86rem;}
+  mark{background:#f6d99b; color:inherit; border-radius:3px; padding:0 1px;}
+  .noresult{display:none; text-align:center; color:var(--ink-soft); font-style:italic; padding:40px 0; font-size:1.05rem;}
+  footer{margin-top:46px; padding-top:20px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.86rem; font-style:italic;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Calculus Glossary <span class="cn">微积分术语对照</span></h1>
+    <p>A comprehensive English ↔ Simplified-Chinese reference covering single- and multivariable calculus. Type in the box to filter every term at once.</p>
+    <div class="rule"></div>
+  </header>
+
+  <div class="toolbar">
+    <div class="search">
+      <span class="ico">🔍</span>
+      <input id="search" type="text" placeholder="Search English or 中文 …  (e.g. derivative / 导数 / chain)" autocomplete="off">
+    </div>
+    <div class="count" id="count"></div>
+    <div class="jump" id="jump"></div>
+  </div>
+
+  <div id="glossary">
+
+  <!-- 1 -->
+  <section class="cat" id="c1" data-title="Foundations &amp; Functions · 基础与函数">
+    <h2><span>Foundations &amp; Functions</span><span class="zh">基础与函数</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">calculus</td><td class="zh">微积分</td></tr>
+      <tr class="term"><td class="en">mathematical analysis</td><td class="zh">数学分析</td></tr>
+      <tr class="term"><td class="en">function</td><td class="zh">函数</td></tr>
+      <tr class="term"><td class="en">variable</td><td class="zh">变量</td></tr>
+      <tr class="term"><td class="en">independent variable</td><td class="zh">自变量</td></tr>
+      <tr class="term"><td class="en">dependent variable</td><td class="zh">因变量</td></tr>
+      <tr class="term"><td class="en">constant</td><td class="zh">常数</td></tr>
+      <tr class="term"><td class="en">coefficient</td><td class="zh">系数</td></tr>
+      <tr class="term"><td class="en">domain</td><td class="zh">定义域</td></tr>
+      <tr class="term"><td class="en">range</td><td class="zh">值域</td></tr>
+      <tr class="term"><td class="en">codomain</td><td class="zh">陪域</td></tr>
+      <tr class="term"><td class="en">image / value</td><td class="zh">像（函数值）</td></tr>
+      <tr class="term"><td class="en">mapping</td><td class="zh">映射</td></tr>
+      <tr class="term"><td class="en">injective (one-to-one)</td><td class="zh">单射（一一映射）</td></tr>
+      <tr class="term"><td class="en">surjective (onto)</td><td class="zh">满射</td></tr>
+      <tr class="term"><td class="en">bijective</td><td class="zh">双射</td></tr>
+      <tr class="term"><td class="en">inverse function</td><td class="zh">反函数</td></tr>
+      <tr class="term"><td class="en">composite function</td><td class="zh">复合函数</td></tr>
+      <tr class="term"><td class="en">composition of functions</td><td class="zh">函数的复合</td></tr>
+      <tr class="term"><td class="en">identity function</td><td class="zh">恒等函数</td></tr>
+      <tr class="term"><td class="en">piecewise function</td><td class="zh">分段函数</td></tr>
+      <tr class="term"><td class="en">even function</td><td class="zh">偶函数</td></tr>
+      <tr class="term"><td class="en">odd function</td><td class="zh">奇函数</td></tr>
+      <tr class="term"><td class="en">periodic function</td><td class="zh">周期函数</td></tr>
+      <tr class="term"><td class="en">period</td><td class="zh">周期</td></tr>
+      <tr class="term"><td class="en">monotonic</td><td class="zh">单调</td></tr>
+      <tr class="term"><td class="en">increasing function</td><td class="zh">增函数（递增）</td></tr>
+      <tr class="term"><td class="en">decreasing function</td><td class="zh">减函数（递减）</td></tr>
+      <tr class="term"><td class="en">bounded</td><td class="zh">有界</td></tr>
+      <tr class="term"><td class="en">upper bound</td><td class="zh">上界</td></tr>
+      <tr class="term"><td class="en">lower bound</td><td class="zh">下界</td></tr>
+      <tr class="term"><td class="en">supremum (least upper bound)</td><td class="zh">上确界</td></tr>
+      <tr class="term"><td class="en">infimum (greatest lower bound)</td><td class="zh">下确界</td></tr>
+      <tr class="term"><td class="en">polynomial</td><td class="zh">多项式</td></tr>
+      <tr class="term"><td class="en">degree (of polynomial)</td><td class="zh">次数（多项式的）</td></tr>
+      <tr class="term"><td class="en">rational function</td><td class="zh">有理函数</td></tr>
+      <tr class="term"><td class="en">algebraic function</td><td class="zh">代数函数</td></tr>
+      <tr class="term"><td class="en">transcendental function</td><td class="zh">超越函数</td></tr>
+      <tr class="term"><td class="en">exponential function</td><td class="zh">指数函数</td></tr>
+      <tr class="term"><td class="en">logarithmic function</td><td class="zh">对数函数</td></tr>
+      <tr class="term"><td class="en">natural logarithm</td><td class="zh">自然对数</td></tr>
+      <tr class="term"><td class="en">base (of exponent/log)</td><td class="zh">底数</td></tr>
+      <tr class="term"><td class="en">exponent</td><td class="zh">指数</td></tr>
+      <tr class="term"><td class="en">trigonometric function</td><td class="zh">三角函数</td></tr>
+      <tr class="term"><td class="en">inverse trigonometric function</td><td class="zh">反三角函数</td></tr>
+      <tr class="term"><td class="en">hyperbolic function</td><td class="zh">双曲函数</td></tr>
+      <tr class="term"><td class="en">radian</td><td class="zh">弧度</td></tr>
+      <tr class="term"><td class="en">absolute value</td><td class="zh">绝对值</td></tr>
+      <tr class="term"><td class="en">graph (of a function)</td><td class="zh">图象（函数的）</td></tr>
+      <tr class="term"><td class="en">slope</td><td class="zh">斜率</td></tr>
+      <tr class="term"><td class="en">intercept</td><td class="zh">截距</td></tr>
+      <tr class="term"><td class="en">linear function</td><td class="zh">线性函数（一次函数）</td></tr>
+      <tr class="term"><td class="en">asymptote</td><td class="zh">渐近线</td></tr>
+      <tr class="term"><td class="en">vertical asymptote</td><td class="zh">垂直渐近线</td></tr>
+      <tr class="term"><td class="en">horizontal asymptote</td><td class="zh">水平渐近线</td></tr>
+      <tr class="term"><td class="en">oblique (slant) asymptote</td><td class="zh">斜渐近线</td></tr>
+      <tr class="term"><td class="en">interval</td><td class="zh">区间</td></tr>
+      <tr class="term"><td class="en">open interval</td><td class="zh">开区间</td></tr>
+      <tr class="term"><td class="en">closed interval</td><td class="zh">闭区间</td></tr>
+      <tr class="term"><td class="en">neighborhood</td><td class="zh">邻域</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 2 -->
+  <section class="cat" id="c2" data-title="Limits &amp; Continuity · 极限与连续">
+    <h2><span>Limits &amp; Continuity</span><span class="zh">极限与连续</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">limit</td><td class="zh">极限</td></tr>
+      <tr class="term"><td class="en">left-hand limit</td><td class="zh">左极限</td></tr>
+      <tr class="term"><td class="en">right-hand limit</td><td class="zh">右极限</td></tr>
+      <tr class="term"><td class="en">one-sided limit</td><td class="zh">单侧极限</td></tr>
+      <tr class="term"><td class="en">two-sided limit</td><td class="zh">双侧极限</td></tr>
+      <tr class="term"><td class="en">limit at infinity</td><td class="zh">无穷远处的极限</td></tr>
+      <tr class="term"><td class="en">infinite limit</td><td class="zh">无穷极限</td></tr>
+      <tr class="term"><td class="en">epsilon-delta definition</td><td class="zh">ε-δ 定义</td></tr>
+      <tr class="term"><td class="en">limit laws</td><td class="zh">极限运算法则</td></tr>
+      <tr class="term"><td class="en">squeeze (sandwich) theorem</td><td class="zh">夹逼定理（夹挤定理）</td></tr>
+      <tr class="term"><td class="en">indeterminate form</td><td class="zh">未定式</td></tr>
+      <tr class="term"><td class="en">infinitesimal</td><td class="zh">无穷小（量）</td></tr>
+      <tr class="term"><td class="en">infinity</td><td class="zh">无穷大</td></tr>
+      <tr class="term"><td class="en">continuity</td><td class="zh">连续性</td></tr>
+      <tr class="term"><td class="en">continuous function</td><td class="zh">连续函数</td></tr>
+      <tr class="term"><td class="en">discontinuity</td><td class="zh">间断（不连续）</td></tr>
+      <tr class="term"><td class="en">point of discontinuity</td><td class="zh">间断点</td></tr>
+      <tr class="term"><td class="en">removable discontinuity</td><td class="zh">可去间断点</td></tr>
+      <tr class="term"><td class="en">jump discontinuity</td><td class="zh">跳跃间断点</td></tr>
+      <tr class="term"><td class="en">infinite discontinuity</td><td class="zh">无穷间断点</td></tr>
+      <tr class="term"><td class="en">Intermediate Value Theorem</td><td class="zh">介值定理</td></tr>
+      <tr class="term"><td class="en">Extreme Value Theorem</td><td class="zh">最大最小值定理</td></tr>
+      <tr class="term"><td class="en">convergence</td><td class="zh">收敛</td></tr>
+      <tr class="term"><td class="en">divergence</td><td class="zh">发散</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 3 -->
+  <section class="cat" id="c3" data-title="Derivatives &amp; Differentiation · 导数与微分">
+    <h2><span>Derivatives &amp; Differentiation</span><span class="zh">导数与微分</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">derivative</td><td class="zh">导数</td></tr>
+      <tr class="term"><td class="en">differentiation</td><td class="zh">求导（微分法）</td></tr>
+      <tr class="term"><td class="en">differentiable</td><td class="zh">可导（可微）</td></tr>
+      <tr class="term"><td class="en">differential</td><td class="zh">微分</td></tr>
+      <tr class="term"><td class="en">difference quotient</td><td class="zh">差商</td></tr>
+      <tr class="term"><td class="en">rate of change</td><td class="zh">变化率</td></tr>
+      <tr class="term"><td class="en">instantaneous rate of change</td><td class="zh">瞬时变化率</td></tr>
+      <tr class="term"><td class="en">average rate of change</td><td class="zh">平均变化率</td></tr>
+      <tr class="term"><td class="en">tangent line</td><td class="zh">切线</td></tr>
+      <tr class="term"><td class="en">secant line</td><td class="zh">割线</td></tr>
+      <tr class="term"><td class="en">normal line</td><td class="zh">法线</td></tr>
+      <tr class="term"><td class="en">first derivative</td><td class="zh">一阶导数</td></tr>
+      <tr class="term"><td class="en">second derivative</td><td class="zh">二阶导数</td></tr>
+      <tr class="term"><td class="en">higher-order derivative</td><td class="zh">高阶导数</td></tr>
+      <tr class="term"><td class="en">nth derivative</td><td class="zh">n 阶导数</td></tr>
+      <tr class="term"><td class="en">power rule</td><td class="zh">幂函数求导法则</td></tr>
+      <tr class="term"><td class="en">constant multiple rule</td><td class="zh">常数倍法则</td></tr>
+      <tr class="term"><td class="en">sum / difference rule</td><td class="zh">和差求导法则</td></tr>
+      <tr class="term"><td class="en">product rule</td><td class="zh">乘积法则（积的求导法则）</td></tr>
+      <tr class="term"><td class="en">quotient rule</td><td class="zh">商法则（商的求导法则）</td></tr>
+      <tr class="term"><td class="en">chain rule</td><td class="zh">链式法则（复合函数求导法则）</td></tr>
+      <tr class="term"><td class="en">implicit differentiation</td><td class="zh">隐函数求导</td></tr>
+      <tr class="term"><td class="en">logarithmic differentiation</td><td class="zh">对数求导法</td></tr>
+      <tr class="term"><td class="en">velocity</td><td class="zh">速度</td></tr>
+      <tr class="term"><td class="en">acceleration</td><td class="zh">加速度</td></tr>
+      <tr class="term"><td class="en">monotonicity</td><td class="zh">单调性</td></tr>
+      <tr class="term"><td class="en">critical point</td><td class="zh">临界点</td></tr>
+      <tr class="term"><td class="en">stationary point</td><td class="zh">驻点</td></tr>
+      <tr class="term"><td class="en">inflection point</td><td class="zh">拐点</td></tr>
+      <tr class="term"><td class="en">concavity</td><td class="zh">凹凸性</td></tr>
+      <tr class="term"><td class="en">concave up</td><td class="zh">下凸（上凹）</td></tr>
+      <tr class="term"><td class="en">concave down</td><td class="zh">上凸（下凹）</td></tr>
+      <tr class="term"><td class="en">local (relative) maximum</td><td class="zh">极大值</td></tr>
+      <tr class="term"><td class="en">local (relative) minimum</td><td class="zh">极小值</td></tr>
+      <tr class="term"><td class="en">global (absolute) maximum</td><td class="zh">最大值</td></tr>
+      <tr class="term"><td class="en">global (absolute) minimum</td><td class="zh">最小值</td></tr>
+      <tr class="term"><td class="en">extremum</td><td class="zh">极值</td></tr>
+      <tr class="term"><td class="en">first derivative test</td><td class="zh">一阶导数判别法</td></tr>
+      <tr class="term"><td class="en">second derivative test</td><td class="zh">二阶导数判别法</td></tr>
+      <tr class="term"><td class="en">Mean Value Theorem</td><td class="zh">中值定理（拉格朗日中值定理）</td></tr>
+      <tr class="term"><td class="en">Rolle's theorem</td><td class="zh">罗尔定理</td></tr>
+      <tr class="term"><td class="en">Cauchy Mean Value Theorem</td><td class="zh">柯西中值定理</td></tr>
+      <tr class="term"><td class="en">L'Hôpital's rule</td><td class="zh">洛必达法则</td></tr>
+      <tr class="term"><td class="en">linear approximation</td><td class="zh">线性近似</td></tr>
+      <tr class="term"><td class="en">linearization</td><td class="zh">线性化</td></tr>
+      <tr class="term"><td class="en">Newton's method</td><td class="zh">牛顿法（牛顿迭代法）</td></tr>
+      <tr class="term"><td class="en">related rates</td><td class="zh">相关变化率</td></tr>
+      <tr class="term"><td class="en">optimization</td><td class="zh">最优化（优化）</td></tr>
+      <tr class="term"><td class="en">simple harmonic motion</td><td class="zh">简谐运动</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 4 -->
+  <section class="cat" id="c4" data-title="Integration · 积分">
+    <h2><span>Integration</span><span class="zh">积分</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">integral</td><td class="zh">积分</td></tr>
+      <tr class="term"><td class="en">integration</td><td class="zh">积分法</td></tr>
+      <tr class="term"><td class="en">integrable</td><td class="zh">可积</td></tr>
+      <tr class="term"><td class="en">antiderivative</td><td class="zh">原函数（反导数）</td></tr>
+      <tr class="term"><td class="en">indefinite integral</td><td class="zh">不定积分</td></tr>
+      <tr class="term"><td class="en">definite integral</td><td class="zh">定积分</td></tr>
+      <tr class="term"><td class="en">integrand</td><td class="zh">被积函数</td></tr>
+      <tr class="term"><td class="en">variable of integration</td><td class="zh">积分变量</td></tr>
+      <tr class="term"><td class="en">limits of integration</td><td class="zh">积分限（积分上下限）</td></tr>
+      <tr class="term"><td class="en">upper limit</td><td class="zh">积分上限</td></tr>
+      <tr class="term"><td class="en">lower limit</td><td class="zh">积分下限</td></tr>
+      <tr class="term"><td class="en">constant of integration</td><td class="zh">积分常数</td></tr>
+      <tr class="term"><td class="en">sigma notation</td><td class="zh">求和（Σ）记号</td></tr>
+      <tr class="term"><td class="en">partition</td><td class="zh">分割（划分）</td></tr>
+      <tr class="term"><td class="en">Riemann sum</td><td class="zh">黎曼和</td></tr>
+      <tr class="term"><td class="en">Riemann integral</td><td class="zh">黎曼积分</td></tr>
+      <tr class="term"><td class="en">Fundamental Theorem of Calculus</td><td class="zh">微积分基本定理</td></tr>
+      <tr class="term"><td class="en">substitution (u-substitution)</td><td class="zh">换元积分法（凑微分）</td></tr>
+      <tr class="term"><td class="en">integration by parts</td><td class="zh">分部积分法</td></tr>
+      <tr class="term"><td class="en">partial fractions</td><td class="zh">部分分式</td></tr>
+      <tr class="term"><td class="en">trigonometric substitution</td><td class="zh">三角换元（三角代换）</td></tr>
+      <tr class="term"><td class="en">reduction formula</td><td class="zh">递推公式</td></tr>
+      <tr class="term"><td class="en">improper integral</td><td class="zh">反常积分（广义积分）</td></tr>
+      <tr class="term"><td class="en">numerical integration</td><td class="zh">数值积分</td></tr>
+      <tr class="term"><td class="en">trapezoidal rule</td><td class="zh">梯形法则（梯形公式）</td></tr>
+      <tr class="term"><td class="en">Simpson's rule</td><td class="zh">辛普森法则（辛普森公式）</td></tr>
+      <tr class="term"><td class="en">Mean Value Theorem for integrals</td><td class="zh">积分中值定理</td></tr>
+      <tr class="term"><td class="en">average value of a function</td><td class="zh">函数的平均值</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 5 -->
+  <section class="cat" id="c5" data-title="Applications of the Integral · 积分的应用">
+    <h2><span>Applications of the Integral</span><span class="zh">积分的应用</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">area</td><td class="zh">面积</td></tr>
+      <tr class="term"><td class="en">signed area</td><td class="zh">有向面积</td></tr>
+      <tr class="term"><td class="en">area between curves</td><td class="zh">曲线间的面积</td></tr>
+      <tr class="term"><td class="en">volume</td><td class="zh">体积</td></tr>
+      <tr class="term"><td class="en">solid of revolution</td><td class="zh">旋转体</td></tr>
+      <tr class="term"><td class="en">disk method</td><td class="zh">圆盘法</td></tr>
+      <tr class="term"><td class="en">washer method</td><td class="zh">圆环法（垫圈法）</td></tr>
+      <tr class="term"><td class="en">shell method</td><td class="zh">柱壳法（壳层法）</td></tr>
+      <tr class="term"><td class="en">cross-section</td><td class="zh">横截面</td></tr>
+      <tr class="term"><td class="en">arc length</td><td class="zh">弧长</td></tr>
+      <tr class="term"><td class="en">surface area</td><td class="zh">表面积（曲面面积）</td></tr>
+      <tr class="term"><td class="en">surface of revolution</td><td class="zh">旋转曲面</td></tr>
+      <tr class="term"><td class="en">work</td><td class="zh">功</td></tr>
+      <tr class="term"><td class="en">center of mass / centroid</td><td class="zh">质心（形心）</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 6 -->
+  <section class="cat" id="c6" data-title="Sequences &amp; Series · 数列与级数">
+    <h2><span>Sequences &amp; Series</span><span class="zh">数列与级数</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">sequence</td><td class="zh">数列（序列）</td></tr>
+      <tr class="term"><td class="en">series</td><td class="zh">级数</td></tr>
+      <tr class="term"><td class="en">term</td><td class="zh">项</td></tr>
+      <tr class="term"><td class="en">general term</td><td class="zh">通项</td></tr>
+      <tr class="term"><td class="en">partial sum</td><td class="zh">部分和</td></tr>
+      <tr class="term"><td class="en">convergent series</td><td class="zh">收敛级数</td></tr>
+      <tr class="term"><td class="en">divergent series</td><td class="zh">发散级数</td></tr>
+      <tr class="term"><td class="en">sum of a series</td><td class="zh">级数的和</td></tr>
+      <tr class="term"><td class="en">geometric series</td><td class="zh">几何级数（等比级数）</td></tr>
+      <tr class="term"><td class="en">arithmetic series</td><td class="zh">算术级数（等差级数）</td></tr>
+      <tr class="term"><td class="en">harmonic series</td><td class="zh">调和级数</td></tr>
+      <tr class="term"><td class="en">p-series</td><td class="zh">p 级数</td></tr>
+      <tr class="term"><td class="en">alternating series</td><td class="zh">交错级数</td></tr>
+      <tr class="term"><td class="en">power series</td><td class="zh">幂级数</td></tr>
+      <tr class="term"><td class="en">Taylor series</td><td class="zh">泰勒级数</td></tr>
+      <tr class="term"><td class="en">Maclaurin series</td><td class="zh">麦克劳林级数</td></tr>
+      <tr class="term"><td class="en">Taylor polynomial</td><td class="zh">泰勒多项式</td></tr>
+      <tr class="term"><td class="en">Taylor's theorem</td><td class="zh">泰勒定理</td></tr>
+      <tr class="term"><td class="en">remainder term</td><td class="zh">余项</td></tr>
+      <tr class="term"><td class="en">radius of convergence</td><td class="zh">收敛半径</td></tr>
+      <tr class="term"><td class="en">interval of convergence</td><td class="zh">收敛区间</td></tr>
+      <tr class="term"><td class="en">nth-term test (divergence test)</td><td class="zh">通项判别法（发散判别法）</td></tr>
+      <tr class="term"><td class="en">comparison test</td><td class="zh">比较判别法</td></tr>
+      <tr class="term"><td class="en">limit comparison test</td><td class="zh">极限比较判别法</td></tr>
+      <tr class="term"><td class="en">ratio test</td><td class="zh">比值判别法</td></tr>
+      <tr class="term"><td class="en">root test</td><td class="zh">根值判别法</td></tr>
+      <tr class="term"><td class="en">integral test</td><td class="zh">积分判别法</td></tr>
+      <tr class="term"><td class="en">alternating series test</td><td class="zh">交错级数判别法（莱布尼茨判别法）</td></tr>
+      <tr class="term"><td class="en">absolute convergence</td><td class="zh">绝对收敛</td></tr>
+      <tr class="term"><td class="en">conditional convergence</td><td class="zh">条件收敛</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 7 -->
+  <section class="cat" id="c7" data-title="Parametric, Polar &amp; Complex · 参数、极坐标与复数">
+    <h2><span>Parametric, Polar &amp; Complex</span><span class="zh">参数、极坐标与复数</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">parametric equation</td><td class="zh">参数方程</td></tr>
+      <tr class="term"><td class="en">parameter</td><td class="zh">参数</td></tr>
+      <tr class="term"><td class="en">Cartesian coordinates</td><td class="zh">直角坐标（笛卡尔坐标）</td></tr>
+      <tr class="term"><td class="en">polar coordinates</td><td class="zh">极坐标</td></tr>
+      <tr class="term"><td class="en">pole</td><td class="zh">极点</td></tr>
+      <tr class="term"><td class="en">polar axis</td><td class="zh">极轴</td></tr>
+      <tr class="term"><td class="en">complex number</td><td class="zh">复数</td></tr>
+      <tr class="term"><td class="en">real part</td><td class="zh">实部</td></tr>
+      <tr class="term"><td class="en">imaginary part</td><td class="zh">虚部</td></tr>
+      <tr class="term"><td class="en">imaginary unit</td><td class="zh">虚数单位</td></tr>
+      <tr class="term"><td class="en">complex plane</td><td class="zh">复平面</td></tr>
+      <tr class="term"><td class="en">modulus (absolute value)</td><td class="zh">模</td></tr>
+      <tr class="term"><td class="en">argument (of a complex number)</td><td class="zh">辐角</td></tr>
+      <tr class="term"><td class="en">conjugate</td><td class="zh">共轭</td></tr>
+      <tr class="term"><td class="en">polar form</td><td class="zh">极坐标形式（三角形式）</td></tr>
+      <tr class="term"><td class="en">Euler's formula</td><td class="zh">欧拉公式</td></tr>
+      <tr class="term"><td class="en">De Moivre's theorem</td><td class="zh">棣莫弗定理</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 8 -->
+  <section class="cat" id="c8" data-title="Differential Equations · 微分方程">
+    <h2><span>Differential Equations</span><span class="zh">微分方程</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">differential equation</td><td class="zh">微分方程</td></tr>
+      <tr class="term"><td class="en">ordinary differential equation (ODE)</td><td class="zh">常微分方程</td></tr>
+      <tr class="term"><td class="en">partial differential equation (PDE)</td><td class="zh">偏微分方程</td></tr>
+      <tr class="term"><td class="en">order (of an equation)</td><td class="zh">阶</td></tr>
+      <tr class="term"><td class="en">separable equation</td><td class="zh">可分离变量方程</td></tr>
+      <tr class="term"><td class="en">first-order linear equation</td><td class="zh">一阶线性方程</td></tr>
+      <tr class="term"><td class="en">integrating factor</td><td class="zh">积分因子</td></tr>
+      <tr class="term"><td class="en">homogeneous equation</td><td class="zh">齐次方程</td></tr>
+      <tr class="term"><td class="en">nonhomogeneous equation</td><td class="zh">非齐次方程</td></tr>
+      <tr class="term"><td class="en">characteristic equation</td><td class="zh">特征方程</td></tr>
+      <tr class="term"><td class="en">general solution</td><td class="zh">通解</td></tr>
+      <tr class="term"><td class="en">particular solution</td><td class="zh">特解</td></tr>
+      <tr class="term"><td class="en">initial condition</td><td class="zh">初始条件</td></tr>
+      <tr class="term"><td class="en">initial value problem</td><td class="zh">初值问题</td></tr>
+      <tr class="term"><td class="en">boundary condition</td><td class="zh">边界条件</td></tr>
+      <tr class="term"><td class="en">exponential growth</td><td class="zh">指数增长</td></tr>
+      <tr class="term"><td class="en">exponential decay</td><td class="zh">指数衰减</td></tr>
+      <tr class="term"><td class="en">logistic equation</td><td class="zh">逻辑斯蒂方程</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 9 -->
+  <section class="cat" id="c9" data-title="Multivariable &amp; Vector Calculus · 多元与向量微积分">
+    <h2><span>Multivariable &amp; Vector Calculus</span><span class="zh">多元与向量微积分</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">multivariable calculus</td><td class="zh">多元微积分</td></tr>
+      <tr class="term"><td class="en">function of several variables</td><td class="zh">多元函数</td></tr>
+      <tr class="term"><td class="en">partial derivative</td><td class="zh">偏导数</td></tr>
+      <tr class="term"><td class="en">total differential</td><td class="zh">全微分</td></tr>
+      <tr class="term"><td class="en">directional derivative</td><td class="zh">方向导数</td></tr>
+      <tr class="term"><td class="en">gradient</td><td class="zh">梯度</td></tr>
+      <tr class="term"><td class="en">tangent plane</td><td class="zh">切平面</td></tr>
+      <tr class="term"><td class="en">level curve / contour</td><td class="zh">等高线（等值线）</td></tr>
+      <tr class="term"><td class="en">double integral</td><td class="zh">二重积分</td></tr>
+      <tr class="term"><td class="en">triple integral</td><td class="zh">三重积分</td></tr>
+      <tr class="term"><td class="en">multiple integral</td><td class="zh">重积分</td></tr>
+      <tr class="term"><td class="en">iterated integral</td><td class="zh">累次积分</td></tr>
+      <tr class="term"><td class="en">Jacobian</td><td class="zh">雅可比行列式</td></tr>
+      <tr class="term"><td class="en">line integral</td><td class="zh">曲线积分（线积分）</td></tr>
+      <tr class="term"><td class="en">surface integral</td><td class="zh">曲面积分</td></tr>
+      <tr class="term"><td class="en">vector field</td><td class="zh">向量场（矢量场）</td></tr>
+      <tr class="term"><td class="en">divergence</td><td class="zh">散度</td></tr>
+      <tr class="term"><td class="en">curl</td><td class="zh">旋度</td></tr>
+      <tr class="term"><td class="en">Green's theorem</td><td class="zh">格林定理</td></tr>
+      <tr class="term"><td class="en">Stokes' theorem</td><td class="zh">斯托克斯定理</td></tr>
+      <tr class="term"><td class="en">divergence (Gauss's) theorem</td><td class="zh">散度定理（高斯定理）</td></tr>
+      <tr class="term"><td class="en">Lagrange multiplier</td><td class="zh">拉格朗日乘数（法）</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 10 -->
+  <section class="cat" id="c10" data-title="General Mathematical Terms · 通用数学术语">
+    <h2><span>General Mathematical Terms</span><span class="zh">通用数学术语</span></h2>
+    <table><thead><tr><th>English</th><th>中文</th></tr></thead><tbody>
+      <tr class="term"><td class="en">theorem</td><td class="zh">定理</td></tr>
+      <tr class="term"><td class="en">lemma</td><td class="zh">引理</td></tr>
+      <tr class="term"><td class="en">corollary</td><td class="zh">推论</td></tr>
+      <tr class="term"><td class="en">proposition</td><td class="zh">命题</td></tr>
+      <tr class="term"><td class="en">axiom</td><td class="zh">公理</td></tr>
+      <tr class="term"><td class="en">definition</td><td class="zh">定义</td></tr>
+      <tr class="term"><td class="en">proof</td><td class="zh">证明</td></tr>
+      <tr class="term"><td class="en">conjecture</td><td class="zh">猜想</td></tr>
+      <tr class="term"><td class="en">necessary and sufficient condition</td><td class="zh">充分必要条件</td></tr>
+      <tr class="term"><td class="en">equation</td><td class="zh">方程</td></tr>
+      <tr class="term"><td class="en">identity</td><td class="zh">恒等式</td></tr>
+      <tr class="term"><td class="en">inequality</td><td class="zh">不等式</td></tr>
+      <tr class="term"><td class="en">formula</td><td class="zh">公式</td></tr>
+      <tr class="term"><td class="en">expression</td><td class="zh">表达式（式子）</td></tr>
+      <tr class="term"><td class="en">sum</td><td class="zh">和</td></tr>
+      <tr class="term"><td class="en">difference</td><td class="zh">差</td></tr>
+      <tr class="term"><td class="en">product</td><td class="zh">积</td></tr>
+      <tr class="term"><td class="en">quotient</td><td class="zh">商</td></tr>
+      <tr class="term"><td class="en">factor</td><td class="zh">因子（因式）</td></tr>
+      <tr class="term"><td class="en">numerator</td><td class="zh">分子</td></tr>
+      <tr class="term"><td class="en">denominator</td><td class="zh">分母</td></tr>
+      <tr class="term"><td class="en">logarithm</td><td class="zh">对数</td></tr>
+      <tr class="term"><td class="en">approximately equal to</td><td class="zh">约等于</td></tr>
+      <tr class="term"><td class="en">proportional to</td><td class="zh">成正比</td></tr>
+      <tr class="term"><td class="en">infinity symbol (∞)</td><td class="zh">无穷符号</td></tr>
+      <tr class="term"><td class="en">real number</td><td class="zh">实数</td></tr>
+      <tr class="term"><td class="en">rational number</td><td class="zh">有理数</td></tr>
+      <tr class="term"><td class="en">irrational number</td><td class="zh">无理数</td></tr>
+      <tr class="term"><td class="en">set</td><td class="zh">集合</td></tr>
+      <tr class="term"><td class="en">element</td><td class="zh">元素</td></tr>
+    </tbody></table>
+  </section>
+
+  </div>
+  <div class="noresult" id="noresult">No matching terms — try another spelling or the Chinese word. · 没有匹配的术语</div>
+
+  <footer>
+    English ↔ 简体中文 (Mainland conventions). Covers single-variable through introductory multivariable calculus. Some terms have more than one accepted translation; common alternatives appear in parentheses.
+  </footer>
+</div>
+
+<script>
+  const search = document.getElementById('search');
+  const rows = Array.from(document.querySelectorAll('tr.term'));
+  const sections = Array.from(document.querySelectorAll('section.cat'));
+  const countEl = document.getElementById('count');
+  const noResult = document.getElementById('noresult');
+  const jump = document.getElementById('jump');
+  const totalTerms = rows.length;
+
+  // build per-section count badges + jump links
+  sections.forEach(sec => {
+    const n = sec.querySelectorAll('tr.term').length;
+    const h2 = sec.querySelector('h2');
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.textContent = n;
+    h2.appendChild(badge);
+    const link = document.createElement('a');
+    link.href = '#' + sec.id;
+    link.textContent = sec.dataset.title.split('·')[0].trim();
+    jump.appendChild(link);
+  });
+
+  function escapeRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+  function highlight(td, q){
+    const text = td.dataset.orig || (td.dataset.orig = td.textContent);
+    if(!q){ td.textContent = text; return; }
+    const re = new RegExp('('+escapeRe(q)+')','ig');
+    td.innerHTML = text.replace(re,'<mark>$1</mark>');
+  }
+
+  function update(){
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    rows.forEach(tr => {
+      const en = tr.children[0].textContent.toLowerCase();
+      const zh = tr.children[1].textContent.toLowerCase();
+      const match = !q || en.includes(q) || zh.includes(q);
+      tr.style.display = match ? '' : 'none';
+      if(match){
+        shown++;
+        highlight(tr.children[0], q);
+        highlight(tr.children[1], q);
+      }
+    });
+    sections.forEach(sec => {
+      const anyVisible = Array.from(sec.querySelectorAll('tr.term')).some(tr => tr.style.display !== 'none');
+      sec.style.display = anyVisible ? '' : 'none';
+    });
+    noResult.style.display = shown === 0 ? 'block' : 'none';
+    countEl.textContent = q
+      ? shown + ' of ' + totalTerms + ' terms match "' + search.value.trim() + '"'
+      : totalTerms + ' terms across ' + sections.length + ' categories';
+  }
+
+  search.addEventListener('input', update);
+  update();
+</script>
+</body>
+</html>
