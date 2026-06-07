@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Guides · Calculus &amp; Statistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper-2:#efe7d6; --ink:#26221b; --ink-soft:#564f43;
+    --blue:#1f3a5f; --blue-soft:#3a5a82; --amber:#b5651d; --teal:#0f6f6a;
+    --plum:#6d3b5e; --line:#d8cdb8; --shadow:rgba(38,34,27,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 18% -10%,#fbf6ec 0%,transparent 55%),
+      radial-gradient(circle at 92% 4%,#f0e9da 0%,transparent 45%),
+      var(--paper);
+    color:var(--ink); font-family:"Spectral",Georgia,serif; font-size:18px; line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:42px 42px; opacity:.1;}
+  .container{position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:48px 26px 110px;}
+
+  header h1{font-family:"Fraunces",serif; font-weight:900; font-size:clamp(2.4rem,6vw,4rem); line-height:.96; letter-spacing:-.02em; margin:0 0 8px; color:var(--ink);}
+  header h1 em{font-style:italic; color:var(--amber); font-weight:500;}
+  header p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:62ch; margin:14px 0 0;}
+  .rule{height:3px; width:90px; background:var(--amber); margin:24px 0 0; border-radius:3px;}
+
+  /* ---- search ---- */
+  .toolbar{position:sticky; top:0; z-index:5; background:rgba(245,239,226,.94); backdrop-filter:blur(6px); padding:18px 0 14px; margin:30px 0 6px; border-bottom:1px solid var(--line);}
+  .search{display:flex; align-items:center; gap:10px; background:#fffdf7; border:1.5px solid var(--blue); border-radius:30px; padding:12px 20px; box-shadow:0 2px 12px var(--shadow);}
+  .search input{border:none; outline:none; background:transparent; font-family:"Spectral",serif; font-size:1.08rem; width:100%; color:var(--ink);}
+  .search input::placeholder{color:#a99e87;}
+  .search .ico{color:var(--blue); font-size:1.15rem;}
+  .search kbd{font-family:"Fraunces",serif; font-size:.7rem; color:var(--ink-soft); background:var(--paper-2); border:1px solid var(--line); border-radius:6px; padding:2px 7px; white-space:nowrap;}
+  .count{font-size:.85rem; color:var(--ink-soft); margin-top:9px; font-style:italic;}
+
+  /* ---- guide cards ---- */
+  .grp{font-family:"Fraunces",serif; font-weight:600; font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin:38px 0 12px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px;}
+  a.card{display:block; text-decoration:none; color:inherit; background:linear-gradient(180deg,#fffdf7,#f7f0e1); border:1px solid var(--line); border-radius:14px; padding:22px 24px; box-shadow:0 2px 10px var(--shadow); transition:.16s;}
+  a.card:hover{transform:translateY(-3px); box-shadow:0 8px 22px var(--shadow); border-color:var(--blue-soft);}
+  a.card .kicker{font-family:"Fraunces",serif; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; font-weight:600; margin-bottom:6px;}
+  a.card.cal .kicker{color:var(--amber);}
+  a.card.sta .kicker{color:var(--plum);}
+  a.card.ref .kicker{color:var(--teal);}
+  a.card h3{font-family:"Fraunces",serif; font-weight:600; font-size:1.35rem; line-height:1.1; color:var(--blue); margin:0 0 8px; letter-spacing:-.01em;}
+  a.card p{margin:0; font-size:.96rem; color:var(--ink-soft);}
+  a.card .meta{margin-top:12px; font-size:.8rem; color:var(--ink-soft); font-style:italic;}
+
+  /* ---- search results ---- */
+  #results{margin-top:14px; display:none;}
+  #results.on{display:block;}
+  .reslist{background:#fffdf7; border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 2px 10px var(--shadow);}
+  a.res{display:flex; align-items:baseline; gap:12px; text-decoration:none; color:inherit; padding:11px 18px; border-top:1px solid var(--line);}
+  a.res:first-child{border-top:none;}
+  a.res:hover{background:#f7f0e1;}
+  a.res .tag{flex:0 0 auto; font-family:"Fraunces",serif; font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; border-radius:20px; padding:2px 10px; border:1px solid var(--line);}
+  a.res .tag.cal{color:var(--amber); background:#f7ecda;}
+  a.res .tag.sta{color:var(--plum); background:#f3eaf0;}
+  a.res .tag.ref{color:var(--teal); background:#e9f3f1;}
+  a.res .title{font-size:1rem; color:var(--ink);}
+  a.res .where{margin-left:auto; flex:0 0 auto; font-size:.8rem; color:var(--ink-soft); font-style:italic;}
+  mark{background:#f6d99b; color:inherit; border-radius:3px; padding:0 1px;}
+  .noresult{display:none; text-align:center; color:var(--ink-soft); font-style:italic; padding:30px 0; font-size:1.02rem;}
+  #hideOnSearch.hide{display:none;}
+
+  footer{margin-top:54px; padding-top:22px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.9rem; font-style:italic;}
+  footer code{font-family:"Fraunces",serif; background:var(--paper-2); border:1px solid var(--line); border-radius:5px; padding:1px 6px; font-size:.82rem;}
+  @media(max-width:560px){ a.res .where{display:none;} }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Math Guides, <em>connected.</em></h1>
+    <p class="lede">A small library of illustrated references for <strong>calculus</strong> and <strong>statistics</strong> — every formula stated cleanly, demonstrated where it comes from, and linked to the ideas around it. Search across every section below, or open a full guide.</p>
+    <div class="rule"></div>
+  </header>
+
+  <div class="toolbar">
+    <div class="search">
+      <span class="ico">🔍</span>
+      <input id="search" type="text" placeholder="Search every guide…  (e.g. chain rule / Bayes / 导数 / Taylor series)" autocomplete="off" autofocus>
+      <kbd>/</kbd>
+    </div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div id="results">
+    <div class="reslist" id="reslist"></div>
+    <div class="noresult" id="noresult">No matching topics — try another word, or browse the guides below.</div>
+  </div>
+
+  <div id="hideOnSearch">
+    <div class="grp">Calculus</div>
+    <div class="cards">
+      <a class="card cal" href="calculus/complete-guide.html">
+        <div class="kicker">Complete course · 30 sections</div>
+        <h3>The Complete Companion</h3>
+        <p>A full single-variable course — concepts, principles, formulas and the demonstrations behind them. Chapter flow follows Banner's <em>Calculus Lifesaver</em>.</p>
+        <div class="meta">Foundations → limits → derivatives → integrals → series → ODEs</div>
+      </a>
+      <a class="card cal" href="calculus/derived-from-scratch.html">
+        <div class="kicker">With proofs · 13 sections</div>
+        <h3>Derived from Scratch</h3>
+        <p>Every core formula is demonstrated step by step — shown where it comes from, basics to advanced.</p>
+        <div class="meta">Best when you want the "why," not just the "what"</div>
+      </a>
+      <a class="card cal" href="calculus/connected-map.html">
+        <div class="kicker">Overview map · 13 sections</div>
+        <h3>From the Ground Up</h3>
+        <p>A connected map of the whole subject: how each formula grows out of the limit and the one before it.</p>
+        <div class="meta">Best for a fast, big-picture read</div>
+      </a>
+      <a class="card ref" href="calculus/glossary.html">
+        <div class="kicker">Reference · EN ↔ 中文</div>
+        <h3>Calculus Glossary</h3>
+        <p>A searchable English ↔ Simplified-Chinese term reference across single- and multivariable calculus.</p>
+        <div class="meta">微积分术语对照 · 300+ terms in 10 categories</div>
+      </a>
+    </div>
+
+    <div class="grp">Statistics</div>
+    <div class="cards">
+      <a class="card sta" href="statistics/complete-guide.html">
+        <div class="kicker">Complete course · 15 sections</div>
+        <h3>The Complete Companion</h3>
+        <p>A first course in describing data, the probability beneath it, and the inference it powers — every core formula demonstrated.</p>
+        <div class="meta">Describe → probability → distributions → inference → regression</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Open any guide directly, or serve the folder locally with <code>python3 -m http.server</code> and visit <code>localhost:8000</code>. Formulas render with KaTeX; an internet connection loads the fonts and math fonts.
+  </footer>
+</div>
+
+<script>
+  // Search index: every section of every guide, with deep links.
+  const INDEX = [
+    // ---- Calculus · Complete Companion ----
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s0","The big picture"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s1","Functions, graphs & lines"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s2","Trigonometry review"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s3","Limits: the idea"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s4","Computing limits"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s5","Continuity & differentiability"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s6","Definition of the derivative"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s7","The differentiation rules, each proven"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s8","Derivatives of every function"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s9","Implicit differentiation & related rates"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s10","Extrema, Rolle & the Mean Value Theorem"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s11","Curve sketching"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s12","Optimization, linearization, Newton's method"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s13","L'Hôpital — every form"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s14","Sums, area & the integral"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s15","The definite integral"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s16","The Fundamental Theorem of Calculus"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s17","The integral table"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s18","Techniques I: substitution, parts, partial fractions"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s19","Techniques II: trig & reduction"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s20","Improper integrals"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s21","Numerical integration"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s22","Volumes, arc length, surface area"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s23","Sequences"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s24","Series & convergence tests"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s25","Taylor & power series"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s26","Parametric equations"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s27","Polar coordinates"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s28","Complex numbers & Euler's formula"],
+    ["cal","Calculus · Complete","calculus/complete-guide.html","s29","Differential equations"],
+
+    // ---- Calculus · Derived from Scratch ----
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s0","The big picture"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s1","Limits & continuity"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s2","Definition of the derivative"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s3","The rules, each proven"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s4","Derivatives of every function"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s5","Implicit, logarithmic & higher-order derivatives"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s6","Using derivatives"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s7","Antiderivative & the Fundamental Theorem"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s8","The integral table"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s9","Integration techniques, each proven"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s10","Using integrals"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s11","Sequences & series"],
+    ["cal","Calculus · Derived","calculus/derived-from-scratch.html","s12","A peek at multivariable calculus"],
+
+    // ---- Calculus · From the Ground Up ----
+    ["cal","Calculus · Map","calculus/connected-map.html","s0","The big picture"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s1","Limits & continuity"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s2","What a derivative is"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s3","Differentiation rules"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s4","Derivatives of the standard functions"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s5","Implicit & higher-order derivatives"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s6","Using derivatives"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s7","The antiderivative & the FTC"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s8","Basic integral table"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s9","Integration techniques"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s10","Using integrals"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s11","Sequences & series"],
+    ["cal","Calculus · Map","calculus/connected-map.html","s12","A peek at multivariable"],
+
+    // ---- Calculus · Glossary (categories) ----
+    ["ref","Glossary","calculus/glossary.html","c1","Foundations & Functions · 基础与函数"],
+    ["ref","Glossary","calculus/glossary.html","c2","Limits & Continuity · 极限与连续"],
+    ["ref","Glossary","calculus/glossary.html","c3","Derivatives & Differentiation · 导数与微分"],
+    ["ref","Glossary","calculus/glossary.html","c4","Integration · 积分"],
+    ["ref","Glossary","calculus/glossary.html","c5","Applications of the Integral · 积分的应用"],
+    ["ref","Glossary","calculus/glossary.html","c6","Sequences & Series · 数列与级数"],
+    ["ref","Glossary","calculus/glossary.html","c7","Parametric, Polar & Complex · 参数、极坐标与复数"],
+    ["ref","Glossary","calculus/glossary.html","c8","Differential Equations · 微分方程"],
+    ["ref","Glossary","calculus/glossary.html","c9","Multivariable & Vector Calculus · 多元与向量微积分"],
+    ["ref","Glossary","calculus/glossary.html","c10","General Mathematical Terms · 通用数学术语"],
+
+    // ---- Statistics · Complete Companion ----
+    ["sta","Statistics","statistics/complete-guide.html","s0","The big picture"],
+    ["sta","Statistics","statistics/complete-guide.html","s1","Data & variables"],
+    ["sta","Statistics","statistics/complete-guide.html","s2","Describing center & spread"],
+    ["sta","Statistics","statistics/complete-guide.html","s3","Distributions & visualizing data"],
+    ["sta","Statistics","statistics/complete-guide.html","s4","Probability basics"],
+    ["sta","Statistics","statistics/complete-guide.html","s5","Conditional probability & Bayes' theorem"],
+    ["sta","Statistics","statistics/complete-guide.html","s6","Random variables & expectation"],
+    ["sta","Statistics","statistics/complete-guide.html","s7","Common distributions"],
+    ["sta","Statistics","statistics/complete-guide.html","s8","The Normal distribution & the CLT"],
+    ["sta","Statistics","statistics/complete-guide.html","s9","Sampling distributions & the standard error"],
+    ["sta","Statistics","statistics/complete-guide.html","s10","Confidence intervals"],
+    ["sta","Statistics","statistics/complete-guide.html","s11","Hypothesis testing"],
+    ["sta","Statistics","statistics/complete-guide.html","s12","The common tests"],
+    ["sta","Statistics","statistics/complete-guide.html","s13","Correlation & regression"],
+    ["sta","Statistics","statistics/complete-guide.html","s14","Pitfalls & the bigger picture"],
+  ];
+
+  // Extra keywords so topical searches land even when the word isn't in the title.
+  const KEYWORDS = {
+    "calculus/complete-guide.html#s7":"product rule quotient rule chain rule power rule",
+    "calculus/derived-from-scratch.html#s3":"product rule quotient rule chain rule power rule proof",
+    "calculus/connected-map.html#s3":"product rule quotient rule chain rule power rule",
+    "calculus/complete-guide.html#s8":"sin cos exp log derivative table trig",
+    "calculus/complete-guide.html#s25":"taylor maclaurin power series euler",
+    "calculus/derived-from-scratch.html#s11":"taylor maclaurin geometric series convergence",
+    "calculus/complete-guide.html#s18":"u-substitution integration by parts partial fractions",
+    "statistics/complete-guide.html#s5":"bayes conditional probability base rate",
+    "statistics/complete-guide.html#s8":"normal gaussian bell curve central limit theorem clt z-score",
+    "statistics/complete-guide.html#s11":"p-value null hypothesis type i type ii error power alpha",
+    "statistics/complete-guide.html#s13":"correlation least squares regression r squared covariance",
+    "statistics/complete-guide.html#s7":"binomial poisson bernoulli geometric uniform exponential distribution",
+  };
+
+  const search = document.getElementById('search');
+  const reslist = document.getElementById('reslist');
+  const results = document.getElementById('results');
+  const noresult = document.getElementById('noresult');
+  const countEl = document.getElementById('count');
+  const hideOnSearch = document.getElementById('hideOnSearch');
+  const total = INDEX.length;
+
+  function esc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+  function escHtml(s){ return s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+  function mark(text, q){
+    const safe = escHtml(text);
+    if(!q) return safe;
+    return safe.replace(new RegExp('('+esc(q)+')','ig'),'<mark>$1</mark>');
+  }
+
+  function render(q){
+    const ql = q.toLowerCase();
+    const hits = INDEX.filter(([cat,guide,file,anchor,title]) => {
+      if(!ql) return false;
+      const extra = KEYWORDS[file+'#'+anchor] || '';
+      return (title+' '+guide+' '+extra).toLowerCase().includes(ql);
+    });
+    reslist.innerHTML = hits.map(([cat,guide,file,anchor,title]) =>
+      `<a class="res" href="${file}#${anchor}">
+         <span class="tag ${cat}">${guide.split('·')[0].trim()}</span>
+         <span class="title">${mark(title, q)}</span>
+         <span class="where">${escHtml(guide)}</span>
+       </a>`).join('');
+    noresult.style.display = hits.length ? 'none' : 'block';
+    countEl.textContent = ql
+      ? hits.length + ' of ' + total + ' topics match "' + q + '"'
+      : '';
+  }
+
+  function update(){
+    const q = search.value.trim();
+    const on = q.length > 0;
+    results.classList.toggle('on', on);
+    hideOnSearch.classList.toggle('hide', on);
+    if(on) render(q); else countEl.textContent='';
+  }
+
+  search.addEventListener('input', update);
+  // "/" focuses the search box; Esc clears it.
+  document.addEventListener('keydown', e => {
+    if(e.key === '/' && document.activeElement !== search){ e.preventDefault(); search.focus(); }
+    if(e.key === 'Escape'){ search.value=''; update(); search.blur(); }
+  });
+  update();
+</script>
+</body>
+</html>
