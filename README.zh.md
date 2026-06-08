@@ -139,5 +139,10 @@
 | 辛几何与几何量子化 | [`symplectic-geometry.zh.md`](differential-geometry/symplectic-geometry.zh.md) | 辛流形、Darboux、泊松括号、矩映射与约化、拉格朗日子流形、预量子化与几何量子化（12 节） |
 | 微分拓扑与示性类 | [`differential-topology.zh.md`](topology/differential-topology.zh.md) | Sard 定理、横截性、映射度、Poincaré–Hopf、示性类、Chern–Weil、Gauss–Bonnet 与 Atiyah–Singer（12 节） |
 | 算子代数与代数 QFT | [`operator-algebras.zh.md`](functional-analysis/operator-algebras.zh.md) | C\*-代数、Gelfand 变换、GNS 构造、von Neumann 因子、模理论、CCR/CAR、Haag–Kastler 公理、KMS 态（12 节） |
+| 广义相对论与洛伦兹几何 | [`general-relativity.zh.md`](differential-geometry/general-relativity.zh.md) | 洛伦兹几何与因果结构、Einstein–Hilbert 作用量与场方程、引力波、史瓦西与黑洞、FLRW 宇宙学、ADM、奇点定理（12 节） |
+| 指标理论与 Atiyah–Singer | [`index-theory.zh.md`](differential-geometry/index-theory.zh.md) | Fredholm/解析指标、椭圆算子、Hodge 定理、Dirac 算子、Chern 特征/Â-亏格、Atiyah–Singer 定理、热核证明、反常（12 节） |
+| 量子群与 Hopf 代数 | [`quantum-groups.zh.md`](group-theory/quantum-groups.zh.md) | Hopf 代数、q-形变、U_q(sl₂)、R-矩阵与 Yang–Baxter 方程、辫子范畴、FRT/SL_q(2)、Jones 多项式、可积自旋链（12 节） |
+| 同调代数与谱序列 | [`homological-algebra.zh.md`](topology/homological-algebra.zh.md) | 蛇引理/五引理、消解、Tor 与 Ext、万有系数与 Künneth、阿贝尔范畴、谱序列、Leray–Serre、群上同调（12 节） |
+| 拓扑 K-理论 | [`k-theory.zh.md`](topology/k-theory.zh.md) | 向量丛、Grothendieck 群、Bott 周期性、广义上同调、Chern 特征、Thom 同构、KO-理论、D-膜电荷与拓扑相（12 节） |
 
 *（之后可以按同样的方式继续加入更多学科。）*
