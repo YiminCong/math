@@ -3,9 +3,10 @@
 # 数学指南
 
 一个图文并茂、自成体系的数学库 —— 完整的 **微积分**、**拓扑学** 与 **统计学**
-课程，每一科都从基础一路讲到研究生级别的严格理论。每份指南都是 **Markdown**
-文件，可直接在 GitHub 上阅读（数学公式使用 [KaTeX](https://katex.org/) 风格的
-LaTeX），并提供 **英文** 与 **简体中文** 两种语言。
+课程，外加一套完整的 **理论物理数学** 工具箱（线性代数、复分析、微分几何、
+群论、泛函分析,以及数学物理方法),每一科都从基础一路讲到研究生级别的严格理论。
+每份指南都是 **Markdown** 文件,可直接在 GitHub 上阅读（数学公式使用
+[KaTeX](https://katex.org/) 风格的 LaTeX）,并提供 **英文** 与 **简体中文** 两种语言。
 
 ## 开始阅读
 
@@ -94,5 +95,36 @@ LaTeX），并提供 **英文** 与 **简体中文** 两种语言。
 | 统计推断 | [`inference.zh.md`](statistics/inference.zh.md) | 数理统计：似然、MLE、Cramér–Rao、Neyman–Pearson、贝叶斯与非参数（17 节） |
 | 回归与线性模型 | [`regression.zh.md`](statistics/regression.zh.md) | 矩阵形式最小二乘、方差分析、逻辑回归、GLM、正则化（14 节） |
 | 术语表（英↔中） | [`glossary.md`](statistics/glossary.md) | 双语统计术语对照 |
+
+## 理论物理数学学习路径
+
+支撑经典力学、电动力学、量子力学、统计力学、广义相对论与场论的数学工具 ——
+每一份都达到与上述课程相同的「零基础、完整证明」标准。
+
+| 步骤 | 主题 | 位置 |
+| --- | --- | --- |
+| 0 · 基础 | 线性代数（向量 → 谱定理） | [`linear-algebra.zh.md#s1`](linear-algebra/linear-algebra.zh.md#s1) |
+| 1 · 方法 | 复分析 | [`complex-analysis.zh.md#s0`](complex-analysis/complex-analysis.zh.md#s0) |
+| 2 · 方法 | 傅里叶分析与积分变换 | [`fourier-transforms.zh.md#s0`](math-methods/fourier-transforms.zh.md#s0) |
+| 3 · 方法 | 偏微分方程 | [`partial-differential-equations.zh.md#s0`](math-methods/partial-differential-equations.zh.md#s0) |
+| 4 · 方法 | 特殊函数 | [`special-functions.zh.md#s0`](math-methods/special-functions.zh.md#s0) |
+| 5 · 力学 | 变分法与最小作用量 | [`calculus-of-variations.zh.md#s0`](math-methods/calculus-of-variations.zh.md#s0) |
+| 6 · 相对论 | 微分几何与张量 | [`differential-geometry.zh.md#s0`](differential-geometry/differential-geometry.zh.md#s0) |
+| 7 · 对称性 | 群论与表示论 | [`group-theory.zh.md#s0`](group-theory/group-theory.zh.md#s0) |
+| 8 · 量子 | 泛函分析与希尔伯特空间 | [`functional-analysis.zh.md#s0`](functional-analysis/functional-analysis.zh.md#s0) |
+
+### 理论物理数学
+
+| 工具 | 文件 | 支撑 |
+| --- | --- | --- |
+| 线性代数 | [`linear-algebra.zh.md`](linear-algebra/linear-algebra.zh.md) | 向量空间 → 本征值、内积、谱定理、张量积、狄拉克左右矢 —— 量子力学的语言（15 节） |
+| 复分析 | [`complex-analysis.zh.md`](complex-analysis/complex-analysis.zh.md) | 全纯性与柯西–黎曼、围道积分、留数、洛朗级数、共形与莫比乌斯映射、解析延拓（16 节） |
+| 傅里叶分析与积分变换 | [`fourier-transforms.zh.md`](math-methods/fourier-transforms.zh.md) | 傅里叶级数与变换、狄拉克 δ、卷积、拉普拉斯变换、格林函数（13 节） |
+| 偏微分方程 | [`partial-differential-equations.zh.md`](math-methods/partial-differential-equations.zh.md) | 波动/热传导/拉普拉斯/薛定谔、特征线、分离变量、施图姆–刘维尔、格林函数（14 节） |
+| 特殊函数 | [`special-functions.zh.md`](math-methods/special-functions.zh.md) | Γ 与 B 函数、勒让德与球谐、贝塞尔、厄米、拉盖尔、生成函数（11 节） |
+| 变分法 | [`calculus-of-variations.zh.md`](math-methods/calculus-of-variations.zh.md) | 欧拉–拉格朗日、哈密顿原理、诺特定理、哈密顿形式、场（11 节） |
+| 微分几何与张量 | [`differential-geometry.zh.md`](differential-geometry/differential-geometry.zh.md) | 流形、张量与度规、微分形式、联络、曲率、爱因斯坦方程 —— 广义相对论的语言（14 节） |
+| 群论与表示论 | [`group-theory.zh.md`](group-theory/group-theory.zh.md) | 群、特征标、李群与李代数、su(2)/SU(3)、克莱布什–戈尔丹 —— 对称性与粒子物理（14 节） |
+| 泛函分析与希尔伯特空间 | [`functional-analysis.zh.md`](functional-analysis/functional-analysis.zh.md) | 巴拿赫/希尔伯特空间、算符与伴随、谱、谱定理、分布 —— 严格的量子力学（13 节） |
 
 *（之后可以按同样的方式继续加入更多学科。）*
