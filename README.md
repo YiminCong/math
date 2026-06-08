@@ -131,4 +131,13 @@ above.
 | Group Theory & Representations | [`group-theory.md`](group-theory/group-theory.md) | Groups, characters, Lie groups & algebras, su(2)/SU(3), Clebsch–Gordan — symmetry & particle physics (14 sections) |
 | Functional Analysis & Hilbert Spaces | [`functional-analysis.md`](functional-analysis/functional-analysis.md) | Banach/Hilbert spaces, operators & adjoints, the spectrum, the spectral theorem, distributions — rigorous quantum mechanics (13 sections) |
 
+### Advanced topics
+
+| Tool | File | Powers |
+| --- | --- | --- |
+| Fiber Bundles & Gauge Theory | [`fiber-bundles-gauge.md`](differential-geometry/fiber-bundles-gauge.md) | Bundles, connections & curvature, Wilson loops, Yang–Mills, Chern classes, the monopole & Aharonov–Bohm — the geometry of forces (12 sections) |
+| Advanced Tensor Analysis | [`tensor-analysis.md`](differential-geometry/tensor-analysis.md) | Tensor densities, the Hodge star, covariant integration, the EM & stress–energy tensors, tetrads, spinors (11 sections) |
+| Stochastic Processes & Path Integrals | [`stochastic-processes.md`](math-methods/stochastic-processes.md) | Markov chains, Brownian motion, Itô calculus & SDEs, Fokker–Planck, Feynman–Kac, the Feynman path integral (13 sections) |
+| Lie Algebra Representation Theory | [`lie-representations.md`](group-theory/lie-representations.md) | The Killing form, root systems & Dynkin diagrams, highest weights, the Weyl character formula, su(3) multiplets, Young tableaux, Casimirs (12 sections) |
+
 *(More subjects can be added alongside these.)*

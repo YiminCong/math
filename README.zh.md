@@ -127,4 +127,13 @@
 | 群论与表示论 | [`group-theory.zh.md`](group-theory/group-theory.zh.md) | 群、特征标、李群与李代数、su(2)/SU(3)、克莱布什–戈尔丹 —— 对称性与粒子物理（14 节） |
 | 泛函分析与希尔伯特空间 | [`functional-analysis.zh.md`](functional-analysis/functional-analysis.zh.md) | 巴拿赫/希尔伯特空间、算符与伴随、谱、谱定理、分布 —— 严格的量子力学（13 节） |
 
+### 进阶专题
+
+| 工具 | 文件 | 支撑 |
+| --- | --- | --- |
+| 纤维丛与规范场论 | [`fiber-bundles-gauge.zh.md`](differential-geometry/fiber-bundles-gauge.zh.md) | 纤维丛、联络与曲率、Wilson 圈、Yang–Mills、陈类、磁单极与 Aharonov–Bohm —— 力的几何（12 节） |
+| 进阶张量分析 | [`tensor-analysis.zh.md`](differential-geometry/tensor-analysis.zh.md) | 张量密度、Hodge 星、协变积分、电磁与能动张量、标架、旋量（11 节） |
+| 随机过程与路径积分 | [`stochastic-processes.zh.md`](math-methods/stochastic-processes.zh.md) | 马尔可夫链、布朗运动、Itô 微积分与 SDE、Fokker–Planck、Feynman–Kac、费曼路径积分（13 节） |
+| 李代数表示论 | [`lie-representations.zh.md`](group-theory/lie-representations.zh.md) | 基灵型、根系与 Dynkin 图、最高权、Weyl 特征标公式、su(3) 多重态、杨表、Casimir（12 节） |
+
 *（之后可以按同样的方式继续加入更多学科。）*
