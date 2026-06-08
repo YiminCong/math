@@ -3,9 +3,12 @@
 # Math Guides
 
 An illustrated, self-contained math library — full **calculus**, **topology**,
-and **statistics** courses, each running from the basics to graduate-level rigor.
-Every guide is a **Markdown** file that renders directly on GitHub (math via
-[KaTeX](https://katex.org/)-style LaTeX), available in **English** and **简体中文**.
+and **statistics** courses plus a complete **mathematics-for-theoretical-physics**
+toolkit (linear algebra, complex analysis, differential geometry, group theory,
+functional analysis, and the methods of mathematical physics), each running from
+the basics to graduate-level rigor. Every guide is a **Markdown** file that
+renders directly on GitHub (math via [KaTeX](https://katex.org/)-style LaTeX),
+available in **English** and **简体中文**.
 
 ## Start here
 
@@ -94,5 +97,38 @@ each links straight into the relevant section.
 | Statistical Inference | [`inference.md`](statistics/inference.md) | Mathematical statistics: likelihood, MLE, Cramér–Rao, Neyman–Pearson, Bayesian & nonparametric (17 sections) |
 | Regression & Linear Models | [`regression.md`](statistics/regression.md) | Least squares in matrix form, ANOVA, logistic regression, GLMs, regularization (14 sections) |
 | Glossary (EN ↔ 中文) | [`glossary.md`](statistics/glossary.md) | Searchable English ↔ Simplified-Chinese statistics term reference |
+
+## The theoretical-physics math learning path
+
+The mathematical toolkit behind classical mechanics, electrodynamics, quantum
+mechanics, statistical mechanics, general relativity, and field theory — each
+guide built to the same beginner-complete, fully-proved standard as the courses
+above.
+
+| Step | Focus | Where |
+| --- | --- | --- |
+| 0 · Foundation | Linear algebra (vectors → spectral theorem) | [`linear-algebra.md#s1`](linear-algebra/linear-algebra.md#s1) |
+| 1 · Methods | Complex analysis | [`complex-analysis.md#s0`](complex-analysis/complex-analysis.md#s0) |
+| 2 · Methods | Fourier analysis & integral transforms | [`fourier-transforms.md#s0`](math-methods/fourier-transforms.md#s0) |
+| 3 · Methods | Partial differential equations | [`partial-differential-equations.md#s0`](math-methods/partial-differential-equations.md#s0) |
+| 4 · Methods | Special functions | [`special-functions.md#s0`](math-methods/special-functions.md#s0) |
+| 5 · Mechanics | Calculus of variations & least action | [`calculus-of-variations.md#s0`](math-methods/calculus-of-variations.md#s0) |
+| 6 · Relativity | Differential geometry & tensors | [`differential-geometry.md#s0`](differential-geometry/differential-geometry.md#s0) |
+| 7 · Symmetry | Group theory & representations | [`group-theory.md#s0`](group-theory/group-theory.md#s0) |
+| 8 · Quantum | Functional analysis & Hilbert spaces | [`functional-analysis.md#s0`](functional-analysis/functional-analysis.md#s0) |
+
+### Mathematics for theoretical physics
+
+| Tool | File | Powers |
+| --- | --- | --- |
+| Linear Algebra | [`linear-algebra.md`](linear-algebra/linear-algebra.md) | Vector spaces → eigenvalues, inner products, the spectral theorem, tensor products, Dirac bra–ket — the language of quantum mechanics (15 sections) |
+| Complex Analysis | [`complex-analysis.md`](complex-analysis/complex-analysis.md) | Holomorphy & Cauchy–Riemann, contour integration, residues, Laurent series, conformal & Möbius maps, analytic continuation (16 sections) |
+| Fourier Analysis & Integral Transforms | [`fourier-transforms.md`](math-methods/fourier-transforms.md) | Fourier series & transform, the Dirac delta, convolution, Laplace transform, Green's functions (13 sections) |
+| Partial Differential Equations | [`partial-differential-equations.md`](math-methods/partial-differential-equations.md) | Wave/heat/Laplace/Schrödinger, characteristics, separation of variables, Sturm–Liouville, Green's functions (14 sections) |
+| Special Functions | [`special-functions.md`](math-methods/special-functions.md) | Gamma & Beta, Legendre & spherical harmonics, Bessel, Hermite, Laguerre, generating functions (11 sections) |
+| Calculus of Variations | [`calculus-of-variations.md`](math-methods/calculus-of-variations.md) | Euler–Lagrange, Hamilton's principle, Noether's theorem, the Hamiltonian formulation, fields (11 sections) |
+| Differential Geometry & Tensors | [`differential-geometry.md`](differential-geometry/differential-geometry.md) | Manifolds, tensors & the metric, forms, connections, curvature, the Einstein equations — the language of general relativity (14 sections) |
+| Group Theory & Representations | [`group-theory.md`](group-theory/group-theory.md) | Groups, characters, Lie groups & algebras, su(2)/SU(3), Clebsch–Gordan — symmetry & particle physics (14 sections) |
+| Functional Analysis & Hilbert Spaces | [`functional-analysis.md`](functional-analysis/functional-analysis.md) | Banach/Hilbert spaces, operators & adjoints, the spectrum, the spectral theorem, distributions — rigorous quantum mechanics (13 sections) |
 
 *(More subjects can be added alongside these.)*
