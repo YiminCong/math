@@ -135,5 +135,9 @@
 | 进阶张量分析 | [`tensor-analysis.zh.md`](differential-geometry/tensor-analysis.zh.md) | 张量密度、Hodge 星、协变积分、电磁与能动张量、标架、旋量（11 节） |
 | 随机过程与路径积分 | [`stochastic-processes.zh.md`](math-methods/stochastic-processes.zh.md) | 马尔可夫链、布朗运动、Itô 微积分与 SDE、Fokker–Planck、Feynman–Kac、费曼路径积分（13 节） |
 | 李代数表示论 | [`lie-representations.zh.md`](group-theory/lie-representations.zh.md) | 基灵型、根系与 Dynkin 图、最高权、Weyl 特征标公式、su(3) 多重态、杨表、Casimir（12 节） |
+| 共形场论 | [`conformal-field-theory.zh.md`](math-methods/conformal-field-theory.zh.md) | 共形群、Witt 与 Virasoro 代数、中心荷、初级场、OPE、Verma 模与 Kac 行列式、极小模型、模不变性（12 节） |
+| 辛几何与几何量子化 | [`symplectic-geometry.zh.md`](differential-geometry/symplectic-geometry.zh.md) | 辛流形、Darboux、泊松括号、矩映射与约化、拉格朗日子流形、预量子化与几何量子化（12 节） |
+| 微分拓扑与示性类 | [`differential-topology.zh.md`](topology/differential-topology.zh.md) | Sard 定理、横截性、映射度、Poincaré–Hopf、示性类、Chern–Weil、Gauss–Bonnet 与 Atiyah–Singer（12 节） |
+| 算子代数与代数 QFT | [`operator-algebras.zh.md`](functional-analysis/operator-algebras.zh.md) | C\*-代数、Gelfand 变换、GNS 构造、von Neumann 因子、模理论、CCR/CAR、Haag–Kastler 公理、KMS 态（12 节） |
 
 *（之后可以按同样的方式继续加入更多学科。）*

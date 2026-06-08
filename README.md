@@ -139,5 +139,9 @@ above.
 | Advanced Tensor Analysis | [`tensor-analysis.md`](differential-geometry/tensor-analysis.md) | Tensor densities, the Hodge star, covariant integration, the EM & stress–energy tensors, tetrads, spinors (11 sections) |
 | Stochastic Processes & Path Integrals | [`stochastic-processes.md`](math-methods/stochastic-processes.md) | Markov chains, Brownian motion, Itô calculus & SDEs, Fokker–Planck, Feynman–Kac, the Feynman path integral (13 sections) |
 | Lie Algebra Representation Theory | [`lie-representations.md`](group-theory/lie-representations.md) | The Killing form, root systems & Dynkin diagrams, highest weights, the Weyl character formula, su(3) multiplets, Young tableaux, Casimirs (12 sections) |
+| Conformal Field Theory | [`conformal-field-theory.md`](math-methods/conformal-field-theory.md) | Conformal group, Witt & Virasoro algebras, central charge, primary fields, OPE, Verma modules & the Kac determinant, minimal models, modular invariance (12 sections) |
+| Symplectic Geometry & Geometric Quantization | [`symplectic-geometry.md`](differential-geometry/symplectic-geometry.md) | Symplectic manifolds, Darboux, Poisson brackets, moment maps & reduction, Lagrangian submanifolds, prequantization & geometric quantization (12 sections) |
+| Differential Topology & Characteristic Classes | [`differential-topology.md`](topology/differential-topology.md) | Sard's theorem, transversality, mapping degree, Poincaré–Hopf, characteristic classes, Chern–Weil, Gauss–Bonnet & Atiyah–Singer (12 sections) |
+| Operator Algebras & Algebraic QFT | [`operator-algebras.md`](functional-analysis/operator-algebras.md) | C*-algebras, the Gelfand transform, GNS construction, von Neumann factors, modular theory, CCR/CAR, the Haag–Kastler axioms, KMS states (12 sections) |
 
 *(More subjects can be added alongside these.)*
