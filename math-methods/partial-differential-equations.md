@@ -62,9 +62,27 @@ Why this trichotomy matters — the three archetypes, each verified below:
 
 The discriminant controls the **characteristics**, special curves along which information travels (s1). Hyperbolic equations have two families of real characteristics (signals run along them at finite speed); parabolic have one; elliptic have none (no preferred directions, influence is instantaneous and global). This is why a hyperbolic wave keeps a thrown stone's splash sharp, a parabolic diffusion blurs it instantly everywhere, and an elliptic potential has no "time" at all.
 
+#### Which data makes each problem well-posed
+
+A problem is **well-posed** (Hadamard's criterion) if a solution exists, is unique, and depends continuously on the data. The right data differs by class, and getting it wrong makes the problem ill-posed:
+- **Hyperbolic** (wave): give the field *and* its time-derivative at the initial instant on an open region, plus boundary values — this is the **Cauchy/initial-value problem**. Two conditions because the equation is second order in the time-like variable.
+- **Parabolic** (heat): give the field at the initial instant plus boundary values for all later times — an **initial-boundary-value problem**. Only one initial condition (first order in time), and only *forward* in time.
+- **Elliptic** (Laplace): there is no time; give the field (Dirichlet) or its normal derivative (Neumann) on the *entire closed boundary* — a **boundary-value problem**. Trying to pose Cauchy data for Laplace's equation is ill-posed: tiny ripples in the data explode (Hadamard's example $u=\frac1n\sin(nx)\sinh(ny)$ has data $O(1/n)$ but interior values $O(e^{ny}/n)$).
+
+Matching data to class is the single most common source of error in setting up a physical PDE, and the rest of the guide always respects it.
+
 #### Worked classification
 
 Classify $u_{xx} + 4u_{xy} + 3u_{yy} = 0$. Match to the template: $A=1$, $2B=4\Rightarrow B=2$, $C=3$. Then $\Delta = B^2-AC = 4-1\cdot3 = 1>0$: **hyperbolic**. (We will see in s1 it factors into two transport equations.)
+
+#### Reducing to canonical form (the deeper meaning of the classes)
+
+The classification is not just a label: it tells you the *simplest shape* into which a change of variables can squeeze the equation. By rotating/shearing coordinates one can always remove the cross term and rescale, reaching a **canonical form**:
+- hyperbolic $\to$ $u_{\xi\eta}=\text{lower order}$ (or, rotated, $u_{ss}-u_{\tau\tau}=\cdots$), the **wave** template;
+- parabolic $\to$ $u_{\eta\eta}=\text{lower order}$, the **heat** template;
+- elliptic $\to$ $u_{\xi\xi}+u_{\eta\eta}=\text{lower order}$, the **Laplace** template.
+
+We will actually carry out the hyperbolic reduction for the wave equation in s2 (the change to characteristic coordinates $\xi=x-ct,\eta=x+ct$ produces exactly $u_{\xi\eta}=0$). The lesson: there are really only *three* second-order linear PDEs, and every such equation is locally one of them in disguise. That is why this guide spends Part B on precisely those three.
 
 #### Common pitfalls
 
@@ -202,6 +220,23 @@ This is **d'Alembert's formula**. $\blacksquare$
 
 Take $c=1$, $\phi(x)=0$, $\psi(x)=1$ on $[-1,1]$ and $0$ outside (a region given an initial kick). Then $u(x,t)=\tfrac12\int_{x-t}^{x+t}\psi$. For $x=0,t=0.5$: the interval $[-0.5,0.5]$ lies inside $[-1,1]$, so $\int\psi = 1$ and $u=\tfrac12$. For $x=0,t=2$: interval $[-2,2]$, but $\psi=1$ only on $[-1,1]$ of length $2$, so $\int\psi=2$ and $u=1$. The disturbance has spread and the central value saturated — a clean illustration of finite-speed spreading.
 
+#### Conservation of energy (why waves don't fade)
+
+Define the **energy** of the wave on the whole line as
+$$
+E(t)=\frac12\int_{-\infty}^{\infty}\big(u_t^2 + c^2 u_x^2\big)\,dx,
+$$
+the kinetic part ($u_t^2$, motion) plus the potential part ($c^2u_x^2$, stretching).
+
+> **Claim.** $E(t)$ is constant in time (for data decaying at infinity).
+
+*Proof.*
+1. Differentiate under the integral: $E'(t)=\int (u_t u_{tt} + c^2 u_x u_{xt})\,dx$.
+2. In the second term integrate by parts in $x$: $\int c^2 u_x u_{xt}\,dx = [c^2 u_x u_t]_{-\infty}^\infty - \int c^2 u_{xx}u_t\,dx$. The boundary term vanishes (data decays), leaving $-\int c^2 u_{xx}u_t\,dx$.
+3. So $E'(t)=\int u_t(u_{tt}-c^2u_{xx})\,dx$. The parenthesis is zero by the wave equation. Hence $E'(t)=0$. $\blacksquare$
+
+This is why a frictionless wave keeps ringing — contrast the heat equation, which dissipates. Energy conservation is the hyperbolic counterpart to the heat equation's maximum principle and likewise gives uniqueness.
+
 #### Pitfalls
 
 - d'Alembert needs the *whole line*. On an interval (a real string) you must reflect the data at the ends to enforce boundary conditions; that reflection is exactly the Fourier/normal-mode picture of s7.
@@ -256,6 +291,8 @@ is nonzero for *all* $x$ the instant $t>0$. A point heat source is felt (tinily)
 #### Worked example
 
 A unit of heat deposited at the origin spreads as $u(x,t)=G(x,t)$. Its **width** grows like $\sqrt{t}$: the standard deviation of the Gaussian is $\sigma=\sqrt{2\kappa t}$. With $\kappa=1$, at $t=0.5$ the spread is $\sigma=1$; to double the spread to $\sigma=2$ requires $t=2$ — *four times* as long. Diffusion is slow: distance grows as the square root of time, never linearly. This $\sqrt{t}$ law is why a sugar cube takes minutes to sweeten still coffee but seconds when you stir.
+
+Concretely, with $\kappa=1$: at $t=1$ the peak height is $G(0,1)=1/\sqrt{4\pi}\approx0.282$ and the value one unit away is $G(1,1)=0.282\,e^{-1/4}\approx0.220$. At $t=4$ the peak has dropped to $1/\sqrt{16\pi}\approx0.141$ — half as tall, twice as wide — while the *total* heat $\int G\,dx=1$ is unchanged. Heat is neither created nor destroyed; it only redistributes, the peak falling exactly as fast as the tails rise.
 
 #### Where the Gaussian kernel comes from
 
@@ -313,6 +350,15 @@ where $f$ is a given source density. Laplace's equation governs electrostatic po
 #### Worked example
 
 Is $u(x,y)=x^2-y^2$ harmonic? $u_{xx}=2$, $u_{yy}=-2$, sum $=0$: yes. Check the mean-value property at the origin on the unit circle: on $x=\cos\theta,y=\sin\theta$, $u=\cos^2\theta-\sin^2\theta=\cos2\theta$, whose average over $[0,2\pi]$ is $0=u(0,0)$. Consistent.
+
+#### A Poisson worked example
+
+Solve $\nabla^2 u = -6$ (a uniform source) on the disk $r\le 1$ with $u=0$ on the rim, seeking a radially symmetric solution $u(r)$.
+1. The radial Laplacian in 2D is $\nabla^2u = u_{rr}+\frac1r u_r = \frac1r(r u_r)_r$. Set $\frac1r(ru_r)_r=-6$.
+2. Multiply by $r$ and integrate: $(ru_r)_r=-6r\Rightarrow ru_r=-3r^2 + C_1\Rightarrow u_r=-3r + C_1/r$.
+3. Finiteness at $r=0$ forces $C_1=0$ (else $u_r$ blows up). Integrate: $u=-\tfrac32 r^2 + C_2$.
+4. Boundary $u(1)=0$: $-\tfrac32 + C_2=0\Rightarrow C_2=\tfrac32$. So $u(r)=\tfrac32(1-r^2)$.
+Check: $u_{rr}=-3$, $\frac1r u_r = \frac1r(-3r)=-3$, sum $-6$. Correct. The solution is a paraboloid — the steady temperature of a disk heated uniformly throughout with its edge held cold, or the deflection of a pressurized circular membrane.
 
 #### Harmonic functions and analytic functions (a bridge)
 
@@ -402,6 +448,18 @@ Define the **inner product** $\langle f,g\rangle = \displaystyle\int_a^b f(x)g(x
 5. The left side, using $\mathcal{L}y_n=-\lambda_n w y_n$, equals $\int_a^b\big[y_m(-\lambda_n w y_n) - y_n(-\lambda_m w y_m)\big]dx = (\lambda_m-\lambda_n)\int_a^b y_m y_n w\,dx$.
 6. So $(\lambda_m-\lambda_n)\langle y_m,y_n\rangle = 0$. Since $\lambda_m\neq\lambda_n$, we conclude $\langle y_m,y_n\rangle=0$. $\blacksquare$
 
+#### Reality of the eigenvalues (proof)
+
+> **Theorem.** Every eigenvalue of a regular SL problem is real.
+
+*Proof.*
+1. Suppose $\lambda$ is an eigenvalue with eigenfunction $y$, possibly complex. Take the SL equation $\mathcal{L}y=-\lambda w y$ and its complex conjugate $\mathcal{L}\bar y = -\bar\lambda w\bar y$ (the coefficients $p,q,w$ are real, so $\mathcal{L}$ is unchanged under conjugation).
+2. Form $\bar y\,\mathcal{L}y - y\,\mathcal{L}\bar y$. By Lagrange's identity (proved above) this is a total derivative whose integral over $[a,b]$ vanishes by the boundary conditions.
+3. The same integral equals $(\bar\lambda-\lambda)\int_a^b |y|^2 w\,dx$ (substituting the eigen-relations and noting $y\bar y=|y|^2$).
+4. Since $w>0$ and $y\not\equiv0$, the integral $\int|y|^2 w\,dx>0$. Therefore $\bar\lambda-\lambda=0$, i.e. $\lambda$ is real. $\blacksquare$
+
+This is the PDE-level reason that physical observables — energies, frequencies — come out real.
+
 #### The full SL theorem (stated)
 
 > For a regular SL problem: (i) the eigenvalues are **real** and form an increasing sequence $\lambda_1<\lambda_2<\cdots\to\infty$; (ii) the eigenfunctions $\{y_n\}$ are orthogonal with weight $w$ and can be normalized to $\langle y_n,y_n\rangle=1$; (iii) they are **complete**: any reasonable function $f$ on $[a,b]$ expands as $f=\sum_n c_n y_n$ converging in the mean-square sense.
@@ -417,6 +475,14 @@ This single formula generates *every* expansion coefficient in the rest of the g
 #### Worked example
 
 The Fourier sine basis: $p=1,q=0,w=1$ on $[0,L]$, $y(0)=y(L)=0$. Eigenfunctions $y_n=\sin(n\pi x/L)$, eigenvalues $\lambda_n=(n\pi/L)^2$. Check orthogonality directly: $\int_0^L\sin\frac{m\pi x}{L}\sin\frac{n\pi x}{L}dx = \tfrac12\int_0^L[\cos\frac{(m-n)\pi x}{L}-\cos\frac{(m+n)\pi x}{L}]dx = 0$ for $m\neq n$ (both cosines integrate to zero over the interval), and $=L/2$ for $m=n$. So $\langle y_n,y_n\rangle=L/2$ and $c_n=\frac{2}{L}\int_0^L f\sin\frac{n\pi x}{L}dx$. (See the Fourier guide [`fourier-transforms.md`](fourier-transforms.md) for the convergence theory.)
+
+#### Why the eigenvalues are positive (the Rayleigh quotient)
+
+For the basic problem $-y''=\lambda y$ on $[0,L]$ with $y(0)=y(L)=0$, we can see $\lambda>0$ without solving. Multiply by $y$ and integrate:
+$$
+\lambda\int_0^L y^2\,dx = -\int_0^L y\,y''\,dx = -[yy']_0^L + \int_0^L (y')^2\,dx = \int_0^L (y')^2\,dx,
+$$
+where the boundary term vanishes because $y=0$ at both ends (integration by parts, s2's tool). The right side is $\ge0$, and it is $>0$ unless $y'\equiv0$, i.e. unless $y$ is constant — which the boundary conditions force to be zero. So $\lambda = \dfrac{\int (y')^2}{\int y^2} > 0$ for any genuine eigenfunction. This ratio is the **Rayleigh quotient**; it shows mechanically why the heat equation can only decay and the box's ground-state energy is strictly positive. The smallest eigenvalue is the *minimum* of this quotient over all admissible functions — a variational characterization linking back to the calculus of variations ([`calculus-of-variations.md`](calculus-of-variations.md)).
 
 #### Pitfall
 
@@ -459,6 +525,10 @@ $$
 Each term is a **normal mode**: a standing wave with fixed shape $\sin(n\pi x/L)$ oscillating at frequency $\omega_n=c n\pi/L$. The lowest, $n=1$, is the **fundamental**; the rest are **harmonics** at integer multiples — this integer ratio is *why* a vibrating string sounds musical.
 
 Example: a string plucked into a triangle peaking at the center, $L=1$, released from rest ($\psi=0$). Then $b_n=0$ and $a_n = \frac{8}{n^2\pi^2}\sin(n\pi/2)$, which is $0$ for even $n$ and alternates $\pm$ for odd $n$. So $a_1=8/\pi^2$, $a_3=-8/(9\pi^2)$, .... The triangle is built from odd harmonics with rapidly shrinking amplitudes — the fundamental dominates, giving the perceived pitch.
+
+#### Energy in each mode (orthogonality at work)
+
+Because the modes are orthogonal (s6), the string's total energy splits cleanly into a sum over modes with *no cross terms*. The energy in mode $n$ is proportional to $\omega_n^2(a_n^2+b_n^2)$ — each harmonic carries its own energy, independent of the others. This is why you can excite one harmonic (touch the string at its midpoint to kill even modes) without feeding the rest: the modes are dynamically decoupled, exactly as orthogonal SL eigenfunctions must be. The same fact, in quantum mechanics, becomes "energy eigenstates evolve independently" (s13).
 
 #### Pitfall
 
@@ -544,10 +614,23 @@ u(x,y)=\frac{\sin x\,\sinh y}{\sinh\pi}.
 $$
 Check: $u_{xx}=-u$ (from $\sin x$) and $u_{yy}=+u$ (from $\sinh y$), summing to $0$ — harmonic. At $y=\pi$: $u=\sin x\cdot\sinh\pi/\sinh\pi=\sin x=g(x)$. At $y=0$: $\sinh0=0$ so $u=0$. All conditions met.
 
+#### A second worked example (general top edge)
+
+Now hold the top edge at a constant $u(x,\pi)=100$ on the unit-style square $a=b=\pi$. The coefficient integral is the same one as the heated-rod example (s8): $\int_0^\pi 100\sin(nx)dx = \frac{200}{n}(1-(-1)^n)$, nonzero only for odd $n$. So
+$$
+D_n=\frac{2}{\pi\sinh(n\pi)}\cdot\frac{200(1-(-1)^n)}{2n},
+$$
+giving $D_n=\dfrac{400}{n\pi\sinh(n\pi)}$ for odd $n$. The solution
+$$
+u(x,y)=\frac{400}{\pi}\sum_{n\ \text{odd}}\frac{\sin(nx)\sinh(ny)}{n\,\sinh(n\pi)}
+$$
+equals $100$ along the top, $0$ on the other three sides, and is harmonic inside. Because $\sinh(n\pi)$ grows like $e^{n\pi}/2$, the $n=3$ coefficient is already about $e^{-2\pi}\approx2\times10^{-3}$ times the $n=1$ one *before* the spatial decay — the series converges extremely fast in the interior, a hallmark of elliptic smoothing.
+
 #### Interpretation and pitfall
 
 - The data on the top edge "diffuses" downward, decaying like $\sinh(n\pi y/a)/\sinh(n\pi b/a)$; high harmonics ($n$ large) decay fastest as you move away from the edge — Laplace's equation smooths boundary roughness into the interior, the elliptic analogue of heat smoothing.
 - Pitfall: you *must* assign the eigenvalue problem to the homogeneous-boundary direction. Putting it on $y$ here would give the wrong basis and no way to fit the data.
+- The corners where the top edge ($u=100$) meets a side ($u=0$) hold conflicting data; the solution is genuinely discontinuous there and the series shows Gibbs oscillations near the corners, harmless in the interior.
 
 ## Part E · Other coordinate systems and Green's functions
 
@@ -579,6 +662,14 @@ This is a singular Sturm–Liouville problem ($p=1-x^2$ vanishing at $x=\pm1$). 
 #### Worked example
 
 The exterior potential of a point charge is $u=q/(4\pi\varepsilon_0 r)$, the $\ell=0$, $R=r^{-1}$ radial solution — spherically symmetric, no angular dependence. A pure dipole field $\propto\cos\theta/r^2$ is the $\ell=1$, $m=0$ piece: $R=r^{-2}$, $P_1(\cos\theta)=\cos\theta$. These are the first two terms of the **multipole expansion**, which is exactly the spherical-harmonic series of an arbitrary charge distribution's potential.
+
+#### The two-constant separation, made explicit
+
+To see where $\ell(\ell+1)$ enters, take the *interior* problem $\nabla^2u=0$ with $u=R(r)Y(\theta,\varphi)$ and no azimuthal dependence ($m=0$ for brevity). Substituting and multiplying by $r^2/(RY)$:
+$$
+\frac{(r^2R')'}{R} = -\frac{1}{Y\sin\theta}\big(\sin\theta\,Y_\theta\big)_\theta .
+$$
+The left side depends only on $r$, the right only on $\theta$; by the separation argument (s5) both equal a constant. Calling it $\ell(\ell+1)$ (a choice that makes the angular equation have polynomial solutions) gives the radial Euler equation $r^2R''+2rR'-\ell(\ell+1)R=0$ with solutions $r^\ell$ and $r^{-\ell-1}$, and the Legendre equation for the angular factor. The constant's peculiar form $\ell(\ell+1)$ is dictated entirely by demanding regularity at the poles.
 
 #### Pitfall
 
@@ -613,6 +704,18 @@ The solutions are the **Bessel functions** $J_n(s)$ (regular at the origin) and 
 #### Worked example
 
 A circular drumhead of radius $a$ fixed at the rim, vibrating axisymmetrically ($n=0$). Its modes are $J_0(\alpha_{0,j}\rho/a)\cos(\omega_j t)$ with frequencies $\omega_j = c\,\alpha_{0,j}/a$. The first zeros are $\alpha_{0,1}\approx2.405$, $\alpha_{0,2}\approx5.520$. The frequency ratio $\omega_2/\omega_1\approx5.520/2.405\approx2.295$ is *not* an integer — unlike the string (s7). This is precisely *why a drum sounds inharmonic and "thuddy"* rather than producing a clear musical pitch.
+
+#### Heat on a disk (the Fourier–Bessel series)
+
+The cooling of a circular plate, initial temperature $f(\rho)$ (radially symmetric), rim held at $0$, illustrates the full machinery. Separation $u=R(\rho)T(t)$ gives $T_j(t)=e^{-\kappa(\alpha_{0,j}/a)^2 t}$ and $R_j=J_0(\alpha_{0,j}\rho/a)$, so
+$$
+u(\rho,t)=\sum_{j=1}^\infty c_j\,J_0\!\Big(\frac{\alpha_{0,j}\rho}{a}\Big)\,e^{-\kappa(\alpha_{0,j}/a)^2 t}.
+$$
+The coefficients come from the SL formula (s6) with weight $w=\rho$:
+$$
+c_j=\frac{\displaystyle\int_0^a f(\rho)\,J_0(\alpha_{0,j}\rho/a)\,\rho\,d\rho}{\displaystyle\int_0^a J_0(\alpha_{0,j}\rho/a)^2\,\rho\,d\rho}.
+$$
+The weight $\rho$ is the Jacobian of polar area $dA=\rho\,d\rho\,d\varphi$ — the geometry itself supplies the SL weight. As with the rod (s8), the lowest mode $j=1$ decays slowest, so a hot disk relaxes toward the smooth profile $J_0(\alpha_{0,1}\rho/a)$ with $\alpha_{0,1}\approx2.405$.
 
 #### Pitfall
 
@@ -662,6 +765,20 @@ With this $G$, the potential of a charge density $\rho/\varepsilon_0=f$ is $u(\m
 #### Worked check
 
 For a single point charge $q$ at the origin, $f=q\,\delta(\mathbf{x})/\varepsilon_0$, the integral collapses (the delta picks out $\mathbf{x}'=0$) to $u=\dfrac{q}{4\pi\varepsilon_0 r}$ — the standard Coulomb potential. Consistent with s10's $\ell=0$ radial solution.
+
+#### Boundary conditions and the method of images
+
+The free-space $G=1/(4\pi r)$ ignores boundaries. For a region with a grounded wall ($u=0$ on it), add an **image source** to cancel the potential there. Classic case: a point charge at height $d$ above a grounded plane $z=0$. Place a fictitious *negative* charge at $z=-d$ (the mirror image). The Green's function becomes
+$$
+G(\mathbf{x},\mathbf{x}')=\frac{1}{4\pi}\left(\frac{1}{|\mathbf{x}-\mathbf{x}'|}-\frac{1}{|\mathbf{x}-\mathbf{x}'_{\text{img}}|}\right),
+$$
+which vanishes on $z=0$ by symmetry (the two distances are equal there), satisfying the boundary condition while keeping the correct singularity inside the region. This trick converts hard boundary-value problems into free-space sums.
+
+#### Symmetry of the Green's function
+
+> **Reciprocity.** $G(\mathbf{x},\mathbf{x}')=G(\mathbf{x}',\mathbf{x})$ — the response at $\mathbf{x}$ to a source at $\mathbf{x}'$ equals the response at $\mathbf{x}'$ to a source at $\mathbf{x}$.
+
+This follows from Green's second identity applied to $G(\cdot,\mathbf{x}_1)$ and $G(\cdot,\mathbf{x}_2)$, the boundary terms vanishing under homogeneous conditions. Physically it is the statement that "you hear me exactly as well as I hear you" — a deep and useful symmetry, visible already in the free-space form where $1/|\mathbf{x}-\mathbf{x}'|$ is manifestly symmetric.
 
 #### Pitfall
 
@@ -715,10 +832,30 @@ $$
 $$
 is a traveling **plane wave** with momentum $p=\hbar k$. The relation $\omega=\hbar k^2/2m$ (not $\omega=ck$) means different wavelengths travel at different speeds — **dispersion** — so a localized wave packet (a superposition $\int A(k)\psi_k\,dk$, a Fourier integral; see [`fourier-transforms.md`](fourier-transforms.md)) spreads as it moves, the quantum analogue of diffusion.
 
+#### The general solution as an eigenfunction expansion
+
+The stationary states $\phi_n$ are the eigenfunctions of a Sturm–Liouville operator, hence orthonormal and complete (s6). So *any* initial wavefunction expands as $\psi(x,0)=\sum_n c_n\phi_n(x)$ with $c_n=\int\overline{\phi_n}\,\psi(x,0)\,dx$, and time evolution simply attaches each mode's phase:
+$$
+\psi(x,t)=\sum_n c_n\,\phi_n(x)\,e^{-iE_n t/\hbar}.
+$$
+This is identical in form to the heat-equation series (s8) — but with an *imaginary* exponent, so modes rotate in phase instead of decaying. The probabilities $|c_n|^2$ are the chances of measuring energy $E_n$, fixed in time because each $|e^{-iE_nt/\hbar}|=1$.
+
+#### Worked superposition
+
+In the box, prepare $\psi(x,0)=\frac{1}{\sqrt2}(\phi_1+\phi_2)$ (equal mix of ground and first excited states). Then
+$$
+\psi(x,t)=\frac1{\sqrt2}\big(\phi_1 e^{-iE_1t/\hbar}+\phi_2 e^{-iE_2t/\hbar}\big),
+$$
+and $|\psi|^2$ contains a cross term $\propto\cos\big((E_2-E_1)t/\hbar\big)\phi_1\phi_2$ — the probability density *sloshes* back and forth at the **Bohr frequency** $\omega=(E_2-E_1)/\hbar$. With the box energies $E_n\propto n^2$, this is $\omega=3E_1/\hbar$. Interference between stationary states is what makes a quantum system actually *do* anything in time.
+
 #### Interpretation and pitfall
 
 - Confinement (a box) gives discrete levels; freedom gives a continuum. The boundary conditions, not the equation alone, decide the spectrum — the central lesson of the whole guide.
 - Pitfall: $\psi$ is complex and not directly observable; only $|\psi|^2$ and expectation values are physical. The phase $e^{-iEt/\hbar}$ is invisible in a single stationary state but crucial in superpositions, where it produces interference and time evolution.
+
+#### The unity of the three equations, one last time
+
+Notice how every method in this guide returned. The Schrödinger equation is first-order in time like the **heat equation** (s3) — but the factor $i$ turns real decay $e^{-\lambda t}$ into pure rotation $e^{-i\lambda t}$, so probability is conserved instead of dissipated. Its stationary states are a **Sturm–Liouville** problem (s6), giving real energies and orthogonal eigenfunctions. The box reuses the *exact* eigenproblem of the vibrating **string** (s7) and the cooling **rod** (s8). The free particle is solved by **Fourier** superposition of plane waves, with the dispersion $\omega\propto k^2$ making wave packets spread — diffusion in disguise. And in three dimensions with a central potential, separation in **spherical coordinates** (s10) produces the same Legendre and radial equations that gave electrostatic multipoles. The three classical equations and the single method of expanding in the right orthogonal basis are not separate topics; they are one idea wearing different clothes.
 
 ---
 
