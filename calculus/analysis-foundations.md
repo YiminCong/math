@@ -1,3 +1,5 @@
+**English** · [中文](analysis-foundations.zh.md)
+
 # Calculus, *made rigorous.*
 
 The companion that goes underneath the formulas. Here every limit is an $\varepsilon$, every theorem is **stated precisely and proved**, and the whole edifice — continuity, derivatives, integrals, series — is rebuilt from one foundation: the **completeness** of the real numbers.

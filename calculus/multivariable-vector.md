@@ -1,3 +1,5 @@
+**English** · [中文](multivariable-vector.zh.md)
+
 # Multivariable, *connected.*
 
 A full third-semester course — the geometry of space, the calculus of functions on it, integration over regions and surfaces, and the great vector-calculus theorems — laid out basics → advanced. Every core result is **demonstrated**, and the single thread linking gradient, Green, Stokes and Gauss is made explicit.

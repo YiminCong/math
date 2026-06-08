@@ -1,3 +1,5 @@
+**English** · [中文](general-topology.zh.md)
+
 # Topology, *nearness without distance.*
 
 A full first course in point-set topology — from open sets to compactness, connectedness, and the great metrization theorems. Built basics → expert. Core definitions are stated cleanly and the central theorems are **proved**, with every thread back to analysis and forward to algebraic topology made explicit.

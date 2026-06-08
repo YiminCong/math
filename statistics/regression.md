@@ -1,3 +1,5 @@
+**English** · [中文](regression.zh.md)
+
 # Regression, *the best line and beyond.*
 
 From a single straight line through a cloud of points to the full machinery of linear models — least squares as calculus, the matrix geometry of projection, honest inference, and the generalizations (logistic, GLMs, ridge & lasso) that power modern data science. Every core result is **demonstrated**, and the threads back to calculus, probability, and linear algebra are made explicit.

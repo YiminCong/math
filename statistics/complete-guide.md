@@ -1,3 +1,5 @@
+**English** · [中文](complete-guide.zh.md)
+
 # Statistics, *connected.*
 
 A full first course — describing data, the probability that underlies it, and the inference it powers — laid out basics → advanced. Every core formula is **demonstrated**, and the threads linking them are made explicit.

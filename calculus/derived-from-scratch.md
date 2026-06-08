@@ -1,3 +1,5 @@
+**English** · [中文](derived-from-scratch.zh.md)
+
 # Calculus, *derived.*
 
 Not just a list of formulas — every core formula below is **demonstrated**: shown where it comes from, step by step. The order runs basics → advanced, and each piece is built from the one before it.
