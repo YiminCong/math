@@ -1,3 +1,5 @@
+**English** · [中文](differential-equations.zh.md)
+
 # Differential equations, *solved.*
 
 A full first course — from a single separable equation to systems, the Laplace transform, and the heat equation — laid out basics → expert. Every core method is **demonstrated** on a worked example, and the threads back to integration and linear algebra are made explicit.

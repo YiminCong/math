@@ -1,3 +1,5 @@
+**English** · [中文](README.zh.md)
+
 # Math Guides
 
 An illustrated, self-contained math library — full **calculus**, **topology**,

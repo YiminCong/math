@@ -1,3 +1,5 @@
+**English** · [中文](inference.zh.md)
+
 # Inference, *from data to truth.*
 
 A rigorous course in mathematical statistics — how a random sample is turned into estimates, intervals, tests, and posterior beliefs about unknown parameters. Every principle is given as a precise definition and every key theorem is **demonstrated**, with the threads to probability and calculus made explicit.

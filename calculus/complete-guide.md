@@ -1,3 +1,5 @@
+**English** · [中文](complete-guide.zh.md)
+
 # Calculus, *complete.*
 
 A full single-variable course — every concept, principle, formula, and the demonstrations behind them — laid out basics → advanced. The chapter flow follows Adrian Banner's *The Calculus Lifesaver* (the Princeton review-course book), so it doubles as a companion to it.

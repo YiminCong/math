@@ -1,3 +1,5 @@
+**English** · [中文](probability.zh.md)
+
 # Probability, *made rigorous.*
 
 A full course in mathematical probability — from Kolmogorov's axioms through random variables and their moments to the limit theorems that anchor all of statistics. Every core result is **demonstrated**, and the threads to calculus and inference are made explicit.
