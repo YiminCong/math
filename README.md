@@ -4,21 +4,15 @@
 
 An illustrated, self-contained math library — full **calculus**, **topology**,
 and **statistics** courses, each running from the basics to graduate-level rigor.
-Every guide comes as a **Markdown** file (reads directly on GitHub) and as a
-single self-contained **HTML** file (an interactive, searchable site with
-[KaTeX](https://katex.org/) math).
+Every guide is a **Markdown** file that renders directly on GitHub (math via
+[KaTeX](https://katex.org/)-style LaTeX), available in **English** and **简体中文**.
 
 ## Start here
 
-Every guide comes in two forms:
-
-- **Markdown** (`.md`) — renders directly on GitHub. Jump in from the tables below.
-- **HTML** (`.html`) — a single self-contained file that opens as an interactive,
-  searchable site with KaTeX-rendered math.
-
-Prefer the interactive version? Open **[`index.html`](index.html)** for a landing
-page with per-subject learning paths, a topic index, and a search box that spans
-every section of every guide (see [Viewing locally](#viewing-locally)).
+Every guide is available in **English** and **简体中文** — use the
+`English · 中文` toggle at the top of each file (or read this index in
+[中文](README.zh.md)). Jump in from the learning-path and topic tables below;
+each links straight into the relevant section.
 
 ## The calculus learning path
 
@@ -102,16 +96,3 @@ every section of every guide (see [Viewing locally](#viewing-locally)).
 | Glossary (EN ↔ 中文) | [`glossary.md`](statistics/glossary.md) | Searchable English ↔ Simplified-Chinese statistics term reference |
 
 *(More subjects can be added alongside these.)*
-
-## Viewing locally
-
-The files work by double-clicking, but to let the in-page links and search behave
-like a site, serve the folder:
-
-```sh
-python3 -m http.server
-# then open http://localhost:8000
-```
-
-Fonts and the KaTeX math fonts load from a CDN, so an internet connection gives
-the best-looking result.
