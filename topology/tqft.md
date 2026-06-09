@@ -256,11 +256,11 @@ The two constructions are mutually inverse: starting from $Z$, reading off $A$, 
 
 **What & why.** The classification of §s4 is only useful if we can *compute* with it. Here we work a complete numerical example: a specific commutative Frobenius algebra, its pants-product and copants-coproduct, and the resulting invariants of closed surfaces — including the beautiful formula $Z(\Sigma_g)=\dim A$ raised to a genus-dependent power for one natural choice.
 
-> **The genus formula.** For a $2$d TQFT $Z$ with Frobenius algebra $A$, the invariant of the closed orientable surface $\Sigma_g$ of genus $g$ (a sphere with $g$ handles) is
+> **The genus formula.** For a $2$d TQFT $Z$ with Frobenius algebra $A$, the invariant of the closed orientable surface $\Sigma_g$ of genus $g$ (a sphere with $g$ handles) is, for $g\ge 1$,
 > $$
-> Z(\Sigma_g)=\varepsilon\!\left(\,(m\circ\Delta)^{g}\,(u(1))\,\cdot\,\text{(cap on the other end)}\,\right)=\operatorname{tr}\!\big(H^{\,g}\big),\quad H:=m\circ\Delta:A\to A,
+> Z(\Sigma_g)=\operatorname{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
 > $$
-> where $H=m\circ\Delta$ is the **handle operator**. *Why:* a genus-$g$ surface read as $\varnothing\to\varnothing$ is a cap, then $g$ handles (each handle is "copants then pants," i.e. $H$), then a cup; functoriality turns the composite into the scalar $\varepsilon\circ u$ pre/post-composed with $H^g$, and tracing out gives $\operatorname{tr}(H^g)$ after using nondegeneracy.
+> where $H=m\circ\Delta$ is the **handle operator**, while the sphere is $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$. *Why:* a genus-$g$ surface read as $\varnothing\to\varnothing$ is a cap $u$, then $g$ handles (each handle is "copants then pants," i.e. $H$), then a cup $\varepsilon$, giving the scalar $\varepsilon\circ H^{g}\circ u$; the cap-then-cup pair contributes one cylinder's worth of nondegenerate pairing, so for $g\ge 1$ this collapses to $\operatorname{tr}(H^{g-1})$. In particular the torus ($g=1$) gives $Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A$, as the torus partition function must.
 
 > **Worked example — group algebra of $\mathbb{Z}/2$.** Let $A=k[\mathbb{Z}/2]=k\{1,t\}$ with $t^2=1$, over $k=\mathbb{C}$. This is a commutative algebra of dimension $2$, with unit $u(1)=1$ and multiplication
 > $$
@@ -287,7 +287,7 @@ H(t)=m(1\otimes1+t\otimes t)=1+1=2\cdot 1.
 $$
 So in the basis $\{1,t\}$, $H=\begin{pmatrix}0&2\\2&0\end{pmatrix}$.
 
-Step 4 — **surface invariants.** The sphere $\Sigma_0$: $Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$. The torus $\Sigma_1$: $Z(\Sigma_1)=\operatorname{tr}(H)=0$. The genus-two surface: $Z(\Sigma_2)=\operatorname{tr}(H^2)$, and $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$ so $\operatorname{tr}(H^2)=8$. In general $\operatorname{tr}(H^g)=2^g\big(1+(-1)^g\big)$, since $H$ has eigenvalues $\pm 2$; thus $Z(\Sigma_g)=2^{g+1}$ for even $g$ and $0$ for odd $g$. These are genuine homeomorphism invariants of the surfaces, computed purely algebraically — invariants from gluing in action.
+Step 4 — **surface invariants.** The sphere $\Sigma_0$: $Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$. The torus $\Sigma_1$: $Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A=2$, as it must. The genus-two surface: $Z(\Sigma_2)=\operatorname{tr}(H)=0$. The genus-three surface: $Z(\Sigma_3)=\operatorname{tr}(H^2)$, and $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$ so $\operatorname{tr}(H^2)=8$. In general $\operatorname{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$, since $H$ has eigenvalues $\pm 2$; thus $Z(\Sigma_g)=2^{g}$ for odd $g$ and $0$ for even $g$. These are genuine homeomorphism invariants of the surfaces, computed purely algebraically — invariants from gluing in action.
 
 > **A cleaner choice — semisimple algebras and counting.** If instead one takes $A=k^N$ (the product algebra, $N$ orthogonal idempotents $e_1,\dots,e_N$ with $e_ie_j=\delta_{ij}e_i$) and $\varepsilon(e_i)=1/\theta_i$ for nonzero scalars $\theta_i$, then $H=m\circ\Delta$ acts on $e_i$ by multiplication by $\theta_i$, and
 > $$
@@ -366,7 +366,7 @@ The mechanism deserves one sentence of explanation: any closed $3$-manifold can 
 > $$
 > J(\text{Hopf}^+) = -A^4-A^{-4},
 > $$
-> a Laurent polynomial in $A$ that is *different* for the two distinct Hopf links of opposite linking (so it detects the linking, which no abelian invariant like homology can do for the link complement directly). For comparison the *trefoil* knot evaluates to $J=-A^{-4}+A^{-12}-A^{-16}$ (in the variable $t=A^{-4}$, $J=-t^{-4}+t^{-3}+t^{-1}$, the classical Jones polynomial of the trefoil), which differs from its mirror image — proving the trefoil is *chiral* (not the same as its reflection), a fact the Jones polynomial detects and the older Alexander polynomial cannot.
+> a Laurent polynomial in $A$ that is *different* for the two distinct Hopf links of opposite linking (so it detects the linking, which no abelian invariant like homology can do for the link complement directly). For comparison the *trefoil* knot evaluates, with the substitution $t=A^{-4}$, to the classical Jones polynomial $J=V(t)=-t^{-4}+t^{-3}+t^{-1}$; written in $A$ this same polynomial is $J=-A^{16}+A^{12}+A^{4}$ (using $t^{-1}=A^4,\ t^{-3}=A^{12},\ t^{-4}=A^{16}$), which differs from its mirror image — proving the trefoil is *chiral* (not the same as its reflection), a fact the Jones polynomial detects and the older Alexander polynomial cannot.
 
 > **The Reidemeister moves, made precise.** That $J(L)$ is a knot invariant rests on the *Reidemeister theorem*: two link diagrams represent isotopic links iff one is obtained from the other by a finite sequence of three local moves — **R1** (add/remove a kink), **R2** (slide one strand over another, creating/cancelling two opposite crossings), **R3** (slide a strand past a crossing). The TQFT assignment respects exactly these: **R2** holds because $\beta\circ\beta^{-1}=\mathrm{id}$ (the braiding is invertible); **R3** holds because the braiding satisfies the *Yang–Baxter equation* $(\beta\otimes 1)(1\otimes\beta)(\beta\otimes 1)=(1\otimes\beta)(\beta\otimes 1)(1\otimes\beta)$, the algebraic form of "slide past a crossing"; **R1** holds *up to a framing twist* $\theta_X$, which is why the *framed* invariant is the canonical one. Each Reidemeister move is matched by one ribbon-category axiom — the cleanest possible dictionary between pictures and algebra.
 

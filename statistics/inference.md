@@ -324,6 +324,7 @@ The operator $\arg\max_{\theta} $ means "the value of $\theta$ at which the foll
 3. Partial derivative in $\sigma^2$ (treat $\sigma^2$ as a single variable $v$; $\frac{d}{dv}\log v=\frac1v$ and $\frac{d}{dv}(1/v)=-1/v^2$): $\partial\ell/\partial\sigma^2=-\frac{n}{2\sigma^2}+\frac{1}{2\sigma^4}\sum(x_i-\mu)^2$. Set to zero and substitute $\mu=\hat\mu=\bar X$:
 
    $$\frac{1}{2\sigma^4}\sum(x_i-\bar X)^2=\frac{n}{2\sigma^2}\ \Rightarrow\ \hat\sigma^2_{\text{MLE}}=\frac1n\sum_{i=1}^n (x_i-\bar X)^2.$$
+4. **Confirm it is the maximizer.** As $\mu\to\pm\infty$ or $\sigma^2\to 0^+$ or $\sigma^2\to\infty$, the term $-\frac n2\log\sigma^2-\frac1{2\sigma^2}\sum(x_i-\mu)^2$ drives $\ell\to-\infty$; since $\ell$ is smooth on the open region $\{\sigma^2>0\}$ and tends to $-\infty$ at every boundary, its interior critical point — being unique — must be the global maximum (formally, the Hessian is negative definite there, e.g. $\partial^2\ell/\partial\mu^2=-n/\sigma^2<0$).
 
 *Again the divisor is $n$. The MLE of the variance is biased — quantified next section.*
 
@@ -706,6 +707,20 @@ $$t_k=\frac{Z}{\sqrt{\chi^2_k/k}},\qquad F_{d_1,d_2}=\frac{\chi^2_{d_1}/d_1}{\ch
 Definitions in words: $\chi^2_k$ (chi-squared with $k$ degrees of freedom) is the distribution of $Z_1^2+\cdots+Z_k^2$, a sum of $k$ independent squared standard normals. $t_k$ is a standard normal divided by the square root of an *independent* $\chi^2_k$ scaled by its degrees of freedom. $F_{d_1,d_2}$ is a ratio of two independent chi-squareds, each divided by its own degrees of freedom.
 
 *$\bar X\perp S^2$ for a normal sample (the symbol $\perp$ means "independent of"; the sample mean and sample variance are independent for normal data) — this independence is what makes the $t$ ratio's numerator and denominator independent, as the definition of $t_k$ requires.*
+
+**Demonstration — $(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ and $\bar X\perp S^2$ via the Helmert transformation**
+
+*These two facts — quietly used above and in Section 6 — are the keystone of normal-sample theory. Here is their proof for $X_1,\dots,X_n\ \text{i.i.d.}\ \sim N(\mu,\sigma^2)$.*
+
+1. **Standardize.** Put $Z_i=(X_i-\mu)/\sigma$. Then $Z_1,\dots,Z_n\ \text{i.i.d.}\ \sim N(0,1)$, so the random vector $\mathbf Z=(Z_1,\dots,Z_n)^\top$ has the **spherically symmetric** joint density $\propto\exp\!\big(-\tfrac12\sum_i z_i^2\big)=\exp\!\big(-\tfrac12\|\mathbf z\|^2\big)$. It depends on $\mathbf z$ only through its length $\|\mathbf z\|^2=\sum z_i^2$.
+2. **Apply an orthogonal (Helmert) transformation.** Let $A$ be an $n\times n$ **orthogonal matrix** ($A^\top A=I$, i.e. its rows are mutually perpendicular unit vectors) whose **first row** is the constant vector $\big(\tfrac{1}{\sqrt n},\dots,\tfrac{1}{\sqrt n}\big)$; the remaining $n-1$ rows are any unit vectors completing an orthonormal basis (the classical **Helmert matrix** is one explicit choice). Define $\mathbf Y=A\mathbf Z$, i.e. $Y_j=\sum_i A_{ji}Z_i$.
+3. **The transformed vector is again i.i.d. standard normal.** An orthogonal map preserves length, $\|\mathbf Y\|^2=\mathbf Z^\top A^\top A\,\mathbf Z=\|\mathbf Z\|^2$, and has Jacobian determinant $\pm1$, so the density of $\mathbf Y$ is $\propto\exp\!\big(-\tfrac12\|\mathbf y\|^2\big)$ — the *same* spherical form. That density factors as $\prod_j\exp(-\tfrac12 y_j^2)$, so $Y_1,\dots,Y_n\ \text{i.i.d.}\ \sim N(0,1)$. (Equivalently: a linear combination of independent normals is normal, and orthogonality makes the $Y_j$ uncorrelated, hence — being jointly normal — independent.)
+4. **Identify the first coordinate.** $Y_1=\sum_i\tfrac{1}{\sqrt n}Z_i=\sqrt n\,\bar Z$, where $\bar Z=\frac1n\sum Z_i=(\bar X-\mu)/\sigma$. Thus $Y_1=\sqrt n\,(\bar X-\mu)/\sigma$ is a function of $\bar X$ alone.
+5. **Identify the remaining coordinates as $S^2$.** Since $A$ preserves length, $\sum_{j=1}^n Y_j^2=\sum_{i=1}^n Z_i^2$. Subtract the first coordinate: by the algebra of step 4 and the identity $\sum_i(Z_i-\bar Z)^2=\sum_i Z_i^2-n\bar Z^2$,
+   $$\sum_{j=2}^n Y_j^2=\sum_{i=1}^n Z_i^2-Y_1^2=\sum_{i=1}^n Z_i^2-n\bar Z^2=\sum_{i=1}^n(Z_i-\bar Z)^2=\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\bar X)^2=\frac{(n-1)S^2}{\sigma^2}.$$
+6. **Read off both conclusions.** The right-hand side $\sum_{j=2}^n Y_j^2$ is a sum of $n-1$ independent squared standard normals, which is by definition $\chi^2_{n-1}$; hence $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$. Moreover $\bar X$ is a function of $Y_1$ only (step 4) while $S^2$ is a function of $Y_2,\dots,Y_n$ only (step 5), and these two groups of $Y_j$ are independent (step 3); therefore $\bar X\perp S^2$.
+
+*The single trick — rotate the i.i.d. normal vector so that one new axis points along the all-ones direction (the mean) and the other $n-1$ axes span the orthogonal complement (the deviations) — delivers both facts at once, and shows transparently where the "$n-1$ degrees of freedom" come from: one axis was spent on $\bar X$.*
 
 | Distribution | Definition | Used for | Test statistic |
 | --- | --- | --- | --- |

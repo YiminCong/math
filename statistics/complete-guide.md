@@ -384,6 +384,7 @@ Definitions:
 - For a **discrete** variable, $P(x)$ is the probability that $X$ equals the value $x$, and we sum over all possible values.
 - For a **continuous** variable, $f(x)$ is the **probability density function** — a curve whose height represents relative likelihood — and the integral $\int$ is the continuous version of the sum.
 - $\operatorname{Var}(X)$ is the **variance** of $X$: the expected squared distance from its mean $\mu=E[X]$. Its square root is the standard deviation of $X$.
+- More generally, the expectation of *any function* of $X$ is found by the same weighted average: $E[g(X)]=\sum_x g(x)\,P(x)$ (discrete) or $\int g(x)f(x)\,dx$ (continuous). In particular $E[X^2]=\sum_x x^2\,P(x)$ — used in the variance shortcut and the die example below.
 
 > **Connection — this is where calculus enters**
 >
@@ -620,6 +621,8 @@ $$
 $$
 
 Definitions: the **critical value** ($z^{*}$ or $t^{*}$) is the number of standard errors you reach out on each side to capture the desired percentage of the sampling distribution; for $95\%$ confidence with large $n$, $z^{*}\approx1.96$. The $\pm$ part is the **margin of error**. The symbols $s$ and $t^{*}$ are explained in the connection box below.
+
+Note on the proportion interval: the true standard error is $\sqrt{p(1-p)/n}$, which depends on the unknown $p$; we substitute the estimate $\hat p$ for $p$ inside the square root. This **plug-in approximation** is accurate for large $n$ (where $\hat p\approx p$).
 
 **Why this form works (justification).** From §s9 the estimate $\bar x$ is centered on the true $\mu$ with spread $\text{SE}$, and from the CLT (§s8) it is approximately Normal. The empirical rule (§s8) says about $95\%$ of Normal values fall within (just under) $2$ SE of the center. So reaching out $z^{*}\approx1.96$ standard errors on each side traps the true value in $95\%$ of samples. That is exactly what the formula does.
 

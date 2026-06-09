@@ -324,6 +324,7 @@ $$\hat\theta_{\text{MLE}}=\arg\max_{\theta\in\Theta} L(\theta)=\arg\max_{\theta\
 3. 对 $\sigma^2$ 求偏导（把 $\sigma^2$ 当作单个变量 $v$；$\frac{d}{dv}\log v=\frac1v$ 且 $\frac{d}{dv}(1/v)=-1/v^2$）：$\partial\ell/\partial\sigma^2=-\frac{n}{2\sigma^2}+\frac{1}{2\sigma^4}\sum(x_i-\mu)^2$。置零并代入 $\mu=\hat\mu=\bar X$：
 
    $$\frac{1}{2\sigma^4}\sum(x_i-\bar X)^2=\frac{n}{2\sigma^2}\ \Rightarrow\ \hat\sigma^2_{\text{MLE}}=\frac1n\sum_{i=1}^n (x_i-\bar X)^2.$$
+4. **确认它是最大值点。** 当 $\mu\to\pm\infty$，或 $\sigma^2\to 0^+$，或 $\sigma^2\to\infty$ 时，项 $-\frac n2\log\sigma^2-\frac1{2\sigma^2}\sum(x_i-\mu)^2$ 使 $\ell\to-\infty$；由于 $\ell$ 在开区域 $\{\sigma^2>0\}$ 上光滑且在每个边界都趋于 $-\infty$，其内部的临界点——既然唯一——必是全局最大值（严格地说，那里的海森矩阵负定，例如 $\partial^2\ell/\partial\mu^2=-n/\sigma^2<0$）。
 
 *除数又是 $n$。方差的 MLE 是有偏的——下一节将量化它。*
 
@@ -706,6 +707,20 @@ $$t_k=\frac{Z}{\sqrt{\chi^2_k/k}},\qquad F_{d_1,d_2}=\frac{\chi^2_{d_1}/d_1}{\ch
 文字定义：$\chi^2_k$（自由度为 $k$ 的卡方）是 $Z_1^2+\cdots+Z_k^2$ 的分布，即 $k$ 个独立标准正态平方之和。$t_k$ 是一个标准正态除以一个*独立*的 $\chi^2_k$ 按其自由度缩放后的平方根。$F_{d_1,d_2}$ 是两个独立卡方之比，每个各除以其自身的自由度。
 
 *对正态样本 $\bar X\perp S^2$（符号 $\perp$ 表示“独立于”；对正态数据样本均值与样本方差独立）——正是这一独立性使 $t$ 比值的分子与分母独立，正如 $t_k$ 的定义所要求。*
+
+**演示 —— 借助 Helmert 变换证明 $(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ 与 $\bar X\perp S^2$**
+
+*这两个事实——在上文以及第 6 节中被默默使用——是正态样本理论的基石。下面对 $X_1,\dots,X_n\ \text{i.i.d.}\ \sim N(\mu,\sigma^2)$ 给出它们的证明。*
+
+1. **标准化。** 令 $Z_i=(X_i-\mu)/\sigma$。则 $Z_1,\dots,Z_n\ \text{i.i.d.}\ \sim N(0,1)$，于是随机向量 $\mathbf Z=(Z_1,\dots,Z_n)^\top$ 具有**球对称**的联合密度 $\propto\exp\!\big(-\tfrac12\sum_i z_i^2\big)=\exp\!\big(-\tfrac12\|\mathbf z\|^2\big)$。它对 $\mathbf z$ 的依赖只通过其长度 $\|\mathbf z\|^2=\sum z_i^2$。
+2. **施加一个正交（Helmert）变换。** 设 $A$ 是一个 $n\times n$ **正交矩阵**（$A^\top A=I$，即其各行是两两垂直的单位向量），其**第一行**是常向量 $\big(\tfrac{1}{\sqrt n},\dots,\tfrac{1}{\sqrt n}\big)$；其余 $n-1$ 行是补全一组标准正交基的任意单位向量（经典的 **Helmert 矩阵**是一种显式选择）。定义 $\mathbf Y=A\mathbf Z$，即 $Y_j=\sum_i A_{ji}Z_i$。
+3. **变换后的向量仍是 i.i.d. 标准正态。** 正交映射保持长度，$\|\mathbf Y\|^2=\mathbf Z^\top A^\top A\,\mathbf Z=\|\mathbf Z\|^2$，且雅可比行列式为 $\pm1$，所以 $\mathbf Y$ 的密度 $\propto\exp\!\big(-\tfrac12\|\mathbf y\|^2\big)$——*同样*的球对称形式。该密度分解为 $\prod_j\exp(-\tfrac12 y_j^2)$，所以 $Y_1,\dots,Y_n\ \text{i.i.d.}\ \sim N(0,1)$。（等价地：独立正态的线性组合是正态，而正交性使各 $Y_j$ 不相关，因此——由于联合正态——相互独立。）
+4. **辨认第一个坐标。** $Y_1=\sum_i\tfrac{1}{\sqrt n}Z_i=\sqrt n\,\bar Z$，其中 $\bar Z=\frac1n\sum Z_i=(\bar X-\mu)/\sigma$。因此 $Y_1=\sqrt n\,(\bar X-\mu)/\sigma$ 只是 $\bar X$ 的函数。
+5. **辨认其余坐标即 $S^2$。** 由于 $A$ 保持长度，$\sum_{j=1}^n Y_j^2=\sum_{i=1}^n Z_i^2$。减去第一个坐标：由第 4 步的代数以及恒等式 $\sum_i(Z_i-\bar Z)^2=\sum_i Z_i^2-n\bar Z^2$，
+   $$\sum_{j=2}^n Y_j^2=\sum_{i=1}^n Z_i^2-Y_1^2=\sum_{i=1}^n Z_i^2-n\bar Z^2=\sum_{i=1}^n(Z_i-\bar Z)^2=\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\bar X)^2=\frac{(n-1)S^2}{\sigma^2}.$$
+6. **读出两个结论。** 右端 $\sum_{j=2}^n Y_j^2$ 是 $n-1$ 个独立标准正态平方之和，按定义即 $\chi^2_{n-1}$；因此 $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$。此外 $\bar X$ 只是 $Y_1$ 的函数（第 4 步），而 $S^2$ 只是 $Y_2,\dots,Y_n$ 的函数（第 5 步），且这两组 $Y_j$ 相互独立（第 3 步）；所以 $\bar X\perp S^2$。
+
+*这唯一的技巧——把 i.i.d. 正态向量旋转，使一个新坐标轴指向全 1 方向（均值），而另外 $n-1$ 个轴张成其正交补（偏差）——一举给出两个事实，并清晰地展示了“$n-1$ 个自由度”从何而来：一个轴被 $\bar X$ 花掉了。*
 
 | 分布 | 定义 | 用于 | 检验统计量 |
 | --- | --- | --- | --- |

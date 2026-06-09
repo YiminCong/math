@@ -194,7 +194,7 @@ $$
 > **莫亚尔–外尔是星积的推导。**
 >
 > 1. **$\hbar^0$ 阶。** 指数的 $k=0$ 项是 $fg$，所以 $B_0(f,g)=fg$，验证 (S1)。（理由：$\exp(0)=1$，且 $k=0$ 的被加项是 $f\cdot 1\cdot g$。）
-> 2. **$\hbar^1$ 阶。** $k=1$ 项是 $\tfrac{i\hbar}{2}\sum_{ij}\pi^{ij}(\partial_i f)(\partial_j g)=\tfrac{i\hbar}{2}\,\pi(df,dg)$。所以 $B_1(f,g)=\tfrac{i}{2}\pi(df,dg)$。它的反对称部分是 $B_1(f,g)-B_1(g,f)=\tfrac{i}{2}\pi(df,dg)-\tfrac{i}{2}\pi(dg,df)=i\,\pi(df,dg)$。采用标准约定 $\{f,g\}=\tfrac{1}{i}[f,g]_\star+O(\hbar)$，这与 (S2) 相符，至多差一个由 $\tfrac{i\hbar}{2}$ 约定引入的普适因子 $i$；在实约定（$\tfrac{\hbar}{2}\overleftrightarrow{P}$）下恰好得到 $\{f,g\}$。
+> 2. **$\hbar^1$ 阶。** $k=1$ 项是 $\tfrac{i\hbar}{2}\sum_{ij}\pi^{ij}(\partial_i f)(\partial_j g)=\tfrac{i\hbar}{2}\,\pi(df,dg)$。所以 $B_1(f,g)=\tfrac{i}{2}\pi(df,dg)$。它的反对称部分是 $B_1(f,g)-B_1(g,f)=\tfrac{i}{2}\pi(df,dg)-\tfrac{i}{2}\pi(dg,df)=i\,\pi(df,dg)=i\{f,g\}$。在此处采用的 Hermite $\tfrac{i\hbar}{2}$ 约定下，公理 (S2) 取形式 $B_1(f,g)-B_1(g,f)=i\{f,g\}$（因子 $i$ 使对易子成为 Hermite 的，$\{f,g\}=\tfrac{1}{i\hbar}[f,g]_\star+O(\hbar)$）。转到实约定 $\tfrac{\hbar}{2}\overleftrightarrow{P}$（等价于 $\hbar\to-i\hbar$）即去掉 $i$，恰好按所述得到 (S2)，即 $B_1(f,g)-B_1(g,f)=\{f,g\}$——这正是 s8 中 Kontsevich 推导所用的归一化。
 > 3. **单位元。** 由于 $\partial_i 1=0$，每个 $k\ge 1$ 项只要有一个自变量等于 $1$ 就消失，所以 $1\star f=f\star1=f$，验证 (S3)。（理由：常数的导数为零。）
 > 4. **结合律。** 这是核心所在。把双微分算子 $P$ 引入为一对导子，并注意到由于 $\pi^{ij}$ *常值*，作用在不同因子上的算子 $\overleftarrow{\partial_i}$ 和 $\overrightarrow{\partial_j}$ **可交换**，所以指数满足某种"余结合律"：先对 $(f,g)$ 作用 $\exp(\tfrac{i\hbar}{2}\overleftrightarrow P)$ 再与 $h$ 配对，产生与先对 $(g,h)$ 作用相同的三重导数加权。具体地说，$(f\star g)\star h$ 和 $f\star(g\star h)$ 都展开为单一的对称表达式
 >
@@ -245,7 +245,7 @@ $$
 1. $Tf=f+\hbar T_1 f$，$Tg$ 类似。（$T$ 的定义。）
 2. $Tf\star Tg=(f+\hbar T_1f)(g+\hbar T_1g)+\hbar B_1(f,g)+O(\hbar^2)=fg+\hbar(T_1f\,g+f\,T_1g+B_1(f,g))+O(\hbar^2)$。（代入并使用 $B_0=$ 乘积。）
 3. 应用 $T^{-1}=\mathbb{1}-\hbar T_1+\cdots$：$f\star'g=fg+\hbar\big(T_1f\,g+f\,T_1g+B_1(f,g)-T_1(fg)\big)+O(\hbar^2)$。
-4. 所以 $B_1'(f,g)=B_1(f,g)+\big(T_1f\,g+f\,T_1g-T_1(fg)\big)$。如果 $T_1$ 是导子，添加项在 $f,g$ 中是*对称的*，并且一般而言它的反对称化消失，因为 $T_1f\,g+f\,T_1g-T_1(fg)$ 在 $(f,g)$ 中是对称的——确实交换 $f\leftrightarrow g$ 使它保持不变。因此 $B_1'(f,g)-B_1'(g,f)=B_1(f,g)-B_1(g,f)=\{f,g\}$。$\qquad\blacksquare$
+4. 所以 $B_1'(f,g)=B_1(f,g)+\big(T_1f\,g+f\,T_1g-T_1(fg)\big)$。添加项在 $f,g$ 中*无条件地*对称——$T_1f\,g$、$f\,T_1g$ 与 $T_1(fg)$ 中每一项在 $f\leftrightarrow g$ 下要么保持不变要么与另一加项互换，故整个表达式不变——因此它的反对称化消失。所以 $B_1'(f,g)-B_1'(g,f)=B_1(f,g)-B_1(g,f)=\{f,g\}$。$\qquad\blacksquare$
 
 因此 $B_1$ 的反对称部分，即泊松括号，是一个**规范不变量**；对称部分则是纯规范。s2 的排序歧义恰好就是选择 $T_1$ 的自由度。
 
