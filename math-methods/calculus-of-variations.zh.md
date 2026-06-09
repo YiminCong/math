@@ -165,7 +165,7 @@ $$
 
 > **引理 — 变分法基本引理**
 >
-> 设 $g$ 是 $[a,b]$ 上的连续函数。若对**每一个**满足 $\eta(a)=\eta(b)=0$ 的光滑函数 $\eta$ 都有 $\displaystyle\int_a^b g(x)\,\eta(x)\,dx=0$，则对一切 $x\in[a,b]$ 有 $g(x)=0$。
+> 设 $g$ 是 $[a,b]$ 上的连续函数。若对**每一个**满足 $\eta(a)=\eta(b)=0$ 的 $C^1$ 检验函数 $\eta$ 都有 $\displaystyle\int_a^b g(x)\,\eta(x)\,dx=0$，则对一切 $x\in[a,b]$ 有 $g(x)=0$。（只要求 $C^1$ 检验函数使引理更易应用——下面那个显式凸起就是 $C^1$ 的——而这对 $C^2$ 的欧拉–拉格朗日理论已经足够，因为对更小的 $C^1$ 凸起类积分为零就已迫使 $g\equiv0$；从而对一切光滑的 $\eta$ 它也为零。）
 
 *引理的证明（反证法）。*
 1. 假设 $g$ 不恒为零。那么存在一点 $c\in(a,b)$ 使 $g(c)\neq0$；设 $g(c)>0$（若 $g(c)<0$ 则把 $g$ 换成 $-g$）。
@@ -174,7 +174,7 @@ $$
    $$
    \eta(x)=\begin{cases}\big[(x-(c-\rho))(\,(c+\rho)-x)\big]^2,& x\in[c-\rho,c+\rho],\\[2pt]0,&\text{otherwise.}\end{cases}
    $$
-   这个 $\eta$ 是光滑的（在接合处为 $C^1$，因为平方因子及其一阶导数在该处都为零），满足 $\eta(a)=\eta(b)=0$，处处 $\ge0$，且在开区间 $(c-\rho,c+\rho)$ 上严格 $>0$。
+   这个 $\eta$ 是 $C^1$ 的（在接合处平方因子及其一阶导数都为零，故 $\eta$ 与 $\eta'$ 都与零的那一段相接；它在该处不是 $C^2$，但 $C^1$ 正是引理现在的假设所要求的全部），满足 $\eta(a)=\eta(b)=0$，处处 $\ge0$，且在开区间 $(c-\rho,c+\rho)$ 上严格 $>0$。
 4. 于是 $\int_a^b g\,\eta\,dx=\int_{c-\rho}^{c+\rho} g\,\eta\,dx>0$，因为被积函数在一个正长度集合上是两个正量之积、在别处为零。（一个在某区间上为正的连续函数的积分是正的。）
 5. 这与"该积分对*每一个*这样的 $\eta$ 都为零"的假设矛盾。因此不存在这样的 $c$，故 $g\equiv0$。$\blacksquare$
 
@@ -243,7 +243,11 @@ $y''$ 的出现表明该方程一般是二阶的。
    $$
    *理由：* 通分到公分母 $\sqrt{1+y'^2}$；分子 $\,(1+y'^2)-y'^2=1$。
 4. **化为常微分方程。** 平方并吸收常数后，$y\,(1+y'^2)=C$，其中常数 $C=2R$。这是**摆线**的定义微分方程。
-5. **用参数求解。** 令 $y'=\cot(\theta/2)$。则 $1+y'^2=1+\cot^2(\theta/2)=\csc^2(\theta/2)$，故 $y=\dfrac{C}{\csc^2(\theta/2)}=C\sin^2(\theta/2)=\tfrac{C}{2}(1-\cos\theta)=R(1-\cos\theta)$。由 $dx=dy/y'$ 积分得 $x=R(\theta-\sin\theta)$。
+5. **用参数求解。** 之所以选代换 $y'=\cot(\theta/2)$，是为了让讨厌的因子 $1+y'^2$ 借毕达哥拉斯恒等式坍缩：$1+y'^2=1+\cot^2(\theta/2)=\csc^2(\theta/2)$，正是它使下面的代数闭合。借此，$y=\dfrac{C}{\csc^2(\theta/2)}=C\sin^2(\theta/2)=\tfrac{C}{2}(1-\cos\theta)=R(1-\cos\theta)$，这里用了半角恒等式 $\sin^2(\theta/2)=\tfrac12(1-\cos\theta)$。现在由 $dx=dy/y'$ 积分来恢复 $x$。对 $y=R(1-\cos\theta)$ 求导得 $dy=R\sin\theta\,d\theta$，于是
+   $$
+   dx=\frac{dy}{y'}=\frac{R\sin\theta\,d\theta}{\cot(\theta/2)}=R\sin\theta\,\tan(\theta/2)\,d\theta.
+   $$
+   半角化简 $\sin\theta=2\sin(\theta/2)\cos(\theta/2)$ 把 $\sin\theta\,\tan(\theta/2)=2\sin^2(\theta/2)=1-\cos\theta$，所以 $dx=R(1-\cos\theta)\,d\theta$。积分（取 $\theta=0$ 时 $x=0$）得 $x=R(\theta-\sin\theta)$。
    $$
    x=R(\theta-\sin\theta),\qquad y=R(1-\cos\theta).
    $$
