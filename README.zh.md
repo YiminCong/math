@@ -144,5 +144,10 @@
 | 量子群与 Hopf 代数 | [`quantum-groups.zh.md`](group-theory/quantum-groups.zh.md) | Hopf 代数、q-形变、U_q(sl₂)、R-矩阵与 Yang–Baxter 方程、辫子范畴、FRT/SL_q(2)、Jones 多项式、可积自旋链（12 节） |
 | 同调代数与谱序列 | [`homological-algebra.zh.md`](topology/homological-algebra.zh.md) | 蛇引理/五引理、消解、Tor 与 Ext、万有系数与 Künneth、阿贝尔范畴、谱序列、Leray–Serre、群上同调（12 节） |
 | 拓扑 K-理论 | [`k-theory.zh.md`](topology/k-theory.zh.md) | 向量丛、Grothendieck 群、Bott 周期性、广义上同调、Chern 特征、Thom 同构、KO-理论、D-膜电荷与拓扑相（12 节） |
+| 模形式与数论物理 | [`modular-forms.zh.md`](math-methods/modular-forms.zh.md) | SL(2,ℤ) 与上半平面、艾森斯坦级数、j-不变量、价数公式、Hecke 算子、θ 与 Dedekind η、L-函数、配分函数的模不变性（12 节） |
+| 顶点算子代数 | [`vertex-operator-algebras.zh.md`](math-methods/vertex-operator-algebras.zh.md) | 形式分布、顶点代数公理、重构定理、Heisenberg 与格点 VOA、Sugawara 构造、Zhu 代数、模不变性、月光（12 节） |
+| 高阶范畴与 TQFT | [`tqft.zh.md`](topology/tqft.zh.md) | 配边范畴、Atiyah–Segal 公理、2D TQFT=Frobenius 代数、模张量范畴、Reshetikhin–Turaev、上同调假设、任意子（12 节） |
+| 形变量子化与泊松几何 | [`deformation-quantization.zh.md`](differential-geometry/deformation-quantization.zh.md) | 泊松流形、Moyal–Weyl 星积、Fedosov 构造、Kontsevich 形式性定理、Wigner–Weyl 相空间量子力学（12 节） |
+| 随机偏微分方程 | [`stochastic-pdes.zh.md`](math-methods/stochastic-pdes.zh.md) | 白噪声与高斯测度、随机热方程、无穷维 Itô 微积分、KPZ、正则结构、随机量子化、构造性 QFT（12 节） |
 
 *（之后可以按同样的方式继续加入更多学科。）*
