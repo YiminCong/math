@@ -17,7 +17,7 @@
 
 #### 三个激发动机的舞台
 
-- **临界现象。** 加热一块磁铁。在一个特殊温度 $T_c$——**临界温度**——之下，它是磁化的；在其之上，则不是。恰好*处于* $T_c$ 时，这块磁铁是**尺度不变**的：放大一张上下自旋分布的快照，新图像在统计意义上与旧图像完全相同。不存在任何特征长度——**关联长度**（两个自旋彼此"知晓"对方的典型距离）已变为无穷大。一个尺度不变的统计系统，当它同时具有旋转不变性、平移不变性且是局域的时候，几乎总是在完整的共形群下不变。二维 **Ising 模型**（一个由 $\pm1$ 自旋构成的方格阵列，每个自旋倾向于与邻居取向一致）正坐落在这样一个临界点上，我们将在 §s10 中把它鉴别为**中心荷** $c=\tfrac12$ 的共形场论。
+- **临界现象。** 加热一块磁铁。在一个特殊温度 $T_c$ ——**临界温度**——之下，它是磁化的；在其之上，则不是。恰好*处于* $T_c$ 时，这块磁铁是**尺度不变**的：放大一张上下自旋分布的快照，新图像在统计意义上与旧图像完全相同。不存在任何特征长度——**关联长度**（两个自旋彼此"知晓"对方的典型距离）已变为无穷大。一个尺度不变的统计系统，当它同时具有旋转不变性、平移不变性且是局域的时候，几乎总是在完整的共形群下不变。二维 **Ising 模型**（一个由 $\pm1$ 自旋构成的方格阵列，每个自旋倾向于与邻居取向一致）正坐落在这样一个临界点上，我们将在 §s10 中把它鉴别为**中心荷** $c=\tfrac12$ 的共形场论。
 
 - **重整化群及其不动点。** **重整化群**（RG）是反复对一个系统进行"粗粒化"的过程——把短距离细节平均掉并重新标度——并观察其有效描述如何流动。这一流动的**不动点**是一个在粗粒化下映回*自身*的理论：它是尺度不变的，因而（在上述温和假设下）是共形不变的。不动点支配着*每一个*流向它们的理论的大距离物理，所以对共形场论进行分类，就是对物质可能的长距离行为进行分类。这正是共形场论成为临界现象语言的原因。
 
@@ -25,7 +25,7 @@
 
 #### 为何二维独具威力
 
-在 $d>2$ 维中，共形群是有限维的（我们在 §s1 中数出它的参数）：它是群 $SO(d+1,1)$，有 $\tfrac12(d+1)(d+2)$ 个生成元。有限的对称性能确定某些数据（它固定了二点和三点关联函数的形式，§s7），但无法求解理论。相比之下，在 $d=2$ 中，局域共形变换就是复平面的**全纯映射**（§s2），而这样的映射有无穷多个。相应的**无穷维**生成元代数——Witt 代数（§s2），在量子理论中提升为 Virasoro 代数（§s3）——如此庞大，以至于它把理论的整个谱组织成寥寥几个表示，并固定了动力学。这就是 $d=2$ 把对称性"推向无穷"的含义。
+在 $d>2$ 维中，共形群是有限维的（我们在 §s1 中数出它的参数）：它是群 $SO(d+1,1)$ ，有 $\tfrac12(d+1)(d+2)$ 个生成元。有限的对称性能确定某些数据（它固定了二点和三点关联函数的形式，§s7），但无法求解理论。相比之下，在 $d=2$ 中，局域共形变换就是复平面的**全纯映射**（§s2），而这样的映射有无穷多个。相应的**无穷维**生成元代数——Witt 代数（§s2），在量子理论中提升为 Virasoro 代数（§s3）——如此庞大，以至于它把理论的整个谱组织成寥寥几个表示，并固定了动力学。这就是 $d=2$ 把对称性"推向无穷"的含义。
 
 #### 一行话概括整份指南
 
@@ -45,24 +45,26 @@
 
 #### 通过度规定义共形变换
 
-我们在平直的 $d$ 维空间中工作，坐标为 $x=(x^1,\dots,x^d)$。**度规** $g_{\mu\nu}$ 是把坐标差转化为距离平方的一组数：一个无穷小位移 $dx^\mu$ 的长度平方为 $ds^2=g_{\mu\nu}\,dx^\mu dx^\nu$。（重复指标求和——**爱因斯坦求和约定**——所以 $g_{\mu\nu}dx^\mu dx^\nu$ 表示 $\sum_{\mu,\nu}g_{\mu\nu}dx^\mu dx^\nu$。）在平直欧氏空间中 $g_{\mu\nu}=\delta_{\mu\nu}$，即 **Kronecker delta**（若 $\mu=\nu$ 则为 $1$，否则为 $0$），所以 $ds^2=(dx^1)^2+\cdots+(dx^d)^2$。
+我们在平直的 $d$ 维空间中工作，坐标为 $x=(x^1,\dots,x^d)$ 。**度规** $g_{\mu\nu}$ 是把坐标差转化为距离平方的一组数：一个无穷小位移 $dx^\mu$ 的长度平方为 $ds^2=g_{\mu\nu}\,dx^\mu dx^\nu$ 。（重复指标求和——**爱因斯坦求和约定**——所以 $g_{\mu\nu}dx^\mu dx^\nu$ 表示 $\sum_{\mu,\nu}g_{\mu\nu}dx^\mu dx^\nu$ 。）在平直欧氏空间中 $g_{\mu\nu}=\delta_{\mu\nu}$ ，即 **Kronecker delta**（若 $\mu=\nu$ 则为 $1$ ，否则为 $0$ ），所以 $ds^2=(dx^1)^2+\cdots+(dx^d)^2$ 。
 
 > **定义 — 共形变换。** 一个光滑、可逆的坐标变换 $x\mapsto x'(x)$ 称为**共形的**，如果它把度规按单一的正函数 $\Omega(x)^2$ 重新标度，在每一点对每个方向都用同一个因子：
+>
 > $$
 > g_{\mu\nu}\big(x'\big)\,\frac{\partial x'^{\rho}}{\partial x^{\mu}}\frac{\partial x'^{\sigma}}{\partial x^{\nu}} \;=\; \Omega(x)^{2}\,g_{\rho\sigma}(x).
 > $$
+>
 > 因子 $\Omega(x)$ 是**局域标度因子**。由于同一个 $\Omega$ 乘在所有方向上，任意两个向量之间的*角度*——一个点积之比——保持不变，而长度则按 $\Omega$ 标度。这正是"保角"的精确含义。
 
 #### 无穷小条件
 
-为了找出所有共形变换，我们考察那些与恒等变换无穷接近的变换。写 $x'^\mu=x^\mu+\epsilon^\mu(x)$，其中 $\epsilon$ 很小，并写 $\Omega(x)^2=1+\omega(x)$，其中 $\omega$ 很小。
+为了找出所有共形变换，我们考察那些与恒等变换无穷接近的变换。写 $x'^\mu=x^\mu+\epsilon^\mu(x)$ ，其中 $\epsilon$ 很小，并写 $\Omega(x)^2=1+\omega(x)$ ，其中 $\omega$ 很小。
 
-1. **将度规条件线性化。** 代入定义并只保留 $\epsilon$ 的一阶项，平直度规的变化为 $\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu$，其中 $\epsilon_\mu=\delta_{\mu\nu}\epsilon^\nu$ 且 $\partial_\mu=\partial/\partial x^\mu$。*（理由：对 $x'^\rho=x^\rho+\epsilon^\rho$ 求导得 $\partial x'^\rho/\partial x^\mu=\delta^\rho_\mu+\partial_\mu\epsilon^\rho$，展开相乘，并舍去 $(\partial\epsilon)^2$ 项。）* 条件变为
+1. **将度规条件线性化。** 代入定义并只保留 $\epsilon$ 的一阶项，平直度规的变化为 $\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu$ ，其中 $\epsilon_\mu=\delta_{\mu\nu}\epsilon^\nu$ 且 $\partial_\mu=\partial/\partial x^\mu$ 。*（理由：对 $x'^\rho=x^\rho+\epsilon^\rho$ 求导得 $\partial x'^\rho/\partial x^\mu=\delta^\rho_\mu+\partial_\mu\epsilon^\rho$ ，展开相乘，并舍去 $(\partial\epsilon)^2$ 项。）* 条件变为
 $$
 \partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu=\omega(x)\,\delta_{\mu\nu}.
 $$
 
-2. **通过求迹解出 $\omega$。** 令 $\mu=\nu$ 并求和（与 $\delta^{\mu\nu}$ 缩并）。左边变为 $2\,\partial_\mu\epsilon^\mu$，右边变为 $\omega\,\delta^\mu_\mu=\omega\,d$。*（理由：$\delta^\mu_\mu=d$，即 $d$ 维中恒等映射的迹。）* 因此
+2. **通过求迹解出 $\omega$ 。** 令 $\mu=\nu$ 并求和（与 $\delta^{\mu\nu}$ 缩并）。左边变为 $2\,\partial_\mu\epsilon^\mu$ ，右边变为 $\omega\,\delta^\mu_\mu=\omega\,d$ 。*（理由： $\delta^\mu_\mu=d$ ，即 $d$ 维中恒等映射的迹。）* 因此
 $$
 \omega=\frac{2}{d}\,\partial_\mu\epsilon^\mu,
 \qquad
@@ -70,26 +72,26 @@ $$
 $$
 这就是**共形 Killing 方程**：它的解 $\epsilon^\mu(x)$ 恰恰就是无穷小共形变换。
 
-3. **提取一个三阶导数约束。** 对方程作用导数并将其与自身组合（作用 $\partial^\rho$，置换指标，相加再相减），经过标准操作后得到 $(d-1)\,\partial^2\partial_\mu(\partial\cdot\epsilon)=0$ 与 $(2-d)\,\partial_\mu\partial_\nu(\partial\cdot\epsilon)=0$。*（理由：这些由 Killing 方程经线性代数推出；关键之处在于那些显式的 $d$ 因子。）* 对 $d>2$，因子 $(2-d)\neq0$ 迫使 $\partial_\mu\partial_\nu(\partial\cdot\epsilon)=0$，故 $\partial\cdot\epsilon$ 关于 $x$ **至多是线性的**，因而 $\epsilon^\mu$ 关于 $x$ **至多是二次的**。对 $d=2$，该因子消失，约束随之消失——这是 $d=2$ 特殊性的第一个迹象。
+3. **提取一个三阶导数约束。** 对方程作用导数并将其与自身组合（作用 $\partial^\rho$ ，置换指标，相加再相减），经过标准操作后得到 $(d-1)\,\partial^2\partial_\mu(\partial\cdot\epsilon)=0$ 与 $(2-d)\,\partial_\mu\partial_\nu(\partial\cdot\epsilon)=0$ 。*（理由：这些由 Killing 方程经线性代数推出；关键之处在于那些显式的 $d$ 因子。）* 对 $d>2$ ，因子 $(2-d)\neq0$ 迫使 $\partial_\mu\partial_\nu(\partial\cdot\epsilon)=0$ ，故 $\partial\cdot\epsilon$ 关于 $x$ **至多是线性的**，因而 $\epsilon^\mu$ 关于 $x$ **至多是二次的**。对 $d=2$ ，该因子消失，约束随之消失——这是 $d=2$ 特殊性的第一个迹象。
 
-#### 有限生成元（任意 $d\ge 3$）
+#### 有限生成元（任意 $d\ge 3$ ）
 
 由于 $\epsilon^\mu$ 至多是二次的，最一般的解是四类项之和。每一类都是共形群的一个生成元：
 
-- **平移** $\epsilon^\mu=a^\mu$（常数）：移动原点。$d$ 个参数。
-- **旋转** $\epsilon^\mu=\omega^\mu{}_\nu x^\nu$，其中 $\omega_{\mu\nu}=-\omega_{\nu\mu}$（反对称）：刚性旋转。$\tfrac12 d(d-1)$ 个参数。
-- **伸缩** $\epsilon^\mu=\lambda\, x^\mu$：均匀重标度 $x\mapsto e^{\lambda}x$。$1$ 个参数。这是超出刚性运动的新对称性——它把所有距离按一个公共因子拉伸，正是 §s0 中"忘记尺度"的对称性。
-- **特殊共形变换**（SCT）$\epsilon^\mu=2(b\cdot x)x^\mu-x^2 b^\mu$。$d$ 个参数。在有限形式下，一个 SCT 是一次**反演** $x^\mu\mapsto x^\mu/x^2$，接着按 $b^\mu$ 平移，再接着一次反演。它是最不直观的生成元；从几何上看，它是反演把一个普通平移变成的那个共形映射。
+- **平移** $\epsilon^\mu=a^\mu$ （常数）：移动原点。 $d$ 个参数。
+- **旋转** $\epsilon^\mu=\omega^\mu{}_\nu x^\nu$ ，其中 $\omega_{\mu\nu}=-\omega_{\nu\mu}$ （反对称）：刚性旋转。 $\tfrac12 d(d-1)$ 个参数。
+- **伸缩** $\epsilon^\mu=\lambda\, x^\mu$ ：均匀重标度 $x\mapsto e^{\lambda}x$ 。 $1$ 个参数。这是超出刚性运动的新对称性——它把所有距离按一个公共因子拉伸，正是 §s0 中"忘记尺度"的对称性。
+- **特殊共形变换**（SCT） $\epsilon^\mu=2(b\cdot x)x^\mu-x^2 b^\mu$ 。 $d$ 个参数。在有限形式下，一个 SCT 是一次**反演** $x^\mu\mapsto x^\mu/x^2$ ，接着按 $b^\mu$ 平移，再接着一次反演。它是最不直观的生成元；从几何上看，它是反演把一个普通平移变成的那个共形映射。
 
-> **计数（点睛之处）。** 参数总数 $=d+\tfrac12 d(d-1)+1+d=\tfrac12(d+1)(d+2)$。这恰恰是群 $SO(d+1,1)$ 的维数——一个具有 $d+1$ 个"空间"方向和 $1$ 个"时间"方向的空间的旋转群。所以在 $d\ge3$ 中，共形群是*有限维*李群 $SO(d+1,1)$。*（这里我们用到来自[李代数表示](../group-theory/lie-representations.md)的一条事实：一个李群的维数等于其独立无穷小生成元的个数。）*
+> **计数（点睛之处）。** 参数总数 $=d+\tfrac12 d(d-1)+1+d=\tfrac12(d+1)(d+2)$ 。这恰恰是群 $SO(d+1,1)$ 的维数——一个具有 $d+1$ 个"空间"方向和 $1$ 个"时间"方向的空间的旋转群。所以在 $d\ge3$ 中，共形群是*有限维*李群 $SO(d+1,1)$ 。*（这里我们用到来自[李代数表示](../group-theory/lie-representations.md)的一条事实：一个李群的维数等于其独立无穷小生成元的个数。）*
 
 #### $d=4$ 的具体计数
 
-平移 $4$，旋转 $\tfrac12\cdot4\cdot3=6$，伸缩 $1$，SCT $4$，总共 $15$。而 $\tfrac12(4+1)(4+2)=\tfrac12\cdot5\cdot6=15$。四维共形群是 $SO(5,1)$，有 $15$ 个生成元——这正是现代规范理论研究所利用的对称群。
+平移 $4$ ，旋转 $\tfrac12\cdot4\cdot3=6$ ，伸缩 $1$ ，SCT $4$ ，总共 $15$ 。而 $\tfrac12(4+1)(4+2)=\tfrac12\cdot5\cdot6=15$ 。四维共形群是 $SO(5,1)$ ，有 $15$ 个生成元——这正是现代规范理论研究所利用的对称群。
 
 #### 现在陈述为何 $d=2$ 特殊
 
-在第 3 步中，那个迫使 $\epsilon^\mu$ 为二次的因子 $(2-d)$ 在 $d=2$ 处*消失*了。约束蒸发，$\epsilon^\mu$ 可以是二维 Killing 方程的*任意*解——我们接下来将表明，这等价于某个函数是**全纯的**这一陈述。全纯函数构成一个无穷维空间（任意收敛幂级数），所以二维中的共形"群"有无穷多个生成元。§s2 将把这一点说得精确。
+在第 3 步中，那个迫使 $\epsilon^\mu$ 为二次的因子 $(2-d)$ 在 $d=2$ 处*消失*了。约束蒸发， $\epsilon^\mu$ 可以是二维 Killing 方程的*任意*解——我们接下来将表明，这等价于某个函数是**全纯的**这一陈述。全纯函数构成一个无穷维空间（任意收敛幂级数），所以二维中的共形"群"有无穷多个生成元。§s2 将把这一点说得精确。
 
 <a id="s2"></a>
 ### 二维中的共形映射即全纯映射；Witt 代数
@@ -100,13 +102,13 @@ $$
 
 #### 从 Killing 方程到 Cauchy–Riemann 方程
 
-在欧氏平面中工作，坐标为 $(x^1,x^2)$，度规为 $\delta_{\mu\nu}$。在 $d=2$ 时，共形 Killing 方程 $\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu=(\partial\cdot\epsilon)\,\delta_{\mu\nu}$ 有三个分量：
+在欧氏平面中工作，坐标为 $(x^1,x^2)$ ，度规为 $\delta_{\mu\nu}$ 。在 $d=2$ 时，共形 Killing 方程 $\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu=(\partial\cdot\epsilon)\,\delta_{\mu\nu}$ 有三个分量：
 
-1. **$(1,1)$ 与 $(2,2)$ 分量**读作 $2\partial_1\epsilon_1=\partial_1\epsilon_1+\partial_2\epsilon_2$ 与 $2\partial_2\epsilon_2=\partial_1\epsilon_1+\partial_2\epsilon_2$。相减得 $\partial_1\epsilon_1=\partial_2\epsilon_2$。*（理由：在 $d=2$ 时 $\tfrac{2}{d}=1$，所以迹项就是 $\partial\cdot\epsilon=\partial_1\epsilon_1+\partial_2\epsilon_2$。）*
+1. **$(1,1)$ 与 $(2,2)$ 分量**读作 $2\partial_1\epsilon_1=\partial_1\epsilon_1+\partial_2\epsilon_2$ 与 $2\partial_2\epsilon_2=\partial_1\epsilon_1+\partial_2\epsilon_2$ 。相减得 $\partial_1\epsilon_1=\partial_2\epsilon_2$ 。*（理由：在 $d=2$ 时 $\tfrac{2}{d}=1$ ，所以迹项就是 $\partial\cdot\epsilon=\partial_1\epsilon_1+\partial_2\epsilon_2$ 。）*
 
-2. **$(1,2)$ 分量**读作 $\partial_1\epsilon_2+\partial_2\epsilon_1=0$，即 $\partial_1\epsilon_2=-\partial_2\epsilon_1$。
+2. **$(1,2)$ 分量**读作 $\partial_1\epsilon_2+\partial_2\epsilon_1=0$ ，即 $\partial_1\epsilon_2=-\partial_2\epsilon_1$ 。
 
-3. **识别出 Cauchy–Riemann 方程。** 这两个关系 $\partial_1\epsilon_1=\partial_2\epsilon_2$ 与 $\partial_1\epsilon_2=-\partial_2\epsilon_1$ 恰恰是复函数 $\epsilon(z):=\epsilon_1+i\epsilon_2$ 关于 $z:=x^1+ix^2$ 的 **Cauchy–Riemann 方程**。*（理由——重述我们从[复分析](../complex-analysis/complex-analysis.md)借来的那条事实：$z=x+iy$ 的函数 $f=u+iv$ 是全纯的——即复可微——当且仅当 $\partial u/\partial x=\partial v/\partial y$ 且 $\partial u/\partial y=-\partial v/\partial x$。）* 因此 $\epsilon(z)$ 是**全纯的**：它依赖于 $z$ 但不依赖于共轭 $\bar z=x^1-ix^2$。
+3. **识别出 Cauchy–Riemann 方程。** 这两个关系 $\partial_1\epsilon_1=\partial_2\epsilon_2$ 与 $\partial_1\epsilon_2=-\partial_2\epsilon_1$ 恰恰是复函数 $\epsilon(z):=\epsilon_1+i\epsilon_2$ 关于 $z:=x^1+ix^2$ 的 **Cauchy–Riemann 方程**。*（理由——重述我们从[复分析](../complex-analysis/complex-analysis.md)借来的那条事实： $z=x+iy$ 的函数 $f=u+iv$ 是全纯的——即复可微——当且仅当 $\partial u/\partial x=\partial v/\partial y$ 且 $\partial u/\partial y=-\partial v/\partial x$ 。）* 因此 $\epsilon(z)$ 是**全纯的**：它依赖于 $z$ 但不依赖于共轭 $\bar z=x^1-ix^2$ 。
 
 #### 复坐标以及全纯/反全纯的分裂
 
@@ -116,19 +118,20 @@ $$
 \qquad
 \bar\partial\equiv\partial_{\bar z}=\tfrac12(\partial_1+i\partial_2),
 $$
-而线元分解为 $ds^2=dz\,d\bar z$。一个无穷小共形映射于是为 $z\mapsto z+\epsilon(z)$，$\bar z\mapsto \bar z+\bar\epsilon(\bar z)$，其中 $\epsilon$ 只依赖于 $z$（全纯），$\bar\epsilon$ 只依赖于 $\bar z$（**反全纯**）。整个变换分解为一个独立的全纯部分与一个反全纯部分。我们发展全纯部分；反全纯部分是它的镜像，把一切都加上横杠，两个扇区在最后合并。
+而线元分解为 $ds^2=dz\,d\bar z$ 。一个无穷小共形映射于是为 $z\mapsto z+\epsilon(z)$ ， $\bar z\mapsto \bar z+\bar\epsilon(\bar z)$ ，其中 $\epsilon$ 只依赖于 $z$ （全纯）， $\bar\epsilon$ 只依赖于 $\bar z$ （**反全纯**）。整个变换分解为一个独立的全纯部分与一个反全纯部分。我们发展全纯部分；反全纯部分是它的镜像，把一切都加上横杠，两个扇区在最后合并。
 
-> **有限形式。** 把无穷小映射积分起来，一个*有限的*二维共形变换是任意全纯映射 $z\mapsto f(z)$（连同一个独立的 $\bar z\mapsto \bar f(\bar z)$）。全纯映射保持角度——这正是复分析中"共形"的经典几何含义——所以两种"共形"的概念重合。这样的 $f$ 有无穷多个，证实了 §s1 中所许诺的无穷维性。
+> **有限形式。** 把无穷小映射积分起来，一个*有限的*二维共形变换是任意全纯映射 $z\mapsto f(z)$ （连同一个独立的 $\bar z\mapsto \bar f(\bar z)$ ）。全纯映射保持角度——这正是复分析中"共形"的经典几何含义——所以两种"共形"的概念重合。这样的 $f$ 有无穷多个，证实了 §s1 中所许诺的无穷维性。
 
 #### 生成元与 Witt 代数
 
-为了组织这个无穷集合，把一个全纯无穷小映射按 $z$ 的幂展开。一组"初等"无穷小映射的基为 $\epsilon(z)=-z^{n+1}$，每个整数 $n$ 对应一个，相应的**生成元**（一个作用在 $z$ 的函数上的微分算符）为
+为了组织这个无穷集合，把一个全纯无穷小映射按 $z$ 的幂展开。一组"初等"无穷小映射的基为 $\epsilon(z)=-z^{n+1}$ ，每个整数 $n$ 对应一个，相应的**生成元**（一个作用在 $z$ 的函数上的微分算符）为
 $$
 \ell_n=-z^{n+1}\,\partial_z,\qquad n\in\mathbb{Z}.
 $$
-此处的负号与 $n+1$ 次幂是为使下面的代数显得整洁而选取的约定。反全纯的副本为 $\bar\ell_n=-\bar z^{n+1}\partial_{\bar z}$。
+此处的负号与 $n+1$ 次幂是为使下面的代数显得整洁而选取的约定。反全纯的副本为 $\bar\ell_n=-\bar z^{n+1}\partial_{\bar z}$ 。
 
 > **定理（Witt 代数）。** 这些生成元满足**对易子**关系
+>
 > $$
 > [\ell_m,\ell_n]=(m-n)\,\ell_{m+n},
 > \qquad
@@ -136,30 +139,31 @@ $$
 > \qquad
 > [\ell_m,\bar\ell_n]=0,
 > $$
-> 其中两个算符的**对易子**为 $[A,B]:=AB-BA$（它度量它们不可对易的程度）。这个无穷维李代数就是 **Witt 代数**。$[\ell_m,\bar\ell_n]$ 的消失表明全纯扇区与反全纯扇区彼此完全独立。
+>
+> 其中两个算符的**对易子**为 $[A,B]:=AB-BA$ （它度量它们不可对易的程度）。这个无穷维李代数就是 **Witt 代数**。 $[\ell_m,\bar\ell_n]$ 的消失表明全纯扇区与反全纯扇区彼此完全独立。
 
 **证明（无缝隙）。**
-1. 对一个试探函数 $f(z)$ 计算 $\ell_m\ell_n f$。根据定义 $\ell_n f=-z^{n+1}f'$，所以
+1. 对一个试探函数 $f(z)$ 计算 $\ell_m\ell_n f$ 。根据定义 $\ell_n f=-z^{n+1}f'$ ，所以
 $$
 \ell_m\ell_n f=-z^{m+1}\partial_z\!\big(-z^{n+1}f'\big)=z^{m+1}\big[(n+1)z^{n}f'+z^{n+1}f''\big].
 $$
 *（理由：对 $z^{n+1}f'$ 用乘积法则。）*
-2. 化简：$\ell_m\ell_n f=(n+1)z^{m+n+1}f'+z^{m+n+2}f''$。
-3. 交换 $m\leftrightarrow n$ 得 $\ell_n\ell_m f=(m+1)z^{m+n+1}f'+z^{m+n+2}f''$。*（理由：第 2 步的表达式在交换下是对称的，只有系数 $n+1\to m+1$ 例外。）*
-4. 相减。$f''$ 项恒等地相消，剩下
+2. 化简： $\ell_m\ell_n f=(n+1)z^{m+n+1}f'+z^{m+n+2}f''$ 。
+3. 交换 $m\leftrightarrow n$ 得 $\ell_n\ell_m f=(m+1)z^{m+n+1}f'+z^{m+n+2}f''$ 。*（理由：第 2 步的表达式在交换下是对称的，只有系数 $n+1\to m+1$ 例外。）*
+4. 相减。 $f''$ 项恒等地相消，剩下
 $$
 [\ell_m,\ell_n]f=\big[(n+1)-(m+1)\big]z^{m+n+1}f'=(n-m)\,z^{m+n+1}f'.
 $$
-5. 识别右边：$(n-m)z^{m+n+1}f'=-(n-m)\,\ell_{m+n}f=(m-n)\,\ell_{m+n}f$。*（理由：$\ell_{m+n}=-z^{m+n+1}\partial_z$。）* 因此 $[\ell_m,\ell_n]=(m-n)\ell_{m+n}$。反全纯的计算与之相同，只是加上横杠；交叉对易子消失，因为 $\partial_z$ 与 $\partial_{\bar z}$ 对易且作用在独立变量上。$\blacksquare$
+5. 识别右边： $(n-m)z^{m+n+1}f'=-(n-m)\,\ell_{m+n}f=(m-n)\,\ell_{m+n}f$ 。*（理由： $\ell_{m+n}=-z^{m+n+1}\partial_z$ 。）* 因此 $[\ell_m,\ell_n]=(m-n)\ell_{m+n}$ 。反全纯的计算与之相同，只是加上横杠；交叉对易子消失，因为 $\partial_z$ 与 $\partial_{\bar z}$ 对易且作用在独立变量上。 $\blacksquare$
 
 #### 无穷代数中的有限子代数
 
-在所有 $\ell_n$ 中，恰有三个——$\ell_{-1},\ell_0,\ell_{+1}$——连同它们的横杠副本，生成在球面（平面加上其无穷远点）上**整体良定义**的变换。它们是
-- $\ell_{-1}=-\partial_z$：**平移**；
-- $\ell_0=-z\partial_z$：**伸缩与旋转**（一个复重标度）；
-- $\ell_{+1}=-z^2\partial_z$：**特殊共形变换**。
+在所有 $\ell_n$ 中，恰有三个—— $\ell_{-1},\ell_0,\ell_{+1}$ ——连同它们的横杠副本，生成在球面（平面加上其无穷远点）上**整体良定义**的变换。它们是
+- $\ell_{-1}=-\partial_z$ ：**平移**；
+- $\ell_0=-z\partial_z$ ：**伸缩与旋转**（一个复重标度）；
+- $\ell_{+1}=-z^2\partial_z$ ：**特殊共形变换**。
 
-由 Witt 关系，$\{\ell_{-1},\ell_0,\ell_{+1}\}$ 在自身内部闭合（$[\ell_0,\ell_{\pm1}]=\mp\ell_{\pm1}$，$[\ell_{-1},\ell_{+1}]=-2\ell_0$）；加上横杠副本，这是一个六个实参数的群，即**整体共形群** $SL(2,\mathbb{C})$，通过 **Möbius 变换** $z\mapsto\frac{az+b}{cz+d}$（其中 $ad-bc=1$）作用。其余的生成元（$|n|\ge2$）只是*局域*定义的——$z^{n+1}\partial_z$ 在 $z=0$ 或 $z=\infty$ 处奇异——但它们才是这一理论威力的真正来源：尽管它们不是球面的整体对称性，它们却作为*局域*算符的对称性起作用。
+由 Witt 关系， $\{\ell_{-1},\ell_0,\ell_{+1}\}$ 在自身内部闭合（ $[\ell_0,\ell_{\pm1}]=\mp\ell_{\pm1}$ ， $[\ell_{-1},\ell_{+1}]=-2\ell_0$ ）；加上横杠副本，这是一个六个实参数的群，即**整体共形群** $SL(2,\mathbb{C})$ ，通过 **Möbius 变换** $z\mapsto\frac{az+b}{cz+d}$ （其中 $ad-bc=1$ ）作用。其余的生成元（ $|n|\ge2$ ）只是*局域*定义的—— $z^{n+1}\partial_z$ 在 $z=0$ 或 $z=\infty$ 处奇异——但它们才是这一理论威力的真正来源：尽管它们不是球面的整体对称性，它们却作为*局域*算符的对称性起作用。
 
 #### 陷阱
 
@@ -172,87 +176,93 @@ $$
 
 #### 是什么与为什么
 
-Witt 代数是*经典*对称性。在*量子*理论中，生成元变成 Hilbert 空间上的算符，于是一件微妙而又不可避免的事发生了：代数获得了一个额外的项，一个与一切对易的数。这个数就是**中心荷** $c$，一个共形场论最重要的单一标签。我们定义中心扩张，证明 Witt 代数本质上只允许一种，并把它鉴别为 **Virasoro 代数**。
+Witt 代数是*经典*对称性。在*量子*理论中，生成元变成 Hilbert 空间上的算符，于是一件微妙而又不可避免的事发生了：代数获得了一个额外的项，一个与一切对易的数。这个数就是**中心荷** $c$ ，一个共形场论最重要的单一标签。我们定义中心扩张，证明 Witt 代数本质上只允许一种，并把它鉴别为 **Virasoro 代数**。
 
 #### 中心扩张的定义
 
-> **定义 — 中心扩张。** 给定一个李代数，其生成元为 $L_n$，括号为 $[L_m,L_n]=(m-n)L_{m+n}$，一个**中心扩张**附加一个新元素 $C$，它（i）与每个 $L_n$ 对易（它是**中心的**）且（ii）出现在括号的右边：
+> **定义 — 中心扩张。** 给定一个李代数，其生成元为 $L_n$ ，括号为 $[L_m,L_n]=(m-n)L_{m+n}$ ，一个**中心扩张**附加一个新元素 $C$ ，它（i）与每个 $L_n$ 对易（它是**中心的**）且（ii）出现在括号的右边：
+>
 > $$
 > [L_m,L_n]=(m-n)L_{m+n}+C\,p(m,n),
 > $$
-> 其中 $p(m,n)$ 是一个取数值的函数。"中心"意味着对所有 $n$ 有 $[C,L_n]=0$，所以在任何不可约表示上 $C$ 都可以替换为它的数值 $c$（由 **Schur 引理**，即我们从[李代数表示](../group-theory/lie-representations.md)借来的那条事实：一个与不可约作用对易的算符是恒等映射的倍数）。
+>
+> 其中 $p(m,n)$ 是一个取数值的函数。"中心"意味着对所有 $n$ 有 $[C,L_n]=0$ ，所以在任何不可约表示上 $C$ 都可以替换为它的数值 $c$ （由 **Schur 引理**，即我们从[李代数表示](../group-theory/lie-representations.md)借来的那条事实：一个与不可约作用对易的算符是恒等映射的倍数）。
 
 为何量子力学迫使出现这一点？算符只在相差一个相位的意义下有定义，所以一个*经典*上精确闭合的对称性，在量子态上实现时，可能只在相差一个与态无关的数的意义下闭合——这就是所谓的**反常**。中心荷正是这样一种反常。
 
 #### 约束 $p(m,n)$
 
-我们从自洽性出发，而非从某个具体模型，来确定 $p(m,n)$。
+我们从自洽性出发，而非从某个具体模型，来确定 $p(m,n)$ 。
 
-1. **反对称性。** 由于 $[L_m,L_n]=-[L_n,L_m]$，该函数必须满足 $p(m,n)=-p(n,m)$。*（理由：括号是反对称的，而 $(m-n)L_{m+n}$ 已经是了；所以新增的项也必须是。）* 特别地 $p(n,n)=0$。
+1. **反对称性。** 由于 $[L_m,L_n]=-[L_n,L_m]$ ，该函数必须满足 $p(m,n)=-p(n,m)$ 。*（理由：括号是反对称的，而 $(m-n)L_{m+n}$ 已经是了；所以新增的项也必须是。）* 特别地 $p(n,n)=0$ 。
 
-2. **吸收低阶模。** 可以重定义 $L_0\to L_0+\text{常数}$，并对 $n\neq0$ 把 $L_n$ 平移 $C$ 的倍数。利用这一自由度，我们可以把 $p(1,-1)$ 设为一个方便的值，并对所有 $n$ 设 $p(n,0)=0$。*（理由：重定义 $\tilde L_n=L_n+a_n C$ 会使 $p$ 改变 $(m-n)a_{m+n}$ 项，这些项可以抵消选定的分量。）*
+2. **吸收低阶模。** 可以重定义 $L_0\to L_0+\text{常数}$ ，并对 $n\neq0$ 把 $L_n$ 平移 $C$ 的倍数。利用这一自由度，我们可以把 $p(1,-1)$ 设为一个方便的值，并对所有 $n$ 设 $p(n,0)=0$ 。*（理由：重定义 $\tilde L_n=L_n+a_n C$ 会使 $p$ 改变 $(m-n)a_{m+n}$ 项，这些项可以抵消选定的分量。）*
 
-3. **施加 Jacobi 恒等式。** 每个李代数都遵守 **Jacobi 恒等式** $[L_l,[L_m,L_n]]+[L_m,[L_n,L_l]]+[L_n,[L_l,L_m]]=0$。*（理由：对于对易子 $[A,B]=AB-BA$ 这是自动成立的，并且必须在扩张后依然成立，因为 $C$ 是中心的。）* 代入扩张后的括号并收集 $C$ 项，得到递推关系
+3. **施加 Jacobi 恒等式。** 每个李代数都遵守 **Jacobi 恒等式** $[L_l,[L_m,L_n]]+[L_m,[L_n,L_l]]+[L_n,[L_l,L_m]]=0$ 。*（理由：对于对易子 $[A,B]=AB-BA$ 这是自动成立的，并且必须在扩张后依然成立，因为 $C$ 是中心的。）* 代入扩张后的括号并收集 $C$ 项，得到递推关系
 $$
 (m-n)\,p(m+n,l)+(n-l)\,p(n+l,m)+(l-m)\,p(l+m,n)=0.
 $$
 
-4. **求解递推。** 令 $l=-m-n$，使所有 $C$ 项都涉及 $p(\cdot,0)=0$，只剩一条把不同 $m$ 处的 $p(m,-m)$ 联系起来的链。通过该递推（一个关于 $m$ 的有限归纳）可推出 $p(m,-m)$ 必须是**关于 $m$ 的奇的三次多项式**（由反对称性 $p(m,-m)=-p(-m,m)$）。最一般的奇三次式是 $\alpha m^3+\beta m$。这两个系数只在第 2 步的重定义意义下才是物理的，重定义可以平移线性项；标准的归一化固定了结果。
+4. **求解递推。** 令 $l=-m-n$ ，使所有 $C$ 项都涉及 $p(\cdot,0)=0$ ，只剩一条把不同 $m$ 处的 $p(m,-m)$ 联系起来的链。通过该递推（一个关于 $m$ 的有限归纳）可推出 $p(m,-m)$ 必须是**关于 $m$ 的奇的三次多项式**（由反对称性 $p(m,-m)=-p(-m,m)$ ）。最一般的奇三次式是 $\alpha m^3+\beta m$ 。这两个系数只在第 2 步的重定义意义下才是物理的，重定义可以平移线性项；标准的归一化固定了结果。
 
 > **结果 — Virasoro 代数。** Witt 代数唯一非平凡的中心扩张就是 **Virasoro 代数**：
+>
 > $$
 > [L_m,L_n]=(m-n)\,L_{m+n}+\frac{c}{12}\,m\,(m^2-1)\,\delta_{m+n,0},
 > $$
-> 带有一个独立的反全纯副本 $[\bar L_m,\bar L_n]=(m-n)\bar L_{m+n}+\frac{\bar c}{12}m(m^2-1)\delta_{m+n,0}$ 以及 $[L_m,\bar L_n]=0$。数 $c$ 是**中心荷**（而 $\bar c$ 是它的反全纯伙伴）。组合 $m(m^2-1)=m^3-m$ 就是第 4 步的奇三次式，归一化使得中心项在 $m\in\{-1,0,1\}$ 处消失。
+>
+> 带有一个独立的反全纯副本 $[\bar L_m,\bar L_n]=(m-n)\bar L_{m+n}+\frac{\bar c}{12}m(m^2-1)\delta_{m+n,0}$ 以及 $[L_m,\bar L_n]=0$ 。数 $c$ 是**中心荷**（而 $\bar c$ 是它的反全纯伙伴）。组合 $m(m^2-1)=m^3-m$ 就是第 4 步的奇三次式，归一化使得中心项在 $m\in\{-1,0,1\}$ 处消失。
 
 #### 为何中心项在 $m=-1,0,1$ 处消失
 
-因子 $m(m^2-1)=(m-1)m(m+1)$ 在 $m=-1,0,1$ 处为零。因此**整体**子代数 $\{L_{-1},L_0,L_{+1}\}$ *不受*中心荷影响——$SL(2,\mathbb{C})$ 仍是一个精确的、无反常的对称性。反常完全居于较高的模中。这与 §s2 一致：只有较高的模是"局域"的，也只有它们能携带量子反常。
+因子 $m(m^2-1)=(m-1)m(m+1)$ 在 $m=-1,0,1$ 处为零。因此**整体**子代数 $\{L_{-1},L_0,L_{+1}\}$ *不受*中心荷影响—— $SL(2,\mathbb{C})$ 仍是一个精确的、无反常的对称性。反常完全居于较高的模中。这与 §s2 一致：只有较高的模是"局域"的，也只有它们能携带量子反常。
 
 #### 在小模处对 Jacobi 自洽性的具体核验
 
-取 $(m,n,l)=(2,-1,-1)$。第 3 步的递推读作 $(2-(-1))p(1,-1)+(-1-(-1))p(-2,2)+(-1-2)p(-3,-1)$。中间一项系数为 $0$；由 $p(1,-1)=\frac{c}{12}\cdot1\cdot0=0$ 与 $p(-3,-1)=0$（因为 $-3-1\neq0$，Kronecker delta 将其杀死），该恒等式读作 $0=0$，自洽。取 $(m,n,l)=(2,-2,0)$ 检验真正的中心项：$p(2,-2)=\frac{c}{12}\cdot2\cdot3=\frac{c}{2}$，并可核验三项之和相消，因为 $p(\cdot,0)=0$。这些都证实了三次式是自洽的选择。
+取 $(m,n,l)=(2,-1,-1)$ 。第 3 步的递推读作 $(2-(-1))p(1,-1)+(-1-(-1))p(-2,2)+(-1-2)p(-3,-1)$ 。中间一项系数为 $0$ ；由 $p(1,-1)=\frac{c}{12}\cdot1\cdot0=0$ 与 $p(-3,-1)=0$ （因为 $-3-1\neq0$ ，Kronecker delta 将其杀死），该恒等式读作 $0=0$ ，自洽。取 $(m,n,l)=(2,-2,0)$ 检验真正的中心项： $p(2,-2)=\frac{c}{12}\cdot2\cdot3=\frac{c}{2}$ ，并可核验三项之和相消，因为 $p(\cdot,0)=0$ 。这些都证实了三次式是自洽的选择。
 
 <a id="s4"></a>
 ### 主场与拟主场；共形权
 
 #### 是什么与为什么
 
-一个共形场论由**场**构成——即位置的函数 $\phi(z,\bar z)$，其取值为算符。共形对称性按场在共形映射下如何变换来对它们分类。表现最良好的那一类，**主场**，以可能最简单的方式变换，并携带两个数，即**共形权** $(h,\bar h)$，它们编码了场的大小与自旋。这些权是理论的"量子数"。
+一个共形场论由**场**构成——即位置的函数 $\phi(z,\bar z)$ ，其取值为算符。共形对称性按场在共形映射下如何变换来对它们分类。表现最良好的那一类，**主场**，以可能最简单的方式变换，并携带两个数，即**共形权** $(h,\bar h)$ ，它们编码了场的大小与自旋。这些权是理论的"量子数"。
 
 #### 通过变换律定义共形权
 
-> **定义 — 主场。** 一个场 $\phi(z,\bar z)$ 称为具有权 $(h,\bar h)$ 的**主场**，如果在*每一个*共形映射 $z\mapsto w(z)$，$\bar z\mapsto\bar w(\bar z)$ 下它按如下方式变换：
+> **定义 — 主场。** 一个场 $\phi(z,\bar z)$ 称为具有权 $(h,\bar h)$ 的**主场**，如果在*每一个*共形映射 $z\mapsto w(z)$ ， $\bar z\mapsto\bar w(\bar z)$ 下它按如下方式变换：
+>
 > $$
 > \phi(z,\bar z)=\left(\frac{dw}{dz}\right)^{h}\left(\frac{d\bar w}{d\bar z}\right)^{\bar h}\,\phi'\big(w,\bar w\big),
 > $$
-> 即它只拾取局域拉伸因子 $dw/dz$ 的 $h$ 次幂与 $d\bar w/d\bar z$ 的 $\bar h$ 次幂。数 $h$（**全纯权**）与 $\bar h$（**反全纯权**）是实数。一个仅对*整体* $SL(2,\mathbb{C})$ 映射（Möbius 变换）而不一定对所有局域映射服从该律的场，称为**拟主场**。每个主场都是拟主场；反之不成立（§s6 的应力张量就是一个著名的拟主场而非主场）。
+>
+> 即它只拾取局域拉伸因子 $dw/dz$ 的 $h$ 次幂与 $d\bar w/d\bar z$ 的 $\bar h$ 次幂。数 $h$ （**全纯权**）与 $\bar h$ （**反全纯权**）是实数。一个仅对*整体* $SL(2,\mathbb{C})$ 映射（Möbius 变换）而不一定对所有局域映射服从该律的场，称为**拟主场**。每个主场都是拟主场；反之不成立（§s6 的应力张量就是一个著名的拟主场而非主场）。
 
 这个变换律恰恰类比于一个密度在变量替换下如何变换：量 $\phi\,(dz)^h(d\bar z)^{\bar h}$ 是不变的，所以 $\phi$ 是一个"$(h,\bar h)$-密度"。这就是为何 $h$ 控制着当你重标度长度时场如何标度。
 
 #### 标度维数与自旋
 
 把两个权组合成两个物理标签：
-- **标度维数** $\Delta=h+\bar h$：在纯伸缩 $z\mapsto\lambda z$ 下场按 $\phi\mapsto\lambda^{-\Delta}\phi$ 标度，所以 $\Delta$ 度量当你缩放时场的收缩或增长。*（推导：取 $w=\lambda z$，$dw/dz=\lambda$，所以该律给出 $\phi'=\lambda^{-h}\bar\lambda^{-\bar h}\phi$；对实 $\lambda$ 这是 $\lambda^{-\Delta}$。）*
-- **自旋** $s=h-\bar h$：在纯旋转 $z\mapsto e^{i\theta}z$ 下场拾取 $e^{-is\theta}$，所以 $s$ 度量它如何转动。*（推导：$dw/dz=e^{i\theta}$，$d\bar w/d\bar z=e^{-i\theta}$，给出相位 $e^{-i(h-\bar h)\theta}$。）*
+- **标度维数** $\Delta=h+\bar h$ ：在纯伸缩 $z\mapsto\lambda z$ 下场按 $\phi\mapsto\lambda^{-\Delta}\phi$ 标度，所以 $\Delta$ 度量当你缩放时场的收缩或增长。*（推导：取 $w=\lambda z$ ， $dw/dz=\lambda$ ，所以该律给出 $\phi'=\lambda^{-h}\bar\lambda^{-\bar h}\phi$ ；对实 $\lambda$ 这是 $\lambda^{-\Delta}$ 。）*
+- **自旋** $s=h-\bar h$ ：在纯旋转 $z\mapsto e^{i\theta}z$ 下场拾取 $e^{-is\theta}$ ，所以 $s$ 度量它如何转动。*（推导： $dw/dz=e^{i\theta}$ ， $d\bar w/d\bar z=e^{-i\theta}$ ，给出相位 $e^{-i(h-\bar h)\theta}$ 。）*
 
 #### 无穷小形式与 $L_n$ 的作用
 
-取 $w=z+\epsilon(z)$，其中 $\epsilon=-\sum_n a_n z^{n+1}$，并把变换律展开到一阶，给出主场在生成元 $\ell_n$ 下的**变分**：
+取 $w=z+\epsilon(z)$ ，其中 $\epsilon=-\sum_n a_n z^{n+1}$ ，并把变换律展开到一阶，给出主场在生成元 $\ell_n$ 下的**变分**：
 $$
 \delta_n\phi(z)=-\big[z^{n+1}\partial_z+h(n+1)z^{n}\big]\phi(z).
 $$
 **推导。**
-1. 取 $w=z+\epsilon$，$dw/dz=1+\epsilon'$，所以 $(dw/dz)^h\approx1+h\epsilon'$。*（理由：对小 $x$ 有 $(1+x)^h\approx1+hx$。）*
-2. 而 $\phi'(w)=\phi'(z+\epsilon)\approx\phi(z)+\epsilon\,\phi'(z)+\delta\phi$，保留到一阶。*（理由：Taylor 展开加上算符自身的变化 $\delta\phi=\phi'-\phi$。）*
-3. 把律 $\phi=(1+h\epsilon')(\phi+\epsilon\phi'+\delta\phi)$ 取到一阶得 $0=h\epsilon'\phi+\epsilon\phi'+\delta\phi$，所以 $\delta\phi=-(\epsilon\partial+h\epsilon')\phi$。
-4. 代入 $\epsilon=-z^{n+1}$（§s2 的基映射），故 $\epsilon'=-(n+1)z^n$，给出框中的结果。$\blacksquare$
+1. 取 $w=z+\epsilon$ ， $dw/dz=1+\epsilon'$ ，所以 $(dw/dz)^h\approx1+h\epsilon'$ 。*（理由：对小 $x$ 有 $(1+x)^h\approx1+hx$ 。）*
+2. 而 $\phi'(w)=\phi'(z+\epsilon)\approx\phi(z)+\epsilon\,\phi'(z)+\delta\phi$ ，保留到一阶。*（理由：Taylor 展开加上算符自身的变化 $\delta\phi=\phi'-\phi$ 。）*
+3. 把律 $\phi=(1+h\epsilon')(\phi+\epsilon\phi'+\delta\phi)$ 取到一阶得 $0=h\epsilon'\phi+\epsilon\phi'+\delta\phi$ ，所以 $\delta\phi=-(\epsilon\partial+h\epsilon')\phi$ 。
+4. 代入 $\epsilon=-z^{n+1}$ （§s2 的基映射），故 $\epsilon'=-(n+1)z^n$ ，给出框中的结果。 $\blacksquare$
 
-这个公式是通向代数的桥梁：它表明生成元作用于主场，一部分是移动它（$z^{n+1}\partial_z$，一个输运项），一部分是标度它（$h(n+1)z^n$，一个权项）。在 §s6 中同样的数据将在算符乘积展开内部重现。
+这个公式是通向代数的桥梁：它表明生成元作用于主场，一部分是移动它（ $z^{n+1}\partial_z$ ，一个输运项），一部分是标度它（ $h(n+1)z^n$ ，一个权项）。在 §s6 中同样的数据将在算符乘积展开内部重现。
 
 #### 具体例子
 
-最简单的非平凡主场是**自由玻色子**共形场论中的场 $\phi=\partial X$，其中 $X(z,\bar z)$ 是一个无质量标量场（弦的位置）。可算出 $h=1,\bar h=0$，所以 $\Delta=1$，$s=1$：它像一个长度的倒数那样标度，并携带一单位自旋，恰如一个全纯一形式 $\phi\,dz$ 所应有的那样。我们不会用到自由玻色子的细节，但它是标准的第一个例子，其 $c=1$。
+最简单的非平凡主场是**自由玻色子**共形场论中的场 $\phi=\partial X$ ，其中 $X(z,\bar z)$ 是一个无质量标量场（弦的位置）。可算出 $h=1,\bar h=0$ ，所以 $\Delta=1$ ， $s=1$ ：它像一个长度的倒数那样标度，并携带一单位自旋，恰如一个全纯一形式 $\phi\,dz$ 所应有的那样。我们不会用到自由玻色子的细节，但它是标准的第一个例子，其 $c=1$ 。
 
 #### 陷阱
 
@@ -263,59 +273,63 @@ $$
 
 #### 是什么与为什么
 
-为了做量子力学，我们需要一个**态**的 Hilbert 空间和一个**时间**的概念。在平面上的共形场论中，自然的"时间"是*半径* $|z|$：我们把平面切成半径渐增的圆，并把向外移动称为"更晚"。这种**径向量子化**把平面变成一个历史的柱面，并导向本学科最优美的事实之一——**态–算符对应**，一部算符与量子态之间的完美词典。
+为了做量子力学，我们需要一个**态**的 Hilbert 空间和一个**时间**的概念。在平面上的共形场论中，自然的"时间"是*半径* $|z|$ ：我们把平面切成半径渐增的圆，并把向外移动称为"更晚"。这种**径向量子化**把平面变成一个历史的柱面，并导向本学科最优美的事实之一——**态–算符对应**，一部算符与量子态之间的完美词典。
 
 #### 径向量子化的构造
 
-1. **从柱面到平面。** 把理论放在一个周长为 $2\pi$ 的无穷柱面上，坐标为 $w=\tau+i\sigma$（$\tau$ = 沿柱面的时间，$\sigma\in[0,2\pi)$ = 绕柱面的角度）。用 $z=e^{w}=e^{\tau}e^{i\sigma}$ 把它映到平面。*（理由：$e^w$ 是全纯的，故由 §s2 是一个共形映射。）* 于是等时切片（$\tau=$ 常数）变成**圆** $|z|=e^\tau$，而无穷过去 $\tau\to-\infty$ 收缩为单点 $z=0$。
+1. **从柱面到平面。** 把理论放在一个周长为 $2\pi$ 的无穷柱面上，坐标为 $w=\tau+i\sigma$ （ $\tau$ = 沿柱面的时间， $\sigma\in[0,2\pi)$ = 绕柱面的角度）。用 $z=e^{w}=e^{\tau}e^{i\sigma}$ 把它映到平面。*（理由： $e^w$ 是全纯的，故由 §s2 是一个共形映射。）* 于是等时切片（ $\tau=$ 常数）变成**圆** $|z|=e^\tau$ ，而无穷过去 $\tau\to-\infty$ 收缩为单点 $z=0$ 。
 
-2. **时间排序变成径向排序。** 较早的时间位于较小的半径。哈密顿量——时间平移 $\partial_\tau$ 的生成元——变成伸缩的生成元 $z\partial_z+\bar z\partial_{\bar z}$，即 $L_0+\bar L_0$。*（理由：$\partial_\tau=z\partial_z+\bar z\partial_{\bar z}$，因为 $z=e^w$，$\partial_\tau z=z$。）* 所以**能量 = 标度维数**：柱面上能量为 $E$ 的态有 $E=\Delta=h+\bar h$（至多相差一个常数移位）。这就是为何维数是一个共形场论的谱。
+2. **时间排序变成径向排序。** 较早的时间位于较小的半径。哈密顿量——时间平移 $\partial_\tau$ 的生成元——变成伸缩的生成元 $z\partial_z+\bar z\partial_{\bar z}$ ，即 $L_0+\bar L_0$ 。*（理由： $\partial_\tau=z\partial_z+\bar z\partial_{\bar z}$ ，因为 $z=e^w$ ， $\partial_\tau z=z$ 。）* 所以**能量 = 标度维数**：柱面上能量为 $E$ 的态有 $E=\Delta=h+\bar h$ （至多相差一个常数移位）。这就是为何维数是一个共形场论的谱。
 
 #### 入态与态–算符映射
 
-> **定义 — 入态。** 对一个权为 $(h,\bar h)$ 的场 $\phi$，定义态
+> **定义 — 入态。** 对一个权为 $(h,\bar h)$ 的场 $\phi$ ，定义态
+>
 > $$
 > |\phi\rangle:=\lim_{z,\bar z\to0}\phi(z,\bar z)\,|0\rangle,
 > $$
-> 其中 $|0\rangle$ 是**真空**（在整体群下不变的唯一态，对 $n\ge-1$ 有 $L_n|0\rangle=0$）。由于 $z=0$ 是无穷过去，在那里插入一个算符*在遥远过去创生一个入射态*。
+>
+> 其中 $|0\rangle$ 是**真空**（在整体群下不变的唯一态，对 $n\ge-1$ 有 $L_n|0\rangle=0$ ）。由于 $z=0$ 是无穷过去，在那里插入一个算符*在遥远过去创生一个入射态*。
 
-> **定理（态–算符对应）。** 映射 $\phi\mapsto|\phi\rangle$ 是局域算符与 Hilbert 空间的态之间的一个*双射*。反过来，每个态都是 $\lim_{z\to0}\Phi(z)|0\rangle$，其中 $\Phi$ 是一个唯一的局域算符。
+> **定理（态–算符对应）。** 映射 $\phi\mapsto|\phi\rangle$ 是局域算符与 Hilbert 空间的态之间的一个*双射*。反过来，每个态都是 $\lim_{z\to0}\Phi(z)|0\rangle$ ，其中 $\Phi$ 是一个唯一的局域算符。
 
 **为何成立（带理由的概述）。**
 1. 任何态都生活在某个圆 $|z|=r$ 上。利用一个伸缩（一个精确对称性，§s3）我们可以把 $r\to0$ 收缩而不改变物理。*（理由：伸缩是无反常的 $SL(2,\mathbb{C})$ 的一部分。）*
 2. 当 $r\to0$ 时圆塌缩成一点，而在一点上唯一能够存活的数据就是一个局域算符插入。所以原点处的态 $\leftrightarrow$ 局域算符。
-3. 真空对应于恒等算符 $\mathbf 1$（$|0\rangle=\lim_{z\to0}\mathbf 1\,|0\rangle$），而一个主场 $\phi$ 对应于一个**最高权态**（在 §s9 中定义）。$\blacksquare$
+3. 真空对应于恒等算符 $\mathbf 1$ （ $|0\rangle=\lim_{z\to0}\mathbf 1\,|0\rangle$ ），而一个主场 $\phi$ 对应于一个**最高权态**（在 §s9 中定义）。 $\blacksquare$
 
 #### 模展开与作为围道积分的 $L_n$
 
-生成元 $L_n$ 作用在态上。具体地，对应力张量 $T(z)$（§s6）定义**模**
+生成元 $L_n$ 作用在态上。具体地，对应力张量 $T(z)$ （§s6）定义**模**
 $$
 L_n=\frac{1}{2\pi i}\oint dz\;z^{n+1}\,T(z),
 $$
-即一个绕原点的**围道积分**。*（理由——借自[复分析](../complex-analysis/complex-analysis.md)：围道积分 $\frac{1}{2\pi i}\oint z^{n+1}T(z)\,dz$ 提取 $T$ 的 Laurent 展开中 $z^{-n-2}$ 的系数，这恰恰是第 $n$ 个模。）* 作用于真空时，这些模被组织成对 $n\ge-1$ 有 $L_n|0\rangle=0$——即要求 $T(z)|0\rangle$ 在 $z=0$ 处正则（非奇异），这迫使负指标的"产生"模承担起构造态的全部工作。
+即一个绕原点的**围道积分**。*（理由——借自[复分析](../complex-analysis/complex-analysis.md)：围道积分 $\frac{1}{2\pi i}\oint z^{n+1}T(z)\,dz$ 提取 $T$ 的 Laurent 展开中 $z^{-n-2}$ 的系数，这恰恰是第 $n$ 个模。）* 作用于真空时，这些模被组织成对 $n\ge-1$ 有 $L_n|0\rangle=0$ ——即要求 $T(z)|0\rangle$ 在 $z=0$ 处正则（非奇异），这迫使负指标的"产生"模承担起构造态的全部工作。
 
 #### 具体例子：主场的能量
 
-把 $L_0$ 作用于 $|\phi\rangle=\lim_{z\to0}\phi(z)|0\rangle$。由 §s4 取 $n=0$ 的无穷小律，$L_0\phi(0)|0\rangle=h\,\phi(0)|0\rangle$，所以 $L_0|\phi\rangle=h|\phi\rangle$。该态的全纯能量恰恰是权 $h$。加上横杠扇区，柱面能量是 $h+\bar h=\Delta$，证实了"能量 = 维数"。
+把 $L_0$ 作用于 $|\phi\rangle=\lim_{z\to0}\phi(z)|0\rangle$ 。由 §s4 取 $n=0$ 的无穷小律， $L_0\phi(0)|0\rangle=h\,\phi(0)|0\rangle$ ，所以 $L_0|\phi\rangle=h|\phi\rangle$ 。该态的全纯能量恰恰是权 $h$ 。加上横杠扇区，柱面能量是 $h+\bar h=\Delta$ ，证实了"能量 = 维数"。
 
 <a id="s6"></a>
 ### OPE；应力–能量张量与 $TT$ OPE
 
 #### 是什么与为什么
 
-当两个算符位于邻近点时，它们的乘积可以重新展开为在其中一点处的单一算符之和——这就是**算符乘积展开**（OPE），共形场论的代数核心。在所有场中有一个与众不同：**应力–能量张量** $T(z)$，它*生成*共形变换。它的自身 OPE——$TT$ OPE——编码了整个 Virasoro 代数，包括中心荷。
+当两个算符位于邻近点时，它们的乘积可以重新展开为在其中一点处的单一算符之和——这就是**算符乘积展开**（OPE），共形场论的代数核心。在所有场中有一个与众不同：**应力–能量张量** $T(z)$ ，它*生成*共形变换。它的自身 OPE—— $TT$ OPE——编码了整个 Virasoro 代数，包括中心荷。
 
 #### OPE 的定义
 
-> **定义 — 算符乘积展开。** 对局域算符 $A(z)$ 与 $B(w)$，存在一个在关联函数内部成立的展开，当 $z\to w$ 时，
+> **定义 — 算符乘积展开。** 对局域算符 $A(z)$ 与 $B(w)$ ，存在一个在关联函数内部成立的展开，当 $z\to w$ 时，
+>
 > $$
 > A(z)\,B(w)=\sum_{k}\frac{C_k(w)}{(z-w)^{n_k}},
 > $$
-> 其中 $C_k(w)$ 是局域算符，而幂次 $n_k$ 由权固定。$n_k>0$ 的项是**奇异部分**（它们当 $z\to w$ 时发散）；其余是正则部分。奇异部分携带全部代数内容——对易子正是由它构成的。
+>
+> 其中 $C_k(w)$ 是局域算符，而幂次 $n_k$ 由权固定。 $n_k>0$ 的项是**奇异部分**（它们当 $z\to w$ 时发散）；其余是正则部分。奇异部分携带全部代数内容——对易子正是由它构成的。
 
 #### 应力张量
 
-**应力–能量张量** $T_{\mu\nu}$ 是与平移相联系的守恒流；共形不变性使它**无迹**（$T^\mu{}_\mu=0$），守恒律进而使它的分量是全纯/反全纯的。在复坐标中，独立的部分是一个全纯场 $T(z)\equiv T_{zz}$ 与一个反全纯场 $\bar T(\bar z)\equiv T_{\bar z\bar z}$。$T(z)$ 是共形变换的生成元：任何场在映射 $\epsilon$ 下的变分是围道积分 $\delta_\epsilon\phi(w)=\frac{1}{2\pi i}\oint dz\,\epsilon(z)T(z)\phi(w)$，这恰恰是为何 §s5 的模 $L_n=\frac{1}{2\pi i}\oint z^{n+1}T\,dz$ 生成该代数。
+**应力–能量张量** $T_{\mu\nu}$ 是与平移相联系的守恒流；共形不变性使它**无迹**（ $T^\mu{}_\mu=0$ ），守恒律进而使它的分量是全纯/反全纯的。在复坐标中，独立的部分是一个全纯场 $T(z)\equiv T_{zz}$ 与一个反全纯场 $\bar T(\bar z)\equiv T_{\bar z\bar z}$ 。 $T(z)$ 是共形变换的生成元：任何场在映射 $\epsilon$ 下的变分是围道积分 $\delta_\epsilon\phi(w)=\frac{1}{2\pi i}\oint dz\,\epsilon(z)T(z)\phi(w)$ ，这恰恰是为何 §s5 的模 $L_n=\frac{1}{2\pi i}\oint z^{n+1}T\,dz$ 生成该代数。
 
 #### $T\phi$ OPE 编码"主场"
 
@@ -324,26 +338,27 @@ $$
 T(z)\,\phi(w,\bar w)=\frac{h}{(z-w)^2}\,\phi(w,\bar w)+\frac{1}{z-w}\,\partial_w\phi(w,\bar w)+\text{正则项}.
 $$
 **推导。** 二阶极点系数 $h\phi$ 是 §s4 中无穷小律 $\delta_n\phi=-(z^{n+1}\partial+h(n+1)z^n)\phi$ 的*权*项，一阶极点系数 $\partial\phi$ 则是其*输运*项。具体地：
-1. 用上面的 OPE 计算 $\delta_\epsilon\phi(w)=\frac{1}{2\pi i}\oint_w dz\,\epsilon(z)\,T(z)\phi(w)$。
-2. 二阶极点，由留数法则 $\frac{1}{2\pi i}\oint\frac{\epsilon(z)}{(z-w)^2}dz=\epsilon'(w)$，贡献 $h\,\epsilon'(w)\phi$。*（理由——Cauchy 导数积分公式，来自[复分析](../complex-analysis/complex-analysis.md)：$\frac{1}{2\pi i}\oint\frac{f(z)}{(z-w)^2}dz=f'(w)$。）*
-3. 一阶极点由留数法则 $\frac{1}{2\pi i}\oint\frac{\epsilon(z)}{z-w}dz=\epsilon(w)$ 贡献 $\epsilon(w)\partial\phi$。
-4. 求和：$\delta_\epsilon\phi=h\epsilon'\phi+\epsilon\partial\phi$，与 §s4 相符。所以 OPE *就是*变换律。$\blacksquare$
+1. 用上面的 OPE 计算 $\delta_\epsilon\phi(w)=\frac{1}{2\pi i}\oint_w dz\,\epsilon(z)\,T(z)\phi(w)$ 。
+2. 二阶极点，由留数法则 $\frac{1}{2\pi i}\oint\frac{\epsilon(z)}{(z-w)^2}dz=\epsilon'(w)$ ，贡献 $h\,\epsilon'(w)\phi$ 。*（理由——Cauchy 导数积分公式，来自[复分析](../complex-analysis/complex-analysis.md)： $\frac{1}{2\pi i}\oint\frac{f(z)}{(z-w)^2}dz=f'(w)$ 。）*
+3. 一阶极点由留数法则 $\frac{1}{2\pi i}\oint\frac{\epsilon(z)}{z-w}dz=\epsilon(w)$ 贡献 $\epsilon(w)\partial\phi$ 。
+4. 求和： $\delta_\epsilon\phi=h\epsilon'\phi+\epsilon\partial\phi$ ，与 §s4 相符。所以 OPE *就是*变换律。 $\blacksquare$
 
 #### $TT$ OPE 与中心荷
 
 > **$TT$ OPE。** 应力张量与自身的乘积为
+>
 > $$
 > T(z)\,T(w)=\frac{c/2}{(z-w)^{4}}+\frac{2\,T(w)}{(z-w)^{2}}+\frac{\partial_w T(w)}{z-w}+\text{正则项}.
 > $$
 
-其结构与 $T\phi$ OPE 类似，但有两点不同：$T$ 的权为 $h=2$（因此二阶极点上系数为 $2$），并且有一个*额外的*领头项 $\frac{c/2}{(z-w)^4}$，一个不带算符的四阶极点——只有数 $c$。那个额外项正是中心荷：它是 §s3 中反常的 OPE 语言版本。$(z-w)^{-4}$ 项的出现也表明 $T$ **不是主场**（主场不会有高于二阶极点的极点），它只是拟主场。
+其结构与 $T\phi$ OPE 类似，但有两点不同： $T$ 的权为 $h=2$ （因此二阶极点上系数为 $2$ ），并且有一个*额外的*领头项 $\frac{c/2}{(z-w)^4}$ ，一个不带算符的四阶极点——只有数 $c$ 。那个额外项正是中心荷：它是 §s3 中反常的 OPE 语言版本。 $(z-w)^{-4}$ 项的出现也表明 $T$ **不是主场**（主场不会有高于二阶极点的极点），它只是拟主场。
 
 #### 从 $TT$ OPE 回到 Virasoro 代数
 
-我们闭合环路：$TT$ OPE *蕴涵* §s3 的 Virasoro 代数。
-1. 模的对易子是一个二重围道积分，$[L_m,L_n]=\big(\oint_0\frac{dw}{2\pi i}-\big)\oint_w\frac{dz}{2\pi i}\,z^{m+1}w^{n+1}T(z)T(w)$，其中 $z$-围道环绕 $w$。*（理由：围道积分荷的对易子等于 OPE 奇异部分的围道积分——这是变形围道的标准"径向排序"操作。）*
-2. 代入 $TT$ OPE 并读出每个极点的留数。先做 $z$ 积分，对每个极点取 $z^{m+1}$ 在 $z=w$ 处的留数，再做 $w$ 积分。带 $2T(w)$ 的 $(z-w)^{-2}$ 项，由 $\frac{1}{2\pi i}\oint_w\frac{z^{m+1}}{(z-w)^2}dz=(m+1)w^{m}$，给出贡献 $2(m+1)\,\frac{1}{2\pi i}\oint w^{n+1}w^{m}T(w)\,dw=2(m+1)L_{m+n}$。带 $\partial_w T(w)$ 的 $(z-w)^{-1}$ 项给出 $\frac{1}{2\pi i}\oint w^{m+1}w^{n+1}\partial_w T\,dw$；对 $w$ 分部积分把导数移到 $w^{m+n+2}$ 上，产生 $-(m+n+2)L_{m+n}$。两者相加，$\big[2(m+1)-(m+n+2)\big]L_{m+n}=(m-n)L_{m+n}$，即 Virasoro 输运项。带 $c/2$ 的 $(z-w)^{-4}$ 项，由三阶导数留数 $\frac{1}{3!}\partial_w^3$，给出中心项。
-3. 计算 $\frac{1}{2\pi i}\oint w^{n+1}\,\frac{c}{2}\cdot\frac{1}{3!}\partial_w^3 z^{m+1}\big|_{z=w}\,dw$ 得到 $\frac{c}{12}(m^3-m)\delta_{m+n,0}$。*（理由：$\partial_w^3 w^{m+1}=(m+1)m(m-1)w^{m-2}$，且 $\frac{1}{2\pi i}\oint w^{m+n-1}dw=\delta_{m+n,0}$；因子组装为 $\frac{c}{2}\cdot\frac16(m+1)m(m-1)=\frac{c}{12}(m^3-m)$。）*
+我们闭合环路： $TT$ OPE *蕴涵* §s3 的 Virasoro 代数。
+1. 模的对易子是一个二重围道积分， $[L_m,L_n]=\big(\oint_0\frac{dw}{2\pi i}-\big)\oint_w\frac{dz}{2\pi i}\,z^{m+1}w^{n+1}T(z)T(w)$ ，其中 $z$-围道环绕 $w$ 。*（理由：围道积分荷的对易子等于 OPE 奇异部分的围道积分——这是变形围道的标准"径向排序"操作。）*
+2. 代入 $TT$ OPE 并读出每个极点的留数。先做 $z$ 积分，对每个极点取 $z^{m+1}$ 在 $z=w$ 处的留数，再做 $w$ 积分。带 $2T(w)$ 的 $(z-w)^{-2}$ 项，由 $\frac{1}{2\pi i}\oint_w\frac{z^{m+1}}{(z-w)^2}dz=(m+1)w^{m}$ ，给出贡献 $2(m+1)\,\frac{1}{2\pi i}\oint w^{n+1}w^{m}T(w)\,dw=2(m+1)L_{m+n}$ 。带 $\partial_w T(w)$ 的 $(z-w)^{-1}$ 项给出 $\frac{1}{2\pi i}\oint w^{m+1}w^{n+1}\partial_w T\,dw$ ；对 $w$ 分部积分把导数移到 $w^{m+n+2}$ 上，产生 $-(m+n+2)L_{m+n}$ 。两者相加， $\big[2(m+1)-(m+n+2)\big]L_{m+n}=(m-n)L_{m+n}$ ，即 Virasoro 输运项。带 $c/2$ 的 $(z-w)^{-4}$ 项，由三阶导数留数 $\frac{1}{3!}\partial_w^3$ ，给出中心项。
+3. 计算 $\frac{1}{2\pi i}\oint w^{n+1}\,\frac{c}{2}\cdot\frac{1}{3!}\partial_w^3 z^{m+1}\big|_{z=w}\,dw$ 得到 $\frac{c}{12}(m^3-m)\delta_{m+n,0}$ 。*（理由： $\partial_w^3 w^{m+1}=(m+1)m(m-1)w^{m-2}$ ，且 $\frac{1}{2\pi i}\oint w^{m+n-1}dw=\delta_{m+n,0}$ ；因子组装为 $\frac{c}{2}\cdot\frac16(m+1)m(m-1)=\frac{c}{12}(m^3-m)$ 。）*
 
 于是 Virasoro 代数与 $TT$ OPE 是同一内容的两种编码。
 
@@ -354,7 +369,7 @@ $$
 
 #### 是什么与为什么
 
-一个**关联函数**（或**关联子**）$\langle\phi_1(z_1)\cdots\phi_n(z_n)\rangle$ 是一个场乘积的量子平均——理论的基本可观测量。共形对称性的威力在于它*完全固定*了二点和三点关联子的函数形式，只留下寥寥几个常数。我们现在仅用整体 $SL(2,\mathbb{C})$ 不变性来推导它们。
+一个**关联函数**（或**关联子**） $\langle\phi_1(z_1)\cdots\phi_n(z_n)\rangle$ 是一个场乘积的量子平均——理论的基本可观测量。共形对称性的威力在于它*完全固定*了二点和三点关联子的函数形式，只留下寥寥几个常数。我们现在仅用整体 $SL(2,\mathbb{C})$ 不变性来推导它们。
 
 #### 设置：在整体群下的不变性
 
@@ -367,6 +382,7 @@ $$
 #### 二点函数
 
 > **结果。** 对两个权为 $(h_1,\bar h_1),(h_2,\bar h_2)$ 的拟主场，
+>
 > $$
 > \langle\phi_1(z_1,\bar z_1)\,\phi_2(z_2,\bar z_2)\rangle=
 > \begin{cases}
@@ -374,52 +390,56 @@ $$
 > 0,& \text{otherwise,}
 > \end{cases}
 > $$
-> 其中 $z_{12}=z_1-z_2$，而 $C_{12}$ 是一个常数（通过归一化场可设为 $1$）。
+>
+> 其中 $z_{12}=z_1-z_2$ ，而 $C_{12}$ 是一个常数（通过归一化场可设为 $1$ ）。
 
 **推导。**
-1. **平移不变性** $\Rightarrow$ 关联子只依赖于差 $z_{12}$。*（理由：在 $z\to z+a$ 下的不变性禁止对绝对位置的依赖。）* 把它写作 $f(z_{12})$。
-2. **旋转 + 伸缩（标度）** $\Rightarrow$ 在 $z\to\lambda z$ 下关联子按 $\lambda^{-h_1-h_2}$ 标度，所以 $f(\lambda z_{12})=\lambda^{-(h_1+h_2)}f(z_{12})$，迫使 $f(z_{12})=C_{12}\,z_{12}^{-(h_1+h_2)}$。*（理由：具有该齐次性的函数是一个纯幂。）*
-3. **SCT 不变性** $\Rightarrow$ 在 $z\mapsto z/(1-bz)$ 下，两点处的因子 $dw/dz=(1-bz)^{-2}$ 必须组合起来使答案不变。推导下来，这*只在* $h_1=h_2$ 时自洽。*（理由：SCT 因子 $(1-bz_1)(1-bz_2)$ 的交叉项恰恰在指数相等时相消；不相等的指数会留下未抵消的 $b$ 依赖，而这被不变性所禁止。）* 因此两个权不相等的主场的二点函数为零。$\blacksquare$
+1. **平移不变性** $\Rightarrow$ 关联子只依赖于差 $z_{12}$ 。*（理由：在 $z\to z+a$ 下的不变性禁止对绝对位置的依赖。）* 把它写作 $f(z_{12})$ 。
+2. **旋转 + 伸缩（标度）** $\Rightarrow$ 在 $z\to\lambda z$ 下关联子按 $\lambda^{-h_1-h_2}$ 标度，所以 $f(\lambda z_{12})=\lambda^{-(h_1+h_2)}f(z_{12})$ ，迫使 $f(z_{12})=C_{12}\,z_{12}^{-(h_1+h_2)}$ 。*（理由：具有该齐次性的函数是一个纯幂。）*
+3. **SCT 不变性** $\Rightarrow$ 在 $z\mapsto z/(1-bz)$ 下，两点处的因子 $dw/dz=(1-bz)^{-2}$ 必须组合起来使答案不变。推导下来，这*只在* $h_1=h_2$ 时自洽。*（理由：SCT 因子 $(1-bz_1)(1-bz_2)$ 的交叉项恰恰在指数相等时相消；不相等的指数会留下未抵消的 $b$ 依赖，而这被不变性所禁止。）* 因此两个权不相等的主场的二点函数为零。 $\blacksquare$
 
 #### 三点函数
 
 > **结果。** 对三个拟主场（显示全纯部分），
+>
 > $$
 > \langle\phi_1\phi_2\phi_3\rangle=\frac{C_{123}}{z_{12}^{\,h_1+h_2-h_3}\,z_{23}^{\,h_2+h_3-h_1}\,z_{13}^{\,h_1+h_3-h_2}},
 > $$
-> 其中 $z_{ij}=z_i-z_j$，并有单一常数 $C_{123}$，即**结构常数**（或 **OPE 系数**）。
+>
+> 其中 $z_{ij}=z_i-z_j$ ，并有单一常数 $C_{123}$ ，即**结构常数**（或 **OPE 系数**）。
 
 **推导。**
-1. 平移不变性 $\Rightarrow$ 只依赖于 $z_{12},z_{13},z_{23}$。
-2. 作拟设 $\prod_{i<j}z_{ij}^{a_{ij}}$ 并施加标度：在 $z\to\lambda z$ 下每个 $z_{ij}\to\lambda z_{ij}$，所以 $\sum_{i<j}a_{ij}=-(h_1+h_2+h_3)$。
-3. 施加 SCT 不变性；这给出另外三个线性方程。求解该线性方程组给出 $a_{12}=-(h_1+h_2-h_3)$，$a_{13}=-(h_1+h_3-h_2)$，$a_{23}=-(h_2+h_3-h_1)$。*（理由：四个线性约束——一个来自标度，三个来自 SCT——的唯一解就是这个对称的分配。）* $\blacksquare$
+1. 平移不变性 $\Rightarrow$ 只依赖于 $z_{12},z_{13},z_{23}$ 。
+2. 作拟设 $\prod_{i<j}z_{ij}^{a_{ij}}$ 并施加标度：在 $z\to\lambda z$ 下每个 $z_{ij}\to\lambda z_{ij}$ ，所以 $\sum_{i<j}a_{ij}=-(h_1+h_2+h_3)$ 。
+3. 施加 SCT 不变性；这给出另外三个线性方程。求解该线性方程组给出 $a_{12}=-(h_1+h_2-h_3)$ ， $a_{13}=-(h_1+h_3-h_2)$ ， $a_{23}=-(h_2+h_3-h_1)$ 。*（理由：四个线性约束——一个来自标度，三个来自 SCT——的唯一解就是这个对称的分配。）* $\blacksquare$
 
 > **为何这就是自举。** 二点函数固定了*归一化*；三点函数固定了除数 $C_{123}$ 之外的一切。全部权 $\{h_i\}$ 与结构常数 $\{C_{123}\}$ 的集合称为 **CFT 数据**；**共形自举**纲领的陈述是：自洽性（OPE 的结合性、模不变性）确定这些数据。四点及更高的关联子*不*仅由对称性固定——它们依赖于诸如 $x=\frac{z_{12}z_{34}}{z_{13}z_{24}}$ 的**交叉比**，即在所有整体映射下存活的不变组合——并且需要动力学。
 
 #### 具体例子：Ising 自旋二点函数
 
-在 $c=\tfrac12$ 的 Ising 共形场论（§s10）中，自旋场 $\sigma$ 有 $h=\bar h=\tfrac1{16}$，所以 $\Delta=\tfrac18$。因此二点函数为 $\langle\sigma(z,\bar z)\sigma(0)\rangle=|z|^{-1/4}$，即在分离距离 $r$ 处 $\langle\sigma\sigma\rangle\sim r^{-1/4}$。这条幂律——**临界指数** $\eta=\tfrac14$——是对处于临界温度的二维 Ising 磁体的一个可测预言，完全由值 $h=\tfrac1{16}$ 固定。
+在 $c=\tfrac12$ 的 Ising 共形场论（§s10）中，自旋场 $\sigma$ 有 $h=\bar h=\tfrac1{16}$ ，所以 $\Delta=\tfrac18$ 。因此二点函数为 $\langle\sigma(z,\bar z)\sigma(0)\rangle=|z|^{-1/4}$ ，即在分离距离 $r$ 处 $\langle\sigma\sigma\rangle\sim r^{-1/4}$ 。这条幂律——**临界指数** $\eta=\tfrac14$ ——是对处于临界温度的二维 Ising 磁体的一个可测预言，完全由值 $h=\tfrac1{16}$ 固定。
 
 <a id="s8"></a>
 ### 共形 Ward 恒等式
 
 #### 是什么与为什么
 
-一个 **Ward 恒等式**是对一个对称性的精确陈述，*位于关联函数内部*：它表述把对称性的流（$T(z)$）插入一个关联子如何重现其他场的变换。共形 Ward 恒等式把抽象的对称性变成一件计算工具，它们是 §s7 关联子形式与 §s9 递推关系背后的引擎。
+一个 **Ward 恒等式**是对一个对称性的精确陈述，*位于关联函数内部*：它表述把对称性的流（ $T(z)$ ）插入一个关联子如何重现其他场的变换。共形 Ward 恒等式把抽象的对称性变成一件计算工具，它们是 §s7 关联子形式与 §s9 递推关系背后的引擎。
 
 #### 该恒等式
 
-> **共形 Ward 恒等式。** 对权为 $h_i$ 的主场 $\phi_i$，
+> **共形 Ward 恒等式。** 对权为 $h_i$ 的主场 $\phi_i$ ，
+>
 > $$
 > \big\langle T(z)\,\phi_1(w_1)\cdots\phi_n(w_n)\big\rangle
 > =\sum_{i=1}^{n}\left[\frac{h_i}{(z-w_i)^2}+\frac{1}{z-w_i}\,\partial_{w_i}\right]\big\langle\phi_1(w_1)\cdots\phi_n(w_n)\big\rangle.
 > $$
 
 **推导。**
-1. 关联子在无穷小共形映射 $\epsilon(z)$ 下的变分，由 $T$ 作为生成元的定义（§s6），是 $\delta\langle\prod\phi_i\rangle=-\frac{1}{2\pi i}\oint dz\,\epsilon(z)\langle T(z)\prod\phi_i\rangle$，围道包围所有 $w_i$。
-2. 另一方面，该变分等于各个场变分之和，$\delta\langle\prod\phi_i\rangle=\sum_i\langle\phi_1\cdots\delta_\epsilon\phi_i\cdots\phi_n\rangle$，其中 $\delta_\epsilon\phi_i=-(\epsilon\partial+h_i\epsilon')\phi_i$ 来自 §s4。
-3. 对*所有* $\epsilon$ 令二者相等。由于 $\epsilon$ 是任意的，被积函数必须相符：关联子 $\langle T(z)\prod\phi_i\rangle$ 必须恰好具有这样的极点，其留数重现第 2 步——在每个 $w_i$ 处一个二阶极点 $h_i/(z-w_i)^2$ 与一个一阶极点 $\partial_{w_i}/(z-w_i)$。*（理由：由 §s6 的留数法则，这些极点对 $\epsilon$ 积分给出 $\epsilon'h_i$ 与 $\epsilon\partial$，与场变分相符。）*
-4. 不可能有其他奇异性（在 $\phi_i$ 之间没有其他算符），且关联子当 $z\to\infty$ 时消失（因为 $T$ 权为 $2$，$\langle T(z)\cdots\rangle\sim z^{-4}$），所以所列的极点就是*整个*答案。$\blacksquare$
+1. 关联子在无穷小共形映射 $\epsilon(z)$ 下的变分，由 $T$ 作为生成元的定义（§s6），是 $\delta\langle\prod\phi_i\rangle=-\frac{1}{2\pi i}\oint dz\,\epsilon(z)\langle T(z)\prod\phi_i\rangle$ ，围道包围所有 $w_i$ 。
+2. 另一方面，该变分等于各个场变分之和， $\delta\langle\prod\phi_i\rangle=\sum_i\langle\phi_1\cdots\delta_\epsilon\phi_i\cdots\phi_n\rangle$ ，其中 $\delta_\epsilon\phi_i=-(\epsilon\partial+h_i\epsilon')\phi_i$ 来自 §s4。
+3. 对*所有* $\epsilon$ 令二者相等。由于 $\epsilon$ 是任意的，被积函数必须相符：关联子 $\langle T(z)\prod\phi_i\rangle$ 必须恰好具有这样的极点，其留数重现第 2 步——在每个 $w_i$ 处一个二阶极点 $h_i/(z-w_i)^2$ 与一个一阶极点 $\partial_{w_i}/(z-w_i)$ 。*（理由：由 §s6 的留数法则，这些极点对 $\epsilon$ 积分给出 $\epsilon'h_i$ 与 $\epsilon\partial$ ，与场变分相符。）*
+4. 不可能有其他奇异性（在 $\phi_i$ 之间没有其他算符），且关联子当 $z\to\infty$ 时消失（因为 $T$ 权为 $2$ ， $\langle T(z)\cdots\rangle\sim z^{-4}$ ），所以所列的极点就是*整个*答案。 $\blacksquare$
 
 #### 推论：整体 Ward 恒等式
 
@@ -433,7 +453,7 @@ $$
 
 #### 在二点函数上的具体核验
 
-把标度恒等式 $\sum_i(w_i\partial_{w_i}+h_i)$ 应用于 $\langle\phi(w_1)\phi(w_2)\rangle=C\,w_{12}^{-2h}$。计算 $w_1\partial_{w_1}(w_{12}^{-2h})+w_2\partial_{w_2}(w_{12}^{-2h})=-2h\,w_{12}^{-2h-1}(w_1-w_2)=-2h\,w_{12}^{-2h}$，再加上 $2h\,w_{12}^{-2h}$（即 $h_1+h_2=2h$ 项）得到 $0$。恒等式成立，证实了 §s7 中所得的形式。
+把标度恒等式 $\sum_i(w_i\partial_{w_i}+h_i)$ 应用于 $\langle\phi(w_1)\phi(w_2)\rangle=C\,w_{12}^{-2h}$ 。计算 $w_1\partial_{w_1}(w_{12}^{-2h})+w_2\partial_{w_2}(w_{12}^{-2h})=-2h\,w_{12}^{-2h-1}(w_1-w_2)=-2h\,w_{12}^{-2h}$ ，再加上 $2h\,w_{12}^{-2h}$ （即 $h_1+h_2=2h$ 项）得到 $0$ 。恒等式成立，证实了 §s7 中所得的形式。
 
 ## D 部分 · 表示、极小模型与环面
 
@@ -447,57 +467,63 @@ $$
 #### 最高权态与后代态
 
 > **定义。** 一个权为 $h$ 的**最高权态** $|h\rangle$ 满足
+>
 > $$
 > L_0|h\rangle=h|h\rangle,\qquad L_n|h\rangle=0\ \ \text{for all }n>0.
 > $$
-> 第一个方程表明 $|h\rangle$ 具有确定的能量 $h$（§s5）；第二个表明它被所有**降算符** $L_{n>0}$ 湮灭（这些算符把 $L_0$-能量降低 $n$，因为 $[L_0,L_n]=-nL_n$）。由态–算符映射（§s5），$|h\rangle=|\phi\rangle$ 对应于一个权为 $h$ 的主场 $\phi$。
+>
+> 第一个方程表明 $|h\rangle$ 具有确定的能量 $h$ （§s5）；第二个表明它被所有**降算符** $L_{n>0}$ 湮灭（这些算符把 $L_0$-能量降低 $n$ ，因为 $[L_0,L_n]=-nL_n$ ）。由态–算符映射（§s5）， $|h\rangle=|\phi\rangle$ 对应于一个权为 $h$ 的主场 $\phi$ 。
 
-用**升算符** $L_{-n}$（$n>0$，把能量*提升* $n$）作用，构造出**后代态**：
+用**升算符** $L_{-n}$ （ $n>0$ ，把能量*提升* $n$ ）作用，构造出**后代态**：
 $$
 L_{-n_1}L_{-n_2}\cdots L_{-n_k}\,|h\rangle,\qquad n_1\ge n_2\ge\cdots\ge1.
 $$
-> **定义 — Verma 模。** **Verma 模** $V(c,h)$ 是 $|h\rangle$ 及其所有后代态的张成。它在能量 $h+N$ 处的态（那些由满足 $\sum n_i=N$ 的 $L_{-n}$ 构造的态）构成**第 $N$ 级**；这种独立态的个数是 $p(N)$，即 $N$ 的**分拆数**。整数 $N$ 是**级**。
+> **定义 — Verma 模。** **Verma 模** $V(c,h)$ 是 $|h\rangle$ 及其所有后代态的张成。它在能量 $h+N$ 处的态（那些由满足 $\sum n_i=N$ 的 $L_{-n}$ 构造的态）构成**第 $N$ 级**；这种独立态的个数是 $p(N)$ ，即 $N$ 的**分拆数**。整数 $N$ 是**级**。
 
-**为何 $[L_0,L_{-n}]=nL_{-n}$（所以后代态提升能量）。** 由 Virasoro，$[L_0,L_{-n}]=(0-(-n))L_{-n}=nL_{-n}$。因此 $L_0(L_{-n}|h\rangle)=(L_{-n}L_0+nL_{-n})|h\rangle=(h+n)L_{-n}|h\rangle$。所以 $L_{-n}|h\rangle$ 的能量为 $h+n$。*（理由：直接使用该括号。）*
+**为何 $[L_0,L_{-n}]=nL_{-n}$ （所以后代态提升能量）。** 由 Virasoro， $[L_0,L_{-n}]=(0-(-n))L_{-n}=nL_{-n}$ 。因此 $L_0(L_{-n}|h\rangle)=(L_{-n}L_0+nL_{-n})|h\rangle=(h+n)L_{-n}|h\rangle$ 。所以 $L_{-n}|h\rangle$ 的能量为 $h+n$ 。*（理由：直接使用该括号。）*
 
 #### 具体级计数
 
-- 第 $0$ 级：只有 $|h\rangle$。$p(0)=1$ 个态。
-- 第 $1$ 级：$L_{-1}|h\rangle$。$p(1)=1$ 个态。
-- 第 $2$ 级：$L_{-2}|h\rangle$ 与 $L_{-1}^2|h\rangle=L_{-1}L_{-1}|h\rangle$。$p(2)=2$ 个态。
-- 第 $3$ 级：$L_{-3},\,L_{-1}L_{-2},\,L_{-1}^3$。$p(3)=3$ 个态。
+- 第 $0$ 级：只有 $|h\rangle$ 。 $p(0)=1$ 个态。
+- 第 $1$ 级： $L_{-1}|h\rangle$ 。 $p(1)=1$ 个态。
+- 第 $2$ 级： $L_{-2}|h\rangle$ 与 $L_{-1}^2|h\rangle=L_{-1}L_{-1}|h\rangle$ 。 $p(2)=2$ 个态。
+- 第 $3$ 级： $L_{-3},\,L_{-1}L_{-2},\,L_{-1}^3$ 。 $p(3)=3$ 个态。
 
-这些计数的母函数是 $\prod_{n\ge1}(1-q^n)^{-1}=\sum_N p(N)q^N$，它将在 §s11 中作为**特征标**重现。
+这些计数的母函数是 $\prod_{n\ge1}(1-q^n)^{-1}=\sum_N p(N)q^N$ ，它将在 §s11 中作为**特征标**重现。
 
 #### 零态
 
-> **定义 — 零态（奇异态）。** 在某个级 $N>0$ 处的一个后代态 $|\chi\rangle$ 称为**零态**（或**奇异态**），如果它*自身*是一个最高权态：对所有 $n>0$ 有 $L_n|\chi\rangle=0$，然而 $|\chi\rangle\neq0$。一个零态与整个模（包括它自身）的内积为零，所以它在物理上不可见，必须被**商掉**（置为零）才能得到真正的、不可约的表示。
+> **定义 — 零态（奇异态）。** 在某个级 $N>0$ 处的一个后代态 $|\chi\rangle$ 称为**零态**（或**奇异态**），如果它*自身*是一个最高权态：对所有 $n>0$ 有 $L_n|\chi\rangle=0$ ，然而 $|\chi\rangle\neq0$ 。一个零态与整个模（包括它自身）的内积为零，所以它在物理上不可见，必须被**商掉**（置为零）才能得到真正的、不可约的表示。
 
-**具体例子（第 2 级零态）。** 寻找被 $L_1$ 与 $L_2$ 湮灭的 $|\chi\rangle=(L_{-2}+aL_{-1}^2)|h\rangle$。
-1. 施加 $L_1|\chi\rangle=0$。利用 $[L_1,L_{-2}]=3L_{-1}$ 与 $[L_1,L_{-1}]=2L_0$，可得 $L_1|\chi\rangle=(3+a\cdot(2(2h+1)))\,L_{-1}|h\rangle$……仔细些：$L_1L_{-1}^2|h\rangle=(4h+2)L_{-1}|h\rangle$，所以 $L_1|\chi\rangle=(3+a(4h+2))L_{-1}|h\rangle$。置为零：$a=-\frac{3}{2(2h+1)}$。
-2. 施加 $L_2|\chi\rangle=0$。利用 $[L_2,L_{-2}]=4L_0+\tfrac{c}{2}$ 与 $L_2L_{-1}^2|h\rangle=6h|h\rangle$，可得 $L_2|\chi\rangle=(4h+\tfrac{c}{2}+6ah)|h\rangle$。置为零并代入第 1 步的 $a$，给出条件
+**具体例子（第 2 级零态）。** 寻找被 $L_1$ 与 $L_2$ 湮灭的 $|\chi\rangle=(L_{-2}+aL_{-1}^2)|h\rangle$ 。
+1. 施加 $L_1|\chi\rangle=0$ 。利用 $[L_1,L_{-2}]=3L_{-1}$ 与 $[L_1,L_{-1}]=2L_0$ ，可得 $L_1|\chi\rangle=(3+a\cdot(2(2h+1)))\,L_{-1}|h\rangle$ ……仔细些： $L_1L_{-1}^2|h\rangle=(4h+2)L_{-1}|h\rangle$ ，所以 $L_1|\chi\rangle=(3+a(4h+2))L_{-1}|h\rangle$ 。置为零： $a=-\frac{3}{2(2h+1)}$ 。
+2. 施加 $L_2|\chi\rangle=0$ 。利用 $[L_2,L_{-2}]=4L_0+\tfrac{c}{2}$ 与 $L_2L_{-1}^2|h\rangle=6h|h\rangle$ ，可得 $L_2|\chi\rangle=(4h+\tfrac{c}{2}+6ah)|h\rangle$ 。置为零并代入第 1 步的 $a$ ，给出条件
 $$
 2(2h+1)\left(4h+\tfrac{c}{2}\right)=18h\quad\Longrightarrow\quad
 h=\frac{1}{16}\Big(5-c\pm\sqrt{(c-1)(c-25)}\Big).
 $$
-*（理由：代入 $a=-\tfrac{3}{2(2h+1)}$ 并求解所得关于 $h$ 的二次方程。）* 对特殊的 $(c,h)$ 这一条件满足，此时该模有一个第 2 级零态。$c=\tfrac12$ 处的 Ising 自旋 $h=\tfrac1{16}$ 正是这样的情形——它的零态给出 $\langle\sigma\sigma\sigma\sigma\rangle$ 的一个微分方程。
+*（理由：代入 $a=-\tfrac{3}{2(2h+1)}$ 并求解所得关于 $h$ 的二次方程。）* 对特殊的 $(c,h)$ 这一条件满足，此时该模有一个第 2 级零态。 $c=\tfrac12$ 处的 Ising 自旋 $h=\tfrac1{16}$ 正是这样的情形——它的零态给出 $\langle\sigma\sigma\sigma\sigma\rangle$ 的一个微分方程。
 
 #### Kac 行列式与幺正性
 
-> **Kac 行列式。** 在第 $N$ 级，作出 $p(N)$ 个基后代态内积的 **Gram 矩阵** $M_N$。它的行列式——**Kac 行列式**——分解为
+> **Kac 行列式。** 在第 $N$ 级，作出 $p(N)$ 个基后代态内积的 **Gram 矩阵** $M_N$ 。它的行列式——**Kac 行列式**——分解为
+>
 > $$
 > \det M_N=\alpha_N\prod_{\substack{r,s\ge1\\ rs\le N}}\big(h-h_{r,s}(c)\big)^{p(N-rs)},
 > \qquad
 > h_{r,s}(c)=\frac{(r\beta-s/\beta)^2-(\beta-1/\beta)^2}{4},
 > $$
-> 其中 $\alpha_N>0$ 是一个已知常数，而 $\beta$ 由 $c=1-6(\beta-1/\beta)^2$ 固定。在第 $N$ 级出现一个零态，当且仅当对某个 $rs=N$ 有 $h=h_{r,s}$（相应的因子消失）。
+>
+> 其中 $\alpha_N>0$ 是一个已知常数，而 $\beta$ 由 $c=1-6(\beta-1/\beta)^2$ 固定。在第 $N$ 级出现一个零态，当且仅当对某个 $rs=N$ 有 $h=h_{r,s}$ （相应的因子消失）。
 
-> **幺正性界。** 一个表示是**幺正的**（所有态都有非负模——一个合理的量子理论所要求的），仅当对所有 $N$ 有 $\det M_N\ge0$。分析符号给出 **Friedan–Qiu–Shenker 定理**：对 $c\ge1$，对所有 $h\ge0$ 都存在幺正表示；但对 $0\le c<1$，幺正性把 $c$ 与 $h$ 强制限定在一个*离散*列表上，
+> **幺正性界。** 一个表示是**幺正的**（所有态都有非负模——一个合理的量子理论所要求的），仅当对所有 $N$ 有 $\det M_N\ge0$ 。分析符号给出 **Friedan–Qiu–Shenker 定理**：对 $c\ge1$ ，对所有 $h\ge0$ 都存在幺正表示；但对 $0\le c<1$ ，幺正性把 $c$ 与 $h$ 强制限定在一个*离散*列表上，
+>
 > $$
 > c=1-\frac{6}{m(m+1)},\quad m=3,4,5,\dots,\qquad
 > h_{r,s}=\frac{\big((m+1)r-ms\big)^2-1}{4m(m+1)},
 > $$
-> 其中 $1\le r\le m-1$，$1\le s\le r$。这些离散的理论就是 §s10 的**极小模型**。
+>
+> 其中 $1\le r\le m-1$ ， $1\le s\le r$ 。这些离散的理论就是 §s10 的**极小模型**。
 
 这一逻辑是整个表示论的点睛之处：*要求一个 $c<1$ 的幺正、无穷维 Virasoro 表示是如此严苛，以至于只有可数列表的理论得以存活。* 对称性已被推向无穷，而无穷以一份有限的菜单作了回答。
 
@@ -510,17 +536,21 @@ $$
 
 #### 定义与 Kac 表
 
-> **定义 — 极小模型 $\mathcal M(p,p')$。** 对两个互素整数 $p>p'\ge2$，极小模型具有中心荷
+> **定义 — 极小模型 $\mathcal M(p,p')$ 。** 对两个互素整数 $p>p'\ge2$ ，极小模型具有中心荷
+>
 > $$
 > c=1-\frac{6(p-p')^2}{p\,p'},
 > $$
+>
 > 以及一个由 **Kac 表**给出权的*有限*主场集合
+>
 > $$
 > h_{r,s}=\frac{(pr-p's)^2-(p-p')^2}{4pp'},\qquad 1\le r\le p'-1,\ \ 1\le s\le p-1,
 > $$
-> 带有等同 $h_{r,s}=h_{p'-r,\,p-s}$（所以每个权只计一次）。不同主场的个数是 $\tfrac12(p-1)(p'-1)$。
+>
+> 带有等同 $h_{r,s}=h_{p'-r,\,p-s}$ （所以每个权只计一次）。不同主场的个数是 $\tfrac12(p-1)(p'-1)$ 。
 
-**幺正**极小模型是 §s9 中 $p'=m$，$p=m+1$ 的子族，其 $c=1-\frac{6}{m(m+1)}$。
+**幺正**极小模型是 §s9 中 $p'=m$ ， $p=m+1$ 的子族，其 $c=1-\frac{6}{m(m+1)}$ 。
 
 #### 为何只有有限多个场：融合闭合
 
@@ -528,18 +558,21 @@ $$
 
 #### Ising 模型作为 $c=\tfrac12$
 
-> **Ising 共形场论 $=\mathcal M(4,3)$。** 取 $p=4,p'=3$：
+> **Ising 共形场论 $=\mathcal M(4,3)$ 。** 取 $p=4,p'=3$ ：
+>
 > $$
 > c=1-\frac{6(4-3)^2}{4\cdot3}=1-\frac{6}{12}=\frac12.
 > $$
-> 它的 Kac 表（取 $1\le r\le2$，$1\le s\le3$，经等同后）恰好给出**三个**主场：
+>
+> 它的 Kac 表（取 $1\le r\le2$ ， $1\le s\le3$ ，经等同后）恰好给出**三个**主场：
+>
 > $$
 > h_{1,1}=0\ (\text{identity }\mathbf 1),\qquad
 > h_{2,1}=\tfrac12\ (\text{energy }\varepsilon),\qquad
 > h_{1,2}=\tfrac1{16}\ (\text{spin }\sigma).
 > $$
 
-**$h_{1,2}$ 的核验。** 取 $p=4,p'=3,r=1,s=2$：$h_{1,2}=\frac{(4\cdot1-3\cdot2)^2-(4-3)^2}{4\cdot4\cdot3}=\frac{(4-6)^2-1}{48}=\frac{4-1}{48}=\frac{3}{48}=\frac1{16}$。这正是 §s7 具体例子中所用的自旋权。由于 $\bar h=\tfrac1{16}$ 亦然，$\Delta_\sigma=\tfrac18$ 给出临界指数 $\eta=\tfrac14$——一个在真实二维磁体中测得的数，除了"该理论是幺正的 $c=\tfrac12$ 共形场论"之外别无任何输入即可重现。能量场 $\varepsilon$ 有 $\Delta=1$，支配系统如何响应温度；它的权 $h_{2,1}=\tfrac12$ 控制比热指数。
+**$h_{1,2}$ 的核验。** 取 $p=4,p'=3,r=1,s=2$ ： $h_{1,2}=\frac{(4\cdot1-3\cdot2)^2-(4-3)^2}{4\cdot4\cdot3}=\frac{(4-6)^2-1}{48}=\frac{4-1}{48}=\frac{3}{48}=\frac1{16}$ 。这正是 §s7 具体例子中所用的自旋权。由于 $\bar h=\tfrac1{16}$ 亦然， $\Delta_\sigma=\tfrac18$ 给出临界指数 $\eta=\tfrac14$ ——一个在真实二维磁体中测得的数，除了"该理论是幺正的 $c=\tfrac12$ 共形场论"之外别无任何输入即可重现。能量场 $\varepsilon$ 有 $\Delta=1$ ，支配系统如何响应温度；它的权 $h_{2,1}=\tfrac12$ 控制比热指数。
 
 #### Ising 的融合规则（具体）
 
@@ -553,7 +586,7 @@ $$
 
 #### 陷阱
 
-并非每个 $c<1$ 值都给出一个*幺正*模型——只有离散的 $m$-序列才如此。非幺正极小模型（例如 Yang–Lee 边缘奇点，$\mathcal M(5,2)$，其 $c=-\tfrac{22}{5}$）是完全合格的共形场论，并描述真实的物理（这里是 Ising 模型在虚场下配分函数的零点），但它们具有负模的态，因而在通常意义下不是统计力学的临界点。
+并非每个 $c<1$ 值都给出一个*幺正*模型——只有离散的 $m$-序列才如此。非幺正极小模型（例如 Yang–Lee 边缘奇点， $\mathcal M(5,2)$ ，其 $c=-\tfrac{22}{5}$ ）是完全合格的共形场论，并描述真实的物理（这里是 Ising 模型在虚场下配分函数的零点），但它们具有负模的态，因而在通常意义下不是统计力学的临界点。
 
 <a id="s11"></a>
 ### 模不变性与环面配分函数（概览）
@@ -564,20 +597,22 @@ $$
 
 #### 环面及其模参数
 
-通过取复平面并把相差两个格矢 $1$ 与 $\tau$（一个满足 $\mathrm{Im}\,\tau>0$ 的复数）之一的点等同起来，构造一个环面。环面的形状完全由这个单一的**模参数** $\tau$ 捕捉。两个参数 $\tau$ 与 $\tau'$ 描述*同一个*环面，只要它们由一个**模变换**相联系
+通过取复平面并把相差两个格矢 $1$ 与 $\tau$ （一个满足 $\mathrm{Im}\,\tau>0$ 的复数）之一的点等同起来，构造一个环面。环面的形状完全由这个单一的**模参数** $\tau$ 捕捉。两个参数 $\tau$ 与 $\tau'$ 描述*同一个*环面，只要它们由一个**模变换**相联系
 $$
 \tau\mapsto\frac{a\tau+b}{c\tau+d},\qquad
 \begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL(2,\mathbb{Z}),
 $$
-即满足 $ad-bc=1$ 的整数。这个群仅由两个操作生成：$T:\tau\mapsto\tau+1$（一个剪切）与 $S:\tau\mapsto-1/\tau$（它交换环面的两条圈）。
+即满足 $ad-bc=1$ 的整数。这个群仅由两个操作生成： $T:\tau\mapsto\tau+1$ （一个剪切）与 $S:\tau\mapsto-1/\tau$ （它交换环面的两条圈）。
 
 #### 配分函数与特征标
 
 > **定义 — 环面配分函数。** **配分函数**是对 Hilbert 空间的迹
+>
 > $$
 > Z(\tau,\bar\tau)=\mathrm{Tr}\Big(q^{L_0-c/24}\,\bar q^{\bar L_0-\bar c/24}\Big),
 > \qquad q=e^{2\pi i\tau}.
 > $$
+>
 > 算符 $q^{L_0-c/24}$ 按每个态的能量给它加权（回忆 $L_0$ = 能量，§s5）；移位 $-c/24$ 是柱面的普适 **Casimir 能量**，它的出现是中心荷的又一副面孔。
 
 把态按它们所属的 Virasoro 表示分组，该迹分解为**特征标**：
@@ -591,17 +626,19 @@ $$
 #### 模不变性条件
 
 > **模不变性。** $Z$ 必须在生成元 $S$ 与 $T$ 下不变：
+>
 > $$
 > Z(\tau+1,\bar\tau+1)=Z(\tau,\bar\tau),\qquad
 > Z(-1/\tau,-1/\bar\tau)=Z(\tau,\bar\tau).
 > $$
-> 在这些变换下，特征标*在彼此之间*通过固定的矩阵变换，$\chi_h(-1/\tau)=\sum_{h'}S_{hh'}\chi_{h'}(\tau)$ 与 $\chi_h(\tau+1)=\sum_{h'}T_{hh'}\chi_{h'}(\tau)$（其中 $T$ 是对角的）。所以模不变性变成一个*有限线性代数*条件，即矩阵 $N_{h,\bar h}$ 与 $S$ 和 $T$ 对易。
+>
+> 在这些变换下，特征标*在彼此之间*通过固定的矩阵变换， $\chi_h(-1/\tau)=\sum_{h'}S_{hh'}\chi_{h'}(\tau)$ 与 $\chi_h(\tau+1)=\sum_{h'}T_{hh'}\chi_{h'}(\tau)$ （其中 $T$ 是对角的）。所以模不变性变成一个*有限线性代数*条件，即矩阵 $N_{h,\bar h}$ 与 $S$ 和 $T$ 对易。
 
-对一个极小模型，特征标的个数是有限的，所以这是一个有限的、可解的矩阵方程。它的解就是**模不变量**；最简单的，$N_{h,\bar h}=\delta_{h\bar h}$（**对角**或 **A-系列**），总是有效，其余的给出极小模型配分函数著名的 **ADE 分类**。
+对一个极小模型，特征标的个数是有限的，所以这是一个有限的、可解的矩阵方程。它的解就是**模不变量**；最简单的， $N_{h,\bar h}=\delta_{h\bar h}$ （**对角**或 **A-系列**），总是有效，其余的给出极小模型配分函数著名的 **ADE 分类**。
 
 #### 具体概述：Ising 配分函数
 
-$c=\tfrac12$ 的 Ising 模型有三个特征标 $\chi_{0},\chi_{1/2},\chi_{1/16}$。对角模不变量
+$c=\tfrac12$ 的 Ising 模型有三个特征标 $\chi_{0},\chi_{1/2},\chi_{1/16}$ 。对角模不变量
 $$
 Z_{\text{Ising}}=|\chi_0|^2+|\chi_{1/2}|^2+|\chi_{1/16}|^2
 $$
@@ -613,4 +650,4 @@ $$
 
 ---
 
-*这份指南从头构建了二维共形场论：$d$ 维中的共形群，以及 $d=2$ 的独特角色——在那里共形映射变成全纯函数，有限的对称性绽放为无穷维 Witt 代数。量子化把 Witt 变成了 Virasoro 代数，其唯一的中心扩张引入了中心荷 $c$——它由 Jacobi 恒等式推出，又由 $TT$ OPE 重新推出。由共形权 $(h,\bar h)$ 标记的主场，通过径向量子化与量子态建立了一一对应，而算符乘积展开组织了它们的短距离乘积。共形对称性随后完全固定了二点和三点函数，Ward 恒等式系统化了那些约束，而 Virasoro 的表示论——Verma 模、后代态、零态与 Kac 行列式——产生了幺正性界，把 $c<1$ 的世界坍缩为一份极小模型的离散列表，Ising 模型坐落在 $c=\tfrac12$ 处，其自旋权为 $\tfrac1{16}$。最后，环面上的模不变性把谱全局地系在一起。这条贯穿始终的主线是：在二维中，要求在无穷多个共形变换下不变，对一个量子理论的约束如此彻底，以至于一整族这样的理论都可以被写下来并精确求解——对称性，被推向无穷，成为一种精确求解的方法。*
+*这份指南从头构建了二维共形场论： $d$ 维中的共形群，以及 $d=2$ 的独特角色——在那里共形映射变成全纯函数，有限的对称性绽放为无穷维 Witt 代数。量子化把 Witt 变成了 Virasoro 代数，其唯一的中心扩张引入了中心荷 $c$ ——它由 Jacobi 恒等式推出，又由 $TT$ OPE 重新推出。由共形权 $(h,\bar h)$ 标记的主场，通过径向量子化与量子态建立了一一对应，而算符乘积展开组织了它们的短距离乘积。共形对称性随后完全固定了二点和三点函数，Ward 恒等式系统化了那些约束，而 Virasoro 的表示论——Verma 模、后代态、零态与 Kac 行列式——产生了幺正性界，把 $c<1$ 的世界坍缩为一份极小模型的离散列表，Ising 模型坐落在 $c=\tfrac12$ 处，其自旋权为 $\tfrac1{16}$ 。最后，环面上的模不变性把谱全局地系在一起。这条贯穿始终的主线是：在二维中，要求在无穷多个共形变换下不变，对一个量子理论的约束如此彻底，以至于一整族这样的理论都可以被写下来并精确求解——对称性，被推向无穷，成为一种精确求解的方法。*

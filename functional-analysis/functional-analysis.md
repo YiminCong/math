@@ -127,6 +127,7 @@ To make "$L^p$ is complete" concrete, here is the completeness proof in the clea
 **Worked example — a normed space that is NOT complete.** Take $C[0,1]$ but with the $L^1$-norm $\|f\|_1=\int_0^1|f|$ instead of the sup-norm. Let $f_n$ be the continuous "ramp" equal to $0$ on $[0,\tfrac12]$, equal to $1$ on $[\tfrac12+\tfrac1n,1]$, and linear in between. For $m>n$, $\|f_m-f_n\|_1\le\tfrac1n\to0$, so $(f_n)$ is Cauchy. Its pointwise limit is the discontinuous step $\mathbf 1_{(1/2,1]}$, which is **not** in $C[0,1]$, and no continuous function is its $L^1$-limit. So $(C[0,1],\|\cdot\|_1)$ is incomplete; its completion is exactly $L^1[0,1]$. This is *why* Lebesgue's $L^p$ spaces — not the continuous functions — are the right setting: completeness demands them.
 
 > **Theorem — equivalence of norms in finite dimensions.** On a finite-dimensional vector space $V$ (over $\mathbb{R}$ or $\mathbb{C}$), any two norms $\|\cdot\|_a$ and $\|\cdot\|_b$ are **equivalent**: there are constants $0<c\le C$ with
+>
 > $$
 > c\,\|v\|_a\le \|v\|_b\le C\,\|v\|_a\qquad\text{for all }v\in V.
 > $$
@@ -155,6 +156,7 @@ To make "$L^p$ is complete" concrete, here is the completeness proof in the clea
 > (Physicists' convention: linear in the *right* argument, conjugate-linear in the left. Conjugate symmetry forces $\langle x,x\rangle=\overline{\langle x,x\rangle}$, so $\langle x,x\rangle$ is real, making axiom 3 meaningful.) The induced **norm** is $\|x\|:=\sqrt{\langle x,x\rangle}$.
 
 > **Theorem — Cauchy–Schwarz inequality.** For all $x,y\in H$,
+>
 > $$
 > |\langle x,y\rangle|\le \|x\|\,\|y\|.
 > $$
@@ -189,6 +191,7 @@ $$
 **Worked example — orthogonalization (Gram–Schmidt) in $L^2[-1,1]$.** Start from $1,x,x^2,\dots$ and orthogonalize using $\langle f,g\rangle=\int_{-1}^1 fg$. The first vector is $p_0=1$ (norm $\sqrt2$). For $p_1$, subtract the component along $p_0$: $\langle 1,x\rangle=\int_{-1}^1 x\,dx=0$, so $x$ is already orthogonal to $1$; $p_1=x$. For $p_2$, $\langle 1,x^2\rangle=\int_{-1}^1 x^2=\tfrac23$ and $\langle x,x^2\rangle=\int_{-1}^1 x^3=0$, so $p_2=x^2-\tfrac{2/3}{2}\cdot 1=x^2-\tfrac13$. These are (unnormalized) **Legendre polynomials**, an orthogonal family that reappears as the angular wavefunctions of the hydrogen atom — Gram–Schmidt in $L^2$ literally manufactures the special functions of physics.
 
 > **Theorem — parallelogram law.** In any inner product space,
+>
 > $$
 > \|x+y\|^2+\|x-y\|^2=2\|x\|^2+2\|y\|^2.
 > $$
@@ -211,6 +214,7 @@ $$
 The numbers $\hat{x}_k:=\langle e_k,x\rangle$ are the **Fourier coefficients** of $x$.
 
 > **Theorem — Bessel's inequality.** For any orthonormal system $\{e_k\}$ and any $x\in H$,
+>
 > $$
 > \sum_k |\langle e_k,x\rangle|^2\le \|x\|^2.
 > $$
@@ -223,6 +227,7 @@ The numbers $\hat{x}_k:=\langle e_k,x\rangle$ are the **Fourier coefficients** o
 5. Hence $\sum_{k=1}^n|\langle e_k,x\rangle|^2\le\|x\|^2$ for every $n$. The partial sums are bounded above by $\|x\|^2$ and increasing, so the series converges and $\sum_k|\langle e_k,x\rangle|^2\le\|x\|^2$. $\blacksquare$
 
 > **Theorem — Fourier expansion converges, and Parseval.** Let $\{e_k\}_{k\ge 1}$ be an orthonormal basis of $H$ (closed span $=H$). Then for every $x\in H$:
+>
 > $$
 > x=\sum_{k=1}^\infty \langle e_k,x\rangle\,e_k,\qquad \|x\|^2=\sum_{k=1}^\infty|\langle e_k,x\rangle|^2\ \ (\textbf{Parseval}).
 > $$
@@ -267,6 +272,7 @@ As $i,j\to\infty$ the right side $\to 2d^2+2d^2-4d^2=0$, so $(m_n)$ is **Cauchy*
 4. Uniqueness: if $m+n=m'+n'$ with $m,m'\in M$, $n,n'\in M^\perp$, then $m-m'=n'-n$ lies in $M\cap M^\perp=\{0\}$ (a vector orthogonal to itself is $0$). $\blacksquare$
 
 > **Theorem — Riesz representation.** For every bounded linear functional $f\in H^*$ there is a **unique** vector $y_f\in H$ such that
+>
 > $$
 > f(x)=\langle y_f,\,x\rangle\quad\text{for all }x\in H,\qquad\text{and}\qquad \|f\|=\|y_f\|.
 > $$
@@ -291,9 +297,11 @@ As $i,j\to\infty$ the right side $\to 2d^2+2d^2-4d^2=0$, so $(m_n)$ is **Cauchy*
 **What and why.** Observables and time-evolution act on states, so we need linear *operators* $T:H\to H$ (or between two spaces). The crucial quantitative handle is the **operator norm**, which measures the largest stretch $T$ can inflict. Bounded operators form a Banach space — even an algebra — of their own.
 
 > **Definition — bounded operator & operator norm.** A linear map $T:X\to Y$ between normed spaces is **bounded** if
+>
 > $$
 > \|T\|:=\sup_{x\ne 0}\frac{\|Tx\|_Y}{\|x\|_X}=\sup_{\|x\|=1}\|Tx\|_Y<\infty.
 > $$
+>
 > The number $\|T\|$ is the **operator norm**. Write $\mathcal{B}(X,Y)$ for the bounded operators, $\mathcal{B}(H)=\mathcal{B}(H,H)$.
 
 > **Theorem — bounded $\Leftrightarrow$ continuous.** For a linear map $T$, the following are equivalent: (i) $T$ is bounded; (ii) $T$ is continuous everywhere; (iii) $T$ is continuous at $0$.
@@ -321,6 +329,7 @@ As $i,j\to\infty$ the right side $\to 2d^2+2d^2-4d^2=0$, so $(m_n)$ is **Cauchy*
 **What and why.** The **adjoint** $T^*$ is the operator that "moves to the other side of the inner product." Three special classes — **self-adjoint** ($T=T^*$, the observables), **unitary** ($U^*=U^{-1}$, the symmetries and time-evolutions), and **projections** ($P=P^*=P^2$, the measurements) — are the entire grammar of quantum mechanics.
 
 > **Theorem & Definition — the adjoint exists and is unique.** For $T\in\mathcal{B}(H)$ there is a unique $T^*\in\mathcal{B}(H)$ with
+>
 > $$
 > \langle T^*x,\,y\rangle=\langle x,\,Ty\rangle\qquad\text{for all }x,y\in H,\qquad \|T^*\|=\|T\|.
 > $$
@@ -418,9 +427,11 @@ The slogan: compact operators "almost" reduce infinite dimensions to finite ones
 **Worked example — a compact diagonal operator.** The operator $D$ of §s8, $(Dx)_k=x_k/k$, is compact: it is the norm-limit of the finite-rank truncations $D_n x=(x_1,\tfrac{x_2}2,\dots,\tfrac{x_n}n,0,0,\dots)$, since $\|D-D_n\|=\sup_{k>n}\tfrac1k=\tfrac1{n+1}\to0$. By the spectral theorem its eigenvectors $e_k$ form an ONB, eigenvalues $1/k\to0$, and indeed $Dx=\sum_k\tfrac1k\langle e_k,x\rangle e_k$ — the abstract theorem, made completely explicit.
 
 > **Theorem — spectral theorem (compact self-adjoint).** Let $T\in\mathcal{B}(H)$ be compact and self-adjoint, $H$ a separable Hilbert space. Then there is an orthonormal system of eigenvectors $\{e_k\}$ with real eigenvalues $\{\lambda_k\}$, $\lambda_k\to 0$, such that
+>
 > $$
 > Tx=\sum_k \lambda_k\,\langle e_k,x\rangle\,e_k\qquad\text{for all }x\in H,
 > $$
+>
 > and the $\{e_k\}$ together with an orthonormal basis of $\ker T$ form an ONB of $H$.
 
 **Proof sketch — with all key steps.**
@@ -470,23 +481,29 @@ The slogan: compact operators "almost" reduce infinite dimensions to finite ones
 **What and why.** For a self-adjoint operator with mixed discrete/continuous spectrum, "sum over eigenvectors" must become an *integral*. The **spectral theorem** packages this as a **projection-valued measure**, and the **functional calculus** lets us apply any function to an operator — which is how $e^{-iHt/\hbar}$, $\sqrt{H}$, and the probability distribution of an observable are defined.
 
 > **Theorem — spectral theorem (self-adjoint, statement).** Let $A$ be a self-adjoint operator on $H$. There is a unique **projection-valued measure** $E$ on the Borel subsets of $\sigma(A)\subseteq\mathbb{R}$ — assigning to each Borel set $\Omega$ an orthogonal projection $E(\Omega)$, with $E(\varnothing)=0$, $E(\mathbb{R})=I$, and $E$ countably additive on disjoint sets — such that
+>
 > $$
 > A=\int_{\sigma(A)} \lambda\,\,dE(\lambda).
 > $$
+>
 > Equivalently, $A$ is **unitarily equivalent to a multiplication operator** $M_g\,f=g\cdot f$ on some $L^2(\Omega,\mu)$: there is a unitary $U:H\to L^2(\Omega,\mu)$ with $UAU^{-1}=M_g$. (Every self-adjoint operator is "just multiplication by a real function," in suitable coordinates.)
 
 This generalizes everything: when the spectrum is discrete, $E(\{\lambda_k\})$ is the projection onto the $\lambda_k$-eigenspace and the integral becomes the sum $\sum_k\lambda_k E(\{\lambda_k\})$ of §s9. When the spectrum is continuous (position, momentum), the integral is genuinely continuous and there are no eigenvectors at all.
 
 > **Definition — functional calculus.** Given the spectral measure $E$ of a self-adjoint $A$ and a (bounded Borel) function $h:\sigma(A)\to\mathbb{C}$, define
+>
 > $$
 > h(A):=\int_{\sigma(A)} h(\lambda)\,dE(\lambda).
 > $$
+>
 > This is a $*$-homomorphism: $(h_1h_2)(A)=h_1(A)h_2(A)$, $\overline{h}(A)=h(A)^*$, and $h(A)$ is bounded with $\|h(A)\|=\sup_{\sigma(A)}|h|$.
 
 > **How observables get their spectra and probabilities.** For an observable $A$ and a normalized state $\psi$, the real-valued function
+>
 > $$
 > \mu_\psi(\Omega):=\langle\psi,\,E(\Omega)\,\psi\rangle=\|E(\Omega)\psi\|^2
 > $$
+>
 > is a genuine **probability measure** on $\mathbb{R}$ (it is $\ge0$, and $\mu_\psi(\mathbb{R})=\langle\psi,\psi\rangle=1$). It is *the* probability distribution of the measured value of $A$ in state $\psi$ — the Born rule for continuous spectra. The expectation is $\langle\psi,A\psi\rangle=\int\lambda\,d\mu_\psi(\lambda)$.
 
 > **Unitary dynamics.** With $h(\lambda)=e^{-i\lambda t/\hbar}$ (bounded, $|h|=1$) the functional calculus produces $U(t)=e^{-iAt/\hbar}=\int e^{-i\lambda t/\hbar}dE(\lambda)$, which is **unitary** because $\overline h\cdot h=1$ gives $U^*U=I$. So Schrödinger evolution is the functional calculus applied to the Hamiltonian — and unitarity (probability conservation) is automatic. **Stone's theorem** is the converse: every strongly continuous one-parameter unitary group $U(t)$ equals $e^{-iAt}$ for a unique self-adjoint generator $A$; this is the rigorous root of "every symmetry has a self-adjoint generator (observable)."
@@ -503,15 +520,19 @@ This generalizes everything: when the spectrum is discrete, $E(\{\lambda_k\})$ i
 Every ordinary (locally integrable) function $f$ *is* a distribution via $\langle T_f,\varphi\rangle=\int f\varphi$, so distributions generalize functions.
 
 > **Definition — the Dirac delta.** The **Dirac delta** $\delta$ is the distribution
+>
 > $$
 > \langle\delta,\varphi\rangle:=\varphi(0).
 > $$
+>
 > It is linear and continuous, hence a legitimate element of $\mathcal{D}'$. It is **not** a function: no locally integrable $f$ has $\int f\varphi=\varphi(0)$ for all $\varphi$ (such an $f$ would have to be $0$ off $\{0\}$, forcing $\int f\varphi=0$). The informal "$\int\delta(x)\varphi(x)dx=\varphi(0)$" is shorthand for this pairing.
 
 > **Definition — derivative of a distribution.** The **distributional derivative** $T'$ is defined by transferring the derivative onto the test function:
+>
 > $$
 > \langle T',\varphi\rangle:=-\langle T,\varphi'\rangle.
 > $$
+>
 > This is the *only* definition that agrees with integration by parts for smooth $f$ (the boundary term vanishes because $\varphi$ has compact support). Consequence: **every** distribution is infinitely differentiable.
 
 **Worked example — the Heaviside step and the delta.** Let $H(x)=1$ for $x>0$, $0$ for $x<0$ (a distribution via integration). Its distributional derivative:
@@ -524,9 +545,11 @@ Every ordinary (locally integrable) function $f$ *is* a distribution via $\langl
 **Worked example — the Fourier transform of $\delta$, and plane waves.** Extending the Fourier transform to distributions (again by transferring it onto the test function, $\langle\widehat T,\varphi\rangle:=\langle T,\widehat\varphi\rangle$), one gets $\widehat\delta=$ the constant function $\tfrac1{\sqrt{2\pi}}$, and dually $\widehat{1}=\sqrt{2\pi}\,\delta$. Read physically: the position eigenstate $\delta$ has *flat* momentum content (all momenta equally), and a momentum eigenstate $e^{ipx}$ (the plane wave $\widehat{}\,$ of a delta in momentum space) is spread uniformly over all positions. The maximally localized and maximally spread states are exact Fourier transforms of each other — the rigorous root of the position–momentum uncertainty principle, and a computation that *only* makes sense for distributions, since neither $\delta$ nor $e^{ipx}$ is in $L^2$.
 
 > **Definition — rigged Hilbert space (Gelfand triple).** A **rigged Hilbert space** is a chain
+>
 > $$
 > \Phi\ \subseteq\ H\ \subseteq\ \Phi',
 > $$
+>
 > where $\Phi$ is a dense subspace of "nice" states (e.g. the Schwartz functions, on which $\hat x,\hat p$ act freely), $H$ is the Hilbert space, and $\Phi'$ is the dual of $\Phi$ — a space of distributions large enough to contain the **generalized eigenvectors**.
 
 > **How it legitimizes Dirac's notation.** The "position eigenstate" $|x_0\rangle$ is the distribution $\delta_{x_0}\in\Phi'$ defined by $\langle\delta_{x_0},\varphi\rangle=\varphi(x_0)$. It is not in $H$ (it has infinite norm), but it lives perfectly well in the rigging $\Phi'$, where $\hat x\,\delta_{x_0}=x_0\,\delta_{x_0}$ holds as an identity of distributions, and $\langle x_0|\psi\rangle=\psi(x_0)$ is the pairing. The continuous-spectrum "eigenbasis" $\{|x\rangle\}$ with $\int|x\rangle\langle x|\,dx=I$ is then the spectral measure of §s11 written in physicist's notation. The rigged Hilbert space is the structure that reconciles Dirac's eigenstates with von Neumann's rigorous spectral theory.

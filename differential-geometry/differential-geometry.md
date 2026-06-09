@@ -48,9 +48,11 @@ A homeomorphism is a continuous bijection with continuous inverse, so a chart is
 > **Definition — atlas and transition maps.**
 >
 > An **atlas** is a collection of charts $\{(U_\alpha,\varphi_\alpha)\}$ whose domains cover $M$, i.e. $\bigcup_\alpha U_\alpha = M$. Where two charts overlap, $U_\alpha\cap U_\beta\ne\varnothing$, the **transition map**
+>
 > $$
 > \varphi_\beta\circ\varphi_\alpha^{-1}:\ \varphi_\alpha(U_\alpha\cap U_\beta)\ \to\ \varphi_\beta(U_\alpha\cap U_\beta)
 > $$
+>
 > is a map between open subsets of $\mathbb{R}^n$ — an honest function of $n$ real variables.
 
 The transition map says how the two coordinate grids relate on the overlap. It is the object on which we impose smoothness.
@@ -106,9 +108,11 @@ The chain rule makes "every chart" equivalent to "some chart": under a transitio
 > **Definition — tangent vector as a derivation.**
 >
 > A **derivation at $p$** is a linear map $v:C^\infty(M)\to\mathbb{R}$ satisfying the **Leibniz (product) rule**
+>
 > $$
 > v(fg) = v(f)\,g(p) + f(p)\,v(g)\qquad\text{for all }f,g\in C^\infty(M).
 > $$
+>
 > The **tangent space** $T_pM$ is the set of all derivations at $p$. It is a real vector space under $(v+w)(f)=v(f)+w(f)$ and $(cv)(f)=c\,v(f)$.
 
 The motivation: a tangent vector should let you take a *directional derivative* of any function. Given a curve $\gamma$ representing a direction, define $v(f) = \tfrac{d}{dt}f(\gamma(t))\big|_{0}$. Linearity is clear; the Leibniz rule is the ordinary product rule for $\tfrac{d}{dt}\big(f(\gamma)g(\gamma)\big)$.
@@ -161,6 +165,7 @@ Vector fields can be added, scaled by functions, and — crucially — multiplie
 > **Definition — pushforward / differential.**
 >
 > Let $F:M\to N$ be smooth and $p\in M$. The **differential** (or **pushforward**) $dF_p = F_{*p}:T_pM\to T_{F(p)}N$ is defined on a tangent vector $v$ (as a derivation) by
+>
 > $$
 > \big(dF_p(v)\big)(g) = v(g\circ F)\qquad\text{for } g\in C^\infty(N).
 > $$
@@ -182,6 +187,7 @@ Recall from linear algebra: the dual of an $n$-dimensional space is $n$-dimensio
 > **Definition — the differential of a function, and the dual basis $dx^\mu$.**
 >
 > For $f\in C^\infty(M)$, its **differential** $df_p\in T_p^*M$ is the covector $df_p(v) = v(f)$. Applied to the coordinate functions $x^\mu$, this gives covectors $dx^\mu$ with
+>
 > $$
 > dx^\mu(\partial_\nu) = \partial_\nu(x^\mu) = \delta^\mu_\nu .
 > $$
@@ -208,9 +214,11 @@ A tensor is a multilinear object built from copies of the tangent and cotangent 
 > **Definition — tensor at a point.**
 >
 > A **tensor of type $(k,l)$** at $p$ is a multilinear map
+>
 > $$
 > T:\ \underbrace{T_p^*M\times\cdots\times T_p^*M}_{k}\ \times\ \underbrace{T_pM\times\cdots\times T_pM}_{l}\ \longrightarrow\ \mathbb{R},
 > $$
+>
 > linear in each of its $k+l$ slots. A **tensor field** assigns such a tensor smoothly to each point.
 
 Examples: a $(1,0)$-tensor eats one covector and is just a vector (by double duality $V^{**}\cong V$); a $(0,1)$-tensor is a covector; a $(0,2)$-tensor is a bilinear form (the metric will be one).
@@ -326,9 +334,11 @@ Every $k$-form is $\omega = \tfrac{1}{k!}\,\omega_{\mu_1\cdots\mu_k}\,dx^{\mu_1}
 > **Definition — exterior derivative.**
 >
 > The **exterior derivative** $d$ maps $k$-forms to $(k+1)$-forms. On a $0$-form (function) $f$ it is the differential $df = \partial_\mu f\,dx^\mu$. On a general form $\omega = \tfrac1{k!}\omega_{\mu_1\cdots\mu_k}dx^{\mu_1}\wedge\cdots\wedge dx^{\mu_k}$,
+>
 > $$
 > d\omega = \frac1{k!}\,\partial_\nu \omega_{\mu_1\cdots\mu_k}\; dx^\nu\wedge dx^{\mu_1}\wedge\cdots\wedge dx^{\mu_k}.
 > $$
+>
 > It is linear and obeys the **graded Leibniz rule** $d(\alpha\wedge\beta) = d\alpha\wedge\beta + (-1)^{k}\alpha\wedge d\beta$ for a $k$-form $\alpha$.
 
 #### Theorem: $d^2 = 0$
@@ -358,6 +368,7 @@ On an oriented $n$-manifold, a top-degree ($n$-)form $\omega = h\,dx^1\wedge\cdo
 > **Theorem — Stokes' theorem.**
 >
 > Let $M$ be an oriented smooth $n$-manifold with boundary $\partial M$ (given the induced orientation), and let $\omega$ be a compactly supported $(n-1)$-form. Then
+>
 > $$
 > \int_M d\omega = \int_{\partial M}\omega .
 > $$
@@ -398,9 +409,11 @@ The first term is the tensor law for a $(1,1)$-tensor; the **second term**, with
 > **Definition — affine connection / covariant derivative.**
 >
 > A **connection** $\nabla$ assigns to vector fields a covariant derivative $\nabla_\mu$ acting on tensor fields, linear and obeying the Leibniz rule, reducing to $\partial_\mu$ on functions. On a vector field its components are
+>
 > $$
 > \nabla_\mu V^\nu = \partial_\mu V^\nu + \Gamma^\nu{}_{\mu\rho}\,V^\rho,
 > $$
+>
 > where the $\Gamma^\nu{}_{\mu\rho}$ are the **connection coefficients** (**Christoffel symbols** when derived from a metric). On a covector: $\nabla_\mu \omega_\nu = \partial_\mu\omega_\nu - \Gamma^\rho{}_{\mu\nu}\omega_\rho$. The signs are fixed by demanding $\nabla_\mu(\omega_\nu V^\nu)=\partial_\mu(\omega_\nu V^\nu)$, since $\omega_\nu V^\nu$ is a scalar.
 
 For $\nabla_\mu V^\nu$ to be a tensor, $\Gamma$ must itself transform *inhomogeneously*, with a second-derivative term precisely canceling the offending term above. (The $\Gamma$ are therefore *not* tensors — their non-tensorial transformation is the whole point.)
@@ -414,6 +427,7 @@ On a (pseudo-)Riemannian manifold there is a unique natural connection.
 > - **torsion-free (symmetric):** $\Gamma^\rho{}_{\mu\nu}=\Gamma^\rho{}_{\nu\mu}$.
 >
 > Its coefficients, the **Christoffel symbols**, are
+>
 > $$
 > \Gamma^\rho{}_{\mu\nu} = \tfrac12\, g^{\rho\sigma}\big(\partial_\mu g_{\sigma\nu} + \partial_\nu g_{\sigma\mu} - \partial_\sigma g_{\mu\nu}\big).
 > $$
@@ -459,6 +473,7 @@ A **geodesic** is the manifold's notion of a "straight line." There are two ways
 > **Definition — parallel transport.**
 >
 > A vector field $V$ is **parallel-transported** along a curve $x^\mu(\lambda)$ if its covariant derivative along the curve vanishes:
+>
 > $$
 > \frac{DV^\mu}{d\lambda} := \dot x^\nu\nabla_\nu V^\mu = \frac{dV^\mu}{d\lambda} + \Gamma^\mu{}_{\nu\rho}\,\dot x^\nu V^\rho = 0 .
 > $$
@@ -468,9 +483,11 @@ This is the connection's promised rule for "carrying a vector while keeping it a
 #### Geodesics as straightest paths
 
 > **Definition — geodesic (straightest).** A curve is a **geodesic** if it parallel-transports its own tangent vector: $\frac{D\dot x^\mu}{d\lambda}=0$. Explicitly,
+>
 > $$
 > \boxed{\ \ddot x^\mu + \Gamma^\mu{}_{\nu\rho}\,\dot x^\nu\dot x^\rho = 0\ }
 > $$
+>
 > the **geodesic equation**, where dots are $d/d\lambda$ for an **affine parameter** $\lambda$.
 
 This is "go straight: don't turn." The $\Gamma$ term is the correction that distinguishes genuine turning from the coordinate grid bending.
@@ -511,6 +528,7 @@ Curvature measures the failure of the manifold to be flat. The clean operational
 > **Definition — Riemann tensor via the commutator.**
 >
 > For a torsion-free connection, the **Riemann curvature tensor** $R^\rho{}_{\sigma\mu\nu}$ is defined by its action through the commutator of covariant derivatives on a vector field:
+>
 > $$
 > (\nabla_\mu\nabla_\nu - \nabla_\nu\nabla_\mu)V^\rho = R^\rho{}_{\sigma\mu\nu}\,V^\sigma .
 > $$
@@ -518,6 +536,7 @@ Curvature measures the failure of the manifold to be flat. The clean operational
 That the left side is *algebraic* in $V$ (no derivatives of $V$ survive) is what makes $R$ a genuine $(1,3)$-tensor; it is a theorem, proved by expanding both $\nabla\nabla$ terms and watching the $\partial V$ pieces cancel by symmetry.
 
 > **Theorem — Riemann in terms of Christoffel symbols.**
+>
 > $$
 > R^\rho{}_{\sigma\mu\nu} = \partial_\mu\Gamma^\rho{}_{\nu\sigma} - \partial_\nu\Gamma^\rho{}_{\mu\sigma} + \Gamma^\rho{}_{\mu\lambda}\Gamma^\lambda{}_{\nu\sigma} - \Gamma^\rho{}_{\nu\lambda}\Gamma^\lambda{}_{\mu\sigma}.
 > $$
@@ -559,9 +578,11 @@ Curvature is not directly felt by a single freely falling observer — by the eq
 Consider a one-parameter family of geodesics $x^\mu(\lambda,s)$, $s$ labeling neighboring geodesics. Let $T^\mu = \partial x^\mu/\partial\lambda$ be the tangent and $S^\mu=\partial x^\mu/\partial s$ the **separation vector** pointing to the neighbor.
 
 > **Theorem — geodesic deviation (Jacobi equation).**
+>
 > $$
 > \frac{D^2 S^\rho}{d\lambda^2} = -\,R^\rho{}_{\sigma\mu\nu}\,T^\sigma S^\mu T^\nu .
 > $$
+>
 > The relative acceleration of nearby geodesics is governed *entirely* by the Riemann tensor.
 
 *Sketch of derivation.* Both $T$ and $S$ are coordinate vector fields of the family, so their Lie bracket vanishes, which (for a torsion-free connection) gives $\nabla_T S = \nabla_S T$. Compute the second covariant derivative $\frac{D^2S}{d\lambda^2}=\nabla_T\nabla_T S = \nabla_T\nabla_S T$, commute the derivatives introducing the Riemann tensor via its definition (s10), and use the geodesic equation $\nabla_T T=0$ to drop one term. The surviving term is the curvature contraction above. $\blacksquare$
@@ -602,9 +623,11 @@ It is symmetric, built from second derivatives of $g$, and *automatically* conse
 #### The field equations
 
 > **The Einstein field equations.**
+>
 > $$
 > R_{\mu\nu} - \tfrac12 g_{\mu\nu}R + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}\,T_{\mu\nu} .
 > $$
+>
 > Here $G$ is Newton's constant, $c$ the speed of light, and $\Lambda$ the **cosmological constant** (also divergence-free since $\nabla g=0$, hence allowed). The constant $8\pi G/c^4$ is fixed by demanding the **Newtonian limit** $\nabla^2\Phi=4\pi G\rho$ in weak, slow, static fields.
 
 In Wheeler's slogan: *spacetime tells matter how to move* (matter follows geodesics, s9), *and matter tells spacetime how to curve* (the field equations). The two halves of this guide — geodesics and curvature — are the two halves of gravity.
@@ -621,6 +644,7 @@ Symmetries of a metric produce conserved quantities along geodesics — the geom
 > **Definition — Lie derivative.**
 >
 > Let $X$ be a vector field generating a flow $\phi_t$ (the solution of $\frac{d}{dt}\phi_t(p)=X_{\phi_t(p)}$). The **Lie derivative** of a tensor $T$ along $X$ is the rate of change of $T$ dragged back by the flow:
+>
 > $$
 > \mathcal{L}_X T = \lim_{t\to0}\frac{\phi_t^*T - T}{t}.
 > $$
@@ -639,6 +663,7 @@ It compares $T$ at nearby points by *transporting along the flow of $X$* rather 
 > **Definition — Killing vector.**
 >
 > A vector field $\xi$ is a **Killing vector field** if the metric is invariant under its flow, i.e. $\mathcal{L}_\xi g = 0$. Equivalently, by the formula above, it satisfies **Killing's equation**
+>
 > $$
 > \nabla_\mu \xi_\nu + \nabla_\nu \xi_\mu = 0 .
 > $$

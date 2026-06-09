@@ -46,9 +46,11 @@ We recall from the Functional Analysis guide: a **normed vector space** is a vec
 > **Definition — algebra.** An (associative, unital, complex) **algebra** is a complex vector space $\mathcal A$ together with a multiplication $\mathcal A\times\mathcal A\to\mathcal A$, written $(a,b)\mapsto ab$, that is associative ($(ab)c=a(bc)$), bilinear (linear in each argument), and has a **unit** $1\in\mathcal A$ with $1a=a1=a$ for all $a$. The algebra is **commutative** if $ab=ba$ for all $a,b$.
 
 > **Definition — Banach algebra.** A **Banach algebra** is an algebra $\mathcal A$ that is also a Banach space, whose norm is **submultiplicative**:
+>
 > $$
 > \|ab\|\le\|a\|\,\|b\|\qquad\text{for all }a,b\in\mathcal A,
 > $$
+>
 > and (for the unital case we use throughout) $\|1\|=1$.
 
 Submultiplicativity is exactly what makes multiplication continuous: if $a_n\to a$ and $b_n\to b$ then $a_nb_n\to ab$, because $\|a_nb_n-ab\|\le\|a_n\|\,\|b_n-b\|+\|a_n-a\|\,\|b\|\to0$ (triangle inequality, submultiplicativity, and boundedness of the convergent sequence $\|a_n\|$).
@@ -56,6 +58,7 @@ Submultiplicativity is exactly what makes multiplication continuous: if $a_n\to 
 > **Definition — involution and \*-algebra.** An **involution** on an algebra $\mathcal A$ is a map $a\mapsto a^*$ that is conjugate-linear ($(\lambda a+b)^*=\overline\lambda\,a^*+b^*$), reverses products ($(ab)^*=b^*a^*$), and is its own inverse ($(a^*)^*=a$). An algebra with an involution is a **\*-algebra**. The element $a^*$ is the **adjoint** of $a$. An element is **self-adjoint** if $a=a^*$, **normal** if $a^*a=aa^*$, and (in a unital algebra) **unitary** if $a^*a=aa^*=1$.
 
 > **Definition — C\*-algebra.** A **C\*-algebra** is a Banach \*-algebra $\mathcal A$ in which the norm satisfies the **C\*-identity**:
+>
 > $$
 > \|a^*a\|=\|a\|^2\qquad\text{for all }a\in\mathcal A.
 > $$
@@ -83,9 +86,11 @@ so dividing by $\|a\|$ (for $a\ne0$) gives $\|a\|\le\|a^*\|$. Replacing $a$ by $
 **What and why.** In a single matrix, eigenvalues are the numbers $\lambda$ for which $a-\lambda 1$ fails to be invertible. The same definition works in any Banach algebra, with no reference to vectors or eigenvectors — it is purely about invertibility. This "spectrum in an algebra" is the bridge from algebra to numbers and underlies everything that follows.
 
 > **Definition — invertible, spectrum, resolvent.** Let $\mathcal A$ be a unital Banach algebra and $a\in\mathcal A$. We call $a$ **invertible** if there is $b\in\mathcal A$ with $ab=ba=1$. The **spectrum** of $a$ is
+>
 > $$
 > \sigma(a)=\{\lambda\in\mathbb C:\ a-\lambda 1\ \text{is not invertible in }\mathcal A\}.
 > $$
+>
 > Its complement $\rho(a)=\mathbb C\setminus\sigma(a)$ is the **resolvent set**, and for $\lambda\in\rho(a)$ the element $(a-\lambda1)^{-1}$ is the **resolvent**.
 
 > **Lemma — Neumann series (invertibility near 1).** If $\|x\|<1$ then $1-x$ is invertible, with $(1-x)^{-1}=\sum_{k=0}^\infty x^k$.
@@ -149,9 +154,11 @@ This is the promised rigidity: the norm of a self-adjoint element is determined 
 By the lemma, $\widehat{\mathcal A}$ sits inside the closed unit ball of the dual $\mathcal A^*$, which is **weak\*-compact** by the **Banach–Alaoglu theorem** (a fact from the Functional Analysis guide: the closed unit ball of a dual space is weak\*-compact). One checks $\widehat{\mathcal A}$ is weak\*-closed, hence compact Hausdorff. So $\widehat a\in C(\widehat{\mathcal A})$ always.
 
 > **Theorem — Gelfand–Naimark (commutative case).** Let $\mathcal A$ be a commutative unital C\*-algebra. The Gelfand transform $a\mapsto\widehat a$ is an isometric \*-isomorphism
+>
 > $$
 > \mathcal A\ \xrightarrow{\ \cong\ }\ C(\widehat{\mathcal A}).
 > $$
+>
 > That is: it is linear, multiplicative, sends $a^*$ to $\overline{\widehat a}$, preserves the norm, and is a bijection onto all of $C(\widehat{\mathcal A})$.
 
 **Proof (key steps).**
@@ -198,9 +205,11 @@ A positive functional is automatically bounded with $\|\omega\|=\omega(1)$, so a
 > **Definition — representation.** A **representation** of a C\*-algebra $\mathcal A$ is a pair $(\pi,\mathcal H)$ with $\mathcal H$ a Hilbert space and $\pi:\mathcal A\to B(\mathcal H)$ a \*-homomorphism (linear, multiplicative, $\pi(a^*)=\pi(a)^*$, $\pi(1)=\mathrm{id}$). A vector $\Omega\in\mathcal H$ is **cyclic** if $\{\pi(a)\Omega:a\in\mathcal A\}$ is dense in $\mathcal H$.
 
 > **Theorem — GNS construction.** Let $\omega$ be a state on a unital C\*-algebra $\mathcal A$. Then there exist a Hilbert space $\mathcal H_\omega$, a representation $\pi_\omega:\mathcal A\to B(\mathcal H_\omega)$, and a unit cyclic vector $\Omega_\omega\in\mathcal H_\omega$ such that
+>
 > $$
 > \omega(a)=\langle\Omega_\omega,\ \pi_\omega(a)\,\Omega_\omega\rangle\qquad\text{for all }a\in\mathcal A.
 > $$
+>
 > The triple is unique up to unitary equivalence.
 
 **Proof (full construction).**
@@ -326,9 +335,11 @@ This $\preceq$ totally orders the projections of a factor (a theorem) and so beh
 2. *Uniqueness.* Any two traces agree on projections because $d$ is the unique normalized additive function on projection-classes in a factor (s7), hence agree everywhere by density. $\blacksquare$
 
 > **Theorem — Tomita–Takesaki (statement).** Let $\mathcal M\subseteq B(\mathcal H)$ be a von Neumann algebra with a **cyclic and separating** vector $\Omega$ (cyclic: $\mathcal M\Omega$ dense; separating: $a\Omega=0\Rightarrow a=0$). Define the antilinear operator $S$ by
+>
 > $$
 > S\,a\Omega=a^*\Omega\qquad(a\in\mathcal M),
 > $$
+>
 > and let $S=J\Delta^{1/2}$ be its **polar decomposition**, with $J$ antiunitary (the **modular conjugation**) and $\Delta=S^*S>0$ (the **modular operator**). Then:
 > 1. $J\mathcal M J=\mathcal M'$ — conjugation by $J$ swaps the algebra with its commutant;
 > 2. $\Delta^{it}\mathcal M\Delta^{-it}=\mathcal M$ for all $t\in\mathbb R$ — the **modular automorphism group** $\sigma_t(a)=\Delta^{it}a\Delta^{-it}$ preserves $\mathcal M$.
@@ -348,15 +359,19 @@ This $\preceq$ totally orders the projections of a factor (a theorem) and so beh
 **What and why.** Quantizing a field means making the classical Poisson brackets into commutators: $[\,\widehat q,\widehat p\,]=i\hbar$. But unbounded operators are awkward to put in a C\*-algebra (they have no norm). The fix is to exponentiate to bounded unitaries — the **Weyl operators** — whose commutation relations are an algebraic identity. For fermions one uses *anticommutators*, giving the bounded **CAR algebra** directly.
 
 > **Definition — Heisenberg CCR (unbounded form).** The **canonical commutation relation** for one degree of freedom is the relation, on a suitable domain,
+>
 > $$
 > [\,\widehat q,\widehat p\,]=\widehat q\widehat p-\widehat p\widehat q=i\hbar\,1.
 > $$
+>
 > No bounded operators can satisfy this: if they did, taking the trace (in finite dimensions) of both sides gives $0=i\hbar n$, impossible; in infinite dimensions $\|\,[\widehat q,\widehat p]\,\|$ would have to bound $|\hbar|$ times unbounded powers (Wintner's theorem). Hence $\widehat q,\widehat p$ are necessarily unbounded.
 
 > **Definition — Weyl operators and the CCR algebra.** Introduce the bounded unitaries $W(s,t)=e^{i(s\widehat q+t\widehat p)}$ for $(s,t)\in\mathbb R^2$. The Baker–Campbell–Hausdorff formula turns the CCR into the **Weyl relations**:
+>
 > $$
 > W(s_1,t_1)\,W(s_2,t_2)=e^{-\tfrac{i\hbar}{2}(s_1 t_2-s_2 t_1)}\,W(s_1+s_2,\ t_1+t_2).
 > $$
+>
 > The C\*-algebra generated by symbols $W(f)$ for $f$ in a symplectic space $(V,\sigma)$, with $W(f)W(g)=e^{-\frac i2\sigma(f,g)}W(f+g)$ and $W(f)^*=W(-f)$, is the **Weyl (CCR) algebra** $\mathrm{CCR}(V,\sigma)$.
 
 > **Theorem — Stone–von Neumann.** For finitely many degrees of freedom, every irreducible representation of the Weyl relations by strongly continuous unitaries is unitarily equivalent to the standard Schrödinger representation on $L^2(\mathbb R^n)$.
@@ -364,9 +379,11 @@ This $\preceq$ totally orders the projections of a factor (a theorem) and so beh
 This is *uniqueness* of quantization in finite dimensions — and its **failure in infinite dimensions** (infinitely many degrees of freedom, i.e. fields) is precisely why QFT has inequivalent representations, the technical root of Haag's theorem (s11).
 
 > **Definition — CAR algebra.** For fermions, given a Hilbert space $\mathfrak h$ (the "one-particle space"), the **canonical anticommutation relations** are, for **creation/annihilation operators** $a(f),a^*(f)$ ($f\in\mathfrak h$),
+>
 > $$
 > \{a(f),a^*(g)\}=a(f)a^*(g)+a^*(g)a(f)=\langle f,g\rangle\,1,\qquad \{a(f),a(g)\}=0.
 > $$
+>
 > Because $\|a(f)\|=\|f\|$ (a consequence of the C\*-identity applied to these relations — proved below), these *are* bounded, so the **CAR algebra** $\mathrm{CAR}(\mathfrak h)$ is a genuine C\*-algebra with no need to exponentiate.
 
 **Proof that $\|a(f)\|=\|f\|$.**
@@ -409,6 +426,7 @@ This is *uniqueness* of quantization in finite dimensions — and its **failure 
 > **Definition — dynamics on a C\*-algebra.** A **(C\*-)dynamical system** is a C\*-algebra $\mathfrak A$ with a strongly continuous one-parameter group of automorphisms $t\mapsto\sigma_t$ (the time evolution), $\sigma_{s+t}=\sigma_s\sigma_t$, $\sigma_t(a^*)=\sigma_t(a)^*$.
 
 > **Definition — KMS condition.** A state $\omega$ on $(\mathfrak A,\sigma)$ satisfies the **KMS condition at inverse temperature $\beta>0$** (Kubo–Martin–Schwinger) if for all $a,b$ in a dense set there is a function $F_{a,b}$, bounded and continuous on the strip $\{z:0\le\mathrm{Im}\,z\le\beta\}$ and analytic in its interior, with boundary values
+>
 > $$
 > F_{a,b}(t)=\omega\!\big(a\,\sigma_t(b)\big),\qquad F_{a,b}(t+i\beta)=\omega\!\big(\sigma_t(b)\,a\big).
 > $$

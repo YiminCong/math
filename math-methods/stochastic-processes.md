@@ -280,9 +280,11 @@ A **martingale** is the mathematical model of a fair game: your expected future 
 #### Martingales
 
 > **Definition — martingale.** An adapted process $\{M_t\}$ with $\mathbb{E}|M_t|<\infty$ is a **martingale** with respect to $\{\mathcal{F}_t\}$ if for all $s\le t$,
+>
 > $$
 > \mathbb{E}[M_t\mid\mathcal{F}_s]=M_s.
 > $$
+>
 > If "$=$" is replaced by "$\ge$" it is a **submartingale** (favorable game); by "$\le$", a **supermartingale** (unfavorable).
 
 *Example: Brownian motion is a martingale.* For $s\le t$, $\mathbb{E}[W_t\mid\mathcal{F}_s]=\mathbb{E}[W_s+(W_t-W_s)\mid\mathcal{F}_s]=W_s+\mathbb{E}[W_t-W_s\mid\mathcal{F}_s]$. The increment $W_t-W_s$ is independent of $\mathcal{F}_s$ (the past), so its conditional expectation equals its plain expectation $0$. Hence $\mathbb{E}[W_t\mid\mathcal{F}_s]=W_s$. Similarly $W_t^2-t$ is a martingale (this is the martingale form of $(dW)^2=dt$).
@@ -336,6 +338,7 @@ Two key properties follow:
 #### Itô's lemma — the chain rule of stochastic calculus
 
 > **Theorem — Itô's lemma (one dimension).** Let $X_t$ satisfy $dX_t=a_t\,dt+b_t\,dW_t$ (shorthand for an Itô process with **drift** $a_t$ and **diffusion** $b_t$), and let $f(t,x)$ be twice continuously differentiable. Then
+>
 > $$
 > df(t,X_t)=\left(\frac{\partial f}{\partial t}+a_t\frac{\partial f}{\partial x}+\tfrac12 b_t^2\frac{\partial^2 f}{\partial x^2}\right)dt+b_t\frac{\partial f}{\partial x}\,dW_t.
 > $$
@@ -442,6 +445,7 @@ An SDE tracks one random path. Often we want the *probability density* $p(x,t)$ 
 #### The equation
 
 > **Theorem — Fokker–Planck.** If $dX_t=\mu(x)\,dt+\sigma(x)\,dW_t$, then the density $p(x,t)$ of $X_t$ satisfies
+>
 > $$
 > \frac{\partial p}{\partial t}=-\frac{\partial}{\partial x}\big(\mu(x)\,p\big)+\frac12\frac{\partial^2}{\partial x^2}\big(\sigma(x)^2\,p\big).
 > $$
@@ -488,13 +492,17 @@ We have seen densities (forward equation). The Feynman–Kac formula goes the ot
 #### The statement
 
 > **Theorem — Feynman–Kac.** Let $u(x,t)$ solve the backward PDE
+>
 > $$
 > \frac{\partial u}{\partial t}+\mu(x)\frac{\partial u}{\partial x}+\tfrac12\sigma(x)^2\frac{\partial^2 u}{\partial x^2}-V(x)\,u=0,\qquad u(x,T)=g(x),
 > $$
+>
 > on $t\le T$, where $V(x)\ge0$ is a "potential" and $g$ a terminal payoff. Then
+>
 > $$
 > u(x,t)=\mathbb{E}\!\left[\exp\!\Big(-\int_t^T V(X_s)\,ds\Big)\,g(X_T)\;\Big|\;X_t=x\right],
 > $$
+>
 > where $X_s$ solves $dX_s=\mu\,ds+\sigma\,dW_s$ started at $X_t=x$.
 
 #### Derivation
@@ -591,6 +599,7 @@ Feynman's idea: a quantum particle's amplitude to go from $a$ to $b$ is a sum ov
 #### The propagator as a path integral
 
 > **Definition.** The **propagator** $K(x_b,t_b;x_a,t_a)$ is the amplitude for a particle at $x_a$ at time $t_a$ to be found at $x_b$ at time $t_b$. Feynman's prescription:
+>
 > $$
 > K(x_b,t_b;x_a,t_a)=\int_{x(t_a)=x_a}^{x(t_b)=x_b}\exp\!\Big(\frac{i}{\hbar}S[x(\cdot)]\Big)\,\mathcal{D}x.
 > $$

@@ -51,9 +51,11 @@ To imitate ordinary calculus we need three ingredients: a thing to optimize (her
 > **Definition — the standard functional**
 >
 > Throughout this guide the central object is
+>
 > $$
 > J[y]=\int_a^b L\big(x,\,y(x),\,y'(x)\big)\,dx .
 > $$
+>
 > Here $a<b$ are fixed numbers, $y$ ranges over smooth functions on $[a,b]$, and $L(x,y,y')$ — the **Lagrangian** (or **integrand**) — is a given smooth function of *three independent slots*: the position $x$, the value $y$, and the slope $y'$. To evaluate $J[y]$ you plug the curve's value and slope into $L$ at each $x$ and add up (integrate) along the interval.
 
 A key subtlety: $L$ is treated as a function of three *independent* variables $x, y, y'$ when we differentiate it. The symbols $\partial L/\partial y$ and $\partial L/\partial y'$ mean "differentiate $L$ holding the other two slots fixed." Only *after* those partial derivatives are formed do we remember that, along an actual curve, $y$ and $y'$ are functions of $x$.
@@ -89,17 +91,21 @@ This is the master trick of the whole subject: by sliding along one direction $\
 > **Definition — first variation**
 >
 > The **first variation** of $J$ at $y$ in the direction $\eta$ is
+>
 > $$
 > \delta J[y;\eta]:=\left.\frac{d}{d\varepsilon}\right|_{\varepsilon=0}J[y+\varepsilon\eta]=\Phi'(0).
 > $$
+>
 > It is the directional derivative of the functional — how fast $J$ changes as we start moving the curve in the direction $\eta$.
 
 > **Definition — stationary (extremal) function**
 >
 > A function $y$ is **stationary** for $J$ (and is called an **extremal**) if the first variation vanishes for *every* admissible direction:
+>
 > $$
 > \delta J[y;\eta]=0\quad\text{for all smooth }\eta\text{ with }\eta(a)=\eta(b)=0 .
 > $$
+>
 > This is the exact analogue of $f'(x)=0$: a genuine minimum or maximum must be stationary, because if $\Phi'(0)\neq0$ for some $\eta$ then moving a little along $+\eta$ or $-\eta$ would strictly decrease $J$, so $y$ could not be optimal.
 
 #### The functional derivative
@@ -183,9 +189,11 @@ The term containing $\eta'$ hides the freedom of $\eta$ inside a derivative; we 
 > **Theorem — the Euler–Lagrange equation**
 >
 > If $y$ is a stationary function (extremal) of $J[y]=\int_a^b L(x,y,y')\,dx$ over admissible functions with fixed endpoints, then $y$ satisfies
+>
 > $$
 > \frac{\partial L}{\partial y}-\frac{d}{dx}\!\left(\frac{\partial L}{\partial y'}\right)=0 .
 > $$
+>
 > This is a (generally second-order) ordinary differential equation for $y$. Its solutions are the candidate optimizers.
 
 #### Reading the symbols carefully
@@ -205,6 +213,7 @@ If $L$ does not depend on $x$ explicitly (i.e. $\partial L/\partial x=0$), the E
 4. The bracket is zero on an extremal (Euler–Lagrange). If also $\partial L/\partial x=0$, the right side is zero, so the left side is the derivative of a constant:
 
 > **Beltrami identity** (valid when $\partial L/\partial x=0$):
+>
 > $$
 > L-y'\,\frac{\partial L}{\partial y'}=\text{constant}.
 > $$
@@ -308,6 +317,7 @@ $$
 Integrate the second group of terms by parts in several variables: the **divergence theorem** turns $\int_\Omega (\partial L/\partial u_{x_i})\,\eta_{x_i}\,dx$ into a boundary integral (which vanishes since $\eta=0$ on $\partial\Omega$) minus $\int_\Omega \frac{\partial}{\partial x_i}(\partial L/\partial u_{x_i})\,\eta\,dx$. Collecting and applying the multivariable fundamental lemma gives:
 
 > **Euler–Lagrange equation for a field**
+>
 > $$
 > \frac{\partial L}{\partial u}-\sum_{i=1}^m\frac{\partial}{\partial x_i}\!\left(\frac{\partial L}{\partial u_{x_i}}\right)=0 .
 > $$
@@ -343,9 +353,11 @@ In ordinary calculus, to extremize $f$ subject to $g=$ const, one solves $\nabla
 To extremize $J[y]=\int_a^b L\,dx$ subject to the **isoperimetric constraint** $K[y]=\int_a^b G\,dx=\ell$ (a fixed number), introduce a constant **multiplier** $\lambda$ and extremize the combined functional $J-\lambda K$ freely:
 
 > **Theorem.** An extremal of $J$ subject to $K=\ell$ satisfies the Euler–Lagrange equation of $L-\lambda G$:
+>
 > $$
 > \frac{\partial(L-\lambda G)}{\partial y}-\frac{d}{dx}\frac{\partial(L-\lambda G)}{\partial y'}=0 ,
 > $$
+>
 > for some constant $\lambda$, determined together with the integration constants by the endpoints and the constraint $K=\ell$.
 
 *Why this works (sketch with reasons).* Admissible variations must keep $K$ fixed to first order, i.e. $\delta K=0$, so $\eta$ is no longer free — it is restricted to directions tangent to the constraint. The condition "$\delta J=0$ for all $\eta$ with $\delta K=0$" is, by the same linear-algebra fact behind ordinary Lagrange multipliers, equivalent to "$\delta J=\lambda\,\delta K$ for some constant $\lambda$ and *all* $\eta$," which is $\delta(J-\lambda K)=0$. Then the unconstrained derivation of §s2 applies to $L-\lambda G$.
@@ -473,9 +485,11 @@ If $L$ does not depend on a particular coordinate $q$ (only on $\dot q$), that $
 #### Noether's theorem (statement)
 
 > **Theorem (Noether).** Suppose the action is invariant (to first order) under a continuous family of transformations $q\to q+\varepsilon\,\psi(q,t)$ with infinitesimal generator $\psi$, meaning the Lagrangian changes by at most a total time derivative, $\delta L=\frac{d}{dt}F$. Then along any solution of the equations of motion the quantity
+>
 > $$
 > Q=\frac{\partial L}{\partial \dot q}\,\psi-F
 > $$
+>
 > is conserved: $\dfrac{dQ}{dt}=0$.
 
 #### Derivation
@@ -523,9 +537,11 @@ Lagrangian mechanics uses position and velocity $(q,\dot q)$ and gives second-or
 We want to swap the variable $\dot q$ for $p=\partial L/\partial\dot q$. The clean way to change variables in this manner is the **Legendre transform**.
 
 > **Definition — Legendre transform.** Given $L(\dot q)$ (treat $q,t$ as parameters), define $p=\dfrac{\partial L}{\partial \dot q}$ and
+>
 > $$
 > H(q,p,t)=p\,\dot q-L(q,\dot q,t),
 > $$
+>
 > where $\dot q$ on the right is expressed in terms of $p$ by inverting $p=\partial L/\partial\dot q$. $H$ is the **Hamiltonian**.
 
 The transform is well defined (invertible) provided $\partial^2 L/\partial\dot q^2\neq0$, which makes $p(\dot q)$ strictly monotonic so it can be inverted.
@@ -543,6 +559,7 @@ Take the differential of $H=p\dot q-L$ and compare coefficients.
 5. From Euler–Lagrange, $\dfrac{\partial L}{\partial q}=\dfrac{d}{dt}\dfrac{\partial L}{\partial\dot q}=\dot p$. Substituting into the middle relation gives $\partial H/\partial q=-\dot p$. Collecting:
 
 > **Hamilton's canonical equations**
+>
 > $$
 > \dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q}.
 > $$
@@ -582,9 +599,11 @@ where $d^4x=dt\,dx\,dy\,dz$ and the integral runs over a region of spacetime. Th
 This is the case of §s4 with $m=4$ independent variables and the field playing the role of $u$. Varying $\phi\to\phi+\varepsilon\eta$ with $\eta=0$ on the boundary and applying the divergence theorem (integration by parts in spacetime) gives:
 
 > **Euler–Lagrange equation for a field**
+>
 > $$
 > \frac{\partial \mathcal{L}}{\partial \phi}-\partial_\mu\!\left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\right)=0 ,
 > $$
+>
 > with summation over the repeated index $\mu=0,1,2,3$.
 
 *Derivation in brief, with reasons:*

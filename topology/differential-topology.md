@@ -449,15 +449,19 @@ The vast generalization replaces "$\chi$ as alternating sum of cohomology" with 
 Gauss–Bonnet is the special case where $D$ is the de Rham operator $d+d^*$: its index is exactly the alternating sum of Betti numbers, namely $\chi(M)$, and the right-hand integral is $\int_M e(TM)$. Other choices of $D$ yield the Riemann–Roch theorem (holomorphic Euler characteristics), the signature theorem (Hirzebruch's $L$-genus), and the spin/Dirac index ($\hat A$-genus) — each an identity "number of solutions $=$ a characteristic number." In physics this is the engine behind anomaly cancellation and instanton counting. It is the mature form of the single idea of this guide: **local analytic data, integrated, computes a global topological invariant.**
 
 > **Worked example — the index theorem reproduces Gauss–Bonnet, term by term.** Take $M$ a closed oriented surface and $D=d+d^\ast:\Omega^{\mathrm{even}}\to\Omega^{\mathrm{odd}}$ (the de Rham operator regrouped by parity). By **Hodge theory** the kernel of $D$ is the even harmonic forms and the cokernel is the odd harmonic forms, and harmonic forms represent cohomology, so
+>
 > $$
 > \mathrm{ind}_a(D)=\big(b_0+b_2\big)-b_1=\sum_k(-1)^k b_k=\chi(M).
 > $$
+>
 > The Atiyah–Singer right-hand side specializes for this $D$ to the Euler-class integral $\int_M e(TM)=\tfrac1{2\pi}\int_M K\,dA$. Equating the two sides is exactly Gauss–Bonnet. The index theorem thus *contains* the climax of this guide, and replaces "alternating sum of Betti numbers" with "net count of harmonic solutions" — analysis again equal to topology.
 
 > **Worked example — a $4$-manifold signature.** For a closed oriented $4$-manifold $M$, choosing $D$ to be the signature operator gives Hirzebruch's identity
+>
 > $$
 > \mathrm{sign}(M)=\frac{1}{3}\int_M p_1(TM),
 > $$
+>
 > where $\mathrm{sign}(M)$ is the signature of the intersection form on $H^2(M)$ (a purely topological integer: $\#$positive $-$ $\#$negative eigenvalues) and $p_1$ is the first Pontryagin class (§s8). For $\mathbb{CP}^2$, $\mathrm{sign}=1$ and indeed $\tfrac13\int p_1=\tfrac13\cdot 3=1$ (here $\int_{\mathbb{CP}^2}p_1=3$ because the total Chern class $c(T\mathbb{CP}^2)=(1+h)^3$ gives $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$, and $\int_{\mathbb{CP}^2}h^2=1$). A signed eigenvalue count equals a curvature integral — the same miracle, one dimension up.
 
 ---

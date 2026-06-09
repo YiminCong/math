@@ -67,6 +67,7 @@ The factorial $n!=1\cdot 2\cdots n$ counts arrangements of $n$ objects and appea
 #### Definition
 
 > **Definition — the Gamma function (Euler integral).** For a complex number $z$ with positive real part, $\mathrm{Re}(z)>0$,
+>
 > $$
 > \Gamma(z)=\int_0^\infty t^{\,z-1}e^{-t}\,dt .
 > $$
@@ -166,6 +167,7 @@ Many integrals over a *finite* interval $[0,1]$ — probabilities of Beta-distri
 #### Definition
 
 > **Definition — the Beta function.** For $\mathrm{Re}(p)>0$ and $\mathrm{Re}(q)>0$,
+>
 > $$
 > B(p,q)=\int_0^1 x^{\,p-1}(1-x)^{\,q-1}\,dx .
 > $$
@@ -222,9 +224,11 @@ A single thread runs through Legendre, Hermite, and Laguerre polynomials, and it
 #### The inner product with a weight
 
 > **Definition — weighted inner product.** Fix an interval $[a,b]$ (possibly infinite) and a **weight function** $w(x)\ge 0$ on it. For functions $f,g$ define
+>
 > $$
 > \langle f,g\rangle=\int_a^b f(x)\,g(x)\,w(x)\,dx .
 > $$
+>
 > Two functions are **orthogonal** (with respect to $w$) if $\langle f,g\rangle=0$. The **norm** is $\|f\|=\sqrt{\langle f,f\rangle}$.
 
 The weight $w$ tells us where on the interval "agreement counts." Different physics problems supply different weights: $w=1$ on $[-1,1]$ (Legendre, from the sphere), $w=e^{-x^2}$ on $\mathbb R$ (Hermite, from the oscillator's Gaussian ground state), $w=x^\alpha e^{-x}$ on $[0,\infty)$ (Laguerre, from the hydrogen radial measure).
@@ -264,9 +268,11 @@ There is a payoff identity, **Parseval's relation**: if $f=\sum_n c_n p_n$ then 
 #### The three-term recurrence
 
 > **Theorem (three-term recurrence).** Any family of orthogonal polynomials satisfies a relation of the form
+>
 > $$
 > p_{n+1}(x)=(A_n x+B_n)\,p_n(x)-C_n\,p_{n-1}(x)
 > $$
+>
 > for constants $A_n,B_n,C_n$ depending on the family.
 
 **Proof sketch with full reasons.**
@@ -316,6 +322,7 @@ When you solve Laplace's equation $\nabla^2 V=0$ in spherical coordinates and se
 #### The Legendre equation
 
 > **Definition — Legendre's equation.** For an integer $\ell\ge 0$,
+>
 > $$
 > \frac{d}{dx}\!\left[(1-x^2)\frac{dP}{dx}\right]+\ell(\ell+1)\,P=0,\qquad -1\le x\le 1.
 > $$
@@ -335,6 +342,7 @@ $$
 #### Generating function
 
 > **Theorem (generating function).** For $|x|\le1$ and $|t|<1$,
+>
 > $$
 > \frac{1}{\sqrt{1-2xt+t^2}}=\sum_{\ell=0}^\infty P_\ell(x)\,t^{\ell}.
 > $$
@@ -405,6 +413,7 @@ The full angular dependence on a sphere needs two indices: $\ell$ for the polar 
 #### Definition
 
 > **Definition — associated Legendre function.** For integers $0\le m\le\ell$,
+>
 > $$
 > P_\ell^m(x)=(-1)^m(1-x^2)^{m/2}\frac{d^m}{dx^m}P_\ell(x),\qquad x=\cos\theta.
 > $$
@@ -420,6 +429,7 @@ For $m=0$ this reduces to Legendre's equation, so $P_\ell^0=P_\ell$.
 #### Spherical harmonics and orthonormality
 
 > **Definition — spherical harmonic.**
+>
 > $$
 > Y_\ell^m(\theta,\phi)=\sqrt{\frac{2\ell+1}{4\pi}\,\frac{(\ell-m)!}{(\ell+m)!}}\;P_\ell^m(\cos\theta)\,e^{im\phi},\qquad -\ell\le m\le\ell.
 > $$
@@ -427,6 +437,7 @@ For $m=0$ this reduces to Legendre's equation, so $P_\ell^0=P_\ell$.
 The ungainly square-root constant is exactly the factor that makes them orthonormal over the sphere:
 
 > **Theorem (orthonormality on the sphere).** With the solid-angle element $d\Omega=\sin\theta\,d\theta\,d\phi$,
+>
 > $$
 > \int_0^{2\pi}\!\!\int_0^{\pi} Y_\ell^m(\theta,\phi)\,\overline{Y_{\ell'}^{m'}(\theta,\phi)}\,\sin\theta\,d\theta\,d\phi=\delta_{\ell\ell'}\,\delta_{mm'}.
 > $$
@@ -481,6 +492,7 @@ Switch from spheres to **cylinders** — a drumhead, a coaxial cable, a circular
 #### The Bessel equation
 
 > **Definition — Bessel's equation of order $\nu$.**
+>
 > $$
 > x^2\frac{d^2y}{dx^2}+x\frac{dy}{dx}+(x^2-\nu^2)\,y=0.
 > $$
@@ -490,6 +502,7 @@ The number $\nu\ge0$ is the **order**, typically an integer $n$ that came from t
 #### Series solution — full derivation
 
 > **Theorem.** A solution regular at the origin is
+>
 > $$
 > J_\nu(x)=\sum_{k=0}^{\infty}\frac{(-1)^k}{k!\,\Gamma(k+\nu+1)}\left(\frac{x}{2}\right)^{2k+\nu}.
 > $$
@@ -571,6 +584,7 @@ The **quantum harmonic oscillator** — a particle in a parabolic potential $V=\
 #### The Hermite equation
 
 > **Definition — Hermite's equation.** For an integer $n\ge0$,
+>
 > $$
 > \frac{d^2 H}{dx^2}-2x\frac{dH}{dx}+2n\,H=0.
 > $$
@@ -762,6 +776,7 @@ It is striking that Legendre, Hermite, Laguerre, and Bessel functions all share 
 > **Definition — rising factorial (Pochhammer symbol).** $(a)_k=a(a+1)(a+2)\cdots(a+k-1)$ for $k\ge1$, and $(a)_0=1$. Equivalently $(a)_k=\Gamma(a+k)/\Gamma(a)$ — Gamma again, packaging the product.
 
 > **Definition — Gauss hypergeometric function.**
+>
 > $$
 > {}_2F_1(a,b;c;x)=\sum_{k=0}^{\infty}\frac{(a)_k\,(b)_k}{(c)_k}\,\frac{x^k}{k!}.
 > $$

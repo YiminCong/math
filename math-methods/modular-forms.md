@@ -46,9 +46,11 @@ We first build the stage and the actors. The stage is the upper half-plane $\mat
 > **Definition — the modular group.** $SL(2,\mathbb{Z})$ is the set of $2\times 2$ matrices $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ with **integer** entries $a,b,c,d$ and **determinant** $ad-bc=1$. ("$SL$" stands for *special* — determinant one — *linear* group; "$\mathbb{Z}$" because the entries are integers.) It is a group under matrix multiplication, with identity $I=\begin{pmatrix}1&0\\0&1\end{pmatrix}$.
 
 > **Definition — the action by Möbius transformation.** A matrix $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ acts on $\tau$ by
+>
 > $$
 > \gamma\cdot\tau \;=\; \frac{a\tau + b}{c\tau + d}.
 > $$
+>
 > This is called a **Möbius** (or **fractional-linear**) transformation.
 
 (Restated prerequisite from [Group Theory](../group-theory/group-theory.md): a **group** is a set with an associative product, an identity, and inverses. A group **acts** on a set $X$ if each group element $g$ gives a map $X\to X$ with $I$ acting as the identity map and $(gh)\cdot x = g\cdot(h\cdot x)$.)
@@ -146,9 +148,11 @@ Two relations, checked by matrix multiplication: $S^2 = \begin{pmatrix}-1&0\\0&-
 #### Definition of the fundamental domain
 
 > **Definition — the standard fundamental domain.**
+>
 > $$
 > \mathcal{F} = \left\{ \tau\in\mathbb{H} : |\mathrm{Re}\tau|\le \tfrac12 \ \text{ and } \ |\tau|\ge 1 \right\}.
 > $$
+>
 > It is the region above the unit circle and between the vertical lines $\mathrm{Re}\tau=\pm\frac12$.
 
 #### Theorem 3 — $S$ and $T$ generate, and $\mathcal{F}$ is a fundamental domain
@@ -195,9 +199,11 @@ We now define the objects of study. A modular form is holomorphic on $\mathbb{H}
 > **Definition — modular form of weight $k$.** Let $k$ be an integer. A function $f:\mathbb{H}\to\mathbb{C}$ is a **modular form of weight $k$** for $SL(2,\mathbb{Z})$ if:
 > 1. **(Holomorphy)** $f$ is holomorphic on $\mathbb{H}$ — complex-differentiable everywhere (restated from [Complex Analysis](../complex-analysis/complex-analysis.md): holomorphic means locally given by a convergent power series).
 > 2. **(Modularity / weight $k$)** For all $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL(2,\mathbb{Z})$,
+>
 > $$
 > f\!\left(\frac{a\tau+b}{c\tau+d}\right) = (c\tau+d)^k\, f(\tau).
 > $$
+>
 > 3. **(Holomorphy at the cusp)** $f$ stays bounded as $\mathrm{Im}\tau\to\infty$.
 >
 > If in addition $f\to 0$ as $\mathrm{Im}\tau\to\infty$ (the constant term of its expansion below vanishes), $f$ is a **cusp form**.
@@ -237,9 +243,11 @@ We need actual nonzero examples. The most natural way to *build* a weight-$k$ fu
 #### Definition and convergence
 
 > **Definition — Eisenstein series.** For an even integer $2k\ge 4$,
+>
 > $$
 > G_{2k}(\tau) = \sum_{(m,n)\ne(0,0)} \frac{1}{(m\tau+n)^{2k}},
 > $$
+>
 > the sum over all integer pairs $(m,n)$ except $(0,0)$.
 
 **Convergence.** The series converges absolutely for $2k>2$. *(Reason: $|m\tau+n|$ is comparable to $\sqrt{m^2+n^2}$ uniformly on compact subsets of $\mathbb H$, and $\sum_{(m,n)\ne0}(m^2+n^2)^{-k}$ converges precisely when $2k>2$ by the integral test in two dimensions — the radial integral $\int^\infty r^{1-2k}\,dr$ converges for $2k>2$.)* Absolute convergence lets us reorder terms freely, which we use next.
@@ -337,6 +345,7 @@ From $E_4$ and $E_6$ we can build *every* modular form by addition and multiplic
 #### The discriminant
 
 > **Definition.**
+>
 > $$
 > \Delta(\tau) = \frac{E_4(\tau)^3 - E_6(\tau)^2}{1728}.
 > $$
@@ -350,6 +359,7 @@ Thus $\Delta$ is a **cusp form** of weight 12, and (the product formula, proved 
 #### The $j$-invariant
 
 > **Definition.**
+>
 > $$
 > j(\tau) = \frac{E_4(\tau)^3}{\Delta(\tau)} = 1728\,\frac{E_4^3}{E_4^3-E_6^2}.
 > $$
@@ -365,13 +375,17 @@ a *pole* at the cusp. $j$ is a modular function. **Fundamental fact:** $j:\mathb
 > **Definition — graded ring.** Let $M_k$ be the (finite-dimensional) vector space of modular forms of weight $k$, and $S_k\subset M_k$ the subspace of cusp forms. The direct sum $M_* = \bigoplus_{k} M_k$ is a **graded ring**: the product of a weight-$k$ and a weight-$\ell$ form has weight $k+\ell$.
 
 > **Theorem 4 (Structure & dimensions).** Every modular form is a polynomial in $E_4$ and $E_6$:
+>
 > $$
 > M_* = \mathbb{C}[E_4,E_6],
 > $$
+>
 > with $E_4,E_6$ algebraically independent. Consequently the dimension of $M_k$ (for even $k\ge0$) is
+>
 > $$
 > \dim M_k = \begin{cases} \big\lfloor k/12\big\rfloor & k\equiv 2 \pmod{12},\\[2pt] \big\lfloor k/12\big\rfloor + 1 & k\not\equiv 2 \pmod{12}, \end{cases}
 > $$
+>
 > and $\dim M_k=0$ for odd $k$ or $k<0$.
 
 **Proof sketch with the key step made rigorous (full proof needs §s6).**
@@ -399,9 +413,11 @@ The dimension formula above rests on a single counting law: a nonzero modular fo
 #### Statement
 
 > **Theorem 5 (Valence formula).** Let $f\ne0$ be a modular form of weight $k$. Write $\mathrm{ord}_p(f)$ for the order of vanishing of $f$ at a point $p$. Then
+>
 > $$
 > \mathrm{ord}_\infty(f) + \tfrac12\mathrm{ord}_i(f) + \tfrac13\mathrm{ord}_\rho(f) + \sum_{p\ne i,\rho,\infty} \mathrm{ord}_p(f) \;=\; \frac{k}{12},
 > $$
+>
 > where $\rho=e^{2\pi i/3}$, $\mathrm{ord}_\infty$ is the order in $q$ at the cusp, and the sum is over orbit-representatives in $\mathcal F$ interior plus boundary (counted once).
 
 The fractions $\tfrac12,\tfrac13$ reflect the orbifold symmetry orders at $i$ and $\rho$ (§s2).
@@ -440,10 +456,13 @@ The coefficients $\tau(N)$ of $\Delta$ satisfy startling multiplicative relation
 #### Definition
 
 > **Definition — Hecke operator.** For a prime $p$, the operator $T_p$ acts on a weight-$k$ form $f(\tau)=\sum a_n q^n$ by
+>
 > $$
 > (T_p f)(\tau) = \sum_n \Big(a_{pn} + p^{k-1} a_{n/p}\Big) q^n,
 > $$
+>
 > where $a_{n/p}:=0$ if $p\nmid n$. More invariantly, $T_p$ averages $f$ over the $p+1$ sublattices of index $p$:
+>
 > $$
 > (T_pf)(\tau)= p^{k-1}f(p\tau) + \frac1p\sum_{j=0}^{p-1} f\!\Big(\frac{\tau+j}{p}\Big).
 > $$
@@ -487,14 +506,17 @@ Eisenstein series came from averaging; **theta functions** come from *Gaussian l
 #### Definitions
 
 > **Definition — Jacobi theta function.**
+>
 > $$
 > \theta(\tau) = \sum_{n=-\infty}^{\infty} q^{n^2/2} = \sum_{n\in\mathbb Z} e^{\pi i n^2 \tau}, \qquad q=e^{2\pi i\tau}.
 > $$
+>
 > More generally, for an even lattice $\Lambda$ with quadratic form $Q$, the **lattice theta function** is $\Theta_\Lambda(\tau)=\sum_{v\in\Lambda}q^{Q(v)/2}$.
 
 #### Poisson summation
 
 > **Theorem 7 (Poisson summation).** For a nice (Schwartz) function $g:\mathbb R\to\mathbb C$ with Fourier transform $\hat g(\xi)=\int_{-\infty}^\infty g(x)e^{-2\pi i x\xi}\,dx$,
+>
 > $$
 > \sum_{n\in\mathbb Z} g(n) = \sum_{m\in\mathbb Z}\hat g(m).
 > $$
@@ -538,6 +560,7 @@ The **Dedekind eta function** $\eta$ is the most physical modular object: it is 
 #### Definition and the product formula for $\Delta$
 
 > **Definition — Dedekind eta.**
+>
 > $$
 > \eta(\tau) = q^{1/24}\prod_{n=1}^\infty (1-q^n), \qquad q=e^{2\pi i\tau}.
 > $$
@@ -579,9 +602,11 @@ Attached to a modular form is a **Dirichlet series** built from its coefficients
 #### Definitions
 
 > **Definition — $L$-function of a cusp form.** For a cusp form $f=\sum_{n\ge1}a_nq^n$ of weight $k$,
+>
 > $$
 > L(f,s) = \sum_{n=1}^\infty \frac{a_n}{n^s},
 > $$
+>
 > a **Dirichlet series** in the complex variable $s$, convergent for $\mathrm{Re}s$ large.
 
 > **Definition — Mellin transform.** For a function $h(t)$ on $(0,\infty)$, $\ \mathcal M[h](s)=\int_0^\infty h(t)\,t^{s}\,\frac{dt}{t}$.
