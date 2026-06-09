@@ -333,13 +333,13 @@ In vertex-algebra language this OPE *is* the statement that $\omega_{(3)}\omega=
 **Derivation of the Virasoro bracket from the $TT$ OPE.**
 1. The commutator formula (§s2 pitfall) gives, for the local pair $(\omega,\omega)$,
 $$
-[L_m,L_n]=\sum_{j\ge0}\binom{m+1}{j}\big(\omega_{(j)}\omega\big)_{(m+n+1-j)} ,
+[L_m,L_n]=\sum_{j\ge0}\binom{m+1}{j}\big(\omega_{(j)}\omega\big)_{(m+n+2-j)} ,
 $$
-where the binomial and shift come from converting field commutators to mode commutators (this is the general "$[a_{(m)},b_{(n)}]=\sum_j\binom{m}{j}(a_{(j)}b)_{(m+n-j)}$" formula, applied with the weight-2 shift $L_n=\omega_{(n+1)}$). *(Commutator formula for modes.)*
+which is the general mode-commutator formula $[a_{(p)},b_{(q)}]=\sum_j\binom{p}{j}(a_{(j)}b)_{(p+q-j)}$ applied with $p=m+1$, $q=n+1$ via the weight-2 shift $L_n=\omega_{(n+1)}$ (equivalently $\omega_{(k)}=L_{k-1}$). *(Commutator formula for modes.)*
 2. Only $j=0,1,3$ contribute, since $\omega_{(j)}\omega=0$ otherwise. *(From the OPE data above.)*
-3. **$j=0$:** $\binom{m+1}{0}(\omega_{(0)}\omega)_{(m+n+1)}=(T\omega)_{(m+n+1)}=(\partial\omega)_{(m+n+1)}$. Using $(\partial\omega)_{(k)}=-(k)\,\omega_{(k-1)}$ wait—more precisely $(\partial A)_{(k)}=-k\,A_{(k-1)}$ on modes — gives a term proportional to $L_{m+n}$. *(Property $T A=\partial A$ shifts a mode and brings down its index.)*
-4. **$j=1$:** $\binom{m+1}{1}(\omega_{(1)}\omega)_{(m+n)}=(m+1)\,(2\omega)_{(m+n)}=2(m+1)L_{m+n-1+1}$, contributing to $L_{m+n}$. Combining steps 3–4 and simplifying yields the coefficient $(m-n)$ for $L_{m+n}$. *(Arithmetic of the two contributions.)*
-5. **$j=3$:** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-2)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-2)}$. Since $|0\rangle_{(k)}=\delta_{k,-1}\operatorname{id}$, this is nonzero only when $m+n-2=-1$, i.e. $n=-m+1$… tracking the index bookkeeping with the weight-2 shift gives the term $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$. *(Vacuum mode acts as identity only in degree $-1$.)*
+3. **$j=0$:** $\binom{m+1}{0}(\omega_{(0)}\omega)_{(m+n+2)}=(T\omega)_{(m+n+2)}=(\partial\omega)_{(m+n+2)}$. On modes the translation operator acts by $(\partial A)_{(k)}=-k\,A_{(k-1)}$, so with $k=m+n+2$ this is $-(m+n+2)\,\omega_{(m+n+1)}=-(m+n+2)\,L_{m+n}$. *(Property $TA=\partial A$ shifts a mode and brings down its index.)*
+4. **$j=1$:** $\binom{m+1}{1}(\omega_{(1)}\omega)_{(m+n+1)}=(m+1)\,(2\omega)_{(m+n+1)}=2(m+1)\,\omega_{(m+n+1)}=2(m+1)\,L_{m+n}$. Adding steps 3 and 4, the coefficient of $L_{m+n}$ is $-(m+n+2)+2(m+1)=(m-n)$, giving the term $(m-n)L_{m+n}$. *(Arithmetic of the two contributions.)*
+5. **$j=3$:** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-1)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-1)}$. Since $|0\rangle_{(k)}=\delta_{k,-1}\operatorname{id}$, the mode $(m+n-1)$ acts as the identity exactly when $m+n-1=-1$, i.e. $m+n=0$, giving the term $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$. *(Vacuum mode acts as identity only in degree $-1$.)*
 6. Finally $\frac{c}{2}\binom{m+1}{3}=\frac{c}{2}\cdot\frac{(m+1)m(m-1)}{6}=\frac{c}{12}(m^3-m)$. *(Expand the binomial: $(m+1)m(m-1)=m^3-m$.)*
 7. Assembling: $[L_m,L_n]=(m-n)L_{m+n}+\frac{c}{12}(m^3-m)\delta_{m+n,0}$, exactly the Virasoro algebra. $\blacksquare$
 

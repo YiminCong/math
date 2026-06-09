@@ -342,8 +342,8 @@ $$
 
 我们闭合环路：$TT$ OPE *蕴涵* §s3 的 Virasoro 代数。
 1. 模的对易子是一个二重围道积分，$[L_m,L_n]=\big(\oint_0\frac{dw}{2\pi i}-\big)\oint_w\frac{dz}{2\pi i}\,z^{m+1}w^{n+1}T(z)T(w)$，其中 $z$-围道环绕 $w$。*（理由：围道积分荷的对易子等于 OPE 奇异部分的围道积分——这是变形围道的标准"径向排序"操作。）*
-2. 代入 $TT$ OPE 并读出每个极点的留数。带 $2T$ 的 $(z-w)^{-2}$ 项，经留数法则后，给出 $(m-n)L_{m+n}$ 部分；$(z-w)^{-1}$ 项合并入同一部分；带 $c/2$ 的 $(z-w)^{-4}$ 项，由三阶导数留数 $\frac{1}{3!}\partial_w^3$，给出中心项。
-3. 计算 $\frac{1}{2\pi i}\oint w^{n+1}\,\frac{c}{2}\cdot\frac{1}{3!}\partial_w^3 z^{m+1}\big|_{z=w}\,dw$ 得到 $\frac{c}{12}(m^3-m)\delta_{m+n,0}$。*（理由：$\partial_w^3 w^{m+1}=(m+1)m(m-1)w^{m-2}$，且 $\frac{1}{2\pi i}\oint w^{m+n-1}dw=\delta_{m+n,0}$；因子 $\frac{1}{2}\cdot\frac{1}{6}\cdot(m+1)m(m-1)=\frac{c}{12}m(m^2-1)/c\cdots$ 组装成 $\frac{c}{12}(m^3-m)$。）*
+2. 代入 $TT$ OPE 并读出每个极点的留数。先做 $z$ 积分，对每个极点取 $z^{m+1}$ 在 $z=w$ 处的留数，再做 $w$ 积分。带 $2T(w)$ 的 $(z-w)^{-2}$ 项，由 $\frac{1}{2\pi i}\oint_w\frac{z^{m+1}}{(z-w)^2}dz=(m+1)w^{m}$，给出贡献 $2(m+1)\,\frac{1}{2\pi i}\oint w^{n+1}w^{m}T(w)\,dw=2(m+1)L_{m+n}$。带 $\partial_w T(w)$ 的 $(z-w)^{-1}$ 项给出 $\frac{1}{2\pi i}\oint w^{m+1}w^{n+1}\partial_w T\,dw$；对 $w$ 分部积分把导数移到 $w^{m+n+2}$ 上，产生 $-(m+n+2)L_{m+n}$。两者相加，$\big[2(m+1)-(m+n+2)\big]L_{m+n}=(m-n)L_{m+n}$，即 Virasoro 输运项。带 $c/2$ 的 $(z-w)^{-4}$ 项，由三阶导数留数 $\frac{1}{3!}\partial_w^3$，给出中心项。
+3. 计算 $\frac{1}{2\pi i}\oint w^{n+1}\,\frac{c}{2}\cdot\frac{1}{3!}\partial_w^3 z^{m+1}\big|_{z=w}\,dw$ 得到 $\frac{c}{12}(m^3-m)\delta_{m+n,0}$。*（理由：$\partial_w^3 w^{m+1}=(m+1)m(m-1)w^{m-2}$，且 $\frac{1}{2\pi i}\oint w^{m+n-1}dw=\delta_{m+n,0}$；因子组装为 $\frac{c}{2}\cdot\frac16(m+1)m(m-1)=\frac{c}{12}(m^3-m)$。）*
 
 于是 Virasoro 代数与 $TT$ OPE 是同一内容的两种编码。
 

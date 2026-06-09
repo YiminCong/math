@@ -333,13 +333,13 @@ $$
 **从 $TT$ OPE 导出 Virasoro 括号。**
 1. 对易子公式（§s2 易错点）对局部对 $(\omega,\omega)$ 给出
 $$
-[L_m,L_n]=\sum_{j\ge0}\binom{m+1}{j}\big(\omega_{(j)}\omega\big)_{(m+n+1-j)} ,
+[L_m,L_n]=\sum_{j\ge0}\binom{m+1}{j}\big(\omega_{(j)}\omega\big)_{(m+n+2-j)} ,
 $$
-其中二项式系数与位移来自把场对易子转换为模对易子（这是一般公式" $[a_{(m)},b_{(n)}]=\sum_j\binom{m}{j}(a_{(j)}b)_{(m+n-j)}$ "，在权重 2 的位移 $L_n=\omega_{(n+1)}$ 下应用）。*（模的对易子公式。）*
+这是一般的模对易子公式 $[a_{(p)},b_{(q)}]=\sum_j\binom{p}{j}(a_{(j)}b)_{(p+q-j)}$，在权重 2 的位移 $L_n=\omega_{(n+1)}$（等价地 $\omega_{(k)}=L_{k-1}$）下取 $p=m+1$、$q=n+1$ 应用。*（模的对易子公式。）*
 2. 只有 $j=0,1,3$ 有贡献，因为否则 $\omega_{(j)}\omega=0$。*（来自上面的 OPE 数据。）*
-3. **$j=0$：** $\binom{m+1}{0}(\omega_{(0)}\omega)_{(m+n+1)}=(T\omega)_{(m+n+1)}=(\partial\omega)_{(m+n+1)}$。用 $(\partial\omega)_{(k)}=-(k)\,\omega_{(k-1)}$ 等等——更精确地说在模上 $(\partial A)_{(k)}=-k\,A_{(k-1)}$——给出一个正比于 $L_{m+n}$ 的项。*（性质 $T A=\partial A$ 移动一个模并把它的指标降下来。）*
-4. **$j=1$：** $\binom{m+1}{1}(\omega_{(1)}\omega)_{(m+n)}=(m+1)\,(2\omega)_{(m+n)}=2(m+1)L_{m+n-1+1}$，贡献于 $L_{m+n}$。把第 3–4 步合并并化简，得到 $L_{m+n}$ 的系数 $(m-n)$。*（两个贡献的算术。）*
-5. **$j=3$：** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-2)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-2)}$。由于 $|0\rangle_{(k)}=\delta_{k,-1}\operatorname{id}$，这仅当 $m+n-2=-1$，即 $n=-m+1$ 时非零……用权重 2 的位移追踪指标记账，给出项 $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$。*（真空模仅在次数 $-1$ 时作为恒等作用。）*
+3. **$j=0$：** $\binom{m+1}{0}(\omega_{(0)}\omega)_{(m+n+2)}=(T\omega)_{(m+n+2)}=(\partial\omega)_{(m+n+2)}$。在模上平移算子作用为 $(\partial A)_{(k)}=-k\,A_{(k-1)}$，故取 $k=m+n+2$ 得 $-(m+n+2)\,\omega_{(m+n+1)}=-(m+n+2)\,L_{m+n}$。*（性质 $T A=\partial A$ 移动一个模并把它的指标降下来。）*
+4. **$j=1$：** $\binom{m+1}{1}(\omega_{(1)}\omega)_{(m+n+1)}=(m+1)\,(2\omega)_{(m+n+1)}=2(m+1)\,\omega_{(m+n+1)}=2(m+1)\,L_{m+n}$。把第 3、4 步相加，$L_{m+n}$ 的系数为 $-(m+n+2)+2(m+1)=(m-n)$，给出项 $(m-n)L_{m+n}$。*（两个贡献的算术。）*
+5. **$j=3$：** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-1)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-1)}$。由于 $|0\rangle_{(k)}=\delta_{k,-1}\operatorname{id}$，模 $(m+n-1)$ 恰当 $m+n-1=-1$，即 $m+n=0$ 时作为恒等作用，给出项 $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$。*（真空模仅在次数 $-1$ 时作为恒等作用。）*
 6. 最后 $\frac{c}{2}\binom{m+1}{3}=\frac{c}{2}\cdot\frac{(m+1)m(m-1)}{6}=\frac{c}{12}(m^3-m)$。*（展开二项式：$(m+1)m(m-1)=m^3-m$。）*
 7. 组装起来：$[L_m,L_n]=(m-n)L_{m+n}+\frac{c}{12}(m^3-m)\delta_{m+n,0}$，恰是 Virasoro 代数。$\blacksquare$
 
