@@ -455,13 +455,13 @@ $$
 
 > **定义 — 弯曲空间上的狄拉克算子。** 弯曲空间的**狄拉克算子**为
 > $$
-> \slashed D=\gamma^\mu D_\mu=e_a{}^\mu\gamma^a\bigl(\partial_\mu+\tfrac14\omega_\mu{}^{bc}\gamma_b\gamma_c\bigr),
+> {D\!\!\!/}=\gamma^\mu D_\mu=e_a{}^\mu\gamma^a\bigl(\partial_\mu+\tfrac14\omega_\mu{}^{bc}\gamma_b\gamma_c\bigr),
 > $$
-> 质量为 $m$ 的粒子的**狄拉克方程**为 $(i\slashed D-m)\psi=0$。
+> 质量为 $m$ 的粒子的**狄拉克方程**为 $(i{D\!\!\!/}-m)\psi=0$。
 
 > **为何每一块都必不可少。** 单独的 $\partial_\mu$ 在旋量上不是洛伦兹协变的；$\tfrac14\omega_\mu{}^{ab}\gamma_a\gamma_b$ 项旋转旋量标架以作补偿，恰如 $\Gamma$ 为移动张量标架作补偿。四标架 $e_a{}^\mu$ 是唯一能把带标架指标的伽马矩阵接到带世界指标的导数上的对象。没有四标架，弯曲空间上就没有狄拉克方程——这正是为什么 s3 的标架形式对张量是可选的，对费米子却是必需的。
 
-> **例 — 平直空间的合理性检验。** 在闵可夫斯基坐标中，四标架是平凡的，$e_a{}^\mu=\delta_a^\mu$，故 $\omega_\mu{}^{ab}=0$ 且 $\slashed D=\gamma^\mu\partial_\mu$。狄拉克方程约化为熟悉的 $(i\gamma^\mu\partial_\mu-m)\psi=0$，对它平方给出 $(\Box+m^2)\psi=0$，即克莱因–戈尔登方程——确认狄拉克算子是波动算子的旋量平方根，现在是在任意弯曲背景上。
+> **例 — 平直空间的合理性检验。** 在闵可夫斯基坐标中，四标架是平凡的，$e_a{}^\mu=\delta_a^\mu$，故 $\omega_\mu{}^{ab}=0$ 且 ${D\!\!\!/}=\gamma^\mu\partial_\mu$。狄拉克方程约化为熟悉的 $(i\gamma^\mu\partial_\mu-m)\psi=0$，对它平方给出 $(\Box+m^2)\psi=0$，即克莱因–戈尔登方程——确认狄拉克算子是波动算子的旋量平方根，现在是在任意弯曲背景上。
 
 ---
 

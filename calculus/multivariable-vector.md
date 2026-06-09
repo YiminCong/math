@@ -988,11 +988,11 @@ Definitions: $\partial S$ ("boundary of $S$") is the edge curve of the surface. 
 
 **Divergence theorem**
 
-$$\oiint_{\partial E} \mathbf F\cdot d\mathbf S=\iiint_E (\nabla\cdot\mathbf F)\,dV$$
+$$\iint_{\partial E} \mathbf F\cdot d\mathbf S=\iiint_E (\nabla\cdot\mathbf F)\,dV$$
 
 *$\partial E$ is the closed boundary surface of solid $E$, with outward normal. Total outflow = total source strength inside.*
 
-Definitions: $E$ is a solid region, $\partial E$ its closed bounding surface (the double-loop $\oiint$ marks a closed surface), oriented with the **outward** normal. The left side is total flux out; the right integrates the divergence (§s22) over the interior.
+Definitions: $E$ is a solid region, $\partial E$ its closed bounding surface (closed, since it bounds the solid $E$), oriented with the **outward** normal. The left side is total flux out; the right integrates the divergence (§s22) over the interior.
 
 > **Concept — telescoping the fluxes**
 >

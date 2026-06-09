@@ -988,11 +988,11 @@ $$\oint_{\partial S} \mathbf F\cdot d\mathbf r=\iint_S (\nabla\times\mathbf F)\c
 
 **散度定理**
 
-$$\oiint_{\partial E} \mathbf F\cdot d\mathbf S=\iiint_E (\nabla\cdot\mathbf F)\,dV$$
+$$\iint_{\partial E} \mathbf F\cdot d\mathbf S=\iiint_E (\nabla\cdot\mathbf F)\,dV$$
 
 *$\partial E$ 是实体 $E$ 的闭合边界曲面，取外法向量。总外流 = 内部总源强度。*
 
-定义：$E$ 是一个实体区域，$\partial E$ 是它的闭合边界曲面（双圈符号 $\oiint$ 标记一张闭合曲面），按**外**法向量定向。左边是总外流通量；右边把散度（§s22）在内部积分。
+定义：$E$ 是一个实体区域，$\partial E$ 是它的闭合边界曲面（闭合曲面，因为它是实体 $E$ 的边界），按**外**法向量定向。左边是总外流通量；右边把散度（§s22）在内部积分。
 
 > **概念 — 把通量伸缩相消**
 >

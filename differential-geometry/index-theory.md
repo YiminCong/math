@@ -316,32 +316,32 @@ A **Clifford module** (or **spinor space**) $S$ is a vector space carrying a rep
 
 > **Definition — Dirac operator.** Let $M$ be a spin Riemannian manifold with spinor bundle $S = S^+\oplus S^-$ and the Levi-Civita-induced connection $\nabla$ on $S$. The **Dirac operator** is
 > $$
-> \slashed D = \sum_i c(e_i)\,\nabla_{e_i} : \Gamma(S) \to \Gamma(S),
+> {D\!\!\!/} = \sum_i c(e_i)\,\nabla_{e_i} : \Gamma(S) \to \Gamma(S),
 > $$
-> where $\{e_i\}$ is a local orthonormal frame and $c$ is Clifford multiplication. Because $c$ is odd, $\slashed D$ swaps the grading: it restricts to
+> where $\{e_i\}$ is a local orthonormal frame and $c$ is Clifford multiplication. Because $c$ is odd, ${D\!\!\!/}$ swaps the grading: it restricts to
 > $$
-> \slashed D^+ : \Gamma(S^+) \to \Gamma(S^-), \qquad \slashed D^- : \Gamma(S^-) \to \Gamma(S^+),
+> {D\!\!\!/}^+ : \Gamma(S^+) \to \Gamma(S^-), \qquad {D\!\!\!/}^- : \Gamma(S^-) \to \Gamma(S^+),
 > $$
-> with $\slashed D^- = (\slashed D^+)^*$.
+> with ${D\!\!\!/}^- = ({D\!\!\!/}^+)^*$.
 
-> **Proposition.** $\slashed D$ is elliptic, and its principal symbol is $\sigma(\slashed D)(\xi) = i\,c(\xi)$.
+> **Proposition.** ${D\!\!\!/}$ is elliptic, and its principal symbol is $\sigma({D\!\!\!/})(\xi) = i\,c(\xi)$.
 
 **Proof.**
-1. The top-order part of $\slashed D = \sum_i c(e_i)\nabla_{e_i}$ replaces $\nabla_{e_i}\mapsto i\xi_i$, giving $\sigma(\slashed D)(\xi) = i\sum_i \xi_i\, c(e_i) = i\,c(\xi^\sharp)$. *Reason:* definition of symbol (s2); the connection's lower-order Christoffel terms drop.
-2. Square it: $\sigma(\slashed D)(\xi)^2 = i^2\, c(\xi)c(\xi) = -(-|\xi|^2) = |\xi|^2$ by the Clifford relation $c(\xi)^2 = -|\xi|^2$. *Reason:* Clifford identity.
-3. For $\xi\ne 0$, $\sigma(\slashed D)(\xi)^2 = |\xi|^2 \ne 0$, so $\sigma(\slashed D)(\xi)$ is invertible. Elliptic. $\qquad\blacksquare$
+1. The top-order part of ${D\!\!\!/} = \sum_i c(e_i)\nabla_{e_i}$ replaces $\nabla_{e_i}\mapsto i\xi_i$, giving $\sigma({D\!\!\!/})(\xi) = i\sum_i \xi_i\, c(e_i) = i\,c(\xi^\sharp)$. *Reason:* definition of symbol (s2); the connection's lower-order Christoffel terms drop.
+2. Square it: $\sigma({D\!\!\!/})(\xi)^2 = i^2\, c(\xi)c(\xi) = -(-|\xi|^2) = |\xi|^2$ by the Clifford relation $c(\xi)^2 = -|\xi|^2$. *Reason:* Clifford identity.
+3. For $\xi\ne 0$, $\sigma({D\!\!\!/})(\xi)^2 = |\xi|^2 \ne 0$, so $\sigma({D\!\!\!/})(\xi)$ is invertible. Elliptic. $\qquad\blacksquare$
 
-By s3, $\slashed D^+: \Gamma(S^+)\to\Gamma(S^-)$ is Fredholm on a compact spin manifold, with a well-defined integer index
+By s3, ${D\!\!\!/}^+: \Gamma(S^+)\to\Gamma(S^-)$ is Fredholm on a compact spin manifold, with a well-defined integer index
 
 $$
-\mathrm{ind}\slashed D^+ = \dim\ker\slashed D^+ - \dim\ker\slashed D^-.
+\mathrm{ind}{D\!\!\!/}^+ = \dim\ker{D\!\!\!/}^+ - \dim\ker{D\!\!\!/}^-.
 $$
 
-Elements of $\ker\slashed D$ are **harmonic spinors**. The Atiyah–Singer theorem (s8) computes exactly this number topologically — and remarkably, the answer is the $\hat A$-genus (s7).
+Elements of $\ker{D\!\!\!/}$ are **harmonic spinors**. The Atiyah–Singer theorem (s8) computes exactly this number topologically — and remarkably, the answer is the $\hat A$-genus (s7).
 
-> **Lichnerowicz's formula and a first payoff.** The Weitzenböck identity $\slashed D^2 = \nabla^*\nabla + \tfrac14 R$ holds, where $\nabla^*\nabla \ge 0$ is the connection Laplacian and $R$ is the scalar curvature. If $R > 0$ everywhere, then for $\slashed D\psi = 0$ we get $0 = \|\nabla\psi\|^2 + \tfrac14\int R|\psi|^2 \ge \tfrac14\int R|\psi|^2 \ge 0$, forcing $\psi = 0$. So a compact spin manifold of positive scalar curvature has $\ker\slashed D = 0$, hence $\mathrm{ind}\slashed D^+ = 0$, hence $\hat A(M) = 0$ — a topological obstruction to positive scalar curvature, discovered through analysis. This is a glimpse of the theorem's force.
+> **Lichnerowicz's formula and a first payoff.** The Weitzenböck identity ${D\!\!\!/}^2 = \nabla^*\nabla + \tfrac14 R$ holds, where $\nabla^*\nabla \ge 0$ is the connection Laplacian and $R$ is the scalar curvature. If $R > 0$ everywhere, then for ${D\!\!\!/}\psi = 0$ we get $0 = \|\nabla\psi\|^2 + \tfrac14\int R|\psi|^2 \ge \tfrac14\int R|\psi|^2 \ge 0$, forcing $\psi = 0$. So a compact spin manifold of positive scalar curvature has $\ker{D\!\!\!/} = 0$, hence $\mathrm{ind}{D\!\!\!/}^+ = 0$, hence $\hat A(M) = 0$ — a topological obstruction to positive scalar curvature, discovered through analysis. This is a glimpse of the theorem's force.
 
-> **Pitfall.** Two distinct operators are often both called "Dirac": the pure spinor Dirac operator above, and the **twisted** version $\slashed D_E = \slashed D\otimes \nabla^E$ coupling to an auxiliary bundle $E$ with connection. The general index theorem is stated for the twisted operator, which subsumes de Rham, signature, and Dolbeault operators as special $E$.
+> **Pitfall.** Two distinct operators are often both called "Dirac": the pure spinor Dirac operator above, and the **twisted** version ${D\!\!\!/}_E = {D\!\!\!/}\otimes \nabla^E$ coupling to an auxiliary bundle $E$ with connection. The general index theorem is stated for the twisted operator, which subsumes de Rham, signature, and Dolbeault operators as special $E$.
 
 ## Part C · The topological side and the theorem
 
@@ -380,19 +380,19 @@ Both are multiplicative "genera": $\mathrm{Td}(E\oplus F) = \mathrm{Td}(E)\mathr
 
 #### Assembling the topological index
 
-For an elliptic operator $D$ on a manifold $M^n$ with symbol class, the topological index is, in its most-used form for the twisted Dirac operator $\slashed D_E$,
+For an elliptic operator $D$ on a manifold $M^n$ with symbol class, the topological index is, in its most-used form for the twisted Dirac operator ${D\!\!\!/}_E$,
 
 $$
-\mathrm{ind}_{\mathrm{top}}(\slashed D_E) = \int_M \hat A(M)\,\mathrm{ch}(E),
+\mathrm{ind}_{\mathrm{top}}({D\!\!\!/}_E) = \int_M \hat A(M)\,\mathrm{ch}(E),
 $$
 
 picking out the top-degree ($n$-form) component of the product and integrating. For a general elliptic operator the formula is $\int_M (-1)^n \mathrm{ch}(\sigma(D))\mathrm{Td}(TM\otimes\mathbb C)$ evaluated through the symbol class, but every classical case reduces to a Dirac-type formula like the one above. The next section states the theorem that equates this integral with the analytic index.
 
 > **Worked computation (degree counting on a $4$-manifold).** On $M^4$, $\hat A = 1 - \tfrac{1}{24}p_1$ and $\mathrm{ch}(E) = r + c_1 + \tfrac12(c_1^2 - 2c_2)$ with $r = \mathrm{rank} E$. The product's $4$-form part is $\tfrac12(c_1^2 - 2c_2) - \tfrac{r}{24}p_1$. Hence
 > $$
-> \mathrm{ind}\slashed D_E = \int_{M^4}\Big[\tfrac12 c_1(E)^2 - c_2(E) - \tfrac{r}{24}p_1(M)\Big].
+> \mathrm{ind}{D\!\!\!/}_E = \int_{M^4}\Big[\tfrac12 c_1(E)^2 - c_2(E) - \tfrac{r}{24}p_1(M)\Big].
 > $$
-> With $E$ trivial ($r=1, c_1=c_2=0$): $\mathrm{ind}\slashed D = -\tfrac{1}{24}\int_{M^4} p_1 = \hat A(M)$, an integer — a nontrivial integrality constraint on $p_1$ of spin $4$-manifolds.
+> With $E$ trivial ($r=1, c_1=c_2=0$): $\mathrm{ind}{D\!\!\!/} = -\tfrac{1}{24}\int_{M^4} p_1 = \hat A(M)$, an integer — a nontrivial integrality constraint on $p_1$ of spin $4$-manifolds.
 
 <a id="s8"></a>
 ### The Atiyah–Singer index theorem and the meaning of "analytic = topological"
@@ -407,7 +407,7 @@ We can now state the theorem in full and unpack the equality.
 > $$
 > \mathrm{ind}_{\mathrm{top}}(D) = (-1)^n\!\int_{M}\mathrm{ch}\big([\sigma(D)]\big)\,\mathrm{Td}(TM\otimes\mathbb C),
 > $$
-> with $[\sigma(D)] \in K(T^*M)$ the K-theory class of the principal symbol and $n = \dim M$. For the twisted Dirac operator this reduces to $\mathrm{ind}\slashed D_E = \int_M \hat A(M)\,\mathrm{ch}(E)$.
+> with $[\sigma(D)] \in K(T^*M)$ the K-theory class of the principal symbol and $n = \dim M$. For the twisted Dirac operator this reduces to $\mathrm{ind}{D\!\!\!/}_E = \int_M \hat A(M)\,\mathrm{ch}(E)$.
 
 #### What the two sides mean and why the equality is deep
 
@@ -493,11 +493,11 @@ We outline the most analytic proof, which computes the index as a heat trace and
 
 #### The McKean–Singer formula
 
-Let $D = \slashed D^+: \Gamma(S^+)\to\Gamma(S^-)$ with adjoint $D^* = \slashed D^-$. Form the two Laplacians $\Delta^+ = D^* D$ on $S^+$ and $\Delta^- = D D^*$ on $S^-$. Both are non-negative elliptic self-adjoint operators, so each has a discrete spectrum $0 \le \lambda_0 \le \lambda_1 \le \cdots \to \infty$ with finite-dimensional eigenspaces.
+Let $D = {D\!\!\!/}^+: \Gamma(S^+)\to\Gamma(S^-)$ with adjoint $D^* = {D\!\!\!/}^-$. Form the two Laplacians $\Delta^+ = D^* D$ on $S^+$ and $\Delta^- = D D^*$ on $S^-$. Both are non-negative elliptic self-adjoint operators, so each has a discrete spectrum $0 \le \lambda_0 \le \lambda_1 \le \cdots \to \infty$ with finite-dimensional eigenspaces.
 
 > **Theorem (McKean–Singer).** For every $t > 0$,
 > $$
-> \mathrm{ind} D = \mathrm{Tr}\big(e^{-t\Delta^+}\big) - \mathrm{Tr}\big(e^{-t\Delta^-}\big) =: \mathrm{Str}\big(e^{-t\slashed D^2}\big),
+> \mathrm{ind} D = \mathrm{Tr}\big(e^{-t\Delta^+}\big) - \mathrm{Tr}\big(e^{-t\Delta^-}\big) =: \mathrm{Str}\big(e^{-t{D\!\!\!/}^2}\big),
 > $$
 > the **supertrace** of the heat operator, *independent of $t$*.
 
@@ -527,7 +527,7 @@ $$
 $$
 *Reason:* matching powers of $t$ on both sides of a $t$-independent identity.
 3. **Identify the surviving coefficient.** The deep step (Patodi, Gilkey, and the **Getzler rescaling** that makes it transparent) is that the localized supertrace $\mathrm{Str} a_{n/2}$ is exactly the top-degree component of $\hat A(M)\mathrm{ch}(E)$. Getzler's trick rescales the Clifford variables and the coordinates so that the heat operator limits to a **harmonic oscillator** (Mehler's formula), whose supertrace is computed in closed form and *is* the $\hat A\mathrm{ch}$ integrand. *Reason:* the rescaled limit turns the geometric heat kernel into the exactly-solvable Gaussian of a quantum oscillator.
-4. Combining: $\mathrm{ind}\slashed D_E = \int_M \hat A(M)\mathrm{ch}(E)$, the index theorem. $\qquad\blacksquare$ (outline)
+4. Combining: $\mathrm{ind}{D\!\!\!/}_E = \int_M \hat A(M)\mathrm{ch}(E)$, the index theorem. $\qquad\blacksquare$ (outline)
 
 > **Intuition.** The index is a number (no $t$), so we are free to compute it at any time scale; at $t\to 0$ the heat has not spread, so the answer is built from *local* curvature, yet it equals a *global* topological integral. The "miracle of cancellation" is that everything except the ground states drops out and the leftover is a perfect characteristic class. Pitfall: the small-$t$ expansion has many terms that look divergent ($t^{-n/2}$); the theorem guarantees they all cancel after taking the *super*trace — using the ordinary trace they do not.
 
@@ -538,7 +538,7 @@ The index theorem is not a curiosity for physicists: it computes **anomalies**, 
 
 #### Fermion zero modes and the path integral
 
-In quantum field theory a Dirac fermion in a background gauge field $A$ is governed by the (twisted) Dirac operator $\slashed D_A$. A **zero mode** is a solution of $\slashed D_A\psi = 0$ — a normalizable harmonic spinor. The index $\mathrm{ind}\slashed D_A = n_+ - n_-$ counts left-handed minus right-handed zero modes ($n_\pm = \dim\ker\slashed D^\pm$). By the index theorem this is a topological integral of the gauge field strength:
+In quantum field theory a Dirac fermion in a background gauge field $A$ is governed by the (twisted) Dirac operator ${D\!\!\!/}_A$. A **zero mode** is a solution of ${D\!\!\!/}_A\psi = 0$ — a normalizable harmonic spinor. The index $\mathrm{ind}{D\!\!\!/}_A = n_+ - n_-$ counts left-handed minus right-handed zero modes ($n_\pm = \dim\ker{D\!\!\!/}^\pm$). By the index theorem this is a topological integral of the gauge field strength:
 
 $$
 n_+ - n_- = \int_M \hat A(M)\,\mathrm{ch}(E_A),
@@ -554,9 +554,9 @@ $$
 \partial_\mu j_5^\mu = \frac{1}{16\pi^2}\,\epsilon^{\mu\nu\rho\sigma}\mathrm{tr}(F_{\mu\nu}F_{\rho\sigma}) = 2\,\big(\text{instanton density}\big).
 $$
 
-Integrating over spacetime, the total change of axial charge equals $2(n_+ - n_-) = 2\mathrm{ind}\slashed D_A$. The **Atiyah–Singer theorem is the mathematical content of the chiral anomaly**: the anomalous non-conservation integrates to the index, an integer. The right side is exactly $\mathrm{ch}_2 = \tfrac12 c_1^2 - c_2$ of the gauge bundle (s7), the second Chern character — the same characteristic class that appears in the index formula.
+Integrating over spacetime, the total change of axial charge equals $2(n_+ - n_-) = 2\mathrm{ind}{D\!\!\!/}_A$. The **Atiyah–Singer theorem is the mathematical content of the chiral anomaly**: the anomalous non-conservation integrates to the index, an integer. The right side is exactly $\mathrm{ch}_2 = \tfrac12 c_1^2 - c_2$ of the gauge bundle (s7), the second Chern character — the same characteristic class that appears in the index formula.
 
-> **Worked link.** On $S^4$ (Euclidean spacetime compactified), $\hat A(S^4) = 1$ (it is a sphere, $p_1 = 0$), so $\mathrm{ind}\slashed D_A = \int_{S^4}\mathrm{ch}_2(E_A) = \frac{1}{8\pi^2}\int \mathrm{tr}(F\wedge F)$, which is the **instanton number** (second Chern number) $k$. Thus a charge-$k$ instanton background has exactly $k$ net fermion zero modes. The famous "one zero mode per instanton" for $SU(2)$ in the fundamental representation is this formula with $k=1$.
+> **Worked link.** On $S^4$ (Euclidean spacetime compactified), $\hat A(S^4) = 1$ (it is a sphere, $p_1 = 0$), so $\mathrm{ind}{D\!\!\!/}_A = \int_{S^4}\mathrm{ch}_2(E_A) = \frac{1}{8\pi^2}\int \mathrm{tr}(F\wedge F)$, which is the **instanton number** (second Chern number) $k$. Thus a charge-$k$ instanton background has exactly $k$ net fermion zero modes. The famous "one zero mode per instanton" for $SU(2)$ in the fundamental representation is this formula with $k=1$.
 
 #### Instantons
 
