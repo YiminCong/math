@@ -269,7 +269,7 @@ $$(fg)' = f'g + fg'$$
 4. Divide by $h$ and split the limit (sum and product limit laws, §s1):
 
    $$\lim_{h\to0} f(x+h)\frac{g(x+h)-g(x)}{h}+\lim_{h\to0} g(x)\frac{f(x+h)-f(x)}{h}.$$
-5. As $h\to0$: $f(x+h)\to f(x)$ (because $f$ is continuous where it is differentiable, §s1), the first quotient becomes $g'$, and the second becomes $f'$:
+5. As $h\to0$: $f(x+h)\to f(x)$ because differentiability forces continuity — $f(x+h)-f(x) = \tfrac{f(x+h)-f(x)}{h}\cdot h \to f'(x)\cdot 0 = 0$ — the first quotient becomes $g'$, and the second becomes $f'$:
 
    $$(fg)'=f g' + g f'.$$
 
@@ -690,6 +690,17 @@ $$\int u\,dv=uv-\int v\,du$$
 *Use it on products like $\int x e^{x}\,dx$ or $\int \ln x\,dx$ (take $u=\ln x,\ dv=dx$).*
 
 **Worked example — $\int x e^x\,dx$.** Choose $u = x$ (so $du = dx$) and $dv = e^x\,dx$ (so $v = e^x$). Then $\int x e^x\,dx = x e^x - \int e^x\,dx = x e^x - e^x + C$. Check: $(xe^x - e^x)' = (e^x + xe^x) - e^x = xe^x$.
+
+**Demonstration — the $\int \sec x\,dx$ trick (the three table entries from §s8)**
+
+The three "small-trick" integrals promised in §s8 are settled here. $\int \ln x\,dx = x\ln x - x + C$ is by parts (take $u=\ln x,\ dv=dx$, just above); $\int \tan x\,dx = \int \tfrac{\sin x}{\cos x}\,dx$ is u-sub with $u=\cos x$, $du=-\sin x\,dx$, giving $-\ln|u| + C = \ln|\sec x| + C$. The genuinely clever one is $\int \sec x\,dx$:
+
+1. Multiply by a disguised $1$, namely $\dfrac{\sec x + \tan x}{\sec x + \tan x}$:
+
+   $$\int \sec x\,dx = \int \sec x\cdot\frac{\sec x + \tan x}{\sec x + \tan x}\,dx = \int \frac{\sec^2 x + \sec x\tan x}{\sec x + \tan x}\,dx.$$
+2. Notice the numerator is exactly the derivative of the denominator: $(\sec x + \tan x)' = \sec x\tan x + \sec^2 x$ (from §s4). So with $u = \sec x + \tan x$ we have $du = (\sec^2 x + \sec x\tan x)\,dx$, and the integral is $\int \tfrac{du}{u}$:
+
+   $$\int \frac{du}{u} = \ln|u| + C = \ln|\sec x + \tan x| + C.$$
 
 **Trigonometric substitution**
 

@@ -560,7 +560,7 @@ Consider a one-parameter family of geodesics $x^\mu(\lambda,s)$, $s$ labeling ne
 
 > **Theorem — geodesic deviation (Jacobi equation).**
 > $$
-> \frac{D^2 S^\rho}{d\lambda^2} = -\,R^\rho{}_{\mu\nu\sigma}\,T^\mu T^\nu S^\sigma .
+> \frac{D^2 S^\rho}{d\lambda^2} = -\,R^\rho{}_{\sigma\mu\nu}\,T^\sigma S^\mu T^\nu .
 > $$
 > The relative acceleration of nearby geodesics is governed *entirely* by the Riemann tensor.
 
@@ -568,7 +568,7 @@ Consider a one-parameter family of geodesics $x^\mu(\lambda,s)$, $s$ labeling ne
 
 #### Physical meaning: tidal forces
 
-In Newtonian gravity, a cloud of freely falling particles is stretched along the radial direction and squeezed transversely — the **tidal field** of the Moon raising two ocean bulges. In general relativity that tidal field *is* the Riemann tensor: $\frac{D^2S^\rho}{d\lambda^2}=-R^\rho{}_{\mu\nu\sigma}T^\mu T^\nu S^\sigma$ is the relativistic tidal equation, and in the Newtonian limit $R^i{}_{0j0}\to \partial_i\partial_j\Phi$ (second derivatives of the gravitational potential).
+In Newtonian gravity, a cloud of freely falling particles is stretched along the radial direction and squeezed transversely — the **tidal field** of the Moon raising two ocean bulges. In general relativity that tidal field *is* the Riemann tensor: $\frac{D^2S^\rho}{d\lambda^2}=-R^\rho{}_{\sigma\mu\nu}T^\sigma S^\mu T^\nu$ is the relativistic tidal equation, and in the Newtonian limit $R^i{}_{0j0}\to \partial_i\partial_j\Phi$ (second derivatives of the gravitational potential).
 
 > **Intuition.** Two travelers starting at the equator heading due north along separate meridians (both geodesics) move *parallel at first* but *converge* and meet at the pole. They felt no sideways force, yet their separation accelerated to zero — pure curvature, no force. That is gravity in GR.
 

@@ -140,7 +140,7 @@ The idea behind it is **Laplace's method**: in $\Gamma(z+1)=\int_0^\infty t^{z}e
 
 #### Worked example
 
-Compute $\Gamma(6)$ and $\Gamma(\tfrac72)$. By the corollary $\Gamma(6)=5!=120$. By the recurrence, $\Gamma(\tfrac72)=\tfrac52\Gamma(\tfrac52)=\tfrac52\cdot\tfrac34\sqrt\pi=\tfrac{15}{8}\sqrt\pi\approx 3.32$. As a Stirling check, $\Gamma(6)=5!$ versus $\sqrt{2\pi\cdot5}(5/e)^5\approx 5.605\cdot 0.05502\cdot 3125/... $ more directly $\sqrt{10\pi}\,(5/e)^5\approx 5.602\cdot 21.45\approx 118.0$, within $2\%$ of $120$ — already good at $z=5$.
+Compute $\Gamma(6)$ and $\Gamma(\tfrac72)$. By the corollary $\Gamma(6)=5!=120$. By the recurrence, $\Gamma(\tfrac72)=\tfrac52\Gamma(\tfrac52)=\tfrac52\cdot\tfrac34\sqrt\pi=\tfrac{15}{8}\sqrt\pi\approx 3.32$. As a Stirling check, $\Gamma(6)=5!=120$ versus $\sqrt{10\pi}\,(5/e)^5$: here $(5/e)^5\approx 21.06$ and $\sqrt{10\pi}\approx 5.605$, so the product is $\approx 118.0$, within $2\%$ of $120$ — already good at $z=5$.
 
 #### A geometric application: the volume of an $n$-ball
 
@@ -781,7 +781,7 @@ The mechanism is uniform: **a negative-integer numerator parameter makes the inf
 
 #### Worked example: why $-\ell$ truncates the series
 
-Take the Legendre case ${}_2F_1(-\ell,\ell+1;1;u)$ with $\ell=2$. The Pochhammer factor $(-2)_k=(-2)(-1)(0)(1)\cdots$ hits a **zero** at $k=2$, because $(-2)_2=(-2)(-1)=2$ but $(-2)_3=(-2)(-1)(0)=0$ and every later term carries that zero factor. *(Reason: $(a)_k$ includes the factor $a+2=0$ once $k\ge3$ when $a=-2$.)* So the sum stops after $k=0,1,2$: three terms, a degree-2 polynomial in $u=\tfrac{1-x}{2}$, hence degree 2 in $x$. Writing it out, ${}_2F_1(-2,3;1;u)=1+\frac{(-2)(3)}{1}u+\frac{(-2)(-1)(3)(4)}{1\cdot2}\frac{u^2}{2!}\cdot...$; collecting terms and substituting $u=\tfrac{1-x}{2}$ reproduces $P_2(x)=\tfrac12(3x^2-1)$. The general lesson: the *degree* of the polynomial equals the magnitude of the negative integer, which is precisely the index $\ell$ (or $n$) of the special function.
+Take the Legendre case ${}_2F_1(-\ell,\ell+1;1;u)$ with $\ell=2$. The Pochhammer factor $(-2)_k=(-2)(-1)(0)(1)\cdots$ hits a **zero** at $k=2$, because $(-2)_2=(-2)(-1)=2$ but $(-2)_3=(-2)(-1)(0)=0$ and every later term carries that zero factor. *(Reason: $(a)_k$ includes the factor $a+2=0$ once $k\ge3$ when $a=-2$.)* So the sum stops after $k=0,1,2$: three terms, a degree-2 polynomial in $u=\tfrac{1-x}{2}$, hence degree 2 in $x$. Writing it out, ${}_2F_1(-2,3;1;u)=1+\frac{(-2)(3)}{1}\,u+\frac{(-2)(-1)(3)(4)}{1\cdot2}\frac{u^2}{2!}=1-6u+6u^2$; substituting $u=\tfrac{1-x}{2}$ gives $1-3(1-x)+\tfrac32(1-x)^2=\tfrac12(3x^2-1)=P_2(x)$. The general lesson: the *degree* of the polynomial equals the magnitude of the negative integer, which is precisely the index $\ell$ (or $n$) of the special function.
 
 #### Why this is the right level of generality
 

@@ -141,7 +141,7 @@ $$
 > **Theorem.** $\varepsilon_{\mu_1\dots\mu_n}$ is a genuine $(0,n)$ tensor, and the raised version satisfies $\varepsilon^{\mu_1\dots\mu_n}=\dfrac{\mathrm{sgn}(g)}{\sqrt{-g}}\,\epsilon^{\mu_1\dots\mu_n}=-\dfrac{1}{\sqrt{-g}}\,\epsilon^{\mu_1\dots\mu_n}$ in Lorentzian signature.
 
 *Proof.*
-1. The symbol $\epsilon$ has weight $-1$ (s2 above) and $\sqrt{-g}$ has weight $-1$ — wait, we need the product to have weight $0$. Re-examine: $\sqrt{-g}$ transforms with $|\det J^{-1}|^{-1}$? We computed $\sqrt{-g'}=|\det J^{-1}|\sqrt{-g}$ in step 3 above, so $\sqrt{-g}$ has weight $-1$ as stated. The symbol $\epsilon$ has weight $-1$. Their product would have weight $-2$, which is wrong; the resolution is that $\sqrt{-g}$ supplies a factor that *cancels* the symbol's, because the symbol's defining relation carries $\det J^{-1}$ with the **opposite** algebraic role. Concretely:
+1. We claim the product $\sqrt{-g}\,\epsilon_{\mu_1\dots\mu_n}$ transforms as a genuine $(0,n)$ tensor: the density factor $\sqrt{-g}$ (weight $-1$) exactly cancels the symbol's anomalous Jacobian factor, leaving the ordinary tensor law. Steps 2–4 verify this directly.
 2. Combine the two transformation laws. The tensor candidate transforms as
 $$
 \varepsilon'_{\nu_1\dots\nu_n}=\sqrt{-g'}\;\epsilon_{\nu_1\dots\nu_n}=|\det J^{-1}|\sqrt{-g}\;\epsilon_{\nu_1\dots\nu_n}.
@@ -365,7 +365,7 @@ $$
 3. The middle term uses the Lemma $\Gamma^\mu{}_{\mu\lambda}=\frac{1}{\sqrt{-g}}\partial_\lambda\sqrt{-g}$, so $\nabla_\mu F^{\mu\nu}=\partial_\mu F^{\mu\nu}+\frac{1}{\sqrt{-g}}(\partial_\lambda\sqrt{-g})F^{\lambda\nu}=\frac{1}{\sqrt{-g}}\partial_\mu(\sqrt{-g}\,F^{\mu\nu})$ by the product rule (same algebra as the divergence theorem in s4, with the antisymmetric extra term already dropped).
 4. Setting this equal to $\mu_0 J^\nu$ reproduces Gauss's law ($\nu=0$) and Ampère–Maxwell ($\nu=i$). $\blacksquare$
 
-> **Corollary — charge conservation for free.** Take $\nabla_\nu$ of the inhomogeneous equation: $\mu_0\nabla_\nu J^\nu=\nabla_\nu\nabla_\mu F^{\mu\nu}$. The right side is a symmetric derivative operator $\nabla_\nu\nabla_\mu$ contracted with the antisymmetric $F^{\mu\nu}$ (up to curvature terms that themselves cancel by symmetry), hence zero. So $\nabla_\mu J^\mu=0$: charge is conserved automatically, as a structural consequence of $F$'s antisymmetry.
+> **Corollary — charge conservation for free.** Take $\nabla_\nu$ of the inhomogeneous equation: $\mu_0\nabla_\nu J^\nu=\nabla_\nu\nabla_\mu F^{\mu\nu}$. The right side is a symmetric derivative operator $\nabla_\nu\nabla_\mu$ contracted with the antisymmetric $F^{\mu\nu}$, hence zero. (Concretely, $\nabla_\nu\nabla_\mu F^{\mu\nu}=\tfrac12[\nabla_\nu,\nabla_\mu]F^{\mu\nu}$ produces Ricci-type curvature terms that are symmetric in $(\mu,\nu)$, so they too vanish when contracted with the antisymmetric $F^{\mu\nu}$.) So $\nabla_\mu J^\mu=0$: charge is conserved automatically, as a structural consequence of $F$'s antisymmetry.
 
 <a id="s8"></a>
 ### The stress–energy tensor and $\nabla_\mu T^{\mu\nu}=0$
@@ -402,7 +402,7 @@ Continuous symmetries of the metric produce conserved quantities along geodesics
 
 > **Theorem.** The Lie derivative may be written with covariant derivatives in place of partials: $(\mathcal L_\xi T)_{\mu\nu}=\xi^\lambda\nabla_\lambda T_{\mu\nu}+T_{\lambda\nu}\nabla_\mu\xi^\lambda+T_{\mu\lambda}\nabla_\nu\xi^\lambda$.
 
-*Proof.* Replace every $\partial$ by $\nabla$; this introduces Christoffel terms. Collect them: each $\Gamma$ appears once with a $+$ and once with a $-$ sign because the torsion-free connection is symmetric ($\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$), and they cancel in the antisymmetric combination of index slots. The Lie derivative is therefore connection-independent. $\blacksquare$
+*Proof.* Replace every $\partial$ by $\nabla$; this introduces Christoffel terms. Collect them: the $\Gamma$ from the transport term $\xi^\lambda\nabla_\lambda T_{\mu\nu}$ pairs against those from $T_{\lambda\nu}\nabla_\mu\xi^\lambda$ and $T_{\mu\lambda}\nabla_\nu\xi^\lambda$, and because the connection is torsion-free ($\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$) each such pair carries equal and opposite coefficients, so all Christoffel terms cancel. The Lie derivative is therefore connection-independent. $\blacksquare$
 
 > **Definition — Killing vector.** A vector field $\xi$ is a **Killing vector** if dragging the metric along it changes nothing: $\mathcal L_\xi g_{\mu\nu}=0$. Using the covariant form with $\nabla_\lambda g_{\mu\nu}=0$, this is **Killing's equation**:
 > $$

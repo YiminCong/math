@@ -165,7 +165,7 @@ The term containing $\eta'$ hides the freedom of $\eta$ inside a derivative; we 
 
 > **Lemma — the fundamental lemma of the calculus of variations**
 >
-> Let $g$ be a continuous function on $[a,b]$. If $\displaystyle\int_a^b g(x)\,\eta(x)\,dx=0$ for **every** smooth function $\eta$ with $\eta(a)=\eta(b)=0$, then $g(x)=0$ for all $x\in[a,b]$.
+> Let $g$ be a continuous function on $[a,b]$. If $\displaystyle\int_a^b g(x)\,\eta(x)\,dx=0$ for **every** $C^1$ test function $\eta$ with $\eta(a)=\eta(b)=0$, then $g(x)=0$ for all $x\in[a,b]$. (Requiring only $C^1$ test functions makes the lemma easier to apply — the explicit bump below is $C^1$ — and it is enough for the $C^2$ Euler–Lagrange theory, since vanishing against the smaller class of $C^1$ bumps already forces $g\equiv0$; a fortiori it vanishes against all smooth $\eta$.)
 
 *Proof of the lemma (by contradiction).*
 1. Suppose $g$ is not identically zero. Then there is a point $c\in(a,b)$ with $g(c)\neq0$; say $g(c)>0$ (if $g(c)<0$ replace $g$ by $-g$).
@@ -174,7 +174,7 @@ The term containing $\eta'$ hides the freedom of $\eta$ inside a derivative; we 
    $$
    \eta(x)=\begin{cases}\big[(x-(c-\rho))(\,(c+\rho)-x)\big]^2,& x\in[c-\rho,c+\rho],\\[2pt]0,&\text{otherwise.}\end{cases}
    $$
-   This $\eta$ is smooth ($C^1$ at the junctions because the squared factor and its first derivative vanish there), satisfies $\eta(a)=\eta(b)=0$, is $\ge0$ everywhere, and is strictly $>0$ on the open interval $(c-\rho,c+\rho)$.
+   This $\eta$ is $C^1$ (at the junctions the squared factor and its first derivative both vanish, so $\eta$ and $\eta'$ match the zero piece; it is not $C^2$ there, but $C^1$ is all the lemma's hypothesis now demands), satisfies $\eta(a)=\eta(b)=0$, is $\ge0$ everywhere, and is strictly $>0$ on the open interval $(c-\rho,c+\rho)$.
 4. Then $\int_a^b g\,\eta\,dx=\int_{c-\rho}^{c+\rho} g\,\eta\,dx>0$, because the integrand is a product of two positive quantities on a set of positive length and zero elsewhere. (An integral of a continuous function that is positive on an interval is positive.)
 5. This contradicts the hypothesis that the integral is zero for *every* such $\eta$. Hence no such $c$ exists and $g\equiv0$. $\blacksquare$
 
@@ -243,7 +243,11 @@ We prove the "obvious" fact rigorously to see the machinery in action.
    $$
    *Reason:* combine over the common denominator $\sqrt{1+y'^2}$; the numerator $\,(1+y'^2)-y'^2=1$.
 4. **Reduce to an ODE.** Squaring and absorbing constants, $y\,(1+y'^2)=C$ for a constant $C=2R$. This is the defining differential equation of a **cycloid**.
-5. **Solve by a parameter.** Set $y'=\cot(\theta/2)$. Then $1+y'^2=1+\cot^2(\theta/2)=\csc^2(\theta/2)$, so $y=\dfrac{C}{\csc^2(\theta/2)}=C\sin^2(\theta/2)=\tfrac{C}{2}(1-\cos\theta)=R(1-\cos\theta)$. From $dx=dy/y'$ one integrates to $x=R(\theta-\sin\theta)$.
+5. **Solve by a parameter.** The substitution $y'=\cot(\theta/2)$ is chosen so that the awkward factor $1+y'^2$ collapses by the Pythagorean identity: $1+y'^2=1+\cot^2(\theta/2)=\csc^2(\theta/2)$, which is what makes the algebra below close. With it, $y=\dfrac{C}{\csc^2(\theta/2)}=C\sin^2(\theta/2)=\tfrac{C}{2}(1-\cos\theta)=R(1-\cos\theta)$, using the half-angle identity $\sin^2(\theta/2)=\tfrac12(1-\cos\theta)$. Now recover $x$ by integrating $dx=dy/y'$. Differentiating $y=R(1-\cos\theta)$ gives $dy=R\sin\theta\,d\theta$, so
+   $$
+   dx=\frac{dy}{y'}=\frac{R\sin\theta\,d\theta}{\cot(\theta/2)}=R\sin\theta\,\tan(\theta/2)\,d\theta.
+   $$
+   Half-angle simplification $\sin\theta=2\sin(\theta/2)\cos(\theta/2)$ turns $\sin\theta\,\tan(\theta/2)=2\sin^2(\theta/2)=1-\cos\theta$, so $dx=R(1-\cos\theta)\,d\theta$. Integrating (with $x=0$ at $\theta=0$) gives $x=R(\theta-\sin\theta)$.
    $$
    x=R(\theta-\sin\theta),\qquad y=R(1-\cos\theta).
    $$

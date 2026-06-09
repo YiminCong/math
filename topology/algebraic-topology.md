@@ -199,7 +199,7 @@ Here we view $S^1=\{z\in\mathbb{C}:|z|=1\}$ with basepoint $1$. The generator is
 
 Steps 3–6 make $\Phi$ a bijective homomorphism, i.e. an isomorphism: $\pi_1(S^1)\cong\mathbb{Z}$. $\;\blacksquare$
 
-**Worked example — reading off a winding number.** Take $\gamma(s)=e^{2\pi i\,(2s)}$ for the first half and $e^{2\pi i\,(-s+1)}$ — concretely, wind around twice forwards then once backwards. Its lift starts at $0$, climbs to $2$, then descends to $1$, ending at $1$. So $\Phi[\gamma]=1$: the net winding is $+1$, even though the loop physically went around three times. The cancellation of one forward and one backward wrap is exactly the group operation $2+(-1)=1$ in $\mathbb{Z}$. $\;\blacksquare$
+**Worked example — reading off a winding number.** Take the concatenation $\gamma(s)=e^{2\pi i\,(4s)}$ on $[0,\tfrac12]$ (two forward wraps) followed by $\gamma(s)=e^{2\pi i\,(2-2(2s-1))}$ on $[\tfrac12,1]$ (one backward wrap) — concretely, wind around twice forwards then once backwards. Its lift to $\mathbb{R}$ is $\tilde\gamma(s)=4s$ on $[0,\tfrac12]$ and $\tilde\gamma(s)=2-2(2s-1)$ on $[\tfrac12,1]$: it starts at $0$, climbs to $2$, then descends to $1$, ending at $1$. So $\Phi[\gamma]=1$: the net winding is $+1$, even though the loop physically went around three times. The cancellation of one forward and one backward wrap is exactly the group operation $2+(-1)=1$ in $\mathbb{Z}$. $\;\blacksquare$
 
 > **Connection — winding number = a contour integral.**
 >
@@ -379,7 +379,7 @@ where the hat $\widehat{v_i}$ means "omit vertex $v_i$." The sign $(-1)^i$ recor
    $$\partial_{n-1}\partial_n[v_0,\dots,v_n]=\sum_{i=0}^{n}(-1)^i\,\partial_{n-1}[v_0,\dots,\widehat{v_i},\dots,v_n].$$
    Each inner boundary is itself an alternating sum over the *remaining* vertices. *(definition of $\partial$ applied twice)*
 2. After both deletions we obtain faces missing two vertices $v_i$ and $v_j$ with $i<j$. Such a face arises in exactly two ways: (a) remove $v_i$ first, then $v_j$ — but once $v_i$ is gone, $v_j$ sits in position $j-1$, contributing sign $(-1)^i(-1)^{j-1}$; (b) remove $v_j$ first, then $v_i$ — here $v_i$ keeps position $i$, contributing sign $(-1)^j(-1)^i$. *(careful index bookkeeping)*
-3. Add the two signs: $(-1)^{i+j-1}+(-1)^{i+j}=(-1)^{i+j}(-1+1)... $ — more precisely $(-1)^{i+j-1}=-(-1)^{i+j}$, so the two terms are negatives of each other and cancel. Since every doubly-removed face cancels in a pair, the whole sum is $0$: $\partial_{n-1}\circ\partial_n=0$. $\;\blacksquare$
+3. Add the two signs: since $(-1)^{i+j-1}=-(-1)^{i+j}$, the two terms $(-1)^{i+j-1}$ and $(-1)^{i+j}$ are negatives of each other and cancel. Since every doubly-removed face cancels in a pair, the whole sum is $0$: $\partial_{n-1}\circ\partial_n=0$. $\;\blacksquare$
 
 **Worked example — boundary of a triangle, twice.** Let $[v_0,v_1,v_2]$ be a triangle. Then
 $$\partial_2[v_0,v_1,v_2]=[v_1,v_2]-[v_0,v_2]+[v_0,v_1].$$
@@ -471,7 +471,7 @@ This is the homology analogue of van Kampen (§s4): it assembles the homology of
 
 *Now we compute on $\Delta$-complexes — far smaller than the singular complex but giving the same answer — and read off the numerical invariants.*
 
-**Demonstration — simplicial homology of $S^1$, $S^2$, and the torus.** We use minimal cell structures; chains are integer combinations of cells, and $\partial$ is the §s9 formula.
+**Demonstration — cellular homology of $S^1$, $S^2$, and the torus.** We use minimal CW (cell) structures; chains are integer combinations of cells, and $\partial$ is the cellular boundary (the attaching map's degree onto each lower cell — equivalently, the abelianized edge word for a $2$-cell), not the §s9 simplicial alternating-face formula.
 
 1. **$S^1$** as one vertex $v$ and one edge $a$ glued into a loop. Then $\partial_1 a=v-v=0$, so every $1$-chain is a cycle: $Z_1=\mathbb{Z}\langle a\rangle$. There are no $2$-cells, so $B_1=0$, giving $H_1(S^1)=\mathbb{Z}$. Also $H_0=\mathbb{Z}$ (connected, §s10). So $H_*(S^1)=(\mathbb{Z},\mathbb{Z},0,\dots)$.
 2. **$S^2$** as two triangles glued along their entire common boundary (top and bottom of a "pillowcase"), one vertex, ... after the gluing the two $2$-cells with opposite orientations have boundaries that cancel: $\partial_2(f_{\text{top}}-f_{\text{bot}})=0$, giving a $2$-cycle that bounds nothing, so $H_2=\mathbb{Z}$; meanwhile $H_1=0$ and $H_0=\mathbb{Z}$. So $H_*(S^2)=(\mathbb{Z},0,\mathbb{Z},0,\dots)$, matching §s11.

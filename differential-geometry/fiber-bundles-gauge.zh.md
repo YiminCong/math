@@ -431,9 +431,9 @@ $$
 
 > **定义 — Yang–Mills 作用量。**
 > $$
-> S_{\mathrm{YM}}[A]=-\frac{1}{2g^2}\int_M \mathrm{tr}\big(F\wedge\star F\big)=-\frac{1}{4g^2}\int_M \mathrm{tr}\big(F_{\mu\nu}F^{\mu\nu}\big)\sqrt{|h|}\,d^nx,
+> S_{\mathrm{YM}}[A]=-\frac{1}{2g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F\wedge\star F\big)=-\frac{1}{4g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F_{\mu\nu}F^{\mu\nu}\big)\sqrt{-\det g}\,\,d^nx,
 > $$
-> 其中 $g$ 是**耦合常数**，$h$ 是度量行列式，指标用时空度量升降。被积式是规范不变的，因为 $F\mapsto g^{-1}Fg$ 而迹在共轭下不变（循环性）。
+> 其中 $g_{\mathrm{YM}}$ 是**耦合常数**（记作 $g_{\mathrm{YM}}$ 以区别于 §s5–s8 的规范/转移元素 $g$），$\sqrt{-\det g}$ 是由时空度量 $g_{\mu\nu}$ 的行列式构成的不变体积因子，指标也用这同一个度量升降。被积式是规范不变的，因为 $F\mapsto g^{-1}Fg$ 而迹在共轭下不变（循环性）。
 
 #### 场方程
 
@@ -445,15 +445,15 @@ $$
 
 *推导。*
 1. 取变分 $A\to A+\delta A$，其中 $\delta A$ 是在边界上为零的 $\mathfrak g$-值 1-形式。由 $F=dA+A\wedge A$，一阶变化为 $\delta F=d(\delta A)+\delta A\wedge A+A\wedge\delta A=D(\delta A)$，其中 $D(\delta A)=d(\delta A)+[A,\delta A]$ 是协变外微分（这*定义*了 $D$ 在伴随值形式上的作用；括号来自 $\delta A\wedge A+A\wedge\delta A=[A,\delta A]$ 作为 2-形式）。
-2. 于是 $\delta S_{\mathrm{YM}}=-\frac{1}{g^2}\int_M\mathrm{tr}\big(\delta F\wedge\star F\big)=-\frac{1}{g^2}\int_M\mathrm{tr}\big(D(\delta A)\wedge\star F\big)$，用了作用量在每个 $F$ 因子中的线性性以及迹配对的对称性。
+2. 于是 $\delta S_{\mathrm{YM}}=-\frac{1}{g_{\mathrm{YM}}^2}\int_M\mathrm{tr}\big(\delta F\wedge\star F\big)=-\frac{1}{g_{\mathrm{YM}}^2}\int_M\mathrm{tr}\big(D(\delta A)\wedge\star F\big)$，用了作用量在每个 $F$ 因子中的线性性以及迹配对的对称性。
 3. **分部积分。** 对伴随值形式，$\mathrm{tr}\big(D(\delta A)\wedge\star F\big)=d\,\mathrm{tr}(\delta A\wedge\star F)\pm\mathrm{tr}\big(\delta A\wedge D\star F\big)$，这是 $D$ 的协变 Leibniz 法则与迹循环性的结合（联络项带符号地从一个因子转移到另一个）。全微分项积分成一个边界项，由于在 $\partial M$ 上 $\delta A=0$（Stokes 定理）而消失。
-4. 于是 $\delta S_{\mathrm{YM}}=\pm\frac{1}{g^2}\int_M\mathrm{tr}\big(\delta A\wedge D\star F\big)$。要求它对*所有* $\delta A$ 消失，由变分法基本引理迫使 $D\star F=0$。$\blacksquare$
+4. 于是 $\delta S_{\mathrm{YM}}=\pm\frac{1}{g_{\mathrm{YM}}^2}\int_M\mathrm{tr}\big(\delta A\wedge D\star F\big)$。要求它对*所有* $\delta A$ 消失，由变分法基本引理迫使 $D\star F=0$。$\blacksquare$
 
 #### 作为 $U(1)$ 情形的 Maxwell 方程
 
 > **推导。** 对 $G=U(1)$ 代数阿贝尔，所有括号消失，$F=dA$ 且 $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$，迹是平凡的。
 > 1. Yang–Mills 方程 $D_\mu F^{\mu\nu}=0$ 失去括号项，变成 $\partial_\mu F^{\mu\nu}=0$。
-> 2. 这是**无源非齐次 Maxwell 方程** $\partial_\mu F^{\mu\nu}=0$，即 $\nabla\cdot\mathbf E=0$ 与 $\nabla\times\mathbf B=\partial_t\mathbf E$（无电荷的 Gauss 与 Ampère）。
+> 2. 这是**非齐次（有源）Maxwell 方程对的无源情形** $\partial_\mu F^{\mu\nu}=0$，即 $\nabla\cdot\mathbf E=0$ 与 $\nabla\times\mathbf B=\partial_t\mathbf E$（无电荷的 Gauss 与 Ampère）。
 > 3. Bianchi 恒等式 $dF=0$（s6）给出**齐次 Maxwell 方程** $\nabla\cdot\mathbf B=0$、$\nabla\times\mathbf E=-\partial_t\mathbf B$。
 > 4. 加入一个物质流 $J^\nu$（来自最小耦合的带电物质，s8）使作用量增加 $\int A_\mu J^\mu$，并给出 $\partial_\mu F^{\mu\nu}=J^\nu$——完整的非齐次 Maxwell 方程。
 >
@@ -524,6 +524,8 @@ Chern 类是*闭的*，但在局部上是*恰当的*：$c_j(F)=d(\text{某物})$
 > $$
 > q\,q_m=2\pi n,\qquad n\in\mathbb{Z}.
 > $$
+
+这与 §s10 的范例 $g=e^{in\phi}$ 相一致：令 $n=q\,q_m/(2\pi)$，赤道上的转移函数 $g=e^{iq q_m\phi/(2\pi)}=e^{in\phi}$，而单值性（$q q_m=2\pi n$）正是那里所用的条件 $n\in\mathbb{Z}$。
 
 这就是 **Dirac 量子化条件**：*单个磁单极子的存在迫使所有电荷都是某个基本单位的整数倍。* 整数 $n$ 恰是该丛的第一 Chern 数（s10）。$A$ 的所谓奇点（"Dirac 弦"）是试图在需要两片处只用一片所产生的规范赝象；诚实的描述是 $S^2$ 上一个非平凡的主 $U(1)$-丛。
 

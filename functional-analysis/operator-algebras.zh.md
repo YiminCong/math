@@ -101,7 +101,7 @@ $$
 **证明（关键步骤）。**
 1. *有界性。* 若 $|\lambda|>\|a\|$，则 $a-\lambda1=-\lambda(1-\lambda^{-1}a)$ 且 $\|\lambda^{-1}a\|=\|a\|/|\lambda|<1$，所以由 Neumann 级数 $1-\lambda^{-1}a$ 可逆；故 $a-\lambda1$ 可逆，$\lambda\notin\sigma(a)$。于是 $\sigma(a)\subseteq\{|\lambda|\le\|a\|\}$。*（Neumann 引理。）*
 2. *闭性。* 可逆元素的集合是开的（若 $b$ 可逆且 $\|c-b\|<1/\|b^{-1}\|$，则 $c=b(1-b^{-1}(b-c))$ 由 Neumann 级数可逆），且 $\lambda\mapsto a-\lambda1$ 连续，所以 $\rho(a)$ 开而 $\sigma(a)$ 闭。在 $\mathbb C$ 中既闭又有界即紧。*（可逆元的开性；连续映射下开集的原像是开集。）*
-3. *非空性。* 预解式 $R(\lambda)=(a-\lambda1)^{-1}$ 是 $\rho(a)$ 上一个解析的 $\mathcal A$-值函数（其导数为 $R(\lambda)^2$，来自预解恒等式）。若 $\sigma(a)$ 为空，则 $R$ 是整的，且当 $|\lambda|\to\infty$ 时 $\|R(\lambda)\|\to0$。由 Banach 空间值的 **Liouville 定理**（对任一有界线性泛函 $\phi$：$\phi(R(\lambda))$ 是有界整标量函数，故为常数；因其在无穷处消失，故为 $0$；对所有 $\phi$ 成立，故由 Hahn–Banach 得 $R\equiv0$），有 $R\equiv0$——这不可能，因为 $R(\lambda)$ 可逆。矛盾。$\blacksquare$
+3. *非空性。* 预解式 $R(\lambda)=(a-\lambda1)^{-1}$ 是 $\rho(a)$ 上一个解析的 $\mathcal A$-值函数（其导数为 $R(\lambda)^2$，来自预解恒等式）。若 $\sigma(a)$ 为空，则 $R$ 是整的，且当 $|\lambda|\to\infty$ 时 $\|R(\lambda)\|\to0$：由 $R(\lambda)=-\lambda^{-1}(1-\lambda^{-1}a)^{-1}$ 及 Neumann 级数得 $\|R(\lambda)\|\le|\lambda|^{-1}/(1-\|a\|/|\lambda|)\to0$。由 Banach 空间值的 **Liouville 定理**（对任一有界线性泛函 $\phi$：$\phi(R(\lambda))$ 是有界整标量函数，故为常数；因其在无穷处消失，故为 $0$；对所有 $\phi$ 成立，故由 Hahn–Banach 得 $R\equiv0$），有 $R\equiv0$——这不可能，因为 $R(\lambda)$ 可逆。矛盾。$\blacksquare$
 
 > **定义 — 谱半径。** $a$ 的**谱半径**是 $r(a)=\sup\{|\lambda|:\lambda\in\sigma(a)\}$（因 $\sigma(a)$ 非空且有界而良定义）。
 
@@ -180,7 +180,7 @@ $$
 
 > **定义 — 正元素。** 在 C\*-代数 $\mathcal A$ 中，若 $a$ 自伴且 $\sigma(a)\subseteq[0,\infty)$，则元素 $a$ 是**正的**，记作 $a\ge0$。等价地（一条定理）对某个 $b\in\mathcal A$ 有 $a=b^*b$。
 
-等价性"正 $\iff a=b^*b$"是代数的脊梁。一个方向：若 $a\ge0$，则由函数演算 $b=\sqrt a$（在 $\sigma(a)\subseteq[0,\infty)$ 上用 $f(z)=\sqrt z$）是自伴的，且 $b^*b=b^2=a$。反方向——对每个 $b$ 有 $b^*b\ge0$——是非平凡的那一半，依赖于 C\*-恒等式；它保证正元素构成一个对加法封闭的锥。
+等价性"正 $\iff a=b^*b$"是代数的脊梁。一个方向：若 $a\ge0$，则由函数演算 $b=\sqrt a$（在 $\sigma(a)\subseteq[0,\infty)$ 上用 $f(z)=\sqrt z$）是自伴的，且 $b^*b=b^2=a$。反方向——对每个 $b$ 有 $b^*b\ge0$——是非平凡的那一半 *（不加证明地陈述——一个深刻的结果）*；它依赖于 C\*-恒等式，并保证正元素构成一个对加法封闭的锥。
 
 > **定义 — 态。** 含单位 C\*-代数 $\mathcal A$ 上的一个**态**是一个线性泛函 $\omega:\mathcal A\to\mathbb C$，它
 > - **正**：对所有 $a$ 有 $\omega(a^*a)\ge0$（任何"$|b|^2$"的期望都非负），且
@@ -302,7 +302,7 @@ $$
 **证明结构（分类所依赖的内容）。**
 1. *比较定理。* 在一个因子中，对任意两个投影 $p,q$，要么 $p\preceq q$，要么 $q\preceq p$。*（用到中心的平凡性：会阻碍比较的那个中心投影是 $0$ 或 $1$。）*
 2. *维数函数。* 在投影的等价类上，$\preceq$ 是全序，且存在一个本质唯一的可加函数 $d$（在正交投影上可加，当 $pq=0$ 时 $d(p)+d(q)=d(p+q)$），在有限情形由 $d(1)=1$ 归一化。*（可加性来自部分等距；至多差一个尺度而唯一。）*
-3. *值域二分。* $d$ 可能的值域恰是所列的五个集合；出现哪一个就是类型。深刻之处在于*连续*值域 $[0,1]$（类型 II$_1$）与*退化*值域 $\{0,\infty\}$（类型 III）确实会出现——von Neumann 用群-测度空间构造与无穷张量积构造造出了类型 II$_1$。$\blacksquare$
+3. *值域二分* *（不加证明地陈述——一个深刻的结果）*。$d$ 可能的值域恰是所列的五个集合；出现哪一个就是类型。深刻之处在于*连续*值域 $[0,1]$（类型 II$_1$）与*退化*值域 $\{0,\infty\}$（类型 III）确实会出现——von Neumann 用群-测度空间构造与无穷张量积构造造出了类型 II$_1$。$\blacksquare$
 
 **含义与物理。** 类型 I 是通常的量子力学——固定 Hilbert 空间上的可观测量，带有极小投影（秩一，"纯态作为向量存在"）。类型 II 和 III *没有极小投影*：你可以永远把一个投影对半分下去。类型 III 因子是**量子场论**中的一般情形——时空中任何有界区域的局部可观测量代数都是一个类型 III$_1$ 因子（Buchholz–Fredenhagen 等人的定理）。这就是为什么场论没有可归一化的"局域在一个区域内的最小激发"，以及为什么局部态高度纠缠。
 
@@ -418,7 +418,7 @@ $$
 **证明。**
 1. 取如上定义的 $\omega_\beta$，并置 $F_{a,b}(z)=\dfrac{1}{\mathrm{Tr}(e^{-\beta H})}\mathrm{Tr}\big(e^{-\beta H}a\,e^{izH}be^{-izH}\big)$。这个整函数对 $z$ 解析（矩阵指数是整的），在带状区域上有界（有限维）。*（有限维解析性。）*
 2. 在 $z=t$（实）处，由定义 $F_{a,b}(t)=\omega_\beta(a\sigma_t(b))$。*（$\sigma_t$ 的定义。）*
-3. 在 $z=t+i\beta$ 处：$e^{i(t+i\beta)H}=e^{itH}e^{-\beta H}$，所以 $F_{a,b}(t+i\beta)=\frac{1}{Z}\mathrm{Tr}(e^{-\beta H}a\,e^{itH}e^{-\beta H}be^{\beta H}e^{-itH})$；用迹的循环性把 $e^{-\beta H}$ 移动并用 $\sigma_t(b)=e^{itH}be^{-itH}$，这等于 $\omega_\beta(\sigma_t(b)\,a)$。*（矩阵迹的循环性；$Z=\mathrm{Tr}\,e^{-\beta H}$。）*
+3. 在 $z=t+i\beta$ 处：把共轭的解析延拓显式写出，$\sigma_{t+i\beta}(b)=e^{i(t+i\beta)H}\,b\,e^{-i(t+i\beta)H}$，并用 $e^{i(t+i\beta)H}=e^{itH}e^{-\beta H}$，所以 $F_{a,b}(t+i\beta)=\frac{1}{Z}\mathrm{Tr}(e^{-\beta H}a\,e^{itH}e^{-\beta H}be^{\beta H}e^{-itH})$；用迹的循环性把 $e^{-\beta H}$ 移动并用 $\sigma_t(b)=e^{itH}be^{-itH}$，这等于 $\omega_\beta(\sigma_t(b)\,a)$。*（矩阵迹的循环性；$Z=\mathrm{Tr}\,e^{-\beta H}$。）*
 4. 所以 $\omega_\beta$ 是 KMS 的。唯一性：KMS 边界条件迫使两点函数与 Gibbs 态的相匹配，而这些函数确定了态。$\blacksquare$
 
 > **定理 — KMS $\iff$ 模（通往 s8 的桥梁）。** 一个忠实态 $\omega$ 对动力学 $\sigma_t$ 是 $\beta$-KMS 的，当且仅当（在重标时间之后）$\sigma_t$ 是 $\omega$ 的**模自同构群**，即来自 Tomita–Takesaki 的 $\sigma_{-t/\beta}=\sigma_t^\omega=\Delta^{it}\cdot\Delta^{-it}$。

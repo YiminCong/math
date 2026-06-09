@@ -222,10 +222,14 @@ $$
 
 *证明。*
 1. 从第二比安基恒等式的形式 $\nabla_\lambda R_{\rho\sigma\mu\nu}+\nabla_\mu R_{\rho\sigma\nu\lambda}+\nabla_\nu R_{\rho\sigma\lambda\mu}=0$ 出发（利用后一对反对称对反对称化陈述的重标记）。
-2. 与 $g^{\rho\mu}$ 缩并。由于 $\nabla g=0$，$g^{\rho\mu}$ 可穿过 $\nabla$。利用 $g^{\rho\mu}R_{\rho\sigma\mu\nu}=R_{\sigma\nu}$（里奇）以及 $g^{\rho\mu}R_{\rho\sigma\nu\lambda}=-R^\mu{}_{\sigma\nu\lambda}g\to$ 细致的指标运算给出：
-   $\nabla_\lambda R_{\sigma\nu}-\nabla_\mu R^\mu{}_{\sigma\nu\lambda}-\nabla_\nu R_{\sigma\lambda}=0$，其中中间项用了 $g^{\rho\mu}R_{\rho\sigma\nu\lambda}=R^\mu{}_{\sigma\nu\lambda}$ 以及交换后一对所得的符号。
-3. 再次与 $g^{\sigma\nu}$ 缩并。利用 $g^{\sigma\nu}R_{\sigma\nu}=R$，$g^{\sigma\nu}\nabla_\nu R_{\sigma\lambda}=\nabla^\sigma R_{\sigma\lambda}$，以及 $g^{\sigma\nu}\nabla_\mu R^\mu{}_{\sigma\nu\lambda}=\nabla_\mu R^\mu{}_{\lambda}$（再次把黎曼缩并为里奇）：
-   $\nabla_\lambda R-\nabla_\mu R^\mu{}_\lambda-\nabla^\sigma R_{\sigma\lambda}=0$，即 $\nabla_\lambda R-2\nabla^\mu R_{\mu\lambda}=0$。
+2. 与 $g^{\rho\mu}$ 缩并。由于 $\nabla g=0$，$g^{\rho\mu}$ 可穿过 $\nabla$，而升起第一个指标只是 $g^{\rho\mu}R_{\rho\sigma\nu\lambda}=R^\mu{}_{\sigma\nu\lambda}$。把它应用于全部三项：
+   - 第一项：$g^{\rho\mu}R_{\rho\sigma\mu\nu}=R^\mu{}_{\sigma\mu\nu}=R_{\sigma\nu}$（里奇，第一与第三指标缩并）。
+   - 第二项：$g^{\rho\mu}R_{\rho\sigma\nu\lambda}=R^\mu{}_{\sigma\nu\lambda}$（保留自由指标 $\mu$）。
+   - 第三项：$g^{\rho\mu}R_{\rho\sigma\lambda\mu}=R^\mu{}_{\sigma\lambda\mu}=-R^\mu{}_{\sigma\mu\lambda}=-R_{\sigma\lambda}$，用到后一对反对称性 $R_{\rho\sigma\lambda\mu}=-R_{\rho\sigma\mu\lambda}$。
+
+   这给出 $\nabla_\lambda R_{\sigma\nu}+\nabla_\mu R^\mu{}_{\sigma\nu\lambda}-\nabla_\nu R_{\sigma\lambda}=0$。
+3. 再次与 $g^{\sigma\nu}$ 缩并。利用 $g^{\sigma\nu}R_{\sigma\nu}=R$；$g^{\sigma\nu}\nabla_\nu R_{\sigma\lambda}=\nabla^\sigma R_{\sigma\lambda}=\nabla^\mu R_{\mu\lambda}$；以及 $g^{\sigma\nu}R^\mu{}_{\sigma\nu\lambda}=-R^\mu{}_\lambda$（黎曼的第二与第三指标缩并给出负的里奇，由第一对反对称性 $R_{\mu\sigma\nu\lambda}=-R_{\sigma\mu\nu\lambda}$）：
+   $\nabla_\lambda R-\nabla_\mu R^\mu{}_\lambda-\nabla^\mu R_{\mu\lambda}=0$，即相等的中间项与末项合并给出 $\nabla_\lambda R-2\nabla^\mu R_{\mu\lambda}=0$。
 4. 改写：$\nabla^\mu R_{\mu\lambda}=\tfrac12\nabla_\lambda R=\tfrac12\nabla^\mu(g_{\mu\lambda}R)$（利用 $\nabla g=0$ 把 $g$ 拉入内部）。
 5. 因此 $\nabla^\mu\big(R_{\mu\lambda}-\tfrac12 g_{\mu\lambda}R\big)=\nabla^\mu G_{\mu\lambda}=0$。$\blacksquare$
 
@@ -251,7 +255,7 @@ $$
 2. 由第 1 步计算 $\frac{D^2\xi}{d\tau^2}=\nabla_u\nabla_u\xi=\nabla_u\nabla_\xi u$。
 3. 用曲率定义 $\nabla_u\nabla_\xi u-\nabla_\xi\nabla_u u=R(u,\xi)u+\nabla_{[u,\xi]}u$。由于 $[u,\xi]=0$，最后一项消失：$\nabla_u\nabla_\xi u=\nabla_\xi\nabla_u u+R(u,\xi)u$。
 4. 但每条曲线都是测地线，故 $\nabla_u u=0$；因此 $\nabla_\xi\nabla_u u=0$。
-5. 于是 $\frac{D^2\xi}{d\tau^2}=R(u,\xi)u$。用分量，$R(u,\xi)u$ 的 $\mu$ 分量为 $R^\mu{}_{\nu\rho\sigma}u^\nu\xi^\rho u^\sigma$；与我们黎曼定义的符号约定相匹配便给出带负号的所述形式。$\blacksquare$
+5. 于是 $\frac{D^2\xi}{d\tau^2}=R(u,\xi)u$。按我们的约定，$R(X,Y)Z$ 的 $\mu$ 分量为 $R^\mu{}_{\nu\rho\sigma}Z^\nu X^\rho Y^\sigma$，故取 $X=u$、$Y=\xi$、$Z=u$ 得 $[R(u,\xi)u]^\mu=R^\mu{}_{\nu\rho\sigma}u^\nu u^\rho\xi^\sigma$。现用后一对反对称性 $R^\mu{}_{\nu\rho\sigma}=-R^\mu{}_{\nu\sigma\rho}$ 并交换哑指标 $\rho\leftrightarrow\sigma$：$R^\mu{}_{\nu\rho\sigma}u^\nu u^\rho\xi^\sigma=-R^\mu{}_{\nu\rho\sigma}u^\nu\xi^\rho u^\sigma$。因此 $\frac{D^2\xi^\mu}{d\tau^2}=-R^\mu{}_{\nu\rho\sigma}u^\nu\xi^\rho u^\sigma$，即带负号的方框形式。$\blacksquare$
 
 #### 潮汐力
 

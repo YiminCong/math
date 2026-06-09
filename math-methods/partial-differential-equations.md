@@ -301,7 +301,7 @@ The kernel $G$ is not pulled from thin air; it is forced by **scaling**. The hea
 *Derivation of the profile (gap-free sketch).*
 1. Seek $u=t^{-1/2}F(\eta)$ with $\eta=x/\sqrt{4\kappa t}$ (the $t^{-1/2}$ prefactor keeps the total heat $\int u\,dx$ constant in time, as a point source demands).
 2. Substitute into $u_t=\kappa u_{xx}$ and use the chain rule. After simplification the PDE becomes the ODE $F'' + 2\eta F' + 2F = 0$, which is $\big(F' + 2\eta F\big)' = 0$.
-3. Integrate once: $F'+2\eta F = $ const $=0$ (the constant is zero so $F$ decays both ways). This is separable: $F'/F = -2\eta$, giving $\ln F = -\eta^2 + $ const, so $F = C e^{-\eta^2}$.
+3. Integrate once: $F'+2\eta F = $ const $=0$. *(Reason the constant must vanish: a nonzero constant $a$ adds the particular solution $e^{-\eta^2}\!\int^\eta e^{s^2}ds$, which is odd in $\eta$ and grows like $1/\eta$ as $\eta\to\pm\infty$ — a non-even, non-integrable profile, incompatible with a symmetric localized point source whose heat $\int u\,dx$ is finite. Demanding an even, integrable $F$ forces the constant to $0$.)* This is separable: $F'/F = -2\eta$, giving $\ln F = -\eta^2 + $ const, so $F = C e^{-\eta^2}$.
 4. Restore variables: $u = C\,t^{-1/2}e^{-x^2/4\kappa t}$. Fixing $\int_{-\infty}^\infty u\,dx = 1$ with the Gaussian integral $\int e^{-x^2/4\kappa t}dx=\sqrt{4\pi\kappa t}$ gives $C=1/\sqrt{4\pi\kappa}$, reproducing $G$ from above. $\blacksquare$
 
 This is the same self-similar reasoning that explains why dye blobs, smoke, and rumors all spread with a bell-shaped profile widening as $\sqrt{t}$.

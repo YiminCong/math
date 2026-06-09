@@ -382,13 +382,13 @@ $$\overline{A}=A\cup A'=\{x: \text{every open } U\ni x \text{ has } U\cap A\neq\
 
 **Demonstration — the Kuratowski closure axioms**
 
-These four properties characterize closure; we prove them from our definition.
+These four properties characterize closure (the first item below bundles two of them, $\overline{\varnothing}=\varnothing$ and $A\subseteq\overline A$); we prove them from our definition.
 
 1. **Grounding and extensiveness:** $\overline{\varnothing}=\varnothing$ because $\varnothing$ is itself closed and contains $\varnothing$, so it is the smallest such set; and $A\subseteq\overline A$ directly from the definition (every $C$ in the intersection contains $A$).
 2. **Idempotence:** $\overline{\overline A}=\overline A$. We proved $\overline A$ is closed; the closure of any closed set is itself, since that set is the smallest closed set containing itself.
 3. **Finite additivity:** $\overline{A\cup B}=\overline A\cup\overline B$.
-   - ($\subseteq$) $\overline A\cup\overline B$ is a union of two closed sets. A finite union of closed sets is closed: its complement $\overline A^c\cap\overline B^c$ is a finite intersection of open sets, open by (T3). And $\overline A\cup\overline B\supseteq A\cup B$. Being a closed set containing $A\cup B$, it contains the *smallest* such, $\overline{A\cup B}$.
-   - ($\supseteq$) Closure is **monotone**: if $S\subseteq T$ then $\overline S\subseteq\overline T$, because every closed set containing $T$ contains $S$, so the intersection defining $\overline T$ is over a subfamily of that defining... more directly, $\overline T$ is a closed set containing $S$, hence $\overline S\subseteq\overline T$. Applying monotonicity to $A\subseteq A\cup B$ and $B\subseteq A\cup B$ gives $\overline A\subseteq\overline{A\cup B}$ and $\overline B\subseteq\overline{A\cup B}$, so $\overline A\cup\overline B\subseteq\overline{A\cup B}$.
+   - ($\supseteq$) $\overline A\cup\overline B$ is a union of two closed sets. A finite union of closed sets is closed: its complement $\overline A^c\cap\overline B^c$ is a finite intersection of open sets, open by (T3). And $\overline A\cup\overline B\supseteq A\cup B$. Being a closed set containing $A\cup B$, it contains the *smallest* such, $\overline{A\cup B}$; hence $\overline{A\cup B}\subseteq\overline A\cup\overline B$.
+   - ($\subseteq$) Closure is **monotone**: if $S\subseteq T$ then $\overline S\subseteq\overline T$, because every closed set containing $T$ contains $S$, so the intersection defining $\overline T$ is over a subfamily of that defining... more directly, $\overline T$ is a closed set containing $S$, hence $\overline S\subseteq\overline T$. Applying monotonicity to $A\subseteq A\cup B$ and $B\subseteq A\cup B$ gives $\overline A\subseteq\overline{A\cup B}$ and $\overline B\subseteq\overline{A\cup B}$, so $\overline A\cup\overline B\subseteq\overline{A\cup B}$.
    - Both inclusions give equality.
 
 *These four properties can **replace** the open-set axioms: a closure operator defines a topology (the closed sets are the fixed sets $A=\overline A$). A beautiful instance of equivalent foundations.*

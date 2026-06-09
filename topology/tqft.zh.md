@@ -256,11 +256,11 @@
 
 **是什么与为什么。** §s4 的分类只有在我们能用它来*计算*时才有用。这里我们做一个完整的数值例子：一个具体的交换 Frobenius 代数、它的裤子-乘积与余裤子-余乘积，以及所得闭曲面的不变量——包括那个对一个自然选择给出 $Z(\Sigma_g)=\dim A$ 的亏格相关幂次的美妙公式。
 
-> **亏格公式。** 对一个带 Frobenius 代数 $A$ 的 $2$d TQFT $Z$，亏格为 $g$ 的闭可定向曲面 $\Sigma_g$（带 $g$ 个把手的球面）的不变量为
+> **亏格公式。** 对一个带 Frobenius 代数 $A$ 的 $2$d TQFT $Z$，亏格为 $g$ 的闭可定向曲面 $\Sigma_g$（带 $g$ 个把手的球面）的不变量为，当 $g\ge 1$ 时，
 > $$
-> Z(\Sigma_g)=\varepsilon\!\left(\,(m\circ\Delta)^{g}\,(u(1))\,\cdot\,\text{(另一端的帽)}\,\right)=\operatorname{tr}\!\big(H^{\,g}\big),\quad H:=m\circ\Delta:A\to A,
+> Z(\Sigma_g)=\operatorname{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
 > $$
-> 其中 $H=m\circ\Delta$ 是**把手算子**。*原因：* 一个亏格为 $g$ 的曲面读作 $\varnothing\to\varnothing$ 是一个帽，然后 $g$ 个把手（每个把手是"余裤子再裤子"，即 $H$），然后一个杯；函子性把这个合成变成标量 $\varepsilon\circ u$ 前/后合成 $H^g$，在用非退化性求迹后给出 $\operatorname{tr}(H^g)$。
+> 其中 $H=m\circ\Delta$ 是**把手算子**，而球面为 $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$。*原因：* 一个亏格为 $g$ 的曲面读作 $\varnothing\to\varnothing$ 是一个帽 $u$，然后 $g$ 个把手（每个把手是"余裤子再裤子"，即 $H$），然后一个杯 $\varepsilon$，给出标量 $\varepsilon\circ H^{g}\circ u$；帽-杯这对贡献一份圆柱量级的非退化配对，故当 $g\ge 1$ 时它坍缩为 $\operatorname{tr}(H^{g-1})$。特别地环面（$g=1$）给出 $Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A$，正如环面配分函数所必须。
 
 > **例题 — $\mathbb{Z}/2$ 的群代数。** 设 $A=k[\mathbb{Z}/2]=k\{1,t\}$，其中 $t^2=1$，在 $k=\mathbb{C}$ 上。这是一个维数为 $2$ 的交换代数，单位 $u(1)=1$，乘法为
 > $$
@@ -287,7 +287,7 @@ H(t)=m(1\otimes1+t\otimes t)=1+1=2\cdot 1.
 $$
 所以在基 $\{1,t\}$ 下，$H=\begin{pmatrix}0&2\\2&0\end{pmatrix}$。
 
-第 4 步 — **曲面不变量。** 球面 $\Sigma_0$：$Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$。环面 $\Sigma_1$：$Z(\Sigma_1)=\operatorname{tr}(H)=0$。亏格二曲面：$Z(\Sigma_2)=\operatorname{tr}(H^2)$，而 $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$，所以 $\operatorname{tr}(H^2)=8$。一般地 $\operatorname{tr}(H^g)=2^g\big(1+(-1)^g\big)$，因为 $H$ 有本征值 $\pm 2$；于是 $Z(\Sigma_g)=2^{g+1}$ 当 $g$ 为偶数，$0$ 当 $g$ 为奇数。这些是曲面的真正同胚不变量，纯粹由代数计算得出——从粘合中获得不变量的实战。
+第 4 步 — **曲面不变量。** 球面 $\Sigma_0$：$Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$。环面 $\Sigma_1$：$Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A=2$，正如其所必须。亏格二曲面：$Z(\Sigma_2)=\operatorname{tr}(H)=0$。亏格三曲面：$Z(\Sigma_3)=\operatorname{tr}(H^2)$，而 $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$，所以 $\operatorname{tr}(H^2)=8$。一般地 $\operatorname{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$，因为 $H$ 有本征值 $\pm 2$；于是 $Z(\Sigma_g)=2^{g}$ 当 $g$ 为奇数，$0$ 当 $g$ 为偶数。这些是曲面的真正同胚不变量，纯粹由代数计算得出——从粘合中获得不变量的实战。
 
 > **一个更干净的选择 — 半单代数与计数。** 如果改取 $A=k^N$（乘积代数，$N$ 个正交幂等元 $e_1,\dots,e_N$，满足 $e_ie_j=\delta_{ij}e_i$）且 $\varepsilon(e_i)=1/\theta_i$，其中 $\theta_i$ 是非零标量，那么 $H=m\circ\Delta$ 在 $e_i$ 上作用为乘以 $\theta_i$，并且
 > $$
@@ -366,7 +366,7 @@ $$
 > $$
 > J(\text{Hopf}^+) = -A^4-A^{-4},
 > $$
-> 这是关于 $A$ 的一个洛朗多项式，对两个有相反链接的不同 Hopf 链环*不同*（所以它探测到链接，这是像同调这样的任何阿贝尔不变量无法对链环补集直接做到的）。作为对比，*三叶*纽结求值为 $J=-A^{-4}+A^{-12}-A^{-16}$（在变量 $t=A^{-4}$ 下，$J=-t^{-4}+t^{-3}+t^{-1}$，三叶纽结的经典 Jones 多项式），它与其镜像不同——证明三叶纽结是*手征的*（不同于它的反射），这是 Jones 多项式能探测而较老的 Alexander 多项式不能探测的事实。
+> 这是关于 $A$ 的一个洛朗多项式，对两个有相反链接的不同 Hopf 链环*不同*（所以它探测到链接，这是像同调这样的任何阿贝尔不变量无法对链环补集直接做到的）。作为对比，*三叶*纽结在代换 $t=A^{-4}$ 下求值为经典 Jones 多项式 $J=V(t)=-t^{-4}+t^{-3}+t^{-1}$；用 $A$ 写出这同一个多项式即 $J=-A^{16}+A^{12}+A^{4}$（利用 $t^{-1}=A^4,\ t^{-3}=A^{12},\ t^{-4}=A^{16}$），它与其镜像不同——证明三叶纽结是*手征的*（不同于它的反射），这是 Jones 多项式能探测而较老的 Alexander 多项式不能探测的事实。
 
 > **精确化的 Reidemeister 移动。** $J(L)$ 是纽结不变量这一点依赖于 *Reidemeister 定理*：两个链环图表示同痕链环当且仅当一个能由另一个通过有限多个局部移动序列得到——**R1**（添加/去除一个扭结）、**R2**（把一股滑过另一股，产生/消去两个相反交叉）、**R3**（把一股滑过一个交叉）。TQFT 赋值恰好尊重这些：**R2** 成立因为 $\beta\circ\beta^{-1}=\mathrm{id}$（辫子可逆）；**R3** 成立因为辫子满足 *Yang–Baxter 方程* $(\beta\otimes 1)(1\otimes\beta)(\beta\otimes 1)=(1\otimes\beta)(\beta\otimes 1)(1\otimes\beta)$，即"滑过一个交叉"的代数形式；**R1** *至多差一个带框扭转* $\theta_X$ 而成立，这就是为什么*带框*不变量是典范的那个。每个 Reidemeister 移动都与一条缎带范畴公理相匹配——图像与代数之间最干净可能的字典。
 

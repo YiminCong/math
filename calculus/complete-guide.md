@@ -235,7 +235,11 @@ This limit (here $x$ is in radians, see §s2) is the heart of trig calculus.
    $$\sin x < x < \tan x.$$
 
    *Reason:* the sector of angle $x$ has area $\tfrac12 x$ (radius $1$), squeezed between the inner triangle of area $\tfrac12\sin x$ and the outer triangle of area $\tfrac12\tan x$; multiply through by $2$.
-2. Divide every part by $\sin x$ (positive for small $x>0$, so inequalities keep direction), then take reciprocals (which reverses inequalities):
+2. Divide every part by $\sin x$ (positive for small $x>0$, so inequalities keep direction). Since $\tan x=\frac{\sin x}{\cos x}$, this gives the intermediate chain
+
+   $$1 < \frac{x}{\sin x} < \frac{1}{\cos x}.$$
+
+   Now take reciprocals; reciprocating reverses each inequality (for positive quantities), which flips the chain back to
 
    $$\cos x < \frac{\sin x}{x} < 1.$$
 3. As $x\to0$, $\cos x\to1$ and the right end is $1$. By the Squeeze principle (§s3) the middle is forced to $1$. (For $x<0$ the same value follows because $\frac{\sin x}{x}$ is even.)

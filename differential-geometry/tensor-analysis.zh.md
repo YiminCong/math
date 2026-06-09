@@ -141,7 +141,7 @@ $$
 > **定理。** $\varepsilon_{\mu_1\dots\mu_n}$ 是一个真正的 $(0,n)$ 张量，且升指标版本在洛伦兹号差下满足 $\varepsilon^{\mu_1\dots\mu_n}=\dfrac{\mathrm{sgn}(g)}{\sqrt{-g}}\,\epsilon^{\mu_1\dots\mu_n}=-\dfrac{1}{\sqrt{-g}}\,\epsilon^{\mu_1\dots\mu_n}$。
 
 *证明。*
-1. 符号 $\epsilon$ 的权重为 $-1$（前述 s2），而 $\sqrt{-g}$ 的权重为 $-1$——且慢，我们需要乘积的权重为 $0$。重新审视：$\sqrt{-g}$ 是按 $|\det J^{-1}|^{-1}$ 变换吗？我们在上面第 3 步算得 $\sqrt{-g'}=|\det J^{-1}|\sqrt{-g}$，故如所述 $\sqrt{-g}$ 权重为 $-1$。符号 $\epsilon$ 权重为 $-1$。它们的乘积权重应为 $-2$，这是错的；解决之道在于，$\sqrt{-g}$ 提供的因子恰好*抵消*符号的因子，因为符号的定义关系中 $\det J^{-1}$ 所扮演的代数角色**相反**。具体地：
+1. 我们断言乘积 $\sqrt{-g}\,\epsilon_{\mu_1\dots\mu_n}$ 像真正的 $(0,n)$ 张量那样变换：密度因子 $\sqrt{-g}$（权重 $-1$）恰好抵消符号的反常雅可比因子，只留下普通的张量变换律。以下第 2–4 步将直接予以验证。
 2. 把两条变换律结合起来。张量候选者变换为
 $$
 \varepsilon'_{\nu_1\dots\nu_n}=\sqrt{-g'}\;\epsilon_{\nu_1\dots\nu_n}=|\det J^{-1}|\sqrt{-g}\;\epsilon_{\nu_1\dots\nu_n}.
@@ -365,7 +365,7 @@ $$
 3. 中间项用引理 $\Gamma^\mu{}_{\mu\lambda}=\frac{1}{\sqrt{-g}}\partial_\lambda\sqrt{-g}$，故由乘积法则 $\nabla_\mu F^{\mu\nu}=\partial_\mu F^{\mu\nu}+\frac{1}{\sqrt{-g}}(\partial_\lambda\sqrt{-g})F^{\lambda\nu}=\frac{1}{\sqrt{-g}}\partial_\mu(\sqrt{-g}\,F^{\mu\nu})$（与 s4 散度定理相同的代数，反对称的额外项已被丢弃）。
 4. 令其等于 $\mu_0 J^\nu$ 即重现高斯定律（$\nu=0$）与安培–麦克斯韦定律（$\nu=i$）。$\blacksquare$
 
-> **推论 — 电荷守恒自动成立。** 对非齐次方程取 $\nabla_\nu$：$\mu_0\nabla_\nu J^\nu=\nabla_\nu\nabla_\mu F^{\mu\nu}$。右边是对称的导数算子 $\nabla_\nu\nabla_\mu$ 与反对称的 $F^{\mu\nu}$ 缩并（至多差一些本身因对称性相消的曲率项），故为零。于是 $\nabla_\mu J^\mu=0$：电荷自动守恒，这是 $F$ 反对称性的结构性后果。
+> **推论 — 电荷守恒自动成立。** 对非齐次方程取 $\nabla_\nu$：$\mu_0\nabla_\nu J^\nu=\nabla_\nu\nabla_\mu F^{\mu\nu}$。右边是对称的导数算子 $\nabla_\nu\nabla_\mu$ 与反对称的 $F^{\mu\nu}$ 缩并，故为零。（具体地，$\nabla_\nu\nabla_\mu F^{\mu\nu}=\tfrac12[\nabla_\nu,\nabla_\mu]F^{\mu\nu}$ 产生关于 $(\mu,\nu)$ 对称的里奇型曲率项，故它们与反对称的 $F^{\mu\nu}$ 缩并时同样为零。）于是 $\nabla_\mu J^\mu=0$：电荷自动守恒，这是 $F$ 反对称性的结构性后果。
 
 <a id="s8"></a>
 ### 应力–能量张量与 $\nabla_\mu T^{\mu\nu}=0$
@@ -402,7 +402,7 @@ $$
 
 > **定理。** 李导数可用协变导数代替偏导数来写：$(\mathcal L_\xi T)_{\mu\nu}=\xi^\lambda\nabla_\lambda T_{\mu\nu}+T_{\lambda\nu}\nabla_\mu\xi^\lambda+T_{\mu\lambda}\nabla_\nu\xi^\lambda$。
 
-*证明。* 把每个 $\partial$ 换成 $\nabla$；这会引入克里斯托费尔项。把它们归拢：由于无挠联络对称（$\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$），每个 $\Gamma$ 都恰好出现一次带 $+$ 号、一次带 $-$ 号，故在指标位置的反对称组合中相消。因此李导数与联络无关。$\blacksquare$
+*证明。* 把每个 $\partial$ 换成 $\nabla$；这会引入克里斯托费尔项。把它们归拢：来自输运项 $\xi^\lambda\nabla_\lambda T_{\mu\nu}$ 的 $\Gamma$ 与来自 $T_{\lambda\nu}\nabla_\mu\xi^\lambda$ 和 $T_{\mu\lambda}\nabla_\nu\xi^\lambda$ 的 $\Gamma$ 两两配对，由于联络无挠（$\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$），每一对都带有相等而相反的系数，故所有克里斯托费尔项相消。因此李导数与联络无关。$\blacksquare$
 
 > **定义 — 基灵矢量。** 矢量场 $\xi$ 是**基灵矢量**，如果沿它拖动度量什么也不改变：$\mathcal L_\xi g_{\mu\nu}=0$。用协变形式并代入 $\nabla_\lambda g_{\mu\nu}=0$，这就是**基灵方程**：
 > $$

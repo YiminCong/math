@@ -507,7 +507,7 @@ Definitions: the **constraint** is an equation $g(x,y,\dots)=c$ restricting inpu
 
 $$\iint_R f\,dA=\lim_{\|P\|\to0}\sum_{i,j} f(x_i^*,y_j^*)\,\Delta A=\int_a^b\!\!\int_c^d f(x,y)\,dy\,dx$$
 
-*Over a rectangle the order of integration is free. The double integral is a limit of Riemann sums of little boxes $f\cdot\Delta A$.*
+*Over a rectangle, for $f$ continuous (more generally integrable) on it, the order of integration is free. The double integral is a limit of Riemann sums of little boxes $f\cdot\Delta A$.*
 
 Definitions: $R$ is the region of integration; $dA$ is the **area element** (a tiny patch of area). A **partition** $P$ chops $R$ into little rectangles of area $\Delta A$; $(x_i^*,y_j^*)$ is a sample point in the $(i,j)$ rectangle; $\|P\|$ is the size of the largest piece. The middle expression is a **Riemann sum** — add up height-times-area $f\cdot\Delta A$ over all pieces — and the integral is its limit as the pieces shrink. **Fubini's theorem** says this 2D limit equals the iterated single integral on the right: integrate over $y$ first (inner), then over $x$ (outer).
 
@@ -678,7 +678,11 @@ Definitions: a **change of variables** (or **coordinate map**) expresses old coo
 
 *Every special volume element in this part is one determinant. The same computation in spherical yields $\rho^2\sin\phi$.*
 
-**Worked example (a linear change).** Evaluate $\iint_R (x+y)\,dx\,dy$ where $R$ is the parallelogram with the change $x=u+v$, $y=u-v$. Jacobian: $x_u=1,x_v=1,y_u=1,y_v=-1$, so $\frac{\partial(x,y)}{\partial(u,v)}=(1)(-1)-(1)(1)=-2$, absolute value $2$. Also $x+y=(u+v)+(u-v)=2u$. So the integral becomes $\iint_S 2u\cdot2\,du\,dv=\iint_S 4u\,du\,dv$ over the simpler $uv$-region $S$ — the new variables turned a slanted parallelogram into an easy rectangle.
+**Worked example (a linear change).** Evaluate $\iint_R (x+y)\,dx\,dy$ where $R$ is the parallelogram that is the image, under the map $x=u+v$, $y=u-v$, of the unit square $S:\,0\le u\le1,\,0\le v\le1$ (its vertices are $(0,0),(1,1),(2,0),(1,-1)$). Jacobian: $x_u=1,x_v=1,y_u=1,y_v=-1$, so $\frac{\partial(x,y)}{\partial(u,v)}=(1)(-1)-(1)(1)=-2$, absolute value $2$. Also $x+y=(u+v)+(u-v)=2u$. So the integral becomes
+
+$$\iint_S 2u\cdot2\,du\,dv=\int_0^1\!\int_0^1 4u\,du\,dv=\Big(\int_0^1 4u\,du\Big)\Big(\int_0^1 dv\Big)=\big[2u^2\big]_0^1\cdot 1=2.$$
+
+The new variables turned a slanted parallelogram into an easy rectangle, giving $\iint_R(x+y)\,dx\,dy=2$.
 
 > **Concept — why a determinant?**
 >

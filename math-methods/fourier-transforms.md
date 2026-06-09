@@ -138,13 +138,13 @@ $$
 $$
 At points of continuity $f(x^-)=f(x^+)=f(x)$, so the series equals $f(x)$. At a jump it splits the difference. We state this as the working criterion; its proof uses the Dirichlet kernel and is standard, but the key consequence to internalize is the "midpoint of a jump" rule. For our square wave, at $x=0$ the series gives $\tfrac12(-1+1)=0$, exactly the midpoint, even though $f$ itself was not defined there.
 
-**The Gibbs phenomenon.** Near a jump discontinuity, the partial sums of the series *overshoot* the true value by a fixed percentage that does **not** shrink as you add more terms — only the width of the overshoot shrinks. Concretely, the overshoot settles at about $8.95\%$ of the jump height ($\approx 17.9\%$ of half the jump). The numerical fingerprint is the constant
+**The Gibbs phenomenon.** Near a jump discontinuity, the partial sums of the series *overshoot* the true value by a fixed percentage that does **not** shrink as you add more terms — only the width of the overshoot shrinks. Concretely, the overshoot settles at about $8.95\%$ of the half-jump (the distance from the midpoint to one side). The numerical fingerprint is the constant
 $$
 \frac{1}{\pi}\int_0^{\pi}\frac{\sin t}{t}\,dt \approx 0.5895,
 $$
-so the partial sum reaches about $1.179$ times the half-jump at its peak. Intuition: you are trying to build a vertical cliff out of smooth waves; no finite combination of smooth functions can have a true jump, so the best it can do is ring near the edge. Pitfall: refining the sum does not "fix" the spike — it merely pushes it closer to the jump. This matters in signal processing, where it causes ringing artifacts near sharp edges.
+so for a unit one-sided step (the true value jumping to $1$) the partial sum peaks at about $1.0895$. Intuition: you are trying to build a vertical cliff out of smooth waves; no finite combination of smooth functions can have a true jump, so the best it can do is ring near the edge. Pitfall: refining the sum does not "fix" the spike — it merely pushes it closer to the jump. This matters in signal processing, where it causes ringing artifacts near sharp edges.
 
-**Where the $8.95\%$ comes from.** Near a unit jump, the partial sum $S_N$ behaves like an integral of the Dirichlet kernel up to the location of its first side lobe; the peak value is governed by the **sine integral** $\mathrm{Si}(\pi)=\int_0^\pi\frac{\sin t}{t}\,dt\approx1.8519$. The partial sum overshoots to a fraction $\frac{1}{\pi}\mathrm{Si}(\pi)\approx0.5895$ on the *full-jump* scale measured from the lower value, i.e. it reaches about $1.0895$ when the true upper value is $1$ — an overshoot of $\approx8.95\%$ of the jump. Crucially this number is *independent of $N$*: increasing $N$ moves the overshoot peak closer to the discontinuity (the lobe narrows like $1/N$) but never lowers its height. The practical fix is not "more terms" but **windowing** — multiplying the coefficients by a taper (Fejér, Hann, etc.) that softens the kernel's side lobes at the cost of a slightly blurrier edge.
+**Where the $8.95\%$ comes from.** Near a unit jump, the partial sum $S_N$ behaves like an integral of the Dirichlet kernel up to the location of its first side lobe; the peak value is governed by the **sine integral** $\mathrm{Si}(\pi)=\int_0^\pi\frac{\sin t}{t}\,dt\approx1.8519$. For a unit one-sided step whose true value rises to $1$, the partial sum reaches about $1.0895$ at its peak — an overshoot of $\approx8.95\%$ of the half-jump. Crucially this number is *independent of $N$*: increasing $N$ moves the overshoot peak closer to the discontinuity (the lobe narrows like $1/N$) but never lowers its height. The practical fix is not "more terms" but **windowing** — multiplying the coefficients by a taper (Fejér, Hann, etc.) that softens the kernel's side lobes at the cost of a slightly blurrier edge.
 
 **The complex exponential form.** Euler's formula $e^{i\theta}=\cos\theta+i\sin\theta$ lets us bundle each $\cos$/$\sin$ pair into a single exponential. We claim
 $$
@@ -344,7 +344,7 @@ combining over a common denominator. This **Lorentzian** is the spectral linesha
 $$
 \mathcal F\{e^{-x^2/(2\sigma^2)}\}(k)=\sigma\sqrt{2\pi}\;e^{-\sigma^2 k^2/2}.
 $$
-A Gaussian transforms into a Gaussian — the *only* shape that does so. Its width in $x$ is $\sigma$; its width in $k$ is $1/\sigma$; their product is fixed at $1$. This is the function that *saturates* the uncertainty bound, which is why the ground state of the harmonic oscillator (a Gaussian) is the minimum-uncertainty quantum state.
+A Gaussian transforms into a Gaussian — the *only* shape that does so. Its width in $x$ is $\sigma$; its width in $k$ is $1/\sigma$; their product is fixed at $1$. (Here $\sigma$ and $1/\sigma$ are the $e^{-1/2}$ widths — the half-widths at which the Gaussian falls to $e^{-1/2}$ of its peak — whose product is $1$; these are *not* the rms spreads $\Delta x,\Delta k$ of [s4](#s4), whose product is $\tfrac12$. For a Gaussian the rms spreads are $\Delta x=\sigma/\sqrt2$ and $\Delta k=1/(\sigma\sqrt2)$, giving $\Delta x\,\Delta k=\tfrac12$.) This is the function that *saturates* the uncertainty bound, which is why the ground state of the harmonic oscillator (a Gaussian) is the minimum-uncertainty quantum state.
 
 **Summary table.**
 
@@ -401,11 +401,11 @@ $$
 $$
 This is the **completeness relation** — the engine behind every inversion proof. Reading it the other way (transform of the constant $1$): $\mathcal F\{1\}(k)=\int e^{-ikx}dx=2\pi\,\delta(k)$. A constant (DC) signal is pure zero-frequency. These two facts close the table in [s6](#s6) and justify the $1/(2\pi)$ in the inverse transform: it is exactly the constant that makes $\int e^{ikx}dk=2\pi\delta(x)$ consistent with $\delta$ sifting out $f(x)$ in the inversion integral $f(x)=\frac1{2\pi}\iint f(x')e^{ik(x-x')}dx'dk$.
 
-**Proving inversion with the completeness relation.** We can now close the loop on the inversion claim of [s4](#s4).
+**A consistency check via the completeness relation.** The following is *not* an independent proof of inversion — it is circular, since the completeness relation $\int e^{ikx}dk=2\pi\delta(x)$ was itself obtained from inversion above. Read it instead as a consistency check that the $1/(2\pi)$ and the delta hang together. (The genuinely non-circular proof regularizes the divergent inner integral with a Gaussian factor $e^{-\epsilon k^2}$, evaluates it as a true Gaussian for $\epsilon>0$, and lets $\epsilon\to0$ to recover the delta — the route flagged in [s4](#s4) and built from the Gaussian transform of [s6](#s6).)
 1. Start from the inverse transform applied to the forward transform: $\mathcal F^{-1}\{\mathcal F\{f\}\}(x)=\frac1{2\pi}\int_k\Big(\int_{x'}f(x')e^{-ikx'}dx'\Big)e^{ikx}\,dk$.
 2. Swap the order of integration (Fubini, valid under our integrability hypotheses): $=\int_{x'}f(x')\Big(\frac1{2\pi}\int_k e^{ik(x-x')}\,dk\Big)dx'$.
 3. The inner integral is $\frac1{2\pi}\cdot 2\pi\,\delta(x-x')=\delta(x-x')$ by the completeness relation.
-4. By the sifting property, $\int_{x'}f(x')\delta(x-x')\,dx'=f(x)$. Hence $\mathcal F^{-1}\mathcal F=\mathrm{id}$. $\blacksquare$ The $1/(2\pi)$ is not arbitrary — it is forced.
+4. By the sifting property, $\int_{x'}f(x')\delta(x-x')\,dx'=f(x)$. Hence $\mathcal F^{-1}\mathcal F=\mathrm{id}$, consistently. The $1/(2\pi)$ is not arbitrary — it is forced.
 
 **More properties of the delta.** Each is defined through its action on a test function $\varphi$.
 1. **Scaling:** $\delta(ax)=\frac{1}{|a|}\delta(x)$ for $a\ne0$. Proof: substitute $u=ax$ in $\int\delta(ax)\varphi(x)\,dx=\frac{1}{|a|}\int\delta(u)\varphi(u/a)\,du=\frac{1}{|a|}\varphi(0)$, matching $\frac1{|a|}\langle\delta,\varphi\rangle$. The $|a|$ (not $a$) appears because flipping the limits for $a<0$ contributes a compensating sign.

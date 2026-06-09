@@ -121,7 +121,7 @@ $$\frac{dy}{dx}=g(x)\,h(y)\ \Longrightarrow\ \int\frac{dy}{h(y)}=\int g(x)\,dx+C
    $$y=\sqrt{x^2+9}\quad(\text{取正根，以匹配 }y(0)=3>0).$$
    我们取正平方根，因为 $y(0)=3$ 为正，而一条解曲线不能跳变符号。
 
-通解 $y^2-x^2=C$ 是一族双曲线；初始条件选出其中一支。陷阱：若把 $h(y)=1/y$ 写成 $h(y)=y$，我们会去寻找 $h(y^*)=0$ 于 $y^*=0$——但 $y=0$ 使原方程右端无定义，所以它被排除，而非常数解。
+通解 $y^2-x^2=C$ 是一族双曲线；初始条件选出其中一支。关于常数解的陷阱：这里 $h(y)=1/y$ 永不为零，所以本方程没有常数解。直线 $y=0$ 特殊是出于另一个原因——它使原方程右端 $x/y$ 无定义，所以它被排除在定义域之外，而非一个隐藏的常数解。（常数解 $y\equiv y^*$ 只来自真正的零点 $h(y^*)=0$，而这对 $h(y)=1/y$ 不会发生。）
 
 <a id="s2"></a>
 ### 一阶线性方程与积分因子
@@ -617,7 +617,11 @@ $$\omega_0=\sqrt{k/m};\quad c^2-4mk>0:\text{ 过阻尼},\ =0:\text{ 临界阻尼
 
 1. 无阻尼（$c=0$），以固有频率驱动：$y''+\omega_0^2 y=F_0\cos\omega_0 t$。特征方程 $r^2+\omega_0^2=0$ 给出 $r=\pm i\omega_0$，所以 $y_h=c_1\cos\omega_0 t+c_2\sin\omega_0 t$。
 2. 强迫项 $\cos\omega_0 t$ 已出现在 $y_h$ 中，所以由**修正规则**（§s9）把猜测乘以 $t$：$y_p=t(A\cos\omega_0 t+B\sin\omega_0 t)$。
-3. 求两次导数并代入（$t\cos,t\sin$ 项与 $\omega_0^2$ 相消，只留下对 $t$ 求导的部分）匹配系数，给出
+3. 求两次导数。写出 $y_p=t(A\cos\omega_0 t+B\sin\omega_0 t)$，乘积法则给出
+   $$y_p''=2(-A\omega_0\sin\omega_0 t+B\omega_0\cos\omega_0 t)-\omega_0^2\,t(A\cos\omega_0 t+B\sin\omega_0 t).$$
+   于是 $y_p''+\omega_0^2 y_p$ 中的 $t\cos\omega_0 t$ 与 $t\sin\omega_0 t$ 项与 $\omega_0^2 y_p$ 相消，剩下
+   $$-2A\omega_0\sin\omega_0 t+2B\omega_0\cos\omega_0 t=F_0\cos\omega_0 t.$$
+   匹配系数：$\sin$ 项迫使 $-2A\omega_0=0$，所以 $A=0$；$\cos$ 项迫使 $2B\omega_0=F_0$，所以 $B=\dfrac{F_0}{2\omega_0}$。于是
    $$y_p=\frac{F_0}{2\omega_0}\,t\,\sin\omega_0 t.$$
 4. 显式因子 $t$ 意味着振幅 $\frac{F_0}{2\omega_0}t$ 无界增长：**共振**。
 
@@ -742,6 +746,12 @@ $$u_c(t)=\begin{cases}0,&t<c\\ 1,&t\ge c\end{cases},\qquad \mathcal{L}\{u_c(t)\}
 
 用文字说：$u_c$ 在 $t=c$ 处开启一个强迫项，它的变换带有标志性的位移因子 $e^{-cs}$；狄拉克 δ 函数 $\delta$ 建模瞬时踢击，变换为干净的指数 $e^{-cs}$。
 
+**陈述 — 第二位移定理。** $s$ 域中的位移因子 $e^{-cs}$ 对应于 $t$ 域中一个时间平移、被开启的函数：
+
+$$\mathcal{L}\{u_c(t)\,g(t-c)\}=e^{-cs}\,G(s),\qquad\text{等价地}\qquad \mathcal{L}^{-1}\{e^{-cs}G(s)\}=u_c(t)\,g(t-c),$$
+
+其中 $G(s)=\mathcal{L}\{g(t)\}$。这就是用来逆变换任何带 $e^{-cs}$ 因子的 $Y(s)$ 的法则。
+
 **演示 — 用变换求解一个初值问题。**
 
 1. 解 $y''+y=0$，初值 $y(0)=1,\ y'(0)=0$。对两边变换。*理由（导数法则，§s13）：*$\mathcal{L}\{y''\}=s^2Y-sy(0)-y'(0)=s^2Y-s$，且 $\mathcal{L}\{y\}=Y$。
@@ -752,6 +762,18 @@ $$u_c(t)=\begin{cases}0,&t<c\\ 1,&t\ge c\end{cases},\qquad \mathcal{L}\{u_c(t)\}
    $$y(t)=\cos t.$$
 
 **数值检验。**$y=\cos t$ 给出 $y(0)=1,\ y'(0)=-\sin0=0$ ✓，且 $y''+y=-\cos t+\cos t=0$ ✓。初始条件从第一次变换起就被烤了进去——最后无需追逐常数。对于阶跃或冲激强迫，因子 $e^{-cs}$ 出现在 $Y(s)$ 中，并（经第二位移定理）逆变换为一个时间平移、被开启的响应。
+
+**演示 — 在 $t=1$ 处开启的阶跃强迫。**
+
+1. 解 $y'+y=u_1(t)$，初值 $y(0)=0$：系统静止不动，直到单位强迫在 $t=1$ 处开启。对两边变换，用 $\mathcal{L}\{y'\}=sY-y(0)=sY$ 与 $\mathcal{L}\{u_1(t)\}=e^{-s}/s$：
+   $$sY+Y=\frac{e^{-s}}{s}.$$
+2. 对 $Y$ 解代数：
+   $$Y=\frac{e^{-s}}{s(s+1)}=e^{-s}\Big(\frac1s-\frac1{s+1}\Big),$$
+   其中部分分式拆分 $\frac{1}{s(s+1)}=\frac1s-\frac1{s+1}$ 匹配 $1$ 与 $e^{-t}$ 的表行。
+3. 令 $g(t)=\mathcal{L}^{-1}\{\frac1s-\frac1{s+1}\}=1-e^{-t}$。由**第二位移定理**，因子 $e^{-s}$ 把它延迟并在 $t=1$ 处开启：
+   $$y(t)=u_1(t)\,\big(1-e^{-(t-1)}\big)=\begin{cases}0,&t<1\\ 1-e^{-(t-1)},&t\ge1.\end{cases}$$
+
+**数值检验。**当 $t<1$ 时解为 $0$（尚无强迫），且 $y(1)=1-e^0=0$，所以它连续地衔接；当 $t$ 很大时它趋于稳态 $1$。在 $t=2$ 处，$y=1-e^{-1}\approx0.632$——系统在阶跃开启后向 $1$ 弛豫。
 
 <a id="s15"></a>
 ### 级数解与弗罗贝尼乌斯方法

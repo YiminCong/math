@@ -162,7 +162,7 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 3. **断言：$|\tau'|\ge 1$。** 假设不然，$|\tau'|<1$。施加 $S$：$S\tau' = -1/\tau'$ 的虚部为 $\operatorname{Im}(\tau')/|\tau'|^2 > \operatorname{Im}(\tau')$（因为 $|\tau'|^2<1$）。*（理由：主公式中取 $c=1,d=0$。）* 这与 $\operatorname{Im}\tau'$ 的最大性矛盾。故 $|\tau'|\ge1$。
 4. 第 2–3 步把 $\tau'\in\mathcal{F}$，且 $\tau'$ 是仅用 $S$ 与 $T$ 从 $\tau$ 得到的。这证明了 **(i)**，其像通过 $G$ 中的一个元素落入 $\mathcal{F}$。
 5. **现在证明 (ii)。** 设 $\gamma\in PSL(2,\mathbb{Z})$ 为*任意*元。任取 $\mathcal{F}$ *内部*的一个点 $\tau_0$（使它不在边界上，例如 $\tau_0 = 2i$）。由第 4 步，存在 $g\in G$ 使 $g\cdot(\gamma\cdot\tau_0)\in\mathcal{F}$。我们将证明 $g\gamma\in G$，从而 $\gamma=g^{-1}(g\gamma)\in G$。为完成证明，我们需要下面的**唯一性**部分。
-6. **内部代表元的唯一性。** *断言：* 若 $\tau_0$ 在 $\mathcal{F}$ 内部，且对某 $h\in PSL(2,\mathbb{Z})$ 有 $h\cdot\tau_0\in\mathcal{F}$，则 $h=1$ 且 $h\cdot\tau_0=\tau_0$。写 $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$。$\tau_0$ 与 $h\tau_0$ 都落在 $\mathcal{F}$ 中，故二者虚部都 $\ge \sqrt3/2$（$\mathcal F$ 中的最小高度，在角点 $e^{\pm i\pi/3}$ 处取到）。假设 $c\ne0$。则当 $|c|=1$ 时，$|c\tau_0+d|^2 = (c\operatorname{Re}\tau_0+d)^2+(c\operatorname{Im}\tau_0)^2 \ge c^2\operatorname{Im}\tau_0^2 \ge c^2\cdot\frac34 \ge \frac34$。要使高度不下降就需要 $|c\tau_0+d|\le1$；结合 $\operatorname{Im}\tau_0 > \sqrt3/2$（严格，因为在内部），可以核验：除非 $c=0$，否则 $|c\tau_0+d|^2 \ge \frac34 + (\text{正数})>$ 与两点都在 $\mathcal F$ 中相容的那个值。*（理由：严格的内部界 $\operatorname{Im}\tau_0>\sqrt3/2$ 使得当 $|c|\ge1$ 时 $c^2\operatorname{Im}\tau_0^2>3/4$，迫使高度严格下降，与 $h\tau_0$ 也必须达到所要求的高度相矛盾。）* 所以 $c=0$。于是整数解 $ad=1$ 给出 $a=d=\pm1$，故在 $PSL$ 中 $h=\pm\begin{pmatrix}1&b\\0&1\end{pmatrix}=T^b$，作用为 $\tau_0\mapsto\tau_0+b$；为使 $\tau_0+b$ 保持 $|\operatorname{Re}|\le\frac12$，而 $|\operatorname{Re}\tau_0|<\frac12$ 是严格的，这就迫使 $b=0$。于是 $h=1$。
+6. **内部代表元的唯一性。** *断言：* 若 $\tau_0$ 在 $\mathcal{F}$ 内部，且对某 $h\in PSL(2,\mathbb{Z})$ 有 $h\cdot\tau_0\in\mathcal{F}$，则 $h=1$ 且 $h\cdot\tau_0=\tau_0$。写 $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$。$\tau_0$ 与 $h\tau_0$ 都落在 $\mathcal{F}$ 中，故二者虚部都 $\ge \sqrt3/2$（$\mathcal F$ 中的最小高度，在角点 $e^{\pm i\pi/3}$ 处取到）。假设 $c\ne0$。必要时把 $h$ 换成 $h^{-1}$，可设 $\operatorname{Im}(h\tau_0)\ge\operatorname{Im}\tau_0$，即 $|c\tau_0+d|^2\le 1$。但 $|c\tau_0+d|^2 = (c\operatorname{Re}\tau_0+d)^2+c^2\operatorname{Im}\tau_0^2 \ge c^2\operatorname{Im}\tau_0^2 > c^2\cdot\tfrac34$，这里用了严格的内部界 $\operatorname{Im}\tau_0>\sqrt3/2$。当 $|c|\ge2$ 时已有 $|c\tau_0+d|^2 > 4\cdot\tfrac34 = 3 > 1$，矛盾。当 $|c|=1$ 时得 $|c\tau_0+d|^2 > \tfrac34 + (\pm\operatorname{Re}\tau_0+d)^2$；由于 $|\operatorname{Re}\tau_0|<\tfrac12$ 严格，能使其 $\le1$ 的唯一整数 $d$ 是满足 $|{\pm\operatorname{Re}\tau_0+d}|<\tfrac12$ 的那个，即 $d=0$，于是 $|c\tau_0+d|^2=|\tau_0|^2>1$（因为 $\tau_0$ 严格在单位圆之上）——同样 $>1$，矛盾。所以 $c=0$。于是整数解 $ad=1$ 给出 $a=d=\pm1$，故在 $PSL$ 中 $h=\pm\begin{pmatrix}1&b\\0&1\end{pmatrix}=T^b$，作用为 $\tau_0\mapsto\tau_0+b$；为使 $\tau_0+b$ 保持 $|\operatorname{Re}|\le\frac12$，而 $|\operatorname{Re}\tau_0|<\frac12$ 是严格的，这就迫使 $b=0$。于是 $h=1$。
 7. 对 $h=g\gamma$ 配合内部点 $\tau_0$ 应用第 6 步：$g\gamma\cdot\tau_0\in\mathcal{F}$ 且 $\tau_0$ 在内部迫使 $g\gamma=1$，即 $\gamma=g^{-1}\in G$。由于 $\gamma$ 是任意的，$G=PSL(2,\mathbb{Z})$。$\blacksquare$
 
 这同时表明 $\mathcal{F}$ 是基本域：每条轨道都与它相交，且 $\mathcal F$ 的一个*内部*点是其轨道的唯一代表元（边界点被成对粘合——左边与右边由 $T$ 粘合，下方弧的两半由 $S$ 粘合）。
@@ -516,7 +516,7 @@ $$
 3. 认出 $\theta(it)=\sum_n e^{-\pi t n^2}$（取 $\tau=it$ 使 $e^{\pi i n^2\tau}=e^{-\pi t n^2}$）以及 $\theta(i/t)=\sum_m e^{-\pi m^2/t}$。第 2 步读作 $\theta(it)=\frac{1}{\sqrt t}\theta(i/t)$。
 4. 注意 $-1/\tau = -1/(it) = i/t$ 且 $\sqrt{-i\tau}=\sqrt{-i\cdot it}=\sqrt t$。所以第 3 步在虚轴上恰是 $\theta(-1/\tau)=\sqrt{-i\tau}\,\theta(\tau)$；由**同一性定理**（两个在有聚点的集合上相符的全纯函数处处相符），它在整个 $\mathbb H$ 上成立。$\blacksquare$
 
-伴随律 $\theta(\tau+2)=\theta(\tau)$（周期 2，因为 $q^{n^2/2}$ 移动 $e^{\pi i n^2}=\pm1$，实际上周期是……$\theta(\tau+1)=\sum e^{\pi i n^2(\tau+1)}=\sum e^{\pi i n^2}q^{n^2/2}$ 它是*第三个* theta，故 $\theta$ 周期为 $2$）与 $S$ 一起生成子群 $\Gamma_\theta$。
+伴随律 $\theta(\tau+2)=\theta(\tau)$ 成立，因为平移 $\tau\to\tau+1$ 把第 $n$ 项乘以 $e^{\pi i n^2}=\pm1$：具体地 $\theta(\tau+1)=\sum e^{\pi i n^2(\tau+1)}=\sum e^{\pi i n^2}q^{n^2/2}$，它是一个*不同*的 theta 常数（即"第三个" theta），而非 $\theta$ 本身，所以 $\theta$ 的周期是 $2$ 而非 $1$。它与 $S$ 一起生成子群 $\Gamma_\theta$。
 
 #### 习题应用：平方和
 
@@ -567,7 +567,7 @@ $$
 Z_{\text{boson}}(\tau) \propto \frac{1}{\sqrt{\operatorname{Im}\tau}\;|\eta(\tau)|^2}.
 $$
 
-**模反常 = 中心荷。** 在 $S:\tau\to-1/\tau$ 下，因子 $q^{-c/24}=e^{-2\pi i\tau(-c/24)}$ 与 $\eta$ 反演律结合。每个振子在 $T$ 下本该出现的反常相位 $e^{\pi i/12}$ 恰好就是 $e^{2\pi i\, c/24}$（每个实玻色子贡献 $c=\frac12$）——所以要求 $Z$ 模不变就迫使 $-c/24$ 移位取其精确值。$\eta$ 中的"$24$"与玻色弦的"$26$"临界维数（$26 = 24 + 2$，横向 vs. 光锥）是*同一个* $24$：要抵消模（$\eta$）反常就需要 $24$ 个横向振子，故 $c=24\cdot1=24$，与 $\eta^{24}=\Delta$ 的权 12 结构相匹配。
+**模反常 = 中心荷。** 在 $S:\tau\to-1/\tau$ 下，因子 $q^{-c/24}=e^{-2\pi i\tau(-c/24)}$ 与 $\eta$ 反演律结合。在 $T$ 下本该出现的反常相位 $e^{\pi i/12}$ 恰好就是 $e^{2\pi i\, c/24}$，其中 $c=1$（Dedekind $\eta$ 就是完整的 $c=1$ 自由玻色子，因为 $e^{2\pi i\cdot 1/24}=e^{\pi i/12}$）——所以要求 $Z$ 模不变就迫使 $-c/24$ 移位取其精确值。$\eta$ 中的"$24$"与玻色弦的"$26$"临界维数（$26 = 24 + 2$，横向 vs. 光锥）是*同一个* $24$：要抵消模（$\eta$）反常就需要 $24$ 个横向振子，故 $c=24\cdot1=24$，与 $\eta^{24}=\Delta$ 的权 12 结构相匹配。
 
 <a id="s10"></a>
 ### $L$-函数、梅林变换、与模性

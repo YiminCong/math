@@ -458,7 +458,7 @@ Gauss–Bonnet is the special case where $D$ is the de Rham operator $d+d^*$: it
 > $$
 > \operatorname{sign}(M)=\frac{1}{3}\int_M p_1(TM),
 > $$
-> where $\operatorname{sign}(M)$ is the signature of the intersection form on $H^2(M)$ (a purely topological integer: $\#$positive $-$ $\#$negative eigenvalues) and $p_1$ is the first Pontryagin class (§s8). For $\mathbb{CP}^2$, $\operatorname{sign}=1$ and indeed $\tfrac13\int p_1=\tfrac13\cdot 3=1$. A signed eigenvalue count equals a curvature integral — the same miracle, one dimension up.
+> where $\operatorname{sign}(M)$ is the signature of the intersection form on $H^2(M)$ (a purely topological integer: $\#$positive $-$ $\#$negative eigenvalues) and $p_1$ is the first Pontryagin class (§s8). For $\mathbb{CP}^2$, $\operatorname{sign}=1$ and indeed $\tfrac13\int p_1=\tfrac13\cdot 3=1$ (here $\int_{\mathbb{CP}^2}p_1=3$ because the total Chern class $c(T\mathbb{CP}^2)=(1+h)^3$ gives $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$, and $\int_{\mathbb{CP}^2}h^2=1$). A signed eigenvalue count equals a curvature integral — the same miracle, one dimension up.
 
 ---
 

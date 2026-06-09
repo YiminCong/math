@@ -109,7 +109,7 @@ We use this as a working tool; its proof rests on Cartan's criterion for *solvab
 
 **Proof that a nonzero abelian ideal forces degeneracy (so non-degenerate $\Rightarrow$ semisimple).**
 1. Suppose $\mathfrak{a}\ne\{0\}$ is an abelian ideal ($[\mathfrak{a},\mathfrak{a}]=0$). Take $A\in\mathfrak{a}$, $X\in\mathfrak{g}$; we show $\kappa(A,X)=0$, so every $A\in\mathfrak{a}$ lies in the degeneracy subspace, making $\kappa$ degenerate.
-2. Consider the operator $T=\operatorname{ad}_A\operatorname{ad}_X$. Because $\mathfrak{a}$ is an ideal, $\operatorname{ad}_X$ maps $\mathfrak{g}$ into... and $\operatorname{ad}_A$ maps $\mathfrak{g}$ *into* $\mathfrak{a}$ (since $[A,\,\cdot\,]\in\mathfrak{a}$, as $\mathfrak{a}$ is an ideal). So $\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$.
+2. Consider the operator $T=\operatorname{ad}_A\operatorname{ad}_X$. The map $\operatorname{ad}_X$ sends $\mathfrak{g}$ into $\mathfrak{g}$, and because $\mathfrak{a}$ is an ideal $\operatorname{ad}_A$ maps $\mathfrak{g}$ *into* $\mathfrak{a}$ (since $[A,\,\cdot\,]\in\mathfrak{a}$, as $\mathfrak{a}$ is an ideal). So $\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$.
 3. Then $T(\mathfrak{g})=\operatorname{ad}_A(\operatorname{ad}_X\mathfrak{g})\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$, and $T(\mathfrak{a})=\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$; moreover $T^2(\mathfrak{g})\subseteq\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{a}=[A,\mathfrak{a}]\subseteq[\mathfrak{a},\mathfrak{a}]=0$, using that $\mathfrak{a}$ is *abelian*. So $T$ is **nilpotent** ($T^2=0$).
 4. A nilpotent operator has all eigenvalues $0$, hence trace $0$: $\kappa(A,X)=\operatorname{tr}T=0$. Since $X$ was arbitrary, $A$ is in the degeneracy subspace. $\blacksquare$
 
@@ -329,7 +329,7 @@ The idea of the proof (cited in full from Weyl): the numerator and denominator a
 **Derivation of the dimension formula from the character formula.**
 1. $\dim V(\lambda)$ is the character with every $e^\mu$ set to $1$. But setting $e^\mu\to1$ makes both numerator and denominator of the Weyl character formula vanish (each is an alternating sum that is $0$ at the "origin"), an indeterminate $0/0$.
 2. Resolve it by the standard limiting trick: replace $e^\mu\to e^{t(\mu,\rho)}$ for a real parameter $t$ and let $t\to0$ (this is differentiating the alternating sums; legitimate because both are analytic in $t$).
-3. The denominator becomes $\prod_{\alpha>0}\big(e^{t(\alpha,\rho)/2}-e^{-t(\alpha,\rho)/2}\big)\sim\prod_{\alpha>0} t(\alpha,\rho)$ as $t\to0$, using $e^x-e^{-x}\sim 2\sinh(x/2)\cdot\!$... concretely $\sim t(\alpha,\rho)$ to leading order.
+3. The denominator becomes $\prod_{\alpha>0}\big(e^{t(\alpha,\rho)/2}-e^{-t(\alpha,\rho)/2}\big)\sim\prod_{\alpha>0} t(\alpha,\rho)$ as $t\to0$, since each factor $e^{x}-e^{-x}=2\sinh x\sim 2x$ to leading order, here with $x=t(\alpha,\rho)/2$, giving $\sim t(\alpha,\rho)$.
 4. The numerator, by the same expansion with $\lambda+\rho$ in place of $\rho$, becomes $\sim\prod_{\alpha>0}t(\alpha,\lambda+\rho)$.
 5. Taking the ratio, the powers of $t$ cancel ($|\Phi^+|$ factors each) and
 $$

@@ -217,7 +217,7 @@
 > $$
 > 它的长度为 $1$——这是有限生成阿贝尔群具有长度 $\leq1$ 的自由消解这一普遍现象，也正是 $\mathrm{Tor}_n$ 与 $\mathrm{Ext}^n$ 在 $\mathbb{Z}$ 上对 $n\geq2$ 消失的原因（§s4）。
 
-**陷阱。** 对一般环，投射*并不*等同于自由（例如在 $\mathbb{Z}/6\cong\mathbb{Z}/2\times\mathbb{Z}/3$ 上，因子 $\mathbb{Z}/2$ 投射但不自由）；然而在域上或 $\mathbb{Z}$ 上，对我们用到的情形投射 = 自由，需注意的是在 $\mathbb{Z}$ 上投射 = 自由只对*自由模的子模*成立，而这在此已足够。消解的选取极不唯一（不同的生成元、不同的自由覆盖），这恰是 §s4 的无关性定理不可或缺的原因：它保证导出函子看不出这种选取。
+**陷阱。** 对一般环，投射*并不*等同于自由（例如在 $\mathbb{Z}/6\cong\mathbb{Z}/2\times\mathbb{Z}/3$ 上，因子 $\mathbb{Z}/2$ 投射但不自由）；然而在 $\mathbb{Z}$ 上——更一般地在任何 PID 上——*每个*投射模都是自由的，所以对我们在此用到的一切，这两个概念是重合的。消解的选取极不唯一（不同的生成元、不同的自由覆盖），这恰是 §s4 的无关性定理不可或缺的原因：它保证导出函子看不出这种选取。
 
 <a id="s4"></a>
 ### 导出函子 —— Tor 与 Ext，它们的定义与消解无关性
@@ -261,7 +261,7 @@
 > $$
 
 **推导。**
-1. 选投射消解 $P'_\bullet\to A'$ 与 $P''_\bullet\to A''$。**马蹄引理**产生中间项的一个投射消解 $P_\bullet\to A$，它嵌入复形的 SES $0\to P'_\bullet\to P_\bullet\to P''_\bullet\to0$，该 SES 在每个度数上*分裂*（取 $P_n=P'_n\oplus P''_n$）。*（马蹄引理；因 $P''_n$ 投射而逐度数分裂）*
+1. 选投射消解 $P'_\bullet\to A'$ 与 $P''_\bullet\to A''$。**马蹄引理**（标准结果；不加证明地陈述）断言：给定 SES $0\to A'\to A\to A''\to0$ 两个外项 $A',A''$ 的投射消解，便可拼出中间项的一个投射消解 $P_\bullet\to A$，其中 $P_n=P'_n\oplus P''_n$，并嵌入复形的逐度数分裂 SES $0\to P'_\bullet\to P_\bullet\to P''_\bullet\to0$。*（马蹄引理；因 $P''_n$ 投射而逐度数分裂）*
 2. 与 $N$ 做张量积。由于复形的 SES 在每个度数上分裂，$0\to P'_\bullet\otimes N\to P_\bullet\otimes N\to P''_\bullet\otimes N\to0$ 仍是短正合的。*（逐度数分裂的 SES 在任意可加函子下存活）*
 3. 应用 §s2 的长正合同调列。其同调群按定义即 $\mathrm{Tor}_n$，而右端 $\mathrm{Tor}_0=\otimes$ 凭 $\otimes$ 的右正合性以 $\to A''\otimes N\to0$ 收尾。*（§s2 长正合列；$\mathrm{Tor}_0=\otimes$）* $\;\blacksquare$
 
@@ -286,7 +286,7 @@
 1. 设 $Z_n,B_n\subseteq C_n$ 为闭链与边缘链。由于 $C_n$ 是自由阿贝尔群而 $B_{n-1}\subseteq C_{n-1}$ 是自由阿贝尔群的子群，$B_{n-1}$ 是自由的。因此 SES $0\to Z_n\to C_n\xrightarrow{\partial}B_{n-1}\to0$ **分裂**（$B_{n-1}$ 自由 $\Rightarrow$ 投射 $\Rightarrow$ 该满射分裂）。*（自由阿贝尔群的子群是自由的；§s3 投射性）*
 2. 把 $Z_\bullet$ 与 $B_\bullet$ 视为带**零**微分的链复形。第 1 步的分裂 SES 是链复形的 SES $0\to Z_\bullet\to C_\bullet\xrightarrow{\partial} B_{\bullet-1}\to0$，其中 $B_{\bullet-1}$ 是 $B$ 的移位。*（逐度数分裂）*
 3. 与 $G$ 做张量积。由于每一项都自由（从而 SES 分裂），张量化的序列 $0\to Z_\bullet\otimes G\to C_\bullet\otimes G\to B_{\bullet-1}\otimes G\to0$ 仍是短正合的。*（分裂 SES 在施以任意可加函子后仍分裂，从而正合）*
-4. 它的长正合同调列（§s2）的连接映射等于包含映射 $B_n\hookrightarrow Z_n$ 与 $G$ 的张量积，即 $i\otimes\mathrm{id}_G:B_n\otimes G\to Z_n\otimes G$。拼接对每个 $n$ 给出
+4. 它的长正合同调列（§s2）的连接映射等于包含映射 $B_n\hookrightarrow Z_n$ 与 $G$ 的张量积，即 $i\otimes\mathrm{id}_G:B_n\otimes G\to Z_n\otimes G$。（这一辨识恰是把 §s1 的蛇引理连接映射应用于第 3 步的分裂 SES：由于 $Z_\bullet$ 与 $B_\bullet$ 带零微分，张量后唯一残存的微分就是边缘到闭链的包含 $i:B_n\hookrightarrow Z_n$，故 $\partial_*=i\otimes\mathrm{id}_G$。）拼接对每个 $n$ 给出
 > $$
 > 0\to\operatorname{coker}(i\otimes\mathrm{id})_n\to H_n(C\otimes G)\to\ker(i\otimes\mathrm{id})_{n-1}\to0.
 > $$

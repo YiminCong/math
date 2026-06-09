@@ -302,7 +302,7 @@ $$
 一个赌徒以 $\$a$ 开始，对公平的抛硬币每次押注 $\$1$，在破产（$0$）或达到目标 $\$N$ 时退出（故 $0<a<N$）。在到达 $0$ 之前到达 $N$ 的概率 $q$ 是多少？
 
 1. 把财富建模为随机游走 $X_n=a+\xi_1+\dots+\xi_n$（步长 $\pm1$，公平）。则 $X_n$ 是一个鞅：$\mathbb{E}[X_{n+1}\mid\mathcal{F}_n]=X_n+\mathbb{E}[\xi_{n+1}]=X_n+0=X_n$。
-2. 设 $\tau$ 为财富首次触及 $0$ 或 $N$ 的时刻——一个停时。可以证明 $\tau$ 以概率 $1$ 有限，且可选停时的条件成立。
+2. 设 $\tau$ 为财富首次触及 $0$ 或 $N$ 的时刻——一个停时。可以证明 $\tau$ 以概率 $1$ 有限。可选停时之所以适用，是因为*被停止的*财富 $X_{n\wedge\tau}$ 被限制在区间 $[0,N]$ 内（停止前它严格介于二者之间，停止时它等于 $0$ 或 $N$），因而一致有界；一个有界的鞅满足该定理的控制收敛假设，故 $\mathbb{E}[X_\tau]=\mathbb{E}[X_0]$ 得以成立。
 3. 应用可选停时：$\mathbb{E}[X_\tau]=\mathbb{E}[X_0]=a$。
 4. 在时刻 $\tau$，财富要么是 $0$（概率 $1-q$），要么是 $N$（概率 $q$）。所以 $\mathbb{E}[X_\tau]=0\cdot(1-q)+N\cdot q=Nq$。
 5. 令二者相等：$Nq=a$，故 $q=a/N$。
@@ -353,8 +353,8 @@ $$
 $$
 (dW)^2=dt,\qquad dt\,dW=0,\qquad (dt)^2=0.
 $$
-- $(dW)^2=dt$ 是二次变差结果（§s4）：布朗增量的平方以每单位时间 $1$ 的速率累积。
-- $(dt)^2=0$ 和 $dt\,dW=0$，因为 $dt$ 是步长的阶，而这些乘积是更高的阶（例如 $dt\,dW\sim\Delta t\cdot\sqrt{\Delta t}=(\Delta t)^{3/2}$），求和时它们比 $dt$ 消失得更快，故在均方极限下毫无贡献。
+- $(dW)^2=dt$ 是二次变差结果（§s4）：布朗增量的平方以每单位时间 $1$ 的速率累积。关键在于 $(dW)^2$ **不**消失，尽管人们或许会以为一个"二阶"项理应消失。原因是一个均值/方差论证：在一步之内，$\mathbb{E}[(\Delta W)^2]=\Delta t$（其均值恰好是 $\Delta t$，而非零），而它围绕该均值的涨落本身是更高阶的——$\mathrm{Var}[(\Delta W)^2]=2(\Delta t)^2$，求和后 $\to0$。所以在极限下可用其确定性均值 $\Delta t$ 替换 $(\Delta W)^2$，得 $(dW)^2=dt$——这是一个*存留*的一阶项，而非零。
+- $(dt)^2=0$ 和 $dt\,dW=0$ 消失则是出于不同的原因。这里同样以均值作为判据：$\mathbb{E}[\Delta t\,\Delta W]=\Delta t\,\mathbb{E}[\Delta W]=0$，所以与 $(\Delta W)^2$ 不同，这个乘积在 $dt$ 阶上没有存留的确定性均值。它的大小确实是更高阶（$dt\,dW\sim\Delta t\cdot\sqrt{\Delta t}=(\Delta t)^{3/2}$，且 $(dt)^2\sim(\Delta t)^2$），故在 $\sim t/\Delta t$ 步上求和时它在均方极限下消失。这种对比正是要点所在：$(dW)^2$ 存留是因为其均值为 $dt$，而 $dt\,dW$ 消亡是因为其均值为零且其标度是次主导的。
 4. 因此 $(dX)^2=b^2\,dt$，所有其他二阶项消失，$\partial_{tt}$ 和混合项也消失。汇集存留的部分：
 $$
 df=\frac{\partial f}{\partial t}\,dt+\frac{\partial f}{\partial x}(a\,dt+b\,dW)+\tfrac12\frac{\partial^2 f}{\partial x^2}\,b^2\,dt,
@@ -547,7 +547,7 @@ $$
 \rho_n(x_1,\dots,x_{n-1})=\prod_{k=1}^{n}\frac{1}{\sqrt{2\pi\epsilon}}\exp\!\Big(-\frac{(x_k-x_{k-1})^2}{2\epsilon}\Big)
 =\Big(\frac{1}{2\pi\epsilon}\Big)^{n/2}\exp\!\Big(-\frac{1}{2\epsilon}\sum_{k=1}^{n}(x_k-x_{k-1})^2\Big).
 $$
-3. 辨认这个指数。把 $\frac{x_k-x_{k-1}}{\epsilon}$ 写成离散速度 $\dot x$，该和变为 $\sum_k(x_k-x_{k-1})^2=\epsilon\sum_k\big(\tfrac{x_k-x_{k-1}}{\epsilon}\big)^2\epsilon\to\int_0^t\dot x(s)^2\,ds$，当 $\epsilon\to0$。所以形式上
+3. 辨认这个指数。把 $\frac{x_k-x_{k-1}}{\epsilon}$ 写成离散速度 $\dot x$，该和变为 $\frac1\epsilon\sum_k(x_k-x_{k-1})^2=\sum_k\big(\tfrac{x_k-x_{k-1}}{\epsilon}\big)^2\epsilon\to\int_0^t\dot x(s)^2\,ds$，当 $\epsilon\to0$。所以形式上
 $$
 \rho\,\propto\,\exp\!\Big(-\frac12\int_0^t\dot x(s)^2\,ds\Big).
 $$
@@ -652,7 +652,7 @@ $$
 $$
 e^{iS/\hbar}\;\longrightarrow\;e^{-S_E/\hbar}.
 $$
-*为何符号翻转。* 由 $t=-i\tau$，$dt=-i\,d\tau$ 且 $\dot x=dx/dt=i\,dx/d\tau$，故动能项 $\tfrac12 m\dot x^2\,dt=\tfrac12 m(i x')^2(-i\,d\tau)=\tfrac12 m x'^2\,(i)\,d\tau\cdot(-1)\cdot\!\dots$——把各因子贯穿到底，得到 $iS/\hbar=-S_E/\hbar$，其中 $S_E$ 是上面的能量积分。振荡测度已变成 §s10 中真正收敛的维纳型测度（其中 $\hbar$ 扮演着那里 $\epsilon$ 所扮演的角色）。
+*为何符号翻转。* 由 $t=-i\tau$，有 $dt=-i\,d\tau$ 且 $\dot x=dx/dt=i\,dx/d\tau=ix'$（记 $x'=dx/d\tau$）。把作用量的两项分开处理。**动能**项：$\tfrac12 m\dot x^2\,dt=\tfrac12 m(ix')^2(-i\,d\tau)=\tfrac12 m\,(-x'^2)(-i)\,d\tau=+\tfrac{i}{2} m\,x'^2\,d\tau$。**势能**项：$-V\,dt=-V\,(-i\,d\tau)=+iV\,d\tau$。两者相加，拉格朗日量的时间积分变为 $S=\int\big(\tfrac12 m\dot x^2-V\big)dt=i\int\big(\tfrac12 m x'^2+V\big)d\tau=i\,S_E$，其中 $S_E=\int\big(\tfrac12 m x'^2+V\big)d\tau$ 正是上面的能量（动能加势能）积分。于是 $iS/\hbar=i(iS_E)/\hbar=-S_E/\hbar$，恰是所述的符号翻转。振荡测度已变成 §s10 中真正收敛的维纳型测度（其中 $\hbar$ 扮演着那里 $\epsilon$ 所扮演的角色）。
 
 #### 配分函数的联系
 

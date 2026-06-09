@@ -458,7 +458,7 @@ Gauss–Bonnet 是 $D$ 为 de Rham 算子 $d+d^*$ 的特例：它的指标恰是
 > $$
 > \operatorname{sign}(M)=\frac{1}{3}\int_M p_1(TM),
 > $$
-> 其中 $\operatorname{sign}(M)$ 是 $H^2(M)$ 上相交形式的符号（一个纯拓扑整数：$\#$正 $-$ $\#$负特征值），$p_1$ 是第一 Pontryagin 类（§s8）。对 $\mathbb{CP}^2$，$\operatorname{sign}=1$，而确实 $\tfrac13\int p_1=\tfrac13\cdot 3=1$。一个带符号的特征值计数等于一个曲率积分——同样的奇迹，升高一维。
+> 其中 $\operatorname{sign}(M)$ 是 $H^2(M)$ 上相交形式的符号（一个纯拓扑整数：$\#$正 $-$ $\#$负特征值），$p_1$ 是第一 Pontryagin 类（§s8）。对 $\mathbb{CP}^2$，$\operatorname{sign}=1$，而确实 $\tfrac13\int p_1=\tfrac13\cdot 3=1$（这里 $\int_{\mathbb{CP}^2}p_1=3$，因为总 Chern 类 $c(T\mathbb{CP}^2)=(1+h)^3$ 给出 $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$，且 $\int_{\mathbb{CP}^2}h^2=1$）。一个带符号的特征值计数等于一个曲率积分——同样的奇迹，升高一维。
 
 ---
 

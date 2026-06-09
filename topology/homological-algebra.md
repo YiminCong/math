@@ -217,7 +217,7 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 > $$
 > It has length $1$ — the general phenomenon that finitely generated abelian groups have free resolutions of length $\leq1$, which is why $\mathrm{Tor}_n$ and $\mathrm{Ext}^n$ vanish over $\mathbb{Z}$ for $n\geq2$ (§s4).
 
-**Pitfall.** Projective is *not* the same as free for general rings (e.g. over $\mathbb{Z}/6\cong\mathbb{Z}/2\times\mathbb{Z}/3$ the factor $\mathbb{Z}/2$ is projective but not free); over a field or over $\mathbb{Z}$, however, projective = free for the cases we use, with the caveat that over $\mathbb{Z}$ projective = free only for *submodules of free modules*, which suffices here. The choice of resolution is wildly non-unique (different generators, different free covers), which is exactly why the independence theorem of §s4 is indispensable: it guarantees the derived functors do not see the choice.
+**Pitfall.** Projective is *not* the same as free for general rings (e.g. over $\mathbb{Z}/6\cong\mathbb{Z}/2\times\mathbb{Z}/3$ the factor $\mathbb{Z}/2$ is projective but not free); over $\mathbb{Z}$, however — and more generally over any PID — *every* projective module is free, so the two notions coincide for everything we use here. The choice of resolution is wildly non-unique (different generators, different free covers), which is exactly why the independence theorem of §s4 is indispensable: it guarantees the derived functors do not see the choice.
 
 <a id="s4"></a>
 ### Derived functors — Tor and Ext, their definition and independence of the resolution
@@ -261,7 +261,7 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 > $$
 
 **Derivation.**
-1. Choose projective resolutions $P'_\bullet\to A'$ and $P''_\bullet\to A''$. The **Horseshoe Lemma** produces a projective resolution $P_\bullet\to A$ of the middle term that fits into a SES of complexes $0\to P'_\bullet\to P_\bullet\to P''_\bullet\to0$ which is *split* in each degree (take $P_n=P'_n\oplus P''_n$). *(Horseshoe Lemma; degreewise splitting because $P''_n$ is projective)*
+1. Choose projective resolutions $P'_\bullet\to A'$ and $P''_\bullet\to A''$. The **Horseshoe Lemma** (standard; stated without proof) says: given projective resolutions of the two outer terms $A',A''$ of a SES $0\to A'\to A\to A''\to0$, one can assemble a projective resolution $P_\bullet\to A$ of the middle term with $P_n=P'_n\oplus P''_n$, fitting into a degreewise-split SES of complexes $0\to P'_\bullet\to P_\bullet\to P''_\bullet\to0$. *(Horseshoe Lemma; degreewise splitting because $P''_n$ is projective)*
 2. Tensor with $N$. Because the SES of complexes splits in each degree, $0\to P'_\bullet\otimes N\to P_\bullet\otimes N\to P''_\bullet\otimes N\to0$ is still short exact. *(a degreewise-split SES survives any additive functor)*
 3. Apply the long exact homology sequence of §s2. Its homology groups are by definition the $\mathrm{Tor}_n$, and the right end $\mathrm{Tor}_0=\otimes$ closes with $\to A''\otimes N\to0$ by right-exactness of $\otimes$. *(§s2 long exact sequence; $\mathrm{Tor}_0=\otimes$)* $\;\blacksquare$
 
@@ -286,7 +286,7 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 1. Let $Z_n,B_n\subseteq C_n$ be cycles and boundaries. Since $C_n$ is free abelian and $B_{n-1}\subseteq C_{n-1}$ is a subgroup of a free abelian group, $B_{n-1}$ is free. The SES $0\to Z_n\to C_n\xrightarrow{\partial}B_{n-1}\to0$ therefore **splits** ($B_{n-1}$ free $\Rightarrow$ projective $\Rightarrow$ the surjection splits). *(subgroups of free abelian groups are free; §s3 projectivity)*
 2. View $Z_\bullet$ and $B_\bullet$ as chain complexes with **zero** differentials. The split SES of step 1 is a SES of chain complexes $0\to Z_\bullet\to C_\bullet\xrightarrow{\partial} B_{\bullet-1}\to0$, where $B_{\bullet-1}$ is $B$ shifted. *(splitting degreewise)*
 3. Tensor with $G$. Because each term is free (hence the SES splits), the tensored sequence $0\to Z_\bullet\otimes G\to C_\bullet\otimes G\to B_{\bullet-1}\otimes G\to0$ is still short exact. *(a split SES stays split, hence exact, after applying any additive functor)*
-4. Its long exact homology sequence (§s2) has connecting map equal to the inclusion $B_n\hookrightarrow Z_n$ tensored with $G$, namely $i\otimes\mathrm{id}_G:B_n\otimes G\to Z_n\otimes G$. Splicing yields, for each $n$,
+4. Its long exact homology sequence (§s2) has connecting map equal to the inclusion $B_n\hookrightarrow Z_n$ tensored with $G$, namely $i\otimes\mathrm{id}_G:B_n\otimes G\to Z_n\otimes G$. (This identification is exactly the snake-lemma connecting map of §s1 applied to the split SES of step 3: since $Z_\bullet$ and $B_\bullet$ carry zero differentials, the only surviving differential after tensoring is the inclusion $i:B_n\hookrightarrow Z_n$ of boundaries into cycles, and $\partial_*=i\otimes\mathrm{id}_G$.) Splicing yields, for each $n$,
 > $$
 > 0\to\operatorname{coker}(i\otimes\mathrm{id})_n\to H_n(C\otimes G)\to\ker(i\otimes\mathrm{id})_{n-1}\to0.
 > $$

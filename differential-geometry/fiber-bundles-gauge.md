@@ -431,9 +431,9 @@ Recall (prerequisite guide) the **Hodge star** $\star$ on an oriented (pseudo-)R
 
 > **Definition — Yang–Mills action.**
 > $$
-> S_{\mathrm{YM}}[A]=-\frac{1}{2g^2}\int_M \mathrm{tr}\big(F\wedge\star F\big)=-\frac{1}{4g^2}\int_M \mathrm{tr}\big(F_{\mu\nu}F^{\mu\nu}\big)\sqrt{|h|}\,d^nx,
+> S_{\mathrm{YM}}[A]=-\frac{1}{2g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F\wedge\star F\big)=-\frac{1}{4g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F_{\mu\nu}F^{\mu\nu}\big)\sqrt{-\det g}\,\,d^nx,
 > $$
-> where $g$ is the **coupling constant**, $h$ the metric determinant, and indices are raised with the spacetime metric. The integrand is gauge-invariant because $F\mapsto g^{-1}Fg$ and the trace is conjugation-invariant (cyclicity).
+> where $g_{\mathrm{YM}}$ is the **coupling constant** (written $g_{\mathrm{YM}}$ to distinguish it from the gauge/transition elements $g$ of §s5–s8), $\sqrt{-\det g}$ is the invariant volume factor built from the determinant of the spacetime metric $g_{\mu\nu}$, and indices are raised with that same metric. The integrand is gauge-invariant because $F\mapsto g^{-1}Fg$ and the trace is conjugation-invariant (cyclicity).
 
 #### The field equations
 
@@ -445,15 +445,15 @@ Recall (prerequisite guide) the **Hodge star** $\star$ on an oriented (pseudo-)R
 
 *Derivation.*
 1. Vary $A\to A+\delta A$ with $\delta A$ a $\mathfrak g$-valued 1-form vanishing on the boundary. From $F=dA+A\wedge A$, the first-order change is $\delta F=d(\delta A)+\delta A\wedge A+A\wedge\delta A=D(\delta A)$, where $D(\delta A)=d(\delta A)+[A,\delta A]$ is the covariant exterior derivative (this *defines* $D$ on adjoint-valued forms; the bracket arises because $\delta A\wedge A+A\wedge\delta A=[A,\delta A]$ as a 2-form).
-2. Then $\delta S_{\mathrm{YM}}=-\frac{1}{g^2}\int_M\mathrm{tr}\big(\delta F\wedge\star F\big)=-\frac{1}{g^2}\int_M\mathrm{tr}\big(D(\delta A)\wedge\star F\big)$, using linearity of the action in each $F$ factor and symmetry of the trace pairing.
+2. Then $\delta S_{\mathrm{YM}}=-\frac{1}{g_{\mathrm{YM}}^2}\int_M\mathrm{tr}\big(\delta F\wedge\star F\big)=-\frac{1}{g_{\mathrm{YM}}^2}\int_M\mathrm{tr}\big(D(\delta A)\wedge\star F\big)$, using linearity of the action in each $F$ factor and symmetry of the trace pairing.
 3. **Integrate by parts.** For adjoint-valued forms, $\mathrm{tr}\big(D(\delta A)\wedge\star F\big)=d\,\mathrm{tr}(\delta A\wedge\star F)\pm\mathrm{tr}\big(\delta A\wedge D\star F\big)$, the covariant Leibniz rule for $D$ combined with cyclicity of the trace (the connection terms shift from one factor to the other with a sign). The total-derivative term integrates to a boundary term that vanishes since $\delta A=0$ on $\partial M$ (Stokes' theorem).
-4. Hence $\delta S_{\mathrm{YM}}=\pm\frac{1}{g^2}\int_M\mathrm{tr}\big(\delta A\wedge D\star F\big)$. Requiring this to vanish for *all* $\delta A$ forces $D\star F=0$ by the fundamental lemma of the calculus of variations. $\blacksquare$
+4. Hence $\delta S_{\mathrm{YM}}=\pm\frac{1}{g_{\mathrm{YM}}^2}\int_M\mathrm{tr}\big(\delta A\wedge D\star F\big)$. Requiring this to vanish for *all* $\delta A$ forces $D\star F=0$ by the fundamental lemma of the calculus of variations. $\blacksquare$
 
 #### Maxwell's equations as the $U(1)$ case
 
 > **Derivation.** For $G=U(1)$ the algebra is abelian, all brackets vanish, $F=dA$ with $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$, and the trace is trivial.
 > 1. The Yang–Mills equation $D_\mu F^{\mu\nu}=0$ loses its bracket term and becomes $\partial_\mu F^{\mu\nu}=0$.
-> 2. This is the **source-free inhomogeneous Maxwell equations** $\partial_\mu F^{\mu\nu}=0$, i.e. $\nabla\cdot\mathbf E=0$ and $\nabla\times\mathbf B=\partial_t\mathbf E$ (Gauss and Ampère with no charges).
+> 2. This is the **source-free case of the inhomogeneous (sourced) Maxwell pair** $\partial_\mu F^{\mu\nu}=0$, i.e. $\nabla\cdot\mathbf E=0$ and $\nabla\times\mathbf B=\partial_t\mathbf E$ (Gauss and Ampère with no charges).
 > 3. The Bianchi identity $dF=0$ (s6) gives the **homogeneous Maxwell equations** $\nabla\cdot\mathbf B=0$, $\nabla\times\mathbf E=-\partial_t\mathbf B$.
 > 4. Adding a matter current $J^\nu$ (from minimally coupled charged matter, s8) modifies the action by $\int A_\mu J^\mu$ and yields $\partial_\mu F^{\mu\nu}=J^\nu$ — the full inhomogeneous Maxwell equations.
 >
@@ -524,6 +524,8 @@ A magnetic monopole is a hypothetical point source of magnetic field $\mathbf B=
 > $$
 > q\,q_m=2\pi n,\qquad n\in\mathbb{Z}.
 > $$
+
+This reconciles with the §s10 worked example $g=e^{in\phi}$: writing $n=q\,q_m/(2\pi)$, the equatorial transition $g=e^{iq q_m\phi/(2\pi)}=e^{in\phi}$, and single-valuedness ($q q_m=2\pi n$) is exactly the condition $n\in\mathbb{Z}$ used there.
 
 This is the **Dirac quantization condition**: *the existence of a single magnetic monopole forces all electric charges to be integer multiples of a basic unit.* The integer $n$ is precisely the first Chern number of the bundle (s10). The would-be singularity of $A$ (the "Dirac string") is a gauge artifact of trying to use one patch where two are needed; the honest description is a nontrivial principal $U(1)$-bundle over $S^2$.
 

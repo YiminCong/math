@@ -507,7 +507,7 @@ $$\nabla f=\lambda\,\nabla g,\qquad g(x,y,\dots)=c$$
 
 $$\iint_R f\,dA=\lim_{\|P\|\to0}\sum_{i,j} f(x_i^*,y_j^*)\,\Delta A=\int_a^b\!\!\int_c^d f(x,y)\,dy\,dx$$
 
-*在矩形上积分次序可以随意。二重积分是小盒子 $f\cdot\Delta A$ 的 Riemann 和的极限。*
+*在矩形上，当 $f$ 在其上连续（更一般地可积）时，积分次序可以随意。二重积分是小盒子 $f\cdot\Delta A$ 的 Riemann 和的极限。*
 
 定义：$R$ 是积分区域；$dA$ 是**面积元**（一小块面积）。一个**分割** $P$ 把 $R$ 切成面积为 $\Delta A$ 的小矩形；$(x_i^*,y_j^*)$ 是第 $(i,j)$ 个矩形中的取样点；$\|P\|$ 是最大那块的尺寸。中间那个表达式是一个 **Riemann 和**——把高乘面积 $f\cdot\Delta A$ 在所有块上加起来——而积分是它在块收缩时的极限。**Fubini 定理**说这个二维极限等于右边的累次单重积分：先对 $y$ 积分（内层），再对 $x$ 积分（外层）。
 
@@ -678,7 +678,11 @@ $$\frac{\partial(x,y)}{\partial(u,v)}=\det\!\begin{pmatrix} x_u & x_v\\ y_u & y_
 
 *本部分中每一个特殊体积元都是一个行列式。同样的计算在球坐标中给出 $\rho^2\sin\phi$。*
 
-**习题示例（线性换元）。** 计算 $\iint_R (x+y)\,dx\,dy$，其中 $R$ 是平行四边形，换元为 $x=u+v$，$y=u-v$。Jacobian：$x_u=1,x_v=1,y_u=1,y_v=-1$，所以 $\frac{\partial(x,y)}{\partial(u,v)}=(1)(-1)-(1)(1)=-2$，绝对值为 $2$。又 $x+y=(u+v)+(u-v)=2u$。于是积分变为在更简单的 $uv$ 区域 $S$ 上的 $\iint_S 2u\cdot2\,du\,dv=\iint_S 4u\,du\,dv$——新变量把一个倾斜的平行四边形变成了一个容易的矩形。
+**习题示例（线性换元）。** 计算 $\iint_R (x+y)\,dx\,dy$，其中 $R$ 是单位正方形 $S:\,0\le u\le1,\,0\le v\le1$ 在映射 $x=u+v$，$y=u-v$ 下的像所成的平行四边形（其顶点为 $(0,0),(1,1),(2,0),(1,-1)$）。Jacobian：$x_u=1,x_v=1,y_u=1,y_v=-1$，所以 $\frac{\partial(x,y)}{\partial(u,v)}=(1)(-1)-(1)(1)=-2$，绝对值为 $2$。又 $x+y=(u+v)+(u-v)=2u$。于是积分变为
+
+$$\iint_S 2u\cdot2\,du\,dv=\int_0^1\!\int_0^1 4u\,du\,dv=\Big(\int_0^1 4u\,du\Big)\Big(\int_0^1 dv\Big)=\big[2u^2\big]_0^1\cdot 1=2.$$
+
+新变量把一个倾斜的平行四边形变成了一个容易的矩形，得到 $\iint_R(x+y)\,dx\,dy=2$。
 
 > **概念 — 为何是行列式？**
 >

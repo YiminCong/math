@@ -253,16 +253,16 @@ Taking $f=H$ the Hamiltonian, the integral curves of $X_H$ satisfy $\dot q^i=\pa
 
 > **Definition — Poisson bracket.** For $f,g\in C^\infty(M)$,
 > $$
-> \{f,g\} := \omega(X_f,X_g) = X_f(g) = -X_g(f).
+> \{f,g\} := \omega(X_f,X_g).
 > $$
-> The expressions agree: $\omega(X_f,X_g)=(\iota_{X_f}\omega)(X_g)=df(X_g)=X_g(f)$, and by antisymmetry of $\omega$ this also equals $-(\iota_{X_g}\omega)(X_f)=-dg(X_f)=-X_g(f)$ applied the other way. We adopt the convention $\{f,g\}=X_f(g)=-X_g(f)$, fixing the overall sign once and for all.
+> A single computation evaluates it: $\omega(X_f,X_g)=(\iota_{X_f}\omega)(X_g)=df(X_g)=X_g(f)$, where the second equality is $\iota_{X_f}\omega=df$ and the third is the action of the $1$-form $df$ on the vector $X_g$. Thus $\{f,g\}=X_g(f)$, fixing the overall sign once and for all.
 
 > **Coordinate form.**
 > $$
 > \{f,g\} = \sum_{i=1}^n\left(\frac{\partial f}{\partial q^i}\frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q^i}\right).
 > $$
 
-**Derivation.** Using $\{f,g\}=X_f(g)$ and the coordinate form of $X_f$ from above: $X_f(g)=\sum_i(\partial_{p_i}f\,\partial_{q^i}g - \partial_{q^i}f\,\partial_{p_i}g)$. Reversing the labelling of the two terms gives the displayed antisymmetric expression (the standard convention). The fundamental brackets are $\{q^i,q^j\}=0$, $\{p_i,p_j\}=0$, $\{q^i,p_j\}=\delta^i_j$.
+**Derivation.** Using $\{f,g\}=X_g(f)$ and the coordinate form $X_g=\sum_i(\partial_{p_i}g\,\partial_{q^i} - \partial_{q^i}g\,\partial_{p_i})$ from above: $X_g(f)=\sum_i(\partial_{p_i}g\,\partial_{q^i}f - \partial_{q^i}g\,\partial_{p_i}f)=\sum_i(\partial_{q^i}f\,\partial_{p_i}g - \partial_{p_i}f\,\partial_{q^i}g)$, which is exactly the displayed expression. The fundamental brackets are $\{q^i,q^j\}=0$, $\{p_i,p_j\}=0$, $\{q^i,p_j\}=\delta^i_j$.
 
 The bracket is **bilinear** and **antisymmetric** ($\{f,g\}=-\{g,f\}$, immediate from $\omega$ antisymmetric) and obeys the **Leibniz rule** $\{f,gh\}=\{f,g\}h+g\{f,h\}$ (because $X_f$ is a derivation). The deep property is:
 
@@ -546,9 +546,9 @@ $$
 
 #### The 2-sphere and the quantization of spin
 
-> **Setup.** $M=S^2$ of radius $r$ with area form $\omega = r\,\sin\phi\,d\phi\wedge d\theta$ (spherical coordinates), total area $\int_{S^2}\omega = 4\pi r$. Identify $S^2$ with $\mathbb{CP}^1$; it is Kähler (s8). This is the **classical spin phase space**: a point is a direction of the spin vector.
+> **Setup.** $M=S^2$ of radius $r$ with area form $\omega = r^2\,\sin\phi\,d\phi\wedge d\theta$ (spherical coordinates), total area $\int_{S^2}\omega = 4\pi r^2$. Identify $S^2$ with $\mathbb{CP}^1$; it is Kähler (s8). This is the **classical spin phase space**: a point is a direction of the spin vector.
 
-1. **Integrality / Bohr–Sommerfeld.** A prequantum bundle exists iff $\frac{1}{2\pi\hbar}\int_{S^2}\omega\in\mathbb{Z}$, i.e. $\frac{4\pi r}{2\pi\hbar}=\frac{2r}{\hbar}=:k\in\mathbb{Z}_{\ge0}$. *Reason:* the Weil integrality theorem (s9). So the sphere's area is quantized: $\text{Area}=2\pi\hbar k = hk$.
+1. **Integrality / Bohr–Sommerfeld.** A prequantum bundle exists iff $\frac{1}{2\pi\hbar}\int_{S^2}\omega\in\mathbb{Z}$, i.e. $\frac{4\pi r^2}{2\pi\hbar}=\frac{2r^2}{\hbar}=:k\in\mathbb{Z}_{\ge0}$. *Reason:* the Weil integrality theorem (s9). So the sphere's area is quantized: $\text{Area}=2\pi\hbar k = hk$.
 2. **The bundle.** The line bundle of Chern number $k$ over $\mathbb{CP}^1$ is $\mathcal O(k)$, the $k$-th power of the hyperplane bundle. *Reason:* line bundles on $\mathbb{CP}^1$ are classified by an integer, their degree, equal to the curvature integral.
 3. **Hilbert space.** Holomorphic (Kähler-polarized) sections of $\mathcal O(k)$ are the homogeneous degree-$k$ polynomials in two complex variables $(z_0,z_1)$, a space of dimension
 $$

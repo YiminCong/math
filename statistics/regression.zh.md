@@ -195,7 +195,7 @@ $$\hat\sigma^2 = s^2 = \frac{1}{n-2}\sum_{i=1}^n e_i^2 = \frac{\text{SSE}}{n-2}$
 
 > **概念 — 为什么除以 $n-2$**
 >
-> **自由度**是在我们花掉一些信息去估计参数之后，数据中剩下的独立信息条数。我们从 $n$ 个残差开始，但它们并非都自由：拟合 $\hat\beta_0$ 和 $\hat\beta_1$ 在它们身上强加了两个精确关系（$\sum e_i = 0$ 和 $\sum x_i e_i = 0$，即正规方程）。这用掉了两条信息，留下 $n - 2$ 个自由。除以 $n - 2$ 而非 $n$ 恰好补偿，使 $s^2$ 对 $\sigma^2$ **无偏**，即 $E[s^2] = \sigma^2$。这与入门《统计学》指南中贝塞尔的 $n-1$ 修正是同样的逻辑，此处推广到两个被估参数。
+> **自由度**是在我们花掉一些信息去估计参数之后，数据中剩下的独立信息条数。我们从 $n$ 个残差开始，但它们并非都自由：拟合 $\hat\beta_0$ 和 $\hat\beta_1$ 在它们身上强加了两个精确关系（$\sum e_i = 0$ 和 $\sum x_i e_i = 0$，即正规方程）。这用掉了两条信息，留下 $n - 2$ 个自由。除以 $n - 2$ 而非 $n$ 恰好补偿，使 $s^2$ 对 $\sigma^2$ **无偏**，即 $E[s^2] = \sigma^2$（此处仅陈述；其证明即自由度论证 $E[\text{SSE}] = (n-2)\sigma^2$，正如贝塞尔的 $n-1$ 修正给出普通样本的 $E[\text{SSE}] = (n-1)\sigma^2$）。这与入门《统计学》指南是同样的逻辑，此处推广到两个被估参数。
 
 **算例（续）。** 拟合值 $\hat y = 46.2 + 5.6x$ 在 $x=1,\dots,5$ 处为 $51.8, 57.4, 63.0, 68.6, 74.2$。残差 $e_i = y_i - \hat y_i$：$0.2, 0.6, -2.0, 1.4, -0.2$。于是 $\text{SSE} = 0.04 + 0.36 + 4.0 + 1.96 + 0.04 = 6.4$，且 $s^2 = 6.4/(5-2) = 6.4/3 \approx 2.133$，故 $s \approx 1.461$。（作为验证，$\sum e_i = 0.2+0.6-2.0+1.4-0.2 = 0$ 精确成立，正如正规方程所要求。）
 
@@ -241,7 +241,7 @@ $$\hat y_0 \pm t^{*}_{n-2}\,s\sqrt{1+\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}}\quad
 **演示 — 为什么两个区间都在远离 $\bar x$ 处变宽**
 
 1. **重写拟合均值。** 利用 $\hat\beta_0 = \bar y - \hat\beta_1\bar x$（来自 §s1），在 $x_0$ 处的预测是 $\hat y_0 = \hat\beta_0 + \hat\beta_1 x_0 = \bar y - \hat\beta_1 \bar x + \hat\beta_1 x_0 = \bar y + \hat\beta_1 (x_0 - \bar x)$。*理由：*代入截距公式并把斜率项归组。
-2. **合并两个方差来源。** $\bar y$ 与 $\hat\beta_1$ 不相关（OLS 的一个已知性质），所以它们组合的方差是各部分之和。由 $\operatorname{Var}(\bar y) = \sigma^2/n$（$n$ 个独立点之平均的方差）和 $\operatorname{Var}(\hat\beta_1) = \sigma^2/S_{xx}$（来自 §s2）：
+2. **合并两个方差来源。** $\bar y$ 与 $\hat\beta_1$ 不相关：$\operatorname{Cov}(\bar y,\hat\beta_1)=\operatorname{Cov}\!\big(\tfrac1n\sum y_i,\sum c_i y_i\big)=\tfrac{\sigma^2}{n}\sum c_i=0$，因为权重 $c_i=(x_i-\bar x)/S_{xx}$ 之和为零（§s2 演示的第 1 步）。所以它们组合的方差是各部分之和。由 $\operatorname{Var}(\bar y) = \sigma^2/n$（$n$ 个独立点之平均的方差）和 $\operatorname{Var}(\hat\beta_1) = \sigma^2/S_{xx}$（来自 §s2）：
 
    $$\operatorname{Var}(\hat y_0)=\operatorname{Var}(\bar y)+(x_0-\bar x)^2\operatorname{Var}(\hat\beta_1)=\frac{\sigma^2}{n}+(x_0-\bar x)^2\frac{\sigma^2}{S_{xx}}=\sigma^2\!\left(\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}\right).$$
 
