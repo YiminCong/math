@@ -48,9 +48,11 @@
 > - 一个光滑流形 $F$，称为**典型纤维**，
 >
 > 使得 $\pi$ 是**局部平凡的**：每一点 $x\in M$ 都有一个开邻域 $U\subseteq M$ 和一个微分同胚（具有光滑逆的光滑映射）
+>
 > $$
 > \phi_U:\ \pi^{-1}(U)\ \xrightarrow{\ \sim\ }\ U\times F
 > $$
+>
 > 使得 $\mathrm{pr}_1\circ\phi_U=\pi$，其中 $\mathrm{pr}_1:U\times F\to U$ 是到第一因子的投影。对 $(U,\phi_U)$ 称为一个**局部平凡化**。
 
 把它拆开来看：$\pi^{-1}(\{x\})$ 是**在 $x$ 上的纤维**，记作 $E_x$；条件 $\mathrm{pr}_1\circ\phi_U=\pi$ 迫使 $\phi_U$ 把纤维 $E_x$ 微分同胚地搬到 $\{x\}\times F$ 上，所以每个纤维都是 $F$ 的一份拷贝。"局部平凡"意味着：放大到底的一小片 $U$，则 $E$ 在其上方的部分恰是乘积 $U\times F$——平淡无奇、毫无扭曲。有趣的内容是*整体的*：重叠片上的各个局部乘积图像是如何粘合的。
@@ -60,9 +62,11 @@
 > **定义 — 转移函数。**
 >
 > 设 $(U_\alpha,\phi_\alpha)$ 与 $(U_\beta,\phi_\beta)$ 是两个满足 $U_\alpha\cap U_\beta\ne\varnothing$ 的局部平凡化。在重叠区上，复合
+>
 > $$
 > \phi_\alpha\circ\phi_\beta^{-1}:\ (U_\alpha\cap U_\beta)\times F\ \to\ (U_\alpha\cap U_\beta)\times F
 > $$
+>
 > 保持底点（两侧都投影到同一个 $x$），所以它具有形式 $(x,f)\mapsto\big(x,\ g_{\alpha\beta}(x)\cdot f\big)$，其中 $g_{\alpha\beta}:U_\alpha\cap U_\beta\to \mathrm{Diff}(F)$ 是到纤维变换的光滑映射。这些 $g_{\alpha\beta}$ 就是**转移函数**。
 
 转移函数编码了粘合——即"扭曲"。它们满足两个直接由定义推出的相容性条件：
@@ -160,9 +164,11 @@
 > **定义 — 伴随丛。**
 >
 > 设 $\pi:P\to M$ 为主 $G$-丛，设 $\rho:G\to GL(V)$ 为 $G$ 在向量空间 $V$ 上的一个**表示**（到 $V$ 的线性映射的同态；群论指南）。**伴随向量丛**为
+>
 > $$
 > P\times_\rho V\ :=\ (P\times V)\big/\sim,\qquad (p\cdot g,\,v)\sim(p,\,\rho(g)v),
 > $$
+>
 > 即 $P\times V$ 在等价关系"用 $g$ 移动标架并用 $\rho(g)$ 移动分量使物理向量保持不变"下的商。它是 $M$ 上一个以 $V$ 为纤维、以 $\rho(G)$ 为结构群的向量丛。
 
 > **直觉。** $P$ 储存*所有可能的标架以及群如何置换它们*。一个表示 $\rho$ 说明*给定种类的物质如何响应*一次标架变换。把它们配对（$P\times_\rho V$）就重建出物理场丛。一个主丛，许多伴随物质丛——电子、夸克、Higgs 场——各经由其自身的表示。这就是为什么规范理论把主丛放在首位。
@@ -203,9 +209,11 @@
 > - $\ker\omega_p=H_p$（它的核是水平子空间）。
 >
 > 等价地，$\omega$ 把每个切向量投影到其竖直部分，并把它认同为 $\mathfrak{g}$ 的一个元素。$H$ 的等变性被编码为
+>
 > $$
 > R_g^*\omega=\mathrm{Ad}_{g^{-1}}\circ\,\omega,
 > $$
+>
 > 其中 $\mathrm{Ad}_{g^{-1}}(\xi)=g^{-1}\xi g$ 是 $G$ 在 $\mathfrak{g}$ 上的**伴随作用**。
 
 > **为什么这两组数据一致。** 给定 $\omega$，令 $H_p=\ker\omega_p$；由于 $\omega$ 限制在 $V_p$ 上是同构 $V_p\cong\mathfrak{g}$（第一条），其核与 $V_p$ 只在 $0$ 处相交，且具有互补的维数，所以 $T_pP=V_p\oplus H_p$。反过来，一个分解把 $\omega$ 定义为"竖直投影再接 $V_p\cong\mathfrak{g}$"。因此联络的两种表述是等价的——我们用哪个方便就用哪个。
@@ -222,9 +230,11 @@
 > **定义 — 局部规范势。**
 >
 > 设 $\sigma_\alpha:U_\alpha\to P$ 为一个局部截面（一个规范选取）。**局部规范势**是拉回的 1-形式
+>
 > $$
 > A_\alpha\ :=\ \sigma_\alpha^*\omega\ \in\ \Omega^1(U_\alpha;\mathfrak{g}),
 > $$
+>
 > 它是片 $U_\alpha\subseteq M$ 上取值于 $\mathfrak{g}$ 的 1-形式。在坐标下 $A_\alpha=A_\mu\,dx^\mu$，其中每个 $A_\mu(x)\in\mathfrak{g}$ 是一个李代数元素。对矩阵群，$A_\mu$ 是一个 1-形式分量构成的矩阵；这就是物理中的**规范场**（光子势、胶子场）。
 
 #### $A$ 在规范变换下如何变换
@@ -232,6 +242,7 @@
 重叠区 $U_\alpha\cap U_\beta$ 上的两个规范 $\sigma_\alpha,\sigma_\beta$ 通过转移函数 $g_{\alpha\beta}:U_\alpha\cap U_\beta\to G$ 经 $\sigma_\beta=\sigma_\alpha\cdot g_{\alpha\beta}$ 相联系（在每点用一个群元素重新标记参考标架）。我们来推导 $A$ 由此产生的变化。记 $g:=g_{\alpha\beta}$。
 
 > **定理 — 规范势的规范变换。**
+>
 > $$
 > A_\beta\ =\ g^{-1}A_\alpha\,g\ +\ g^{-1}\,dg.
 > $$
@@ -268,9 +279,11 @@ $$
 > **定义 — 曲率 2-形式。**
 >
 > 联络 $\omega$ 的**曲率 2-形式**为
+>
 > $$
 > \Omega\ :=\ d\omega+\tfrac12[\omega,\omega]\ \in\ \Omega^2(P;\mathfrak{g}),
 > $$
+>
 > 其中 $d$ 是外微分，$[\omega,\omega]$ 是取李括号值的楔积：在向量 $u,v$ 上，$[\omega,\omega](u,v)=2[\omega(u),\omega(v)]$。等价地 $\Omega=d\omega\circ(\mathrm{水平投影})$——曲率是 $d\omega$ 的*水平*部分（**Cartan 结构方程**）。
 
 对矩阵群，括号是对易子，且 $\tfrac12[\omega,\omega]=\omega\wedge\omega$（矩阵楔积），所以 $\Omega=d\omega+\omega\wedge\omega$。
@@ -280,10 +293,13 @@ $$
 > **定义 — 场强。**
 >
 > 经规范 $\sigma_\alpha$ 拉回，**场强**为
+>
 > $$
 > F\ :=\ \sigma_\alpha^*\Omega\ =\ dA+A\wedge A\ \in\ \Omega^2(U_\alpha;\mathfrak{g}),
 > $$
+>
 > 这里用了 $\sigma^*d\omega=d\sigma^*\omega=dA$（拉回与 $d$ 交换）以及 $\sigma^*(\omega\wedge\omega)=A\wedge A$。在分量中，取 $A=A_\mu dx^\mu$，
+>
 > $$
 > F=\tfrac12 F_{\mu\nu}\,dx^\mu\wedge dx^\nu,\qquad F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu+[A_\mu,A_\nu].
 > $$
@@ -298,6 +314,7 @@ $$
 #### $F$ 如何变换（规范协变性）
 
 > **定理。** 在带转移 $g$ 的规范变换下，
+>
 > $$
 > F_\beta\ =\ g^{-1}F_\alpha\,g\qquad(\text{即 }F\mapsto g^{-1}Fg,\text{ 齐次伴随变换}).
 > $$
@@ -386,9 +403,11 @@ $$
 > **定义 — 协变导数（规范导数）。**
 >
 > 设 $\rho:G\to GL(V)$ 为表示，$d\rho:\mathfrak g\to\mathfrak{gl}(V)$ 为其诱导的李代数表示。对一个截面 $\psi$（在一个规范中，是 $U$ 上的一个 $V$-值函数），**协变导数**为
+>
 > $$
 > D\psi=d\psi+\rho_*(A)\,\psi,\qquad\text{逐分量地 } D_\mu\psi=\partial_\mu\psi+\rho_*(A_\mu)\,\psi,
 > $$
+>
 > 其中 $\rho_*=d\rho$ 把代数元素 $A_\mu$ 表示为 $V$ 上的一个算子。对矩阵群的定义表示，$\rho_*(A_\mu)=A_\mu$ 通过矩阵乘法作用。
 
 #### 规范协变性——这一构造的要点
@@ -430,17 +449,21 @@ $$
 回顾（预备指南）一个定向（伪）Riemann $n$ 维流形上的 **Hodge 星** $\star$ 用度量把 $p$-形式映到 $(n-p)$-形式，且 $\int_M \alpha\wedge\star\beta$ 是形式的自然内积。对 $\mathfrak g$-值形式我们还取一个迹（$\mathfrak g$ 上的一个不变内积，在尺度意义下即 **Killing 形式**）。
 
 > **定义 — Yang–Mills 作用量。**
+>
 > $$
 > S_{\mathrm{YM}}[A]=-\frac{1}{2g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F\wedge\star F\big)=-\frac{1}{4g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F_{\mu\nu}F^{\mu\nu}\big)\sqrt{-\det g}\,\,d^nx,
 > $$
+>
 > 其中 $g_{\mathrm{YM}}$ 是**耦合常数**（记作 $g_{\mathrm{YM}}$ 以区别于 §s5–s8 的规范/转移元素 $g$），$\sqrt{-\det g}$ 是由时空度量 $g_{\mu\nu}$ 的行列式构成的不变体积因子，指标也用这同一个度量升降。被积式是规范不变的，因为 $F\mapsto g^{-1}Fg$ 而迹在共轭下不变（循环性）。
 
 #### 场方程
 
 > **定理 — Yang–Mills 方程。** 在 $A$ 上对 $S_{\mathrm{YM}}$ 取极值给出
+>
 > $$
 > D\star F=0,\qquad\text{即}\qquad D_\mu F^{\mu\nu}=\partial_\mu F^{\mu\nu}+[A_\mu,F^{\mu\nu}]=0,
 > $$
+>
 > 连同自动成立的 Bianchi 恒等式 $DF=0$（s6）。
 
 *推导。*
@@ -479,19 +502,25 @@ $$
 对一个*复*向量丛（结构群 $U(k)$，即物理上最核心的情形），$\frac{i}{2\pi}F$ 的不变多项式给出 **Chern 类**。
 
 > **定义 — Chern 类。** 展开**全 Chern 类**
+>
 > $$
 > c(F)=\det\!\Big(\mathrm{id}+\tfrac{i}{2\pi}F\Big)=1+c_1(F)+c_2(F)+\cdots,
 > $$
+>
 > 其中 $c_j(F)$ 是次数为 $2j$ 的部分。特别地：
+>
 > $$
 > c_1=\tfrac{i}{2\pi}\,\mathrm{tr}\,F,\qquad c_2=\tfrac{1}{8\pi^2}\big(\mathrm{tr}\,F\wedge\mathrm{tr}\,F-\mathrm{tr}(F\wedge F)\big).
 > $$
+>
 > 在闭子流形上的积分 $\int_\Sigma c_j$ 是**整数**（Chern 数）。
 
 > **范例 — $S^2$ 上 $U(1)$ 丛的第一 Chern 数。** 此处 $F$ 是一个普通的（纯虚的）2-形式，$c_1=\frac{i}{2\pi}F$。积分
+>
 > $$
 > n=\int_{S^2}c_1=\frac{i}{2\pi}\int_{S^2}F
 > $$
+>
 > 被迫为整数：把 $S^2$ 分成北、南两顶帽，势 $A_N,A_S$ 在赤道上相差一个规范变换 $g=e^{in\phi}$。由 Stokes，$\int_{S^2}F=\oint_{\mathrm{eq}}(A_N-A_S)=\oint g^{-1}dg=2\pi i\,n$，给出整数 $n$。这个整数是 Dirac 单极子的**磁荷**（s11），也是量子 Hall 效应的 **TKNN 整数**——一个无法连续改变的拓扑不变量。
 
 #### Chern–Simons 形式
@@ -499,6 +528,7 @@ $$
 Chern 类是*闭的*，但在局部上是*恰当的*：$c_j(F)=d(\text{某物})$。那个"某物"就是 **Chern–Simons 形式**。
 
 > **定义 — Chern–Simons 3-形式。** 对第二 Chern 类，$\mathrm{tr}(F\wedge F)=d\,\mathrm{CS}(A)$，其中
+>
 > $$
 > \mathrm{CS}(A)=\mathrm{tr}\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
 > $$
@@ -521,6 +551,7 @@ Chern 类是*闭的*，但在局部上是*恰当的*：$c_j(F)=d(\text{某物})$
 磁单极子是磁场 $\mathbf B=\frac{q_m}{4\pi}\frac{\hat r}{r^2}$ 的一个假想点源。于是 $\int_{S^2}\mathbf B\cdot d\mathbf S=q_m\ne 0$，所以 $F$ 穿过任何围绕它的球面有非零通量——但 $F=dA$ 会经 Stokes 迫使通量消失。其解决是几何的。
 
 > **解决 — 没有整体的势；一个非平凡 $U(1)$ 丛。** $S^2$ 上没有单一光滑的 $A$；改用两个片（s10 的顶帽），势 $A_N,A_S$ 在赤道上由一个 $U(1)$ 规范变换 $g=e^{iq q_m\phi/(2\pi)}$ 相联系。当 $\phi\to\phi+2\pi$ 时 $g$ 的光滑性（单值性，因为 $\psi$ 是丛的截面而非函数）要求指数前进 $2\pi i$ 的整数倍：
+>
 > $$
 > q\,q_m=2\pi n,\qquad n\in\mathbb{Z}.
 > $$
@@ -534,9 +565,11 @@ Chern 类是*闭的*，但在局部上是*恰当的*：$c_j(F)=d(\text{某物})$
 取一个携带通量 $\Phi$ 的无限长螺线管，其外部 $\mathbf B=0$。一个电子穿过螺线管外的无场区域，从其两侧经过，两束发生干涉。
 
 > **分析。** 在外部 $F=0$，所以联络是*平坦*的；经典上没有力作用（$\mathbf E=\mathbf B=0$）。然而绕过螺线管的圈的和乐（s7），由 Stokes 应用于所围的（非单连通）区域，为
+>
 > $$
 > U[\gamma]=\exp\!\Big(iq\oint_\gamma\mathbf A\cdot d\mathbf l\Big)=\exp\!\Big(iq\!\int_\Sigma F\Big)=\exp(iq\Phi)\ne 1.
 > $$
+>
 > 两条路径之间的相对相位 $q\Phi$ 移动了干涉条纹——这是电子从未进入过的一个区域的一个可测效应。
 
 教训是：在规范理论中*势 $A$（联络），而不仅是场 $F$（曲率），具有物理实在性*——但只通过规范不变的和乐体现。这个效应是拓扑的：它只依赖于所围的通量，即依赖于绕这个非单连通区域的圈的同伦类，并由 Tonomura 在实验上证实。它是物理活在丛上、而非仅活在时空场上这一点最干净的演示。

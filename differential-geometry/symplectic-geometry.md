@@ -73,9 +73,11 @@ We write $\dim V = 2n$.
 > **Definition — standard symplectic form on $\mathbb{R}^{2n}$.**
 >
 > On $\mathbb{R}^{2n}$ with coordinates $(q^1,\dots,q^n,p_1,\dots,p_n)$, the **standard symplectic form** is
+>
 > $$
 > \omega_0 \;=\; \sum_{i=1}^n dq^i\wedge dp_i,
 > $$
+>
 > which acts on two vectors $u=(a^i,b_i)$ and $v=(c^i,d_i)$ by $\omega_0(u,v)=\sum_i (a^i d_i - b_i c^i)$.
 
 In matrix form $\omega_0(u,v)=u^{\mathsf T} J\, v$ with the $2n\times 2n$ block matrix
@@ -85,9 +87,11 @@ $$
 where $I_n$ is the $n\times n$ identity. One checks $J^{\mathsf T}=-J$ (antisymmetric) and $\det J = 1\ne 0$ (nondegenerate), so $(\mathbb{R}^{2n},\omega_0)$ is a symplectic vector space.
 
 > **Theorem — linear Darboux / symplectic basis.** Every symplectic vector space $(V,\omega)$ of dimension $2n$ has a basis $e_1,\dots,e_n,f_1,\dots,f_n$ — a **symplectic basis** — in which
+>
 > $$
 > \omega(e_i,e_j)=0,\quad \omega(f_i,f_j)=0,\quad \omega(e_i,f_j)=\delta_{ij},
 > $$
+>
 > where $\delta_{ij}$ is $1$ if $i=j$ and $0$ otherwise. In this basis $\omega$ is exactly $\omega_0$. Thus all symplectic vector spaces of the same dimension are isomorphic.
 
 **Proof (by induction on $n$, the Gram–Schmidt analogue).**
@@ -138,9 +142,11 @@ By s1, nondegeneracy forces $\dim M = 2n$ to be even. The form $\omega$ being a 
 Nondegeneracy gives, at each point, the isomorphism $\flat:T_pM\to T_p^*M$, $X\mapsto \iota_X\omega := \omega(X,\cdot)$. Its inverse is written $\sharp$. This **musical isomorphism** lets us convert a covector (such as $dH$) into a vector (the Hamiltonian field $X_H$), the construction underlying all of mechanics.
 
 > **Proposition — the Liouville volume.** On a $2n$-dimensional symplectic manifold the top-degree form
+>
 > $$
 > \omega^n := \underbrace{\omega\wedge\cdots\wedge\omega}_{n}
 > $$
+>
 > is nowhere zero; it is a volume form, the **Liouville volume**.
 
 **Proof.** At a point, choose a symplectic basis (s1) so $\omega=\sum_i dq^i\wedge dp_i$. Expanding the wedge power, every term with a repeated factor $dq^i\wedge dp_i\wedge dq^i$ vanishes (a repeated $1$-form wedges to zero), leaving only the fully mixed terms; collecting them, $\omega^n = n!\, dq^1\wedge dp_1\wedge\cdots\wedge dq^n\wedge dp_n$, which is $n!$ times the standard volume and hence nonzero. *Reason:* the wedge of $2n$ distinct coordinate $1$-forms in $2n$ dimensions is the volume form. $\blacksquare$
@@ -154,9 +160,11 @@ A consequence (anticipating s5): Hamiltonian flow preserves $\omega$, hence pres
 The most surprising structural fact is that, unlike a metric, a symplectic form has *no local invariants*: locally every symplectic manifold is the standard one.
 
 > **Theorem — Darboux.** Let $(M,\omega)$ be a $2n$-dimensional symplectic manifold and $p\in M$. There is a coordinate chart $(U;q^1,\dots,q^n,p_1,\dots,p_n)$ around $p$ in which
+>
 > $$
 > \omega = \sum_{i=1}^n dq^i\wedge dp_i.
 > $$
+>
 > These are **Darboux** (or **canonical**) coordinates.
 
 **Idea of proof (Moser's deformation trick).** The cleanest argument interpolates between $\omega$ and a constant-coefficient model.
@@ -184,12 +192,15 @@ The bundle projection is $\pi:T^*Q\to Q$, $\pi(q,p)=q$, with derivative $d\pi:T_
 #### The tautological one-form
 
 > **Definition — tautological (Liouville) one-form.** Define a $1$-form $\theta$ on $T^*Q$ at the point $(q,p)$ by
+>
 > $$
 > \theta_{(q,p)}(X) := p\big(d\pi(X)\big),\qquad X\in T_{(q,p)}(T^*Q).
 > $$
+>
 > In words: push the tangent vector $X$ down to $Q$ via $d\pi$, then evaluate the covector $p$ — which lives at the very point we are sitting over — on it. Hence "tautological": $\theta$ uses the point's own $p$.
 
 > **Lemma — coordinate expression.** In induced coordinates,
+>
 > $$
 > \theta = \sum_{i=1}^n p_i\, dq^i.
 > $$
@@ -205,6 +216,7 @@ The bundle projection is $\pi:T^*Q\to Q$, $\pi(q,p)=q$, with derivative $d\pi:T_
 > **Definition — canonical symplectic form.** $\omega_{\mathrm{can}} := -\,d\theta$.
 
 > **Proposition.** $\omega_{\mathrm{can}}$ is a symplectic form on $T^*Q$, and in induced coordinates
+>
 > $$
 > \omega_{\mathrm{can}} = \sum_{i=1}^n dq^i\wedge dp_i.
 > $$
@@ -231,12 +243,15 @@ Now dynamics. A function on phase space generates a flow, and two functions can 
 #### Hamiltonian vector fields
 
 > **Definition — Hamiltonian vector field.** Let $(M,\omega)$ be symplectic and $f\in C^\infty(M)$ a smooth function. Its **Hamiltonian vector field** $X_f$ is the unique vector field with
+>
 > $$
 > \iota_{X_f}\omega = df,\qquad\text{i.e.}\qquad \omega(X_f,\cdot)=df.
 > $$
+>
 > Existence and uniqueness follow because $\flat:X\mapsto\iota_X\omega$ is an isomorphism (nondegeneracy, s2); explicitly $X_f=\sharp(df)$.
 
 > **Coordinate form (Darboux).** In Darboux coordinates with $\omega=\sum dq^i\wedge dp_i$,
+>
 > $$
 > X_f = \sum_{i=1}^n\left(\frac{\partial f}{\partial p_i}\,\frac{\partial}{\partial q^i} - \frac{\partial f}{\partial q^i}\,\frac{\partial}{\partial p_i}\right).
 > $$
@@ -252,12 +267,15 @@ Taking $f=H$ the Hamiltonian, the integral curves of $X_H$ satisfy $\dot q^i=\pa
 #### The Poisson bracket
 
 > **Definition — Poisson bracket.** For $f,g\in C^\infty(M)$,
+>
 > $$
 > \{f,g\} := \omega(X_f,X_g).
 > $$
+>
 > A single computation evaluates it: $\omega(X_f,X_g)=(\iota_{X_f}\omega)(X_g)=df(X_g)=X_g(f)$, where the second equality is $\iota_{X_f}\omega=df$ and the third is the action of the $1$-form $df$ on the vector $X_g$. Thus $\{f,g\}=X_g(f)$, fixing the overall sign once and for all.
 
 > **Coordinate form.**
+>
 > $$
 > \{f,g\} = \sum_{i=1}^n\left(\frac{\partial f}{\partial q^i}\frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q^i}\right).
 > $$
@@ -267,6 +285,7 @@ Taking $f=H$ the Hamiltonian, the integral curves of $X_H$ satisfy $\dot q^i=\pa
 The bracket is **bilinear** and **antisymmetric** ($\{f,g\}=-\{g,f\}$, immediate from $\omega$ antisymmetric) and obeys the **Leibniz rule** $\{f,gh\}=\{f,g\}h+g\{f,h\}$ (because $X_f$ is a derivation). The deep property is:
 
 > **Theorem — Jacobi identity.** For all $f,g,h\in C^\infty(M)$,
+>
 > $$
 > \{f,\{g,h\}\}+\{g,\{h,f\}\}+\{h,\{f,g\}\}=0.
 > $$
@@ -357,9 +376,11 @@ In words: the moment map packages the conserved quantities of all the symmetries
 When a symmetry is present, the dynamics secretly take place on a smaller space: fix the conserved charge and quotient by the symmetry.
 
 > **Theorem — Marsden–Weinstein–Meyer reduction.** Let $G$ act on $(M,\omega)$ with equivariant moment map $\mu$, and let $\zeta\in\mathfrak g^*$ be a value fixed by the coadjoint action (e.g. $\zeta=0$, or any value if $G$ is abelian). Suppose $G$ acts freely and properly on the level set $\mu^{-1}(\zeta)$. Then the **reduced space**
+>
 > $$
 > M_\zeta := \mu^{-1}(\zeta)\big/G
 > $$
+>
 > is a smooth manifold and carries a unique symplectic form $\omega_\zeta$ with $\iota^*\omega = \pi^*\omega_\zeta$, where $\iota:\mu^{-1}(\zeta)\hookrightarrow M$ is the inclusion and $\pi:\mu^{-1}(\zeta)\to M_\zeta$ the quotient projection. Its dimension is $\dim M - 2\dim G$.
 
 **Idea of proof.**
@@ -409,9 +430,11 @@ Quantization needs more than a symplectic form: it needs a way to split phase sp
 > **Definition — almost-complex structure.** An **almost-complex structure** on a manifold $M$ is a $(1,1)$-tensor field $J:TM\to TM$ (a smoothly varying linear map on each tangent space) with $J^2=-\mathrm{id}$. It makes each tangent space a complex vector space (multiplication by $i$ is "apply $J$").
 
 > **Definition — compatible triple.** On a symplectic manifold $(M,\omega)$, an almost-complex structure $J$ is **compatible** with $\omega$ if
+>
 > $$
 > g(X,Y):=\omega(X,JY)
 > $$
+>
 > is a **Riemannian metric** — symmetric and positive-definite. The data $(\omega,J,g)$ is then a **compatible triple**: any two determine the third.
 
 > **Proposition — compatible $J$ always exists.** Every symplectic manifold admits a compatible almost-complex structure.
@@ -445,14 +468,17 @@ $$
 where $\hbar$ is the reduced Planck constant. A first guess $\hat f = -i\hbar X_f$ gets the bracket right (because $[X_f,X_g]=X_{\{f,g\}}$ from s4) but fails $\hat 1=\mathrm{id}$, since $X_1=0$ would give $\hat 1=0$. The fix adds a multiplication term built from the symplectic potential.
 
 > **Definition — prequantum line bundle.** A **prequantum line bundle** over $(M,\omega)$ is a complex line bundle $L\to M$ (a vector bundle with one-dimensional complex fibers) equipped with a Hermitian metric $\langle\cdot,\cdot\rangle$ and a compatible connection $\nabla$ whose **curvature** is
+>
 > $$
 > F_\nabla = -\frac{i}{\hbar}\,\omega.
 > $$
+>
 > Sections of $L$ — smooth choices $s(x)\in L_x$ — are the **prequantum wavefunctions**.
 
 The connection $\nabla$ is a rule for differentiating sections; its curvature is the $2$-form $F_\nabla$ measuring the failure of $\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X,Y]}$ to vanish. Locally, where $\omega=d\theta$, one writes $\nabla=d-\tfrac{i}{\hbar}\theta$, and then $F_\nabla=-\tfrac{i}{\hbar}d\theta=-\tfrac{i}{\hbar}\omega$.
 
 > **Definition — prequantum operator.** For $f\in C^\infty(M)$,
+>
 > $$
 > \hat f := -i\hbar\,\nabla_{X_f} + f.
 > $$
@@ -472,6 +498,7 @@ The connection $\nabla$ is a rule for differentiating sections; its curvature is
 The bundle $L$ with curvature $-\tfrac{i}{\hbar}\omega$ does not always exist. Whether it does is a topological quantization condition.
 
 > **Theorem — Weil integrality.** A prequantum line bundle exists if and only if the cohomology class of $\dfrac{\omega}{2\pi\hbar}$ is **integral**: for every closed oriented $2$-surface $\Sigma\subseteq M$,
+>
 > $$
 > \frac{1}{2\pi\hbar}\int_\Sigma \omega \;\in\; \mathbb{Z}.
 > $$

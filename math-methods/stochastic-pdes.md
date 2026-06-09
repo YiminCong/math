@@ -71,6 +71,7 @@ This single formula, read for all $v$, *defines* the law of $X$. We will lift ex
 
 > **Definition — Gaussian measure on a Hilbert space.**
 > Let $H$ be a separable Hilbert space (one with a countable orthonormal basis). A probability measure $\mu$ on $H$ is **Gaussian with mean $0$ and covariance operator $Q$** (where $Q:H\to H$ is symmetric, positive, and **trace class**) if for every $v\in H$
+>
 > $$
 > \int_H e^{i\langle v,x\rangle}\,\mu(dx)=\exp\!\Big(-\tfrac12\langle v,Qv\rangle\Big).
 > $$
@@ -92,6 +93,7 @@ The contrapositive is the lesson: **if $Q$ is not trace class, the Gaussian meas
 
 > **Definition — white noise.**
 > Let $H$ be a separable Hilbert space (for concreteness $H=L^2(D)$, the square-integrable functions on a domain $D$, with inner product $\langle f,g\rangle=\int_D f(x)g(x)\,dx$). **White noise** on $H$ is the Gaussian object $\xi$ whose covariance operator is the identity $I$: for every pair $f,g\in H$ the pairings $\langle\xi,f\rangle$ and $\langle\xi,g\rangle$ are jointly centered normal with
+>
 > $$
 > \mathbb{E}\big[\langle\xi,f\rangle\,\langle\xi,g\rangle\big]=\langle f,g\rangle=\int_D f(x)g(x)\,dx.
 > $$
@@ -139,9 +141,11 @@ For an *evolution* equation we need noise that is random in space **and** in tim
 
 > **Definition — space–time white noise.**
 > Space–time white noise $\xi$ on $[0,\infty)\times D$ is the centered Gaussian field characterized by
+>
 > $$
 > \mathbb{E}\big[\langle\xi,\varphi\rangle\,\langle\xi,\psi\rangle\big]=\int_0^\infty\!\!\int_D \varphi(t,x)\,\psi(t,x)\,dx\,dt
 > $$
+>
 > for space–time test functions $\varphi,\psi$. Heuristically $\mathbb{E}[\xi(t,x)\xi(s,y)]=\delta(t-s)\,\delta(x-y)$: uncorrelated across distinct times and distinct points.
 
 #### The cylindrical Wiener process — construction
@@ -150,6 +154,7 @@ Fix a separable Hilbert space $H$ with orthonormal basis $\{e_k\}_{k\ge1}$ (thin
 
 > **Definition — cylindrical Wiener process.**
 > Let $\{\beta_k(t)\}_{k\ge1}$ be a sequence of *independent* standard real Brownian motions. The **cylindrical Wiener process** on $H$ is the formal series
+>
 > $$
 > W(t)=\sum_{k=1}^\infty \beta_k(t)\,e_k.
 > $$
@@ -168,6 +173,7 @@ So just like white noise (§s1), the cylindrical Wiener process is too big for $
 
 > **Definition — $Q$-Wiener process.**
 > Let $Q:H\to H$ be symmetric, positive, trace class, with eigenpairs $Qe_k=\lambda_k e_k$, $\lambda_k\ge0$, $\sum_k\lambda_k<\infty$. The **$Q$-Wiener process** is
+>
 > $$
 > W^Q(t)=\sum_{k=1}^\infty \sqrt{\lambda_k}\,\beta_k(t)\,e_k.
 > $$
@@ -206,9 +212,11 @@ If the cylindrical $W(t)=\sum_k\beta_k(t)e_k$ diverges in $H$, in what space doe
 The simplest non-trivial SPDE is the **stochastic heat equation (SHE)**: the heat equation forced by space–time white noise. It is the harmonic oscillator of the subject — explicitly solvable, and the template for everything nonlinear. Our goal is to *derive* its solution and show in what sense it exists.
 
 > **The stochastic heat equation.**
+>
 > $$
 > \partial_t u(t,x)=\Delta u(t,x)+\xi(t,x),\qquad u(0,\cdot)=u_0,
 > $$
+>
 > with $\xi$ space–time white noise, $\Delta$ the Laplacian, on a domain $D$ with (say) periodic boundary conditions.
 
 #### The obstacle and the idea
@@ -225,10 +233,13 @@ From the PDE guide: the heat equation $\partial_t v=\Delta v$, $v(0)=v_0$, is so
 > 1. For the deterministic forced equation $\partial_t u=\Delta u+f(t)$, $u(0)=u_0$, define $w(s):=S(t-s)u(s)$ for $0\le s\le t$. Differentiate in $s$ by the product rule: $w'(s)=-\Delta S(t-s)u(s)+S(t-s)u'(s)$, since $\tfrac{d}{ds}S(t-s)=-\Delta S(t-s)$.
 > 2. Substitute $u'(s)=\Delta u(s)+f(s)$: $w'(s)=-\Delta S(t-s)u(s)+S(t-s)\Delta u(s)+S(t-s)f(s)$. The operators $\Delta$ and $S(t-s)$ commute (both are diagonal in the same eigenbasis), so the first two terms cancel: $w'(s)=S(t-s)f(s)$.
 > 3. Integrate from $0$ to $t$: $w(t)-w(0)=\int_0^t S(t-s)f(s)\,ds$. Now $w(t)=S(0)u(t)=u(t)$ and $w(0)=S(t)u_0$, giving the **Duhamel/variation-of-constants formula**
+>
 > $$
 > u(t)=S(t)u_0+\int_0^t S(t-s)f(s)\,ds.
 > $$
+>
 > 4. Replace the deterministic forcing $f(s)\,ds$ by the noise increment $dW(s)$ (the cylindrical Wiener process whose time-derivative is white noise, §s2). This yields the **mild solution** of the SHE:
+>
 > $$
 > u(t)=S(t)u_0+\int_0^t S(t-s)\,dW(s).
 > $$
@@ -272,9 +283,11 @@ To handle nonlinear and more general SPDEs we need to integrate operator-valued 
 Let $\Phi(s)$ be a process taking values in operators from $H$ to another Hilbert space $K$ (predictable, i.e. not anticipating the future). The **stochastic integral** $\int_0^t\Phi(s)\,dW(s)$ against a $Q$-Wiener process is defined, exactly as in finite dimensions, first for simple (piecewise-constant) integrands and then extended by an isometry.
 
 > **Itô isometry (Hilbert-space form).**
+>
 > $$
 > \mathbb{E}\Big\|\int_0^t\Phi(s)\,dW(s)\Big\|_K^2=\mathbb{E}\int_0^t\big\|\Phi(s)\,Q^{1/2}\big\|_{\mathrm{HS}}^2\,ds,
 > $$
+>
 > where $\|A\|_{\mathrm{HS}}^2=\sum_k\|Ae_k\|^2$ is the squared **Hilbert–Schmidt norm**.
 
 **Derivation for a simple integrand.**
@@ -288,6 +301,7 @@ The appearance of the **Hilbert–Schmidt norm** is the deep structural fact: an
 #### The stochastic convolution, revisited as the key tool
 
 > **Definition — stochastic convolution.** For a semigroup $S(\cdot)$ and cylindrical noise $W$,
+>
 > $$
 > W_A(t):=\int_0^t S(t-s)\,dW(s).
 > $$
@@ -330,10 +344,13 @@ Let $F(u)=\tfrac12\|u\|^2$, so $F'(u)=u$ and $F''(u)=I$. Apply Itô's formula to
 Real models have nonlinearities. The cleanest tractable class is **semilinear** SPDEs — linear leading operator plus a nonlinear lower-order term — and the standard existence proof is a **Banach fixed-point (contraction mapping) argument**, the same technique that proves existence for ordinary differential equations, lifted to the mild formulation.
 
 > **The semilinear SPDE.**
+>
 > $$
 > \partial_t u=\Delta u+F(u)+\sigma(u)\,\xi,\qquad u(0)=u_0,
 > $$
+>
 > with mild form
+>
 > $$
 > u(t)=S(t)u_0+\int_0^t S(t-s)F(u(s))\,ds+\int_0^t S(t-s)\sigma(u(s))\,dW(s).
 > $$
@@ -385,9 +402,11 @@ Take $L=1$ (the $\sin$ example) and additive noise $\sigma\equiv1$. From step 5,
 The KPZ equation models a randomly growing one-dimensional interface and is the canonical example of an SPDE that is *not* covered by the Lipschitz theory — in fact the naive equation has no classical solution at all. Understanding *why* it fails is the motivation for everything in Part D.
 
 > **The KPZ equation.** For interface height $h(t,x)$, $x\in\mathbb{R}$ (or a circle),
+>
 > $$
 > \partial_t h=\nu\,\partial_x^2 h+\tfrac{\lambda}{2}(\partial_x h)^2+\xi,
 > $$
+>
 > with $\nu>0$ the surface tension, $\lambda$ the growth coupling, and $\xi$ space–time white noise. The three terms are: smoothing ($\partial_x^2 h$), slope-dependent growth ($(\partial_x h)^2$, the **KPZ nonlinearity**), and random deposition ($\xi$).
 
 #### Why the equation is ill-posed — the precise obstruction
@@ -478,9 +497,11 @@ In $d=1$, $u$ has regularity $\tfrac12$. The product rule needs the exponents of
 When the nonlinearity is *almost* manageable — the solution is only slightly too rough — there is an elegant elementary method, due to Da Prato and Debussche, that handles the singularity by **splitting off the worst part explicitly** and solving for a smoother remainder. It is the gateway drug to the full theories of §s9 and the place where **renormalization** first appears concretely.
 
 > **Model equation — the dynamical $\Phi^4_2$ equation.**
+>
 > $$
 > \partial_t u=\Delta u-u^3+\xi\qquad\text{on the 2-torus},
 > $$
+>
 > space–time white noise $\xi$, spatial dimension $d=2$. As in §s7 the solution is a distribution, so $u^3$ is undefined and must be renormalized.
 
 #### The trick — derivation
@@ -562,15 +583,19 @@ For $\Phi^4_3$ the rough objects needed are: $X=\mathcal{I}(\Xi)$ (regularity $-
 We now reveal the deep purpose of all the machinery. Parisi and Wu (1981) proposed: to construct and sample a Euclidean quantum field — a probability measure on field configurations — *run an SPDE to equilibrium*. The **invariant (stationary) measure** of the dynamical $\Phi^4$ equation is exactly the **$\Phi^4$ quantum field measure**. SPDEs become a tool of constructive field theory.
 
 > **The $\Phi^4$ measure (target).** Formally, on fields $\phi:D\to\mathbb{R}$,
+>
 > $$
 > \nu(d\phi)\propto\exp\!\Big(-\!\int_D\big[\tfrac12|\nabla\phi|^2+\tfrac14\phi^4\big]dx\Big)\,\mathcal{D}\phi,
 > $$
+>
 > the **Euclidean $\Phi^4$ measure**: a Gaussian (free-field) part $e^{-\frac12\int|\nabla\phi|^2}$ tilted by the quartic interaction $e^{-\frac14\int\phi^4}$. ($\mathcal{D}\phi$ is the formal "flat" measure on fields.)
 
 > **The dynamical $\Phi^4$ equation (the SPDE).**
+>
 > $$
 > \partial_t\phi=\Delta\phi-\phi^3+\sqrt{2}\,\xi,
 > $$
+>
 > with $t$ a **fictitious extra time** (not physical time) and $\xi$ space–time white noise. This is the renormalized equation of §s8 with a specific noise normalization.
 
 #### Why the invariant measure is the $\Phi^4$ measure — derivation

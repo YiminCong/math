@@ -73,9 +73,11 @@ $$
 > **定义 —— $\mathbb{R}^{2n}$ 上的标准辛形式。**
 >
 > 在带有坐标 $(q^1,\dots,q^n,p_1,\dots,p_n)$ 的 $\mathbb{R}^{2n}$ 上，**标准辛形式** 为
+>
 > $$
 > \omega_0 \;=\; \sum_{i=1}^n dq^i\wedge dp_i,
 > $$
+>
 > 它作用在两个向量 $u=(a^i,b_i)$ 与 $v=(c^i,d_i)$ 上为 $\omega_0(u,v)=\sum_i (a^i d_i - b_i c^i)$。
 
 用矩阵形式写作 $\omega_0(u,v)=u^{\mathsf T} J\, v$，其中 $2n\times 2n$ 的分块矩阵为
@@ -85,9 +87,11 @@ $$
 此处 $I_n$ 是 $n\times n$ 单位矩阵。容易验证 $J^{\mathsf T}=-J$（反对称）以及 $\det J = 1\ne 0$（非退化），故 $(\mathbb{R}^{2n},\omega_0)$ 是辛向量空间。
 
 > **定理 —— 线性达布 / 辛基。** 每个 $2n$ 维辛向量空间 $(V,\omega)$ 都有一组基 $e_1,\dots,e_n,f_1,\dots,f_n$——称为 **辛基**——使得
+>
 > $$
 > \omega(e_i,e_j)=0,\quad \omega(f_i,f_j)=0,\quad \omega(e_i,f_j)=\delta_{ij},
 > $$
+>
 > 其中 $\delta_{ij}$ 在 $i=j$ 时为 $1$，否则为 $0$。在此基下 $\omega$ 恰为 $\omega_0$。因此所有同维的辛向量空间都是同构的。
 
 **证明（对 $n$ 归纳，格拉姆–施密特法的类比）。**
@@ -138,9 +142,11 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 非退化性在每一点给出同构 $\flat:T_pM\to T_p^*M$，$X\mapsto \iota_X\omega := \omega(X,\cdot)$。其逆记作 $\sharp$。这个 **音乐同构** 让我们把余向量（例如 $dH$）转化为向量（哈密顿场 $X_H$），这是全部力学背后的构造。
 
 > **命题 —— 刘维尔体积。** 在 $2n$ 维辛流形上，最高次形式
+>
 > $$
 > \omega^n := \underbrace{\omega\wedge\cdots\wedge\omega}_{n}
 > $$
+>
 > 处处非零；它是一个体积形式，称为 **刘维尔体积**。
 
 **证明。** 在某点选取辛基（s1），使 $\omega=\sum_i dq^i\wedge dp_i$。展开这个楔幂，每个含重复因子 $dq^i\wedge dp_i\wedge dq^i$ 的项都为零（重复的 $1$-形式楔积为零），只剩下完全混合的项；汇集这些项得 $\omega^n = n!\, dq^1\wedge dp_1\wedge\cdots\wedge dq^n\wedge dp_n$，这是标准体积的 $n!$ 倍，因而非零。*理由：* $2n$ 维中 $2n$ 个不同坐标 $1$-形式的楔积就是体积形式。$\blacksquare$
@@ -154,9 +160,11 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 最令人惊讶的结构性事实是，与度量不同，辛形式 *没有局部不变量*：每个辛流形局部上都是标准的那个。
 
 > **定理 —— 达布。** 设 $(M,\omega)$ 是 $2n$ 维辛流形，$p\in M$。在 $p$ 附近存在坐标卡 $(U;q^1,\dots,q^n,p_1,\dots,p_n)$，使得
+>
 > $$
 > \omega = \sum_{i=1}^n dq^i\wedge dp_i.
 > $$
+>
 > 这些称为 **达布**（或 **典范**）坐标。
 
 **证明思路（莫泽形变技巧）。** 最干净的论证是在 $\omega$ 与一个常系数模型之间进行插值。
@@ -184,12 +192,15 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 #### 重言一形式
 
 > **定义 —— 重言（刘维尔）一形式。** 在 $T^*Q$ 上的点 $(q,p)$ 处定义 $1$-形式 $\theta$ 为
+>
 > $$
 > \theta_{(q,p)}(X) := p\big(d\pi(X)\big),\qquad X\in T_{(q,p)}(T^*Q).
 > $$
+>
 > 用语言说：通过 $d\pi$ 把切向量 $X$ 下推到 $Q$，再用余向量 $p$——它就栖息于我们所在的那一点——去作用它。故称“重言”：$\theta$ 使用的是该点自身的 $p$。
 
 > **引理 —— 坐标表达式。** 在诱导坐标下，
+>
 > $$
 > \theta = \sum_{i=1}^n p_i\, dq^i.
 > $$
@@ -205,6 +216,7 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 > **定义 —— 典范辛形式。** $\omega_{\mathrm{can}} := -\,d\theta$。
 
 > **命题。** $\omega_{\mathrm{can}}$ 是 $T^*Q$ 上的辛形式，且在诱导坐标下
+>
 > $$
 > \omega_{\mathrm{can}} = \sum_{i=1}^n dq^i\wedge dp_i.
 > $$
@@ -231,12 +243,15 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 #### 哈密顿向量场
 
 > **定义 —— 哈密顿向量场。** 设 $(M,\omega)$ 为辛流形，$f\in C^\infty(M)$ 为光滑函数。其 **哈密顿向量场** $X_f$ 是满足下式的唯一向量场
+>
 > $$
 > \iota_{X_f}\omega = df,\qquad\text{即}\qquad \omega(X_f,\cdot)=df.
 > $$
+>
 > 存在性与唯一性由 $\flat:X\mapsto\iota_X\omega$ 是同构（非退化，s2）得出；显式地 $X_f=\sharp(df)$。
 
 > **坐标形式（达布）。** 在 $\omega=\sum dq^i\wedge dp_i$ 的达布坐标下，
+>
 > $$
 > X_f = \sum_{i=1}^n\left(\frac{\partial f}{\partial p_i}\,\frac{\partial}{\partial q^i} - \frac{\partial f}{\partial q^i}\,\frac{\partial}{\partial p_i}\right).
 > $$
@@ -252,12 +267,15 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 #### 泊松括号
 
 > **定义 —— 泊松括号。** 对 $f,g\in C^\infty(M)$，
+>
 > $$
 > \{f,g\} := \omega(X_f,X_g).
 > $$
+>
 > 一次计算即可求出它：$\omega(X_f,X_g)=(\iota_{X_f}\omega)(X_g)=df(X_g)=X_g(f)$，其中第二个等号是 $\iota_{X_f}\omega=df$，第三个是 $1$-形式 $df$ 作用于向量 $X_g$。于是 $\{f,g\}=X_g(f)$，一劳永逸地固定整体符号。
 
 > **坐标形式。**
+>
 > $$
 > \{f,g\} = \sum_{i=1}^n\left(\frac{\partial f}{\partial q^i}\frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q^i}\right).
 > $$
@@ -267,6 +285,7 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 该括号是 **双线性** 且 **反对称** 的（$\{f,g\}=-\{g,f\}$，由 $\omega$ 反对称立得），并满足 **莱布尼茨法则** $\{f,gh\}=\{f,g\}h+g\{f,h\}$（因为 $X_f$ 是一个求导）。其深刻性质是：
 
 > **定理 —— 雅可比恒等式。** 对所有 $f,g,h\in C^\infty(M)$，
+>
 > $$
 > \{f,\{g,h\}\}+\{g,\{h,f\}\}+\{h,\{f,g\}\}=0.
 > $$
@@ -357,9 +376,11 @@ $$
 当存在对称性时，动力学其实发生在一个更小的空间上：固定守恒荷并对对称性取商。
 
 > **定理 —— 马斯登–韦恩斯坦–迈耶约化。** 设 $G$ 作用于 $(M,\omega)$，带等变矩映射 $\mu$，并设 $\zeta\in\mathfrak g^*$ 是余伴随作用的不动值（例如 $\zeta=0$，或当 $G$ 阿贝尔时为任意值）。假设 $G$ 在水平集 $\mu^{-1}(\zeta)$ 上自由且正常地作用。则 **约化空间**
+>
 > $$
 > M_\zeta := \mu^{-1}(\zeta)\big/G
 > $$
+>
 > 是一个光滑流形，并带有唯一的辛形式 $\omega_\zeta$，满足 $\iota^*\omega = \pi^*\omega_\zeta$，其中 $\iota:\mu^{-1}(\zeta)\hookrightarrow M$ 是包含映射，$\pi:\mu^{-1}(\zeta)\to M_\zeta$ 是商投影。其维数为 $\dim M - 2\dim G$。
 
 **证明思路。**
@@ -409,9 +430,11 @@ $$
 > **定义 —— 概复结构。** 流形 $M$ 上的 **概复结构** 是一个 $(1,1)$-张量场 $J:TM\to TM$（每个切空间上光滑变化的线性映射），满足 $J^2=-\mathrm{id}$。它使每个切空间成为一个复向量空间（乘以 $i$ 即“施以 $J$”）。
 
 > **定义 —— 相容三元组。** 在辛流形 $(M,\omega)$ 上，概复结构 $J$ 与 $\omega$ **相容**，若
+>
 > $$
 > g(X,Y):=\omega(X,JY)
 > $$
+>
 > 是一个 **黎曼度量**——对称且正定。此时数据 $(\omega,J,g)$ 称为 **相容三元组**：任意两者决定第三者。
 
 > **命题 —— 相容的 $J$ 总是存在。** 每个辛流形都允许一个相容的概复结构。
@@ -445,14 +468,17 @@ $$
 其中 $\hbar$ 是约化普朗克常数。第一个猜测 $\hat f = -i\hbar X_f$ 把括号弄对了（因为由 s4 有 $[X_f,X_g]=X_{\{f,g\}}$），但不满足 $\hat 1=\mathrm{id}$，因为 $X_1=0$ 会给出 $\hat 1=0$。修补办法是加上一个由辛势构建的乘法项。
 
 > **定义 —— 预量子线丛。** $(M,\omega)$ 上的 **预量子线丛** 是一个复线丛 $L\to M$（一个纤维为一维复空间的向量丛），配有一个厄米度量 $\langle\cdot,\cdot\rangle$ 与一个相容联络 $\nabla$，其 **曲率** 为
+>
 > $$
 > F_\nabla = -\frac{i}{\hbar}\,\omega.
 > $$
+>
 > $L$ 的截面——光滑选择 $s(x)\in L_x$——是 **预量子波函数**。
 
 联络 $\nabla$ 是微分截面的一种规则；其曲率是度量 $\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X,Y]}$ 不消失程度的 $2$-形式 $F_\nabla$。局部上，在 $\omega=d\theta$ 处，写 $\nabla=d-\tfrac{i}{\hbar}\theta$，于是 $F_\nabla=-\tfrac{i}{\hbar}d\theta=-\tfrac{i}{\hbar}\omega$。
 
 > **定义 —— 预量子算子。** 对 $f\in C^\infty(M)$，
+>
 > $$
 > \hat f := -i\hbar\,\nabla_{X_f} + f.
 > $$
@@ -472,6 +498,7 @@ $$
 曲率为 $-\tfrac{i}{\hbar}\omega$ 的丛 $L$ 并非总是存在。它是否存在是一个拓扑量子化条件。
 
 > **定理 —— 韦伊整性。** 预量子线丛存在当且仅当 $\dfrac{\omega}{2\pi\hbar}$ 的上同调类是 **整的**：对 $M$ 中每个闭定向 $2$-曲面 $\Sigma\subseteq M$，
+>
 > $$
 > \frac{1}{2\pi\hbar}\int_\Sigma \omega \;\in\; \mathbb{Z}.
 > $$

@@ -61,6 +61,7 @@ We make precise the class of operators that *have* a well-defined integer index,
 > - $\mathrm{coker} T = H_2 / \mathrm{im} T$ is finite-dimensional.
 >
 > The **(analytic) index** is the integer
+>
 > $$
 > \mathrm{ind} T = \dim\ker T - \dim\mathrm{coker} T.
 > $$
@@ -125,9 +126,11 @@ The Fredholm theory of s1 lives on Hilbert spaces. To apply it to geometry we ne
 #### Differential operators on bundles
 
 > **Definition — differential operator.** Let $E, F \to M$ be smooth complex vector bundles over a smooth manifold $M$ (a bundle assigns a vector space $E_x$ to each point $x$, varying smoothly; sections are smooth choices $s(x)\in E_x$). Let $\Gamma(E)$ denote the smooth sections. A **linear differential operator of order $\le m$** is a linear map $D: \Gamma(E) \to \Gamma(F)$ that in any local coordinate chart $(x^1,\dots,x^n)$ and local trivializations is
+>
 > $$
 > D = \sum_{|\alpha| \le m} A_\alpha(x)\, \partial^\alpha,
 > $$
+>
 > where $\alpha = (\alpha_1,\dots,\alpha_n)$ is a multi-index, $|\alpha| = \alpha_1 + \cdots + \alpha_n$, $\partial^\alpha = \partial_{x^1}^{\alpha_1}\cdots\partial_{x^n}^{\alpha_n}$, and each $A_\alpha(x)$ is a matrix-valued smooth function (a linear map $E_x \to F_x$). The order is $m$ if some $A_\alpha$ with $|\alpha| = m$ is nonzero.
 
 Examples: the gradient, the divergence, the exterior derivative $d$, and the Laplacian $\Delta = -\sum_i \partial_{x^i}^2$ (order $2$).
@@ -137,6 +140,7 @@ Examples: the gradient, the divergence, the exterior derivative $d$, and the Lap
 The behaviour of $D$ that controls Fredholmness is its **top-order part**, packaged geometrically.
 
 > **Definition — principal symbol.** For a covector $\xi \in T_x^* M$ (a linear functional on the tangent space; in coordinates $\xi = \sum_i \xi_i\, dx^i$), the **principal symbol** of an order-$m$ operator $D = \sum_{|\alpha|\le m} A_\alpha \partial^\alpha$ is the linear map $\sigma_m(D)(x,\xi): E_x \to F_x$ defined by keeping only the top-order terms and replacing $\partial_{x^i} \mapsto i\,\xi_i$:
+>
 > $$
 > \sigma_m(D)(x,\xi) = i^m \sum_{|\alpha| = m} A_\alpha(x)\, \xi^\alpha,
 > \qquad \xi^\alpha := \xi_1^{\alpha_1}\cdots\xi_n^{\alpha_n}.
@@ -145,9 +149,11 @@ The behaviour of $D$ that controls Fredholmness is its **top-order part**, packa
 The factor $i = \sqrt{-1}$ comes from the Fourier transform: $\partial_{x^i}$ acting on $e^{i\langle x,\xi\rangle}$ produces $i\xi_i\, e^{i\langle x,\xi\rangle}$. The symbol records how $D$ acts on rapidly oscillating waves of frequency $\xi$; high-frequency behaviour is governed entirely by the top-order coefficients. A genuinely coordinate-free statement holds: $\sigma_m(D)$ is a well-defined bundle map $\pi^* E \to \pi^* F$ over the cotangent bundle $T^*M$ (where $\pi: T^*M \to M$), homogeneous of degree $m$ in $\xi$.
 
 > **Worked example (the Laplacian's symbol).** For $\Delta = -\sum_i \partial_{x^i}^2$ on functions ($E=F=$ trivial line bundle), the top-order terms are all of $\Delta$, with $A_\alpha = -1$ when $\alpha = 2e_i$ and $0$ otherwise. Then
+>
 > $$
 > \sigma_2(\Delta)(x,\xi) = i^2 \sum_i (-1)\,\xi_i^2 = (-1)\cdot(-1)\sum_i \xi_i^2 = |\xi|^2.
 > $$
+>
 > For $\xi \ne 0$ this is a nonzero number (an invertible $1\times 1$ "matrix"). That nonvanishing is exactly *ellipticity*.
 
 #### Ellipticity
@@ -168,9 +174,11 @@ This section delivers the bridge: an elliptic operator on a *compact* manifold d
 To use Hilbert-space Fredholm theory we cannot work with $\Gamma(E)$ (smooth sections form a Fréchet, not Hilbert, space). We complete in **Sobolev norms**.
 
 > **Definition — Sobolev space.** Fix a metric on $M$ and on $E$ (so sections have pointwise norms and there is a volume form $dV$). For an integer $s \ge 0$, the Sobolev space $H^s(E)$ is the completion of $\Gamma(E)$ under
+>
 > $$
 > \|u\|_s^2 = \sum_{|\alpha|\le s} \int_M |\partial^\alpha u|^2 \, dV.
 > $$
+>
 > It is a Hilbert space whose elements are sections with square-integrable derivatives up to order $s$ (derivatives taken in the distributional sense; see Functional Analysis guide).
 
 A differential operator of order $m$ extends to a bounded map $D: H^s(E) \to H^{s-m}(F)$, because differentiating $m$ times costs $m$ derivatives of regularity. The interplay of these spaces is governed by two theorems.
@@ -179,9 +187,11 @@ A differential operator of order $m$ extends to a bounded map $D: H^s(E) \to H^{
 
 > **Theorem (elliptic regularity / Gårding's inequality).** Let $D$ be elliptic of order $m$ on a compact manifold $M$. Then:
 > (i) **A priori estimate.** There is a constant $C$ with
+>
 > $$
 > \|u\|_s \le C\big(\|Du\|_{s-m} + \|u\|_{s-1}\big) \qquad \text{for all } u.
 > $$
+>
 > (ii) **Regularity.** If $u$ is a distributional solution of $Du = f$ and $f$ is smooth, then $u$ is smooth. More generally $f \in H^{s-m}$ forces $u \in H^s$.
 
 > **Theorem (Fredholmness of elliptic operators).** An elliptic operator $D$ of order $m$ on a *compact* manifold $M$, viewed as $D: H^s(E) \to H^{s-m}(F)$, is Fredholm. Moreover $\ker D$ consists of smooth sections, $\dim\ker D < \infty$, $\dim\mathrm{coker} D < \infty$, and $\mathrm{coker} D \cong \ker D^*$ where $D^*$ is the formal adjoint (also elliptic). Consequently $\mathrm{ind} D = \dim\ker D - \dim\ker D^*$ is a well-defined integer, **independent of $s$**.
@@ -301,9 +311,11 @@ The de Rham operator $d+d^*$ is one elliptic operator; the index theorem is clea
 #### Clifford algebras
 
 > **Definition — Clifford algebra.** Let $V$ be a real vector space with inner product $\langle\cdot,\cdot\rangle$. The **Clifford algebra** $\mathrm{Cl}(V)$ is the associative algebra generated by $V$ subject to the relations
+>
 > $$
 > v\cdot w + w\cdot v = -2\langle v,w\rangle\, 1 \qquad (v,w\in V).
 > $$
+>
 > In particular $v\cdot v = -|v|^2$ and, for orthonormal $e_i$, $e_i e_j + e_j e_i = -2\delta_{ij}$.
 
 This is the algebraic skeleton of "taking a square root of a quadratic form": if $D = \sum e_i \partial_{x^i}$ acts so that the $e_i$ Clifford-multiply, then $D^2 = \sum_{i,j} e_i e_j \partial_{x^i}\partial_{x^j} = -\sum_i \partial_{x^i}^2 = \Delta$, because the off-diagonal terms cancel by antisymmetry $e_ie_j = -e_je_i$ and the diagonal gives $e_i^2 = -1$. The Clifford relation is *exactly* what makes the cross terms cancel.
@@ -315,13 +327,17 @@ A **Clifford module** (or **spinor space**) $S$ is a vector space carrying a rep
 #### The Dirac operator
 
 > **Definition — Dirac operator.** Let $M$ be a spin Riemannian manifold with spinor bundle $S = S^+\oplus S^-$ and the Levi-Civita-induced connection $\nabla$ on $S$. The **Dirac operator** is
+>
 > $$
 > {D\!\!\!/} = \sum_i c(e_i)\,\nabla_{e_i} : \Gamma(S) \to \Gamma(S),
 > $$
+>
 > where $\{e_i\}$ is a local orthonormal frame and $c$ is Clifford multiplication. Because $c$ is odd, ${D\!\!\!/}$ swaps the grading: it restricts to
+>
 > $$
 > {D\!\!\!/}^+ : \Gamma(S^+) \to \Gamma(S^-), \qquad {D\!\!\!/}^- : \Gamma(S^-) \to \Gamma(S^+),
 > $$
+>
 > with ${D\!\!\!/}^- = ({D\!\!\!/}^+)^*$.
 
 > **Proposition.** ${D\!\!\!/}$ is elliptic, and its principal symbol is $\sigma({D\!\!\!/})(\xi) = i\,c(\xi)$.
@@ -371,9 +387,11 @@ This is precisely why the Chern character is the natural object on the topologic
 > **Definition — Todd class.** $\displaystyle \mathrm{Td}(E) = \prod_j \frac{x_j}{1 - e^{-x_j}} = 1 + \tfrac12 c_1 + \tfrac{1}{12}(c_1^2 + c_2) + \cdots$ (using $\frac{x}{1-e^{-x}} = 1 + \tfrac{x}{2} + \tfrac{x^2}{12} - \cdots$, the generating series of Bernoulli numbers).
 
 > **Definition — Â-genus.** For the (complexified) tangent bundle with Pontryagin roots $\pm x_j$,
+>
 > $$
 > \hat A(M) = \prod_j \frac{x_j/2}{\sinh(x_j/2)} = 1 - \tfrac{1}{24}p_1 + \tfrac{1}{5760}(7p_1^2 - 4p_2) + \cdots,
 > $$
+>
 > where $p_k$ are the Pontryagin classes (Differential Topology guide).
 
 Both are multiplicative "genera": $\mathrm{Td}(E\oplus F) = \mathrm{Td}(E)\mathrm{Td}(F)$, similarly $\hat A$, by the same product-over-roots structure as $\mathrm{ch}$ (the proof is identical: a multiplicative function of roots is multiplicative under direct sum).
@@ -389,9 +407,11 @@ $$
 picking out the top-degree ($n$-form) component of the product and integrating. For a general elliptic operator the formula is $\int_M (-1)^n \mathrm{ch}(\sigma(D))\mathrm{Td}(TM\otimes\mathbb C)$ evaluated through the symbol class, but every classical case reduces to a Dirac-type formula like the one above. The next section states the theorem that equates this integral with the analytic index.
 
 > **Worked computation (degree counting on a $4$-manifold).** On $M^4$, $\hat A = 1 - \tfrac{1}{24}p_1$ and $\mathrm{ch}(E) = r + c_1 + \tfrac12(c_1^2 - 2c_2)$ with $r = \mathrm{rank} E$. The product's $4$-form part is $\tfrac12(c_1^2 - 2c_2) - \tfrac{r}{24}p_1$. Hence
+>
 > $$
 > \mathrm{ind}{D\!\!\!/}_E = \int_{M^4}\Big[\tfrac12 c_1(E)^2 - c_2(E) - \tfrac{r}{24}p_1(M)\Big].
 > $$
+>
 > With $E$ trivial ($r=1, c_1=c_2=0$): $\mathrm{ind}{D\!\!\!/} = -\tfrac{1}{24}\int_{M^4} p_1 = \hat A(M)$, an integer — a nontrivial integrality constraint on $p_1$ of spin $4$-manifolds.
 
 <a id="s8"></a>
@@ -400,13 +420,17 @@ picking out the top-degree ($n$-form) component of the product and integrating. 
 We can now state the theorem in full and unpack the equality.
 
 > **Theorem (Atiyah–Singer, 1963).** Let $M$ be a compact oriented smooth manifold without boundary, and let $D: \Gamma(E)\to\Gamma(F)$ be an elliptic differential (or pseudodifferential) operator. Then the analytic index equals the topological index:
+>
 > $$
 > \mathrm{ind}_{\mathrm{an}}(D) \;=\; \mathrm{ind}_{\mathrm{top}}(D),
 > $$
+>
 > where $\mathrm{ind}_{\mathrm{an}}(D) = \dim\ker D - \dim\mathrm{coker} D$ (s1, well-defined by s3) and
+>
 > $$
 > \mathrm{ind}_{\mathrm{top}}(D) = (-1)^n\!\int_{M}\mathrm{ch}\big([\sigma(D)]\big)\,\mathrm{Td}(TM\otimes\mathbb C),
 > $$
+>
 > with $[\sigma(D)] \in K(T^*M)$ the K-theory class of the principal symbol and $n = \dim M$. For the twisted Dirac operator this reduces to $\mathrm{ind}{D\!\!\!/}_E = \int_M \hat A(M)\,\mathrm{ch}(E)$.
 
 #### What the two sides mean and why the equality is deep
@@ -477,9 +501,11 @@ $$
 the **Hirzebruch–Riemann–Roch theorem**. This is where the Todd class earns its place.
 
 > **Worked example (a Riemann surface).** For a compact Riemann surface $X$ of genus $g$ and a line bundle $L$ of degree $d$: $\dim X = 1$, $\mathrm{Td}(TX) = 1 + \tfrac12 c_1(TX)$, $\mathrm{ch}(L) = 1 + c_1(L)$. The degree-$2$ part is $c_1(L) + \tfrac12 c_1(TX)$, and $\int_X c_1(L) = d$, $\int_X c_1(TX) = 2 - 2g$ (the Euler characteristic). So
+>
 > $$
 > \chi(X,L) = d + \tfrac12(2-2g) = d - g + 1,
 > $$
+>
 > i.e. $\dim H^0 - \dim H^1 = d - g + 1$, the **classical Riemann–Roch theorem** for curves. The index theorem reproduces $19$th-century algebraic geometry as one line.
 
 > **Summary of the dictionary.** Twist Dirac by nothing → $\hat A$-genus; by the full exterior bundle → Euler class (Gauss–Bonnet); by the self-dual splitting → $L$-genus (signature); by the Dolbeault/holomorphic structure → Todd class (Riemann–Roch). One theorem, four classical landmarks.
@@ -496,9 +522,11 @@ We outline the most analytic proof, which computes the index as a heat trace and
 Let $D = {D\!\!\!/}^+: \Gamma(S^+)\to\Gamma(S^-)$ with adjoint $D^* = {D\!\!\!/}^-$. Form the two Laplacians $\Delta^+ = D^* D$ on $S^+$ and $\Delta^- = D D^*$ on $S^-$. Both are non-negative elliptic self-adjoint operators, so each has a discrete spectrum $0 \le \lambda_0 \le \lambda_1 \le \cdots \to \infty$ with finite-dimensional eigenspaces.
 
 > **Theorem (McKean–Singer).** For every $t > 0$,
+>
 > $$
 > \mathrm{ind} D = \mathrm{Tr}\big(e^{-t\Delta^+}\big) - \mathrm{Tr}\big(e^{-t\Delta^-}\big) =: \mathrm{Str}\big(e^{-t{D\!\!\!/}^2}\big),
 > $$
+>
 > the **supertrace** of the heat operator, *independent of $t$*.
 
 **Proof (the cancellation).**

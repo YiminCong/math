@@ -51,9 +51,11 @@
 > **定义 — 标准泛函**
 >
 > 贯穿本指南的核心对象是
+>
 > $$
 > J[y]=\int_a^b L\big(x,\,y(x),\,y'(x)\big)\,dx .
 > $$
+>
 > 这里 $a<b$ 是固定的数，$y$ 取遍 $[a,b]$ 上的光滑函数，而 $L(x,y,y')$ ——**拉格朗日量**（或**被积函数**）——是关于*三个独立位置*的一个给定光滑函数：位置 $x$、值 $y$ 和斜率 $y'$。为计算 $J[y]$，你在每个 $x$ 处把曲线的值和斜率代入 $L$ 并沿区间累加（积分）。
 
 一个关键的微妙之处：当我们对 $L$ 求导时，它被当作三个*独立*变量 $x, y, y'$ 的函数。符号 $\partial L/\partial y$ 与 $\partial L/\partial y'$ 意为"在固定另外两个位置的情况下对 $L$ 求导"。只有在求出这些偏导数*之后*，我们才记起：沿一条真实曲线，$y$ 和 $y'$ 都是 $x$ 的函数。
@@ -89,17 +91,21 @@ $$
 > **定义 — 一阶变分**
 >
 > $J$ 在 $y$ 处沿方向 $\eta$ 的**一阶变分**为
+>
 > $$
 > \delta J[y;\eta]:=\left.\frac{d}{d\varepsilon}\right|_{\varepsilon=0}J[y+\varepsilon\eta]=\Phi'(0).
 > $$
+>
 > 它是泛函的方向导数——当我们开始沿方向 $\eta$ 移动曲线时 $J$ 变化的快慢。
 
 > **定义 — 驻定（极值）函数**
 >
 > 若对*每一个*容许方向一阶变分都为零，则称函数 $y$ 对 $J$ 是**驻定的**（并称为**极值曲线**）：
+>
 > $$
 > \delta J[y;\eta]=0\quad\text{for all smooth }\eta\text{ with }\eta(a)=\eta(b)=0 .
 > $$
+>
 > 这正是 $f'(x)=0$ 的精确类比：真正的极小或极大必定是驻定的，因为若对某个 $\eta$ 有 $\Phi'(0)\neq0$，那么沿 $+\eta$ 或 $-\eta$ 移动一点点便会严格减小 $J$，于是 $y$ 不可能是最优的。
 
 #### 泛函导数
@@ -183,9 +189,11 @@ $$
 > **定理 — 欧拉–拉格朗日方程**
 >
 > 若 $y$ 是 $J[y]=\int_a^b L(x,y,y')\,dx$ 在固定端点的容许函数上的驻定函数（极值曲线），则 $y$ 满足
+>
 > $$
 > \frac{\partial L}{\partial y}-\frac{d}{dx}\!\left(\frac{\partial L}{\partial y'}\right)=0 .
 > $$
+>
 > 这是关于 $y$ 的一个（通常为二阶的）常微分方程。它的解就是候选的最优者。
 
 #### 仔细解读这些符号
@@ -205,6 +213,7 @@ $y''$ 的出现表明该方程一般是二阶的。
 4. 在极值曲线上方括号为零（欧拉–拉格朗日）。若又有 $\partial L/\partial x=0$，则右边为零，于是左边是某个常数的导数：
 
 > **贝尔特拉米恒等式**（当 $\partial L/\partial x=0$ 时成立）：
+>
 > $$
 > L-y'\,\frac{\partial L}{\partial y'}=\text{constant}.
 > $$
@@ -308,6 +317,7 @@ $$
 对第二组项作多变量的分部积分：**散度定理**把 $\int_\Omega (\partial L/\partial u_{x_i})\,\eta_{x_i}\,dx$ 化为一个边界积分（它消失，因为 $\eta=0$ 于 $\partial\Omega$ 上）减去 $\int_\Omega \frac{\partial}{\partial x_i}(\partial L/\partial u_{x_i})\,\eta\,dx$。整理并应用多变量基本引理给出：
 
 > **场的欧拉–拉格朗日方程**
+>
 > $$
 > \frac{\partial L}{\partial u}-\sum_{i=1}^m\frac{\partial}{\partial x_i}\!\left(\frac{\partial L}{\partial u_{x_i}}\right)=0 .
 > $$
@@ -343,9 +353,11 @@ $$
 要在**等周约束** $K[y]=\int_a^b G\,dx=\ell$（一个固定的数）下使 $J[y]=\int_a^b L\,dx$ 取极值，引入一个常数**乘子** $\lambda$ 并自由地使组合泛函 $J-\lambda K$ 取极值：
 
 > **定理。** $J$ 在约束 $K=\ell$ 下的极值曲线满足 $L-\lambda G$ 的欧拉–拉格朗日方程：
+>
 > $$
 > \frac{\partial(L-\lambda G)}{\partial y}-\frac{d}{dx}\frac{\partial(L-\lambda G)}{\partial y'}=0 ,
 > $$
+>
 > 其中 $\lambda$ 为某个常数，它与积分常数一道由端点和约束 $K=\ell$ 共同确定。
 
 *为何这样有效（带理由的概述）。* 容许变分必须使 $K$ 保持一阶固定，即 $\delta K=0$，故 $\eta$ 不再自由——它被限制在与约束相切的方向上。由普通拉格朗日乘子背后那个相同的线性代数事实，条件"对所有满足 $\delta K=0$ 的 $\eta$ 都有 $\delta J=0$"等价于"对某个常数 $\lambda$ 和*所有* $\eta$ 都有 $\delta J=\lambda\,\delta K$"，即 $\delta(J-\lambda K)=0$。于是 §s2 的无约束推导便适用于 $L-\lambda G$。
@@ -473,9 +485,11 @@ $$
 #### 诺特定理（陈述）
 
 > **定理（诺特）。** 设作用量在一个连续变换族 $q\to q+\varepsilon\,\psi(q,t)$ 下（到一阶）不变，其无穷小生成元为 $\psi$，意指拉格朗日量至多改变一个全时间导数，$\delta L=\frac{d}{dt}F$。则沿运动方程的任意解，量
+>
 > $$
 > Q=\frac{\partial L}{\partial \dot q}\,\psi-F
 > $$
+>
 > 守恒：$\dfrac{dQ}{dt}=0$。
 
 #### 推导
@@ -523,9 +537,11 @@ $$
 我们想把变量 $\dot q$ 换成 $p=\partial L/\partial\dot q$。以这种方式更换变量的干净办法是**勒让德变换**。
 
 > **定义 — 勒让德变换。** 给定 $L(\dot q)$（把 $q,t$ 当作参数），定义 $p=\dfrac{\partial L}{\partial \dot q}$ 和
+>
 > $$
 > H(q,p,t)=p\,\dot q-L(q,\dot q,t),
 > $$
+>
 > 其中右边的 $\dot q$ 通过反解 $p=\partial L/\partial\dot q$ 用 $p$ 表示。$H$ 即**哈密顿量**。
 
 只要 $\partial^2 L/\partial\dot q^2\neq0$，该变换便有良好定义（可逆），这使 $p(\dot q)$ 严格单调以便可以反解。
@@ -543,6 +559,7 @@ $$
 5. 由欧拉–拉格朗日，$\dfrac{\partial L}{\partial q}=\dfrac{d}{dt}\dfrac{\partial L}{\partial\dot q}=\dot p$。代入中间的关系给出 $\partial H/\partial q=-\dot p$。汇总：
 
 > **哈密顿正则方程**
+>
 > $$
 > \dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q}.
 > $$
@@ -582,9 +599,11 @@ $$
 这是 §s4 中 $m=4$ 个自变量、并由场扮演 $u$ 角色的情形。作变分 $\phi\to\phi+\varepsilon\eta$（其中 $\eta=0$ 于边界上）并应用散度定理（时空中的分部积分）给出：
 
 > **场的欧拉–拉格朗日方程**
+>
 > $$
 > \frac{\partial \mathcal{L}}{\partial \phi}-\partial_\mu\!\left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\right)=0 ,
 > $$
+>
 > 对重复指标 $\mu=0,1,2,3$ 求和。
 
 *简要推导，带理由：*

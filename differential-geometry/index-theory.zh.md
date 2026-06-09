@@ -61,6 +61,7 @@ $$
 > - $\mathrm{coker} T = H_2 / \mathrm{im} T$ 是有限维的。
 >
 > 其**（分析）指标**是整数
+>
 > $$
 > \mathrm{ind} T = \dim\ker T - \dim\mathrm{coker} T.
 > $$
@@ -125,9 +126,11 @@ s1 的 Fredholm 理论生活在 Hilbert 空间上。为把它应用于几何，�
 #### 丛上的微分算子
 
 > **定义——微分算子。** 设 $E, F \to M$ 是光滑流形 $M$ 上的光滑复向量丛（一个丛为每个点 $x$ 指定一个向量空间 $E_x$，随之光滑变化；截面是光滑的选取 $s(x)\in E_x$）。记 $\Gamma(E)$ 为光滑截面。一个**阶 $\le m$ 的线性微分算子**是线性映射 $D: \Gamma(E) \to \Gamma(F)$，它在任意局部坐标卡 $(x^1,\dots,x^n)$ 与局部平凡化下形如
+>
 > $$
 > D = \sum_{|\alpha| \le m} A_\alpha(x)\, \partial^\alpha,
 > $$
+>
 > 其中 $\alpha = (\alpha_1,\dots,\alpha_n)$ 是多重指标，$|\alpha| = \alpha_1 + \cdots + \alpha_n$，$\partial^\alpha = \partial_{x^1}^{\alpha_1}\cdots\partial_{x^n}^{\alpha_n}$，每个 $A_\alpha(x)$ 是矩阵值的光滑函数（线性映射 $E_x \to F_x$）。若某个 $|\alpha| = m$ 的 $A_\alpha$ 非零，则阶为 $m$。
 
 例子：梯度、散度、外微分 $d$，以及 Laplace 算子 $\Delta = -\sum_i \partial_{x^i}^2$（$2$ 阶）。
@@ -137,6 +140,7 @@ s1 的 Fredholm 理论生活在 Hilbert 空间上。为把它应用于几何，�
 控制 Fredholm 性的 $D$ 之行为是它的**最高阶部分**，以几何方式打包。
 
 > **定义——主符号。** 对余向量 $\xi \in T_x^* M$（切空间上的线性泛函；坐标中 $\xi = \sum_i \xi_i\, dx^i$），$m$ 阶算子 $D = \sum_{|\alpha|\le m} A_\alpha \partial^\alpha$ 的**主符号**是线性映射 $\sigma_m(D)(x,\xi): E_x \to F_x$，它由仅保留最高阶项并以 $\partial_{x^i} \mapsto i\,\xi_i$ 替换而定义：
+>
 > $$
 > \sigma_m(D)(x,\xi) = i^m \sum_{|\alpha| = m} A_\alpha(x)\, \xi^\alpha,
 > \qquad \xi^\alpha := \xi_1^{\alpha_1}\cdots\xi_n^{\alpha_n}.
@@ -145,9 +149,11 @@ s1 的 Fredholm 理论生活在 Hilbert 空间上。为把它应用于几何，�
 因子 $i = \sqrt{-1}$ 来自 Fourier 变换：$\partial_{x^i}$ 作用在 $e^{i\langle x,\xi\rangle}$ 上产生 $i\xi_i\, e^{i\langle x,\xi\rangle}$。符号记录了 $D$ 如何作用于频率为 $\xi$ 的快速振荡波；高频行为完全由最高阶系数支配。一个真正不依赖坐标的陈述成立：$\sigma_m(D)$ 是余切丛 $T^*M$ 上良定的丛映射 $\pi^* E \to \pi^* F$（其中 $\pi: T^*M \to M$），且关于 $\xi$ 是 $m$ 次齐次的。
 
 > **典型例（Laplace 算子的符号）。** 对作用在函数上的 $\Delta = -\sum_i \partial_{x^i}^2$（$E=F=$ 平凡线丛），最高阶项即 $\Delta$ 全体，其中 $\alpha = 2e_i$ 时 $A_\alpha = -1$，否则为 $0$。于是
+>
 > $$
 > \sigma_2(\Delta)(x,\xi) = i^2 \sum_i (-1)\,\xi_i^2 = (-1)\cdot(-1)\sum_i \xi_i^2 = |\xi|^2.
 > $$
+>
 > 对 $\xi \ne 0$ 这是一个非零数（一个可逆的 $1\times 1$“矩阵”）。这种非退化性恰恰是*椭圆性*。
 
 #### 椭圆性
@@ -168,9 +174,11 @@ s1 的 Fredholm 理论生活在 Hilbert 空间上。为把它应用于几何，�
 为使用 Hilbert 空间的 Fredholm 理论，我们不能在 $\Gamma(E)$ 上工作（光滑截面构成 Fréchet 空间而非 Hilbert 空间）。我们在 **Sobolev 范数**下完备化。
 
 > **定义——Sobolev 空间。** 固定 $M$ 上以及 $E$ 上的度量（使截面有逐点范数，并有体积形式 $dV$）。对整数 $s \ge 0$，Sobolev 空间 $H^s(E)$ 是 $\Gamma(E)$ 在如下范数下的完备化：
+>
 > $$
 > \|u\|_s^2 = \sum_{|\alpha|\le s} \int_M |\partial^\alpha u|^2 \, dV.
 > $$
+>
 > 它是一个 Hilbert 空间，其元素是直到 $s$ 阶导数都平方可积的截面（导数取分布意义；见泛函分析指南）。
 
 $m$ 阶微分算子延拓为有界映射 $D: H^s(E) \to H^{s-m}(F)$，因为微分 $m$ 次耗费 $m$ 阶正则性。这些空间之间的相互作用由两个定理支配。
@@ -179,9 +187,11 @@ $m$ 阶微分算子延拓为有界映射 $D: H^s(E) \to H^{s-m}(F)$，因为微�
 
 > **定理（椭圆正则性 / Gårding 不等式）。** 设 $D$ 是紧流形 $M$ 上的 $m$ 阶椭圆算子。则：
 > (i) **先验估计。** 存在常数 $C$ 使得
+>
 > $$
 > \|u\|_s \le C\big(\|Du\|_{s-m} + \|u\|_{s-1}\big) \qquad \text{对一切 } u.
 > $$
+>
 > (ii) **正则性。** 若 $u$ 是 $Du = f$ 的分布解且 $f$ 光滑，则 $u$ 光滑。更一般地，$f \in H^{s-m}$ 迫使 $u \in H^s$。
 
 > **定理（椭圆算子的 Fredholm 性）。** *紧*流形 $M$ 上的 $m$ 阶椭圆算子 $D$，视为 $D: H^s(E) \to H^{s-m}(F)$，是 Fredholm 算子。进而 $\ker D$ 由光滑截面组成，$\dim\ker D < \infty$，$\dim\mathrm{coker} D < \infty$，且 $\mathrm{coker} D \cong \ker D^*$，其中 $D^*$ 是形式伴随（亦椭圆）。因此 $\mathrm{ind} D = \dim\ker D - \dim\ker D^*$ 是良定整数，**不依赖于 $s$**。
@@ -301,9 +311,11 @@ de Rham 算子 $d+d^*$ 是一个椭圆算子；而指标定理对一个范例最
 #### Clifford 代数
 
 > **定义——Clifford 代数。** 设 $V$ 是带内积 $\langle\cdot,\cdot\rangle$ 的实向量空间。**Clifford 代数** $\mathrm{Cl}(V)$ 是由 $V$ 生成、服从关系
+>
 > $$
 > v\cdot w + w\cdot v = -2\langle v,w\rangle\, 1 \qquad (v,w\in V)
 > $$
+>
 > 的结合代数。特别地 $v\cdot v = -|v|^2$，而对标准正交基 $e_i$，$e_i e_j + e_j e_i = -2\delta_{ij}$。
 
 这是“对二次型取平方根”的代数骨架：若 $D = \sum e_i \partial_{x^i}$ 作用时 $e_i$ 按 Clifford 方式相乘，则 $D^2 = \sum_{i,j} e_i e_j \partial_{x^i}\partial_{x^j} = -\sum_i \partial_{x^i}^2 = \Delta$，因为非对角项由反对称性 $e_ie_j = -e_je_i$ 相消，而对角项给出 $e_i^2 = -1$。Clifford 关系*恰恰*是使交叉项相消的东西。
@@ -315,13 +327,17 @@ de Rham 算子 $d+d^*$ 是一个椭圆算子；而指标定理对一个范例最
 #### Dirac 算子
 
 > **定义——Dirac 算子。** 设 $M$ 是带旋量丛 $S = S^+\oplus S^-$ 与由 Levi-Civita 联络诱导的 $S$ 上联络 $\nabla$ 的自旋 Riemann 流形。**Dirac 算子**是
+>
 > $$
 > {D\!\!\!/} = \sum_i c(e_i)\,\nabla_{e_i} : \Gamma(S) \to \Gamma(S),
 > $$
+>
 > 其中 $\{e_i\}$ 是局部标准正交标架，$c$ 是 Clifford 乘法。由于 $c$ 是奇的，${D\!\!\!/}$ 交换分次：它限制为
+>
 > $$
 > {D\!\!\!/}^+ : \Gamma(S^+) \to \Gamma(S^-), \qquad {D\!\!\!/}^- : \Gamma(S^-) \to \Gamma(S^+),
 > $$
+>
 > 且 ${D\!\!\!/}^- = ({D\!\!\!/}^+)^*$。
 
 > **命题。** ${D\!\!\!/}$ 是椭圆的，其主符号是 $\sigma({D\!\!\!/})(\xi) = i\,c(\xi)$。
@@ -371,9 +387,11 @@ $\ker{D\!\!\!/}$ 中的元素是**调和旋量**。Atiyah–Singer 定理（s8�
 > **定义——Todd 类。** $\displaystyle \mathrm{Td}(E) = \prod_j \frac{x_j}{1 - e^{-x_j}} = 1 + \tfrac12 c_1 + \tfrac{1}{12}(c_1^2 + c_2) + \cdots$（用到 $\frac{x}{1-e^{-x}} = 1 + \tfrac{x}{2} + \tfrac{x^2}{12} - \cdots$，即 Bernoulli 数的生成级数）。
 
 > **定义——Â-亏格。** 对（复化的）切丛，Pontryagin 根为 $\pm x_j$，
+>
 > $$
 > \hat A(M) = \prod_j \frac{x_j/2}{\sinh(x_j/2)} = 1 - \tfrac{1}{24}p_1 + \tfrac{1}{5760}(7p_1^2 - 4p_2) + \cdots,
 > $$
+>
 > 其中 $p_k$ 是 Pontryagin 类（微分拓扑指南）。
 
 两者都是可乘的“亏格”：$\mathrm{Td}(E\oplus F) = \mathrm{Td}(E)\mathrm{Td}(F)$，$\hat A$ 类似，理由是与 $\mathrm{ch}$ 相同的“按根取乘积”结构（证明完全相同：根的可乘函数在直和下可乘）。
@@ -389,9 +407,11 @@ $$
 即取乘积的最高次（$n$-形式）分量并积分。对一般椭圆算子，公式是 $\int_M (-1)^n \mathrm{ch}(\sigma(D))\mathrm{Td}(TM\otimes\mathbb C)$，经由符号类来求值，但每个经典情形都归约到上面那样的 Dirac 型公式。下一节将陈述把这一积分与分析指标等同起来的定理。
 
 > **典型计算（$4$ 维流形上的次数计数）。** 在 $M^4$ 上，$\hat A = 1 - \tfrac{1}{24}p_1$，且 $\mathrm{ch}(E) = r + c_1 + \tfrac12(c_1^2 - 2c_2)$，其中 $r = \mathrm{rank} E$。乘积的 $4$-形式部分是 $\tfrac12(c_1^2 - 2c_2) - \tfrac{r}{24}p_1$。于是
+>
 > $$
 > \mathrm{ind}{D\!\!\!/}_E = \int_{M^4}\Big[\tfrac12 c_1(E)^2 - c_2(E) - \tfrac{r}{24}p_1(M)\Big].
 > $$
+>
 > 当 $E$ 平凡（$r=1, c_1=c_2=0$）：$\mathrm{ind}{D\!\!\!/} = -\tfrac{1}{24}\int_{M^4} p_1 = \hat A(M)$，一个整数——这是自旋 $4$ 维流形的 $p_1$ 上一个非平凡的整性约束。
 
 <a id="s8"></a>
@@ -400,13 +420,17 @@ $$
 我们现在可以完整陈述定理并拆解这个等式。
 
 > **定理（Atiyah–Singer，1963）。** 设 $M$ 是无边界的紧定向光滑流形，$D: \Gamma(E)\to\Gamma(F)$ 是椭圆微分（或拟微分）算子。则分析指标等于拓扑指标：
+>
 > $$
 > \mathrm{ind}_{\mathrm{an}}(D) \;=\; \mathrm{ind}_{\mathrm{top}}(D),
 > $$
+>
 > 其中 $\mathrm{ind}_{\mathrm{an}}(D) = \dim\ker D - \dim\mathrm{coker} D$（s1，由 s3 良定）且
+>
 > $$
 > \mathrm{ind}_{\mathrm{top}}(D) = (-1)^n\!\int_{M}\mathrm{ch}\big([\sigma(D)]\big)\,\mathrm{Td}(TM\otimes\mathbb C),
 > $$
+>
 > 其中 $[\sigma(D)] \in K(T^*M)$ 是主符号的 K-理论类，$n = \dim M$。对扭转 Dirac 算子，这归约为 $\mathrm{ind}{D\!\!\!/}_E = \int_M \hat A(M)\,\mathrm{ch}(E)$。
 
 #### 两端的含义以及为何这个等式深刻
@@ -477,9 +501,11 @@ $$
 即 **Hirzebruch–Riemann–Roch 定理**。这正是 Todd 类赢得其位置之处。
 
 > **典型例（Riemann 曲面）。** 对亏格 $g$ 的紧 Riemann 曲面 $X$ 与次数 $d$ 的线丛 $L$：$\dim X = 1$，$\mathrm{Td}(TX) = 1 + \tfrac12 c_1(TX)$，$\mathrm{ch}(L) = 1 + c_1(L)$。$2$ 次部分是 $c_1(L) + \tfrac12 c_1(TX)$，而 $\int_X c_1(L) = d$，$\int_X c_1(TX) = 2 - 2g$（Euler 示性数）。故
+>
 > $$
 > \chi(X,L) = d + \tfrac12(2-2g) = d - g + 1,
 > $$
+>
 > 即 $\dim H^0 - \dim H^1 = d - g + 1$，即曲线的**经典 Riemann–Roch 定理**。指标定理把 $19$ 世纪的代数几何用一行重现。
 
 > **字典小结。** 用空丛扭转 Dirac → $\hat A$-亏格；用整个外丛扭转 → Euler 类（Gauss–Bonnet）；用自对偶分裂扭转 → $L$-亏格（符号差）；用 Dolbeault/全纯结构扭转 → Todd 类（Riemann–Roch）。一个定理，四座经典里程碑。
@@ -496,9 +522,11 @@ $$
 设 $D = {D\!\!\!/}^+: \Gamma(S^+)\to\Gamma(S^-)$，伴随为 $D^* = {D\!\!\!/}^-$。构造两个 Laplace 算子 $\Delta^+ = D^* D$（在 $S^+$ 上）与 $\Delta^- = D D^*$（在 $S^-$ 上）。两者都是非负的椭圆自伴算子，故各自有离散谱 $0 \le \lambda_0 \le \lambda_1 \le \cdots \to \infty$，特征空间有限维。
 
 > **定理（McKean–Singer）。** 对每个 $t > 0$，
+>
 > $$
 > \mathrm{ind} D = \mathrm{Tr}\big(e^{-t\Delta^+}\big) - \mathrm{Tr}\big(e^{-t\Delta^-}\big) =: \mathrm{Str}\big(e^{-t{D\!\!\!/}^2}\big),
 > $$
+>
 > 即热算子的**超迹**，*不依赖于 $t$*。
 
 **证明（相消）。**

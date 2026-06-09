@@ -280,9 +280,11 @@ $$
 #### 鞅
 
 > **定义 — 鞅。** 一个满足 $\mathbb{E}|M_t|<\infty$ 的适应过程 $\{M_t\}$ 是关于 $\{\mathcal{F}_t\}$ 的**鞅**，若对所有 $s\le t$，
+>
 > $$
 > \mathbb{E}[M_t\mid\mathcal{F}_s]=M_s.
 > $$
+>
 > 若把"$=$"换成"$\ge$"则为**下鞅**（有利博弈）；换成"$\le$"则为**上鞅**（不利博弈）。
 
 *例：布朗运动是一个鞅。* 对 $s\le t$，$\mathbb{E}[W_t\mid\mathcal{F}_s]=\mathbb{E}[W_s+(W_t-W_s)\mid\mathcal{F}_s]=W_s+\mathbb{E}[W_t-W_s\mid\mathcal{F}_s]$。增量 $W_t-W_s$ 独立于 $\mathcal{F}_s$（过去），故其条件期望等于其普通期望 $0$。于是 $\mathbb{E}[W_t\mid\mathcal{F}_s]=W_s$。类似地，$W_t^2-t$ 是一个鞅（这是 $(dW)^2=dt$ 的鞅形式）。
@@ -336,6 +338,7 @@ $$
 #### 伊藤引理——随机微积分的链式法则
 
 > **定理 — 伊藤引理（一维）。** 设 $X_t$ 满足 $dX_t=a_t\,dt+b_t\,dW_t$（带**漂移** $a_t$ 和**扩散** $b_t$ 的伊藤过程的简写），且设 $f(t,x)$ 二次连续可微。则
+>
 > $$
 > df(t,X_t)=\left(\frac{\partial f}{\partial t}+a_t\frac{\partial f}{\partial x}+\tfrac12 b_t^2\frac{\partial^2 f}{\partial x^2}\right)dt+b_t\frac{\partial f}{\partial x}\,dW_t.
 > $$
@@ -442,6 +445,7 @@ $$
 #### 方程
 
 > **定理 — 福克–普朗克。** 若 $dX_t=\mu(x)\,dt+\sigma(x)\,dW_t$，则 $X_t$ 的密度 $p(x,t)$ 满足
+>
 > $$
 > \frac{\partial p}{\partial t}=-\frac{\partial}{\partial x}\big(\mu(x)\,p\big)+\frac12\frac{\partial^2}{\partial x^2}\big(\sigma(x)^2\,p\big).
 > $$
@@ -488,13 +492,17 @@ $$
 #### 陈述
 
 > **定理 — 费曼–卡茨。** 设 $u(x,t)$ 在 $t\le T$ 上求解后向偏微分方程
+>
 > $$
 > \frac{\partial u}{\partial t}+\mu(x)\frac{\partial u}{\partial x}+\tfrac12\sigma(x)^2\frac{\partial^2 u}{\partial x^2}-V(x)\,u=0,\qquad u(x,T)=g(x),
 > $$
+>
 > 其中 $V(x)\ge0$ 是一个"势"，$g$ 是一个终端收益。则
+>
 > $$
 > u(x,t)=\mathbb{E}\!\left[\exp\!\Big(-\int_t^T V(X_s)\,ds\Big)\,g(X_T)\;\Big|\;X_t=x\right],
 > $$
+>
 > 其中 $X_s$ 求解 $dX_s=\mu\,ds+\sigma\,dW_s$，从 $X_t=x$ 起步。
 
 #### 推导
@@ -591,6 +599,7 @@ $$
 #### 作为路径积分的传播子
 
 > **定义。** **传播子** $K(x_b,t_b;x_a,t_a)$ 是粒子在时刻 $t_a$ 处于 $x_a$、在时刻 $t_b$ 被发现于 $x_b$ 的振幅。费曼的处方：
+>
 > $$
 > K(x_b,t_b;x_a,t_a)=\int_{x(t_a)=x_a}^{x(t_b)=x_b}\exp\!\Big(\frac{i}{\hbar}S[x(\cdot)]\Big)\,\mathcal{D}x.
 > $$

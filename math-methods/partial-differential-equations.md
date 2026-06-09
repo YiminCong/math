@@ -326,6 +326,7 @@ where $f$ is a given source density. Laplace's equation governs electrostatic po
 #### The mean-value property
 
 > **Theorem (mean-value).** If $u$ is harmonic in a region, then its value at any point equals its average over any circle (2D) or sphere (3D) centered there and lying in the region:
+>
 > $$
 > u(\mathbf{x}_0)=\frac{1}{2\pi R}\oint_{|\mathbf{x}-\mathbf{x}_0|=R} u\,ds \quad(\text{2D}).
 > $$
@@ -429,9 +430,11 @@ Separation of variables always produces a spatial eigenvalue problem. **Sturm–
 #### The Sturm–Liouville form
 
 > **Definition.** A **regular Sturm–Liouville problem** on $[a,b]$ is
+>
 > $$
 > \frac{d}{dx}\!\left[p(x)\,\frac{dy}{dx}\right] + \big[q(x) + \lambda\,w(x)\big]\,y = 0,
 > $$
+>
 > with $p>0$, $w>0$ continuous, plus homogeneous boundary conditions at $a$ and $b$ (e.g. $y=0$, or $y'=0$, or a mix). $\lambda$ is the **eigenvalue**; nonzero $y$ are **eigenfunctions**; $w$ is the **weight**.
 
 Define the **inner product** $\langle f,g\rangle = \displaystyle\int_a^b f(x)g(x)w(x)\,dx$. Two functions are **orthogonal** if $\langle f,g\rangle=0$.

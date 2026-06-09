@@ -136,6 +136,7 @@ A coset is $H$ "shifted" by $g$. The key technical fact is that distinct cosets 
 2. *(Group axioms.)* Associativity: $((aN)(bN))(cN)=(ab)N\cdot cN=((ab)c)N=(a(bc))N=(aN)((bN)(cN))$, using associativity in $G$. Identity: $eN=N$ satisfies $(N)(aN)=aN=(aN)(N)$. Inverse: $(aN)^{-1}=a^{-1}N$, since $(aN)(a^{-1}N)=(aa^{-1})N=eN$. All axioms hold. $\blacksquare$
 
 > **Theorem — First Isomorphism Theorem.** Let $\phi:G\to G'$ be a homomorphism. Then $\mathrm{im}\phi$ is a subgroup of $G'$, $\ker\phi\trianglelefteq G$, and
+>
 > $$
 > G/\ker\phi \;\cong\; \mathrm{im}\phi .
 > $$
@@ -164,6 +165,7 @@ A coset is $H$ "shifted" by $g$. The key technical fact is that distinct cosets 
 **Proof.** $e\in\mathrm{Stab}(x)$ by (i). If $g,h$ fix $x$ then $(gh)\cdot x = g\cdot(h\cdot x)=g\cdot x = x$, so $gh$ fixes $x$. If $g\cdot x=x$, apply $g^{-1}$: $g^{-1}\cdot(g\cdot x)=g^{-1}\cdot x$, and the left side is $(g^{-1}g)\cdot x = e\cdot x = x$, so $g^{-1}\cdot x = x$. All three subgroup conditions hold. $\blacksquare$
 
 > **Theorem — Orbit–Stabilizer.** For a group $G$ acting on $X$ and any $x\in X$, there is a bijection between the orbit $\mathrm{Orb}(x)$ and the set of left cosets of $\mathrm{Stab}(x)$. Hence for finite $G$,
+>
 > $$
 > |\mathrm{Orb}(x)| = [\,G : \mathrm{Stab}(x)\,] = \frac{|G|}{|\mathrm{Stab}(x)|}.
 > $$
@@ -284,6 +286,7 @@ $$
 $$
 
 > **Theorem — orthogonality of irreducible characters.** If $\chi$ and $\psi$ are the characters of irreducible representations of a finite group $G$ over $\mathbb{C}$, then
+>
 > $$
 > \langle \chi,\psi\rangle = \begin{cases} 1 & \text{if the two representations are equivalent},\\ 0 & \text{otherwise}.\end{cases}
 > $$
@@ -355,9 +358,11 @@ with $\alpha,\beta\in\mathbb{C}$. Writing $\alpha=a_0+ia_3$, $\beta=a_2+ia_1$ wi
 **What and why.** A Lie group is curved and hard to handle directly, but its behavior *near the identity* is a flat vector space — the **Lie algebra** — that captures almost everything. Physicists call its basis vectors **generators**; the exponential map rebuilds the group from them. This linearization is why infinitesimal symmetries (and Noether's conserved currents) are computable.
 
 > **Definition — Lie algebra of a matrix group.** For a matrix Lie group $G$, its **Lie algebra** $\mathfrak{g}$ is the set of matrices $X$ such that $e^{tX}\in G$ for all real $t$, where the **matrix exponential** is the convergent series
+>
 > $$
 > e^{X} = \sum_{k=0}^{\infty}\frac{X^k}{k!} = I + X + \tfrac{1}{2}X^2 + \cdots .
 > $$
+>
 > Elements of $\mathfrak{g}$ are the **infinitesimal generators**: $X=\frac{d}{dt}\big|_{t=0}e^{tX}$ is the velocity through the identity along the curve $t\mapsto e^{tX}$.
 
 > **Theorem — the algebra is closed under the commutator.** If $X,Y\in\mathfrak g$ then the **commutator** $[X,Y]=XY-YX$ is also in $\mathfrak g$. Thus $\mathfrak g$ is a real vector space closed under the bracket $[\,,]$; this is the abstract structure called a **Lie algebra**.
@@ -369,9 +374,11 @@ with $\alpha,\beta\in\mathbb{C}$. Writing $\alpha=a_0+ia_3$, $\beta=a_2+ia_1$ wi
 **Proof that $[X,Y]\in\mathfrak g$.** Consider the smooth curve $\gamma(t)=e^{\sqrt t\,X}e^{\sqrt t\,Y}e^{-\sqrt t\,X}e^{-\sqrt t\,Y}$ in $G$ (a product of group elements, hence in $G$). Expanding each exponential to second order in $\sqrt t$ and multiplying out, the zeroth and first-order terms cancel and one finds $\gamma(t)=I+t[X,Y]+O(t^{3/2})$. Hence $\frac{d}{dt}\gamma(t)\big|_{t=0^+}=[X,Y]$ is a tangent vector to $G$ at the identity, i.e. lies in $\mathfrak g$. $\blacksquare$
 
 > **Definition — structure constants.** Fix a basis $T_1,\dots,T_k$ of $\mathfrak g$ (the **generators**). Since $\mathfrak g$ is closed under the bracket, each $[T_a,T_b]$ is a combination of the $T_c$:
+>
 > $$
 > [T_a,T_b] = \sum_c f_{ab}{}^{c}\,T_c .
 > $$
+>
 > The numbers $f_{ab}{}^c$ are the **structure constants**; they encode the entire local structure of the group. They are **antisymmetric** in $a,b$ (since $[T_a,T_b]=-[T_b,T_a]$) and satisfy a quadratic identity coming from the **Jacobi identity** $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0$ (which holds for commutators by direct expansion).
 
 **Worked example — the exponential is rotation.** Take the single generator $X=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ of $\mathfrak{so}(2)$ (antisymmetric, as the theory demands). Compute its powers: $X^2=-I$, $X^3=-X$, $X^4=I$, repeating with period $4$. Summing the exponential series and grouping even and odd powers,
@@ -402,9 +409,11 @@ where $\epsilon_{abc}$ is the totally antisymmetric symbol ($\epsilon_{123}=1$).
 **Same algebra as $\mathfrak{so}(3)$.** The generators of $SO(3)$ are the antisymmetric matrices $(L_a)_{bc}=-\epsilon_{abc}$ (infinitesimal rotations about each axis), and one computes their commutators are *also* $[L_a,L_b]=\sum_c\epsilon_{abc}L_c$ (same structure constants up to the $i$ convention). So $\mathfrak{su}(2)\cong\mathfrak{so}(3)$ as Lie algebras. Yet the *groups* differ: there is a 2-to-1 homomorphism $SU(2)\to SO(3)$ ($+U$ and $-U$ give the same rotation), which is exactly why a spin-$\tfrac12$ state changes sign under a $360^\circ$ rotation — a measurable physical fact.
 
 > **Theorem — irreducible representations of $\mathfrak{su}(2)$.** The finite-dimensional irreducible representations are labeled by a single number $j\in\{0,\tfrac12,1,\tfrac32,2,\dots\}$. Representation $j$ has dimension $2j+1$, with a basis of states $|j,m\rangle$ for $m=-j,-j+1,\dots,j-1,j$, on which the generators act by
+>
 > $$
 > J_3|j,m\rangle = m\,|j,m\rangle,\qquad J_\pm|j,m\rangle = \sqrt{j(j+1)-m(m\pm1)}\;|j,m\pm1\rangle,
 > $$
+>
 > where $J_\pm=J_1\pm iJ_2$ are the **raising/lowering operators**.
 
 **Proof (the highest-weight construction).**
@@ -449,9 +458,11 @@ The conjugate representation $\overline{\mathbf 3}$ has the negated weights and 
 > **Character of a tensor product.** Taking the trace of $(\rho\otimes\sigma)(g)$ factorizes: $\chi_{\rho\otimes\sigma}(g)=\chi_\rho(g)\,\chi_\sigma(g)$. Combined with the multiplicity formula $m_i=\langle\chi_{\rho_i},\chi_{\rho\otimes\sigma}\rangle$ from s8, this reduces *any* decomposition to multiplying and integrating characters.
 
 > **Theorem — Clebsch–Gordan series for $\mathfrak{su}(2)$.** The tensor product of the spin-$j_1$ and spin-$j_2$ representations decomposes as
+>
 > $$
 > j_1\otimes j_2 \;=\; (j_1+j_2)\ \oplus\ (j_1+j_2-1)\ \oplus\ \cdots\ \oplus\ |j_1-j_2| ,
 > $$
+>
 > each total spin $J$ from $|j_1-j_2|$ up to $j_1+j_2$ appearing exactly once.
 
 **Proof.**

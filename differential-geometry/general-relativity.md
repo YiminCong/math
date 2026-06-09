@@ -75,9 +75,11 @@ In Minkowski space $\eta_{\mu\nu}=\mathrm{diag}(-1,1,1,1)$, with $V=(V^0,\vec V)
 For a timelike worldline — the history of a massive particle — the natural parameter is the time its own clock reads.
 
 > **Definition — proper time.** Along a timelike curve $x^\mu(\lambda)$ with tangent $u^\mu=dx^\mu/d\lambda$ (so $g(u,u)<0$), the **proper time** elapsed between parameter values $\lambda_1,\lambda_2$ is
+>
 > $$
 > \tau=\int_{\lambda_1}^{\lambda_2}\sqrt{-g_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}\;d\lambda.
 > $$
+>
 > Equivalently $d\tau^2=-ds^2=-g_{\mu\nu}\,dx^\mu dx^\nu$ along the worldline.
 
 The minus inside the square root is there precisely because timelike vectors have $g(V,V)<0$, so $-g(V,V)>0$ and the root is real. Parametrizing the worldline by $\tau$ itself gives the **four-velocity** $u^\mu=dx^\mu/d\tau$, which is automatically unit timelike:
@@ -126,6 +128,7 @@ The deepest causal notion is whether initial data on a "snapshot of space" deter
 To compare vectors at different points and to define "straightest" curves we need a connection. The metric singles out a unique natural one.
 
 > **Theorem (fundamental theorem of (pseudo-)Riemannian geometry).** On any Lorentzian manifold there is a unique connection $\nabla$ that is (i) **metric-compatible**, $\nabla_\lambda g_{\mu\nu}=0$, and (ii) **torsion-free**, $\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$. It is the **Levi-Civita connection**, with components the Christoffel symbols
+>
 > $$
 > \Gamma^\lambda{}_{\mu\nu}=\tfrac12 g^{\lambda\sigma}\big(\partial_\mu g_{\sigma\nu}+\partial_\nu g_{\sigma\mu}-\partial_\sigma g_{\mu\nu}\big).
 > $$
@@ -142,9 +145,11 @@ To compare vectors at different points and to define "straightest" curves we nee
 5. Step 4 shows that *if* a metric-compatible torsion-free connection exists it is forced to have these coefficients — uniqueness. Conversely, defining $\Gamma$ by this formula and reversing the algebra verifies $\nabla g=0$ and the symmetry, giving existence. The construction nowhere used the sign of the signature, so it holds verbatim in Lorentzian signature. $\blacksquare$
 
 > **Definition — geodesic.** A curve $x^\mu(\lambda)$ is a **geodesic** if its tangent is parallel-transported along itself: $\nabla_{\dot x}\dot x=0$. In components, with $\dot x^\mu=dx^\mu/d\lambda$,
+>
 > $$
 > \frac{d^2x^\lambda}{d\lambda^2}+\Gamma^\lambda{}_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}=0.
 > $$
+>
 > A parameter for which this holds (no extra term $f(\lambda)\dot x^\lambda$ on the right) is called **affine**; proper time $\tau$ is affine for timelike geodesics.
 
 This is the **geodesic equation**. We now show it is *both* the "straightest" curve (zero covariant acceleration) and the "extremal proper time" curve, and that it is the equation of free fall.
@@ -174,6 +179,7 @@ By the EEP (s0), a freely falling particle is locally inertial: in locally inert
 Curvature measures the failure of covariant derivatives to commute — equivalently, the path-dependence of parallel transport, the tidal field of s0.
 
 > **Definition — Riemann curvature tensor.** For vector fields, define $R(X,Y)Z=\nabla_X\nabla_Y Z-\nabla_Y\nabla_X Z-\nabla_{[X,Y]}Z$. In a coordinate basis (where $[\partial_\mu,\partial_\nu]=0$) its components are
+>
 > $$
 > R^\rho{}_{\sigma\mu\nu}=\partial_\mu\Gamma^\rho{}_{\nu\sigma}-\partial_\nu\Gamma^\rho{}_{\mu\sigma}+\Gamma^\rho{}_{\mu\lambda}\Gamma^\lambda{}_{\nu\sigma}-\Gamma^\rho{}_{\nu\lambda}\Gamma^\lambda{}_{\mu\sigma}.
 > $$
@@ -195,15 +201,19 @@ Lowering the first index, $R_{\rho\sigma\mu\nu}=g_{\rho\lambda}R^\lambda{}_{\sig
 These cut the $n^4=256$ components in $n=4$ down to $20$ independent ones.
 
 > **Definition — Ricci tensor, scalar curvature, Einstein tensor.** Contract Riemann on its first and third indices:
+>
 > $$
 > R_{\mu\nu}=R^\lambda{}_{\mu\lambda\nu},\qquad R=g^{\mu\nu}R_{\mu\nu},\qquad G_{\mu\nu}=R_{\mu\nu}-\tfrac12 R\,g_{\mu\nu}.
 > $$
+>
 > $R_{\mu\nu}$ is the **Ricci tensor** (symmetric, $R_{\mu\nu}=R_{\nu\mu}$, from the pair symmetry), $R$ the **scalar curvature**, $G_{\mu\nu}$ the **Einstein tensor**.
 
 > **Definition — Weyl tensor.** The **Weyl tensor** $C_{\rho\sigma\mu\nu}$ is the totally trace-free part of Riemann: it is the unique combination
+>
 > $$
 > C_{\rho\sigma\mu\nu}=R_{\rho\sigma\mu\nu}-\big(g_{\rho[\mu}R_{\nu]\sigma}-g_{\sigma[\mu}R_{\nu]\rho}\big)+\tfrac13 R\,g_{\rho[\mu}g_{\nu]\sigma}
 > $$
+>
 > (in $n=4$) with all single-contractions zero. Riemann splits as **Ricci part (set by matter through s6) plus Weyl part (free gravitational field — tidal distortion, gravitational waves).**
 
 #### The second (differential) Bianchi identity and its contraction
@@ -245,9 +255,11 @@ We now make precise the claim of s0 that tidal effects — the part of gravity t
 > **Setup.** Consider a smooth one-parameter family of geodesics $x^\mu(\tau,s)$: for each fixed $s$, $\tau\mapsto x^\mu(\tau,s)$ is a geodesic. Let $u^\mu=\partial x^\mu/\partial\tau$ be the tangent (four-velocity) and $\xi^\mu=\partial x^\mu/\partial s$ the **deviation vector** connecting neighboring geodesics. $\xi$ measures the separation of two infinitesimally close free-fallers.
 
 > **Theorem (geodesic deviation / Jacobi equation).** The deviation vector obeys
+>
 > $$
 > \frac{D^2\xi^\mu}{d\tau^2}=-R^\mu{}_{\nu\rho\sigma}\,u^\nu\xi^\rho u^\sigma,
 > $$
+>
 > where $\tfrac{D}{d\tau}=\nabla_u$ is the covariant derivative along the geodesic. Solutions $\xi$ are **Jacobi fields**.
 
 *Proof.*
@@ -273,9 +285,11 @@ The right-hand side is the relativistic **tidal force**. Two freely falling part
 We now write the law that determines the geometry. The cleanest route is variational: postulate the simplest generally covariant action and extremize it.
 
 > **Definition — Einstein–Hilbert action.** With matter Lagrangian density $\mathcal{L}_m$,
+>
 > $$
 > S=\frac{1}{2\kappa}\int R\,\sqrt{-g}\;d^4x+\int \mathcal{L}_m\,\sqrt{-g}\;d^4x,\qquad \kappa=8\pi G,
 > $$
+>
 > where $R$ is the scalar curvature and $\sqrt{-g}\,d^4x$ the invariant volume (Advanced Tensor Analysis). We vary $S$ with respect to the inverse metric $g^{\mu\nu}$ and demand $\delta S=0$.
 
 We need three variational lemmas. Throughout, $\delta$ denotes variation of the field $g$.
@@ -317,9 +331,11 @@ We need three variational lemmas. Throughout, $\delta$ denotes variation of the 
    $$
 
 > **The Einstein field equations.** With $\kappa=8\pi G$ (and $c$ restored, $\kappa=8\pi G/c^4$):
+>
 > $$
 > G_{\mu\nu}=R_{\mu\nu}-\tfrac12 R\,g_{\mu\nu}=8\pi G\,T_{\mu\nu}.
 > $$
+>
 > Adding a constant $\Lambda$ to the Lagrangian ($R\to R-2\Lambda$) gives the version with **cosmological constant**: $G_{\mu\nu}+\Lambda g_{\mu\nu}=8\pi G\,T_{\mu\nu}$.
 
 #### The role of $T_{\mu\nu}$ and built-in conservation
@@ -371,9 +387,11 @@ Drop the static assumption but keep $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$, linea
 5. **In vacuum** ($T_{\mu\nu}=0$): $\Box\bar h_{\mu\nu}=0$ — the wave equation. Gravity propagates as waves at the speed of light $c$ (since $\Box$ has characteristic speed $1$).
 
 > **Gravitational-wave polarizations.** The residual gauge freedom (transformations with $\Box\xi=0$) lets us further impose the **transverse-traceless (TT) gauge**: $\bar h=0$, $\bar h_{0\mu}=0$, $\partial^j\bar h_{ij}=0$. A wave traveling in $z$ then has only two independent components,
+>
 > $$
 > h_{ij}^{TT}=\begin{pmatrix}h_+ & h_\times & 0\\ h_\times & -h_+ & 0\\ 0&0&0\end{pmatrix}\cos\big(\omega(t-z)\big),
 > $$
+>
 > the **plus** and **cross** polarizations. A ring of free test masses is alternately stretched and squeezed along orthogonal axes — exactly what laser-interferometer detectors measure.
 
 > **Worked example — the two polarizations from geodesic deviation.** Insert $h^{TT}_{ij}$ into the deviation equation $\ddot\xi^i=\tfrac12\ddot h^{TT}_{ij}\xi^j$. For $h_+$ alone, a mass at $(\xi^x,0)$ oscillates in $x$ while one at $(0,\xi^y)$ oscillates in $y$ with opposite phase: a circle of masses becomes an ellipse oscillating between "tall" and "wide." The $h_\times$ mode does the same rotated by $45^\circ$. This is the observable signature; everything else about the wave is pure gauge.
@@ -386,9 +404,11 @@ Drop the static assumption but keep $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$, linea
 The first and most important exact solution is the field outside a static spherical mass.
 
 > **Ansatz.** Static, spherically symmetric, vacuum. The most general such metric can be written
+>
 > $$
 > ds^2=-e^{2\alpha(r)}dt^2+e^{2\beta(r)}dr^2+r^2(d\theta^2+\sin^2\theta\,d\phi^2),
 > $$
+>
 > with two unknown functions $\alpha(r),\beta(r)$ (the $r^2$ on the sphere is a choice of radial coordinate by area: a sphere at $r$ has area $4\pi r^2$).
 
 *Derivation of the solution.*
@@ -399,6 +419,7 @@ The first and most important exact solution is the field outside a static spheri
 4. The constant $M$ is fixed by matching the Newtonian limit $g_{tt}=-(1+2\Phi)=-(1-2GM/r)$ to $\Phi=-GM/r$ (s7): $M$ is the mass. $\blacksquare$
 
 > **Schwarzschild metric.**
+>
 > $$
 > ds^2=-\Big(1-\frac{2GM}{r}\Big)dt^2+\Big(1-\frac{2GM}{r}\Big)^{-1}dr^2+r^2 d\Omega^2,\qquad d\Omega^2=d\theta^2+\sin^2\theta\,d\phi^2.
 > $$
@@ -486,9 +507,11 @@ These remarkable analogues of thermodynamics relate the horizon's surface gravit
 On the largest scales the universe is observed to be **homogeneous** (same at every point) and **isotropic** (same in every direction). These symmetries pin down the metric up to a function and a constant.
 
 > **Definition — FLRW metric.** The Friedmann–Lemaître–Robertson–Walker metric is
+>
 > $$
 > ds^2=-dt^2+a(t)^2\Big[\frac{dr^2}{1-kr^2}+r^2 d\Omega^2\Big],
 > $$
+>
 > where $a(t)$ is the **scale factor** (the relative size of space) and $k\in\{-1,0,+1\}$ sets the spatial curvature: open (hyperbolic), flat, or closed (spherical). Homogeneity and isotropy force exactly this form.
 
 *Derivation of the Friedmann equations.* Take a perfect-fluid source $T_{\mu\nu}=(\rho+p)u_\mu u_\nu+p g_{\mu\nu}$ with $u^\mu=(1,0,0,0)$ (comoving fluid).
@@ -519,9 +542,11 @@ On the largest scales the universe is observed to be **homogeneous** (same at ev
 Global hyperbolicity (s2) lets us slice spacetime into spatial surfaces $\Sigma_t$ and view the Einstein equations as evolution in time — essential for both the conceptual "well-posedness" of GR and for numerical relativity.
 
 > **Definition — ADM (3+1) decomposition.** Foliate $M$ by spacelike Cauchy surfaces $\Sigma_t$. Write
+>
 > $$
 > ds^2=-N^2\,dt^2+\gamma_{ij}\big(dx^i+N^i dt\big)\big(dx^j+N^j dt\big),
 > $$
+>
 > where $\gamma_{ij}$ is the **induced spatial metric** on $\Sigma_t$, $N$ the **lapse** (proper time per coordinate time for a normal observer), and $N^i$ the **shift** (how spatial coordinates slide between slices). The dynamical field is $\gamma_{ij}$; its "velocity" is encoded in the **extrinsic curvature** $K_{ij}=\frac{1}{2N}(\dot\gamma_{ij}-D_iN_j-D_jN_i)$, where $D$ is the covariant derivative of $\gamma$.
 
 The ten Einstein equations split into two groups:
@@ -540,9 +565,11 @@ The ten Einstein equations split into two groups:
 The Schwarzschild and FLRW singularities (s8, s10) might be dismissed as artifacts of perfect symmetry. The singularity theorems show they are not: under broad, symmetry-free conditions, gravitational collapse and the cosmological past are *geodesically incomplete* — some geodesic cannot be extended to all values of its affine parameter.
 
 > **Key tool — focusing and the Raychaudhuri equation.** For a congruence of timelike geodesics with expansion $\theta$ (fractional rate of change of a transverse volume),
+>
 > $$
 > \frac{d\theta}{d\tau}=-\tfrac13\theta^2-\sigma_{\mu\nu}\sigma^{\mu\nu}+\omega_{\mu\nu}\omega^{\mu\nu}-R_{\mu\nu}u^\mu u^\nu,
 > $$
+>
 > with shear $\sigma$ and vorticity $\omega$. If gravity attracts ($R_{\mu\nu}u^\mu u^\nu\ge0$, the **strong energy condition**) and the congruence is irrotational ($\omega=0$), then $\frac{d\theta}{d\tau}\le-\tfrac13\theta^2$, which forces $\theta\to-\infty$ (geodesics focus to a caustic / conjugate point) in finite proper time once $\theta$ is negative. Attraction is unconditional.
 
 > **Penrose's theorem (1965, black holes).** If a spacetime is globally hyperbolic with a non-compact Cauchy surface, satisfies the null energy condition ($R_{\mu\nu}k^\mu k^\nu\ge0$ for null $k$), and contains a **trapped surface** — a closed 2-surface whose *both* ingoing and outgoing null normal congruences are converging — then the spacetime is null-geodesically incomplete: it contains a singularity. A trapped surface forms inside a collapsing star, so collapse to a singularity is generic, not an artifact of spherical symmetry.

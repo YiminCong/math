@@ -46,9 +46,11 @@
 > **定义 — 代数。** 一个（结合的、含单位的、复的）**代数**是一个复向量空间 $\mathcal A$，连同一个乘法 $\mathcal A\times\mathcal A\to\mathcal A$，记作 $(a,b)\mapsto ab$，它是结合的（$(ab)c=a(bc)$）、双线性的（对每个变元线性）、并有一个**单位** $1\in\mathcal A$，对所有 $a$ 满足 $1a=a1=a$。如果对所有 $a,b$ 有 $ab=ba$，则该代数是**交换的**。
 
 > **定义 — Banach 代数。** 一个 **Banach 代数**是一个代数 $\mathcal A$，它同时是一个 Banach 空间，其范数是**次乘性的**：
+>
 > $$
 > \|ab\|\le\|a\|\,\|b\|\qquad\text{for all }a,b\in\mathcal A,
 > $$
+>
 > 且（对于本文通篇所用的含单位情形）$\|1\|=1$。
 
 次乘性恰好使乘法连续：若 $a_n\to a$ 且 $b_n\to b$，则 $a_nb_n\to ab$，因为 $\|a_nb_n-ab\|\le\|a_n\|\,\|b_n-b\|+\|a_n-a\|\,\|b\|\to0$（三角不等式、次乘性，以及收敛列 $\|a_n\|$ 的有界性）。
@@ -56,6 +58,7 @@
 > **定义 — 对合与 \*-代数。** 代数 $\mathcal A$ 上的一个**对合**是一个映射 $a\mapsto a^*$，它是共轭线性的（$(\lambda a+b)^*=\overline\lambda\,a^*+b^*$）、反转乘积（$(ab)^*=b^*a^*$）、并且是自身的逆（$(a^*)^*=a$）。带有对合的代数是一个 **\*-代数**。元素 $a^*$ 是 $a$ 的**伴随**。若 $a=a^*$ 则元素是**自伴的**，若 $a^*a=aa^*$ 则是**正规的**，而（在含单位代数中）若 $a^*a=aa^*=1$ 则是**酉的**。
 
 > **定义 — C\*-代数。** 一个 **C\*-代数**是一个 Banach \*-代数 $\mathcal A$，其范数满足 **C\*-恒等式**：
+>
 > $$
 > \|a^*a\|=\|a\|^2\qquad\text{for all }a\in\mathcal A.
 > $$
@@ -83,9 +86,11 @@ $$
 **是什么以及为什么。** 在单个矩阵中，本征值是那些使 $a-\lambda 1$ 不可逆的数 $\lambda$。同样的定义在任何 Banach 代数中都成立，无需引用向量或本征向量——它纯粹关乎可逆性。这个"代数中的谱"是从代数通向数的桥梁，是后续一切的基础。
 
 > **定义 — 可逆、谱、预解式。** 设 $\mathcal A$ 是含单位的 Banach 代数，$a\in\mathcal A$。若存在 $b\in\mathcal A$ 使 $ab=ba=1$，则称 $a$ **可逆**。$a$ 的**谱**是
+>
 > $$
 > \sigma(a)=\{\lambda\in\mathbb C:\ a-\lambda 1\ \text{is not invertible in }\mathcal A\}.
 > $$
+>
 > 其补集 $\rho(a)=\mathbb C\setminus\sigma(a)$ 是**预解集**，而对 $\lambda\in\rho(a)$，元素 $(a-\lambda1)^{-1}$ 是**预解式**。
 
 > **引理 — Neumann 级数（在 1 附近的可逆性）。** 若 $\|x\|<1$，则 $1-x$ 可逆，且 $(1-x)^{-1}=\sum_{k=0}^\infty x^k$。
@@ -149,9 +154,11 @@ $$
 由引理，$\widehat{\mathcal A}$ 位于对偶 $\mathcal A^*$ 的闭单位球内，而后者由 **Banach–Alaoglu 定理**（泛函分析指南中的事实：对偶空间的闭单位球是弱\*-紧的）是**弱\*-紧的**。可验证 $\widehat{\mathcal A}$ 弱\*-闭，因而是紧 Hausdorff 的。所以 $\widehat a\in C(\widehat{\mathcal A})$ 总成立。
 
 > **定理 — Gelfand–Naimark（交换情形）。** 设 $\mathcal A$ 是交换含单位 C\*-代数。Gelfand 变换 $a\mapsto\widehat a$ 是一个等距 \*-同构
+>
 > $$
 > \mathcal A\ \xrightarrow{\ \cong\ }\ C(\widehat{\mathcal A}).
 > $$
+>
 > 也就是说：它线性、乘性，把 $a^*$ 送到 $\overline{\widehat a}$，保范，并且是到整个 $C(\widehat{\mathcal A})$ 的双射。
 
 **证明（关键步骤）。**
@@ -198,9 +205,11 @@ $$
 > **定义 — 表示。** C\*-代数 $\mathcal A$ 的一个**表示**是一对 $(\pi,\mathcal H)$，其中 $\mathcal H$ 是 Hilbert 空间，$\pi:\mathcal A\to B(\mathcal H)$ 是一个 \*-同态（线性、乘性、$\pi(a^*)=\pi(a)^*$、$\pi(1)=\mathrm{id}$）。若 $\{\pi(a)\Omega:a\in\mathcal A\}$ 在 $\mathcal H$ 中稠密，则向量 $\Omega\in\mathcal H$ 是**循环的**。
 
 > **定理 — GNS 构造。** 设 $\omega$ 是含单位 C\*-代数 $\mathcal A$ 上的一个态。则存在一个 Hilbert 空间 $\mathcal H_\omega$、一个表示 $\pi_\omega:\mathcal A\to B(\mathcal H_\omega)$ 和一个单位循环向量 $\Omega_\omega\in\mathcal H_\omega$，使得
+>
 > $$
 > \omega(a)=\langle\Omega_\omega,\ \pi_\omega(a)\,\Omega_\omega\rangle\qquad\text{for all }a\in\mathcal A.
 > $$
+>
 > 该三元组在酉等价意义下唯一。
 
 **证明（完整构造）。**
@@ -326,9 +335,11 @@ $$
 2. *唯一性。* 任何两个迹在投影上一致，因为 $d$ 是因子中投影类上唯一的归一化可加函数（s7），故由稠密性处处一致。$\blacksquare$
 
 > **定理 — Tomita–Takesaki（陈述）。** 设 $\mathcal M\subseteq B(\mathcal H)$ 是带有一个**循环且分离**向量 $\Omega$ 的 von Neumann 代数（循环：$\mathcal M\Omega$ 稠密；分离：$a\Omega=0\Rightarrow a=0$）。由
+>
 > $$
 > S\,a\Omega=a^*\Omega\qquad(a\in\mathcal M),
 > $$
+>
 > 定义反线性算子 $S$，并令 $S=J\Delta^{1/2}$ 是它的**极分解**，其中 $J$ 反酉（**模共轭**），$\Delta=S^*S>0$（**模算子**）。则：
 > 1. $J\mathcal M J=\mathcal M'$——用 $J$ 共轭把代数与它的交换子互换；
 > 2. 对所有 $t\in\mathbb R$ 有 $\Delta^{it}\mathcal M\Delta^{-it}=\mathcal M$——**模自同构群** $\sigma_t(a)=\Delta^{it}a\Delta^{-it}$ 保持 $\mathcal M$。
@@ -348,15 +359,19 @@ $$
 **是什么以及为什么。** 量子化一个场意味着把经典 Poisson 括号变成对易子：$[\,\widehat q,\widehat p\,]=i\hbar$。但无界算子难以放进 C\*-代数（它们没有范数）。补救办法是指数化为有界酉算子——即 **Weyl 算子**——其对易关系成为一个代数恒等式。对费米子则用*反对易子*，直接给出有界的 **CAR 代数**。
 
 > **定义 — Heisenberg CCR（无界形式）。** 单自由度的**正则对易关系**是在合适定义域上的关系，
+>
 > $$
 > [\,\widehat q,\widehat p\,]=\widehat q\widehat p-\widehat p\widehat q=i\hbar\,1.
 > $$
+>
 > 没有有界算子能满足它：如果有，对两边取迹（在有限维中）给出 $0=i\hbar n$，不可能；在无穷维中 $\|\,[\widehat q,\widehat p]\,\|$ 将不得不界住 $|\hbar|$ 乘以无界的幂（Wintner 定理）。故 $\widehat q,\widehat p$ 必然无界。
 
 > **定义 — Weyl 算子与 CCR 代数。** 引入有界酉算子 $W(s,t)=e^{i(s\widehat q+t\widehat p)}$，$(s,t)\in\mathbb R^2$。Baker–Campbell–Hausdorff 公式把 CCR 变成 **Weyl 关系**：
+>
 > $$
 > W(s_1,t_1)\,W(s_2,t_2)=e^{-\tfrac{i\hbar}{2}(s_1 t_2-s_2 t_1)}\,W(s_1+s_2,\ t_1+t_2).
 > $$
+>
 > 由符号 $W(f)$ 生成的 C\*-代数，其中 $f$ 取自一个辛空间 $(V,\sigma)$，满足 $W(f)W(g)=e^{-\frac i2\sigma(f,g)}W(f+g)$ 与 $W(f)^*=W(-f)$，称为 **Weyl（CCR）代数** $\mathrm{CCR}(V,\sigma)$。
 
 > **定理 — Stone–von Neumann。** 对有限多个自由度，Weyl 关系的每个由强连续酉算子给出的不可约表示都酉等价于 $L^2(\mathbb R^n)$ 上的标准 Schrödinger 表示。
@@ -364,9 +379,11 @@ $$
 这是有限维量子化的*唯一性*——而它在**无穷维中的失效**（无穷多自由度，即场）正是 QFT 拥有不等价表示的原因，也是 Haag 定理（s11）的技术根源。
 
 > **定义 — CAR 代数。** 对费米子，给定一个 Hilbert 空间 $\mathfrak h$（"单粒子空间"），对**产生/湮灭算子** $a(f),a^*(f)$（$f\in\mathfrak h$）而言，**正则反对易关系**为
+>
 > $$
 > \{a(f),a^*(g)\}=a(f)a^*(g)+a^*(g)a(f)=\langle f,g\rangle\,1,\qquad \{a(f),a(g)\}=0.
 > $$
+>
 > 由于 $\|a(f)\|=\|f\|$（把 C\*-恒等式用于这些关系的一个推论——下面证明），它们*确实*有界，所以 **CAR 代数** $\mathrm{CAR}(\mathfrak h)$ 是一个真正的 C\*-代数，无需指数化。
 
 **$\|a(f)\|=\|f\|$ 的证明。**
@@ -409,6 +426,7 @@ $$
 > **定义 — C\*-代数上的动力学。** 一个 **(C\*-)动力学系统**是一个 C\*-代数 $\mathfrak A$ 连同一个强连续的单参数自同构群 $t\mapsto\sigma_t$（时间演化），满足 $\sigma_{s+t}=\sigma_s\sigma_t$、$\sigma_t(a^*)=\sigma_t(a)^*$。
 
 > **定义 — KMS 条件。** $(\mathfrak A,\sigma)$ 上的一个态 $\omega$ 满足**逆温度 $\beta>0$ 处的 KMS 条件**（Kubo–Martin–Schwinger），如果对某个稠密集中的所有 $a,b$，存在一个函数 $F_{a,b}$，它在带状区域 $\{z:0\le\mathrm{Im}\,z\le\beta\}$ 上有界且连续、在其内部解析，且边界值为
+>
 > $$
 > F_{a,b}(t)=\omega\!\big(a\,\sigma_t(b)\big),\qquad F_{a,b}(t+i\beta)=\omega\!\big(\sigma_t(b)\,a\big).
 > $$

@@ -39,9 +39,11 @@
 
 > **定义 —— 模。**
 > 环 $R$ 上的一个**左模**（即“$R$-模”）是一个阿贝尔群 $(M,+)$ 连同一个数乘 $R\times M\to M$，记作 $(r,m)\mapsto rm$，对一切 $r,s\in R$ 与 $m,n\in M$ 满足：
+>
 > $$
 > r(m+n)=rm+rn,\quad (r+s)m=rm+sm,\quad (rs)m=r(sm),\quad 1\,m=m.
 > $$
+>
 > *例：* 一个 $\mathbb{Z}$-模*恰好*是一个阿贝尔群（用 $n$ 做数乘就是“把 $m$ 自身相加 $n$ 次”）；域 $k$ 上的一个模*恰好*是 $k$ 上的一个向量空间。所以“模”是两者共同的母概念。
 
 > **定义 —— 模同态（= $R$-线性映射）。**
@@ -52,9 +54,11 @@
 
 > **定义 —— 正合列。**
 > $R$-模与同态构成的序列 $\cdots\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to\cdots$ 在 $B$ 处**正合**，若 $\mathrm{im}f=\ker g$。若它在每个内部模处都正合，则称它**正合**。**短正合列（SES）**是形如
+>
 > $$
 > 0\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to 0
 > $$
+>
 > 的正合列，它可展开为：$f$ 是单射（在 $A$ 处正合：$\mathrm{im}(0\to A)=0=\ker f$），$g$ 是满射（在 $C$ 处正合：$\mathrm{im}g=\ker(C\to0)=C$），且 $\mathrm{im}f=\ker g$，故由第一同构定理 $C\cong B/\mathrm{im}f$。
 
 *已解例。* $0\to \mathbb{Z}\xrightarrow{\,\times 2\,}\mathbb{Z}\xrightarrow{\bmod 2}\mathbb{Z}/2\to 0$ 是 $\mathbb{Z}$-模的短正合列：乘以 $2$ 是单射，模 $2$ 约化是满射，而“$\times 2$”的像是偶整数，恰是“模 $2$”的核。我们将反复使用这条正合列。
@@ -66,6 +70,7 @@
 **交换图**是一幅由模与箭头构成的图，其中任意两条具有相同起点与终点的有向路径给出相等的复合映射。**图追踪**通过在这样的图中追踪单个元素来证明命题，每一步都以正合性或交换性为依据。两个基础性结果是蛇引理与五引理。
 
 > **蛇引理。** 给定一个行正合的交换图
+>
 > $$
 > \begin{array}{ccccccccc}
 > & & A & \xrightarrow{\,f\,} & B & \xrightarrow{\,g\,} & C & \to & 0\\
@@ -73,10 +78,13 @@
 > 0 & \to & A' & \xrightarrow{\,f'\,} & B' & \xrightarrow{\,g'\,} & C' & &
 > \end{array}
 > $$
+>
 > 则存在一条正合列
+>
 > $$
 > \ker a\to\ker b\to\ker c\xrightarrow{\;\partial\;}\mathrm{coker}a\to\mathrm{coker}b\to\mathrm{coker}c,
 > $$
+>
 > 其中 $\mathrm{coker}a=A'/\mathrm{im}a$ 是**余核**，而 $\partial$ 是**连接同态**。若 $f$ 是单射，则该序列左端可补上 $0\to\ker a$；若 $g'$ 是满射，则右端可补上 $\mathrm{coker}c\to 0$。
 
 **证明（完整图追踪）。**
@@ -91,6 +99,7 @@
 8. *在 $\mathrm{coker}b$ 处正合。* 第 5 步的镜像，对偶到余核上：由 $g'f'=0$ 得 $\bar g'\circ\bar f'=0$，而被 $\bar g'$ 零化的类，凭借 $g$ 的满射性与底行的正合性，来自 $\mathrm{coker}a$。这一论证是第 5 步的形式对偶（反转所有箭头并把核换成余核）。*（在 $B'$ 处与在 $C$ 处正合）* $\;\blacksquare$
 
 > **五引理。** 在一个行正合的交换图
+>
 > $$
 > \begin{array}{ccccccccc}
 > A_1 & \to & A_2 & \to & A_3 & \to & A_4 & \to & A_5\\
@@ -98,6 +107,7 @@
 > B_1 & \to & B_2 & \to & B_3 & \to & B_4 & \to & B_5
 > \end{array}
 > $$
+>
 > 中，若 $f_1$ 是满射，$f_5$ 是单射，且 $f_2,f_4$ 是同构，则 $f_3$ 是同构。
 
 **证明。** 把水平映射记作 $\alpha_i:A_i\to A_{i+1}$ 与 $\beta_i:B_i\to B_{i+1}$。
@@ -106,9 +116,11 @@
 2. *（$f_3$ 满射。）* 设 $y\in B_3$。则 $\beta_3(y)\in B_4$；由于 $f_4$ 是满射，对某 $t\in A_4$ 有 $\beta_3(y)=f_4(t)$。现 $f_5(\alpha_4(t))=\beta_4(f_4(t))=\beta_4(\beta_3(y))=0$（底行在 $B_4$ 处正合），而 $f_5$ 单射给出 $\alpha_4(t)=0$，故 $t\in\ker\alpha_4=\mathrm{im}\alpha_3$；写 $t=\alpha_3(s)$。考虑 $y-f_3(s)$：$\beta_3(y-f_3(s))=f_4(t)-\beta_3(f_3(s))=f_4(t)-f_4(\alpha_3(s))=f_4(t)-f_4(t)=0$，故 $y-f_3(s)\in\ker\beta_3=\mathrm{im}\beta_2$；写 $y-f_3(s)=\beta_2(p)$。由于 $f_2$ 是满射，$p=f_2(q)$，且 $\beta_2(f_2(q))=f_3(\alpha_2(q))$，故 $y-f_3(s)=f_3(\alpha_2(q))$，给出 $y=f_3(s+\alpha_2(q))\in\mathrm{im}f_3$。*（$f_4,f_5,f_2$ 的满射性/单射性；正合性）* $\;\blacksquare$
 
 > **已解例 —— 蛇引理给出对 $0\to\mathbb{Z}/2\to\mathbb{Z}/4\to\mathbb{Z}/2\to0$ 的分析。** 把蛇引理应用于这样的图：行为 $0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to\mathbb{Z}/2\to0$（顶行）与同一行（底行），竖直映射在两个 $\mathbb{Z}$ 上为 $a=b=\times2$，而 $c$ 是 $\mathbb{Z}/2$ 上的诱导映射（它是 $0$，因为 $2\equiv0$）。则 $\ker a=\ker b=0$，$\ker c=\mathbb{Z}/2$，$\mathrm{coker}a=\mathrm{coker}b=\mathbb{Z}/2$，$\mathrm{coker}c=\mathbb{Z}/2$。蛇序列读作
+>
 > $$
 > 0\to0\to\mathbb{Z}/2\xrightarrow{\partial}\mathbb{Z}/2\to\mathbb{Z}/2\to\mathbb{Z}/2\to0,
 > $$
+>
 > 正合性迫使 $\partial$ 为单射。按第 3 步追踪 $\partial$ 的构造：把 $\ker c=\mathbb{Z}/2$ 的生成元提升到 $1\in\mathbb{Z}$（顶行），施以 $b=\times2$ 得 $2\in\mathbb{Z}$（底行），沿 $f'=\times2$ 拉回得 $1\in\mathbb{Z}$，投影到 $1\in\mathrm{coker}a=\mathbb{Z}/2$——于是 $\partial$ 把生成元送到生成元，是一个同构。这个连接映射正是检测 $\mathbb{Z}/4$ 与 $\mathbb{Z}/2\oplus\mathbb{Z}/2$ 之差异的 Bockstein 同态。
 
 **陷阱。** 图追踪使用*元素*，这对模是合法的，但对任意抽象情形并非如此；§s6 解释这些引理如何凭借更细致的论证在任意阿贝尔范畴中存活。此外，蛇引理的连接映射 $\partial$ 是典范的，*尽管*第 3 步中做了选择——良定义性的核验并非走过场，它正是该引理的核心。
@@ -123,9 +135,11 @@
 
 > **定义 —— 同调。**
 > **第 $n$ 阶同调**是商模
+>
 > $$
 > H_n(C_\bullet)=\ker\partial_n/\mathrm{im}\partial_{n+1}=Z_n/B_n.
 > $$
+>
 > 它度量“不是边缘链的闭链”。该复形在 $C_n$ 处正合当且仅当 $H_n=0$；于是**同调是非正合性的精确度量。** **上链复形**是把箭头升起的同物，$d^n:C^n\to C^{n+1}$，$d^{n+1}d^n=0$；其**上同调**是 $H^n=\ker d^n/\mathrm{im}d^{n-1}$。
 
 *已解例。* 设 $C_1=\mathbb{Z}\xrightarrow{\times 2}C_0=\mathbb{Z}$，其余 $C_n=0$。则 $\partial_1=\times2$，$\partial_0=0$。度数 $0$ 处的闭链：整个 $\mathbb{Z}$（因 $\partial_0=0$）。度数 $0$ 处的边缘链：$\mathrm{im}(\times2)=2\mathbb{Z}$。故 $H_0=\mathbb{Z}/2\mathbb{Z}$。度数 $1$ 处：闭链 $=\ker(\times2)=0$，故 $H_1=0$。该复形“看见”了挠 $\mathbb{Z}/2$。
@@ -140,9 +154,11 @@
 
 > **定义 —— 链同伦。**
 > 两个链映射 $f_\bullet,g_\bullet:C_\bullet\to D_\bullet$ 是**链同伦的**，若存在一族 $h_n:C_n\to D_{n+1}$（不要求交换）满足
+>
 > $$
 > f_n-g_n=\partial^D_{n+1}h_n+h_{n-1}\partial^C_n.
 > $$
+>
 > 我们记 $f\simeq g$，并称 $h$ 为**链同伦**。
 
 > **定理（同伦不变性）。** 若 $f\simeq g$，则在同调上 $f_*=g_*$。
@@ -153,6 +169,7 @@
 3. 从而对每个闭链 $z$ 有 $f_*(z+B)=g_*(z+B)$，即 $f_*=g_*$。$\;\blacksquare$
 
 > **定理（同调的长正合列）。** 链复形的短正合列 $0\to A_\bullet\xrightarrow{f}B_\bullet\xrightarrow{g}C_\bullet\to 0$（在每个度数上正合）诱导一条长正合列
+>
 > $$
 > \cdots\to H_n(A)\xrightarrow{f_*}H_n(B)\xrightarrow{g_*}H_n(C)\xrightarrow{\partial_*}H_{n-1}(A)\to\cdots
 > $$
@@ -160,9 +177,11 @@
 **证明。** 把蛇引理（§s1）应用于这样的交换图：其两行是相邻度数上复形 SES 的 $\partial$-映射；蛇引理的连接映射*正是* $\partial_*$，而把所得六项正合列在所有 $n$ 上拼接即产生长正合列。具体地：每个度数上 $0\to A_n\to B_n\to C_n\to 0$ 正合，$\partial$ 与 $f,g$ 交换，蛇引理给出在每个 $H_n$ 处的正合性连同 $\partial_*$；核验相继的六项片段能够拼接，即是把蛇的 $\ker\to\mathrm{coker}$ 映射跨度数对接起来。$\;\blacksquare$
 
 > **已解例 —— 长正合列的实际运用（偶对 $(D^2,S^1)$）。** 在代数拓扑中，圆盘 $D^2$ 具有一点的同调（$H_0=\mathbb{Z}$，所有更高阶为 $0$），而圆 $S^1$ 具有 $H_0=H_1=\mathbb{Z}$。相对链拼成复形的 SES $0\to C_\bullet(S^1)\to C_\bullet(D^2)\to C_\bullet(D^2,S^1)\to0$，给出长正合列
+>
 > $$
 > \cdots\to H_2(D^2,S^1)\xrightarrow{\partial_*}H_1(S^1)\xrightarrow{i_*}H_1(D^2)\to H_1(D^2,S^1)\to H_0(S^1)\to\cdots
 > $$
+>
 > 代入 $H_1(D^2)=0$，正合性迫使 $\partial_*:H_2(D^2,S^1)\to H_1(S^1)=\mathbb{Z}$ 为满射；与其左侧的 $H_2(D^2)=0$ 结合，它还是单射，故 $H_2(D^2,S^1)\cong\mathbb{Z}$。连接映射“$\partial_*$”——蛇的 $\partial$——恰是把圆检测为圆盘边缘的边界算子。这就是“一个 $2$-胞腔的边界是其界圆”这一事实的同调代数版本。
 
 **直觉。** 同调把“未能正合”变成可计算的不变量；链同伦是“连续形变”的代数影子，这正是同伦等价的空间具有相等同调的原因。长正合列是主力工具：它把三个复形之间已知的关系转化为联系它们全部同调群的单一无穷正合梯子，而连接映射承载着几何内涵。
@@ -189,9 +208,11 @@
 
 > **定义 —— 消解。**
 > $M$ 的一个**投射消解**是一条正合列
+>
 > $$
 > \cdots\to P_2\xrightarrow{d_2}P_1\xrightarrow{d_1}P_0\xrightarrow{\varepsilon}M\to 0
 > $$
+>
 > 其中每个 $P_n$ 都是投射的。一个**内射消解**是一条正合列 $0\to M\xrightarrow{\eta}E^0\xrightarrow{d^0}E^1\to\cdots$，其中每个 $E^n$ 都是内射的。
 
 > **定理（投射消解的存在性）。** 每个 $R$-模 $M$ 都有投射（实则自由）消解。
@@ -212,9 +233,11 @@
 3. 对 $E^0/M$ 迭代以构造 $E^1,E^2,\dots$，产生内射消解。$\;\blacksquare$
 
 > **已解例 —— $\mathbb{Z}/6$ 在 $\mathbb{Z}$ 上的自由消解。** 遵循该构造。$P_0=\mathbb{Z}$，$\varepsilon:\mathbb{Z}\twoheadrightarrow\mathbb{Z}/6$ 为约化映射；$K_0=\ker\varepsilon=6\mathbb{Z}\cong\mathbb{Z}$。取 $P_1=\mathbb{Z}$ 经 $1\mapsto6$ 映满到 $6\mathbb{Z}$，故 $d_1=\times6:\mathbb{Z}\to\mathbb{Z}$。现 $\ker d_1=0$，故消解终止：
+>
 > $$
 > 0\to\mathbb{Z}\xrightarrow{\times6}\mathbb{Z}\xrightarrow{\bmod6}\mathbb{Z}/6\to0.
 > $$
+>
 > 它的长度为 $1$——这是有限生成阿贝尔群具有长度 $\leq1$ 的自由消解这一普遍现象，也正是 $\mathrm{Tor}_n$ 与 $\mathrm{Ext}^n$ 在 $\mathbb{Z}$ 上对 $n\geq2$ 消失的原因（§s4）。
 
 **陷阱。** 对一般环，投射*并不*等同于自由（例如在 $\mathbb{Z}/6\cong\mathbb{Z}/2\times\mathbb{Z}/3$ 上，因子 $\mathbb{Z}/2$ 投射但不自由）；然而在 $\mathbb{Z}$ 上——更一般地在任何 PID 上——*每个*投射模都是自由的，所以对我们在此用到的一切，这两个概念是重合的。消解的选取极不唯一（不同的生成元、不同的自由覆盖），这恰是 §s4 的无关性定理不可或缺的原因：它保证导出函子看不出这种选取。
@@ -231,9 +254,11 @@
 
 > **定义 —— 导出函子（左）。**
 > 要为右正合函子 $F$ 计算 $L_nF(M)$：取 $M$ 的一个投射消解 $P_\bullet\to M$，删去 $M$ 得 $\cdots\to P_1\to P_0\to0$，施以 $F$ 得复形 $F(P_\bullet)$，并令
+>
 > $$
 > L_nF(M)=H_n\big(F(P_\bullet)\big).
 > $$
+>
 > 定义 $\mathrm{Tor}_n^R(M,N)=L_n(-\otimes_R N)(M)=H_n(P_\bullet\otimes_R N)$。
 
 > **定义 —— 导出函子（右）与 Ext。**
@@ -256,6 +281,7 @@
 **关键事实（每条都可如上证明）。** $\mathrm{Tor}_0=\otimes$，$\mathrm{Ext}^0=\mathrm{Hom}$；在 $\mathbb{Z}$ 上，对 $n\geq2$ 有 $\mathrm{Tor}_n=\mathrm{Ext}^n=0$（因为自由阿贝尔群的每个子群都是自由的，故消解长度为 $1$）；任一变量中的 SES 都产生一条 $\mathrm{Tor}$ 或 $\mathrm{Ext}$ 的**长正合列**（把 §s2 的长正合列应用于消解复形）。
 
 > **定理（$\mathrm{Tor}$ 的长正合列）。** 右 $R$-模的短正合列 $0\to A'\to A\to A''\to0$ 与一个固定的左模 $N$ 产生一条长正合列
+>
 > $$
 > \cdots\to\mathrm{Tor}_1(A',N)\to\mathrm{Tor}_1(A,N)\to\mathrm{Tor}_1(A'',N)\to A'\otimes N\to A\otimes N\to A''\otimes N\to0.
 > $$
@@ -277,9 +303,11 @@
 **是什么与为什么。** 在拓扑中人们先计算整系数同调，然后想要其他系数下的同调或上同调，以及乘积空间的同调。两个答案都由 $\mathrm{Tor}$ 与 $\mathrm{Ext}$ 支配。我们将两者都导出。我们使用一个由**自由**阿贝尔群构成的链复形 $C_\bullet$（奇异链的情形），正是这一点使下面的分裂成为可能。
 
 > **万有系数定理（同调）。** 设 $C_\bullet$ 是自由阿贝尔群的链复形，$G$ 是阿贝尔群。存在一条关于 $G$ 自然的短正合列
+>
 > $$
 > 0\to H_n(C)\otimes G\to H_n(C\otimes G)\to \mathrm{Tor}_1^{\mathbb{Z}}(H_{n-1}(C),G)\to 0,
 > $$
+>
 > 且它（非自然地）分裂，故 $H_n(C\otimes G)\cong (H_n(C)\otimes G)\oplus\mathrm{Tor}_1^{\mathbb{Z}}(H_{n-1}(C),G)$。
 
 **推导。**
@@ -295,12 +323,15 @@
 6. 代入第 4 步即给出所述 SES。**分裂：** 由于 $Z_n$ 是 $C_n$ 的直和因子（第 1 步），选一个收缩 $C_n\to Z_n$；它诱导 $H_n(C\otimes G)\to H_n(C)\otimes G$，分裂第一个映射。$\;\blacksquare$
 
 > **万有系数定理（上同调）。** 当 $C_\bullet$ 自由时，存在一条分裂 SES
+>
 > $$
 > 0\to\mathrm{Ext}^1_{\mathbb{Z}}(H_{n-1}(C),G)\to H^n(\mathrm{Hom}(C,G))\to\mathrm{Hom}(H_n(C),G)\to0.
 > $$
+>
 > *推导：* 与上面相同，只是把 $\otimes G$ 换成 $\mathrm{Hom}(-,G)$；现在连接映射从同一长度为一的自由消解产生 $\mathrm{Hom}=\mathrm{Ext}^0$ 与 $\mathrm{Ext}^1$。*（对偶化第 1–6 步）*
 
 > **Künneth 公式。** 对阿贝尔群的自由链复形 $C_\bullet,D_\bullet$，存在一条分裂 SES
+>
 > $$
 > 0\to\bigoplus_{i+j=n}H_i(C)\otimes H_j(D)\to H_n(C\otimes D)\to\bigoplus_{i+j=n-1}\mathrm{Tor}_1^{\mathbb{Z}}(H_i(C),H_j(D))\to0.
 > $$
@@ -344,9 +375,11 @@
 
 > **定义 —— 伴随函子。**
 > 函子 $F:\mathcal{C}\to\mathcal{D}$ 与 $G:\mathcal{D}\to\mathcal{C}$ 构成一个**伴随对**（$F$ 左伴随于 $G$），若对一切 $X,Y$ 有自然同构
+>
 > $$
 > \mathrm{Hom}_{\mathcal{D}}(F(X),Y)\cong\mathrm{Hom}_{\mathcal{C}}(X,G(Y)).
 > $$
+>
 > 其原型是**张量–Hom 伴随** $\mathrm{Hom}(M\otimes_R N,\,P)\cong\mathrm{Hom}\big(M,\mathrm{Hom}_R(N,P)\big)$。
 
 > **为何正合性行为是被迫的。** 左伴随保持一切*余极限*（特别是余核），因而是**右正合**的——这正是 $\otimes$（左伴随）右正合并需要左导出函子 $\mathrm{Tor}$ 的原因。右伴随保持一切*极限*（核），因而是**左正合**的——这就是 $\mathrm{Hom}(-,N)$ 与 $(-)^G$ 左正合并需要右导出函子 $\mathrm{Ext}$ 与 $H^*(G;-)$ 的原因。整个 $\mathrm{Tor}$/$\mathrm{Ext}$ 二分法都是这一条伴随事实的影子。*（伴随保持（余）极限）*
@@ -365,13 +398,16 @@
 
 > **定义 —— 双复形。**
 > 一个**双复形** $C_{\bullet\bullet}=(C_{p,q})$ 是一个模的网格，带水平映射 $d^h:C_{p,q}\to C_{p-1,q}$ 与竖直映射 $d^v:C_{p,q}\to C_{p,q-1}$，满足
+>
 > $$
 > d^h d^h=0,\qquad d^v d^v=0,\qquad d^h d^v + d^v d^h = 0.
 > $$
+>
 > （符号约定 $d^hd^v+d^vd^h=0$——反交换——正是使全微分平方为零的原因；某些作者改用交换的方形并插入符号 $(-1)^p$。）
 
 > **定义 —— 全复形。**
 > **全复形** $\mathrm{Tot}(C)_\bullet$ 满足
+>
 > $$
 > \mathrm{Tot}(C)_n=\bigoplus_{p+q=n}C_{p,q},\qquad D=d^h+d^v.
 > $$
@@ -399,13 +435,17 @@
 
 > **定义 —— （同调型）谱序列。**
 > 一个**谱序列**（$R$-模的，自第 $r_0$ 页开始）是一族
+>
 > $$
 > \big\{E^r_{p,q},\ d^r:E^r_{p,q}\to E^r_{p-r,\,q+r-1}\big\}_{r\geq r_0}
 > $$
+>
 > 使得每个 $d^r$ 满足 $d^r\circ d^r=0$，连同同构
+>
 > $$
 > E^{r+1}_{p,q}\cong H_{p,q}(E^r)=\frac{\ker\big(d^r:E^r_{p,q}\to E^r_{p-r,q+r-1}\big)}{\mathrm{im}\big(d^r:E^r_{p+r,q-r+1}\to E^r_{p,q}\big)}.
 > $$
+>
 > 因此每一页都是前一页关于其微分 $d^r$ 的同调。$d^r$ 的双度数是 $(-r,\,r-1)$：随 $r$ 增大，微分变得“更长更平”。
 
 > **定义 —— 极限页 $E^\infty$。**
@@ -413,9 +453,11 @@
 
 > **定义 —— 收敛。**
 > 谱序列**收敛**到一个分次模 $H_\bullet$（记作 $E^r_{p,q}\Rightarrow H_{p+q}$），若 $H_n$ 带有一个过滤 $0=F_{-1}\subseteq F_0\subseteq\cdots\subseteq F_n=H_n$，且有同构
+>
 > $$
 > E^\infty_{p,q}\cong F_p H_{p+q}/F_{p-1}H_{p+q}.
 > $$
+>
 > 用语言说：极限页是答案上某过滤的**相伴分次**。从反对角线 $p+q=n$ 上的 $E^\infty_{p,q}$ 恢复 $H_n$ 是一个**扩张问题**（必须把各部件重新拼装起来），它可能有若干个解。
 
 **具体阅读指南。**
@@ -439,9 +481,11 @@
 > 链复形 $(C_\bullet,D)$ 的一个**过滤**是一族嵌套的子复形 $\cdots\subseteq F_{p-1}C\subseteq F_pC\subseteq F_{p+1}C\subseteq\cdots$，满足 $D(F_pC)\subseteq F_pC$。它是**有界的**，若对每个 $n$ 存在 $s<t$ 使 $F_sC_n=0$ 且 $F_tC_n=C_n$。
 
 > **定理（过滤复形的谱序列）。** $C_\bullet$ 上的一个有界过滤确定一个谱序列，满足
+>
 > $$
 > E^0_{p,q}=F_pC_{p+q}/F_{p-1}C_{p+q},\qquad E^1_{p,q}=H_{p+q}\big(F_pC/F_{p-1}C\big),
 > $$
+>
 > 它收敛到 $H_{p+q}(C)$，其过滤由 $F_\bullet$ 诱导。
 
 **推导（正合偶构造）。**
@@ -456,6 +500,7 @@
 5. *收敛。* 有界性使每个 $H_n(C)$ 上的过滤有限，故 $E^r$ 稳定到 $E^\infty$，而追踪各导出偶辨识出 $E^\infty_{p,q}=F_pH_{p+q}(C)/F_{p-1}H_{p+q}(C)$。*（有界过滤 $\Rightarrow$ 稳定，§s8）* $\;\blacksquare$
 
 > **推论（双复形谱序列）。** 一个第一象限双复形 $C_{\bullet\bullet}$ 给出**两个**收敛到 $H_*(\mathrm{Tot}\,C)$ 的谱序列：
+>
 > $$
 > {}^{I}\!E^2_{p,q}=H^h_p\big(H^v_q(C)\big)\ \Rightarrow\ H_{p+q}(\mathrm{Tot}\,C),\qquad
 > {}^{II}\!E^2_{p,q}=H^v_p\big(H^h_q(C)\big)\ \Rightarrow\ H_{p+q}(\mathrm{Tot}\,C).
@@ -475,9 +520,11 @@
 > **定义 —— 纤维化（Serre）。** 一个连续映射 $\pi:E\to B$ 是一个**（Serre）纤维化**，若它对立方体具有同伦提升性质：$B$ 中一个立方体的任意同伦，给定其起点的一个提升，便提升为 $E$ 中的一个同伦。**纤维**是 $F=\pi^{-1}(b_0)$。*例：* Hopf 映射 $S^1\to S^3\xrightarrow{\pi}S^2$ 的纤维是 $S^1$。
 
 > **定理（Leray–Serre，同调）。** 对纤维化 $F\to E\xrightarrow{\pi}B$，其中 $B$ 道路连通且在 $H_*(F)$ 上平凡作用（单连通底空间情形），存在一个第一象限谱序列
+>
 > $$
 > E^2_{p,q}=H_p\big(B;\,H_q(F)\big)\ \Rightarrow\ H_{p+q}(E).
 > $$
+>
 > 微分是 $d^r:E^r_{p,q}\to E^r_{p-r,q+r-1}$，而 $E^\infty$ 是 $H_*(E)$ 某过滤的相伴分次。
 
 **已解计算 —— 由 Hopf 纤维化 $S^1\to S^3\to S^2$ 求 $S^3$ 的同调。** 我们将*验证* $H_*(S^3)$，并在此过程中钉定一个微分。
@@ -519,16 +566,21 @@
 > $H^n(G;M)=\mathrm{Ext}^n_{\mathbb{Z}[G]}(\mathbb{Z},M)=R^n(-)^G(M)$，即取 $G$-不变量的右导出函子（§s4）。故 $H^0(G;M)=M^G$，而更高的 $H^n$ 度量不变量不正合的程度。*例：* $H^1(G;M)$ 分类“模主交叉同态的交叉同态”；对平凡作用 $H^1(G;M)=\mathrm{Hom}(G,M)$。
 
 > **完整计算 —— 由自由消解求 $H^n(\mathbb{Z}/2;\mathbb{Z})$。** 设 $G=\mathbb{Z}/2=\langle t\mid t^2=1\rangle$，故 $\mathbb{Z}[G]=\mathbb{Z}[t]/(t^2-1)$。平凡模 $\mathbb{Z}$ 在 $\mathbb{Z}[G]$ 上有一个标准的**周期性**自由消解：
+>
 > $$
 > \cdots\to\mathbb{Z}[G]\xrightarrow{\,t-1\,}\mathbb{Z}[G]\xrightarrow{\,t+1\,}\mathbb{Z}[G]\xrightarrow{\,t-1\,}\mathbb{Z}[G]\xrightarrow{\,\varepsilon\,}\mathbb{Z}\to0,
 > $$
+>
 > 其中 $\varepsilon(t)=1$ 是增广。可验证在 $\mathbb{Z}[G]$ 中 $(t-1)(t+1)=t^2-1=0$ 且 $(t+1)(t-1)=0$，正合性则因为 $\ker\varepsilon$ 由 $t-1$ 生成、$\ker(t-1)$ 由 $t+1$ 生成，等等。施以 $\mathrm{Hom}_{\mathbb{Z}[G]}(-,\mathbb{Z})$（$\mathbb{Z}$ 平凡）；每个 $\mathrm{Hom}_{\mathbb{Z}[G]}(\mathbb{Z}[G],\mathbb{Z})=\mathbb{Z}$，$t-1$ 的对偶变为乘以 $\varepsilon(t)-1=0$，而 $t+1$ 的对偶变为 $\varepsilon(t)+1=2$。上链复形是
+>
 > $$
 > \mathbb{Z}\xrightarrow{0}\mathbb{Z}\xrightarrow{2}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\xrightarrow{2}\cdots
 > $$
+>
 > 上同调：$H^0=\mathbb{Z}$；在奇度数 $H^{2k+1}=\ker(2)/\mathrm{im}(0)=0$；在正偶度数 $H^{2k}=\ker(0)/\mathrm{im}(2)=\mathbb{Z}/2$。故 $H^n(\mathbb{Z}/2;\mathbb{Z})=\mathbb{Z},0,\mathbb{Z}/2,0,\mathbb{Z}/2,\dots$——与 $H^*(\mathbb{RP}^\infty;\mathbb{Z})$ 同样的模式，因为 $\mathbb{RP}^\infty$ 是分类空间 $B(\mathbb{Z}/2)$，而群上同调*就是*分类空间的上同调。
 
 > **定理（Lyndon–Hochschild–Serre）。** 对群的短正合列 $1\to N\to G\to Q\to1$ 与一个 $G$-模 $M$，存在一个第一象限谱序列
+>
 > $$
 > E_2^{p,q}=H^p\big(Q;\,H^q(N;M)\big)\ \Rightarrow\ H^{p+q}(G;M).
 > $$
@@ -536,9 +588,11 @@
 **它从何而来（概览）。** 函子“取 $G$-不变量”分解为“取 $N$-不变量，再取 $Q=G/N$-不变量”：$M^G=(M^N)^Q$。LHS 是这个函子复合的 **Grothendieck 谱序列**——即一条普遍定理：对一对可复合函子 $F,F'$，若 $F$ 把内射对象/无圈对象送到 $F'$-无圈对象，则存在一个谱序列 $R^pF'\big(R^qF(M)\big)\Rightarrow R^{p+q}(F'\circ F)(M)$。具体地它是一个合适的双重消解的双复形谱序列（§s9）。*（复合函子 / Grothendieck 谱序列，由 §s9 构造）*
 
 > **已解之用 —— 五项正合列。** 恰如 §s8 的两列例子那样读取 LHS 的低度数角落，对任意 $1\to N\to G\to Q\to1$ 给出
+>
 > $$
 > 0\to H^1(Q;M^N)\to H^1(G;M)\to H^1(N;M)^Q\xrightarrow{\,d_2\,} H^2(Q;M^N)\to H^2(G;M).
 > $$
+>
 > *推导：* 满足 $p+q\leq2$ 的项 $E_2^{p,q}$ 与单个 $d_2:E_2^{0,1}\to E_2^{2,0}$ 是低度数中仅有的可以非零的；用收敛过滤（§s8）装配它们的核/余核即给出这五项。这尤其重现了 Galois 上同调的膨胀–限制序列。*（第一象限谱序列的低度数读取，§s8）*
 
 **直觉。** 一个正规子群 $N\trianglelefteq G$ 行为如同一个“纤维”，而 $Q=G/N$ 如同一个“底空间”；LHS 是分类空间纤维化 $BN\to BG\to BQ$ 的代数 Leray–Serre 谱序列。整份指南闭合了回路：同一套二维记账装置计算空间、模与群的（上）同调。

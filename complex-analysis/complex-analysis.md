@@ -184,9 +184,11 @@ The quotient is a ratio of two complex numbers, and $h$ may approach $0$ along t
 > **Theorem — Cauchy–Riemann (necessary conditions)**
 >
 > If $f = u+iv$ is differentiable at $z_0 = x_0+iy_0$, then the partial derivatives of $u,v$ exist at $(x_0,y_0)$ and satisfy
+>
 > $$
 > \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
 > $$
+>
 > Moreover $f'(z_0) = u_x + i v_x = v_y - i u_y$.
 
 **Proof.**
@@ -359,9 +361,11 @@ Integration in $\mathbb{C}$ is integration along a path. The single most importa
 > **Definition — contour integral**
 >
 > For $f$ continuous on a contour $\gamma$ given by $z(t)$, $t\in[a,b]$,
+>
 > $$
 > \int_\gamma f(z)\,dz = \int_a^b f(z(t))\,z'(t)\,dt,
 > $$
+>
 > where the right side is an ordinary integral of a complex-valued function of the real variable $t$ (integrate real and imaginary parts separately).
 
 The definition is independent of the parametrization (any orientation-preserving reparametrization gives the same value, by the change-of-variables formula). Reversing orientation flips the sign.
@@ -369,13 +373,17 @@ The definition is independent of the parametrization (any orientation-preserving
 > **Worked example — the master integral**
 >
 > Integrate $f(z) = z^n$ ($n$ an integer) once counterclockwise around the unit circle $z(t) = e^{it}$, $t\in[0,2\pi]$. Here $z'(t) = ie^{it}$, so
+>
 > $$
 > \int_\gamma z^n\,dz = \int_0^{2\pi} e^{int}\,ie^{it}\,dt = i\int_0^{2\pi} e^{i(n+1)t}\,dt.
 > $$
+>
 > If $n\ne -1$, the integrand $e^{i(n+1)t}$ integrates to $\frac{e^{i(n+1)t}}{i(n+1)}$, which is periodic with period dividing $2\pi$, so it returns to its start and the integral is $0$. If $n = -1$, the integrand is $i\int_0^{2\pi} 1\,dt = 2\pi i$. Thus
+>
 > $$
 > \oint_{|z|=1} z^n\,dz = \begin{cases} 2\pi i, & n=-1,\\ 0, & n\ne -1.\end{cases}
 > $$
+>
 > Memorize this: the case $n=-1$ giving $2\pi i$ is the seed of the entire residue theorem (§s11).
 
 #### The ML inequality
@@ -385,6 +393,7 @@ We constantly need to *bound* a contour integral without evaluating it.
 > **Theorem — ML (estimation) inequality**
 >
 > If $|f(z)|\le M$ for all $z$ on a contour $\gamma$ of length $L$, then
+>
 > $$
 > \left|\int_\gamma f(z)\,dz\right| \le ML.
 > $$
@@ -452,6 +461,7 @@ Now the payoff. A holomorphic function's values inside a contour are completely 
 > **Theorem — Cauchy integral formula**
 >
 > Let $f$ be holomorphic on and inside a positively (counterclockwise) oriented simple closed contour $\gamma$, and let $z_0$ be a point *inside* $\gamma$. Then
+>
 > $$
 > f(z_0) = \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z - z_0}\,dz.
 > $$
@@ -477,6 +487,7 @@ Differentiating the integral formula with respect to the *parameter* $z_0$ — u
 > **Theorem — Cauchy's formula for derivatives**
 >
 > Under the same hypotheses, $f$ has derivatives of **all** orders inside $\gamma$, and
+>
 > $$
 > f^{(n)}(z_0) = \frac{n!}{2\pi i}\oint_\gamma \frac{f(z)}{(z-z_0)^{n+1}}\,dz, \qquad n = 0,1,2,\dots
 > $$
@@ -575,9 +586,11 @@ Within its disk a power series defines a holomorphic function, differentiable te
 > **Theorem — holomorphic implies Taylor series (Taylor's theorem)**
 >
 > If $f$ is holomorphic on a disk $D(z_0,R)$, then for all $z$ in that disk
+>
 > $$
 > f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n,
 > $$
+>
 > and this series converges on the whole disk.
 
 **Proof.**
@@ -603,9 +616,11 @@ Taylor series handle points where $f$ is holomorphic. Near an *isolated singular
 > **Theorem/Definition — Laurent series**
 >
 > If $f$ is holomorphic on an **annulus** $A = \{r < |z-z_0| < R\}$, then on $A$
+>
 > $$
 > f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n, \qquad a_n = \frac{1}{2\pi i}\oint_{C}\frac{f(w)}{(w-z_0)^{n+1}}\,dw,
 > $$
+>
 > where $C$ is any circle in the annulus. The terms with $n<0$ form the **principal part**.
 
 **Proof idea.** Apply the Cauchy formula with two circles bounding the annulus (outer $C_R$ traversed counterclockwise, inner $C_r$ clockwise). Expand the outer kernel as a geometric series in $(z-z_0)/(w-z_0)$ (giving nonnegative powers, as in §s9) and the inner kernel as a series in $(w-z_0)/(z-z_0)$ (giving negative powers). Integrating term by term yields both halves of the sum. $\blacksquare$
@@ -631,14 +646,17 @@ The single coefficient $a_{-1}$ in a Laurent series is special: it is the only t
 > **Definition — residue**
 >
 > The **residue** of $f$ at an isolated singularity $z_0$ is the Laurent coefficient $a_{-1}$:
+>
 > $$
 > \mathrm{Res}(f,z_0) = a_{-1} = \frac{1}{2\pi i}\oint_C f(z)\,dz,
 > $$
+>
 > for a small circle $C$ around $z_0$.
 
 > **Theorem — residue theorem**
 >
 > Let $f$ be holomorphic on and inside a positively oriented simple closed contour $\gamma$, except for finitely many isolated singularities $z_1,\dots,z_k$ inside $\gamma$. Then
+>
 > $$
 > \oint_\gamma f(z)\,dz = 2\pi i\sum_{j=1}^k \mathrm{Res}(f,z_j).
 > $$
@@ -721,9 +739,11 @@ Residues can *count* — they tally the zeros and poles of a function inside a c
 > **Theorem — argument principle**
 >
 > Let $f$ be holomorphic inside and on a positively oriented simple closed contour $\gamma$, except for finitely many poles inside, with no zeros or poles *on* $\gamma$. Then
+>
 > $$
 > \frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)}\,dz = Z - P,
 > $$
+>
 > where $Z$ is the number of zeros and $P$ the number of poles inside $\gamma$, each counted with multiplicity.
 
 **Proof.**

@@ -235,6 +235,7 @@ Two pivots (columns $1,2$), so rank $2$; the zero bottom row is consistent. With
 > $$
 > \det A=\sum_{\sigma\in S_n}\mathrm{sgn}(\sigma)\,A_{1\sigma(1)}A_{2\sigma(2)}\cdots A_{n\sigma(n)},
 > $$
+>
 > where the sum runs over all **permutations** $\sigma$ of $\{1,\dots,n\}$ (rearrangements), and $\mathrm{sgn}(\sigma)=\pm1$ is $+1$ if $\sigma$ is built from an even number of swaps and $-1$ if odd. For $2\times2$: $\det\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix}=ad-bc$. For $3\times3$ this is the familiar six-term rule.
 
 The defining formula is unwieldy; what we actually use are its **characterizing properties**, which we now state and which uniquely pin down the determinant.
@@ -478,6 +479,7 @@ The singular values are the semi-axis lengths of the ellipsoid that $A$ maps the
 > $$
 > (\lambda v_1+v_2)\otimes w=\lambda(v_1\otimes w)+v_2\otimes w,\qquad v\otimes(\lambda w_1+w_2)=\lambda(v\otimes w_1)+v\otimes w_2.
 > $$
+>
 > A basis is $\{e_i\otimes f_j\}$ over all $i,j$, so $\dim(V\otimes W)=\dim V\cdot\dim W$. **Dimensions multiply.**
 
 > **Universal property.** The map $(v,w)\mapsto v\otimes w$ is bilinear, and it is the *most general* such: every bilinear map $V\times W\to Z$ factors **uniquely** through a linear map $V\otimes W\to Z$ (i.e. equals that linear map composed with $\otimes$). This is the defining feature of the tensor product and is what the independence proof below exploits.
@@ -514,6 +516,7 @@ The singular values are the semi-axis lengths of the ellipsoid that $A$ maps the
 > $$
 > A=\sum_k a_k\,|a_k\rangle\langle a_k|.
 > $$
+>
 > For a normalized state $|\psi\rangle$ ($\langle\psi|\psi\rangle=1$), the **Born rule** says measuring $A$ yields value $a_k$ with probability $|\langle a_k|\psi\rangle|^2$. These probabilities sum to $1$ precisely because of completeness: $\sum_k|\langle a_k|\psi\rangle|^2=\langle\psi|\big(\sum_k|a_k\rangle\langle a_k|\big)|\psi\rangle=\langle\psi|\psi\rangle=1$.
 
 > **Time evolution, as unitarity.** Schrödinger evolution sends $|\psi(0)\rangle\mapsto|\psi(t)\rangle=U(t)|\psi(0)\rangle$ with $U(t)=e^{-iHt/\hbar}$ **unitary** (because $H$ is Hermitian, $U^*=e^{+iHt/\hbar}=U^{-1}$). Unitarity preserves inner products (§s10), hence preserves total probability $\langle\psi|\psi\rangle=1$. Conservation of probability is exactly the inner-product-preservation theorem.

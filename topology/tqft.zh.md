@@ -43,18 +43,22 @@
 
 > **定义 — 配边。**
 > 设 $\Sigma_0$ 与 $\Sigma_1$ 是闭定向 $(n-1)$-流形。一个**从 $\Sigma_0$ 到 $\Sigma_1$ 的配边**是一个紧致定向带边 $n$-流形 $M$，连同一个保定向的等同
+>
 > $$
 > \partial M \;\cong\; \overline{\Sigma_0}\,\sqcup\,\Sigma_1 ,
 > $$
+>
 > 其中 $\sqcup$ 是无交并。我们称 $\Sigma_0$ 为**入射**（源）边界，$\Sigma_1$ 为**出射**（靶）边界，并记 $M:\Sigma_0\to\Sigma_1$。入射端的定向反转是使粘合得以进行的记账手段：一个配边的出射端必须与下一个配边*反转后*的入射端相匹配。
 
 *例题——裤子曲面。* 取 $n=2$。圆 $S^1$ 是一个闭 $1$-流形。"裤子"是带三个洞的球面：一个曲面 $P$，其 $\partial P=\overline{S^1\sqcup S^1}\sqcup S^1$。把它读作配边 $P:S^1\sqcup S^1\to S^1$，它是"两个圆进来，一个圆出去"——几何上是两个环合并成一个。我们将在 §s5 中看到，这单个曲面*就是*一个 Frobenius 代数的乘法。
 
 > **定义 — 粘合（配边的合成）。**
 > 给定 $M:\Sigma_0\to\Sigma_1$ 与 $N:\Sigma_1\to\Sigma_2$，它们的**合成** $N\circ M:\Sigma_0\to\Sigma_2$ 是把 $M$ 与 $N$ 沿公共边界 $\Sigma_1$ 粘合而成：
+>
 > $$
 > N\circ M \;=\; M\cup_{\Sigma_1} N .
 > $$
+>
 > 具体地，把 $M$ 中 $\Sigma_1$ 的出射副本与 $N$ 中 $\Sigma_1$ 的入射副本逐点等同。微分拓扑的一条标准定理（*领域邻域定理*：每个边界都有一个看起来像 $\Sigma_1\times[0,1)$ 的邻域）保证所得结果仍是以 $\overline{\Sigma_0}\sqcup\Sigma_2$ 为边界的光滑流形。
 
 一个微妙之处：粘合只是*在同胚意义下*结合且有单位元，而非严格相等，因为一个粘合出来的柱面只是同胚于而非等于原来的柱面。标准的修正方法是取 **$\mathrm{Cob}(n)$ 的箭头为在固定边界的保定向同胚意义下的配边**（在光滑设定下等价于微分同胚）。这样合成就严格结合，并且*柱面* $\Sigma\times[0,1]:\Sigma\to\Sigma$ 充当单位元，因为把一个领粘到一个流形上会在所选等价意义下重现该流形。
@@ -75,9 +79,11 @@
 于是 $\mathrm{Cob}(n)$ 是一个真正的范畴。它还有一个关键结构——流形的*无交并* $\sqcup$——它让我们能够"把配边并排放置"。把这种并排放置形式化是下一节的任务。
 
 > **例题 — 玩具范畴 $\mathrm{Cob}(1)$。** 取 $n=1$。闭 $0$-流形是有限的定向点集；用 $+$ 表示正定向的点，$-$ 表示负定向的点。$1$ 维配边是紧致带边 $1$-流形——*区间*与*圆*的无交并。在同胚意义下，每个这样的配边都由四个片块构造而成：恒等区间 $+\to+$、"杯" $\mathrm{coev}:\varnothing\to(-{}+)$（一段 $\cup$ 形弧，把空无连接到一对 $-,+$）、"帽" $\mathrm{ev}:(+{}-)\to\varnothing$（一段 $\cap$ 形弧），以及圆 $S^1:\varnothing\to\varnothing$。唯一非平凡的关系是*之字形*：把一段 $\cup$ 再接一段 $\cap$ 弧拉直会得到一条普通区间，
+>
 > $$
 > (\mathrm{ev}\otimes 1)\circ(1\otimes\mathrm{coev})=1_{+}.
 > $$
+>
 > 我们将在 §s3 中看到，正是这个恒等式迫使每个 TQFT 态空间为有限维，并在 §s10 中看到它是*可对偶对象*的定义方程。这个小范畴 $\mathrm{Cob}(1)$ 已经是配边假设的微缩版。
 
 <a id="s2"></a>
@@ -124,9 +130,11 @@
 让我们亲手验证一条相干公理，以看出这些条件是具体的检验，而非装饰。
 
 > **验证例题 — $\mathbf{Vect}_k$ 中的三角形公理。** 三角形公理要求化简 $A\otimes\mathbf{1}\otimes B$ 的两种方式一致：
+>
 > $$
 > (1_A\otimes\lambda_B)\circ\alpha_{A,\mathbf{1},B}=\rho_A\otimes 1_B.
 > $$
+>
 > 取 $A=B=k^2$ 与单位 $\mathbf 1=k$。取 $a\otimes c\otimes b\in A\otimes k\otimes B$，其中 $a,b\in k^2$、$c\in k$。结合子 $\alpha$ 仅重新加括号，$a\otimes(c\otimes b)$；然后 $1_A\otimes\lambda_B$ 把 $c\otimes b\mapsto cb$，得到 $a\otimes(cb)$。右边 $\rho_A\otimes 1_B$ 把 $a\otimes c\mapsto ca$，得到 $(ca)\otimes b=a\otimes(cb)$，由双线性性（标量穿过 $\otimes$）。两个输出逐元素相等，所以三角形交换。*它为何成立：* 两条路径做的是同样的算术——乘以标量 $c$ 一次。这正是 Mac Lane 相干性在*每个*张量范畴中一并保证的那种记账。
 
 <a id="s3"></a>
@@ -136,9 +144,11 @@
 
 > **定义 — $n$ 维 TQFT（Atiyah–Segal）。**
 > 域 $k$ 上的一个 **$n$ 维拓扑量子场论**是一个*对称张量函子*
+>
 > $$
 > Z:\big(\mathrm{Cob}(n),\sqcup,\varnothing\big)\longrightarrow\big(\mathbf{Vect}_k,\otimes,k\big).
 > $$
+>
 > 展开这些词，$Z$ 赋予：
 > - 给每个闭定向 $(n-1)$-流形 $\Sigma$ 一个向量空间 $Z(\Sigma)$（它的**态空间**）；
 > - 给每个配边 $M:\Sigma_0\to\Sigma_1$ 一个线性映射 $Z(M):Z(\Sigma_0)\to Z(\Sigma_1)$（它的**幅度**或**跃迁映射**）；
@@ -153,9 +163,11 @@
 立即得到两个推论，值得记录，因为它们正是 TQFT 产生*数*的方式。
 
 > **闭流形给出数。** 一个*闭*定向 $n$-流形 $X$ 有空边界，所以它是一个配边 $X:\varnothing\to\varnothing$。因此
+>
 > $$
 > Z(X):Z(\varnothing)\to Z(\varnothing),\qquad\text{即}\qquad Z(X):k\to k,
 > $$
+>
 > 它是乘以一个标量 $Z(X)\in k$。*理由：* 一个线性映射 $k\to k$ 由它把 $1$ 送到哪里所确定。这个标量是 $X$ 的数值不变量。由函子性，它通过把 $X$ 切割成配边并合成所得映射来计算——从粘合中获得不变量，字面意义上的实现。
 
 > **态空间是有限维的。** 对每个闭 $\Sigma$，向量空间 $Z(\Sigma)$ 是有限维的。*证明：* 设 $C=\Sigma\times[0,1]$ 为柱面。作为配边它可以两种方式来读：作为恒等 $\Sigma\to\Sigma$；以及——通过弯折它——作为配边 $\varnothing\to\Sigma\sqcup\overline{\Sigma}$（"杯"，把它的像称为 $\mathrm{coev}$）后接另一次弯折 $\Sigma\sqcup\overline{\Sigma}\to\varnothing$（"帽"，称之为 $\mathrm{ev}$）。*S-图*（之字形）恒等式 $(\mathrm{ev}\otimes 1)\circ(1\otimes\mathrm{coev})=1_\Sigma$ 作为配边的同胚成立（拉直一个之字形），它迫使 $Z(\Sigma)$ 成为 $\mathbf{Vect}_k$ 的一个*可对偶*对象。*理由：* 一个向量空间在 $(\mathbf{Vect}_k,\otimes)$ 中可对偶当且仅当它有限维——余赋值 $k\to V\otimes V^\ast$，$1\mapsto\sum e_i\otimes e_i^\ast$，只在有限基下才存在。因此 $\dim Z(\Sigma)<\infty$。这单个论证是配边假设（§s9）的种子。
@@ -163,9 +175,11 @@
 > **直觉与陷阱。** *直觉：* 把 $Z(\Sigma)$ 想成生活在空间切片 $\Sigma$ 上的一个量子系统的希尔伯特空间，而 $Z(M)$ 是时空 $M$ 的时间演化算子——只是这个"演化"只依赖于拓扑。*陷阱 1：* 粘合公理要求粘合匹配定向；反转一个端点需要 $\overline{\Sigma}$，其态空间是*对偶* $Z(\Sigma)^\ast$。*陷阱 2：* 有限维性是被迫的，不是假设的；想要无限维态空间的理论（大多数"真实"的量子场论）*不是*拓扑的。
 
 > **例题 — 平凡的 $1$d TQFT，从头算到尾。** 设 $n=1$，于是 $\mathrm{Cob}(1)$ 是 §s1 的玩具范畴。定义 $Z$ 如下：$Z(+)=V$，其中 $V=k^d$ 是一个固定的有限维空间，$Z(-)=V^\ast$，并取 $Z(\mathrm{coev})=\mathrm{coev}:k\to V\otimes V^\ast$，$1\mapsto\sum_i e_i\otimes e_i^\ast$，以及 $Z(\mathrm{ev})=\mathrm{ev}:V^\ast\otimes V\to k$，$f\otimes v\mapsto f(v)$。闭 $1$-流形是圆 $S^1:\varnothing\to\varnothing$，由把杯粘到帽上得到，所以
+>
 > $$
 > Z(S^1)=\mathrm{ev}\circ\mathrm{coev}:k\to k,\qquad 1\mapsto \mathrm{ev}\Big(\sum_i e_i\otimes e_i^\ast\Big)=\sum_i e_i^\ast(e_i)=\sum_i 1=d .
 > $$
+>
 > 所以圆的不变量是 $Z(S^1)=d=\dim V$——范畴论意义上的*恒等的迹*。取 $V=k^3$ 我们得到数 $3$。这是"从粘合中获得不变量"的最小非平凡实例：一个数（$\dim V$）通过合成一个杯与一个帽提取出来，整个计算被 §s1 的之字形关系所迫成。
 
 定义很优雅但抽象。接下来两节将在二维中把它变得完全具体，在那里一个 TQFT 原来就是一个单一的小代数装置。
@@ -185,25 +199,32 @@
 
 > **定义 — Frobenius 代数。**
 > 域 $k$ 上的一个 **Frobenius 代数**是一个向量空间 $A$，它同时是一个代数 $(m,u)$ 与一个余代数 $(\Delta,\varepsilon)$，使得 **Frobenius 关系**成立：
+>
 > $$
 > (m\otimes 1)\circ(1\otimes\Delta)\;=\;\Delta\circ m\;=\;(1\otimes m)\circ(\Delta\otimes 1).
 > $$
+>
 > 等价且更具体地说，一个 Frobenius 代数是一个有限维代数 $A$，配有一个线性泛函 $\varepsilon:A\to k$（**余单位**或**迹**），其相伴的配对
+>
 > $$
 > \langle a,b\rangle:=\varepsilon(m(a,b))=\varepsilon(ab)
 > $$
+>
 > 是**非退化的**（若对所有 $b$ 都有 $\langle a,b\rangle=0$，则 $a=0$）。如果它的乘法是交换的，则它是**交换的**。两种描述一致：给定具有非退化配对的 $\varepsilon$，可以把 $\Delta$ *定义*为使 Frobenius 关系成立的唯一映射；反过来 $\Delta,\varepsilon$ 恢复这个配对。
 
 > **定理（Dijkgraaf；2d TQFT 分类）。**
 > 存在一个范畴等价
+>
 > $$
 > \{\,k\text{ 上的 }2\text{d TQFT}\,\}\;\simeq\;\{\,k\text{ 上的交换 Frobenius 代数}\,\}.
 > $$
+>
 > 具体地，一个 $2$d TQFT $Z$ 确定交换 Frobenius 代数 $A=Z(S^1)$，反过来每个交换 Frobenius 代数都来自唯一一个（在同构意义下）$2$d TQFT。
 
 我们证明两个方向。证明依赖于 $\mathrm{Cob}(2)$ 的一个生成元-关系表示。
 
 > **引理（$\mathrm{Cob}(2)$ 的表示）。** $\mathrm{Cob}(2)$ 的每个对象都是圆的无交并，所以它由一个 $\ge 0$ 的圆的个数所确定；因此对象就是在 $\sqcup=+$ 下的自然数。每个连通的定向带边曲面，在同胚意义下，都是带若干入射洞、若干出射洞与 $g$ 个把手的球面，而每个这样的曲面都是五个**生成配边**的无交并的合成：
+>
 > $$
 > \underbrace{S^1\!\sqcup S^1\to S^1}_{\text{裤子 }m},\quad
 > \underbrace{\varnothing\to S^1}_{\text{帽 }u},\quad
@@ -211,6 +232,7 @@
 > \underbrace{S^1\to\varnothing}_{\text{杯 }\varepsilon},\quad
 > \underbrace{S^1\to S^1}_{\text{扭转 }\beta}.
 > $$
+>
 > 它们之间的关系恰好是：结合律与单位律（对 $m,u$）、余结合律与余单位律（对 $\Delta,\varepsilon$）、交换律（扭转），以及 Frobenius 关系。
 
 *引理为何成立（带关键步骤的概述）。* 这是把*莫尔斯理论*应用到曲面上的高度函数。选取一个光滑实函数 $h:M\to[0,1]$，使 $h^{-1}(0)=\Sigma_0$、$h^{-1}(1)=\Sigma_1$，且只在不同高度有非退化临界点（一个*莫尔斯函数*；它总是存在）。当 $t$ 在 $[0,1]$ 上增加时，水平集 $h^{-1}(t)$ 是圆的无交并，只在 $t$ 经过临界点时改变。$2$-流形的每个临界点有*指标* $0$、$1$ 或 $2$，在那里产生的初等曲面是：
@@ -244,9 +266,11 @@
 这两个构造互逆：从 $Z$ 出发，读出 $A$，再重建函子返回 $Z$（它们在生成元上一致）；从 $A$ 出发，构造 $Z$，再读出 $Z(S^1)$ 返回 $A$。二者在显然的映射下都是函子性的，给出所断言的范畴等价。$\qquad\blacksquare$
 
 > **分解例题 — 环面作为生成元的合成。** 把环面 $T^2$ 读作配边 $\varnothing\to\varnothing$。按高度把它切成四个初等片块，从下到上：一个**帽** $u:\varnothing\to S^1$（环面的底部，一个诞生的圆），然后一个**余裤子** $\Delta:S^1\to S^1\sqcup S^1$（当我们经过下方把手时圆分裂成两个），然后一个**裤子** $m:S^1\sqcup S^1\to S^1$（两个圆重新汇合），然后一个**杯** $\varepsilon:S^1\to\varnothing$（顶部，一个消亡的圆）。因此
+>
 > $$
 > T^2=\varepsilon\circ m\circ\Delta\circ u\;:\;\varnothing\to\varnothing,
 > $$
+>
 > 应用 $Z$ 给出 $Z(T^2)=\varepsilon\circ m\circ\Delta\circ u=\varepsilon\big(H(u(1))\big)$，其中 $H=m\circ\Delta$——恰好是 §s5 的把手算子。这单个分解就是亏格公式背后的几何理由：每个把手贡献一个因子 $H$，夹在一个圆的诞生 $u$ 与消亡 $\varepsilon$ 之间。
 
 > **陷阱。** *交换性是本质的，来自 $\mathrm{Cob}(2)$ 的对称性。* 如果研究*非交换* Frobenius 代数，所描述的就是带有额外结构的曲面（例如对边界圆的一个选定排序，如在*开* TQFT 中）。干净的陈述"$2$d 闭 TQFT $=$ 交换 Frobenius 代数"需要对称结构。
@@ -257,15 +281,19 @@
 **是什么与为什么。** §s4 的分类只有在我们能用它来*计算*时才有用。这里我们做一个完整的数值例子：一个具体的交换 Frobenius 代数、它的裤子-乘积与余裤子-余乘积，以及所得闭曲面的不变量——包括那个对一个自然选择给出 $Z(\Sigma_g)=\dim A$ 的亏格相关幂次的美妙公式。
 
 > **亏格公式。** 对一个带 Frobenius 代数 $A$ 的 $2$d TQFT $Z$，亏格为 $g$ 的闭可定向曲面 $\Sigma_g$（带 $g$ 个把手的球面）的不变量为，当 $g\ge 1$ 时，
+>
 > $$
 > Z(\Sigma_g)=\mathrm{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
 > $$
+>
 > 其中 $H=m\circ\Delta$ 是**把手算子**，而球面为 $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$。*原因：* 一个亏格为 $g$ 的曲面读作 $\varnothing\to\varnothing$ 是一个帽 $u$，然后 $g$ 个把手（每个把手是"余裤子再裤子"，即 $H$），然后一个杯 $\varepsilon$，给出标量 $\varepsilon\circ H^{g}\circ u$；帽-杯这对贡献一份圆柱量级的非退化配对，故当 $g\ge 1$ 时它坍缩为 $\mathrm{tr}(H^{g-1})$。特别地环面（$g=1$）给出 $Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A$，正如环面配分函数所必须。
 
 > **例题 — $\mathbb{Z}/2$ 的群代数。** 设 $A=k[\mathbb{Z}/2]=k\{1,t\}$，其中 $t^2=1$，在 $k=\mathbb{C}$ 上。这是一个维数为 $2$ 的交换代数，单位 $u(1)=1$，乘法为
+>
 > $$
 > 1\cdot 1=1,\quad 1\cdot t=t,\quad t\cdot t=1.
 > $$
+>
 > 定义余单位（迹）为 $\varepsilon(1)=0$、$\varepsilon(t)=1$——这样选是为了使配对非退化，我们将予以验证。
 
 第 1 步 — **配对矩阵。** 在基 $\{1,t\}$ 下，
@@ -290,9 +318,11 @@ $$
 第 4 步 — **曲面不变量。** 球面 $\Sigma_0$：$Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$。环面 $\Sigma_1$：$Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A=2$，正如其所必须。亏格二曲面：$Z(\Sigma_2)=\mathrm{tr}(H)=0$。亏格三曲面：$Z(\Sigma_3)=\mathrm{tr}(H^2)$，而 $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$，所以 $\mathrm{tr}(H^2)=8$。一般地 $\mathrm{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$，因为 $H$ 有本征值 $\pm 2$；于是 $Z(\Sigma_g)=2^{g}$ 当 $g$ 为奇数，$0$ 当 $g$ 为偶数。这些是曲面的真正同胚不变量，纯粹由代数计算得出——从粘合中获得不变量的实战。
 
 > **一个更干净的选择 — 半单代数与计数。** 如果改取 $A=k^N$（乘积代数，$N$ 个正交幂等元 $e_1,\dots,e_N$，满足 $e_ie_j=\delta_{ij}e_i$）且 $\varepsilon(e_i)=1/\theta_i$，其中 $\theta_i$ 是非零标量，那么 $H=m\circ\Delta$ 在 $e_i$ 上作用为乘以 $\theta_i$，并且
+>
 > $$
 > Z(\Sigma_g)=\sum_{i=1}^{N}\theta_i^{\,g-1}.
 > $$
+>
 > 当所有 $\theta_i=1$ 时，这对每个亏格都恰好是 $N$——最简单可能的 TQFT，"数值代数的分量个数"。这是有限群的 *Dijkgraaf–Witten 理论*的代数影子，其中 $\theta_i$ 是共轭类数据的大小。
 
 > **直觉与陷阱。** *直觉：* 裤子是"把两个态合并成一个"（乘积），余裤子是"把一个态分裂成叠加态"（余乘积），而一个把手是"先分裂再重新合并"，这就是为什么 $H=m\circ\Delta$。*陷阱：* 余乘积*不是*自由选择的——它被代数加上迹所迫成；改变 $\varepsilon$ 会改变 $\Delta$、$H$ 与所有曲面不变量，所以*迹是数据的一部分*，而非事后追加。
@@ -316,27 +346,35 @@ $$
 这个机制值得一句话的解释：任何闭 $3$-流形都可以从 $S^3$ 沿一个带框链环作*手术*得到（Lickorish–Wallace 定理），而 Reshetikhin–Turaev 配方用 MTC 给那个链环赋予一个数，作了归一化使得关联同一流形的不同手术表示的两个 *Kirby 移动*保持这个数不变——而这恰好是用到模性（$S$ 的可逆性）之处。
 
 > **Witten–Chern–Simons（物理起源）。** Witten 从一个量子场论构造了*同样的* $3$d 不变量：对紧致规范群 $G$（比如 $G=SU(2)$）在整数**级** $k$ 处的 **Chern–Simons** 理论。它在带联络 $A$ 的 $3$-流形 $M$ 上的作用量是
+>
 > $$
 > S_{\mathrm{CS}}[A]=\frac{k}{4\pi}\int_M \mathrm{tr}\!\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
 > $$
+>
 > 配分函数 $Z(M)=\int \mathcal{D}A\,e^{iS_{\mathrm{CS}}[A]}$ 是*与度量无关的*（作用量不用度量，只用定向），因而是一个拓扑不变量。它的数学化身是 $SU(2)_k$ 的 MTC 的 Reshetikhin–Turaev 不变量——相应的量子群/仿射李代数在级 $k$ 处的表示。
 
 > **三维中的字典。**
+>
 > $$
 > \{\text{3d TQFT（适当带框）}\}\;\longleftrightarrow\;\{\text{模张量范畴}\},
 > $$
+>
 > 是"$2$d TQFT $=$ 交换 Frobenius 代数"的三维类比。复杂度的跳跃——从一个*代数*到一个*范畴*——是 §s8–s10 将精确化的高阶范畴模式的第一个迹象：随着维数上升，控制性的代数对象攀升一个范畴层级。
 
 > **$S$ 与 $T$ 矩阵与 Verlinde 公式。** 驱动每次计算的两个有限矩阵是 **$S$-矩阵**（如上）与 **$T$-矩阵** $T_{ij}=\delta_{ij}\theta_i$，记录每个单对象的扭转（拓扑自旋）$\theta_i$。它们给出*环面映射类群* $SL(2,\mathbb{Z})$ 的一个射影表示，因为该群由两个移动 $S$（交换环面的两个圈）与 $T$（Dehn 扭转）生成，服从 $(ST)^3=S^2$ 与 $S^2=$ 电荷共轭。最有用的单个推论是 **Verlinde 公式**，仅通过 $S$ 表达融合重数：
+>
 > $$
 > N_{ij}^{\,k}=\sum_{m}\frac{S_{im}\,S_{jm}\,\overline{S_{km}}}{S_{0m}} .
 > $$
+>
 > *解读：* 计数"任意子 $i,j$ 有多少种方式融合成 $k$"的整数由*对角化辫绕*计算。这是 §s5 中把手算子 $H$ 对角化亏格公式那种做法的 $3$d 类比——融合与粘合是同一种对角化，只是高一个范畴层级。
 
 > **接触点例题 — 环面态计数 $\dim Z(T^2)$。** 对任意 MTC，亏格为 $g$ 的曲面的 $\dim Z(\Sigma_g)$ 又是一个 *Verlinde 数*；在最简单情形环面给出
+>
 > $$
 > \dim Z(T^2)=\#\{\text{单对象}\}=r+1 .
 > $$
+>
 > 对 $SU(2)_k$ 理论有 $k+1$ 个单对象（自旋 $0,\tfrac12,\dots,\tfrac k2$），所以 $\dim Z(T^2)=k+1$。在 $k=1$（最简单的近非阿贝尔情形）这是 $2$；在 $k=2$ 是 $3$——与 §s11 提到的 $\nu=1/3$ 量子霍尔型理论的三个基态相匹配。态计数字面上就是任意子类型的个数，是最干净可能的"拓扑不变量等于代数计数"。
 
 > **陷阱。** $3$d TQFT *不是*对称的——它们只是*辫子的*，因为在三维中两条线真正地链接而不能被同胚解开。这种非对称性不是缺陷：它*正是要点*，因为它让理论能够探测纽结，正如我们接下来所见。
@@ -353,19 +391,25 @@ $$
 > 所得标量 $J(L)\in\mathbb{C}$ 是 $L$ 的一个同痕不变量，因为辫子与对偶恰好满足那些把同一纽结的任意两个图关联起来的关系（*Reidemeister 移动*）。
 
 > **Skein 关系。** 对 $SU(2)_2$ 型辫子，$X\otimes X$（一个 $4$ 维空间）上的算子 $\beta=\beta_{X,X}$ 满足一个二次最小多项式，
+>
 > $$
 > \beta - \beta^{-1} = (q^{1/2}-q^{-1/2})\,\mathrm{id},\qquad q=e^{2\pi i/(k+2)} .
 > $$
+>
 > 用图像翻译，取 $A=q^{1/4}$，这就是 **Kauffman/Jones skein 关系**
+>
 > $$
 > A\,J(L_+)-A^{-1}J(L_-)=(A^2-A^{-2})\,J(L_0),
 > $$
+>
 > 其中 $L_+,L_-,L_0$ 是三个除一个交叉外完全相同的链环（上穿、下穿、磨平）。连同归一化 $J(\text{平凡纽结})=1$，这个递归*计算*任何链环的 $J$。
 
 > **例题 — Hopf 链环。** Hopf 链环 $H$ 是两个链接一次的圆。用 skein 关系解开一个交叉：磨平给出平凡纽结（值为 $1$，至多差一个环因子），另一个解法给出两个不链接的圆（值 $\delta=-A^2-A^{-2}$，*环值*）。执行递归，
+>
 > $$
 > J(\text{Hopf}^+) = -A^4-A^{-4},
 > $$
+>
 > 这是关于 $A$ 的一个洛朗多项式，对两个有相反链接的不同 Hopf 链环*不同*（所以它探测到链接，这是像同调这样的任何阿贝尔不变量无法对链环补集直接做到的）。作为对比，*三叶*纽结在代换 $t=A^{-4}$ 下求值为经典 Jones 多项式 $J=V(t)=-t^{-4}+t^{-3}+t^{-1}$；用 $A$ 写出这同一个多项式即 $J=-A^{16}+A^{12}+A^{4}$（利用 $t^{-1}=A^4,\ t^{-3}=A^{12},\ t^{-4}=A^{16}$），它与其镜像不同——证明三叶纽结是*手征的*（不同于它的反射），这是 Jones 多项式能探测而较老的 Alexander 多项式不能探测的事实。
 
 > **精确化的 Reidemeister 移动。** $J(L)$ 是纽结不变量这一点依赖于 *Reidemeister 定理*：两个链环图表示同痕链环当且仅当一个能由另一个通过有限多个局部移动序列得到——**R1**（添加/去除一个扭结）、**R2**（把一股滑过另一股，产生/消去两个相反交叉）、**R3**（把一股滑过一个交叉）。TQFT 赋值恰好尊重这些：**R2** 成立因为 $\beta\circ\beta^{-1}=\mathrm{id}$（辫子可逆）；**R3** 成立因为辫子满足 *Yang–Baxter 方程* $(\beta\otimes 1)(1\otimes\beta)(\beta\otimes 1)=(1\otimes\beta)(\beta\otimes 1)(1\otimes\beta)$，即"滑过一个交叉"的代数形式；**R1** *至多差一个带框扭转* $\theta_X$ 而成立，这就是为什么*带框*不变量是典范的那个。每个 Reidemeister 移动都与一条缎带范畴公理相匹配——图像与代数之间最干净可能的字典。
@@ -414,20 +458,26 @@ $$
 
 > **定义 — 扩展（完全局部）TQFT。**
 > 一个取值于对称张量 $(\infty,n)$-范畴 $\mathcal{C}$ 的**完全扩展 $n$ 维 TQFT**是一个对称张量函子
+>
 > $$
 > Z:\mathrm{Bord}_n^{\,\mathrm{fr}}\longrightarrow\mathcal{C},
 > $$
+>
 > 其中 $\mathrm{Bord}_n^{\,\mathrm{fr}}$ 是*带框*配边范畴（每个流形带有一个稳定化切丛的平凡化——为最干净的陈述所需的一个刚化）。这样一个 $Z$ 给一个点赋予 $\mathcal{C}$ 的一个对象，给一个区间一个 $1$-态射，……，给一个闭 $n$-流形一个数，全都与每个余维度的粘合相容。
 
 > **定理（配边假设；Baez–Dolan 猜想、Lurie 定理——陈述）。**
 > 设 $\mathcal{C}$ 是一个对称张量 $(\infty,n)$-范畴。在正向带框点处求值，
+>
 > $$
 > Z\;\longmapsto\;Z(\mathrm{pt}_+),
 > $$
+>
 > 是一个等价
+>
 > $$
 > \big\{\text{带框完全扩展 }n\text{d TQFT }Z:\mathrm{Bord}_n^{\,\mathrm{fr}}\to\mathcal{C}\big\}\;\xrightarrow{\ \simeq\ }\;\big\{\mathcal{C}\text{ 的完全可对偶对象}\big\}.
 > $$
+>
 > 用语言说：**一个带框扩展 TQFT 由靶范畴的一个任意完全可对偶对象自由地确定**——即它在点上的取值——而每个完全可对偶对象都恰好来自一个这样的理论。
 
 > **"自由地确定"是什么意思。** 一旦你选定 $Z(\mathrm{pt}_+)=X$，*其余每个取值都被迫成*：区间上的取值是 $X$ 的对偶结构，圆上的取值是 $X$ 的迹（*维数*），如此等等。这单个对象 $X$ 通过反复应用对偶与迹生成整个函子。这是终极的"从粘合中获得不变量"：整个理论从它最局部的片块重建出来。
@@ -443,10 +493,12 @@ $$
 
 > **定义 — 可对偶对象。**
 > 在一个对称张量范畴中，一个对象 $X$ 是**可对偶的**，如果存在一个对象 $X^\ast$ 与态射 $\mathrm{coev}:\mathbf{1}\to X\otimes X^\ast$ 与 $\mathrm{ev}:X^\ast\otimes X\to\mathbf{1}$，满足*之字形（蛇形）恒等式*
+>
 > $$
 > (\mathrm{ev}\otimes 1_X)\circ(1_X\otimes\mathrm{coev})=1_X,\qquad
 > (1_{X^\ast}\otimes\mathrm{ev})\circ(\mathrm{coev}\otimes 1_{X^\ast})=1_{X^\ast}.
 > $$
+>
 > *例（已在 §s3 中用过）：* 在 $\mathbf{Vect}_k$ 中，$X$ 可对偶当且仅当 $\dim X<\infty$，其中 $X^\ast$ 是通常的对偶空间，$\mathrm{coev}(1)=\sum_i e_i\otimes e_i^\ast$，$\mathrm{ev}(f\otimes v)=f(v)$。
 
 > **定义 — 完全可对偶对象。**
@@ -459,9 +511,11 @@ $$
 > **例 3 — $n=3$ 与模张量范畴。** 取 $\mathcal{C}$ 为一个合适的*张量范畴*的 $3$-范畴。完全可对偶对象是带适当有限性的*融合范畴*；当输入是*模*的时，所得扩展 $3$d TQFT 包含 §s6 的 Reshetikhin–Turaev 理论。该假设因而*组织*了 $3$d 图景——MTC 是点（或圆）上的取值，而 §s7 的纽结与 $3$-流形不变量是它的高阶迹。在 §s4–s6 中经验性地观察到的攀升"代数 $\to$ 范畴 $\to$ 张量范畴"现在被*解释*了：它就是"完全可对偶对象"随着 $n$ 增大而在范畴层级上的攀升。
 
 > **例题 — 圆不变量在任何靶中都是一个迹。** 配边假设预言一个普适公式：对一个带 $Z(\mathrm{pt}_+)=X$ 的带框扩展 TQFT $Z$，圆上的取值是 $X$ 的*维数*（恒等的范畴论迹），
+>
 > $$
 > Z(S^1)=\dim(X):=\mathrm{ev}_X\circ\beta\circ\mathrm{coev}_X .
 > $$
+>
 > 特殊化：在 $\mathbf{Vect}_k$ 中这是 $\dim_k V$（一个数）——恢复 §s3 的圆$=\dim$。在 $\mathbf{Alg}_k$（例 2）中一个代数 $A$ 的"维数"是它*作为对象的中心*，即 Hochschild 同调 $HH_0(A)=A/[A,A]$，对可分 $A$ 它是底层 $2$d 理论的交换 Frobenius 代数 $Z(S^1)$。在张量范畴靶（例 3）中它是 *Drinfeld 中心/Hochschild 范畴*。一个公式——"圆计算点的迹"——随着靶维数的攀升，实例化为一个向量空间的维数、一个代数的中心，以及一个张量范畴的模数据。那单个模式就是通过一个例子看到的该假设的全部内容。
 
 > **一行的机制。** 因为 $\mathrm{Bord}_n^{\,\mathrm{fr}}$ 在一个完全可对偶对象上自由，*构造*一个 TQFT 就是*检验有限性*：验证你的候选 $X=Z(\mathrm{pt})$ 是完全可对偶的，那么整个函子——每个流形的每个不变量——都存在且唯一。这把困难的几何存在性问题转化为代数有限性检验，这是整个框架最深刻的回报。

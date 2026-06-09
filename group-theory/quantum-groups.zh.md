@@ -63,9 +63,11 @@ $$
 **具体例子 —— 群上的函数是一个余代数。** 设 $\mathcal{O}(G)=\{f:G\to\mathbb{C}\}$ 带逐点乘积（一个代数）。它的余积来自群乘法 $\mu:G\times G\to G$：定义 $\Delta(f)$ 为二元函数 $\Delta(f)(g,h)=f(gh)$，在 $\mathcal{O}(G)\otimes\mathcal{O}(G)\cong\mathcal{O}(G\times G)$ 中看待，并令 $\varepsilon(f)=f(e)$（$e$ 为单位元）。余结合律恰是 $\mu$ 的结合律：两种方式计算 $\Delta(f)(g,h,k)$ 给出 $f((gh)k)=f(g(hk))$。这就是**对偶性**：$\mathcal{O}(G)$ 上的乘积并不编码 $G$ 群法则的任何信息，而*余积*则编码了乘法，余单位编码了单位元。群结构存在于余乘法之中。
 
 > **定义 —— 双代数。** 一个**双代数**是同时既为代数 $(B,m,\eta)$ 又为余代数 $(B,\Delta,\varepsilon)$ 的向量空间 $B$，且两种结构**相容**：$\Delta$ 与 $\varepsilon$ 是代数同态。具体写出：
+>
 > $$
 > \Delta(ab)=\Delta(a)\Delta(b),\qquad \Delta(1)=1\otimes1,\qquad \varepsilon(ab)=\varepsilon(a)\varepsilon(b),\qquad \varepsilon(1)=1 ,
 > $$
+>
 > 其中 $B\otimes B$ 上的乘积是分量式的，$(a\otimes b)(c\otimes d)=ac\otimes bd$。
 
 **$\mathbb{C}[G]$ 是双代数的逐步验证。** 乘法是群法则 $m(g\otimes h)=gh$，单位 $\eta(1)=e$。验证 $\Delta(gh)=\Delta(g)\Delta(h)$：左端 $\Delta(gh)=gh\otimes gh$，由上面的定义；右端 $\Delta(g)\Delta(h)=(g\otimes g)(h\otimes h)=gh\otimes gh$，由分量式乘积。两者一致。又 $\varepsilon(gh)=1=1\cdot1=\varepsilon(g)\varepsilon(h)$。故 $\mathbb{C}[G]$ 是一个双代数。
@@ -92,9 +94,11 @@ $$
 对极的定义把"逆"的抽象内容打包：在群中 $g\,g^{-1}=e$；卷积代数是使"$\mathrm{id}$ 有逆 $S$"对 Hopf 代数有意义的正确场所，其中 $\eta\varepsilon$ 扮演 $e$ 的角色。下一个定义把这一点精确化，紧随其后的例子证实：对群代数而言，抽象的逆*就是*群的逆。
 
 > **定义 —— Hopf 代数。** 一个 **Hopf 代数**是带有线性映射 $S:H\to H$ 的双代数 $H$，其中 $S$ 即**对极**，是**恒等映射的卷积逆**：
+>
 > $$
 > S\star\mathrm{id}=\eta\circ\varepsilon=\mathrm{id}\star S,
 > $$
+>
 > 即在 Sweedler 记号下，对一切 $x$ 有 $S(x_{(1)})\,x_{(2)}=\varepsilon(x)1_H=x_{(1)}\,S(x_{(2)})$。
 
 对极若存在则唯一：它是卷积代数 $\mathrm{End}(H)$ 中的逆，而任何代数中的逆都唯一（若 $S$ 与 $S'$ 都使 $\mathrm{id}$ 求逆，则 $S=S\star(\mathrm{id}\star S')=(S\star\mathrm{id})\star S'=S'$，用到 $\star$ 的结合律与单位 $\eta\varepsilon$）。
@@ -137,18 +141,23 @@ $$
 **是什么以及为什么。** 在形变整个对称代数之前，我们先形变最简单的对象：带坐标 $x,y$ 的平面 $\mathbb{C}^2$。经典上 $xy=yx$。**量子平面**把它替换为 $xy=q\,yx$，其中 $q\in\mathbb{C}^\times$ 是非零标量。从这一条扭曲关系中落出组织本学科每个公式的 *$q$-数* $[n]_q$ 与 *$q$-二项式*。当 $q\to1$ 时一切回归经典情形——这种形变是包含原对象的单参数族。
 
 > **定义 —— 量子平面。** **量子平面** $\mathbb{C}_q[x,y]$ 是由 $x,y$ 生成、带单条关系
+>
 > $$
 > xy=q\,yx
 > $$
+>
 > 的结合代数。其单项式 $y^a x^b$ 构成一组基（利用关系把所有 $y$ 排到所有 $x$ 的左边）。
 
 **逐步例子 —— $q$-二项式定理。** 展开 $(x+y)^2=x^2+xy+yx+y^2=x^2+(q+1)yx+y^2$，其中我们把 $xy\to q\,yx$。对 $(x+y)^3$ 类似地收集 $y^a x^b$，而系数不是普通二项式，而是其 $q$-类似物。这迫使以下定义：
 
 > **定义 —— $q$-数。** 对 $n\in\mathbb{Z}_{\ge0}$，**$q$-数**（或 **$q$-整数**）是
+>
 > $$
 > [n]_q:=\frac{q^{n}-q^{-n}}{q-q^{-1}}=q^{n-1}+q^{n-3}+\cdots+q^{-(n-1)} .
 > $$
+>
 > $q^n-q^{-n}$ 比 $q-q^{-1}$ 的这种对称形式在量子群文献中是标准的（它使 $[n]_q=[n]_{q^{-1}}$）。**$q$-阶乘**是 $[n]_q!:=[n]_q[n-1]_q\cdots[1]_q$，约定 $[0]_q!:=1$；**$q$-二项式**（Gauss 二项式）是
+>
 > $$
 > \binom{n}{k}_q:=\frac{[n]_q!}{[k]_q!\,[n-k]_q!} .
 > $$
@@ -158,6 +167,7 @@ $$
 **在 $q=2$ 处的数值演算。** $[1]_2=\frac{2-2^{-1}}{2-2^{-1}}=1$。$[2]_2=\frac{4-1/4}{2-1/2}=\frac{15/4}{3/2}=\frac{15}{6}=\frac52$。等价地 $[2]_2=q+q^{-1}=2+\tfrac12=\tfrac52$——两个公式一致，理应如此。$[3]_2=q^2+1+q^{-2}=4+1+\tfrac14=\tfrac{21}{4}$。
 
 > **$q$-二项式定理（陈述）。** 在量子平面中（其中 $xy=q\,yx$），
+>
 > $$
 > (x+y)^n=\sum_{k=0}^{n}\binom{n}{k}_{q^{2}}\;y^{k}x^{\,n-k}\quad\text{（约定 }xy=q\,yx\text{ 固定了出现哪个 }q\text{。）}
 > $$
@@ -190,9 +200,11 @@ $$
 **是什么以及为什么。** 现在我们形变对称代数本身。回忆经典 $\mathfrak{sl}_2$ 有生成元 $E,F,H$，满足 $[H,E]=2E,\ [H,F]=-2F,\ [E,F]=H$。形变保留 $E,F$，但把 $H$ 替换为它的**指数** $K=q^{H}$（一个群样、可逆元素），并把关系 $[E,F]=H$ 替换为一个 $q$-数版本。其结果 $U_q(\mathfrak{sl}_2)$ 是一个既不交换也不余交换的 Hopf 代数——第一个真正的量子群。
 
 > **定义 —— $U_q(\mathfrak{sl}_2)$。** 固定 $q\in\mathbb{C}^\times$，$q\ne\pm1$。代数 $U_q(\mathfrak{sl}_2)$ 由 $E,F,K,K^{-1}$ 生成，带关系
+>
 > $$
 > KK^{-1}=K^{-1}K=1,\qquad KEK^{-1}=q^{2}E,\qquad KFK^{-1}=q^{-2}F,
 > $$
+>
 > $$
 > EF-FE=\frac{K-K^{-1}}{q-q^{-1}} .
 > $$
@@ -202,9 +214,11 @@ $$
 **逐步例子 —— 在极限中恢复经典 $\mathfrak{sl}_2$。** 设 $q=e^{\hbar}$ 并展开到 $\hbar$ 的一阶。则 $K=q^H=1+\hbar H+O(\hbar^2)$，故 $KEK^{-1}=q^2E$ 在左端读作 $(1+\hbar H)E(1-\hbar H)=E+\hbar(HE-EH)+O(\hbar^2)$，在右端 $(1+2\hbar)E+O(\hbar^2)=E+2\hbar E$；匹配 $\hbar^1$ 项给出 $[H,E]=2E$。同样 $\frac{K-K^{-1}}{q-q^{-1}}=\frac{(1+\hbar H)-(1-\hbar H)}{(1+\hbar)-(1-\hbar)}+O(\hbar)=\frac{2\hbar H}{2\hbar}=H$，故 $EF-FE\to[E,F]=H$。量子群字面上是经典泛包络代数在参数 $\hbar=\ln q$ 中的形变，而在此意义下 $U_1(\mathfrak{sl}_2)$ 即 $U(\mathfrak{sl}_2)$。
 
 > **$U_q(\mathfrak{sl}_2)$ 的 Hopf 结构。** 在生成元上定义
+>
 > $$
 > \Delta(K)=K\otimes K,\qquad \Delta(E)=E\otimes K+1\otimes E,\qquad \Delta(F)=F\otimes 1+K^{-1}\otimes F,
 > $$
+>
 > $$
 > \varepsilon(K)=1,\ \varepsilon(E)=\varepsilon(F)=0,\qquad S(K)=K^{-1},\ S(E)=-EK^{-1},\ S(F)=-KF .
 > $$
@@ -239,9 +253,11 @@ $$
 > **定义 —— 最高权向量。** 在 $U_q(\mathfrak{sl}_2)$ 的表示 $V$ 中，非零的 $v\in V$ 是**权为 $\lambda$ 的最高权向量**，如果 $Kv=\lambda v$ 且 $Ev=0$（$E$ 升，而顶部之上空无一物）。
 
 > **定理 —— 一般 $q$ 处的不可约表示。** 对每个整数 $n\ge0$ 存在一个维数为 $n+1$ 的不可约表示 $V_n$。它有一组基 $v_0,v_1,\dots,v_n$，其中 $v_0$ 是权为 $q^{n}$ 的最高权向量，且
+>
 > $$
 > Kv_j=q^{n-2j}v_j,\qquad Fv_j=v_{j+1}\ (v_{n+1}:=0),\qquad Ev_j=[j]_q\,[n-j+1]_q\,v_{j-1}\ (v_{-1}:=0).
 > $$
+>
 > 当 $q$ 一般时，这些穷尽了有限维不可约表示（至多再张量一维符号型模）。
 
 **证明 / 构造。**
@@ -278,18 +294,23 @@ $$
 **是什么以及为什么。** 我们看到 $\Delta$ 不余交换：$\Delta(E)\ne\tau\Delta(E)$。一个**拟三角** Hopf 代数携带一个可逆元素 $\mathcal R\in H\otimes H$，它把 $\Delta$ 与其翻转*交织*起来，$\tau\Delta(x)=\mathcal R\,\Delta(x)\,\mathcal R^{-1}$。从 $\mathcal R$ 上的两条相容公理出发——经三行代数论证——可得 $\mathcal R$ 满足 **Yang–Baxter 方程**。这就是承诺的机器：一个拟三角结构*自动*产生 Yang–Baxter 的解，从而给出可积散射与辫群表示。
 
 > **定义 —— 拟三角 Hopf 代数。** 一个 Hopf 代数 $H$ 是**拟三角的**，如果存在一个可逆的 $\mathcal R=\sum_i a_i\otimes b_i\in H\otimes H$（**泛 $R$-矩阵**），使得对一切 $x\in H$，
+>
 > $$
 > \tau\circ\Delta(x)=\mathcal R\,\Delta(x)\,\mathcal R^{-1}\quad(\text{拟余交换性}),
 > $$
+>
 > $$
 > (\Delta\otimes\mathrm{id})(\mathcal R)=\mathcal R_{13}\,\mathcal R_{23},\qquad (\mathrm{id}\otimes\Delta)(\mathcal R)=\mathcal R_{13}\,\mathcal R_{12}.
 > $$
+>
 > 这里对 $H\otimes H$ 中的 $\mathcal R=\sum a_i\otimes b_i$，在 $H\otimes H\otimes H$ 中的**腿记号**为 $\mathcal R_{12}=\sum a_i\otimes b_i\otimes1$，$\mathcal R_{13}=\sum a_i\otimes1\otimes b_i$，$\mathcal R_{23}=\sum 1\otimes a_i\otimes b_i$。
 
 > **定理（Drinfeld）—— $R$-矩阵求解 Yang–Baxter。** 在任何拟三角 Hopf 代数中，
+>
 > $$
 > \mathcal R_{12}\,\mathcal R_{13}\,\mathcal R_{23}=\mathcal R_{23}\,\mathcal R_{13}\,\mathcal R_{12} .
 > $$
+>
 > 这就是**（量子）Yang–Baxter 方程**。
 
 **证明。**
@@ -334,19 +355,25 @@ $$
 **是什么以及为什么。** s6 的结构是一个*几何*事实的代数骨架：量子群表示的张量化构成一个**辫化幺半范畴**，其中交换两个因子由一个上/下**辫化** $c_{V,W}$ 而非朴素翻转来完成。因为辫化满足辫关系，每个对象 $V$ 都给出**辫群** $B_n$——$n$ 股辫的群——的一个表示。这是从代数到拓扑（纽结，s10）的桥梁。
 
 > **定义 —— 辫群 $B_n$。** $B_n$ 是以生成元 $\sigma_1,\dots,\sigma_{n-1}$（$\sigma_i$ = 让第 $i$ 股越过第 $i+1$ 股）和关系
+>
 > $$
 > \sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}\ \ (\text{辫关系}),\qquad \sigma_i\sigma_j=\sigma_j\sigma_i\ \ (|i-j|\ge2)
 > $$
+>
 > 给出的群。它与对称群 $S_n$ 仅相差*略去* $\sigma_i^2=1$：一个辫记住了哪股从上面经过。
 
 > **定义 —— 辫化幺半范畴（非形式但在关键公理上精确）。** 一个**幺半范畴**有对象、一个带单位对象 $\mathbf 1$ 的张量积 $\otimes$，以及结合同构。若对每一对 $V,W$ 存在一个自然同构（**辫化**）
+>
 > $$
 > c_{V,W}:V\otimes W\xrightarrow{\ \sim\ }W\otimes V
 > $$
+>
 > 满足两条**六边形公理**，则称它是**辫化的**，这两条公理（忽略结合子）读作
+>
 > $$
 > c_{U,V\otimes W}=(\mathrm{id}_V\otimes c_{U,W})(c_{U,V}\otimes\mathrm{id}_W),\qquad c_{U\otimes V,W}=(c_{U,W}\otimes\mathrm{id}_V)(\mathrm{id}_U\otimes c_{V,W}).
 > $$
+>
 > 它们是 s6 两条余积相容公理 $(\Delta\otimes\mathrm{id})\mathcal R=\mathcal R_{13}\mathcal R_{23}$ 与 $(\mathrm{id}\otimes\Delta)\mathcal R=\mathcal R_{13}\mathcal R_{12}$ 的范畴形式——把 $\rho^{\otimes3}$ 应用于这些公理恰给出六边形。一个还额外满足 $c_{W,V}c_{V,W}=\mathrm{id}$ 的辫化范畴是**对称的**（普通向量空间带翻转 $\tau$）；一个真正的量子群给出的辫化*不*对称，$c_{W,V}c_{V,W}\ne\mathrm{id}$，这正是为什么支配它的是辫群而非对称群。
 
 > **定理 —— $U_q(\mathfrak{sl}_2)$ 的表示是辫化的。** 定义 $c_{V,W}:=\tau\circ(\rho_V\otimes\rho_W)(\mathcal R):V\otimes W\to W\otimes V$。则 $c$ 是一个良定义的辫化，从而对任何模 $V$，赋值 $\sigma_i\mapsto \mathrm{id}^{\otimes(i-1)}\otimes \check R\otimes\mathrm{id}^{\otimes(n-i-1)}$ 定义了一个表示 $B_n\to GL(V^{\otimes n})$。
@@ -386,10 +413,13 @@ $$
 **是什么以及为什么。** 至此我们形变了 $U(\mathfrak{sl}_2)$。**对偶**的图景形变*函数* $\mathcal{O}(SL_2)$——行列式为 $1$ 的 $2\times2$ 矩阵上多项式函数构成的交换 Hopf 代数。**FRT 构造**（Faddeev–Reshetikhin–Takhtajan）*直接从一个 $R$-矩阵*构建这个形变函数代数，把矩阵元函数变成非交换生成元，其关系由 $\check R$ 决定。其结果 $SL_q(2)$ 与 $U_q(\mathfrak{sl}_2)$ 对偶，闭合了 s2 的圆环。
 
 > **定义 —— 双代数 $M_q(2)$（FRT）。** 设 $T=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ 是生成元矩阵（故 $a,b,c,d$ 是 $2\times2$ 矩阵上的形变坐标函数）。用 $U_q(\mathfrak{sl}_2)$ 的 $R$-矩阵 $R$，施加 **RTT 关系**
+>
 > $$
 > R\,T_1 T_2=T_2 T_1\,R,\qquad T_1=T\otimes\mathbb 1,\ T_2=\mathbb 1\otimes T .
 > $$
+>
 > 具体写出，RTT 关系恰为：
+>
 > $$
 > ab=q\,ba,\quad ac=q\,ca,\quad bd=q\,db,\quad cd=q\,dc,\quad bc=cb,\quad ad-da=(q-q^{-1})bc .
 > $$
@@ -397,16 +427,21 @@ $$
 这些恰是使 $a,b,c,d$ 成为一个**类量子平面**非交换代数的关系：每一对 $q$-交换，唯独非对角对 $b,c$ 交换，而对角对带一个修正。当 $q\to1$ 时一切交换，我们恢复矩阵上普通的多项式函数。
 
 > **定义 —— 量子行列式与 $SL_q(2)$。** **量子行列式**是
+>
 > $$
 > \det{}_q T:=ad-q\,bc=da-q^{-1}bc .
 > $$
+>
 > 从 RTT 关系直接计算表明 $\det_q T$ 是**中心**的（与 $a,b,c,d$ 交换）且在余积下**群样**。**量子特殊线性群** $SL_q(2)$ 是商 $M_q(2)/(\det_q T-1)$——施加 $\det_q T=1$。
 
 > **$SL_q(2)$ 的 Hopf 结构。** 余积 = "生成元的矩阵乘法"：
+>
 > $$
 > \Delta(T_{ij})=\sum_k T_{ik}\otimes T_{kj}\quad\Longleftrightarrow\quad \Delta\begin{pmatrix}a&b\\c&d\end{pmatrix}=\begin{pmatrix}a&b\\c&d\end{pmatrix}\dot\otimes\begin{pmatrix}a&b\\c&d\end{pmatrix},
 > $$
+>
 > 余单位 $\varepsilon(T)=\mathbb 1$（即 $\varepsilon(a)=\varepsilon(d)=1,\ \varepsilon(b)=\varepsilon(c)=0$），对极为**量子逆矩阵**（在 $\det_q T=1$ 后有效）：
+>
 > $$
 > S(T)=\begin{pmatrix}d&-q^{-1}b\\-q\,c&a\end{pmatrix}.
 > $$
@@ -443,6 +478,7 @@ $$
 > **skein 关系（实际计算）。** Jones 多项式 $V_L(t)$ 由两条规则确定：
 > - **归一化：** $V_{\text{平凡纽结}}(t)=1$。
 > - **skein 关系：** 对除一个交叉外完全相同的三个链环 $L_+,L_-,L_0$（分别为上交叉、下交叉、无交叉），
+>
 > $$
 > t^{-1}V_{L_+}(t)-t\,V_{L_-}(t)=\big(t^{1/2}-t^{-1/2}\big)V_{L_0}(t).
 > $$
@@ -475,9 +511,11 @@ $$
 **是什么以及为什么。** 我们在起点处（s0）收尾：那要求一个可形变对称性的物理。**Heisenberg 自旋链**是一列带最近邻耦合的 $N$ 个量子自旋；它*可精确求解*，而其求解的引擎——**代数 Bethe 拟设**——正是由 $U_q(\mathfrak{sl}_2)$ 的 $R$-矩阵构建的。量子群是链的隐藏对称性；Yang–Baxter 是它可解的原因。
 
 > **模型。** 在 $N$ 个格点（各携带 $V=\mathbb{C}^2$）上的（各向异性，XXZ）Heisenberg 哈密顿量是
+>
 > $$
 > H=\sum_{i=1}^{N}\Big(\sigma_i^x\sigma_{i+1}^x+\sigma_i^y\sigma_{i+1}^y+\Delta_{\!a}\,\sigma_i^z\sigma_{i+1}^z\Big),
 > $$
+>
 > 其中 $\sigma^{x,y,z}$ 是作用于格点 $i$ 的 Pauli 矩阵，而**各向异性** $\Delta_{\!a}=\tfrac12(q+q^{-1})$ 把模型与形变参数 $q$ 联系起来。各向同性的 XXX 链是 $q\to1$，$\Delta_a=1$。
 
 **Lax 算子与单值矩阵。** 引入一个辅助空间 $V_a=\mathbb{C}^2$ 与 **Lax 算子** $L_i(u)\in\mathrm{End}(V_a\otimes V_i)$，即 $\check R$ 的一个依赖谱参数（$u$）的版本。对所有格点的乘积是**单值矩阵**
@@ -487,9 +525,11 @@ $$
 即辅助空间中的一个 $2\times2$ 矩阵，其元素 $A,B,C,D$ 是物理空间 $V^{\otimes N}$ 上的算子。
 
 > **链的 RTT/Yang–Baxter 关系。** Lax 算子满足，对 $R$-矩阵 $R(u-v)$，
+>
 > $$
 > R(u-v)\,\big(T_a(u)\otimes T_a(v)\big)=\big(T_a(v)\otimes T_a(u)\big)\,R(u-v),
 > $$
+>
 > 与 FRT 构造（s9）相同的 RTT 形式，现带一个谱参数。这单条关系打包了 $A,B,C,D$ 之间的*所有*对易关系。
 
 **代数 Bethe 拟设（方法）。**

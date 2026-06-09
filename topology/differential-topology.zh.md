@@ -449,15 +449,19 @@ $$
 Gauss–Bonnet 是 $D$ 为 de Rham 算子 $d+d^*$ 的特例：它的指标恰是 Betti 数的交错和，即 $\chi(M)$，而右端积分是 $\int_M e(TM)$。$D$ 的其他选取给出 Riemann–Roch 定理（全纯欧拉示性数）、符号定理（Hirzebruch 的 $L$ 亏格）以及自旋/Dirac 指标（$\hat A$ 亏格）——每一个都是一个“解的数目 $=$ 一个示性数”的恒等式。在物理中这是反常相消与瞬子计数背后的引擎。它是本指南那个单一思想的成熟形式：**局部分析数据，经积分，计算出一个整体拓扑不变量。**
 
 > **例题 —— 指标定理逐项重现 Gauss–Bonnet。** 取 $M$ 为闭定向曲面，$D=d+d^\ast:\Omega^{\mathrm{even}}\to\Omega^{\mathrm{odd}}$（按奇偶重新分组的 de Rham 算子）。由 **Hodge 理论**，$D$ 的核是偶调和形式，余核是奇调和形式，而调和形式代表上同调，所以
+>
 > $$
 > \mathrm{ind}_a(D)=\big(b_0+b_2\big)-b_1=\sum_k(-1)^k b_k=\chi(M).
 > $$
+>
 > 对这个 $D$，Atiyah–Singer 的右端特化为欧拉类积分 $\int_M e(TM)=\tfrac1{2\pi}\int_M K\,dA$。把两端等同起来正是 Gauss–Bonnet。指标定理因而*包含*了本指南的高潮，并把“Betti 数的交错和”替换为“调和解的净计数”——分析再次等于拓扑。
 
 > **例题 —— 一个四维流形的符号。** 对闭定向四维流形 $M$，选 $D$ 为符号算子给出 Hirzebruch 的恒等式
+>
 > $$
 > \mathrm{sign}(M)=\frac{1}{3}\int_M p_1(TM),
 > $$
+>
 > 其中 $\mathrm{sign}(M)$ 是 $H^2(M)$ 上相交形式的符号（一个纯拓扑整数：$\#$正 $-$ $\#$负特征值），$p_1$ 是第一 Pontryagin 类（§s8）。对 $\mathbb{CP}^2$，$\mathrm{sign}=1$，而确实 $\tfrac13\int p_1=\tfrac13\cdot 3=1$（这里 $\int_{\mathbb{CP}^2}p_1=3$，因为总 Chern 类 $c(T\mathbb{CP}^2)=(1+h)^3$ 给出 $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$，且 $\int_{\mathbb{CP}^2}h^2=1$）。一个带符号的特征值计数等于一个曲率积分——同样的奇迹，升高一维。
 
 ---

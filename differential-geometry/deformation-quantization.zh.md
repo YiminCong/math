@@ -450,6 +450,7 @@ $$
 #### 马尤勒–嘉当元与规范
 
 > **定义 —— 马尤勒–嘉当元。** 在一个 DGLA 中，一个 $1$-次元 $\gamma$（属于 $\hbar\mathfrak g[[\hbar]]$）称为**马尤勒–嘉当**元，如果
+>
 > $$
 > d\gamma+\tfrac12[\gamma,\gamma]=0.
 > $$
@@ -459,9 +460,11 @@ $$
 - 在**霍赫希尔德复形**中，一个马尤勒–嘉当元恰好是一个**星积**的数据 $\gamma=\sum_{k\ge1}\hbar^k B_k$：在格斯滕哈伯括号下方程 $d\gamma+\tfrac12[\gamma,\gamma]=0$ *就是*结合律。
 
 > **决定性引理。** 一个 $L_\infty$-拟同构 $\mathcal U:\mathfrak g\rightsquigarrow\mathfrak h$ 通过
+>
 > $$
 > \gamma\ \longmapsto\ \mathcal U_*(\gamma)=\sum_{n\ge1}\frac1{n!}\,\mathcal U_n(\gamma,\dots,\gamma)
 > $$
+>
 > 在 $\mathfrak g$ 模规范的马尤勒–嘉当元与 $\mathfrak h$ 模规范的马尤勒–嘉当元之间诱导一个**双射**。
 
 #### 为什么这证明了量子化

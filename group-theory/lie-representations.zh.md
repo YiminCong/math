@@ -41,9 +41,11 @@
 激发动机的模型：对矩阵而言，$[X,Y]=XY-YX$（**对易子**）。这显然是双线性且反对称的，而 Jacobi 恒等式是一个直接的展开（每个乘积 $XYZ$ 恰带 $+$ 出现一次、带 $-$ 出现一次，三个一组相消——我们在习题例中验证这一点）。矩阵李群的无穷小生成元构成这样的代数；例如 $\mathfrak{su}(2)$ 是对易子下的无迹反 Hermite $2\times2$ 矩阵。
 
 > **定义 — 结构常数。** 固定 $\mathfrak{g}$ 的一组基 $\{T_a\}_{a=1}^{n}$（$n=\dim\mathfrak{g}$）。由于每个括号 $[T_a,T_b]$ 仍在 $\mathfrak{g}$ 中，它在基中唯一展开：
+>
 > $$
 > [T_a,T_b]=\sum_{c=1}^{n} f_{ab}{}^{c}\,T_c .
 > $$
+>
 > 这些数 $f_{ab}{}^{c}\in\mathbb{F}$ 是**结构常数**。它们编码了整个括号：反对称性迫使 $f_{ab}{}^{c}=-f_{ba}{}^{c}$，而 Jacobi 恒等式变成二次关系 $\sum_e\big(f_{ab}{}^{e}f_{ec}{}^{d}+f_{bc}{}^{e}f_{ea}{}^{d}+f_{ca}{}^{e}f_{eb}{}^{d}\big)=0$，对所有 $a,b,c,d$ 成立。
 
 > **定义 — 理想。** 子空间 $\mathfrak{a}\subseteq\mathfrak{g}$ 是一个**理想**，如果 $[\mathfrak{g},\mathfrak{a}]\subseteq\mathfrak{a}$，即对每个 $X\in\mathfrak{g}$ 和 $A\in\mathfrak{a}$ 有 $[X,A]\in\mathfrak{a}$。（对照前置指南中的*正规子群*：理想恰是你可以"对其取商"的子结构，因为括号下降到商空间 $\mathfrak{g}/\mathfrak{a}$。）
@@ -90,9 +92,11 @@ $$
 半单是最佳位置："尽可能远离可解"。我们现在来构建检测器。
 
 > **定义 — Killing 形式。** **Killing 形式**是对称双线性形式 $\kappa:\mathfrak{g}\times\mathfrak{g}\to\mathbb{F}$，
+>
 > $$
 > \kappa(X,Y)=\mathrm{tr}\big(\mathrm{ad}_X\,\mathrm{ad}_Y\big),
 > $$
+>
 > 即两个伴随算子复合的迹。它是对称的，因为 $\mathrm{tr}(AB)=\mathrm{tr}(BA)$；它还是**不变的**：$\kappa([X,Y],Z)=\kappa(X,[Y,Z])$。
 
 **不变性的证明。**
@@ -135,10 +139,13 @@ $$
 因为 $\mathfrak{h}$ 的元素彼此对易，它们的伴随算子 $\{\mathrm{ad}_H:H\in\mathfrak{h}\}$ 也对易，而对易的可对角化算子是**可同时对角化的**（一个标准的线性代数事实：存在公共特征基）。所以 $\mathfrak{g}$ 分裂为联合特征空间。
 
 > **定义 — 根空间分解。** 对线性泛函 $\alpha\in\mathfrak{h}^{*}$（线性映射 $\mathfrak{h}\to\mathbb{C}$）定义**根空间**
+>
 > $$
 > \mathfrak{g}_\alpha=\{\,X\in\mathfrak{g} : [H,X]=\alpha(H)\,X \text{ for all } H\in\mathfrak{h}\,\}.
 > $$
+>
 > 使得 $\mathfrak{g}_\alpha\ne\{0\}$ 的非零 $\alpha$ 是**根**；根的集合是 $\Phi$。零泛函对应的空间就是 $\mathfrak{g}_0=\mathfrak{h}$ 本身（对半单 $\mathfrak{g}$，CSA 是它自己的中心化子）。整个代数是直和
+>
 > $$
 > \mathfrak{g}=\mathfrak{h}\ \oplus\ \bigoplus_{\alpha\in\Phi}\mathfrak{g}_\alpha .
 > $$
@@ -194,9 +201,11 @@ $$
 > **定义 — 正根与单根。** 在 $E$ 上选一个在每个根上都非零的线性泛函（一个"通用方向"）。一个根是**正的**（$\alpha>0$）若其值为正，否则为**负的**；$\Phi=\Phi^{+}\sqcup\Phi^{-}$，其中 $\Phi^{-}=-\Phi^{+}$。一个正根是**单的**若它*不是*两个正根之和。单根的集合 $\Delta=\{\alpha_1,\dots,\alpha_r\}$ 是 $E$ 的一组**基**（$r=\mathrm{rank}$），且每个正根都是单根的*非负整数组合*。
 
 > **定义 — Cartan 矩阵。** 取单根 $\alpha_1,\dots,\alpha_r$，**Cartan 矩阵**是 $r\times r$ 整数矩阵
+>
 > $$
 > A_{ij}=\langle\alpha_i,\alpha_j\rangle=\frac{2(\alpha_i,\alpha_j)}{(\alpha_j,\alpha_j)} .
 > $$
+>
 > 它的对角元是 $A_{ii}=2$；非对角元在 $\{0,-1,-2,-3\}$ 中（由夹角量子化，因为相异单根成钝角，故 $(\alpha_i,\alpha_j)\le0$）。
 
 > **定义 — Dynkin 图。** 每个单根画一个节点。把相异节点 $i\ne j$ 用 $A_{ij}A_{ji}\in\{0,1,2,3\}$ 条边连起来。当两个根长度不同（双键或三键）时，画一个从较长根指向较短根的箭头。这幅图编码了整个 Cartan 矩阵，因而（可以通过从 $\Delta$ 重构 $\Phi$ 来证明）编码了整个代数。
@@ -245,9 +254,11 @@ $$
 **是什么以及为什么。** 有了代数的骨架（根）在手，我们转向它的表示。CSA 在一个表示上的特征值就是**权**——即 $J_3$ 特征值 $m$ 的推广。正如一个自旋 $j$ 的表示被它最高的特征值 $m=j$ 钉死，半单代数的每个不可约表示都被单个**最高权**钉死。这是整个学科的核心分类定理。
 
 > **定义 — 表示的权。** 设 $\rho:\mathfrak{g}\to\mathfrak{gl}(V)$ 是一个表示。由于 $\mathfrak{h}$ 是阿贝尔的，且（在半单代数的有限维表示中）作用可对角化，$V$ 分裂为联合特征空间：
+>
 > $$
 > V=\bigoplus_{\mu} V_\mu,\qquad V_\mu=\{v\in V:\rho(H)v=\mu(H)\,v\ \forall H\in\mathfrak{h}\}.
 > $$
+>
 > 每个使 $V_\mu\ne0$ 的 $\mu\in\mathfrak{h}^{*}$ 是一个**权**；$\dim V_\mu$ 是它的**重数**。（根是*伴随*表示的权，s3。）
 
 > **根向量如何移动权。** 若 $v\in V_\mu$ 且 $E_\alpha\in\mathfrak{g}_\alpha$，那么 $\rho(E_\alpha)v\in V_{\mu+\alpha}$。证明：对 $H\in\mathfrak{h}$，$\rho(H)\rho(E_\alpha)v=\rho(E_\alpha)\rho(H)v+\rho([H,E_\alpha])v=\mu(H)\rho(E_\alpha)v+\alpha(H)\rho(E_\alpha)v=(\mu+\alpha)(H)\rho(E_\alpha)v$，用到 $\rho$ 是*同态*（$\rho([H,E_\alpha])=[\rho(H),\rho(E_\alpha)]$）以及 $[H,E_\alpha]=\alpha(H)E_\alpha$。所以 $\rho(E_\alpha)$ 是一个升降算子，把权平移根 $\alpha$。
@@ -257,9 +268,11 @@ $$
 > **定义 — 支配权、最高权。** 固定正根（s4）。一个权 $\mu$ 是**支配的**，若对所有单根 $\alpha_i$ 有 $\langle\mu,\alpha_i\rangle\ge0$（等价地 $\mu=\sum_i m_i\omega_i$，其中整数 $m_i\ge0$，即 **Dynkin 标号**）。在一个不可约表示中存在唯一的权 $\lambda$，即**最高权**，使得对任何正根 $\alpha$，$\lambda+\alpha$ *都不是*权（没有升算子能逃出它）；它的权空间是一维的。
 
 > **定理 — 最高权定理（Cartan–Weyl）。** 设 $\mathfrak{g}$ 是半单李代数。映射
+>
 > $$
 > \big\{\text{irreducible finite-dim representations}\big\}/\!\cong\ \ \xrightarrow{\ \sim\ }\ \big\{\text{dominant integral weights }\lambda\big\}
 > $$
+>
 > 把每个不可约表示送到它的最高权，是一个**双射**。每个支配整权都是恰好一个不可约表示 $V(\lambda)$ 的最高权，且同构的表示有相等的最高权。
 
 **唯一性/单射性的证明（我们在这里能干净利落完成的部分）。**
@@ -279,9 +292,11 @@ $$
 > **定义 — 泛包络代数与 PBW。** **泛包络代数** $U(\mathfrak{g})$ 是由 $\mathfrak{g}$ 生成、仅服从 $XY-YX=[X,Y]$ 的结合代数。$\mathfrak{g}$ 的表示与 $U(\mathfrak{g})$ 模是同一回事。**Poincaré–Birkhoff–Witt（PBW）定理**指出，固定 $\mathfrak{g}$ 的一组有序基，分成（降 $E_{-\alpha}$）$\,\cdot\,$（Cartan $H$）$\,\cdot\,$（升 $E_\alpha$），那么有序单项式构成 $U(\mathfrak{g})$ 的一组基——任何乘积都可用对易关系重排成这个正规形式。
 
 > **定义 — Verma 模。** 对一个权 $\lambda$，**Verma 模** $M(\lambda)$ 由单个向量 $v_\lambda$ 生成，规则是：$\rho(H)v_\lambda=\lambda(H)v_\lambda$（它有权 $\lambda$）以及对每个正根 $\alpha$ 有 $\rho(E_\alpha)v_\lambda=0$（它是"最高的"），*没有其他关系*。由 PBW，$M(\lambda)$ 的一组基是
+>
 > $$
 > \big\{\,\rho(E_{-\beta_1})^{k_1}\cdots\rho(E_{-\beta_N})^{k_N}\,v_\lambda\ :\ k_i\ge0\,\big\},
 > $$
+>
 > 其中 $\beta_1,\dots,\beta_N$ 取遍正根。指数为 $k_i$ 的单项式有权 $\lambda-\sum_i k_i\beta_i$。
 
 $M(\lambda)$ 是*无穷维*的——我们无限制地施加了降算子。它含有唯一的极大真子模 $N(\lambda)$（所有避开 $v_\lambda$ 的子模之和）。
@@ -313,17 +328,21 @@ $M(\lambda)$ 是*无穷维*的——我们无限制地施加了降算子。它�
 > **定义 — Weyl 向量与符号。** 令 $\rho=\tfrac12\sum_{\alpha>0}\alpha$ 为 **Weyl 向量**（正根之和的一半；等于 $\sum_i\omega_i$）。对 $w\in W$ 令 $\det(w)=(-1)^{\ell(w)}$，其中 $\ell(w)$ 是写出 $w$ 所需的反射个数（$w$ 的**符号**）。
 
 > **定理 — Weyl 特征标公式。** 对最高权 $\lambda$ 为支配整权的不可约表示 $V(\lambda)$，
+>
 > $$
 > \mathrm{ch}V(\lambda)\ =\ \frac{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\lambda+\rho)}}{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\rho)}} .
 > $$
+>
 > 分母等于 **Weyl 分母** $\displaystyle\prod_{\alpha>0}\big(e^{\alpha/2}-e^{-\alpha/2}\big)$。
 
 证明的思路（完整证明引自 Weyl）：分子与分母在 $W$ 之下各自*反对称*（符号随每次反射翻转），所以比值像真正的特征标那样 $W$ 对称，再把它与最高权 $\lambda$ 加上重数记账相匹配，便唯一地钉死它。我们完整地提取实用的推论。
 
 > **推论 — Weyl 维数公式。**
+>
 > $$
 > \dim V(\lambda)\ =\ \prod_{\alpha>0}\frac{(\lambda+\rho,\alpha)}{(\rho,\alpha)} ,
 > $$
+>
 > 一个对正根的乘积。
 
 **从特征标公式导出维数公式。**
@@ -404,9 +423,11 @@ $$
 **是什么以及为什么。** 一个多重态需要标号。CSA 在多重态*内部*给出 $r$ 个对易的标号（权）。要标记多重态*本身*——要说"这是八重态，那是十重态"——我们需要在每个不可约表示上为常数的算子。这些就是 **Casimir 算子**，由代数构建并与一切对易；由 Schur 引理它们在每个不可约表示上以标量作用，而那些标量恰是物理学家引用的多重态标号。
 
 > **定义 — 二次 Casimir。** 取一组基 $\{T_a\}$，令 $g^{ab}$ 为 Killing 形式矩阵 $g_{ab}=\kappa(T_a,T_b)$ 的逆。**二次 Casimir** 是 $U(\mathfrak{g})$ 中的元素
+>
 > $$
 > C_2=\sum_{a,b} g^{ab}\,T_a T_b .
 > $$
+>
 > 它是**中心的**：对所有 $X\in\mathfrak{g}$ 有 $[C_2,X]=0$。
 
 **$C_2$ 为中心的证明。**
@@ -416,9 +437,11 @@ $$
 4. 第 2 步的两项，在用 $g^{ab}$ 升指标后，变成*对称*张量 $T_aT_b$ 之和与*反对称*的 $f_{abc}$ 的缩并（带重新标号），它消失。因此对所有 $c$ 有 $[C_2,T_c]=0$。$\blacksquare$
 
 > **定理 — Casimir 特征值（Freudenthal–Weyl）。** 在不可约表示 $V(\lambda)$ 上，二次 Casimir 以标量作用
+>
 > $$
 > C_2\big|_{V(\lambda)}=(\lambda,\lambda+2\rho)=(\lambda+\rho,\lambda+\rho)-(\rho,\rho),
 > $$
+>
 > 其中 $\rho$ 是 Weyl 向量，$(\cdot,\cdot)$ 是由 Killing 形式诱导的内积。
 
 **证明。**
