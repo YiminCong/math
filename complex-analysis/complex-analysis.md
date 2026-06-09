@@ -528,7 +528,7 @@ The integral formulas are not just for computing — they imply sweeping structu
 
 **Proof.**
 1. Suppose $p$ has no root, so $p(z)\ne 0$ for all $z$. Then $g(z) = 1/p(z)$ is entire (a quotient of holomorphic functions with nonvanishing denominator).
-2. As $|z|\to\infty$, $|p(z)|\to\infty$ (the leading term $a_n z^n$ dominates), so $|g(z)| = 1/|p(z)|\to 0$. Hence $g$ is bounded outside some large disk, and being continuous it is bounded on the closed disk too — so $g$ is bounded on all of $\mathbb{C}$.
+2. As $|z|\to\infty$, $|p(z)|\to\infty$ (the leading term $a_n z^n$ dominates): writing $p(z)=a_n z^n+\dots+a_0$ with $a_n\ne 0$, the reverse triangle inequality gives $|p(z)|\ge |a_n||z|^n\Bigl(1 - \frac{|a_{n-1}|/|a_n|}{|z|} - \cdots - \frac{|a_0|/|a_n|}{|z|^n}\Bigr)\to\infty$, since the bracket $\to 1$. Hence $|g(z)| = 1/|p(z)|\to 0$. Hence $g$ is bounded outside some large disk, and being continuous it is bounded on the closed disk too — so $g$ is bounded on all of $\mathbb{C}$.
 3. By Liouville, $g$ is constant, so $p$ is constant — contradicting "non-constant." Therefore $p$ has a root. $\blacksquare$
 
 Dividing out the root and repeating shows a degree-$n$ polynomial has exactly $n$ roots counted with multiplicity — the "fundamental" factorization $\mathbb{C}$ provides and $\mathbb{R}$ cannot.
@@ -593,7 +593,7 @@ $$
 >
 > $\frac{1}{1-z} = \sum_{n=0}^\infty z^n$ for $|z|<1$; the radius is $1$, dictated by the singularity at $z=1$. Likewise $e^z = \sum z^n/n!$ has $R=\infty$, confirming the legitimacy of the rearrangements in §s0's Euler derivation.
 
-A profound corollary, the **identity theorem**: if two holomorphic functions agree on a set with a limit point inside a connected region, they agree everywhere on it. Holomorphic functions are rigid — knowing one on a tiny arc pins it down globally.
+A profound corollary, the **identity theorem**: if two holomorphic functions agree on a set with a limit point inside a connected region, they agree everywhere on it. (Justification: apply the result to the difference $h=f-g$; the zeros of a nonzero analytic function are **isolated** — at any zero the local power-series form $h(z)=(z-z_0)^m\,[a_m+\cdots]$ with $a_m\ne 0$ is nonzero on a punctured neighborhood — so a zero set with a limit point forces $h\equiv 0$ on the connected region.) Holomorphic functions are rigid — knowing one on a tiny arc pins it down globally.
 
 <a id="s10"></a>
 ### Laurent series and the classification of singularities
@@ -711,7 +711,7 @@ When $q$ has a *simple zero on the real axis*, the integral may exist only as a 
 
 > **Worked example**
 >
-> $\displaystyle\int_{-\infty}^\infty \frac{\sin x}{x}\,dx$. Use $\frac{e^{iz}}{z}$, which has a simple pole at $0$ on the axis. Indent below the pole with a small semicircle. The full closed contour encloses no poles, so its integral is $0$; the small semicircle (clockwise, half a residue) contributes $-\pi i\operatorname{Res}(e^{iz}/z,0) = -\pi i\cdot 1$; the large arc vanishes by Jordan. Balancing gives $\mathrm{P}\!\int_{-\infty}^\infty \frac{e^{ix}}{x}\,dx = \pi i$. Taking imaginary parts: $\int_{-\infty}^\infty\frac{\sin x}{x}\,dx = \pi$.
+> $\displaystyle\int_{-\infty}^\infty \frac{\sin x}{x}\,dx$. Use $\frac{e^{iz}}{z}$, which has a simple pole at $0$ on the axis. Indent **above** the pole with a small semicircle (pushing the contour into the upper half-plane so the pole is left *outside*). The full closed contour then encloses no poles, so its integral is $0$; the small semicircle is traversed **clockwise**, so it contributes $-\pi i\operatorname{Res}(e^{iz}/z,0) = -\pi i\cdot 1$ (minus half of $2\pi i\cdot\text{Res}$); the large arc vanishes by Jordan. Balancing gives $\mathrm{P}\!\int_{-\infty}^\infty \frac{e^{ix}}{x}\,dx = \pi i$. Taking imaginary parts: $\int_{-\infty}^\infty\frac{\sin x}{x}\,dx = \pi$.
 
 <a id="s13"></a>
 ### The argument principle and Rouché's theorem

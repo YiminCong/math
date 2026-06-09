@@ -435,7 +435,7 @@ We build the proof from two lemmas.
 
 **Pitfall — diagonalizable is weaker than spectrally diagonalizable.** A general matrix with distinct eigenvalues is diagonalizable (§s8) but its eigenvectors need not be orthogonal, so the diagonalizing $P$ is invertible but not unitary. The spectral theorem's extra gift is that for normal operators $P$ can be taken *unitary* ($P^{-1}=P^*$), which is exactly what preserves the inner-product geometry — and hence probabilities.
 
-> **Simultaneous diagonalization.** Two Hermitian operators $A,B$ can be diagonalized in the *same* orthonormal basis if and only if they **commute** ($AB=BA$). Physically, two observables are simultaneously measurable precisely when they commute; when they do not — like position and momentum, or two spin components — no common eigenbasis exists and the uncertainty principle results. The "only if" is quick (commuting diagonal matrices), and the "if" follows by restricting $B$ to each eigenspace of $A$, where it is again Hermitian and so diagonalizable.
+> **Simultaneous diagonalization.** Two Hermitian operators $A,B$ can be diagonalized in the *same* orthonormal basis if and only if they **commute** ($AB=BA$). Physically, two observables are simultaneously measurable precisely when they commute; when they do not — like position and momentum, or two spin components — no common eigenbasis exists and the uncertainty principle results. The "only if" is quick (commuting diagonal matrices), and the "if" follows by restricting $B$ to each eigenspace of $A$ — which is legitimate because $B$ **preserves** each eigenspace: if $Av=\lambda v$ then $A(Bv)=B(Av)=\lambda(Bv)$ (using $AB=BA$), so $Bv\in E_\lambda(A)$, i.e. $B$ maps $E_\lambda(A)$ into itself — where it is again Hermitian and so diagonalizable.
 
 ## Part D — Extensions for physics: SVD, tensor products, Dirac notation
 
@@ -479,6 +479,8 @@ The singular values are the semi-axis lengths of the ellipsoid that $A$ maps the
 > (\lambda v_1+v_2)\otimes w=\lambda(v_1\otimes w)+v_2\otimes w,\qquad v\otimes(\lambda w_1+w_2)=\lambda(v\otimes w_1)+v\otimes w_2.
 > $$
 > A basis is $\{e_i\otimes f_j\}$ over all $i,j$, so $\dim(V\otimes W)=\dim V\cdot\dim W$. **Dimensions multiply.**
+
+> **Universal property.** The map $(v,w)\mapsto v\otimes w$ is bilinear, and it is the *most general* such: every bilinear map $V\times W\to Z$ factors **uniquely** through a linear map $V\otimes W\to Z$ (i.e. equals that linear map composed with $\otimes$). This is the defining feature of the tensor product and is what the independence proof below exploits.
 
 > **Proposition — the tensor basis is a basis.** If $(e_i)_{i=1}^m$ and $(f_j)_{j=1}^n$ are bases, the $mn$ products $e_i\otimes f_j$ are independent and span $V\otimes W$.
 **Proof (sketch with the defining universal property).**
