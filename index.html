@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Math Guides</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 <style>
 :root{
   --bg:#ffffff; --fg:#1f2328; --muted:#656d76; --border:#d0d7de;
@@ -51,8 +50,8 @@ main{flex:1;min-width:0;max-width:860px;margin:0 auto;padding:24px 22px 120px}
 #content blockquote{margin:1.1em 0;padding:.2em 1.1em;border-left:4px solid var(--accent);
   background:var(--sidebar);border-radius:0 6px 6px 0}
 #content hr{border:none;border-top:1px solid var(--border)}
-.katex{font-size:1.06em}
-.katex-display{overflow-x:auto;overflow-y:hidden;padding:6px 2px}
+mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+mjx-container[display="true"]{margin:.8em 0}
 #content a[href^="#"]{scroll-margin-top:60px}
 #err{color:#d1242f;white-space:pre-wrap;padding:20px}
 #scrim{display:none}
@@ -65,6 +64,16 @@ main{flex:1;min-width:0;max-width:860px;margin:0 auto;padding:24px 22px 120px}
   main{padding:18px 16px 120px}
 }
 </style>
+<script>
+// MathJax v3 config — must be set before the library loads
+window.MathJax={
+  tex:{inlineMath:[['$','$']], displayMath:[['$$','$$']], processEscapes:true},
+  options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},
+  chtml:{fontURL:'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="topbar">
@@ -80,105 +89,97 @@ main{flex:1;min-width:0;max-width:860px;margin:0 auto;padding:24px 22px 120px}
   <main><article id="content">Loading…</article><div id="err"></div></main>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js" crossorigin="anonymous"></script>
 <script>
-const md = window.markdownit({html:true, linkify:true, breaks:false})
-  .use(window.texmath, {engine:window.katex, delimiters:'dollars',
-        katexOptions:{throwOnError:false, strict:false, trust:true}});
+const md = window.markdownit({html:true, linkify:true, breaks:false});
 
-// ---- guide structure (folder -> files) ----
-const NAV = [
-  ["Calculus 微积分", "calculus", ["complete-guide","derived-from-scratch","connected-map","multivariable-vector","differential-equations","analysis-foundations","glossary"]],
-  ["Linear Algebra 线性代数", "linear-algebra", ["linear-algebra"]],
-  ["Complex Analysis 复分析", "complex-analysis", ["complex-analysis"]],
-  ["Topology 拓扑", "topology", ["general-topology","algebraic-topology","differential-topology","homological-algebra","k-theory","tqft","glossary"]],
-  ["Differential Geometry 微分几何", "differential-geometry", ["differential-geometry","tensor-analysis","fiber-bundles-gauge","general-relativity","index-theory","symplectic-geometry","deformation-quantization"]],
-  ["Group Theory 群论", "group-theory", ["group-theory","lie-representations","quantum-groups"]],
-  ["Functional Analysis 泛函分析", "functional-analysis", ["functional-analysis","operator-algebras"]],
-  ["Math Methods 数学方法", "math-methods", ["fourier-transforms","partial-differential-equations","special-functions","calculus-of-variations","conformal-field-theory","vertex-operator-algebras","modular-forms","stochastic-processes","stochastic-pdes"]],
-  ["Statistics 统计", "statistics", ["complete-guide","probability","inference","regression","glossary"]],
-];
-const titleCase = s => s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-
-function currentLang(){ return state.path.endsWith('.zh.md') ? 'zh' : 'en'; }
-function fileFor(folder, name, lang){
-  // glossary is bilingual (single .md); others have .md / .zh.md
-  if(name==='glossary') return folder+'/glossary.md';
-  return folder+'/'+name+(lang==='zh'?'.zh.md':'.md');
+// ---- math-protecting render: keep $...$ / $$...$$ away from markdown, let MathJax do them ----
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function renderMarkdown(src){
+  const store=[]; const put=h=>{store.push(h);return ''+(store.length-1)+'';};
+  // fenced code -> prebuilt HTML (so $ inside code is never math)
+  src=src.replace(/```[\w-]*\n([\s\S]*?)```/g,(m,c)=>put('<pre><code>'+escapeHtml(c)+'</code></pre>'));
+  // inline code
+  src=src.replace(/`([^`\n]+)`/g,(m,c)=>put('<code>'+escapeHtml(c)+'</code>'));
+  // display math (strip any blockquote '>' prefixes on inner lines) -> raw $$..$$ for MathJax
+  src=src.replace(/\$\$[\s\S]*?\$\$/g,m=>put(m.replace(/\n[ \t]*>[ \t]?/g,'\n')));
+  // inline math (single line; $$ already removed) -> raw $..$ for MathJax
+  src=src.replace(/\$((?:\\.|[^$\\\n])+?)\$/g,m=>put(m));
+  let html=md.render(src);
+  html=html.replace(/(\d+)/g,(_,i)=>store[i]);
+  return html;
 }
+function typesetMath(el){
+  if(window.MathJax && window.MathJax.typesetPromise){
+    window.MathJax.typesetClear && window.MathJax.typesetClear([el]);
+    window.MathJax.typesetPromise([el]).catch(e=>console.error('MathJax',e));
+  } else { setTimeout(()=>typesetMath(el),200); }
+}
+
+// ---- guide structure ----
+const NAV=[
+ ["Calculus 微积分","calculus",["complete-guide","derived-from-scratch","connected-map","multivariable-vector","differential-equations","analysis-foundations","glossary"]],
+ ["Linear Algebra 线性代数","linear-algebra",["linear-algebra"]],
+ ["Complex Analysis 复分析","complex-analysis",["complex-analysis"]],
+ ["Topology 拓扑","topology",["general-topology","algebraic-topology","differential-topology","homological-algebra","k-theory","tqft","glossary"]],
+ ["Differential Geometry 微分几何","differential-geometry",["differential-geometry","tensor-analysis","fiber-bundles-gauge","general-relativity","index-theory","symplectic-geometry","deformation-quantization"]],
+ ["Group Theory 群论","group-theory",["group-theory","lie-representations","quantum-groups"]],
+ ["Functional Analysis 泛函分析","functional-analysis",["functional-analysis","operator-algebras"]],
+ ["Math Methods 数学方法","math-methods",["fourier-transforms","partial-differential-equations","special-functions","calculus-of-variations","conformal-field-theory","vertex-operator-algebras","modular-forms","stochastic-processes","stochastic-pdes"]],
+ ["Statistics 统计","statistics",["complete-guide","probability","inference","regression","glossary"]],
+];
+const titleCase=s=>s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+const state={path:'README.md',anchor:''};
+const currentLang=()=>state.path.endsWith('.zh.md')?'zh':'en';
+function fileFor(folder,name,lang){ if(name==='glossary')return folder+'/glossary.md';
+  return folder+'/'+name+(lang==='zh'?'.zh.md':'.md'); }
 function buildSidebar(){
-  const lang=currentLang();
-  let h='';
-  for(const [label,folder,files] of NAV){
-    h+='<h3>'+label+'</h3>';
-    for(const name of files){
-      const path=fileFor(folder,name,lang);
-      const cls = (path===state.path)?' class="active"':'';
-      h+='<a'+cls+' href="#'+path+'">'+titleCase(name)+'</a>';
-    }
-  }
+  const lang=currentLang(); let h='';
+  for(const [label,folder,files] of NAV){ h+='<h3>'+label+'</h3>';
+    for(const name of files){ const path=fileFor(folder,name,lang);
+      h+='<a'+(path===state.path?' class="active"':'')+' href="#'+path+'">'+titleCase(name)+'</a>'; } }
   document.getElementById('sidebar').innerHTML=h;
 }
-
-const state={path:'README.md', anchor:''};
-function parseHash(){
-  let h=decodeURIComponent(location.hash.replace(/^#/,'')).trim();
-  if(!h) h='README.md';
-  let anchor=''; const sep=h.indexOf('::'); if(sep>=0){anchor=h.slice(sep+2);h=h.slice(0,sep);}
-  return {path:h, anchor};
-}
+function parseHash(){ let h=decodeURIComponent(location.hash.replace(/^#/,'')).trim();
+  if(!h)h='README.md'; let a=''; const s=h.indexOf('::'); if(s>=0){a=h.slice(s+2);h=h.slice(0,s);} return {path:h,anchor:a}; }
 function dirOf(p){const i=p.lastIndexOf('/');return i<0?'':p.slice(0,i+1);}
-function resolvePath(base, href){
-  const parts=(base+href).split('/'); const out=[];
-  for(const seg of parts){ if(seg===''||seg==='.')continue; if(seg==='..')out.pop(); else out.push(seg);}
-  return out.join('/');
-}
+function resolvePath(base,href){const parts=(base+href).split('/');const out=[];
+  for(const s of parts){if(s===''||s==='.')continue;if(s==='..')out.pop();else out.push(s);}return out.join('/');}
+
 async function load(){
-  const {path,anchor}=parseHash();
-  state.path=path; state.anchor=anchor;
-  const el=document.getElementById('content'), err=document.getElementById('err');
-  err.textContent='';
+  const {path,anchor}=parseHash(); state.path=path; state.anchor=anchor;
+  const el=document.getElementById('content'), err=document.getElementById('err'); err.textContent='';
   buildSidebar();
   try{
     const res=await fetch(path+'?v='+Date.now());
     if(!res.ok) throw new Error('HTTP '+res.status+' — '+path);
     const text=await res.text();
-    el.innerHTML=md.render(text);
+    el.innerHTML=renderMarkdown(text);
     const base=dirOf(path);
     el.querySelectorAll('a[href]').forEach(a=>{
       const href=a.getAttribute('href'); if(!href) return;
       if(href.startsWith('#')){ a.setAttribute('href','#'+path+'::'+href.slice(1)); return; }
       if(/^[a-z]+:\/\//i.test(href)||href.startsWith('mailto:')){ a.target='_blank'; a.rel='noopener'; return; }
-      let p=href, an=''; const hi=href.indexOf('#'); if(hi>=0){an=href.slice(hi+1);p=href.slice(0,hi);}
+      let p=href,an=''; const hi=href.indexOf('#'); if(hi>=0){an=href.slice(hi+1);p=href.slice(0,hi);}
       if(/\.md$/i.test(p)){ a.setAttribute('href','#'+resolvePath(base,p)+(an?'::'+an:'')); return; }
-      // other relative (folders, etc.) -> open on GitHub
-      a.setAttribute('href','https://github.com/YiminCong/math/blob/main/'+resolvePath(base,href));
-      a.target='_blank'; a.rel='noopener';
+      a.setAttribute('href','https://github.com/YiminCong/math/blob/main/'+resolvePath(base,href)); a.target='_blank'; a.rel='noopener';
     });
+    typesetMath(el);
     document.title=(el.querySelector('h1')?.textContent||'Math Guides');
     window.scrollTo(0,0);
-    if(anchor){ const t=document.getElementById(anchor); if(t) setTimeout(()=>t.scrollIntoView(),0); }
+    if(anchor){ const t=document.getElementById(anchor); if(t) setTimeout(()=>t.scrollIntoView(),300); }
     closeMenu();
   }catch(e){ el.innerHTML=''; err.textContent='加载失败 / Failed to load:\n'+e.message+
-    '\n\nTip: ensure GitHub Pages source is "Deploy from a branch → main → /(root)".'; }
+    '\n\nTip: Settings → Pages → Source = "Deploy from a branch → main → /(root)".'; }
 }
-// language toggle: swap current doc between .md and .zh.md
-document.getElementById('langBtn').onclick=()=>{
-  let p=state.path;
-  if(/glossary\.md$/.test(p)) return;            // glossaries are bilingual (single file)
-  if(p.endsWith('.zh.md')) p=p.replace(/\.zh\.md$/,'.md');
-  else if(p.endsWith('.md')) p=p.replace(/\.md$/,'.zh.md');
-  location.hash='#'+p;
-};
-// mobile menu
+document.getElementById('langBtn').onclick=()=>{ let p=state.path;
+  if(/glossary\.md$/.test(p))return;
+  if(p.endsWith('.zh.md'))p=p.replace(/\.zh\.md$/,'.md'); else if(p.endsWith('.md'))p=p.replace(/\.md$/,'.zh.md');
+  location.hash='#'+p; };
 const sb=document.getElementById('sidebar'), scrim=document.getElementById('scrim');
 function closeMenu(){sb.classList.remove('open');scrim.classList.remove('open');}
 document.getElementById('menuBtn').onclick=()=>{sb.classList.toggle('open');scrim.classList.toggle('open');};
 scrim.onclick=closeMenu;
-
-window.addEventListener('hashchange', load);
+window.addEventListener('hashchange',load);
 load();
 </script>
 </body>
