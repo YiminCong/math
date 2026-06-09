@@ -455,13 +455,13 @@ A spinor $\psi$ carries a hidden frame structure, so differentiating it requires
 
 > **Definition — Dirac operator on curved space.** The curved-space **Dirac operator** is
 > $$
-> \slashed D=\gamma^\mu D_\mu=e_a{}^\mu\gamma^a\bigl(\partial_\mu+\tfrac14\omega_\mu{}^{bc}\gamma_b\gamma_c\bigr),
+> {D\!\!\!/}=\gamma^\mu D_\mu=e_a{}^\mu\gamma^a\bigl(\partial_\mu+\tfrac14\omega_\mu{}^{bc}\gamma_b\gamma_c\bigr),
 > $$
-> and the **Dirac equation** for a particle of mass $m$ is $(i\slashed D-m)\psi=0$.
+> and the **Dirac equation** for a particle of mass $m$ is $(i{D\!\!\!/}-m)\psi=0$.
 
 > **Why every piece is necessary.** The $\partial_\mu$ alone is not Lorentz-covariant on spinors; the $\tfrac14\omega_\mu{}^{ab}\gamma_a\gamma_b$ term rotates the spinor frame to compensate, exactly as $\Gamma$ compensates for moving tensor frames. The tetrad $e_a{}^\mu$ is the only object that can attach the frame-indexed gammas to world-indexed derivatives. Without tetrads there is no Dirac equation on curved space — which is why s3's frame formalism, optional for tensors, is mandatory for fermions.
 
-> **Worked example — flat-space sanity check.** In Minkowski coordinates the tetrad is trivial, $e_a{}^\mu=\delta_a^\mu$, so $\omega_\mu{}^{ab}=0$ and $\slashed D=\gamma^\mu\partial_\mu$. The Dirac equation reduces to the familiar $(i\gamma^\mu\partial_\mu-m)\psi=0$, and squaring it gives $(\Box+m^2)\psi=0$, the Klein–Gordon equation — confirming that the Dirac operator is the spinorial square root of the wave operator, now on arbitrary curved backgrounds.
+> **Worked example — flat-space sanity check.** In Minkowski coordinates the tetrad is trivial, $e_a{}^\mu=\delta_a^\mu$, so $\omega_\mu{}^{ab}=0$ and ${D\!\!\!/}=\gamma^\mu\partial_\mu$. The Dirac equation reduces to the familiar $(i\gamma^\mu\partial_\mu-m)\psi=0$, and squaring it gives $(\Box+m^2)\psi=0$, the Klein–Gordon equation — confirming that the Dirac operator is the spinorial square root of the wave operator, now on arbitrary curved backgrounds.
 
 ---
 

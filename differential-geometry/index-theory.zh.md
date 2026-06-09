@@ -316,32 +316,32 @@ de Rham 算子 $d+d^*$ 是一个椭圆算子；而指标定理对一个范例最
 
 > **定义——Dirac 算子。** 设 $M$ 是带旋量丛 $S = S^+\oplus S^-$ 与由 Levi-Civita 联络诱导的 $S$ 上联络 $\nabla$ 的自旋 Riemann 流形。**Dirac 算子**是
 > $$
-> \slashed D = \sum_i c(e_i)\,\nabla_{e_i} : \Gamma(S) \to \Gamma(S),
+> {D\!\!\!/} = \sum_i c(e_i)\,\nabla_{e_i} : \Gamma(S) \to \Gamma(S),
 > $$
-> 其中 $\{e_i\}$ 是局部标准正交标架，$c$ 是 Clifford 乘法。由于 $c$ 是奇的，$\slashed D$ 交换分次：它限制为
+> 其中 $\{e_i\}$ 是局部标准正交标架，$c$ 是 Clifford 乘法。由于 $c$ 是奇的，${D\!\!\!/}$ 交换分次：它限制为
 > $$
-> \slashed D^+ : \Gamma(S^+) \to \Gamma(S^-), \qquad \slashed D^- : \Gamma(S^-) \to \Gamma(S^+),
+> {D\!\!\!/}^+ : \Gamma(S^+) \to \Gamma(S^-), \qquad {D\!\!\!/}^- : \Gamma(S^-) \to \Gamma(S^+),
 > $$
-> 且 $\slashed D^- = (\slashed D^+)^*$。
+> 且 ${D\!\!\!/}^- = ({D\!\!\!/}^+)^*$。
 
-> **命题。** $\slashed D$ 是椭圆的，其主符号是 $\sigma(\slashed D)(\xi) = i\,c(\xi)$。
+> **命题。** ${D\!\!\!/}$ 是椭圆的，其主符号是 $\sigma({D\!\!\!/})(\xi) = i\,c(\xi)$。
 
 **证明。**
-1. $\slashed D = \sum_i c(e_i)\nabla_{e_i}$ 的最高阶部分把 $\nabla_{e_i}\mapsto i\xi_i$ 替换，给出 $\sigma(\slashed D)(\xi) = i\sum_i \xi_i\, c(e_i) = i\,c(\xi^\sharp)$。*理由：* 符号的定义（s2）；联络的低阶 Christoffel 项被舍去。
-2. 取平方：$\sigma(\slashed D)(\xi)^2 = i^2\, c(\xi)c(\xi) = -(-|\xi|^2) = |\xi|^2$，由 Clifford 关系 $c(\xi)^2 = -|\xi|^2$。*理由：* Clifford 恒等式。
-3. 对 $\xi\ne 0$，$\sigma(\slashed D)(\xi)^2 = |\xi|^2 \ne 0$，故 $\sigma(\slashed D)(\xi)$ 可逆。椭圆。$\qquad\blacksquare$
+1. ${D\!\!\!/} = \sum_i c(e_i)\nabla_{e_i}$ 的最高阶部分把 $\nabla_{e_i}\mapsto i\xi_i$ 替换，给出 $\sigma({D\!\!\!/})(\xi) = i\sum_i \xi_i\, c(e_i) = i\,c(\xi^\sharp)$。*理由：* 符号的定义（s2）；联络的低阶 Christoffel 项被舍去。
+2. 取平方：$\sigma({D\!\!\!/})(\xi)^2 = i^2\, c(\xi)c(\xi) = -(-|\xi|^2) = |\xi|^2$，由 Clifford 关系 $c(\xi)^2 = -|\xi|^2$。*理由：* Clifford 恒等式。
+3. 对 $\xi\ne 0$，$\sigma({D\!\!\!/})(\xi)^2 = |\xi|^2 \ne 0$，故 $\sigma({D\!\!\!/})(\xi)$ 可逆。椭圆。$\qquad\blacksquare$
 
-由 s3，在紧自旋流形上 $\slashed D^+: \Gamma(S^+)\to\Gamma(S^-)$ 是 Fredholm 算子，带有良定的整数指标
+由 s3，在紧自旋流形上 ${D\!\!\!/}^+: \Gamma(S^+)\to\Gamma(S^-)$ 是 Fredholm 算子，带有良定的整数指标
 
 $$
-\mathrm{ind}\slashed D^+ = \dim\ker\slashed D^+ - \dim\ker\slashed D^-.
+\mathrm{ind}{D\!\!\!/}^+ = \dim\ker{D\!\!\!/}^+ - \dim\ker{D\!\!\!/}^-.
 $$
 
-$\ker\slashed D$ 中的元素是**调和旋量**。Atiyah–Singer 定理（s8）恰恰以拓扑方式计算这个数——而值得注意的是，答案是 $\hat A$-亏格（s7）。
+$\ker{D\!\!\!/}$ 中的元素是**调和旋量**。Atiyah–Singer 定理（s8）恰恰以拓扑方式计算这个数——而值得注意的是，答案是 $\hat A$-亏格（s7）。
 
-> **Lichnerowicz 公式与第一份回报。** Weitzenböck 恒等式 $\slashed D^2 = \nabla^*\nabla + \tfrac14 R$ 成立，其中 $\nabla^*\nabla \ge 0$ 是联络 Laplace 算子，$R$ 是数量曲率。若处处 $R > 0$，则对 $\slashed D\psi = 0$ 我们得到 $0 = \|\nabla\psi\|^2 + \tfrac14\int R|\psi|^2 \ge \tfrac14\int R|\psi|^2 \ge 0$，迫使 $\psi = 0$。故正数量曲率的紧自旋流形有 $\ker\slashed D = 0$，从而 $\mathrm{ind}\slashed D^+ = 0$，从而 $\hat A(M) = 0$——这是正数量曲率的一个拓扑障碍，竟是通过分析发现的。这是定理威力的一瞥。
+> **Lichnerowicz 公式与第一份回报。** Weitzenböck 恒等式 ${D\!\!\!/}^2 = \nabla^*\nabla + \tfrac14 R$ 成立，其中 $\nabla^*\nabla \ge 0$ 是联络 Laplace 算子，$R$ 是数量曲率。若处处 $R > 0$，则对 ${D\!\!\!/}\psi = 0$ 我们得到 $0 = \|\nabla\psi\|^2 + \tfrac14\int R|\psi|^2 \ge \tfrac14\int R|\psi|^2 \ge 0$，迫使 $\psi = 0$。故正数量曲率的紧自旋流形有 $\ker{D\!\!\!/} = 0$，从而 $\mathrm{ind}{D\!\!\!/}^+ = 0$，从而 $\hat A(M) = 0$——这是正数量曲率的一个拓扑障碍，竟是通过分析发现的。这是定理威力的一瞥。
 
-> **陷阱。** 两个不同的算子常常都被称为“Dirac”：上面的纯旋量 Dirac 算子，以及耦合到带联络的辅助丛 $E$ 的**扭转**版本 $\slashed D_E = \slashed D\otimes \nabla^E$。一般指标定理是对扭转算子陈述的，它把 de Rham、符号差与 Dolbeault 算子作为特殊的 $E$ 加以涵盖。
+> **陷阱。** 两个不同的算子常常都被称为“Dirac”：上面的纯旋量 Dirac 算子，以及耦合到带联络的辅助丛 $E$ 的**扭转**版本 ${D\!\!\!/}_E = {D\!\!\!/}\otimes \nabla^E$。一般指标定理是对扭转算子陈述的，它把 de Rham、符号差与 Dolbeault 算子作为特殊的 $E$ 加以涵盖。
 
 ## 第 C 部分 · 拓扑的一面与定理
 
@@ -380,19 +380,19 @@ $\ker\slashed D$ 中的元素是**调和旋量**。Atiyah–Singer 定理（s8�
 
 #### 组装拓扑指标
 
-对流形 $M^n$ 上带符号类的椭圆算子 $D$，拓扑指标在其对扭转 Dirac 算子 $\slashed D_E$ 最常用的形式下为
+对流形 $M^n$ 上带符号类的椭圆算子 $D$，拓扑指标在其对扭转 Dirac 算子 ${D\!\!\!/}_E$ 最常用的形式下为
 
 $$
-\mathrm{ind}_{\mathrm{top}}(\slashed D_E) = \int_M \hat A(M)\,\mathrm{ch}(E),
+\mathrm{ind}_{\mathrm{top}}({D\!\!\!/}_E) = \int_M \hat A(M)\,\mathrm{ch}(E),
 $$
 
 即取乘积的最高次（$n$-形式）分量并积分。对一般椭圆算子，公式是 $\int_M (-1)^n \mathrm{ch}(\sigma(D))\mathrm{Td}(TM\otimes\mathbb C)$，经由符号类来求值，但每个经典情形都归约到上面那样的 Dirac 型公式。下一节将陈述把这一积分与分析指标等同起来的定理。
 
 > **典型计算（$4$ 维流形上的次数计数）。** 在 $M^4$ 上，$\hat A = 1 - \tfrac{1}{24}p_1$，且 $\mathrm{ch}(E) = r + c_1 + \tfrac12(c_1^2 - 2c_2)$，其中 $r = \mathrm{rank} E$。乘积的 $4$-形式部分是 $\tfrac12(c_1^2 - 2c_2) - \tfrac{r}{24}p_1$。于是
 > $$
-> \mathrm{ind}\slashed D_E = \int_{M^4}\Big[\tfrac12 c_1(E)^2 - c_2(E) - \tfrac{r}{24}p_1(M)\Big].
+> \mathrm{ind}{D\!\!\!/}_E = \int_{M^4}\Big[\tfrac12 c_1(E)^2 - c_2(E) - \tfrac{r}{24}p_1(M)\Big].
 > $$
-> 当 $E$ 平凡（$r=1, c_1=c_2=0$）：$\mathrm{ind}\slashed D = -\tfrac{1}{24}\int_{M^4} p_1 = \hat A(M)$，一个整数——这是自旋 $4$ 维流形的 $p_1$ 上一个非平凡的整性约束。
+> 当 $E$ 平凡（$r=1, c_1=c_2=0$）：$\mathrm{ind}{D\!\!\!/} = -\tfrac{1}{24}\int_{M^4} p_1 = \hat A(M)$，一个整数——这是自旋 $4$ 维流形的 $p_1$ 上一个非平凡的整性约束。
 
 <a id="s8"></a>
 ### Atiyah–Singer 指标定理与“分析 = 拓扑”的含义
@@ -407,7 +407,7 @@ $$
 > $$
 > \mathrm{ind}_{\mathrm{top}}(D) = (-1)^n\!\int_{M}\mathrm{ch}\big([\sigma(D)]\big)\,\mathrm{Td}(TM\otimes\mathbb C),
 > $$
-> 其中 $[\sigma(D)] \in K(T^*M)$ 是主符号的 K-理论类，$n = \dim M$。对扭转 Dirac 算子，这归约为 $\mathrm{ind}\slashed D_E = \int_M \hat A(M)\,\mathrm{ch}(E)$。
+> 其中 $[\sigma(D)] \in K(T^*M)$ 是主符号的 K-理论类，$n = \dim M$。对扭转 Dirac 算子，这归约为 $\mathrm{ind}{D\!\!\!/}_E = \int_M \hat A(M)\,\mathrm{ch}(E)$。
 
 #### 两端的含义以及为何这个等式深刻
 
@@ -493,11 +493,11 @@ $$
 
 #### McKean–Singer 公式
 
-设 $D = \slashed D^+: \Gamma(S^+)\to\Gamma(S^-)$，伴随为 $D^* = \slashed D^-$。构造两个 Laplace 算子 $\Delta^+ = D^* D$（在 $S^+$ 上）与 $\Delta^- = D D^*$（在 $S^-$ 上）。两者都是非负的椭圆自伴算子，故各自有离散谱 $0 \le \lambda_0 \le \lambda_1 \le \cdots \to \infty$，特征空间有限维。
+设 $D = {D\!\!\!/}^+: \Gamma(S^+)\to\Gamma(S^-)$，伴随为 $D^* = {D\!\!\!/}^-$。构造两个 Laplace 算子 $\Delta^+ = D^* D$（在 $S^+$ 上）与 $\Delta^- = D D^*$（在 $S^-$ 上）。两者都是非负的椭圆自伴算子，故各自有离散谱 $0 \le \lambda_0 \le \lambda_1 \le \cdots \to \infty$，特征空间有限维。
 
 > **定理（McKean–Singer）。** 对每个 $t > 0$，
 > $$
-> \mathrm{ind} D = \mathrm{Tr}\big(e^{-t\Delta^+}\big) - \mathrm{Tr}\big(e^{-t\Delta^-}\big) =: \mathrm{Str}\big(e^{-t\slashed D^2}\big),
+> \mathrm{ind} D = \mathrm{Tr}\big(e^{-t\Delta^+}\big) - \mathrm{Tr}\big(e^{-t\Delta^-}\big) =: \mathrm{Str}\big(e^{-t{D\!\!\!/}^2}\big),
 > $$
 > 即热算子的**超迹**，*不依赖于 $t$*。
 
@@ -527,7 +527,7 @@ $$
 $$
 *理由：* 在一个 $t$-无关恒等式两端匹配 $t$ 的幂。
 3. **辨认幸存的系数。** 深刻的一步（Patodi、Gilkey，以及使之透明的 **Getzler 重标度**）是：定域化的超迹 $\mathrm{Str} a_{n/2}$ 恰好是 $\hat A(M)\mathrm{ch}(E)$ 的最高次分量。Getzler 的技巧重标度 Clifford 变量与坐标，使热算子极限为一个**谐振子**（Mehler 公式），其超迹有闭形式可算，且*就是* $\hat A\mathrm{ch}$ 的被积函数。*理由：* 重标度后的极限把几何热核变成量子振子的精确可解 Gauss 函数。
-4. 综合：$\mathrm{ind}\slashed D_E = \int_M \hat A(M)\mathrm{ch}(E)$，即指标定理。$\qquad\blacksquare$（概要）
+4. 综合：$\mathrm{ind}{D\!\!\!/}_E = \int_M \hat A(M)\mathrm{ch}(E)$，即指标定理。$\qquad\blacksquare$（概要）
 
 > **直觉。** 指标是一个数（无 $t$），故我们可以在任意时间尺度上计算它；在 $t\to 0$ 时热尚未扩散，故答案由*局部*曲率构成，却等于一个*整体*拓扑积分。“相消的奇迹”在于除基态外一切都被消去，剩下的恰是一个完美的特征类。陷阱：小 $t$ 展开有许多看似发散的项（$t^{-n/2}$）；定理保证在取*超*迹后它们全部相消——用普通迹则不会。
 
@@ -538,7 +538,7 @@ $$
 
 #### 费米子零模与路径积分
 
-在量子场论中，背景规范场 $A$ 中的 Dirac 费米子由（扭转的）Dirac 算子 $\slashed D_A$ 支配。一个**零模**是 $\slashed D_A\psi = 0$ 的解——一个可归一化的调和旋量。指标 $\mathrm{ind}\slashed D_A = n_+ - n_-$ 计数左手减右手零模（$n_\pm = \dim\ker\slashed D^\pm$）。由指标定理这是规范场强的一个拓扑积分：
+在量子场论中，背景规范场 $A$ 中的 Dirac 费米子由（扭转的）Dirac 算子 ${D\!\!\!/}_A$ 支配。一个**零模**是 ${D\!\!\!/}_A\psi = 0$ 的解——一个可归一化的调和旋量。指标 $\mathrm{ind}{D\!\!\!/}_A = n_+ - n_-$ 计数左手减右手零模（$n_\pm = \dim\ker{D\!\!\!/}^\pm$）。由指标定理这是规范场强的一个拓扑积分：
 
 $$
 n_+ - n_- = \int_M \hat A(M)\,\mathrm{ch}(E_A),
@@ -554,9 +554,9 @@ $$
 \partial_\mu j_5^\mu = \frac{1}{16\pi^2}\,\epsilon^{\mu\nu\rho\sigma}\mathrm{tr}(F_{\mu\nu}F_{\rho\sigma}) = 2\,\big(\text{瞬子密度}\big).
 $$
 
-在时空上积分，轴荷的总变化等于 $2(n_+ - n_-) = 2\mathrm{ind}\slashed D_A$。**Atiyah–Singer 定理是手征反常的数学内容**：反常的不守恒积分为指标，一个整数。右端恰是规范丛的 $\mathrm{ch}_2 = \tfrac12 c_1^2 - c_2$（s7），即第二 Chern 特征标——与指标公式中出现的同一个特征类。
+在时空上积分，轴荷的总变化等于 $2(n_+ - n_-) = 2\mathrm{ind}{D\!\!\!/}_A$。**Atiyah–Singer 定理是手征反常的数学内容**：反常的不守恒积分为指标，一个整数。右端恰是规范丛的 $\mathrm{ch}_2 = \tfrac12 c_1^2 - c_2$（s7），即第二 Chern 特征标——与指标公式中出现的同一个特征类。
 
-> **典型联系。** 在 $S^4$ 上（紧化后的 Euclid 时空），$\hat A(S^4) = 1$（它是球面，$p_1 = 0$），故 $\mathrm{ind}\slashed D_A = \int_{S^4}\mathrm{ch}_2(E_A) = \frac{1}{8\pi^2}\int \mathrm{tr}(F\wedge F)$，这就是**瞬子数**（第二 Chern 数）$k$。于是电荷为 $k$ 的瞬子背景恰有 $k$ 个净费米子零模。$SU(2)$ 基本表示中著名的“每个瞬子一个零模”就是 $k=1$ 时的这个公式。
+> **典型联系。** 在 $S^4$ 上（紧化后的 Euclid 时空），$\hat A(S^4) = 1$（它是球面，$p_1 = 0$），故 $\mathrm{ind}{D\!\!\!/}_A = \int_{S^4}\mathrm{ch}_2(E_A) = \frac{1}{8\pi^2}\int \mathrm{tr}(F\wedge F)$，这就是**瞬子数**（第二 Chern 数）$k$。于是电荷为 $k$ 的瞬子背景恰有 $k$ 个净费米子零模。$SU(2)$ 基本表示中著名的“每个瞬子一个零模”就是 $k=1$ 时的这个公式。
 
 #### 瞬子
 

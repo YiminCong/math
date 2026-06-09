@@ -299,7 +299,7 @@ In words: *you cannot beat a fair game by any non-anticipating stopping strategy
 
 #### Worked gambling example — gambler's ruin
 
-A gambler starts with $\$a$ and bets $\$1$ on fair coin flips, quitting when broke ($0$) or reaching a target $\$N$ (so $0<a<N$). What is the probability $q$ of reaching $N$ before $0$?
+A gambler starts with $a$ dollars and bets one dollar on each fair coin flip, quitting when broke (at $0$) or reaching a target of $N$ dollars (so $0<a<N$). What is the probability $q$ of reaching $N$ before $0$?
 
 1. Model the fortune as the random walk $X_n=a+\xi_1+\dots+\xi_n$ (steps $\pm1$, fair). Then $X_n$ is a martingale: $\mathbb{E}[X_{n+1}\mid\mathcal{F}_n]=X_n+\mathbb{E}[\xi_{n+1}]=X_n+0=X_n$.
 2. Let $\tau$ be the first time the fortune hits $0$ or $N$ — a stopping time. One shows $\tau$ is finite with probability $1$. Optional stopping applies because the *stopped* fortune $X_{n\wedge\tau}$ is confined to the interval $[0,N]$ (before stopping it lies strictly between, and at stopping it equals $0$ or $N$), hence uniformly bounded; a bounded martingale satisfies the dominated-convergence hypothesis of the theorem, so $\mathbb{E}[X_\tau]=\mathbb{E}[X_0]$ is licensed.
