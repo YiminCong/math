@@ -382,13 +382,13 @@ $$\overline{A}=A\cup A'=\{x: \text{every open } U\ni x \text{ has } U\cap A\neq\
 
 **演示 — Kuratowski 闭包公理**
 
-这四条性质刻画了闭包；我们从我们的定义出发证明它们。
+这四条性质刻画了闭包（下面第一项把其中两条合在一起，$\overline{\varnothing}=\varnothing$ 与 $A\subseteq\overline A$）；我们从我们的定义出发证明它们。
 
 1. **基底性与延展性：** $\overline{\varnothing}=\varnothing$，因为 $\varnothing$ 本身是闭的且包含 $\varnothing$，所以它是这样的最小集合；而 $A\subseteq\overline A$ 直接来自定义（交中的每个 $C$ 都包含 $A$）。
 2. **幂等性：** $\overline{\overline A}=\overline A$。我们已证 $\overline A$ 是闭的；任何闭集的闭包是它自身，因为该集合是包含自身的最小闭集。
 3. **有限可加性：** $\overline{A\cup B}=\overline A\cup\overline B$。
-   - ($\subseteq$) $\overline A\cup\overline B$ 是两个闭集的并。有限多个闭集的并是闭的：它的补集 $\overline A^c\cap\overline B^c$ 是有限多个开集的交，由 (T3) 是开的。而 $\overline A\cup\overline B\supseteq A\cup B$。作为一个包含 $A\cup B$ 的闭集，它包含其中*最小*者 $\overline{A\cup B}$。
-   - ($\supseteq$) 闭包是**单调的**：若 $S\subseteq T$ 则 $\overline S\subseteq\overline T$，因为每个包含 $T$ 的闭集都包含 $S$，所以定义 $\overline T$ 的交是定义……更直接地，$\overline T$ 是一个包含 $S$ 的闭集，因此 $\overline S\subseteq\overline T$。把单调性应用于 $A\subseteq A\cup B$ 与 $B\subseteq A\cup B$ 给出 $\overline A\subseteq\overline{A\cup B}$ 与 $\overline B\subseteq\overline{A\cup B}$，所以 $\overline A\cup\overline B\subseteq\overline{A\cup B}$。
+   - ($\supseteq$) $\overline A\cup\overline B$ 是两个闭集的并。有限多个闭集的并是闭的：它的补集 $\overline A^c\cap\overline B^c$ 是有限多个开集的交，由 (T3) 是开的。而 $\overline A\cup\overline B\supseteq A\cup B$。作为一个包含 $A\cup B$ 的闭集，它包含其中*最小*者 $\overline{A\cup B}$；因此 $\overline{A\cup B}\subseteq\overline A\cup\overline B$。
+   - ($\subseteq$) 闭包是**单调的**：若 $S\subseteq T$ 则 $\overline S\subseteq\overline T$，因为每个包含 $T$ 的闭集都包含 $S$，所以定义 $\overline T$ 的交是定义……更直接地，$\overline T$ 是一个包含 $S$ 的闭集，因此 $\overline S\subseteq\overline T$。把单调性应用于 $A\subseteq A\cup B$ 与 $B\subseteq A\cup B$ 给出 $\overline A\subseteq\overline{A\cup B}$ 与 $\overline B\subseteq\overline{A\cup B}$，所以 $\overline A\cup\overline B\subseteq\overline{A\cup B}$。
    - 两个包含关系给出相等。
 
 *这四条性质可以**替代**开集公理：一个闭包算子定义一个拓扑（闭集就是满足 $A=\overline A$ 的不动集合）。这是等价基础的一个优美例子。*
