@@ -136,6 +136,7 @@
 2. *（群公理。）* 结合律：$((aN)(bN))(cN)=(ab)N\cdot cN=((ab)c)N=(a(bc))N=(aN)((bN)(cN))$，用到 $G$ 中的结合律。单位元：$eN=N$ 满足 $(N)(aN)=aN=(aN)(N)$。逆元：$(aN)^{-1}=a^{-1}N$，因为 $(aN)(a^{-1}N)=(aa^{-1})N=eN$。全部公理成立。$\blacksquare$
 
 > **定理 — 第一同构定理。** 设 $\phi:G\to G'$ 是同态。则 $\mathrm{im}\phi$ 是 $G'$ 的子群，$\ker\phi\trianglelefteq G$，且
+>
 > $$
 > G/\ker\phi \;\cong\; \mathrm{im}\phi .
 > $$
@@ -164,6 +165,7 @@
 **证明。** 由 (i)，$e\in\mathrm{Stab}(x)$。若 $g,h$ 固定 $x$，则 $(gh)\cdot x = g\cdot(h\cdot x)=g\cdot x = x$，故 $gh$ 固定 $x$。若 $g\cdot x=x$，作用 $g^{-1}$：$g^{-1}\cdot(g\cdot x)=g^{-1}\cdot x$，而左侧是 $(g^{-1}g)\cdot x = e\cdot x = x$，故 $g^{-1}\cdot x = x$。三个子群条件全部成立。$\blacksquare$
 
 > **定理 — 轨道–稳定子。** 对作用在 $X$ 上的群 $G$ 和任意 $x\in X$，轨道 $\mathrm{Orb}(x)$ 与 $\mathrm{Stab}(x)$ 的左陪集集合之间存在一个双射。因此对有限 $G$，
+>
 > $$
 > |\mathrm{Orb}(x)| = [\,G : \mathrm{Stab}(x)\,] = \frac{|G|}{|\mathrm{Stab}(x)|}.
 > $$
@@ -284,6 +286,7 @@ $$
 $$
 
 > **定理 — 不可约特征标的正交性。** 若 $\chi$ 与 $\psi$ 是有限群 $G$ 在 $\mathbb{C}$ 上的不可约表示的特征标，则
+>
 > $$
 > \langle \chi,\psi\rangle = \begin{cases} 1 & \text{if the two representations are equivalent},\\ 0 & \text{otherwise}.\end{cases}
 > $$
@@ -355,9 +358,11 @@ $$
 **是什么、为什么。** 一个李群是弯曲的、难以直接处理的，但它*在单位元附近*的行为是一个平坦的矢量空间——**李代数**——它捕捉了几乎一切。物理学家把它的基矢量称为**生成元**；指数映射从它们重建群。这种线性化正是无穷小对称性（以及诺特守恒流）可计算的原因。
 
 > **定义 — 矩阵群的李代数。** 对矩阵李群 $G$，其**李代数** $\mathfrak{g}$ 是满足对所有实 $t$ 都有 $e^{tX}\in G$ 的矩阵 $X$ 的集合，其中**矩阵指数**是收敛级数
+>
 > $$
 > e^{X} = \sum_{k=0}^{\infty}\frac{X^k}{k!} = I + X + \tfrac{1}{2}X^2 + \cdots .
 > $$
+>
 > $\mathfrak{g}$ 的元素是**无穷小生成元**：$X=\frac{d}{dt}\big|_{t=0}e^{tX}$ 是沿曲线 $t\mapsto e^{tX}$ 穿过单位元的速度。
 
 > **定理 — 该代数对对易子封闭。** 若 $X,Y\in\mathfrak g$ 则**对易子** $[X,Y]=XY-YX$ 也在 $\mathfrak g$ 中。因此 $\mathfrak g$ 是对括号 $[\,,]$ 封闭的实矢量空间；这就是被称为**李代数**的抽象结构。
@@ -369,9 +374,11 @@ $$
 **$[X,Y]\in\mathfrak g$ 的证明。** 考虑 $G$ 中的光滑曲线 $\gamma(t)=e^{\sqrt t\,X}e^{\sqrt t\,Y}e^{-\sqrt t\,X}e^{-\sqrt t\,Y}$（群元之积，故在 $G$ 中）。把每个指数展开到 $\sqrt t$ 的二阶并乘开，零阶和一阶项相消，便得 $\gamma(t)=I+t[X,Y]+O(t^{3/2})$。于是 $\frac{d}{dt}\gamma(t)\big|_{t=0^+}=[X,Y]$ 是 $G$ 在单位元处的一个切矢量，即位于 $\mathfrak g$ 中。$\blacksquare$
 
 > **定义 — 结构常数。** 固定 $\mathfrak g$ 的一组基 $T_1,\dots,T_k$（**生成元**）。由于 $\mathfrak g$ 对括号封闭，每个 $[T_a,T_b]$ 都是诸 $T_c$ 的组合：
+>
 > $$
 > [T_a,T_b] = \sum_c f_{ab}{}^{c}\,T_c .
 > $$
+>
 > 数 $f_{ab}{}^c$ 是**结构常数**；它们编码了群的全部局部结构。它们关于 $a,b$ **反对称**（因为 $[T_a,T_b]=-[T_b,T_a]$），并满足一个来自**雅可比恒等式** $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0$（对对易子直接展开即成立）的二次恒等式。
 
 **算例 — 指数即旋转。** 取 $\mathfrak{so}(2)$ 的单个生成元 $X=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$（反对称，如理论所要求）。计算其幂：$X^2=-I$、$X^3=-X$、$X^4=I$，以周期 $4$ 重复。对指数级数求和并把偶次幂和奇次幂归组，
@@ -402,9 +409,11 @@ $$
 **与 $\mathfrak{so}(3)$ 相同的代数。** $SO(3)$ 的生成元是反对称矩阵 $(L_a)_{bc}=-\epsilon_{abc}$（绕各轴的无穷小旋转），可计算它们的对易子*也是* $[L_a,L_b]=\sum_c\epsilon_{abc}L_c$（除 $i$ 的约定外结构常数相同）。故作为李代数 $\mathfrak{su}(2)\cong\mathfrak{so}(3)$。然而两个*群*不同：存在一个 2 比 1 的同态 $SU(2)\to SO(3)$（$+U$ 和 $-U$ 给出同一个旋转），这正是为什么一个自旋-$\tfrac12$ 态在 $360^\circ$ 旋转下变号——一个可测量的物理事实。
 
 > **定理 — $\mathfrak{su}(2)$ 的不可约表示。** 有限维不可约表示由单个数 $j\in\{0,\tfrac12,1,\tfrac32,2,\dots\}$ 标记。表示 $j$ 的维数为 $2j+1$，有一组态 $|j,m\rangle$ 为基，$m=-j,-j+1,\dots,j-1,j$，生成元在其上的作用为
+>
 > $$
 > J_3|j,m\rangle = m\,|j,m\rangle,\qquad J_\pm|j,m\rangle = \sqrt{j(j+1)-m(m\pm1)}\;|j,m\pm1\rangle,
 > $$
+>
 > 其中 $J_\pm=J_1\pm iJ_2$ 是**升降算符**。
 
 **证明（最高权构造）。**
@@ -449,9 +458,11 @@ $$
 > **张量积的特征标。** 对 $(\rho\otimes\sigma)(g)$ 取迹可分解为乘积：$\chi_{\rho\otimes\sigma}(g)=\chi_\rho(g)\,\chi_\sigma(g)$。结合 s8 的重数公式 $m_i=\langle\chi_{\rho_i},\chi_{\rho\otimes\sigma}\rangle$，这把*任何*分解都化简为特征标的相乘与积分。
 
 > **定理 — $\mathfrak{su}(2)$ 的克莱布什–戈尔丹级数。** 自旋-$j_1$ 表示与自旋-$j_2$ 表示的张量积分解为
+>
 > $$
 > j_1\otimes j_2 \;=\; (j_1+j_2)\ \oplus\ (j_1+j_2-1)\ \oplus\ \cdots\ \oplus\ |j_1-j_2| ,
 > $$
+>
 > 从 $|j_1-j_2|$ 直到 $j_1+j_2$ 的每个总自旋 $J$ 都恰好出现一次。
 
 **证明。**

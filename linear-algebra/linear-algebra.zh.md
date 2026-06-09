@@ -235,6 +235,7 @@ $$
 > $$
 > \det A=\sum_{\sigma\in S_n}\mathrm{sgn}(\sigma)\,A_{1\sigma(1)}A_{2\sigma(2)}\cdots A_{n\sigma(n)},
 > $$
+>
 > 其中和遍历 $\{1,\dots,n\}$ 的所有**置换** $\sigma$（重排），而 $\mathrm{sgn}(\sigma)=\pm1$：若 $\sigma$ 由偶数次对换组成则为 $+1$，奇数次则为 $-1$。对 $2\times2$：$\det\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix}=ad-bc$。对 $3\times3$ 这就是熟悉的六项规则。
 
 定义性的公式很笨重；我们实际使用的是它的**刻画性质**，下面我们陈述它们，它们唯一地确定了行列式。
@@ -478,6 +479,7 @@ $$
 > $$
 > (\lambda v_1+v_2)\otimes w=\lambda(v_1\otimes w)+v_2\otimes w,\qquad v\otimes(\lambda w_1+w_2)=\lambda(v\otimes w_1)+v\otimes w_2.
 > $$
+>
 > 一组基是 $\{e_i\otimes f_j\}$，遍历所有 $i,j$，所以 $\dim(V\otimes W)=\dim V\cdot\dim W$。**维数相乘。**
 
 > **泛性质。** 映射 $(v,w)\mapsto v\otimes w$ 是双线性的，并且是*最一般*的双线性映射：每个双线性映射 $V\times W\to Z$ 都**唯一地**通过一个线性映射 $V\otimes W\to Z$ 分解（即等于该线性映射与 $\otimes$ 的复合）。这是张量积的定义性特征，也正是下面的无关性证明所利用的。
@@ -514,6 +516,7 @@ $$
 > $$
 > A=\sum_k a_k\,|a_k\rangle\langle a_k|.
 > $$
+>
 > 对一个归一化状态 $|\psi\rangle$（$\langle\psi|\psi\rangle=1$），**玻恩规则**说测量 $A$ 以概率 $|\langle a_k|\psi\rangle|^2$ 给出值 $a_k$。这些概率之和为 $1$，恰恰因为完备性：$\sum_k|\langle a_k|\psi\rangle|^2=\langle\psi|\big(\sum_k|a_k\rangle\langle a_k|\big)|\psi\rangle=\langle\psi|\psi\rangle=1$。
 
 > **时间演化，作为酉性。** 薛定谔演化把 $|\psi(0)\rangle\mapsto|\psi(t)\rangle=U(t)|\psi(0)\rangle$，其中 $U(t)=e^{-iHt/\hbar}$ 是**酉的**（因为 $H$ 厄米，$U^*=e^{+iHt/\hbar}=U^{-1}$）。酉性保持内积（§s10），因而保持总概率 $\langle\psi|\psi\rangle=1$。概率守恒正是保内积定理。

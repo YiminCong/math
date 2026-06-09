@@ -67,6 +67,7 @@ $$
 #### 定义
 
 > **定义 —— Gamma 函数（Euler 积分）。** 对实部为正的复数 $z$，即 $\mathrm{Re}(z)>0$，
+>
 > $$
 > \Gamma(z)=\int_0^\infty t^{\,z-1}e^{-t}\,dt .
 > $$
@@ -166,6 +167,7 @@ Gamma 函数实际上就是某个概率分布的归一化常数。**Gamma 分布
 #### 定义
 
 > **定义 —— Beta 函数。** 对 $\mathrm{Re}(p)>0$ 与 $\mathrm{Re}(q)>0$，
+>
 > $$
 > B(p,q)=\int_0^1 x^{\,p-1}(1-x)^{\,q-1}\,dx .
 > $$
@@ -222,9 +224,11 @@ $$
 #### 带权内积
 
 > **定义 —— 带权内积。** 固定一个区间 $[a,b]$（可以无穷）和其上的一个**权函数** $w(x)\ge 0$。对函数 $f,g$ 定义
+>
 > $$
 > \langle f,g\rangle=\int_a^b f(x)\,g(x)\,w(x)\,dx .
 > $$
+>
 > 若 $\langle f,g\rangle=0$，则两个函数（关于 $w$）**正交**。**范数**为 $\|f\|=\sqrt{\langle f,f\rangle}$。
 
 权 $w$ 告诉我们在区间上"吻合在何处算数"。不同的物理问题供给不同的权：$[-1,1]$ 上的 $w=1$（Legendre，来自球面），$\mathbb R$ 上的 $w=e^{-x^2}$（Hermite，来自振子的 Gauss 基态），$[0,\infty)$ 上的 $w=x^\alpha e^{-x}$（Laguerre，来自氢的径向测度）。
@@ -264,9 +268,11 @@ $$
 #### 三项递推关系
 
 > **定理（三项递推）。** 任何正交多项式族都满足如下形式的关系
+>
 > $$
 > p_{n+1}(x)=(A_n x+B_n)\,p_n(x)-C_n\,p_{n-1}(x)
 > $$
+>
 > 其中常数 $A_n,B_n,C_n$ 依赖于该族。
 
 **带完整理由的证明梗概。**
@@ -316,6 +322,7 @@ $$
 #### Legendre 方程
 
 > **定义 —— Legendre 方程。** 对整数 $\ell\ge 0$，
+>
 > $$
 > \frac{d}{dx}\!\left[(1-x^2)\frac{dP}{dx}\right]+\ell(\ell+1)\,P=0,\qquad -1\le x\le 1.
 > $$
@@ -335,6 +342,7 @@ $$
 #### 生成函数
 
 > **定理（生成函数）。** 对 $|x|\le1$ 与 $|t|<1$，
+>
 > $$
 > \frac{1}{\sqrt{1-2xt+t^2}}=\sum_{\ell=0}^\infty P_\ell(x)\,t^{\ell}.
 > $$
@@ -405,6 +413,7 @@ $\ell=0$ 项是**单极**（总电荷，按 $1/r$ 衰减），$\ell=1$ 是**偶�
 #### 定义
 
 > **定义 —— 连带 Legendre 函数。** 对整数 $0\le m\le\ell$，
+>
 > $$
 > P_\ell^m(x)=(-1)^m(1-x^2)^{m/2}\frac{d^m}{dx^m}P_\ell(x),\qquad x=\cos\theta.
 > $$
@@ -420,6 +429,7 @@ $$
 #### 球谐函数与正交规范性
 
 > **定义 —— 球谐函数。**
+>
 > $$
 > Y_\ell^m(\theta,\phi)=\sqrt{\frac{2\ell+1}{4\pi}\,\frac{(\ell-m)!}{(\ell+m)!}}\;P_\ell^m(\cos\theta)\,e^{im\phi},\qquad -\ell\le m\le\ell.
 > $$
@@ -427,6 +437,7 @@ $$
 那个笨拙的平方根常数恰好就是使它们在球面上正交规范的因子：
 
 > **定理（球面上的正交规范性）。** 以立体角元 $d\Omega=\sin\theta\,d\theta\,d\phi$，
+>
 > $$
 > \int_0^{2\pi}\!\!\int_0^{\pi} Y_\ell^m(\theta,\phi)\,\overline{Y_{\ell'}^{m'}(\theta,\phi)}\,\sin\theta\,d\theta\,d\phi=\delta_{\ell\ell'}\,\delta_{mm'}.
 > $$
@@ -481,6 +492,7 @@ $$
 #### Bessel 方程
 
 > **定义 —— $\nu$ 阶 Bessel 方程。**
+>
 > $$
 > x^2\frac{d^2y}{dx^2}+x\frac{dy}{dx}+(x^2-\nu^2)\,y=0.
 > $$
@@ -490,6 +502,7 @@ $$
 #### 级数解 —— 完整推导
 
 > **定理。** 一个在原点正则的解是
+>
 > $$
 > J_\nu(x)=\sum_{k=0}^{\infty}\frac{(-1)^k}{k!\,\Gamma(k+\nu+1)}\left(\frac{x}{2}\right)^{2k+\nu}.
 > $$
@@ -571,6 +584,7 @@ $$
 #### Hermite 方程
 
 > **定义 —— Hermite 方程。** 对整数 $n\ge0$，
+>
 > $$
 > \frac{d^2 H}{dx^2}-2x\frac{dH}{dx}+2n\,H=0.
 > $$
@@ -762,6 +776,7 @@ $$
 > **定义 —— 上升阶乘（Pochhammer 符号）。** 对 $k\ge1$，$(a)_k=a(a+1)(a+2)\cdots(a+k-1)$，且 $(a)_0=1$。等价地 $(a)_k=\Gamma(a+k)/\Gamma(a)$——又是 Gamma，把乘积打包。
 
 > **定义 —— Gauss 超几何函数。**
+>
 > $$
 > {}_2F_1(a,b;c;x)=\sum_{k=0}^{\infty}\frac{(a)_k\,(b)_k}{(c)_k}\,\frac{x^k}{k!}.
 > $$

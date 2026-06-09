@@ -46,9 +46,11 @@
 > **定义 — 模群。** $SL(2,\mathbb{Z})$ 是所有具有**整数**元 $a,b,c,d$ 且**行列式** $ad-bc=1$ 的 $2\times 2$ 矩阵 $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ 的集合。（"$SL$"代表*特殊*——行列式为一——*线性*群；"$\mathbb{Z}$"是因为元为整数。）它在矩阵乘法下构成一个群，单位元为 $I=\begin{pmatrix}1&0\\0&1\end{pmatrix}$。
 
 > **定义 — 莫比乌斯变换作用。** 矩阵 $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ 通过下式作用于 $\tau$：
+>
 > $$
 > \gamma\cdot\tau \;=\; \frac{a\tau + b}{c\tau + d}.
 > $$
+>
 > 这称为**莫比乌斯**（或**分式线性**）变换。
 
 （重述[群论](../group-theory/group-theory.md)中的前置知识：一个**群**是带有结合乘法、单位元和逆元的集合。一个群**作用**于集合 $X$，是指每个群元 $g$ 给出一个映射 $X\to X$，使得 $I$ 作用为恒等映射且 $(gh)\cdot x = g\cdot(h\cdot x)$。）
@@ -146,9 +148,11 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 #### 基本域的定义
 
 > **定义 — 标准基本域。**
+>
 > $$
 > \mathcal{F} = \left\{ \tau\in\mathbb{H} : |\mathrm{Re}\tau|\le \tfrac12 \ \text{ and } \ |\tau|\ge 1 \right\}.
 > $$
+>
 > 它是位于单位圆之上、且夹在两条竖直线 $\mathrm{Re}\tau=\pm\frac12$ 之间的区域。
 
 #### 定理 3 — $S$ 与 $T$ 生成全群，且 $\mathcal{F}$ 是基本域
@@ -195,9 +199,11 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 > **定义 — 权为 $k$ 的模形式。** 设 $k$ 为整数。函数 $f:\mathbb{H}\to\mathbb{C}$ 是 $SL(2,\mathbb{Z})$ 的一个**权为 $k$ 的模形式**，如果：
 > 1. **（全纯性）** $f$ 在 $\mathbb{H}$ 上全纯——处处复可微（重述自[复分析](../complex-analysis/complex-analysis.md)：全纯意味着局部由收敛幂级数给出）。
 > 2. **（模性 / 权 $k$）** 对所有 $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL(2,\mathbb{Z})$，
+>
 > $$
 > f\!\left(\frac{a\tau+b}{c\tau+d}\right) = (c\tau+d)^k\, f(\tau).
 > $$
+>
 > 3. **（尖点处全纯）** 当 $\mathrm{Im}\tau\to\infty$ 时 $f$ 保持有界。
 >
 > 若此外还有当 $\mathrm{Im}\tau\to\infty$ 时 $f\to 0$（即下文展开式的常数项为零），则 $f$ 是一个**尖点形式**。
@@ -237,9 +243,11 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 #### 定义与收敛性
 
 > **定义 — 爱森斯坦级数。** 对偶整数 $2k\ge 4$，
+>
 > $$
 > G_{2k}(\tau) = \sum_{(m,n)\ne(0,0)} \frac{1}{(m\tau+n)^{2k}},
 > $$
+>
 > 求和遍历除 $(0,0)$ 以外的所有整数对 $(m,n)$。
 
 **收敛性。** 该级数对 $2k>2$ 绝对收敛。*（理由：在 $\mathbb H$ 的紧子集上 $|m\tau+n|$ 一致地与 $\sqrt{m^2+n^2}$ 同阶，而由二维积分判别法——径向积分 $\int^\infty r^{1-2k}\,dr$ 当 $2k>2$ 时收敛——可知 $\sum_{(m,n)\ne0}(m^2+n^2)^{-k}$ 恰好在 $2k>2$ 时收敛。）* 绝对收敛使我们可以自由地重排各项，下文将用到这一点。
@@ -337,6 +345,7 @@ $$
 #### 判别式
 
 > **定义。**
+>
 > $$
 > \Delta(\tau) = \frac{E_4(\tau)^3 - E_6(\tau)^2}{1728}.
 > $$
@@ -350,6 +359,7 @@ $$
 #### $j$-不变量
 
 > **定义。**
+>
 > $$
 > j(\tau) = \frac{E_4(\tau)^3}{\Delta(\tau)} = 1728\,\frac{E_4^3}{E_4^3-E_6^2}.
 > $$
@@ -365,13 +375,17 @@ $$
 > **定义 — 分次环。** 设 $M_k$ 是权为 $k$ 的模形式的（有限维）向量空间，$S_k\subset M_k$ 是尖点形式的子空间。直和 $M_* = \bigoplus_{k} M_k$ 是一个**分次环**：一个权-$k$ 形式与一个权-$\ell$ 形式之积权为 $k+\ell$。
 
 > **定理 4（结构与维数）。** 每个模形式都是 $E_4$ 与 $E_6$ 的多项式：
+>
 > $$
 > M_* = \mathbb{C}[E_4,E_6],
 > $$
+>
 > 其中 $E_4,E_6$ 代数无关。因此 $M_k$ 的维数（对偶数 $k\ge0$）为
+>
 > $$
 > \dim M_k = \begin{cases} \big\lfloor k/12\big\rfloor & k\equiv 2 \pmod{12},\\[2pt] \big\lfloor k/12\big\rfloor + 1 & k\not\equiv 2 \pmod{12}, \end{cases}
 > $$
+>
 > 而对奇数 $k$ 或 $k<0$，$\dim M_k=0$。
 
 **证明梗概，关键步骤已严格化（完整证明需要 §s6）。**
@@ -399,9 +413,11 @@ $$
 #### 陈述
 
 > **定理 5（赋值公式）。** 设 $f\ne0$ 是权为 $k$ 的模形式。用 $\mathrm{ord}_p(f)$ 表示 $f$ 在点 $p$ 处的消失阶。则
+>
 > $$
 > \mathrm{ord}_\infty(f) + \tfrac12\mathrm{ord}_i(f) + \tfrac13\mathrm{ord}_\rho(f) + \sum_{p\ne i,\rho,\infty} \mathrm{ord}_p(f) \;=\; \frac{k}{12},
 > $$
+>
 > 其中 $\rho=e^{2\pi i/3}$，$\mathrm{ord}_\infty$ 是在尖点处关于 $q$ 的阶，而求和遍历 $\mathcal F$ 内部加边界（计一次）的轨道代表元。
 
 分数 $\tfrac12,\tfrac13$ 反映了 $i$ 与 $\rho$ 处轨形对称的阶（§s2）。
@@ -440,10 +456,13 @@ $\Delta$ 的系数 $\tau(N)$ 满足令人惊讶的乘性关系，例如对互素
 #### 定义
 
 > **定义 — 赫克算子。** 对素数 $p$，算子 $T_p$ 通过下式作用于权-$k$ 形式 $f(\tau)=\sum a_n q^n$：
+>
 > $$
 > (T_p f)(\tau) = \sum_n \Big(a_{pn} + p^{k-1} a_{n/p}\Big) q^n,
 > $$
+>
 > 其中若 $p\nmid n$ 则 $a_{n/p}:=0$。更内蕴地，$T_p$ 把 $f$ 在 $p+1$ 个指数为 $p$ 的子格上取平均：
+>
 > $$
 > (T_pf)(\tau)= p^{k-1}f(p\tau) + \frac1p\sum_{j=0}^{p-1} f\!\Big(\frac{\tau+j}{p}\Big).
 > $$
@@ -487,14 +506,17 @@ $$
 #### 定义
 
 > **定义 — 雅可比 theta 函数。**
+>
 > $$
 > \theta(\tau) = \sum_{n=-\infty}^{\infty} q^{n^2/2} = \sum_{n\in\mathbb Z} e^{\pi i n^2 \tau}, \qquad q=e^{2\pi i\tau}.
 > $$
+>
 > 更一般地，对带有二次型 $Q$ 的偶格 $\Lambda$，**格 theta 函数**是 $\Theta_\Lambda(\tau)=\sum_{v\in\Lambda}q^{Q(v)/2}$。
 
 #### 泊松求和
 
 > **定理 7（泊松求和）。** 对一个良好的（施瓦茨）函数 $g:\mathbb R\to\mathbb C$，其傅里叶变换为 $\hat g(\xi)=\int_{-\infty}^\infty g(x)e^{-2\pi i x\xi}\,dx$，有
+>
 > $$
 > \sum_{n\in\mathbb Z} g(n) = \sum_{m\in\mathbb Z}\hat g(m).
 > $$
@@ -538,6 +560,7 @@ $$
 #### 定义与 $\Delta$ 的乘积公式
 
 > **定义 — 戴德金 eta。**
+>
 > $$
 > \eta(\tau) = q^{1/24}\prod_{n=1}^\infty (1-q^n), \qquad q=e^{2\pi i\tau}.
 > $$
@@ -579,9 +602,11 @@ $$
 #### 定义
 
 > **定义 — 尖点形式的 $L$-函数。** 对权为 $k$ 的尖点形式 $f=\sum_{n\ge1}a_nq^n$，
+>
 > $$
 > L(f,s) = \sum_{n=1}^\infty \frac{a_n}{n^s},
 > $$
+>
 > 一个关于复变量 $s$ 的**狄利克雷级数**，在 $\mathrm{Re}s$ 较大时收敛。
 
 > **定义 — 梅林变换。** 对 $(0,\infty)$ 上的函数 $h(t)$，$\ \mathcal M[h](s)=\int_0^\infty h(t)\,t^{s}\,\frac{dt}{t}$。

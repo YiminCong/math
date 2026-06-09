@@ -33,10 +33,13 @@ A 部分是纯代数：**商定理**（判定张量的逆向检验）、对称/�
 #### 重述变换契约
 
 > **定义 — 张量分量。** 在坐标变换 $x\mapsto x'$ 下，将雅可比矩阵及其逆记为
+>
 > $$
 > J^{\mu'}{}_{\alpha}=\frac{\partial x'^{\mu}}{\partial x^{\alpha}},\qquad (J^{-1})^{\alpha}{}_{\mu'}=\frac{\partial x^{\alpha}}{\partial x'^{\mu}}.
 > $$
+>
 > 一个 $(p,q)$ **张量**的分量为每个上指标携带一个 $J$ 因子、为每个下指标携带一个 $J^{-1}$ 因子：
+>
 > $$
 > T'^{\mu_1\dots\mu_p}{}_{\nu_1\dots\nu_q}=\frac{\partial x'^{\mu_1}}{\partial x^{\alpha_1}}\cdots\frac{\partial x^{\beta_1}}{\partial x'^{\nu_1}}\cdots\,T^{\alpha_1\dots\alpha_p}{}_{\beta_1\dots\beta_q}.
 > $$
@@ -59,10 +62,12 @@ A 部分是纯代数：**商定理**（判定张量的逆向检验）、对称/�
 #### 对称部分与反对称部分
 
 > **定义。** 对一个 $(0,2)$ 张量 $T_{\mu\nu}$，定义
+>
 > $$
 > T_{(\mu\nu)}=\tfrac12\bigl(T_{\mu\nu}+T_{\nu\mu}\bigr)\quad\text{(symmetric part)},\qquad
 > T_{[\mu\nu]}=\tfrac12\bigl(T_{\mu\nu}-T_{\nu\mu}\bigr)\quad\text{(antisymmetric part)}.
 > $$
+>
 > 对 $k$ 个指标，圆括号表示对全部 $k!$ 个置换取平均，方括号表示同样的平均但按每个置换的**符号**（即宇称，偶置换为 $+1$，奇置换为 $-1$）加权。
 
 > **定理。** $T_{(\mu\nu)}$ 与 $T_{[\mu\nu]}$ 本身都是 $(0,2)$ 张量，且每个 $(0,2)$ 张量都唯一地分解为 $T_{\mu\nu}=T_{(\mu\nu)}+T_{[\mu\nu]}$。
@@ -106,9 +111,11 @@ $$
 #### 密度的定义
 
 > **定义 — 权重为 $w$ 的张量密度。** 一个**权重为 $w$ 的张量密度**像张量那样变换，但带有一个额外因子，即雅可比行列式的 $w$ 次幂：
+>
 > $$
 > \tilde T'^{\mu\dots}{}_{\nu\dots}=\left(\det\frac{\partial x}{\partial x'}\right)^{w}\frac{\partial x'^\mu}{\partial x^\alpha}\cdots\frac{\partial x^\beta}{\partial x'^\nu}\cdots\,\tilde T^{\alpha\dots}{}_{\beta\dots}.
 > $$
+>
 > 这里 $\det\frac{\partial x}{\partial x'}=\det(J^{-1})$ 是逆雅可比矩阵的行列式。权重为 $0$ 的密度就是普通张量。
 
 #### 列维-奇维塔符号是权重为 $\pm1$ 的密度，而非张量
@@ -164,6 +171,7 @@ $$
 #### 升指标与降指标
 
 > **定义。** **逆度量** $g^{\mu\nu}$ 由 $g^{\mu\alpha}g_{\alpha\nu}=\delta^\mu_\nu$ 定义。降指标即与 $g_{\mu\nu}$ 缩并，升指标即与 $g^{\mu\nu}$ 缩并：
+>
 > $$
 > V_\mu=g_{\mu\nu}V^\nu,\qquad V^\mu=g^{\mu\nu}V_\nu.
 > $$
@@ -179,9 +187,11 @@ $$
 一般的度量是杂乱的，但在每一个点上我们都能选取一个基，使度量看起来恰如平直的闵可夫斯基度量。完成这件事的基变换矩阵就是**维尔拜因**。
 
 > **定义 — 维尔拜因 / 四标架。** **维尔拜因**（德语"多条腿"；在 4 维中称**四标架**或**标架场**）是一组 $n$ 个余矢量场 $e^a{}_\mu$，由一个**标架指标** $a$（拉丁字母）标记，满足
+>
 > $$
 > g_{\mu\nu}=e^a{}_\mu e^b{}_\nu\,\eta_{ab},
 > $$
+>
 > 其中 $\eta_{ab}=\mathrm{diag}(-1,+1,\dots,+1)$ 是常值**标架度量**。逆维尔拜因 $e_a{}^\mu$ 满足 $e^a{}_\mu e_a{}^\nu=\delta^\nu_\mu$ 与 $e^a{}_\mu e_b{}^\mu=\delta^a_b$。
 
 直觉如下：$e^a{}_\mu$ 把一个坐标基（弯曲的、"世界"）指标 $\mu$ 转换成一个标准正交标架（平直的、"洛伦兹"）指标 $a$。在该标架中，所有几何在局部都是闵可夫斯基的；维尔拜因记录了局部平直标架是如何粘贴到坐标网格上的。
@@ -205,9 +215,11 @@ $$
 #### 一般规则
 
 > **定义 — $(p,q)$ 张量的协变导数。** 每个上指标得到一个 $+\Gamma$ 项，每个下指标得到一个 $-\Gamma$ 项：
+>
 > $$
 > \nabla_\lambda T^{\mu_1\dots}{}_{\nu_1\dots}=\partial_\lambda T^{\mu_1\dots}{}_{\nu_1\dots}+\Gamma^{\mu_1}{}_{\lambda\sigma}T^{\sigma\dots}{}_{\nu_1\dots}+\cdots-\Gamma^{\sigma}{}_{\lambda\nu_1}T^{\mu_1\dots}{}_{\sigma\dots}-\cdots
 > $$
+>
 > 按所示模式每个指标对应一个修正项。
 
 对标量 $\nabla_\lambda f=\partial_\lambda f$；对矢量 $\nabla_\lambda V^\mu=\partial_\lambda V^\mu+\Gamma^\mu{}_{\lambda\sigma}V^\sigma$；对余矢量 $\nabla_\lambda\omega_\mu=\partial_\lambda\omega_\mu-\Gamma^\sigma{}_{\lambda\mu}\omega_\sigma$。度量是协变常值的，$\nabla_\lambda g_{\mu\nu}=0$（度量相容性，已在配套指南中证明），正因如此升降指标与 $\nabla$ 可交换。
@@ -225,9 +237,11 @@ $$
 #### 协变散度的简化
 
 > **定理。** 对任意矢量场 $V^\mu$，
+>
 > $$
 > \nabla_\mu V^\mu=\frac{1}{\sqrt{-g}}\,\partial_\mu\bigl(\sqrt{-g}\,V^\mu\bigr),
 > $$
+>
 > 等价地 $\sqrt{-g}\,\nabla_\mu V^\mu=\partial_\mu(\sqrt{-g}\,V^\mu)$——克里斯托费尔符号从散度中消失了。
 
 *证明。*
@@ -259,9 +273,11 @@ $$
 霍奇星算子把一个 $k$-形式变成它的互补 $(n-k)$-形式，是电磁学中对偶性背后的引擎，也是定义伴随导数的基础。
 
 > **定义 — 霍奇星算子。** 在带度量的 $n$ 维流形上，**霍奇星算子** $\star$ 把分量为 $\alpha_{\mu_1\dots\mu_k}$ 的 $k$-形式 $\alpha$ 映为 $(n-k)$-形式
+>
 > $$
 > (\star\alpha)_{\nu_1\dots\nu_{n-k}}=\frac{1}{k!}\,\varepsilon_{\nu_1\dots\nu_{n-k}}{}^{\mu_1\dots\mu_k}\,\alpha_{\mu_1\dots\mu_k},
 > $$
+>
 > 其中 $\varepsilon$ 是列维-奇维塔**张量**（s2），上指标由 $g^{\mu\nu}$ 升起。
 
 > **定理。** 在一个 $k$-形式上两次作用星算子给出 $\star\star\alpha=s\,(-1)^{k(n-k)}\alpha$，其中 $s=\mathrm{sgn}(g)$（洛伦兹号差时 $s=-1$，黎曼号差时 $s=+1$）。
@@ -274,9 +290,11 @@ $$
 #### 余微分
 
 > **定义 — 余微分。** **余微分** $\delta$ 是外微分 $d$ 的（形式）伴随。在 $n$ 维、洛伦兹符号为 $s$ 的 $k$-形式上，
+>
 > $$
 > \delta=s\,(-1)^{n(k+1)+1}\,\star\,d\,\star.
 > $$
+>
 > 它把形式次数降低一：$\delta:\Omega^k\to\Omega^{k-1}$。
 
 > **定理。** 在一个 $1$-形式 $\omega$ 上，余微分是散度的相反数：$\delta\omega=-\nabla^\mu\omega_\mu$（黎曼号差；对洛伦兹号差整体差一个符号）。
@@ -294,9 +312,11 @@ $$
 在一个区域上对标量积分需要一个不变测度；密度 $\sqrt{-g}$ 提供了它。
 
 > **定义 — 不变体积形式。** **体积形式**是最高次 $n$-形式
+>
 > $$
 > \mathrm{vol}=\sqrt{-g}\;dx^1\wedge\cdots\wedge dx^n,
 > $$
+>
 > 而标量场 $f$ 在区域 $\Omega$ 上的积分为 $\displaystyle\int_\Omega f\,\mathrm{vol}=\int_\Omega f\,\sqrt{-g}\,d^nx$。
 
 > **定理（不变性）。** $\displaystyle\int_\Omega f\,\sqrt{-g}\,d^nx$ 与坐标无关。
@@ -307,9 +327,11 @@ $$
 3. 标量不变，$f=f'$。把三个因子相乘：$f\sqrt{-g}\,d^nx=f'\cdot\dfrac{\sqrt{-g'}}{|\det J^{-1}|}\cdot|\det J^{-1}|\,d^nx'=f'\sqrt{-g'}\,d^nx'$。两个雅可比因子恰好相消。$\blacksquare$
 
 > **定理（张量形式的散度定理）。** 对带边界 $\partial\Omega$ 的区域 $\Omega$ 上的矢量场 $V^\mu$，
+>
 > $$
 > \int_\Omega \nabla_\mu V^\mu\,\sqrt{-g}\,d^nx=\oint_{\partial\Omega} V^\mu\,n_\mu\,\sqrt{|h|}\,d^{n-1}y,
 > $$
+>
 > 其中 $n_\mu$ 是向外的单位法余矢量，$h$ 是诱导边界度量的行列式。
 
 *证明。*
@@ -327,6 +349,7 @@ $$
 电磁学是整套机器最干净利落的演示：六个场分量装配成一个反对称张量，四个矢量方程坍缩为两个张量方程。
 
 > **定义 — 场强张量。** 给定电磁四势 $A_\mu=(-\phi,\mathbf A)$（其中 $\phi$ 是标势，$\mathbf A$ 是矢势），定义反对称**场强**
+>
 > $$
 > F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu.
 > $$
@@ -355,6 +378,7 @@ $$
 3. 协变版本完全相同，因为对称的克里斯托费尔项在反对称化中相消，恰如上一证明那样。该方程编码了 $\nabla\cdot\mathbf B=0$ 与法拉第定律 $\nabla\times\mathbf E=-\partial_t\mathbf B$。$\blacksquare$
 
 > **定理（非齐次方程——高斯/安培）。** 取四流 $J^\mu=(\rho,\mathbf J)$ 及高斯制风格单位，
+>
 > $$
 > \nabla_\mu F^{\mu\nu}=\mu_0 J^\nu,\qquad\text{equivalently}\qquad \frac{1}{\sqrt{-g}}\partial_\mu(\sqrt{-g}\,F^{\mu\nu})=\mu_0 J^\nu.
 > $$
@@ -373,6 +397,7 @@ $$
 应力–能量张量既是引力的源，也是能量与动量流动的记账员。
 
 > **定义。** 对称的 $(2,0)$ **应力–能量张量** $T^{\mu\nu}$ 有如下诠释：$T^{00}$ 是能量密度，$T^{0i}$ 是能量通量 / $i$-动量密度，$T^{ij}$ 是 $i$-动量在 $j$ 方向上的通量（应力）。对一个具有静能量密度 $\rho$、压强 $p$、四速 $u^\mu$（归一化 $u^\mu u_\mu=-1$）的**理想流体**，
+>
 > $$
 > T^{\mu\nu}=(\rho+p)\,u^\mu u^\nu+p\,g^{\mu\nu}.
 > $$
@@ -395,6 +420,7 @@ $$
 度量的连续对称性沿测地线产生守恒量——这是诺特定理的几何面貌。
 
 > **定义 — 分量形式的李导数。** 张量沿矢量场 $\xi$ 的**李导数**度量它在沿 $\xi$ 的流被拖动时的变化。在一个矢量和一个 $(0,2)$ 张量上，
+>
 > $$
 > (\mathcal L_\xi V)^\mu=\xi^\nu\partial_\nu V^\mu-V^\nu\partial_\nu\xi^\mu,\qquad
 > (\mathcal L_\xi T)_{\mu\nu}=\xi^\lambda\partial_\lambda T_{\mu\nu}+T_{\lambda\nu}\partial_\mu\xi^\lambda+T_{\mu\lambda}\partial_\nu\xi^\lambda.
@@ -405,6 +431,7 @@ $$
 *证明。* 把每个 $\partial$ 换成 $\nabla$；这会引入克里斯托费尔项。把它们归拢：来自输运项 $\xi^\lambda\nabla_\lambda T_{\mu\nu}$ 的 $\Gamma$ 与来自 $T_{\lambda\nu}\nabla_\mu\xi^\lambda$ 和 $T_{\mu\lambda}\nabla_\nu\xi^\lambda$ 的 $\Gamma$ 两两配对，由于联络无挠（$\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$），每一对都带有相等而相反的系数，故所有克里斯托费尔项相消。因此李导数与联络无关。$\blacksquare$
 
 > **定义 — 基灵矢量。** 矢量场 $\xi$ 是**基灵矢量**，如果沿它拖动度量什么也不改变：$\mathcal L_\xi g_{\mu\nu}=0$。用协变形式并代入 $\nabla_\lambda g_{\mu\nu}=0$，这就是**基灵方程**：
+>
 > $$
 > \nabla_\mu\xi_\nu+\nabla_\nu\xi_\mu=0,\qquad\text{i.e.}\qquad \nabla_{(\mu}\xi_{\nu)}=0.
 > $$
@@ -427,9 +454,11 @@ $$
 旋量是构成电子的对象，而它们无法用世界指标书写。下面是建立在 s3 的四标架之上的具体机制。
 
 > **定义 — 克利福德 / 伽马代数。** 平直空间的**伽马矩阵** $\gamma^a$（$a$ 为标架指标）满足**克利福德关系**
+>
 > $$
 > \{\gamma^a,\gamma^b\}=\gamma^a\gamma^b+\gamma^b\gamma^a=2\,\eta^{ab}\,\mathbb 1,
 > $$
+>
 > 其中 $\eta^{ab}$ 是常值标架度量。在 4 维中它们是常值的 $4\times4$ 矩阵；编码几何的是反对易子，而非乘积。
 
 要点在于其平方根结构：$(\gamma^a\partial_a)^2$ 重现拉普拉斯/达朗贝尔算子。验证如下：利用克利福德关系与 $\partial_a\partial_b$ 的对称性把 $\gamma^a\gamma^b$ 换成其对称部分，$(\gamma^a\partial_a)(\gamma^b\partial_b)=\tfrac12\{\gamma^a,\gamma^b\}\partial_a\partial_b=\eta^{ab}\partial_a\partial_b=\Box$。于是狄拉克算子是波动算子的一个*平方根*。
@@ -445,18 +474,23 @@ $$
 旋量 $\psi$ 携带一个隐藏的标架结构，故对它求导需要一个作用于标架指标的联络——**自旋联络** $\omega_\mu{}^{ab}$，即克里斯托费尔符号在洛伦兹标架中的类比物。
 
 > **定义 — 旋量协变导数。**
+>
 > $$
 > D_\mu\psi=\partial_\mu\psi+\tfrac14\,\omega_\mu{}^{ab}\,\gamma_a\gamma_b\,\psi,
 > $$
+>
 > 其中自旋联络由要求四标架协变常值（"四标架假设"）$\nabla_\mu e^a{}_\nu+\omega_\mu{}^a{}_b e^b{}_\nu=0$ 所确定，其解为
+>
 > $$
 > \omega_\mu{}^{ab}=e^a{}_\nu\bigl(\partial_\mu e^{b\nu}+\Gamma^\nu{}_{\mu\lambda}e^{b\lambda}\bigr).
 > $$
 
 > **定义 — 弯曲空间上的狄拉克算子。** 弯曲空间的**狄拉克算子**为
+>
 > $$
 > {D\!\!\!/}=\gamma^\mu D_\mu=e_a{}^\mu\gamma^a\bigl(\partial_\mu+\tfrac14\omega_\mu{}^{bc}\gamma_b\gamma_c\bigr),
 > $$
+>
 > 质量为 $m$ 的粒子的**狄拉克方程**为 $(i{D\!\!\!/}-m)\psi=0$。
 
 > **为何每一块都必不可少。** 单独的 $\partial_\mu$ 在旋量上不是洛伦兹协变的；$\tfrac14\omega_\mu{}^{ab}\gamma_a\gamma_b$ 项旋转旋量标架以作补偿，恰如 $\Gamma$ 为移动张量标架作补偿。四标架 $e_a{}^\mu$ 是唯一能把带标架指标的伽马矩阵接到带世界指标的导数上的对象。没有四标架，弯曲空间上就没有狄拉克方程——这正是为什么 s3 的标架形式对张量是可选的，对费米子却是必需的。

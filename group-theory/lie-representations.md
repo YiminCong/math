@@ -41,9 +41,11 @@ So the slogan of this guide is precise, not poetic: **to classify the representa
 The motivating model: for matrices, $[X,Y]=XY-YX$ (the **commutator**). This is bilinear and antisymmetric by inspection, and the Jacobi identity is a direct expansion (every product $XYZ$ appears once with $+$ and once with $-$ and they cancel in threes — we verify this in the worked example). The infinitesimal generators of a matrix Lie group form such an algebra; e.g. $\mathfrak{su}(2)$ is the traceless anti-Hermitian $2\times2$ matrices under the commutator.
 
 > **Definition — structure constants.** Fix a basis $\{T_a\}_{a=1}^{n}$ of $\mathfrak{g}$ ($n=\dim\mathfrak{g}$). Since each bracket $[T_a,T_b]$ is again in $\mathfrak{g}$, it expands uniquely in the basis:
+>
 > $$
 > [T_a,T_b]=\sum_{c=1}^{n} f_{ab}{}^{c}\,T_c .
 > $$
+>
 > The numbers $f_{ab}{}^{c}\in\mathbb{F}$ are the **structure constants**. They encode the entire bracket: antisymmetry forces $f_{ab}{}^{c}=-f_{ba}{}^{c}$, and the Jacobi identity becomes the quadratic relation $\sum_e\big(f_{ab}{}^{e}f_{ec}{}^{d}+f_{bc}{}^{e}f_{ea}{}^{d}+f_{ca}{}^{e}f_{eb}{}^{d}\big)=0$ for all $a,b,c,d$.
 
 > **Definition — ideal.** A subspace $\mathfrak{a}\subseteq\mathfrak{g}$ is an **ideal** if $[\mathfrak{g},\mathfrak{a}]\subseteq\mathfrak{a}$, i.e. $[X,A]\in\mathfrak{a}$ for every $X\in\mathfrak{g}$ and $A\in\mathfrak{a}$. (Compare a *normal subgroup* in the prerequisite: an ideal is exactly the substructure you can "quotient by," because the bracket descends to the quotient space $\mathfrak{g}/\mathfrak{a}$.)
@@ -90,9 +92,11 @@ This is the generator of rotations about the $3$-axis acting on a $3$-vector —
 Semisimple is the sweet spot: "as far from solvable as possible." We now build the detector.
 
 > **Definition — Killing form.** The **Killing form** is the symmetric bilinear form $\kappa:\mathfrak{g}\times\mathfrak{g}\to\mathbb{F}$,
+>
 > $$
 > \kappa(X,Y)=\mathrm{tr}\big(\mathrm{ad}_X\,\mathrm{ad}_Y\big),
 > $$
+>
 > the trace of the composition of the two adjoint operators. It is symmetric because $\mathrm{tr}(AB)=\mathrm{tr}(BA)$, and it is **invariant**: $\kappa([X,Y],Z)=\kappa(X,[Y,Z])$.
 
 **Proof of invariance.**
@@ -135,10 +139,13 @@ We work over $\mathbb{C}$ from now on (complexify the algebra; e.g. $\mathfrak{s
 Because the elements of $\mathfrak{h}$ commute, their adjoint operators $\{\mathrm{ad}_H:H\in\mathfrak{h}\}$ commute, and commuting diagonalizable operators are **simultaneously diagonalizable** (a standard linear-algebra fact: a common eigenbasis exists). So $\mathfrak{g}$ breaks into joint eigenspaces.
 
 > **Definition — root space decomposition.** For a linear functional $\alpha\in\mathfrak{h}^{*}$ (a linear map $\mathfrak{h}\to\mathbb{C}$) define the **root space**
+>
 > $$
 > \mathfrak{g}_\alpha=\{\,X\in\mathfrak{g} : [H,X]=\alpha(H)\,X \text{ for all } H\in\mathfrak{h}\,\}.
 > $$
+>
 > The nonzero $\alpha$ with $\mathfrak{g}_\alpha\ne\{0\}$ are the **roots**; the set of roots is $\Phi$. The zero-functional space is $\mathfrak{g}_0=\mathfrak{h}$ itself (the CSA is its own centralizer, for semisimple $\mathfrak{g}$). The whole algebra is the direct sum
+>
 > $$
 > \mathfrak{g}=\mathfrak{h}\ \oplus\ \bigoplus_{\alpha\in\Phi}\mathfrak{g}_\alpha .
 > $$
@@ -194,9 +201,11 @@ That a continuous quantity (an angle) is pinned to four discrete values is exact
 > **Definition — positive and simple roots.** Choose a linear functional on $E$ that is nonzero on every root (a "generic direction"). A root is **positive** ($\alpha>0$) if it has positive value, **negative** otherwise; $\Phi=\Phi^{+}\sqcup\Phi^{-}$ with $\Phi^{-}=-\Phi^{+}$. A positive root is **simple** if it is *not* the sum of two positive roots. The set $\Delta=\{\alpha_1,\dots,\alpha_r\}$ of simple roots is a **basis** of $E$ ($r=\mathrm{rank}$), and every positive root is a *non-negative integer combination* of simple roots.
 
 > **Definition — Cartan matrix.** With simple roots $\alpha_1,\dots,\alpha_r$, the **Cartan matrix** is the $r\times r$ integer matrix
+>
 > $$
 > A_{ij}=\langle\alpha_i,\alpha_j\rangle=\frac{2(\alpha_i,\alpha_j)}{(\alpha_j,\alpha_j)} .
 > $$
+>
 > Its diagonal is $A_{ii}=2$; off-diagonal entries are in $\{0,-1,-2,-3\}$ (from the angle quantization, since distinct simple roots make obtuse angles, so $(\alpha_i,\alpha_j)\le0$).
 
 > **Definition — Dynkin diagram.** Draw one node per simple root. Join nodes $i\ne j$ by $A_{ij}A_{ji}\in\{0,1,2,3\}$ edges. When the two roots have different lengths (a double or triple bond), put an arrow pointing from the longer root to the shorter. This picture encodes the whole Cartan matrix, hence (it can be shown via reconstruction of $\Phi$ from $\Delta$) the whole algebra.
@@ -245,9 +254,11 @@ The diagrams: $A_n$ is a chain of $n$ nodes with single bonds; $B_n$ and $C_n$ a
 **What and why.** With the algebra's skeleton (roots) in hand, we turn to its representations. The eigenvalues of the CSA on a representation are the **weights** — the generalization of the eigenvalue $m$ of $J_3$. Just as a spin-$j$ representation is pinned down by its top eigenvalue $m=j$, every irreducible representation of a semisimple algebra is pinned down by a single **highest weight**. This is the central classification theorem of the whole subject.
 
 > **Definition — weights of a representation.** Let $\rho:\mathfrak{g}\to\mathfrak{gl}(V)$ be a representation. Since $\mathfrak{h}$ is abelian and (in a finite-dimensional representation of a semisimple algebra) acts diagonalizably, $V$ splits into joint eigenspaces:
+>
 > $$
 > V=\bigoplus_{\mu} V_\mu,\qquad V_\mu=\{v\in V:\rho(H)v=\mu(H)\,v\ \forall H\in\mathfrak{h}\}.
 > $$
+>
 > Each $\mu\in\mathfrak{h}^{*}$ with $V_\mu\ne0$ is a **weight**; $\dim V_\mu$ is its **multiplicity**. (Roots are the weights of the *adjoint* representation, s3.)
 
 > **How root vectors move weights.** If $v\in V_\mu$ and $E_\alpha\in\mathfrak{g}_\alpha$, then $\rho(E_\alpha)v\in V_{\mu+\alpha}$. Proof: for $H\in\mathfrak{h}$, $\rho(H)\rho(E_\alpha)v=\rho(E_\alpha)\rho(H)v+\rho([H,E_\alpha])v=\mu(H)\rho(E_\alpha)v+\alpha(H)\rho(E_\alpha)v=(\mu+\alpha)(H)\rho(E_\alpha)v$, using that $\rho$ is a *homomorphism* ($\rho([H,E_\alpha])=[\rho(H),\rho(E_\alpha)]$) and $[H,E_\alpha]=\alpha(H)E_\alpha$. So $\rho(E_\alpha)$ is a raising/lowering operator shifting the weight by the root $\alpha$.
@@ -257,9 +268,11 @@ The diagrams: $A_n$ is a chain of $n$ nodes with single bonds; $B_n$ and $C_n$ a
 > **Definition — dominant weight, highest weight.** Fix the positive roots (s4). A weight $\mu$ is **dominant** if $\langle\mu,\alpha_i\rangle\ge0$ for all simple roots $\alpha_i$ (equivalently $\mu=\sum_i m_i\omega_i$ with integers $m_i\ge0$, the **Dynkin labels**). In an irreducible representation there is a unique weight $\lambda$, the **highest weight**, such that $\lambda+\alpha$ is *not* a weight for any positive root $\alpha$ (no raising operator escapes it); its weight space is one-dimensional.
 
 > **Theorem — theorem of the highest weight (Cartan–Weyl).** Let $\mathfrak{g}$ be a semisimple Lie algebra. The map
+>
 > $$
 > \big\{\text{irreducible finite-dim representations}\big\}/\!\cong\ \ \xrightarrow{\ \sim\ }\ \big\{\text{dominant integral weights }\lambda\big\}
 > $$
+>
 > sending each irreducible to its highest weight is a **bijection**. Every dominant integral weight is the highest weight of exactly one irreducible representation $V(\lambda)$, and isomorphic representations have equal highest weight.
 
 **Proof of uniqueness/injectivity (the part we can do cleanly here).**
@@ -279,9 +292,11 @@ The diagrams: $A_n$ is a chain of $n$ nodes with single bonds; $B_n$ and $C_n$ a
 > **Definition — universal enveloping algebra and PBW.** The **universal enveloping algebra** $U(\mathfrak{g})$ is the associative algebra generated by $\mathfrak{g}$ subject only to $XY-YX=[X,Y]$. Representations of $\mathfrak{g}$ are the same as $U(\mathfrak{g})$-modules. The **Poincaré–Birkhoff–Witt (PBW) theorem** states that, fixing an ordered basis of $\mathfrak{g}$ split as (lowering $E_{-\alpha}$) $\,\cdot\,$ (Cartan $H$) $\,\cdot\,$ (raising $E_\alpha$), the ordered monomials form a basis of $U(\mathfrak{g})$ — any product can be reordered into this normal form using the commutation relations.
 
 > **Definition — Verma module.** For a weight $\lambda$, the **Verma module** $M(\lambda)$ is generated by one vector $v_\lambda$ with the rules: $\rho(H)v_\lambda=\lambda(H)v_\lambda$ (it has weight $\lambda$) and $\rho(E_\alpha)v_\lambda=0$ for every positive root $\alpha$ (it is "highest"), with *no other relations*. By PBW, a basis of $M(\lambda)$ is
+>
 > $$
 > \big\{\,\rho(E_{-\beta_1})^{k_1}\cdots\rho(E_{-\beta_N})^{k_N}\,v_\lambda\ :\ k_i\ge0\,\big\},
 > $$
+>
 > running over the positive roots $\beta_1,\dots,\beta_N$. The monomial with exponents $k_i$ has weight $\lambda-\sum_i k_i\beta_i$.
 
 $M(\lambda)$ is *infinite-dimensional* — we have applied lowering operators with no limit. It contains a unique maximal proper submodule $N(\lambda)$ (the sum of all submodules avoiding $v_\lambda$).
@@ -313,17 +328,21 @@ $M(\lambda)$ is *infinite-dimensional* — we have applied lowering operators wi
 > **Definition — Weyl vector and the sign.** Let $\rho=\tfrac12\sum_{\alpha>0}\alpha$ be the **Weyl vector** (half the sum of positive roots; equals $\sum_i\omega_i$). For $w\in W$ let $\det(w)=(-1)^{\ell(w)}$ where $\ell(w)$ is the number of reflections needed to write $w$ (the **sign** of $w$).
 
 > **Theorem — Weyl character formula.** For the irreducible $V(\lambda)$ with $\lambda$ dominant integral,
+>
 > $$
 > \mathrm{ch}V(\lambda)\ =\ \frac{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\lambda+\rho)}}{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\rho)}} .
 > $$
+>
 > The denominator equals the **Weyl denominator** $\displaystyle\prod_{\alpha>0}\big(e^{\alpha/2}-e^{-\alpha/2}\big)$.
 
 The idea of the proof (cited in full from Weyl): the numerator and denominator are each *antisymmetric* under $W$ (the sign flips with each reflection), the ratio is therefore $W$-symmetric like a genuine character, and matching it against the highest weight $\lambda$ plus the multiplicity bookkeeping pins it uniquely. We extract the practical corollary in full.
 
 > **Corollary — Weyl dimension formula.**
+>
 > $$
 > \dim V(\lambda)\ =\ \prod_{\alpha>0}\frac{(\lambda+\rho,\alpha)}{(\rho,\alpha)} ,
 > $$
+>
 > a product over the positive roots.
 
 **Derivation of the dimension formula from the character formula.**
@@ -404,9 +423,11 @@ $$
 **What and why.** A multiplet needs labels. The CSA gives $r$ commuting labels *within* a multiplet (the weights). To label the multiplet *itself* — to say "this is the octet, that is the decuplet" — we need operators that are constant on each irreducible. These are the **Casimir operators**, built from the algebra and commuting with everything; by Schur's lemma they act as scalars on each irreducible, and those scalars are exactly the multiplet labels physicists quote.
 
 > **Definition — quadratic Casimir.** Pick a basis $\{T_a\}$ and let $g^{ab}$ be the inverse of the Killing form matrix $g_{ab}=\kappa(T_a,T_b)$. The **quadratic Casimir** is the element of $U(\mathfrak{g})$
+>
 > $$
 > C_2=\sum_{a,b} g^{ab}\,T_a T_b .
 > $$
+>
 > It is **central**: $[C_2,X]=0$ for all $X\in\mathfrak{g}$.
 
 **Proof that $C_2$ is central.**
@@ -416,9 +437,11 @@ $$
 4. The two terms in step 2, after raising indices with $g^{ab}$, become a contraction of the *symmetric* tensor $T_aT_b$-summed against the *antisymmetric* $f_{abc}$ (with relabeling), which vanishes. Hence $[C_2,T_c]=0$ for all $c$. $\blacksquare$
 
 > **Theorem — Casimir eigenvalue (Freudenthal–Weyl).** On the irreducible $V(\lambda)$, the quadratic Casimir acts as the scalar
+>
 > $$
 > C_2\big|_{V(\lambda)}=(\lambda,\lambda+2\rho)=(\lambda+\rho,\lambda+\rho)-(\rho,\rho),
 > $$
+>
 > with $\rho$ the Weyl vector and $(\cdot,\cdot)$ the inner product induced by the Killing form.
 
 **Proof.**

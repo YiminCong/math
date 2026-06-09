@@ -33,10 +33,13 @@ We collect the algebraic operations that turn tensors into new tensors, proving 
 #### The transformation contract, restated
 
 > **Definition — tensor components.** Under a coordinate change $x\mapsto x'$, write the Jacobian and its inverse as
+>
 > $$
 > J^{\mu'}{}_{\alpha}=\frac{\partial x'^{\mu}}{\partial x^{\alpha}},\qquad (J^{-1})^{\alpha}{}_{\mu'}=\frac{\partial x^{\alpha}}{\partial x'^{\mu}}.
 > $$
+>
 > A $(p,q)$ **tensor** has components carrying one factor of $J$ per upper index and one factor of $J^{-1}$ per lower index:
+>
 > $$
 > T'^{\mu_1\dots\mu_p}{}_{\nu_1\dots\nu_q}=\frac{\partial x'^{\mu_1}}{\partial x^{\alpha_1}}\cdots\frac{\partial x^{\beta_1}}{\partial x'^{\nu_1}}\cdots\,T^{\alpha_1\dots\alpha_p}{}_{\beta_1\dots\beta_q}.
 > $$
@@ -59,10 +62,12 @@ These Jacobians satisfy $J^{\mu'}{}_\alpha (J^{-1})^{\alpha}{}_{\nu'}=\delta^{\m
 #### Symmetric and antisymmetric parts
 
 > **Definition.** For a $(0,2)$ tensor $T_{\mu\nu}$ define
+>
 > $$
 > T_{(\mu\nu)}=\tfrac12\bigl(T_{\mu\nu}+T_{\nu\mu}\bigr)\quad\text{(symmetric part)},\qquad
 > T_{[\mu\nu]}=\tfrac12\bigl(T_{\mu\nu}-T_{\nu\mu}\bigr)\quad\text{(antisymmetric part)}.
 > $$
+>
 > For $k$ indices, parentheses mean the average over all $k!$ permutations, brackets the same average weighted by the **sign** of each permutation (the parity, $+1$ for even, $-1$ for odd).
 
 > **Theorem.** $T_{(\mu\nu)}$ and $T_{[\mu\nu]}$ are themselves $(0,2)$ tensors, and every $(0,2)$ tensor decomposes uniquely as $T_{\mu\nu}=T_{(\mu\nu)}+T_{[\mu\nu]}$.
@@ -106,9 +111,11 @@ Several indispensable objects — the volume element, the permutation symbol, th
 #### Definition of a density
 
 > **Definition — tensor density of weight $w$.** A **tensor density of weight $w$** transforms like a tensor but with an extra factor of the Jacobian determinant raised to the power $w$:
+>
 > $$
 > \tilde T'^{\mu\dots}{}_{\nu\dots}=\left(\det\frac{\partial x}{\partial x'}\right)^{w}\frac{\partial x'^\mu}{\partial x^\alpha}\cdots\frac{\partial x^\beta}{\partial x'^\nu}\cdots\,\tilde T^{\alpha\dots}{}_{\beta\dots}.
 > $$
+>
 > Here $\det\frac{\partial x}{\partial x'}=\det(J^{-1})$ is the determinant of the inverse Jacobian. A weight-$0$ density is an ordinary tensor.
 
 #### The Levi-Civita symbol is a density of weight $\pm1$, not a tensor
@@ -164,6 +171,7 @@ The metric is the conversion device between vectors and covectors, and the bridg
 #### Raising and lowering
 
 > **Definition.** The **inverse metric** $g^{\mu\nu}$ is defined by $g^{\mu\alpha}g_{\alpha\nu}=\delta^\mu_\nu$. Lowering an index means contracting with $g_{\mu\nu}$, raising means contracting with $g^{\mu\nu}$:
+>
 > $$
 > V_\mu=g_{\mu\nu}V^\nu,\qquad V^\mu=g^{\mu\nu}V_\nu.
 > $$
@@ -179,9 +187,11 @@ The metric is the conversion device between vectors and covectors, and the bridg
 A general metric is messy, but at every single point we can choose a basis in which it looks exactly like flat Minkowski. The change-of-basis matrices that do this are the **vielbeins**.
 
 > **Definition — vielbein / tetrad.** A **vielbein** (German "many legs"; in 4D, **tetrad** or **frame field**) is a set of $n$ covector fields $e^a{}_\mu$, labelled by a **frame index** $a$ (Latin), such that
+>
 > $$
 > g_{\mu\nu}=e^a{}_\mu e^b{}_\nu\,\eta_{ab},
 > $$
+>
 > where $\eta_{ab}=\mathrm{diag}(-1,+1,\dots,+1)$ is the constant **frame metric**. The inverse vielbein $e_a{}^\mu$ satisfies $e^a{}_\mu e_a{}^\nu=\delta^\nu_\mu$ and $e^a{}_\mu e_b{}^\mu=\delta^a_b$.
 
 The intuition: $e^a{}_\mu$ converts a coordinate-basis (curved, "world") index $\mu$ into an orthonormal-frame (flat, "Lorentz") index $a$. In the frame, all geometry is locally Minkowski; the vielbein records how the local flat frame is glued to the coordinate grid.
@@ -205,9 +215,11 @@ Ordinary partial derivatives of tensor components are not tensors; the covariant
 #### The general rule
 
 > **Definition — covariant derivative of a $(p,q)$ tensor.** Each upper index gets a $+\Gamma$ term, each lower index a $-\Gamma$ term:
+>
 > $$
 > \nabla_\lambda T^{\mu_1\dots}{}_{\nu_1\dots}=\partial_\lambda T^{\mu_1\dots}{}_{\nu_1\dots}+\Gamma^{\mu_1}{}_{\lambda\sigma}T^{\sigma\dots}{}_{\nu_1\dots}+\cdots-\Gamma^{\sigma}{}_{\lambda\nu_1}T^{\mu_1\dots}{}_{\sigma\dots}-\cdots
 > $$
+>
 > with one correction term per index in the indicated pattern.
 
 For a scalar $\nabla_\lambda f=\partial_\lambda f$; for a vector $\nabla_\lambda V^\mu=\partial_\lambda V^\mu+\Gamma^\mu{}_{\lambda\sigma}V^\sigma$; for a covector $\nabla_\lambda\omega_\mu=\partial_\lambda\omega_\mu-\Gamma^\sigma{}_{\lambda\mu}\omega_\sigma$. The metric is covariantly constant, $\nabla_\lambda g_{\mu\nu}=0$ (metric compatibility, proved in the companion guide), which is why raising/lowering commutes with $\nabla$.
@@ -225,9 +237,11 @@ For a scalar $\nabla_\lambda f=\partial_\lambda f$; for a vector $\nabla_\lambda
 #### The covariant divergence simplifies
 
 > **Theorem.** For any vector field $V^\mu$,
+>
 > $$
 > \nabla_\mu V^\mu=\frac{1}{\sqrt{-g}}\,\partial_\mu\bigl(\sqrt{-g}\,V^\mu\bigr),
 > $$
+>
 > equivalently $\sqrt{-g}\,\nabla_\mu V^\mu=\partial_\mu(\sqrt{-g}\,V^\mu)$ — the Christoffel symbols disappear from the divergence.
 
 *Proof.*
@@ -259,9 +273,11 @@ This is the most-used identity in the subject: it lets you compute divergences a
 The Hodge star turns a $k$-form into its complementary $(n-k)$-form, and is the engine behind duality in electromagnetism and the definition of adjoint derivatives.
 
 > **Definition — Hodge star.** On an $n$-dimensional manifold with metric, the **Hodge star** $\star$ maps a $k$-form $\alpha$ with components $\alpha_{\mu_1\dots\mu_k}$ to the $(n-k)$-form
+>
 > $$
 > (\star\alpha)_{\nu_1\dots\nu_{n-k}}=\frac{1}{k!}\,\varepsilon_{\nu_1\dots\nu_{n-k}}{}^{\mu_1\dots\mu_k}\,\alpha_{\mu_1\dots\mu_k},
 > $$
+>
 > where $\varepsilon$ is the Levi-Civita **tensor** (s2) and the upper indices were raised with $g^{\mu\nu}$.
 
 > **Theorem.** Applying the star twice gives $\star\star\alpha=s\,(-1)^{k(n-k)}\alpha$ on a $k$-form, where $s=\mathrm{sgn}(g)$ ($s=-1$ for Lorentzian signature, $+1$ for Riemannian).
@@ -274,9 +290,11 @@ The Hodge star turns a $k$-form into its complementary $(n-k)$-form, and is the 
 #### The codifferential
 
 > **Definition — codifferential.** The **codifferential** $\delta$ is the (formal) adjoint of the exterior derivative $d$. On a $k$-form in $n$ dimensions with Lorentzian sign $s$,
+>
 > $$
 > \delta=s\,(-1)^{n(k+1)+1}\,\star\,d\,\star.
 > $$
+>
 > It lowers form-degree by one: $\delta:\Omega^k\to\Omega^{k-1}$.
 
 > **Theorem.** On a $1$-form $\omega$, the codifferential is minus the divergence: $\delta\omega=-\nabla^\mu\omega_\mu$ (Riemannian signature; an overall sign flips for Lorentzian).
@@ -294,9 +312,11 @@ The Hodge star turns a $k$-form into its complementary $(n-k)$-form, and is the 
 Integration of a scalar over a region requires an invariant measure; the density $\sqrt{-g}$ supplies it.
 
 > **Definition — invariant volume form.** The **volume form** is the top-degree $n$-form
+>
 > $$
 > \mathrm{vol}=\sqrt{-g}\;dx^1\wedge\cdots\wedge dx^n,
 > $$
+>
 > and the integral of a scalar field $f$ over a region $\Omega$ is $\displaystyle\int_\Omega f\,\mathrm{vol}=\int_\Omega f\,\sqrt{-g}\,d^nx$.
 
 > **Theorem (invariance).** $\displaystyle\int_\Omega f\,\sqrt{-g}\,d^nx$ is independent of coordinates.
@@ -307,9 +327,11 @@ Integration of a scalar over a region requires an invariant measure; the density
 3. The scalar is unchanged, $f=f'$. Multiply the three factors: $f\sqrt{-g}\,d^nx=f'\cdot\dfrac{\sqrt{-g'}}{|\det J^{-1}|}\cdot|\det J^{-1}|\,d^nx'=f'\sqrt{-g'}\,d^nx'$. The two Jacobian factors cancel exactly. $\blacksquare$
 
 > **Theorem (divergence theorem in tensor form).** For a vector field $V^\mu$ on a region $\Omega$ with boundary $\partial\Omega$,
+>
 > $$
 > \int_\Omega \nabla_\mu V^\mu\,\sqrt{-g}\,d^nx=\oint_{\partial\Omega} V^\mu\,n_\mu\,\sqrt{|h|}\,d^{n-1}y,
 > $$
+>
 > where $n_\mu$ is the outward unit normal covector and $h$ the determinant of the induced boundary metric.
 
 *Proof.*
@@ -327,6 +349,7 @@ Integration of a scalar over a region requires an invariant measure; the density
 Electromagnetism is the cleanest demonstration of the whole machinery: six field components assemble into one antisymmetric tensor, and four vector equations collapse to two tensor equations.
 
 > **Definition — field strength tensor.** Given the electromagnetic four-potential $A_\mu=(-\phi,\mathbf A)$ (with $\phi$ the scalar and $\mathbf A$ the vector potential), define the antisymmetric **field strength**
+>
 > $$
 > F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu.
 > $$
@@ -355,6 +378,7 @@ $$
 3. The covariant version is identical because the symmetric Christoffel terms cancel in the antisymmetrization, exactly as in the previous proof. This equation encodes $\nabla\cdot\mathbf B=0$ and Faraday's law $\nabla\times\mathbf E=-\partial_t\mathbf B$. $\blacksquare$
 
 > **Theorem (inhomogeneous equations — Gauss/Ampère).** With four-current $J^\mu=(\rho,\mathbf J)$ and Gaussian-style units,
+>
 > $$
 > \nabla_\mu F^{\mu\nu}=\mu_0 J^\nu,\qquad\text{equivalently}\qquad \frac{1}{\sqrt{-g}}\partial_\mu(\sqrt{-g}\,F^{\mu\nu})=\mu_0 J^\nu.
 > $$
@@ -373,6 +397,7 @@ $$
 The stress–energy tensor is the source of gravity and the bookkeeper of energy and momentum flow.
 
 > **Definition.** The symmetric $(2,0)$ **stress–energy tensor** $T^{\mu\nu}$ has the interpretation: $T^{00}$ is energy density, $T^{0i}$ is the flux of energy / density of $i$-momentum, and $T^{ij}$ is the flux of $i$-momentum in the $j$-direction (stress). For a **perfect fluid** with rest energy density $\rho$, pressure $p$, and four-velocity $u^\mu$ (normalized $u^\mu u_\mu=-1$),
+>
 > $$
 > T^{\mu\nu}=(\rho+p)\,u^\mu u^\nu+p\,g^{\mu\nu}.
 > $$
@@ -395,6 +420,7 @@ The stress–energy tensor is the source of gravity and the bookkeeper of energy
 Continuous symmetries of the metric produce conserved quantities along geodesics — the geometric face of Noether's theorem.
 
 > **Definition — Lie derivative in components.** The **Lie derivative** of a tensor along a vector field $\xi$ measures its change as it is dragged along the flow of $\xi$. On a vector and a $(0,2)$ tensor,
+>
 > $$
 > (\mathcal L_\xi V)^\mu=\xi^\nu\partial_\nu V^\mu-V^\nu\partial_\nu\xi^\mu,\qquad
 > (\mathcal L_\xi T)_{\mu\nu}=\xi^\lambda\partial_\lambda T_{\mu\nu}+T_{\lambda\nu}\partial_\mu\xi^\lambda+T_{\mu\lambda}\partial_\nu\xi^\lambda.
@@ -405,6 +431,7 @@ Continuous symmetries of the metric produce conserved quantities along geodesics
 *Proof.* Replace every $\partial$ by $\nabla$; this introduces Christoffel terms. Collect them: the $\Gamma$ from the transport term $\xi^\lambda\nabla_\lambda T_{\mu\nu}$ pairs against those from $T_{\lambda\nu}\nabla_\mu\xi^\lambda$ and $T_{\mu\lambda}\nabla_\nu\xi^\lambda$, and because the connection is torsion-free ($\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$) each such pair carries equal and opposite coefficients, so all Christoffel terms cancel. The Lie derivative is therefore connection-independent. $\blacksquare$
 
 > **Definition — Killing vector.** A vector field $\xi$ is a **Killing vector** if dragging the metric along it changes nothing: $\mathcal L_\xi g_{\mu\nu}=0$. Using the covariant form with $\nabla_\lambda g_{\mu\nu}=0$, this is **Killing's equation**:
+>
 > $$
 > \nabla_\mu\xi_\nu+\nabla_\nu\xi_\mu=0,\qquad\text{i.e.}\qquad \nabla_{(\mu}\xi_{\nu)}=0.
 > $$
@@ -427,9 +454,11 @@ Continuous symmetries of the metric produce conserved quantities along geodesics
 Spinors are the objects electrons are made of, and they cannot be written with world indices. Here is the concrete machinery, built on the tetrads of s3.
 
 > **Definition — Clifford / gamma algebra.** The flat-space **gamma matrices** $\gamma^a$ ($a$ a frame index) satisfy the **Clifford relation**
+>
 > $$
 > \{\gamma^a,\gamma^b\}=\gamma^a\gamma^b+\gamma^b\gamma^a=2\,\eta^{ab}\,\mathbb 1,
 > $$
+>
 > with $\eta^{ab}$ the constant frame metric. They are constant $4\times4$ matrices in 4D; the anticommutator, not the product, encodes the geometry.
 
 The square-root structure is the point: $(\gamma^a\partial_a)^2$ recovers the Laplacian/d'Alembertian. To verify, $(\gamma^a\partial_a)(\gamma^b\partial_b)=\tfrac12\{\gamma^a,\gamma^b\}\partial_a\partial_b=\eta^{ab}\partial_a\partial_b=\Box$, using the Clifford relation and the symmetry of $\partial_a\partial_b$ to replace $\gamma^a\gamma^b$ by its symmetric part. The Dirac operator is thus a *square root* of the wave operator.
@@ -445,18 +474,23 @@ The square-root structure is the point: $(\gamma^a\partial_a)^2$ recovers the La
 A spinor $\psi$ carries a hidden frame structure, so differentiating it requires a connection that acts on frame indices — the **spin connection** $\omega_\mu{}^{ab}$, the Lorentz-frame analogue of the Christoffel symbol.
 
 > **Definition — spinor covariant derivative.**
+>
 > $$
 > D_\mu\psi=\partial_\mu\psi+\tfrac14\,\omega_\mu{}^{ab}\,\gamma_a\gamma_b\,\psi,
 > $$
+>
 > where the spin connection is fixed by requiring the tetrad to be covariantly constant ("tetrad postulate"), $\nabla_\mu e^a{}_\nu+\omega_\mu{}^a{}_b e^b{}_\nu=0$, which solves to
+>
 > $$
 > \omega_\mu{}^{ab}=e^a{}_\nu\bigl(\partial_\mu e^{b\nu}+\Gamma^\nu{}_{\mu\lambda}e^{b\lambda}\bigr).
 > $$
 
 > **Definition — Dirac operator on curved space.** The curved-space **Dirac operator** is
+>
 > $$
 > {D\!\!\!/}=\gamma^\mu D_\mu=e_a{}^\mu\gamma^a\bigl(\partial_\mu+\tfrac14\omega_\mu{}^{bc}\gamma_b\gamma_c\bigr),
 > $$
+>
 > and the **Dirac equation** for a particle of mass $m$ is $(i{D\!\!\!/}-m)\psi=0$.
 
 > **Why every piece is necessary.** The $\partial_\mu$ alone is not Lorentz-covariant on spinors; the $\tfrac14\omega_\mu{}^{ab}\gamma_a\gamma_b$ term rotates the spinor frame to compensate, exactly as $\Gamma$ compensates for moving tensor frames. The tetrad $e_a{}^\mu$ is the only object that can attach the frame-indexed gammas to world-indexed derivatives. Without tetrads there is no Dirac equation on curved space — which is why s3's frame formalism, optional for tensors, is mandatory for fermions.

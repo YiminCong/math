@@ -48,9 +48,11 @@
 > **定义 —— 图册与转移映射。**
 >
 > 一个**图册**是一族坐标图 $\{(U_\alpha,\varphi_\alpha)\}$，其定义域覆盖 $M$，即 $\bigcup_\alpha U_\alpha = M$。在两个坐标图重叠之处 $U_\alpha\cap U_\beta\ne\varnothing$，**转移映射**
+>
 > $$
 > \varphi_\beta\circ\varphi_\alpha^{-1}:\ \varphi_\alpha(U_\alpha\cap U_\beta)\ \to\ \varphi_\beta(U_\alpha\cap U_\beta)
 > $$
+>
 > 是 $\mathbb{R}^n$ 的开子集之间的映射——一个名副其实的 $n$ 个实变量的函数。
 
 转移映射说明在重叠区上两套坐标网格如何彼此关联。它正是我们对其施加光滑性要求的对象。
@@ -106,9 +108,11 @@
 > **定义 —— 作为求导子的切向量。**
 >
 > **$p$ 处的求导子**是一个满足 **莱布尼茨（乘积）法则** 的线性映射 $v:C^\infty(M)\to\mathbb{R}$：
+>
 > $$
 > v(fg) = v(f)\,g(p) + f(p)\,v(g)\qquad\text{for all }f,g\in C^\infty(M).
 > $$
+>
 > **切空间** $T_pM$ 是 $p$ 处所有求导子的集合。在 $(v+w)(f)=v(f)+w(f)$ 与 $(cv)(f)=c\,v(f)$ 之下它是一个实向量空间。
 
 其动机：切向量应当能让你对任意函数取*方向导数*。给定一条代表某方向的曲线 $\gamma$，定义 $v(f) = \tfrac{d}{dt}f(\gamma(t))\big|_{0}$。线性性显然；莱布尼茨法则就是 $\tfrac{d}{dt}\big(f(\gamma)g(\gamma)\big)$ 的普通乘积法则。
@@ -161,6 +165,7 @@ $$
 > **定义 —— 前推 / 微分。**
 >
 > 设 $F:M\to N$ 光滑，$p\in M$。**微分**（或**前推**）$dF_p = F_{*p}:T_pM\to T_{F(p)}N$ 对切向量 $v$（视为求导子）的作用定义为
+>
 > $$
 > \big(dF_p(v)\big)(g) = v(g\circ F)\qquad\text{for } g\in C^\infty(N).
 > $$
@@ -182,6 +187,7 @@ $$
 > **定义 —— 函数的微分，以及对偶基 $dx^\mu$。**
 >
 > 对 $f\in C^\infty(M)$，其**微分** $df_p\in T_p^*M$ 是余向量 $df_p(v) = v(f)$。应用于坐标函数 $x^\mu$，便给出余向量 $dx^\mu$，满足
+>
 > $$
 > dx^\mu(\partial_\nu) = \partial_\nu(x^\mu) = \delta^\mu_\nu .
 > $$
@@ -208,9 +214,11 @@ $$
 > **定义 —— 一点处的张量。**
 >
 > $p$ 处的一个 **$(k,l)$ 型张量** 是一个多线性映射
+>
 > $$
 > T:\ \underbrace{T_p^*M\times\cdots\times T_p^*M}_{k}\ \times\ \underbrace{T_pM\times\cdots\times T_pM}_{l}\ \longrightarrow\ \mathbb{R},
 > $$
+>
 > 它对其 $k+l$ 个槽位中的每一个都是线性的。一个**张量场**光滑地给每一点指派这样一个张量。
 
 例子：一个 $(1,0)$ 型张量吞掉一个余向量，它就是一个向量（由二次对偶 $V^{**}\cong V$）；一个 $(0,1)$ 型张量是一个余向量；一个 $(0,2)$ 型张量是一个双线性形式（度量将是其中之一）。
@@ -326,9 +334,11 @@ $$
 > **定义 —— 外微分。**
 >
 > **外微分** $d$ 把 $k$-形式映为 $(k+1)$-形式。在 $0$-形式（函数）$f$ 上它是微分 $df = \partial_\mu f\,dx^\mu$。在一般形式 $\omega = \tfrac1{k!}\omega_{\mu_1\cdots\mu_k}dx^{\mu_1}\wedge\cdots\wedge dx^{\mu_k}$ 上，
+>
 > $$
 > d\omega = \frac1{k!}\,\partial_\nu \omega_{\mu_1\cdots\mu_k}\; dx^\nu\wedge dx^{\mu_1}\wedge\cdots\wedge dx^{\mu_k}.
 > $$
+>
 > 它是线性的，并对 $k$-形式 $\alpha$ 服从**分次莱布尼茨法则** $d(\alpha\wedge\beta) = d\alpha\wedge\beta + (-1)^{k}\alpha\wedge d\beta$。
 
 #### 定理：$d^2 = 0$
@@ -358,6 +368,7 @@ $k$-形式*恰好*是你要在 $k$ 维区域上积分的那种对象，因为它
 > **定理 —— 斯托克斯定理。**
 >
 > 设 $M$ 是带边界 $\partial M$ 的定向光滑 $n$ 维流形（$\partial M$ 取诱导定向），$\omega$ 是一个具紧支集的 $(n-1)$-形式。则
+>
 > $$
 > \int_M d\omega = \int_{\partial M}\omega .
 > $$
@@ -398,9 +409,11 @@ $$
 > **定义 —— 仿射联络 / 协变导数。**
 >
 > 一个**联络** $\nabla$ 给向量场指派一个作用于张量场的协变导数 $\nabla_\mu$，它是线性的、服从莱布尼茨法则，并在函数上退化为 $\partial_\mu$。在向量场上它的分量是
+>
 > $$
 > \nabla_\mu V^\nu = \partial_\mu V^\nu + \Gamma^\nu{}_{\mu\rho}\,V^\rho,
 > $$
+>
 > 其中 $\Gamma^\nu{}_{\mu\rho}$ 是**联络系数**（当由度量导出时即**克里斯托弗符号**）。在余向量上：$\nabla_\mu \omega_\nu = \partial_\mu\omega_\nu - \Gamma^\rho{}_{\mu\nu}\omega_\rho$。符号由要求 $\nabla_\mu(\omega_\nu V^\nu)=\partial_\mu(\omega_\nu V^\nu)$ 确定，因为 $\omega_\nu V^\nu$ 是标量。
 
 为使 $\nabla_\mu V^\nu$ 成为张量，$\Gamma$ 本身必须*非齐次地*变换，带一个恰好抵消上述讨厌项的二阶导数项。（因此 $\Gamma$ *不是*张量——它非张量性的变换正是其全部要义。）
@@ -414,6 +427,7 @@ $$
 > - **无挠的（对称的）：** $\Gamma^\rho{}_{\mu\nu}=\Gamma^\rho{}_{\nu\mu}$。
 >
 > 它的系数，即**克里斯托弗符号**，为
+>
 > $$
 > \Gamma^\rho{}_{\mu\nu} = \tfrac12\, g^{\rho\sigma}\big(\partial_\mu g_{\sigma\nu} + \partial_\nu g_{\sigma\mu} - \partial_\sigma g_{\mu\nu}\big).
 > $$
@@ -459,6 +473,7 @@ $$
 > **定义 —— 平行移动。**
 >
 > 向量场 $V$ 沿曲线 $x^\mu(\lambda)$ **平行移动**，如果它沿该曲线的协变导数为零：
+>
 > $$
 > \frac{DV^\mu}{d\lambda} := \dot x^\nu\nabla_\nu V^\mu = \frac{dV^\mu}{d\lambda} + \Gamma^\mu{}_{\nu\rho}\,\dot x^\nu V^\rho = 0 .
 > $$
@@ -468,9 +483,11 @@ $$
 #### 测地线作为最直的路径
 
 > **定义 —— 测地线（最直）。** 一条曲线是**测地线**，如果它平行移动自身的切向量：$\frac{D\dot x^\mu}{d\lambda}=0$。显式地，
+>
 > $$
 > \boxed{\ \ddot x^\mu + \Gamma^\mu{}_{\nu\rho}\,\dot x^\nu\dot x^\rho = 0\ }
 > $$
+>
 > 即**测地线方程**，其中点表示对**仿射参数** $\lambda$ 的 $d/d\lambda$。
 
 这就是"走直线：别转弯"。$\Gamma$ 项是把真正的转向与坐标网格的弯曲区别开来的修正。
@@ -511,6 +528,7 @@ $$
 > **定义 —— 经由对易子的黎曼张量。**
 >
 > 对无挠联络，**黎曼曲率张量** $R^\rho{}_{\sigma\mu\nu}$ 通过协变导数在向量场上的对易子的作用来定义：
+>
 > $$
 > (\nabla_\mu\nabla_\nu - \nabla_\nu\nabla_\mu)V^\rho = R^\rho{}_{\sigma\mu\nu}\,V^\sigma .
 > $$
@@ -518,6 +536,7 @@ $$
 左边关于 $V$ 是*代数性的*（$V$ 的导数无一幸存），这一点使 $R$ 成为一个真正的 $(1,3)$ 型张量；这是一个定理，通过展开两个 $\nabla\nabla$ 项并观察 $\partial V$ 部分按对称性相消而证明。
 
 > **定理 —— 用克里斯托弗符号表示的黎曼张量。**
+>
 > $$
 > R^\rho{}_{\sigma\mu\nu} = \partial_\mu\Gamma^\rho{}_{\nu\sigma} - \partial_\nu\Gamma^\rho{}_{\mu\sigma} + \Gamma^\rho{}_{\mu\lambda}\Gamma^\lambda{}_{\nu\sigma} - \Gamma^\rho{}_{\nu\lambda}\Gamma^\lambda{}_{\mu\sigma}.
 > $$
@@ -559,9 +578,11 @@ $$
 考虑一族单参数测地线 $x^\mu(\lambda,s)$，$s$ 标记相邻的测地线。设 $T^\mu = \partial x^\mu/\partial\lambda$ 为切向量，$S^\mu=\partial x^\mu/\partial s$ 为指向相邻测地线的**偏离向量**。
 
 > **定理 —— 测地偏离（雅可比方程）。**
+>
 > $$
 > \frac{D^2 S^\rho}{d\lambda^2} = -\,R^\rho{}_{\sigma\mu\nu}\,T^\sigma S^\mu T^\nu .
 > $$
+>
 > 邻近测地线的相对加速度*完全*由黎曼张量支配。
 
 *推导梗概。* $T$ 与 $S$ 都是该族的坐标向量场，故它们的李括号为零，这（对无挠联络）给出 $\nabla_T S = \nabla_S T$。计算二阶协变导数 $\frac{D^2S}{d\lambda^2}=\nabla_T\nabla_T S = \nabla_T\nabla_S T$，经由黎曼张量的定义（s10）交换导数，并用测地线方程 $\nabla_T T=0$ 丢掉一项。幸存的项就是上面的曲率缩并。$\blacksquare$
@@ -602,9 +623,11 @@ $$
 #### 场方程
 
 > **爱因斯坦场方程。**
+>
 > $$
 > R_{\mu\nu} - \tfrac12 g_{\mu\nu}R + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}\,T_{\mu\nu} .
 > $$
+>
 > 这里 $G$ 是牛顿常数，$c$ 是光速，$\Lambda$ 是**宇宙学常数**（同样无散度，因为 $\nabla g=0$，故被允许）。常数 $8\pi G/c^4$ 由要求在弱、慢、静场下取得**牛顿极限** $\nabla^2\Phi=4\pi G\rho$ 而确定。
 
 用惠勒的口号说：*时空告诉物质如何运动*（物质沿测地线运动，s9），*而物质告诉时空如何弯曲*（场方程）。本指南的两半——测地线与曲率——正是引力的两半。
@@ -621,6 +644,7 @@ $$
 > **定义 —— 李导数。**
 >
 > 设 $X$ 为生成流 $\phi_t$（方程 $\frac{d}{dt}\phi_t(p)=X_{\phi_t(p)}$ 的解）的向量场。张量 $T$ 沿 $X$ 的**李导数**是由流拉回的 $T$ 的变化率：
+>
 > $$
 > \mathcal{L}_X T = \lim_{t\to0}\frac{\phi_t^*T - T}{t}.
 > $$
@@ -639,6 +663,7 @@ $$
 > **定义 —— 基灵向量。**
 >
 > 一个向量场 $\xi$ 是**基灵向量场**，如果度量在它的流下不变，即 $\mathcal{L}_\xi g = 0$。等价地，由上面的公式，它满足**基灵方程**
+>
 > $$
 > \nabla_\mu \xi_\nu + \nabla_\nu \xi_\mu = 0 .
 > $$

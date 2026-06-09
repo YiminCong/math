@@ -389,9 +389,11 @@ Definitions:
 > **Connection — this is where calculus enters**
 >
 > For continuous variables, the density $f(x)$ plays the role of a function, and **probability is area under it**: the chance that $X$ lands between $a$ and $b$ is the area below the curve over that interval,
+>
 > $$
 > P(a\le X\le b)=\int_a^b f(x)\,dx.
 > $$
+>
 > Expectation becomes an integral, not a sum. The Normal curve (§s8), percentiles (§s3), and p-values (§s11) are *all* areas under a density — the integral calculus made concrete.
 
 **Linearity & sums**
@@ -534,9 +536,11 @@ Adult heights are roughly Normal with $\mu=170$ cm and $\sigma=10$ cm.
 > **Principle — the Central Limit Theorem (CLT)**
 >
 > Take repeated samples of size $n$ from *any* population whatsoever, with mean $\mu$ and SD $\sigma$. As $n$ grows, the distribution of the **sample mean** $\bar X$ becomes approximately Normal — **regardless of the original population's shape** — centered at $\mu$ with standard deviation $\sigma/\sqrt n$:
+>
 > $$
 > \bar X \approx N\!\left(\mu,\ \frac{\sigma^2}{n}\right)\quad\text{for large }n.
 > $$
+>
 > This is the single most important result in the subject. It is *why* Normal-based methods work on skewed, lumpy, real-world data: even if individual values are not Normal, their average is.
 
 **Why the CLT's center and spread are what they are (partial justification).** We do not prove the full bell-curve conclusion here (it requires advanced tools), but we *can* prove the two numbers. The center $\mu$ follows from linearity of expectation (§s6): $E[\bar X]=E\big[\frac1n\sum X_i\big]=\frac1n\sum E[X_i]=\frac1n\cdot n\mu=\mu$. The spread $\sigma/\sqrt n$ is derived in full in §s9. So the CLT's claim is "this average is approximately Normal, with the mean and SD we can already compute."

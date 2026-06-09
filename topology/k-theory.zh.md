@@ -91,9 +91,11 @@
 
 > **定义 —— 交换幺半群的 Grothendieck 群。**
 > 设 $(M,+,0)$ 是一个交换幺半群。它的 **Grothendieck 群** $\mathcal G(M)$ 是按如下方式定义的阿贝尔群。在集合 $M\times M$（把 $(a,b)$ 想成形式差“$a-b$”）上赋予等价关系
+>
 > $$
 > (a,b)\sim(c,d)\iff \exists\,k\in M:\ a+d+k=c+b+k.
 > $$
+>
 > 置 $\mathcal G(M)=(M\times M)/\!\sim$，加法为 $[(a,b)]+[(c,d)]=[(a+c,b+d)]$。$(a,0)$ 的类记为 $[a]$，且 $[(a,b)]=[a]-[b]$。
 
 额外的“$+k$”是必不可少的：没有它，当 $M$ 不具消去性时 $\sim$ 未必传递。让我们验证 $\mathcal G(M)$ 确实是一个群且具有泛性质。
@@ -131,10 +133,13 @@ $$
 
 > **定义 —— 秩同态与约化 K 理论。**
 > 设 $X$ 连通（使秩在每个丛上是良定义的整数）。**秩** $\mathrm{rk}:K^0(X)\to\mathbb{Z}$，$[E]-[F]\mapsto\mathrm{rk}\,E-\mathrm{rk}\,F$，是一个满的环同态。它的核是**约化 K 理论**
+>
 > $$
 > \tilde K^0(X):=\ker\big(\mathrm{rk}:K^0(X)\to\mathbb{Z}\big).
 > $$
+>
 > 等价地，选一个基点 $x_0\in X$，含入映射 $i:\{x_0\}\hookrightarrow X$，则 $\tilde K^0(X)=\ker\big(i^*:K^0(X)\to K^0(\mathrm{pt})=\mathbb{Z}\big)$，并存在一个典范分裂
+>
 > $$
 > K^0(X)\cong\tilde K^0(X)\oplus\mathbb{Z}.
 > $$
@@ -159,9 +164,11 @@ $$
 **线丛与黏合。** 为计算 $K^0(S^2)$，我们需要知道球面上的丛。工具是*黏合*：在两个半球上分别平凡化，沿赤道黏合，由此在 $S^n$ 上构造一个丛。
 
 > **构造 —— $S^n$ 上的黏合。** 把 $S^n=D_+^n\cup_{S^{n-1}}D_-^n$ 写成两个沿边界赤道 $S^{n-1}$ 黏合的闭圆盘。在每个圆盘上平凡的丛，至多在同构意义下，由一个连续的**黏合函数** $g:S^{n-1}\to GL_n(\mathbb{C})$ 决定，它指明两个平凡丛在赤道上如何被等同。同伦的黏合函数给出同构的丛，而 $\oplus$ 对应块和 $g\mapsto g\oplus g'$。于是
+>
 > $$
 > \mathrm{Vect}_n(S^k)\cong[S^{k-1},GL_n(\mathbb{C})]=\pi_{k-1}(GL_n(\mathbb{C})),
 > $$
+>
 > 即从赤道到 $GL_n(\mathbb{C})$ 的映射的同伦类集合（因 $GL_n$ 是拓扑群，经 $\pi_{k-1}$ 成为一个群）。
 
 *为何同伦的黏合函数给出同构的丛：* 一个同伦 $g_t$ 是 $S^k\times[0,1]$ 上某个丛的黏合函数，其两端是那两个丛；柱面上丛的同伦不变性（§s1）将它们等同。
@@ -173,14 +180,17 @@ $$
 生成元（缠绕数 $1$）是 **Hopf 线丛** $H$，即 $\mathbb{CP}^1=S^2$ 的重言线丛，其在直线 $\ell\subset\mathbb{C}^2$ 上的纤维就是 $\ell$ 本身。线丛的张量积使缠绕数相加：$H^{\otimes m}$ 的缠绕数为 $m$，故 $\mathrm{Vect}_1(S^2)\cong\mathbb{Z}$ 在 $\otimes$ 下是一个*群*（**Picard 群**），$H$ 为生成元，$H^{-1}=H^*$。
 
 > **一条关键关系 —— 基本乘积关系。** 在 $K^0(S^2)$ 中，
+>
 > $$
 > (\,[H]-1\,)^2=0,\qquad\text{等价地}\qquad [H]^2=2[H]-1,
 > $$
+>
 > 其中 $1=[\underline{\mathbb{C}}]$。
 
 **该关系的演示。** $(H-1)^2=H^2-2H+1=H\otimes H-2H+1$。作为丛，$H\otimes H\oplus\underline{\mathbb{C}}\cong H\oplus H$：二者都是 $S^2$ 上秩为 $2$ 的丛，黏合函数在 $\otimes$ 下相乘、在 $\oplus$ 下（块）相加，故 $H\otimes H$ 的黏合为 $z\mapsto z^2$，而 $H\oplus H$ 的黏合为 $z\mapsto\mathrm{diag}(z,z)$；矩阵 $\mathrm{diag}(z^2,1)$ 与 $\mathrm{diag}(z,z)$ 在 $GL_2(\mathbb{C})$ 中同伦（二者行列式缠绕数都为 $2$，且 $GL_2(\mathbb{C})$ 连通、其 $\pi_1=\mathbb{Z}$ 由行列式探测）。因此作为丛 $H^2+1\cong 2H$，在 $K^0(S^2)$ 中给出 $H^2-2H+1=0$。$\square$
 
 > **定理（$K^0(S^2)$ 的计算）。** 作为环，
+>
 > $$
 > K^0(S^2)\cong\mathbb{Z}[H]/\big((H-1)^2\big),\qquad \tilde K^0(S^2)\cong\mathbb{Z}\ \text{由 }(H-1)\text{ 生成}.
 > $$
@@ -205,17 +215,21 @@ $$
 > **定义 —— 约化悬挂与基点。** 对带基点 $x_0$ 的空间 $X$，**约化悬挂**为 $\Sigma X=(X\times[0,1])/\big(X\times\{0\}\cup X\times\{1\}\cup\{x_0\}\times[0,1]\big)$——把顶、底以及基点线坍缩成单个点。于是 $\Sigma S^n=S^{n+1}$。此处所有空间都是**带基点**的紧 Hausdorff 空间，映射保持基点。
 
 > **定义 —— 负 K 群。** 对 $n\ge 0$，
+>
 > $$
 > \tilde K^{-n}(X):=\tilde K^0(\Sigma^n X),\qquad K^{-n}(X):=\tilde K^{-n}(X_+),
 > $$
+>
 > 其中 $\Sigma^n$ 是 $n$ 重约化悬挂，$X_+=X\sqcup\{*\}$ 是给 $X$ 添加一个不相交基点（这个技巧使无基点/相对的公式可以统一地表述；注意 $\tilde K^0(X_+)=K^0(X)$）。
 
 这之所以是*正确*的定义，是因为对普通约化上同调有**悬挂同构** $\tilde H^{n}(X)\cong\tilde H^{n+1}(\Sigma X)$；定义 $\tilde K^{-n}(X)=\tilde K^0(\Sigma^n X)$ 是把这种悬挂行为人为地内建进 K 理论，故所得的分次对象将自动满足悬挂公理（§s6）。
 
 > **定义 —— 相对 K 理论。** 对紧对 $(X,A)$（$A\subseteq X$ 闭），定义**商** $X/A$（把 $A$ 坍缩成一点，即基点），并置
+>
 > $$
 > K^0(X,A):=\tilde K^0(X/A),\qquad K^{-n}(X,A):=\tilde K^{-n}(X/A)=\tilde K^0(\Sigma^n(X/A)).
 > $$
+>
 > 当 $A=\varnothing$ 时，$X/\varnothing=X_+$，我们恢复 $K^{-n}(X)$。相对类是 $X$ 上在 $A$ 上被平凡化的虚丛，模去尊重该平凡化的等价关系。
 
 > **相对类的具体模型（差丛）。** $K^0(X,A)$ 的一个元素由三元组 $(E,F,\alpha)$ 表示，其中 $E,F$ 是 $X$ 上的丛，连同 $A$ 上的一个同构 $\alpha:E|_A\cong F|_A$；该类是“$[E]-[F]$ 配以 $A$ 上选定的平凡化”。两个三元组等价，若它们在稳定化和 $\alpha$ 的同伦后一致。这是指标定理（§s10）中所用的实用描述。
@@ -239,10 +253,13 @@ $$
 K 理论的根本奇迹。
 
 > **定理（Bott 周期性，复情形）。** 对每个紧的带基点空间 $X$，存在一个自然同构
+>
 > $$
 > \beta:\tilde K^0(X)\xrightarrow{\ \cong\ }\tilde K^0(\Sigma^2 X)=\tilde K^{-2}(X),
 > $$
+>
 > 由乘以 **Bott 类** $b\in\tilde K^0(S^2)$，$b=[H]-1$，给出。等价地对所有 $n$ 有 $\tilde K^{-n}(X)\cong\tilde K^{-n-2}(X)$，特别地
+>
 > $$
 > \tilde K^0(S^n)=\begin{cases}\mathbb{Z}&n\text{ 偶}\\0&n\text{ 奇.}\end{cases}
 > $$
@@ -292,14 +309,17 @@ $$
 我们现在验证 $\{\tilde K^{-n}\}$ 服从 Eilenberg–Steenrod 公理减去维数公理——即（约化）**广义上同调理论**的定义。
 
 > **定义 —— 约化广义上同调理论。** 一列从带基点紧空间到阿贝尔群的逆变同伦函子 $\tilde h^n$（$n\in\mathbb{Z}$），带有自然的**悬挂同构** $\sigma:\tilde h^n(X)\cong\tilde h^{n+1}(\Sigma X)$，使得对每个带基点的对（上纤维化 $A\hookrightarrow X$），序列
+>
 > $$
 > \tilde h^n(X/A)\to\tilde h^n(X)\to\tilde h^n(A)
 > $$
+>
 > 正合，且满足**楔公理** $\tilde h^n(\bigvee_\alpha X_\alpha)\cong\prod_\alpha\tilde h^n(X_\alpha)$。舍弃*维数公理*（对 $n\ne 0$ 有 $\tilde h^n(S^0)=0$）正是使它“广义”之所在。
 
 **对的正合列。** 基础的正合性是对 $K^0$ 与一个上纤维化而言的。
 
 > **命题（正合性）。** 对紧对 $(X,A)$，含入 $i:A\hookrightarrow X$ 与坍缩 $q:X\to X/A$ 给出正合列
+>
 > $$
 > \tilde K^0(X/A)\xrightarrow{q^*}\tilde K^0(X)\xrightarrow{i^*}\tilde K^0(A).
 > $$
@@ -353,10 +373,13 @@ K 理论与普通上同调在整数意义上是不同的（K 理论 $2$ 周期�
 Chern 特征标是唯一既加性*又*乘性的环映射 $K^0\to H^{\mathrm{even}}(\,\cdot\,;\mathbb{Q})$；定义它的技巧是**分裂原理**加上 Chern 根的指数。
 
 > **定义 —— Chern 特征标。** 设（分裂原理）$E$ 形式地分裂为线丛之和，$c(E)=\prod_{j=1}^n(1+x_j)$，其中 **Chern 根** $x_j\in H^2$ 是形式的；$x_j$ 的第 $i$ 个初等对称多项式是 $c_i(E)$。定义
+>
 > $$
 > \mathrm{ch}(E)=\sum_{j=1}^n e^{x_j}=\sum_{j=1}^n\Big(1+x_j+\tfrac{x_j^2}{2!}+\cdots\Big)\in H^{\mathrm{even}}(X;\mathbb{Q}).
 > $$
+>
 > 由于 $\sum_j e^{x_j}$ 在 $x_j$ 中对称，它是 $c_i(E)$ 的多项式，故 $\mathrm{ch}(E)$ 良定义，不依赖于形式分裂。低阶项：
+>
 > $$
 > \mathrm{ch}(E)=\mathrm{rk}(E)+c_1(E)+\tfrac12\big(c_1(E)^2-2c_2(E)\big)+\cdots
 > $$
@@ -378,12 +401,15 @@ Chern 特征标是唯一既加性*又*乘性的环映射 $K^0\to H^{\mathrm{even
 > $$
 > \mathrm{ch}(E\otimes F)=\sum_{j,k}e^{x_j+y_k}=\Big(\sum_j e^{x_j}\Big)\Big(\sum_k e^{y_k}\Big)=\mathrm{ch}(E)\,\mathrm{ch}(F),
 > $$
+>
 > 用到 $e^{a+b}=e^ae^b$。*（指数律；$\otimes$ 对 $\oplus$ 的双线性性）* $\square$
 
 > **定理（有理同构 / Chern 特征标同构）。** 对有限 CW 复形 $X$，Chern 特征标诱导出 $\mathbb{Z}/2$ 分次环的同构
+>
 > $$
 > \mathrm{ch}:K^*(X)\otimes_{\mathbb{Z}}\mathbb{Q}\ \xrightarrow{\ \cong\ }\ H^{\mathrm{even}}(X;\mathbb{Q})\oplus H^{\mathrm{odd}}(X;\mathbb{Q})=H^*(X;\mathbb{Q}),
 > $$
+>
 > 其中 $K^0\otimes\mathbb{Q}\cong H^{\mathrm{even}}$ 且 $K^1\otimes\mathbb{Q}\cong H^{\mathrm{odd}}$。
 
 *证明思路。* 两边都是广义上同调理论（右边经 $H^{\mathrm{even/odd}}$ 用 $\mathbb{Q}$ 系数做成 $2$ 周期），$\mathrm{ch}$ 是它们之间的自然变换，且它在点上是同构（$K^0(\mathrm{pt})\otimes\mathbb{Q}=\mathbb{Q}=H^0(\mathrm{pt};\mathbb{Q})$，所有更高项为 $0$）。上同调理论间在点上为同构的自然变换，在所有有限复形上都是同构——这是**比较定理**，用五引理和长正合列对胞腔作归纳证明。$\square$
@@ -406,6 +432,7 @@ $$
 > **定义 —— Thom 空间。** 对带 Hermite 度量的秩为 $n$ 的复向量丛 $\pi:V\to X$，**Thom 空间**为 $X^V:=D(V)/S(V)$，即把单位球面丛坍缩后的单位圆盘丛。对平凡丛 $X^{\underline{\mathbb{C}}^n}=\Sigma^{2n}(X_+)$。
 
 > **定理（K 理论中的 Thom 同构）。** 设 $V\to X$ 为秩 $n$ 的复向量丛。存在一个 **Thom 类** $\lambda_V\in\tilde K^0(X^V)$，使得乘以它是一个同构
+>
 > $$
 > \Phi:K^0(X)\xrightarrow{\ \cong\ }\tilde K^0(X^V),\qquad \Phi(a)=\pi^*a\cdot\lambda_V.
 > $$
@@ -423,9 +450,11 @@ $$
 > **定义 —— K 定向；复丛是 K 可定向的。** 一个实向量丛（或经其稳定法/切丛得到的流形映射）称为 **K 可定向**，若其 Thom 空间携带一个使 $\Phi$ 成为同构的 Thom 类。上述构造表明**每个复向量丛都典范地 K 可定向**。更一般地，一个实丛 K 可定向当且仅当它容许一个 $\mathrm{Spin}^c$ 结构——可定向性的 K 理论加细。*（对普通上同调，可定向性 $\leftrightarrow$ $w_1=0$；K 可定向性 $\leftrightarrow$ $\mathrm{Spin}^c$，即 $W_3=0$。）*
 
 > **定义 —— 前推（Gysin 映射）。** 设 $f:X\to Y$ 是闭流形间的光滑映射且 K 定向（例如带复法丛的嵌入，或 $\mathrm{Spin}^c$ 流形间的任何映射）。则存在一个**前推**（逆向 / Gysin 映射）
+>
 > $$
 > f_!:K^*(X)\to K^{*+d}(Y),\qquad d=\dim Y-\dim X,
 > $$
+>
 > 构造如下：(i) 把 $X\hookrightarrow Y\times\mathbb{R}^N$ 嵌入；(ii) 在管状邻域上施加 Thom 同构（其法丛 K 定向）；(iii) 用零延拓并借 Bott 周期性下降悬挂。它满足函子性 $(g\circ f)_!=g_!f_!$ 与**投影公式** $f_!(f^*b\cdot a)=b\cdot f_!(a)$。
 
 **例题 —— 点上线丛的 Thom 类。** 取 $X=\mathrm{pt}$ 和 $V=\mathbb{C}$（点上秩为 $1$ 的丛）。Thom 空间为 $\mathrm{pt}^{\mathbb{C}}=D^2/S^1=S^2$。外代数复形为 $0\to\Lambda^0\mathbb{C}=\mathbb{C}\xrightarrow{\wedge v}\Lambda^1\mathbb{C}=\mathbb{C}\to0$，即乘以标量 $v$，对 $v\ne0$ 是同构。Thom 类是 $\lambda_V=[\Lambda^0]-[\Lambda^1]$，在 $0$ 之外平凡化，它在 $\tilde K^0(S^2)$ 中至多差一个符号恰是 $-(H-1)$——即 Bott 生成元。故 K 理论的 Thom 同构 $K^0(\mathrm{pt})=\mathbb{Z}\xrightarrow{\cong}\tilde K^0(S^2)=\mathbb{Z}$，$1\mapsto\lambda_V$，*就是*伪装的 Bott 周期性。这是看清“为何 $\underline{\mathbb{C}}^n$ 的 Thom 类生成 $\tilde K^0(S^{2n})$”以及“为何复丛之 K 可定向建立在同一周期性之上”的最干净方式。
@@ -452,12 +481,14 @@ $$
 > **定义 —— Clifford 代数。** 对带标准负定形式的 $\mathbb{R}^n$，**Clifford 代数** $\mathrm{Cl}_n$ 是由 $e_1,\dots,e_n$ 生成、服从 $e_ie_j+e_je_i=-2\delta_{ij}$ 的结合实代数。（故 $e_i^2=-1$ 且相异生成元反交换。）其表示论是 $8$ 周期的：$\mathrm{Cl}_{n+8}\cong\mathrm{Cl}_n\otimes\mathbb{R}(16)$（矩阵代数），此事实归因于实可除代数 $\mathbb{R},\mathbb{C},\mathbb{H}$。
 
 > **定理（实 Bott 周期性）。** $\tilde{KO}^{-n}(\mathrm{pt})=\tilde{KO}^0(S^n)$ 关于 $n$ 是 $8$ 周期的，取值为
+>
 > $$
 > \begin{array}{c|cccccccc}
 > n\bmod 8 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\\hline
 > KO^{-n}(\mathrm{pt}) & \mathbb{Z} & \mathbb{Z}/2 & \mathbb{Z}/2 & 0 & \mathbb{Z} & 0 & 0 & 0
 > \end{array}
 > $$
+>
 > 且 $KO^{-n-8}(\mathrm{pt})\cong KO^{-n}(\mathrm{pt})$。
 
 与 Clifford 代数的联系（Atiyah–Bott–Shapiro）：差 $KO^{-n}(\mathrm{pt})\cong M_n/i^*M_{n+1}$，其中 $M_n$ 是 $\mathrm{Cl}_n$ 模的 Grothendieck 群，$i^*$ 沿 $\mathrm{Cl}_n\hookrightarrow\mathrm{Cl}_{n+1}$ 作限制——Clifford 代数的表示论*计算*同伦群，而 Clifford 模的 $8$ 重周期性就是实 Bott 周期性。$\mathbb{Z}/2$ 出现在次数 $1,2$ 处，是真正的挠，任何有理不变量都看不见——这是带 $\mathbb{Q}$ 系数的普通上同调无法察觉的现象。
@@ -478,9 +509,11 @@ $$
 K 理论有一个纯解析的化身，适用于（非交换）代数，与算子理论相统一。
 
 > **定义 —— C\*-代数的 K 理论。** 对带单位的 C\*-代数 $A$（一个满足 $\|a^*a\|=\|a\|^2$ 的复 Banach $*$-代数，例如 $A=C(X)$，紧 $X$ 上的连续函数），把 $K_0(A)$ 定义为矩阵代数 $M_\infty(A)$ 中**投影** $p=p^*=p^2$ 在（Murray–von Neumann）等价与稳定化意义下的 Grothendieck 群，把 $K_1(A)$ 经 $M_\infty(A)$ 中酉元的同伦类定义。**Serre–Swan / Gelfand：** 对 $A=C(X)$，有限生成投射 $A$ 模对应于 $X$ 上的向量丛，给出
+>
 > $$
 > K_0(C(X))\cong K^0(X),\qquad K_1(C(X))\cong K^1(X).
 > $$
+>
 > 于是拓扑 K 理论是算子 K 理论的交换情形；后者把理论扩展到*非交换空间*。
 
 六项正合列（§s6）在此对一个理想 $0\to I\to A\to A/I\to 0$ 出现，是算子代数中计算的基石。
@@ -494,9 +527,11 @@ $$
 > **定义 —— K 同调。** 对偶理论 $K_*(X)$（**K 同调**）由 **Fredholm 模** / 抽象椭圆算子表示：一个类（粗略地）是一个带有 $C(X)$ 表示的 Hilbert 空间，连同一个几乎与该表示交换的自伴 Fredholm 算子 $F$。具体地，流形 $X$ 上的一个**椭圆微分算子** $D$（例如 Dirac 算子）定义一个 K 同调类 $[D]\in K_*(X)$。
 
 > **定理（Atiyah–Singer 指标定理，K 理论形式）。** 对闭流形 $X$ 上的椭圆算子 $D$，**解析指标** $\mathrm{ind}(D)=\dim\ker D-\dim\mathrm{coker}\,D\in\mathbb{Z}$ 等于**拓扑指标**：符号类 $[\sigma_D]\in K^0(TX)$ 与基本类的配对，经前推到点来计算，
+>
 > $$
 > \mathrm{ind}(D)=p_!\,[\sigma_D]\in K^0(\mathrm{pt})=\mathbb{Z}.
 > $$
+>
 > 经 Chern 特征标与 Riemann–Roch 公式（§s8），这变为上同调指标公式 $\mathrm{ind}(D)=\int_X\mathrm{ch}(\sigma_D)\,\mathrm{Td}(TX\otimes\mathbb{C})$。
 
 **例题 —— 环面上的指标定理与最简单的 Gauss–Bonnet 检验。** 对闭定向曲面 $\Sigma$ 上的 de Rham / Euler 算子 $D=d+d^*$，解析指标是 $\dim\ker-\dim\mathrm{coker}=\sum_k(-1)^k b_k=\chi(\Sigma)$，即 Euler 示性数。拓扑一侧计算 $\int_\Sigma e(T\Sigma)$，即 Euler 类的积分。在环面 $T^2$ 上，$\chi=0$，确实 $\int_{T^2}e=0$（环面可平行化，Euler 类为零）；在 $S^2$ 上，$\chi=2=\int_{S^2}e$。K 理论的陈述把 $d+d^*$ 的符号打包成 $K^0(T\Sigma)$ 中的一个类并把它推到 $\mathbb{Z}$，返回 $\chi$——以三种方式（代数拓扑的交错和、解析指标、曲率积分）得到同一个数，现在被看成单个 K 理论前推。这是指标定理特殊化到经典 Gauss–Bonnet 定理的情形，而 K 理论作为记账使得向*任何*椭圆算子的推广自动成立。

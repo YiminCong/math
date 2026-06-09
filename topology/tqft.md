@@ -43,18 +43,22 @@ We begin with the geometry: what exactly are the pieces we glue?
 
 > **Definition — cobordism.**
 > Let $\Sigma_0$ and $\Sigma_1$ be closed oriented $(n-1)$-manifolds. A **cobordism from $\Sigma_0$ to $\Sigma_1$** is a compact oriented $n$-manifold $M$ with boundary, together with an orientation-preserving identification
+>
 > $$
 > \partial M \;\cong\; \overline{\Sigma_0}\,\sqcup\,\Sigma_1 ,
 > $$
+>
 > where $\sqcup$ is disjoint union. We call $\Sigma_0$ the **incoming** (source) boundary and $\Sigma_1$ the **outgoing** (target) boundary, and write $M:\Sigma_0\to\Sigma_1$. The orientation reversal on the incoming end is the bookkeeping that makes gluing work: an outgoing end of one cobordism must match the *reversed* incoming end of the next.
 
 *Worked example — the pair of pants.* Take $n=2$. The circle $S^1$ is a closed $1$-manifold. The "pair of pants" is a sphere with three holes: a surface $P$ with $\partial P=\overline{S^1\sqcup S^1}\sqcup S^1$. Read as a cobordism $P:S^1\sqcup S^1\to S^1$, it is "two circles come in, one circle goes out" — geometrically, two loops merging into one. We will see in §s5 that this single surface *is* the multiplication of a Frobenius algebra.
 
 > **Definition — gluing (composition of cobordisms).**
 > Given $M:\Sigma_0\to\Sigma_1$ and $N:\Sigma_1\to\Sigma_2$, their **composite** $N\circ M:\Sigma_0\to\Sigma_2$ is formed by gluing $M$ and $N$ along their common boundary $\Sigma_1$:
+>
 > $$
 > N\circ M \;=\; M\cup_{\Sigma_1} N .
 > $$
+>
 > Concretely one identifies the outgoing copy of $\Sigma_1$ in $M$ with the incoming copy of $\Sigma_1$ in $N$ point-for-point. A standard theorem of differential topology (the *collar neighborhood theorem*: every boundary has a neighborhood looking like $\Sigma_1\times[0,1)$) guarantees the result is again a smooth manifold with boundary $\overline{\Sigma_0}\sqcup\Sigma_2$.
 
 A subtlety: gluing is only associative and unital *up to homeomorphism*, not on the nose, because a glued cylinder is homeomorphic but not equal to the original. The standard fix is to take **arrows of $\mathrm{Cob}(n)$ to be cobordisms up to orientation-preserving homeomorphism fixing the boundary** (equivalently, diffeomorphism in the smooth setting). Then composition is strictly associative, and the *cylinder* $\Sigma\times[0,1]:\Sigma\to\Sigma$ acts as an identity, because gluing a collar onto a manifold reproduces it up to the chosen equivalence.
@@ -75,9 +79,11 @@ Let us verify the category axioms, since they are the foundation of everything.
 Thus $\mathrm{Cob}(n)$ is a genuine category. It has one more crucial structure — *disjoint union* of manifolds, $\sqcup$ — which lets us "place cobordisms side by side." Formalizing side-by-side placement is the job of the next section.
 
 > **Worked example — the toy category $\mathrm{Cob}(1)$.** Take $n=1$. The closed $0$-manifolds are finite sets of oriented points; write $+$ for a positively-oriented point and $-$ for a negatively-oriented one. The $1$-dimensional cobordisms are compact $1$-manifolds-with-boundary — disjoint unions of *intervals* and *circles*. Up to homeomorphism every such cobordism is built from four pieces: the identity interval $+\to+$, the "cup" $\mathrm{coev}:\varnothing\to(-{}+)$ (a $\cup$-shaped arc joining nothing to a $-,+$ pair), the "cap" $\mathrm{ev}:(+{}-)\to\varnothing$ (a $\cap$-shaped arc), and the circle $S^1:\varnothing\to\varnothing$. The single nontrivial relation is the *zigzag*: straightening an $\cup$ then $\cap$ arc gives a plain interval,
+>
 > $$
 > (\mathrm{ev}\otimes 1)\circ(1\otimes\mathrm{coev})=1_{+}.
 > $$
+>
 > We will see in §s3 that this very identity forces every TQFT state space to be finite-dimensional, and in §s10 that it is the defining equation of a *dualizable object*. The small category $\mathrm{Cob}(1)$ is already the cobordism hypothesis in miniature.
 
 <a id="s2"></a>
@@ -124,9 +130,11 @@ We will use coherence as a license to write $A\otimes B\otimes C$ without parent
 Let us verify one coherence axiom by hand, to see that these conditions are concrete checks, not decoration.
 
 > **Worked verification — the triangle axiom in $\mathbf{Vect}_k$.** The triangle axiom demands that the two ways of simplifying $A\otimes\mathbf{1}\otimes B$ agree:
+>
 > $$
 > (1_A\otimes\lambda_B)\circ\alpha_{A,\mathbf{1},B}=\rho_A\otimes 1_B.
 > $$
+>
 > Take $A=B=k^2$ and the unit $\mathbf 1=k$. Pick $a\otimes c\otimes b\in A\otimes k\otimes B$ with $a,b\in k^2$, $c\in k$. The associator $\alpha$ merely reparenthesizes, $a\otimes(c\otimes b)$; then $1_A\otimes\lambda_B$ sends $c\otimes b\mapsto cb$, giving $a\otimes(cb)$. The right side $\rho_A\otimes 1_B$ sends $a\otimes c\mapsto ca$, giving $(ca)\otimes b=a\otimes(cb)$ by bilinearity (scalars pass through $\otimes$). The two outputs are equal element-by-element, so the triangle commutes. *Reason it works:* both routes do the same arithmetic — multiply by the scalar $c$ once. This is the kind of bookkeeping Mac Lane coherence guarantees in *every* monoidal category at once.
 
 <a id="s3"></a>
@@ -136,9 +144,11 @@ Let us verify one coherence axiom by hand, to see that these conditions are conc
 
 > **Definition — $n$-dimensional TQFT (Atiyah–Segal).**
 > An **$n$-dimensional topological quantum field theory** over a field $k$ is a *symmetric monoidal functor*
+>
 > $$
 > Z:\big(\mathrm{Cob}(n),\sqcup,\varnothing\big)\longrightarrow\big(\mathbf{Vect}_k,\otimes,k\big).
 > $$
+>
 > Unwinding the words, $Z$ assigns:
 > - to each closed oriented $(n-1)$-manifold $\Sigma$, a vector space $Z(\Sigma)$ (its **state space**);
 > - to each cobordism $M:\Sigma_0\to\Sigma_1$, a linear map $Z(M):Z(\Sigma_0)\to Z(\Sigma_1)$ (its **amplitude** or **transition map**);
@@ -153,9 +163,11 @@ Let us verify one coherence axiom by hand, to see that these conditions are conc
 Two consequences follow immediately and are worth recording because they are how TQFTs produce *numbers*.
 
 > **Closed manifolds give numbers.** A *closed* oriented $n$-manifold $X$ has empty boundary, so it is a cobordism $X:\varnothing\to\varnothing$. Hence
+>
 > $$
 > Z(X):Z(\varnothing)\to Z(\varnothing),\qquad\text{i.e.}\qquad Z(X):k\to k,
 > $$
+>
 > which is multiplication by a scalar $Z(X)\in k$. *Reason:* a linear map $k\to k$ is determined by where it sends $1$. This scalar is the numerical invariant of $X$. By functoriality it is computed by cutting $X$ into cobordisms and composing the resulting maps — invariants from gluing, made literal.
 
 > **State spaces are finite-dimensional.** For each closed $\Sigma$, the vector space $Z(\Sigma)$ is finite-dimensional. *Proof:* Let $C=\Sigma\times[0,1]$, the cylinder. As a cobordism it can be re-read in two ways: as the identity $\Sigma\to\Sigma$, and — by bending it — as a cobordism $\varnothing\to\Sigma\sqcup\overline{\Sigma}$ (the "cup," call its image $\mathrm{coev}$) followed in another bend by $\Sigma\sqcup\overline{\Sigma}\to\varnothing$ (the "cap," call it $\mathrm{ev}$). The *S-diagram* (zigzag) identity $(\mathrm{ev}\otimes 1)\circ(1\otimes\mathrm{coev})=1_\Sigma$, which holds as a homeomorphism of cobordisms (straightening a zigzag), forces $Z(\Sigma)$ to be a *dualizable* object of $\mathbf{Vect}_k$. *Reason:* a vector space is dualizable in $(\mathbf{Vect}_k,\otimes)$ if and only if it is finite-dimensional — the coevaluation $k\to V\otimes V^\ast$, $1\mapsto\sum e_i\otimes e_i^\ast$, exists only with a finite basis. Hence $\dim Z(\Sigma)<\infty$. This single argument is the seed of the cobordism hypothesis (§s9).
@@ -163,9 +175,11 @@ Two consequences follow immediately and are worth recording because they are how
 > **Intuition and pitfalls.** *Intuition:* think of $Z(\Sigma)$ as the Hilbert space of a quantum system living on the spatial slice $\Sigma$, and $Z(M)$ as the time-evolution operator for the spacetime $M$ — except the "evolution" depends only on topology. *Pitfall 1:* the gluing axiom requires the gluing to match orientations; reversing an end requires $\overline{\Sigma}$, whose state space is the *dual* $Z(\Sigma)^\ast$. *Pitfall 2:* finite-dimensionality is forced, not assumed; theories that want infinite-dimensional state spaces (most of "real" quantum field theory) are *not* topological.
 
 > **Worked example — the trivial $1$d TQFT, computed end to end.** Let $n=1$, so $\mathrm{Cob}(1)$ is the toy category of §s1. Define $Z$ by $Z(+)=V$ for a fixed finite-dimensional space $V=k^d$ and $Z(-)=V^\ast$, with $Z(\mathrm{coev})=\mathrm{coev}:k\to V\otimes V^\ast$, $1\mapsto\sum_i e_i\otimes e_i^\ast$, and $Z(\mathrm{ev})=\mathrm{ev}:V^\ast\otimes V\to k$, $f\otimes v\mapsto f(v)$. The closed $1$-manifold is the circle $S^1:\varnothing\to\varnothing$, obtained by gluing a cup to a cap, so
+>
 > $$
 > Z(S^1)=\mathrm{ev}\circ\mathrm{coev}:k\to k,\qquad 1\mapsto \mathrm{ev}\Big(\sum_i e_i\otimes e_i^\ast\Big)=\sum_i e_i^\ast(e_i)=\sum_i 1=d .
 > $$
+>
 > So the circle's invariant is $Z(S^1)=d=\dim V$ — the categorical *trace of the identity*. With $V=k^3$ we get the number $3$. This is the smallest nontrivial instance of "invariants from gluing": a number ($\dim V$) extracted by composing a cup and a cap, the whole computation forced by the zigzag relation of §s1.
 
 The definition is elegant but abstract. The next two sections make it utterly concrete in dimension two, where a TQFT turns out to be a single, small algebraic gadget.
@@ -185,25 +199,32 @@ The definition is elegant but abstract. The next two sections make it utterly co
 
 > **Definition — Frobenius algebra.**
 > A **Frobenius algebra** over $k$ is a vector space $A$ that is simultaneously an algebra $(m,u)$ and a coalgebra $(\Delta,\varepsilon)$, such that the **Frobenius relation** holds:
+>
 > $$
 > (m\otimes 1)\circ(1\otimes\Delta)\;=\;\Delta\circ m\;=\;(1\otimes m)\circ(\Delta\otimes 1).
 > $$
+>
 > Equivalently and more concretely, a Frobenius algebra is a finite-dimensional algebra $A$ equipped with a linear functional $\varepsilon:A\to k$ (the **counit** or **trace**) whose associated pairing
+>
 > $$
 > \langle a,b\rangle:=\varepsilon(m(a,b))=\varepsilon(ab)
 > $$
+>
 > is **nondegenerate** (if $\langle a,b\rangle=0$ for all $b$ then $a=0$). It is **commutative** if its multiplication is commutative. The two descriptions agree: given $\varepsilon$ with nondegenerate pairing, one *defines* $\Delta$ as the unique map making the Frobenius relation hold; conversely $\Delta,\varepsilon$ recover the pairing.
 
 > **Theorem (Dijkgraaf; the 2d TQFT classification).**
 > There is an equivalence of categories
+>
 > $$
 > \{\,2\text{d TQFTs over }k\,\}\;\simeq\;\{\,\text{commutative Frobenius algebras over }k\,\}.
 > $$
+>
 > Concretely, a $2$d TQFT $Z$ determines the commutative Frobenius algebra $A=Z(S^1)$, and conversely every commutative Frobenius algebra arises from a unique (up to isomorphism) $2$d TQFT.
 
 We prove both directions. The proof rests on a generators-and-relations presentation of $\mathrm{Cob}(2)$.
 
 > **Lemma (presentation of $\mathrm{Cob}(2)$).** Every object of $\mathrm{Cob}(2)$ is a disjoint union of circles, so it is determined by a number $\ge 0$ of circles; thus objects are the natural numbers under $\sqcup=+$. Every connected oriented surface-with-boundary is, up to homeomorphism, a sphere with some incoming holes, some outgoing holes, and $g$ handles, and every such surface is a composite of disjoint unions of the five **generating cobordisms**:
+>
 > $$
 > \underbrace{S^1\!\sqcup S^1\to S^1}_{\text{pair of pants }m},\quad
 > \underbrace{\varnothing\to S^1}_{\text{cap }u},\quad
@@ -211,6 +232,7 @@ We prove both directions. The proof rests on a generators-and-relations presenta
 > \underbrace{S^1\to\varnothing}_{\text{cup }\varepsilon},\quad
 > \underbrace{S^1\to S^1}_{\text{twist }\beta}.
 > $$
+>
 > The relations among them are exactly: associativity and unit (for $m,u$), coassociativity and counit (for $\Delta,\varepsilon$), commutativity (the twist), and the Frobenius relation.
 
 *Why the lemma holds (sketch with the key step).* This is *Morse theory* applied to the height function on a surface. Choose a smooth real function $h:M\to[0,1]$ with $h^{-1}(0)=\Sigma_0$, $h^{-1}(1)=\Sigma_1$, and only nondegenerate critical points at distinct heights (a *Morse function*; one always exists). As $t$ increases through $[0,1]$, the level set $h^{-1}(t)$ is a disjoint union of circles that changes only when $t$ passes a critical point. Each critical point of a $2$-manifold has *index* $0$, $1$, or $2$, and the elementary surface created there is:
@@ -244,9 +266,11 @@ Hence $A=Z(S^1)$ is a commutative Frobenius algebra.
 The two constructions are mutually inverse: starting from $Z$, reading off $A$, and rebuilding the functor returns $Z$ (they agree on generators); starting from $A$, building $Z$, and reading off $Z(S^1)$ returns $A$. Both are functorial in the obvious maps, giving the claimed equivalence of categories. $\qquad\blacksquare$
 
 > **Worked decomposition — the torus as a composite of generators.** Read the torus $T^2$ as a cobordism $\varnothing\to\varnothing$. Slice it by height into four elementary pieces, bottom to top: a **cap** $u:\varnothing\to S^1$ (the bottom of the torus, a born circle), then a **copants** $\Delta:S^1\to S^1\sqcup S^1$ (the circle splits into two as we pass the lower handle), then a **pants** $m:S^1\sqcup S^1\to S^1$ (the two circles rejoin), then a **cup** $\varepsilon:S^1\to\varnothing$ (the top, a circle that dies). Hence
+>
 > $$
 > T^2=\varepsilon\circ m\circ\Delta\circ u\;:\;\varnothing\to\varnothing,
 > $$
+>
 > and applying $Z$ gives $Z(T^2)=\varepsilon\circ m\circ\Delta\circ u=\varepsilon\big(H(u(1))\big)$ with $H=m\circ\Delta$ — exactly the handle operator of §s5. This single decomposition is the geometric reason behind the genus formula: each handle contributes one factor of $H$, sandwiched between the birth $u$ and death $\varepsilon$ of a circle.
 
 > **Pitfall.** *Commutativity is essential and comes from the symmetry of $\mathrm{Cob}(2)$.* If one studied *non-commutative* Frobenius algebras one would be describing surfaces with extra structure (e.g. a chosen ordering of boundary circles, as in *open* TQFTs). The clean statement "$2$d closed TQFT $=$ commutative Frobenius algebra" needs the symmetric structure.
@@ -257,15 +281,19 @@ The two constructions are mutually inverse: starting from $Z$, reading off $A$, 
 **What & why.** The classification of §s4 is only useful if we can *compute* with it. Here we work a complete numerical example: a specific commutative Frobenius algebra, its pants-product and copants-coproduct, and the resulting invariants of closed surfaces — including the beautiful formula $Z(\Sigma_g)=\dim A$ raised to a genus-dependent power for one natural choice.
 
 > **The genus formula.** For a $2$d TQFT $Z$ with Frobenius algebra $A$, the invariant of the closed orientable surface $\Sigma_g$ of genus $g$ (a sphere with $g$ handles) is, for $g\ge 1$,
+>
 > $$
 > Z(\Sigma_g)=\mathrm{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
 > $$
+>
 > where $H=m\circ\Delta$ is the **handle operator**, while the sphere is $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$. *Why:* a genus-$g$ surface read as $\varnothing\to\varnothing$ is a cap $u$, then $g$ handles (each handle is "copants then pants," i.e. $H$), then a cup $\varepsilon$, giving the scalar $\varepsilon\circ H^{g}\circ u$; the cap-then-cup pair contributes one cylinder's worth of nondegenerate pairing, so for $g\ge 1$ this collapses to $\mathrm{tr}(H^{g-1})$. In particular the torus ($g=1$) gives $Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A$, as the torus partition function must.
 
 > **Worked example — group algebra of $\mathbb{Z}/2$.** Let $A=k[\mathbb{Z}/2]=k\{1,t\}$ with $t^2=1$, over $k=\mathbb{C}$. This is a commutative algebra of dimension $2$, with unit $u(1)=1$ and multiplication
+>
 > $$
 > 1\cdot 1=1,\quad 1\cdot t=t,\quad t\cdot t=1.
 > $$
+>
 > Define the counit (trace) by $\varepsilon(1)=0$, $\varepsilon(t)=1$ — chosen so the pairing is nondegenerate, as we verify.
 
 Step 1 — **the pairing matrix.** With basis $\{1,t\}$,
@@ -290,9 +318,11 @@ So in the basis $\{1,t\}$, $H=\begin{pmatrix}0&2\\2&0\end{pmatrix}$.
 Step 4 — **surface invariants.** The sphere $\Sigma_0$: $Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$. The torus $\Sigma_1$: $Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A=2$, as it must. The genus-two surface: $Z(\Sigma_2)=\mathrm{tr}(H)=0$. The genus-three surface: $Z(\Sigma_3)=\mathrm{tr}(H^2)$, and $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$ so $\mathrm{tr}(H^2)=8$. In general $\mathrm{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$, since $H$ has eigenvalues $\pm 2$; thus $Z(\Sigma_g)=2^{g}$ for odd $g$ and $0$ for even $g$. These are genuine homeomorphism invariants of the surfaces, computed purely algebraically — invariants from gluing in action.
 
 > **A cleaner choice — semisimple algebras and counting.** If instead one takes $A=k^N$ (the product algebra, $N$ orthogonal idempotents $e_1,\dots,e_N$ with $e_ie_j=\delta_{ij}e_i$) and $\varepsilon(e_i)=1/\theta_i$ for nonzero scalars $\theta_i$, then $H=m\circ\Delta$ acts on $e_i$ by multiplication by $\theta_i$, and
+>
 > $$
 > Z(\Sigma_g)=\sum_{i=1}^{N}\theta_i^{\,g-1}.
 > $$
+>
 > When all $\theta_i=1$ this is just $N$ for every genus — the simplest possible TQFT, "count the components of the value algebra." This is the algebraic shadow of *Dijkgraaf–Witten theory* for a finite group, where $\theta_i$ are sizes of conjugacy-class data.
 
 > **Intuition and pitfalls.** *Intuition:* the pants is "merge two states into one" (a product), the copants is "split one state into a superposition" (a coproduct), and a handle is "split then re-merge," which is why $H=m\circ\Delta$. *Pitfall:* the coproduct is *not* a free choice — it is forced by the algebra plus the trace; changing $\varepsilon$ changes $\Delta$, $H$, and all the surface invariants, so the *trace is part of the data*, not an afterthought.
@@ -316,27 +346,35 @@ Step 4 — **surface invariants.** The sphere $\Sigma_0$: $Z(\Sigma_0)=\varepsil
 The mechanism deserves one sentence of explanation: any closed $3$-manifold can be obtained from $S^3$ by *surgery* along a framed link (Lickorish–Wallace theorem), and the Reshetikhin–Turaev recipe assigns to that link a number using the MTC, normalized so that the two *Kirby moves* relating different surgery presentations of the *same* manifold leave the number unchanged — which is exactly where modularity (invertibility of $S$) is used.
 
 > **Witten–Chern–Simons (physics origin).** Witten constructed the *same* $3$d invariants from a quantum field theory: the **Chern–Simons** theory for a compact gauge group $G$ (say $G=SU(2)$) at integer **level** $k$. Its action on a $3$-manifold $M$ with connection $A$ is
+>
 > $$
 > S_{\mathrm{CS}}[A]=\frac{k}{4\pi}\int_M \mathrm{tr}\!\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
 > $$
+>
 > The partition function $Z(M)=\int \mathcal{D}A\,e^{iS_{\mathrm{CS}}[A]}$ is *metric-independent* (the action uses no metric, only the orientation), hence a topological invariant. Its mathematical incarnation is the Reshetikhin–Turaev invariant for the MTC of $SU(2)_k$ — the representations of the corresponding quantum group / affine Lie algebra at level $k$.
 
 > **The dictionary in dimension three.**
+>
 > $$
 > \{\text{3d TQFTs (suitably framed)}\}\;\longleftrightarrow\;\{\text{modular tensor categories}\},
 > $$
+>
 > the dimension-three analogue of "$2$d TQFT $=$ commutative Frobenius algebra." The jump in complexity — from an *algebra* to a *category* — is the first sign of the higher-categorical pattern that §s8–s10 make precise: as dimension rises, the controlling algebraic object climbs one categorical level.
 
 > **The $S$ and $T$ matrices and the Verlinde formula.** The two finite matrices that drive every computation are the **$S$-matrix** (above) and the **$T$-matrix** $T_{ij}=\delta_{ij}\theta_i$, recording the twist (topological spin) $\theta_i$ of each simple object. They give a projective representation of the *mapping class group of the torus* $SL(2,\mathbb{Z})$, because that group is generated by two moves $S$ (swap the two cycles of the torus) and $T$ (Dehn twist) subject to $(ST)^3=S^2$ and $S^2=$ charge conjugation. The single most useful consequence is the **Verlinde formula**, expressing the fusion multiplicities purely through $S$:
+>
 > $$
 > N_{ij}^{\,k}=\sum_{m}\frac{S_{im}\,S_{jm}\,\overline{S_{km}}}{S_{0m}} .
 > $$
+>
 > *Reading:* the integers counting "how many ways anyons $i,j$ fuse to $k$" are computed by *diagonalizing braiding*. This is the $3$d analogue of how, in §s5, the handle operator $H$ diagonalized the genus formula — fusion and gluing are the same diagonalization, one categorical level up.
 
 > **Worked touchpoint — the torus state count $\dim Z(T^2)$.** For any MTC, $\dim Z(\Sigma_g)$ for the genus-$g$ surface is again a *Verlinde number*; in the simplest case the torus gives
+>
 > $$
 > \dim Z(T^2)=\#\{\text{simple objects}\}=r+1 .
 > $$
+>
 > For the $SU(2)_k$ theory there are $k+1$ simple objects (spins $0,\tfrac12,\dots,\tfrac k2$), so $\dim Z(T^2)=k+1$. At $k=1$ (the simplest nonabelian-adjacent case) this is $2$; at $k=2$ it is $3$ — matching the three ground states of the $\nu=1/3$ quantum-Hall–type theory mentioned in §s11. The state count is literally the number of anyon types, the cleanest possible "topological invariant equals algebraic count."
 
 > **Pitfall.** $3$d TQFTs are *not* symmetric — they are only *braided*, because in three dimensions two strands genuinely link and cannot be unlinked by a homeomorphism. This non-symmetry is not a defect: it is *the whole point*, because it is what lets the theory detect knotting, as we see next.
@@ -353,19 +391,25 @@ The mechanism deserves one sentence of explanation: any closed $3$-manifold can 
 > The resulting scalar $J(L)\in\mathbb{C}$ is an isotopy invariant of $L$ because the braiding and duals satisfy exactly the relations (the *Reidemeister moves*) that relate any two diagrams of the same knot.
 
 > **The skein relation.** For the $SU(2)_2$-type braiding the operator $\beta=\beta_{X,X}$ on $X\otimes X$ (a $4$-dimensional space) satisfies a quadratic minimal polynomial,
+>
 > $$
 > \beta - \beta^{-1} = (q^{1/2}-q^{-1/2})\,\mathrm{id},\qquad q=e^{2\pi i/(k+2)} .
 > $$
+>
 > Translated into pictures with $A=q^{1/4}$, this is the **Kauffman/Jones skein relation**
+>
 > $$
 > A\,J(L_+)-A^{-1}J(L_-)=(A^2-A^{-2})\,J(L_0),
 > $$
+>
 > where $L_+,L_-,L_0$ are three links identical except at one crossing (over, under, smoothed). Together with the normalization $J(\text{unknot})=1$, this recursion *computes* $J$ for any link.
 
 > **Worked example — the Hopf link.** The Hopf link $H$ is two circles linked once. Resolve one crossing with the skein relation: smoothing gives the unknot (value $1$ up to the loop factor), the other resolution gives two unlinked circles (value $\delta=-A^2-A^{-2}$, the *loop value*). Carrying out the recursion,
+>
 > $$
 > J(\text{Hopf}^+) = -A^4-A^{-4},
 > $$
+>
 > a Laurent polynomial in $A$ that is *different* for the two distinct Hopf links of opposite linking (so it detects the linking, which no abelian invariant like homology can do for the link complement directly). For comparison the *trefoil* knot evaluates, with the substitution $t=A^{-4}$, to the classical Jones polynomial $J=V(t)=-t^{-4}+t^{-3}+t^{-1}$; written in $A$ this same polynomial is $J=-A^{16}+A^{12}+A^{4}$ (using $t^{-1}=A^4,\ t^{-3}=A^{12},\ t^{-4}=A^{16}$), which differs from its mirror image — proving the trefoil is *chiral* (not the same as its reflection), a fact the Jones polynomial detects and the older Alexander polynomial cannot.
 
 > **The Reidemeister moves, made precise.** That $J(L)$ is a knot invariant rests on the *Reidemeister theorem*: two link diagrams represent isotopic links iff one is obtained from the other by a finite sequence of three local moves — **R1** (add/remove a kink), **R2** (slide one strand over another, creating/cancelling two opposite crossings), **R3** (slide a strand past a crossing). The TQFT assignment respects exactly these: **R2** holds because $\beta\circ\beta^{-1}=\mathrm{id}$ (the braiding is invertible); **R3** holds because the braiding satisfies the *Yang–Baxter equation* $(\beta\otimes 1)(1\otimes\beta)(\beta\otimes 1)=(1\otimes\beta)(\beta\otimes 1)(1\otimes\beta)$, the algebraic form of "slide past a crossing"; **R1** holds *up to a framing twist* $\theta_X$, which is why the *framed* invariant is the canonical one. Each Reidemeister move is matched by one ribbon-category axiom — the cleanest possible dictionary between pictures and algebra.
@@ -414,20 +458,26 @@ The bookkeeping of "coherently associative" becomes severe as $n$ grows: the ass
 
 > **Definition — extended (fully local) TQFT.**
 > A **fully extended $n$-dimensional TQFT** valued in a symmetric monoidal $(\infty,n)$-category $\mathcal{C}$ is a symmetric monoidal functor
+>
 > $$
 > Z:\mathrm{Bord}_n^{\,\mathrm{fr}}\longrightarrow\mathcal{C},
 > $$
+>
 > where $\mathrm{Bord}_n^{\,\mathrm{fr}}$ is the *framed* cobordism category (each manifold carries a trivialization of a stabilized tangent bundle — a rigidification needed for the cleanest statement). Such a $Z$ assigns an object of $\mathcal{C}$ to a point, a $1$-morphism to an interval, …, and a number to a closed $n$-manifold, all compatibly with gluing in every codimension.
 
 > **Theorem (cobordism hypothesis; Baez–Dolan conjecture, Lurie's theorem — stated).**
 > Let $\mathcal{C}$ be a symmetric monoidal $(\infty,n)$-category. Evaluation at the positively-framed point,
+>
 > $$
 > Z\;\longmapsto\;Z(\mathrm{pt}_+),
 > $$
+>
 > is an equivalence
+>
 > $$
 > \big\{\text{framed fully extended }n\text{d TQFTs }Z:\mathrm{Bord}_n^{\,\mathrm{fr}}\to\mathcal{C}\big\}\;\xrightarrow{\ \simeq\ }\;\big\{\text{fully dualizable objects of }\mathcal{C}\big\}.
 > $$
+>
 > In words: **a framed extended TQFT is freely determined by an arbitrary fully dualizable object of the target** — the value on a point — and every fully dualizable object arises from exactly one such theory.
 
 > **What "freely determined" means.** Once you choose $Z(\mathrm{pt}_+)=X$, *every other value is forced*: the value on an interval is the dual structure of $X$, the value on a circle is the trace (the *dimension*) of $X$, and so on. The single object $X$ generates the entire functor by repeatedly applying duality and traces. This is the ultimate "invariants from gluing": the whole theory is reconstructed from its most local piece.
@@ -443,10 +493,12 @@ The bookkeeping of "coherently associative" becomes severe as $n$ grows: the ass
 
 > **Definition — dualizable object.**
 > In a symmetric monoidal category, an object $X$ is **dualizable** if there is an object $X^\ast$ and morphisms $\mathrm{coev}:\mathbf{1}\to X\otimes X^\ast$ and $\mathrm{ev}:X^\ast\otimes X\to\mathbf{1}$ satisfying the *zigzag (snake) identities*
+>
 > $$
 > (\mathrm{ev}\otimes 1_X)\circ(1_X\otimes\mathrm{coev})=1_X,\qquad
 > (1_{X^\ast}\otimes\mathrm{ev})\circ(\mathrm{coev}\otimes 1_{X^\ast})=1_{X^\ast}.
 > $$
+>
 > *Example (already used in §s3):* in $\mathbf{Vect}_k$, $X$ is dualizable iff $\dim X<\infty$, with $X^\ast$ the usual dual space, $\mathrm{coev}(1)=\sum_i e_i\otimes e_i^\ast$, $\mathrm{ev}(f\otimes v)=f(v)$.
 
 > **Definition — fully dualizable object.**
@@ -459,9 +511,11 @@ The bookkeeping of "coherently associative" becomes severe as $n$ grows: the ass
 > **Example 3 — $n=3$ and modular tensor categories.** Take $\mathcal{C}$ a suitable $3$-category of *tensor categories*. Fully dualizable objects are *fusion categories* with appropriate finiteness; the resulting extended $3$d TQFTs include the Reshetikhin–Turaev theories of §s6 when the input is *modular*. The hypothesis thus *organizes* the $3$d landscape — the MTC is the value on a point (or circle), and the knot and $3$-manifold invariants of §s7 are its higher traces. The climb "algebra $\to$ category $\to$ tensor category" observed empirically in §s4–s6 is now *explained*: it is the climb in the categorical level of "fully dualizable object" as $n$ increases.
 
 > **Worked example — the circle invariant is a trace, in any target.** The cobordism hypothesis predicts a universal formula: for a framed extended TQFT $Z$ with $Z(\mathrm{pt}_+)=X$, the value on the circle is the *dimension* (categorical trace of the identity) of $X$,
+>
 > $$
 > Z(S^1)=\dim(X):=\mathrm{ev}_X\circ\beta\circ\mathrm{coev}_X .
 > $$
+>
 > Specialize: in $\mathbf{Vect}_k$ this is $\dim_k V$ (a number) — recovering §s3's circle$=\dim$. In $\mathbf{Alg}_k$ (Example 2) the "dimension" of an algebra $A$ is its *center as an object*, the Hochschild homology $HH_0(A)=A/[A,A]$, which for separable $A$ is the commutative Frobenius algebra $Z(S^1)$ of the underlying $2$d theory. In a tensor-category target (Example 3) it is the *Drinfeld center / Hochschild category*. One formula — "the circle computes the trace of the point" — instantiates to the dimension of a vector space, the center of an algebra, and the modular data of a tensor category, as the dimension of the target climbs. That single pattern is the whole content of the hypothesis seen through one example.
 
 > **The mechanism in one line.** Because $\mathrm{Bord}_n^{\,\mathrm{fr}}$ is free on a fully dualizable object, *constructing* a TQFT is *checking finiteness*: verify your candidate $X=Z(\mathrm{pt})$ is fully dualizable, and the entire functor — every invariant of every manifold — exists and is unique. This converts hard geometric existence questions into algebraic finiteness checks, which is the deepest payoff of the whole framework.

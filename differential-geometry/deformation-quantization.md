@@ -450,6 +450,7 @@ Two DGLAs governed our deformation problems: polyvector fields (with $d=0$ and t
 #### Maurer–Cartan elements and gauge
 
 > **Definition — Maurer–Cartan element.** In a DGLA, a degree-$1$ element $\gamma$ (in $\hbar\mathfrak g[[\hbar]]$) is **Maurer–Cartan** if
+>
 > $$
 > d\gamma+\tfrac12[\gamma,\gamma]=0.
 > $$
@@ -459,6 +460,7 @@ The meaning across our two settings:
 - In the **Hochschild complex**, a Maurer–Cartan element is precisely the data $\gamma=\sum_{k\ge1}\hbar^k B_k$ of a **star product**: the equation $d\gamma+\tfrac12[\gamma,\gamma]=0$ in the Gerstenhaber bracket *is* associativity.
 
 > **The decisive lemma.** An $L_\infty$-quasi-isomorphism $\mathcal U:\mathfrak g\rightsquigarrow\mathfrak h$ induces a **bijection** between Maurer–Cartan elements of $\mathfrak g$ modulo gauge and those of $\mathfrak h$ modulo gauge, via
+>
 > $$
 > \gamma\ \longmapsto\ \mathcal U_*(\gamma)=\sum_{n\ge1}\frac1{n!}\,\mathcal U_n(\gamma,\dots,\gamma).
 > $$

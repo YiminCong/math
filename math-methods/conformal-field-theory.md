@@ -48,9 +48,11 @@ Before specializing to two dimensions we define the conformal group in *any* dim
 We work in flat $d$-dimensional space with coordinates $x=(x^1,\dots,x^d)$. The **metric** $g_{\mu\nu}$ is the array of numbers that turns coordinate differences into squared distances: an infinitesimal displacement $dx^\mu$ has squared length $ds^2=g_{\mu\nu}\,dx^\mu dx^\nu$. (Repeated indices are summed — the **Einstein summation convention** — so $g_{\mu\nu}dx^\mu dx^\nu$ means $\sum_{\mu,\nu}g_{\mu\nu}dx^\mu dx^\nu$.) In flat Euclidean space $g_{\mu\nu}=\delta_{\mu\nu}$, the **Kronecker delta** ($1$ if $\mu=\nu$, else $0$), so $ds^2=(dx^1)^2+\cdots+(dx^d)^2$.
 
 > **Definition — conformal transformation.** A smooth, invertible change of coordinates $x\mapsto x'(x)$ is **conformal** if it rescales the metric by a single positive function $\Omega(x)^2$, the same factor in every direction at each point:
+>
 > $$
 > g_{\mu\nu}\big(x'\big)\,\frac{\partial x'^{\rho}}{\partial x^{\mu}}\frac{\partial x'^{\sigma}}{\partial x^{\nu}} \;=\; \Omega(x)^{2}\,g_{\rho\sigma}(x).
 > $$
+>
 > The factor $\Omega(x)$ is the **local scale factor**. Because the same $\Omega$ multiplies all directions, the *angle* between any two vectors — a ratio of dot products — is unchanged, while lengths are scaled by $\Omega$. This is the precise meaning of "angle-preserving."
 
 #### The infinitesimal condition
@@ -129,6 +131,7 @@ $$
 Here the minus sign and the $n+1$ power are conventions chosen so the algebra below comes out clean. The antiholomorphic copies are $\bar\ell_n=-\bar z^{n+1}\partial_{\bar z}$.
 
 > **Theorem (Witt algebra).** The generators satisfy the **commutator** relations
+>
 > $$
 > [\ell_m,\ell_n]=(m-n)\,\ell_{m+n},
 > \qquad
@@ -136,6 +139,7 @@ Here the minus sign and the $n+1$ power are conventions chosen so the algebra be
 > \qquad
 > [\ell_m,\bar\ell_n]=0,
 > $$
+>
 > where the **commutator** of two operators is $[A,B]:=AB-BA$ (it measures their failure to commute). This infinite-dimensional Lie algebra is the **Witt algebra**. The vanishing of $[\ell_m,\bar\ell_n]$ says the holomorphic and antiholomorphic sectors are completely independent.
 
 **Proof (gap-free).**
@@ -177,9 +181,11 @@ The Witt algebra is the *classical* symmetry. In the *quantum* theory the genera
 #### Central extensions, defined
 
 > **Definition — central extension.** Given a Lie algebra with generators $L_n$ and brackets $[L_m,L_n]=(m-n)L_{m+n}$, a **central extension** adjoins a new element $C$ that (i) commutes with every $L_n$ (it is **central**) and (ii) appears on the right of the bracket:
+>
 > $$
 > [L_m,L_n]=(m-n)L_{m+n}+C\,p(m,n),
 > $$
+>
 > where $p(m,n)$ is a number-valued function. "Central" means $[C,L_n]=0$ for all $n$, so $C$ can be replaced by its numerical value $c$ on any irreducible representation (by **Schur's lemma**, the one fact we borrow from [Lie Representations](../group-theory/lie-representations.md): an operator commuting with an irreducible action is a multiple of the identity).
 
 Why does quantum mechanics force this? Operators are defined only up to a phase, so a *classical* symmetry that closes exactly may, when realized on quantum states, close only up to a state-independent number — a so-called **anomaly**. The central charge is precisely such an anomaly.
@@ -200,9 +206,11 @@ $$
 4. **Solve the recursion.** Set $l=-m-n$ so that all $C$-terms involve $p(\cdot,0)=0$ except a chain relating $p(m,-m)$ at different $m$. Working through the recursion (a finite induction on $m$) forces $p(m,-m)$ to be a **cubic polynomial in $m$ that is odd** (by antisymmetry $p(m,-m)=-p(-m,m)$). The general odd cubic is $\alpha m^3+\beta m$. Both coefficients are physical only up to the redefinitions of step 2, which can shift the linear term; the standard normalization fixes the result.
 
 > **Result — the Virasoro algebra.** The unique nontrivial central extension of the Witt algebra is the **Virasoro algebra**:
+>
 > $$
 > [L_m,L_n]=(m-n)\,L_{m+n}+\frac{c}{12}\,m\,(m^2-1)\,\delta_{m+n,0},
 > $$
+>
 > with an independent antiholomorphic copy $[\bar L_m,\bar L_n]=(m-n)\bar L_{m+n}+\frac{\bar c}{12}m(m^2-1)\delta_{m+n,0}$ and $[L_m,\bar L_n]=0$. The number $c$ is the **central charge** (and $\bar c$ its antiholomorphic partner). The combination $m(m^2-1)=m^3-m$ is the odd cubic of step 4, normalized so that the central term vanishes for $m\in\{-1,0,1\}$.
 
 #### Why the central term vanishes for $m=-1,0,1$
@@ -223,9 +231,11 @@ A CFT is built from **fields** — functions $\phi(z,\bar z)$ of position whose 
 #### Conformal weights, defined through the transformation law
 
 > **Definition — primary field.** A field $\phi(z,\bar z)$ is **primary** with weights $(h,\bar h)$ if under *every* conformal map $z\mapsto w(z)$, $\bar z\mapsto\bar w(\bar z)$ it transforms as
+>
 > $$
 > \phi(z,\bar z)=\left(\frac{dw}{dz}\right)^{h}\left(\frac{d\bar w}{d\bar z}\right)^{\bar h}\,\phi'\big(w,\bar w\big),
 > $$
+>
 > i.e. it picks up only the local stretching factors $dw/dz$ raised to power $h$ and $d\bar w/d\bar z$ raised to power $\bar h$. The numbers $h$ (the **holomorphic weight**) and $\bar h$ (the **antiholomorphic weight**) are real. A field obeying this law only for the *global* $SL(2,\mathbb{C})$ maps (Möbius transformations) but not necessarily for all local maps is called **quasi-primary**. Every primary is quasi-primary; the converse fails (the stress tensor of §s6 is a famous quasi-primary that is not primary).
 
 The transformation law is the exact analogue of how a density transforms under a change of variables: a quantity $\phi\,(dz)^h(d\bar z)^{\bar h}$ is invariant, so $\phi$ is a "$(h,\bar h)$-density." This is why $h$ controls how the field scales when you rescale lengths.
@@ -274,9 +284,11 @@ To do quantum mechanics we need a Hilbert space of **states** and a notion of **
 #### The in-state and the state–operator map
 
 > **Definition — in-state.** For a field $\phi$ of weight $(h,\bar h)$, define the state
+>
 > $$
 > |\phi\rangle:=\lim_{z,\bar z\to0}\phi(z,\bar z)\,|0\rangle,
 > $$
+>
 > where $|0\rangle$ is the **vacuum** (the unique state invariant under the global group, $L_n|0\rangle=0$ for $n\ge-1$). Because $z=0$ is the infinite past, inserting an operator there *creates an incoming state* in the far past.
 
 > **Theorem (state–operator correspondence).** The map $\phi\mapsto|\phi\rangle$ is a *bijection* between local operators and states of the Hilbert space. Conversely every state is $\lim_{z\to0}\Phi(z)|0\rangle$ for a unique local operator $\Phi$.
@@ -308,9 +320,11 @@ When two operators sit at nearby points, their product can be re-expanded as a s
 #### The OPE, defined
 
 > **Definition — operator product expansion.** For local operators $A(z)$ and $B(w)$, there is an expansion valid inside correlation functions, as $z\to w$,
+>
 > $$
 > A(z)\,B(w)=\sum_{k}\frac{C_k(w)}{(z-w)^{n_k}},
 > $$
+>
 > where the $C_k(w)$ are local operators and the powers $n_k$ are fixed by the weights. The terms with $n_k>0$ are the **singular part** (they blow up as $z\to w$); the regular part is the rest. The singular part carries all the algebraic content — it is what commutators are made of.
 
 #### The stress tensor
@@ -332,6 +346,7 @@ $$
 #### The $TT$ OPE and the central charge
 
 > **The $TT$ OPE.** The stress tensor's product with itself is
+>
 > $$
 > T(z)\,T(w)=\frac{c/2}{(z-w)^{4}}+\frac{2\,T(w)}{(z-w)^{2}}+\frac{\partial_w T(w)}{z-w}+\text{regular}.
 > $$
@@ -367,6 +382,7 @@ the product of each field's transformation factor (for brevity we suppress the b
 #### The two-point function
 
 > **Result.** For two quasi-primaries of weights $(h_1,\bar h_1),(h_2,\bar h_2)$,
+>
 > $$
 > \langle\phi_1(z_1,\bar z_1)\,\phi_2(z_2,\bar z_2)\rangle=
 > \begin{cases}
@@ -374,6 +390,7 @@ the product of each field's transformation factor (for brevity we suppress the b
 > 0,& \text{otherwise,}
 > \end{cases}
 > $$
+>
 > where $z_{12}=z_1-z_2$ and $C_{12}$ is a constant (set to $1$ by normalizing fields).
 
 **Derivation.**
@@ -384,9 +401,11 @@ the product of each field's transformation factor (for brevity we suppress the b
 #### The three-point function
 
 > **Result.** For three quasi-primaries (holomorphic part shown),
+>
 > $$
 > \langle\phi_1\phi_2\phi_3\rangle=\frac{C_{123}}{z_{12}^{\,h_1+h_2-h_3}\,z_{23}^{\,h_2+h_3-h_1}\,z_{13}^{\,h_1+h_3-h_2}},
 > $$
+>
 > with $z_{ij}=z_i-z_j$ and a single constant $C_{123}$, the **structure constant** (or **OPE coefficient**).
 
 **Derivation.**
@@ -410,6 +429,7 @@ A **Ward identity** is the precise statement, *inside correlation functions*, of
 #### The identity
 
 > **Conformal Ward identity.** For primaries $\phi_i$ of weights $h_i$,
+>
 > $$
 > \big\langle T(z)\,\phi_1(w_1)\cdots\phi_n(w_n)\big\rangle
 > =\sum_{i=1}^{n}\left[\frac{h_i}{(z-w_i)^2}+\frac{1}{z-w_i}\,\partial_{w_i}\right]\big\langle\phi_1(w_1)\cdots\phi_n(w_n)\big\rangle.
@@ -447,9 +467,11 @@ The Hilbert space of a CFT is built from **representations** of the Virasoro alg
 #### Highest-weight states and descendants
 
 > **Definition.** A **highest-weight state** $|h\rangle$ of weight $h$ satisfies
+>
 > $$
 > L_0|h\rangle=h|h\rangle,\qquad L_n|h\rangle=0\ \ \text{for all }n>0.
 > $$
+>
 > The first equation says $|h\rangle$ has definite energy $h$ (§s5); the second says it is annihilated by all **lowering operators** $L_{n>0}$ (which decrease $L_0$-energy by $n$, since $[L_0,L_n]=-nL_n$). By the state–operator map (§s5), $|h\rangle=|\phi\rangle$ for a primary $\phi$ of weight $h$.
 
 Acting with **raising operators** $L_{-n}$ ($n>0$, which *raise* energy by $n$) builds **descendant states**:
@@ -485,18 +507,22 @@ $$
 #### The Kac determinant and unitarity
 
 > **The Kac determinant.** At level $N$, form the **Gram matrix** $M_N$ of inner products of the $p(N)$ basis descendants. Its determinant — the **Kac determinant** — factorizes as
+>
 > $$
 > \det M_N=\alpha_N\prod_{\substack{r,s\ge1\\ rs\le N}}\big(h-h_{r,s}(c)\big)^{p(N-rs)},
 > \qquad
 > h_{r,s}(c)=\frac{(r\beta-s/\beta)^2-(\beta-1/\beta)^2}{4},
 > $$
+>
 > where $\alpha_N>0$ is a known constant and $\beta$ is fixed by $c=1-6(\beta-1/\beta)^2$. A null state appears at level $N$ exactly when $h=h_{r,s}$ for some $rs=N$ (the corresponding factor vanishes).
 
 > **Unitarity bound.** A representation is **unitary** (all states have non-negative norm — required for a sensible quantum theory) only if $\det M_N\ge0$ for all $N$. Analyzing the signs gives the **Friedan–Qiu–Shenker theorem**: for $c\ge1$, unitary reps exist for all $h\ge0$; but for $0\le c<1$, unitarity forces $c$ and $h$ onto a *discrete* list,
+>
 > $$
 > c=1-\frac{6}{m(m+1)},\quad m=3,4,5,\dots,\qquad
 > h_{r,s}=\frac{\big((m+1)r-ms\big)^2-1}{4m(m+1)},
 > $$
+>
 > with $1\le r\le m-1$, $1\le s\le r$. These discrete theories are the **minimal models** of §s10.
 
 The logic is the punchline of the whole representation theory: *demanding a unitary, infinite-dimensional Virasoro representation with $c<1$ is so restrictive that only a countable list of theories survives.* Symmetry has been taken to infinity, and infinity has answered with a finite menu.
@@ -511,13 +537,17 @@ A **minimal model** is a CFT whose entire field content consists of *finitely ma
 #### Definition and the Kac table
 
 > **Definition — minimal model $\mathcal M(p,p')$.** For two coprime integers $p>p'\ge2$, the minimal model has central charge
+>
 > $$
 > c=1-\frac{6(p-p')^2}{p\,p'},
 > $$
+>
 > and a *finite* set of primaries with weights given by the **Kac table**
+>
 > $$
 > h_{r,s}=\frac{(pr-p's)^2-(p-p')^2}{4pp'},\qquad 1\le r\le p'-1,\ \ 1\le s\le p-1,
 > $$
+>
 > with the identification $h_{r,s}=h_{p'-r,\,p-s}$ (so each weight is counted once). The number of distinct primaries is $\tfrac12(p-1)(p'-1)$.
 
 The **unitary** minimal models are the subfamily $p'=m$, $p=m+1$ of §s9, with $c=1-\frac{6}{m(m+1)}$.
@@ -529,10 +559,13 @@ Because every primary in a minimal model has a null descendant, its OPEs with ot
 #### The Ising model as $c=\tfrac12$
 
 > **The Ising CFT $=\mathcal M(4,3)$.** Take $p=4,p'=3$:
+>
 > $$
 > c=1-\frac{6(4-3)^2}{4\cdot3}=1-\frac{6}{12}=\frac12.
 > $$
+>
 > Its Kac table (with $1\le r\le2$, $1\le s\le3$, identified) yields exactly **three** primaries:
+>
 > $$
 > h_{1,1}=0\ (\text{identity }\mathbf 1),\qquad
 > h_{2,1}=\tfrac12\ (\text{energy }\varepsilon),\qquad
@@ -574,10 +607,12 @@ i.e. integers with $ad-bc=1$. This group is generated by just two moves: $T:\tau
 #### The partition function and characters
 
 > **Definition — torus partition function.** The **partition function** is the trace over the Hilbert space
+>
 > $$
 > Z(\tau,\bar\tau)=\mathrm{Tr}\Big(q^{L_0-c/24}\,\bar q^{\bar L_0-\bar c/24}\Big),
 > \qquad q=e^{2\pi i\tau}.
 > $$
+>
 > The operator $q^{L_0-c/24}$ weights each state by its energy (recall $L_0$ = energy, §s5); the shift $-c/24$ is the universal **Casimir energy** of the cylinder, and its appearance is another face of the central charge.
 
 Grouping states by which Virasoro representation they belong to, the trace factorizes into **characters**:
@@ -591,10 +626,12 @@ where $N_{h,\bar h}$ are non-negative integers counting how many times each repr
 #### The modular invariance condition
 
 > **Modular invariance.** $Z$ must be invariant under the generators $S$ and $T$:
+>
 > $$
 > Z(\tau+1,\bar\tau+1)=Z(\tau,\bar\tau),\qquad
 > Z(-1/\tau,-1/\bar\tau)=Z(\tau,\bar\tau).
 > $$
+>
 > Under these the characters transform *among themselves* by fixed matrices, $\chi_h(-1/\tau)=\sum_{h'}S_{hh'}\chi_{h'}(\tau)$ and $\chi_h(\tau+1)=\sum_{h'}T_{hh'}\chi_{h'}(\tau)$ (with $T$ diagonal). So modular invariance becomes the *finite linear-algebra* condition that the matrix $N_{h,\bar h}$ commute with $S$ and $T$.
 
 For a minimal model the number of characters is finite, so this is a finite, solvable matrix equation. Its solutions are the **modular invariants**; the simplest, $N_{h,\bar h}=\delta_{h\bar h}$ (the **diagonal** or **A-series**), always works, and others give the celebrated **ADE classification** of minimal-model partition functions.

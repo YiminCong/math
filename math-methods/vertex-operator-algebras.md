@@ -53,22 +53,27 @@ Before axioms we need the alphabet. Everything in a vertex algebra is built from
 Fix a vector space $V$ over the complex numbers $\mathbb{C}$, and let $\mathrm{End}V$ denote the space of linear maps $V\to V$ (its "endomorphisms" — the operators).
 
 > **Definition — formal distribution.** A **formal distribution** in the variable $z$ with values in $\mathrm{End}V$ is a doubly infinite series
+>
 > $$
 > a(z)\;=\;\sum_{n\in\mathbb{Z}} a_{(n)}\,z^{-n-1},\qquad a_{(n)}\in\mathrm{End}V.
 > $$
+>
 > The space of all such is written $(\mathrm{End}V)[[z,z^{-1}]]$. The number $a_{(n)}$ is the **$n$-th mode** of $a(z)$. The peculiar exponent $-n-1$ is a convention chosen so that $a_{(n)}$ is recovered by a formal residue (defined below); it makes later formulas clean.
 
 The double square brackets mean "all coefficients allowed, both positive and negative powers, no convergence required." We *cannot* in general multiply two such series (the coefficient of a given power would be an infinite sum). Multiplication is only defined under the field condition next.
 
 > **Definition — formal residue.** The **residue** of a formal distribution is the coefficient of $z^{-1}$:
+>
 > $$
 > \mathrm{Res}_z a(z)\;=\;a_{(0)}.
 > $$
+>
 > This is the algebraic analogue of $\frac1{2\pi i}\oint a(z)\,dz$ from contour integration (see [Complex Analysis](../complex-analysis/complex-analysis.md): the contour integral of a Laurent series picks out the $z^{-1}$ coefficient). We use $\mathrm{Res}$ purely formally — no contour, no convergence.
 
 #### Fields
 
 > **Definition — field.** A formal distribution $a(z)=\sum_n a_{(n)} z^{-n-1}\in(\mathrm{End}V)[[z,z^{-1}]]$ is a **field** on $V$ if for every vector $v\in V$ only finitely many *positive*-mode terms act nontrivially:
+>
 > $$
 > a_{(n)}\,v=0\quad\text{for all }n\text{ sufficiently large (depending on }v).
 > $$
@@ -80,6 +85,7 @@ The point of the field condition is that it makes $a(z)v$ a series with values i
 The single most important formal distribution is built from *two* variables.
 
 > **Definition — formal delta function.**
+>
 > $$
 > \delta(z-w)\;=\;\sum_{n\in\mathbb{Z}} z^{-n-1} w^{n}\;=\;\sum_{n\in\mathbb{Z}} w^{n} z^{-n-1}.
 > $$
@@ -87,6 +93,7 @@ The single most important formal distribution is built from *two* variables.
 It is a formal distribution in $z$ and $w$ together. Its defining property is the *sifting* property, the algebraic mirror of the Dirac delta from the [Fourier guide](fourier-transforms.md).
 
 > **Lemma (sifting).** For any field $a(z)$,
+>
 > $$
 > \mathrm{Res}_z\,a(z)\,\delta(z-w)\;=\;a(w).
 > $$
@@ -117,9 +124,11 @@ $$
 so $a(z)=a(z)_++a(z)_-$. The subscript $+$ collects the **annihilation modes** $a_{(n)}$ with $n\ge0$ (which, by the field condition, kill any vector eventually), and $-$ the **creation modes** $a_{(n)}$ with $n<0$.
 
 > **Definition — normal-ordered product.** The **normal-ordered product** of two fields, written $\,{:}a(z)b(w){:}\,$, places creation modes to the left of annihilation modes:
+>
 > $$
 > {:}a(z)b(w){:}\;=\;a(z)_-\,b(w)\;+\;b(w)\,a(z)_+.
 > $$
+>
 > The same-point product is $\,{:}a(z)b(z){:}\,$, obtained by setting $w=z$ afterward; the ordering above is exactly what makes this substitution well defined (each coefficient is a finite sum).
 
 The intuition: creation operators raise energy and act first conceptually ("create the state"), annihilation operators lower energy and act last; normal ordering subtracts the divergent vacuum contribution that arises when an annihilation mode meets a creation mode. This is the rigorous version of the physicist's ":  :" symbol.
@@ -158,28 +167,36 @@ We now write the definition. A vertex algebra packages a vector space of **state
 > - $|0\rangle\in V$ is the **vacuum vector**, a distinguished state;
 > - $T:V\to V$ is a linear map, the **translation operator** (also called the **infinitesimal translation**);
 > - $Y(\cdot,z):V\to(\mathrm{End}V)[[z,z^{-1}]]$ is the **state–field correspondence**, sending each state $A\in V$ to a field
+>
 > $$
 > Y(A,z)=\sum_{n\in\mathbb{Z}} A_{(n)}\,z^{-n-1},\qquad A_{(n)}\in\mathrm{End}V,
 > $$
+>
 > called the **vertex operator** of $A$;
 >
 > subject to the axioms:
 >
 > 1. **(Field axiom)** For every $A$, $Y(A,z)$ is a field: $A_{(n)}B=0$ for $n$ large (depending on $A,B$).
 > 2. **(Vacuum axiom)** $Y(|0\rangle,z)=\mathrm{id}_V$ (the identity field, all modes zero except the constant term), and for every $A$,
+>
 > $$
 > Y(A,z)|0\rangle\;\in\;A+zV[[z]],\qquad\text{i.e.}\quad Y(A,z)|0\rangle\big|_{z=0}=A.
 > $$
+>
 > The state $A$ is "created from the vacuum by its own field at $z=0$."
 > 3. **(Translation axiom)** $T|0\rangle=0$, and for every $A$,
+>
 > $$
 > [\,T,\,Y(A,z)\,]\;=\;\partial_z\,Y(A,z).
 > $$
+>
 > Translation acts on fields as the derivative in $z$.
 > 4. **(Locality axiom)** For every pair $A,B$ there is an integer $N\ge0$ with
+>
 > $$
 > (z-w)^{N}\,\big[\,Y(A,z),\,Y(B,w)\,\big]\;=\;0
 > $$
+>
 > as a formal distribution in $z,w$. The fields are then said to be **mutually local**.
 
 #### Unpacking each axiom in words
@@ -247,12 +264,15 @@ Defining a vertex algebra abstractly is one thing; *building* one is another. In
 > 2. **(Vacuum)** $a^{i}(z)|0\rangle\in a^{i}_{(-1)}|0\rangle + zV[[z]]$, i.e. the fields are regular on the vacuum at $z=0$;
 > 3. **(Mutual locality)** the $a^{i}(z)$ are pairwise mutually local;
 > 4. **(Generation)** the vectors
+>
 > $$
 > a^{i_1}_{(-n_1-1)}\,a^{i_2}_{(-n_2-1)}\cdots a^{i_k}_{(-n_k-1)}\,|0\rangle,\qquad n_1,\dots,n_k\ge0,
 > $$
+>
 > span $V$ (the states are built by acting with creation modes on the vacuum).
 >
 > Then there is a **unique** vertex-algebra structure $Y$ on $(V,|0\rangle,T)$ such that $Y(a^{i}_{(-1)}|0\rangle,z)=a^{i}(z)$. Moreover the vertex operator of a general spanning vector is
+>
 > $$
 > Y\!\Big(a^{i_1}_{(-n_1-1)}\cdots a^{i_k}_{(-n_k-1)}|0\rangle,\,z\Big)
 > =\frac{1}{n_1!\cdots n_k!}\;{:}\,\partial_z^{n_1}a^{i_1}(z)\,\cdots\,\partial_z^{n_k}a^{i_k}(z)\,{:}\,.
@@ -312,9 +332,11 @@ On a representation $C$ acts as a scalar $c\cdot\mathrm{id}$, the **central char
 #### Definition of a conformal structure
 
 > **Definition — conformal vertex algebra.** A vertex algebra $V$ is **conformal of central charge $c$** if there is a state $\omega\in V$, the **conformal vector**, whose field
+>
 > $$
 > Y(\omega,z)=\sum_{n\in\mathbb{Z}}L_n\,z^{-n-2}\qquad(\text{so }L_n=\omega_{(n+1)})
 > $$
+>
 > — written with the shifted exponent $-n-2$ because $\omega$ has *conformal weight 2*, like a stress tensor — has modes $L_n$ satisfying:
 > 1. **(Virasoro)** $[L_m,L_n]=(m-n)L_{m+n}+\frac{c}{12}(m^3-m)\delta_{m+n,0}$;
 > 2. **(Translation)** $L_{-1}=T$ (the $-1$ mode is the translation operator);
@@ -363,9 +385,11 @@ This is the fundamental example — the algebraic free boson. Everything later (
 #### The Heisenberg Lie algebra
 
 > **Definition — Heisenberg algebra.** The (rank-1) **Heisenberg algebra** $\hat{\mathfrak{h}}$ has basis $\{a_n\}_{n\in\mathbb{Z}}$ and a central element $\mathbf{1}$, with brackets
+>
 > $$
 > [a_m,a_n]=m\,\delta_{m+n,0}\,\mathbf{1},\qquad [a_m,\mathbf{1}]=0.
 > $$
+>
 > The modes with $m>0$ are **annihilation**, $m<0$ **creation**, and $a_0$ is the central "momentum."
 
 This is the canonical-commutation relation of an infinite set of oscillators (compare the harmonic oscillator $[a,a^\dagger]=1$; here the $n$ scales each one).
@@ -373,9 +397,11 @@ This is the canonical-commutation relation of an infinite set of oscillators (co
 #### The Fock space and the field
 
 > **Definition — Fock space.** Let $\mathbf{1}$ act as $1$ and let $|0\rangle$ be a vector with $a_n|0\rangle=0$ for $n\ge0$. The **Fock space** $V=\pi_0$ is spanned by
+>
 > $$
 > a_{-n_1}a_{-n_2}\cdots a_{-n_k}|0\rangle,\qquad n_1\ge n_2\ge\cdots\ge n_k\ge1.
 > $$
+>
 > Define the generating field $a(z)=\sum_{n\in\mathbb{Z}}a_n\,z^{-n-1}$.
 
 By construction $a(z)$ is a field (annihilation modes kill $|0\rangle$), $a(z)|0\rangle=\sum_{n\le -1}a_n z^{-n-1}|0\rangle\in a_{-1}|0\rangle+zV[[z]]$, and with $T$ defined by $[T,a_n]=-n\,a_{n-1}$ (so $[T,a(z)]=\partial_z a(z)$) the field is translation-covariant. We must check **locality**.
@@ -513,15 +539,19 @@ By reconstruction (§s3) — the currents are mutually local with $N=2$, exactly
 #### The Sugawara stress tensor
 
 > **Definition — Sugawara construction.** Define
+>
 > $$
 > T(z)=\frac{1}{2(k+h^\vee)}\sum_a {:}J^a(z)J^a(z){:}\,,
 > $$
+>
 > where $h^\vee$ is the **dual Coxeter number** of $\mathfrak g$ (a positive integer attached to $\mathfrak g$; e.g. $h^\vee=N$ for $\mathfrak{sl}_N$, so $h^\vee=2$ for $\mathfrak{sl}_2$), provided $k+h^\vee\neq0$.
 
 > **Theorem (Sugawara).** This $T(z)$ is a conformal vector with central charge
+>
 > $$
 > c=\frac{k\,\dim\mathfrak g}{k+h^\vee},
 > $$
+>
 > the currents $J^a$ are primaries of weight $1$ under it, and the modes $L_n$ satisfy Virasoro.
 
 #### Derivation of Virasoro and $c$ from the currents
@@ -598,14 +628,18 @@ Counting and classifying vertex-algebra modules looks hard — they are infinite
 #### The construction (overview)
 
 > **Definition — Zhu's algebra.** On a conformal vertex algebra $V$, define two bilinear operations using shifted modes:
+>
 > $$
 > A*B=\mathrm{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z}\,B,\qquad
 > A\circ B=\mathrm{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z^2}\,B,
 > $$
+>
 > for $A$ of weight $\Delta_A$ (extended linearly). Let $O(V)=\mathrm{span}\{A\circ B\}$ and define
+>
 > $$
 > A(V)=V/O(V),
 > $$
+>
 > with multiplication induced by $*$. Then $A(V)$ is an **associative algebra** with unit $|0\rangle+O(V)$.
 
 The "$\,*\,$" product is a cleverly weighted residue that survives passing to the quotient by $O(V)$; proving $*$ is associative on $A(V)$ is Zhu's theorem (a substantial mode computation we do not reproduce, but the shape is: $O(V)$ is exactly the ideal that kills non-associativity and projects onto the **zero modes** $A_{(\Delta_A-1)}$ acting on lowest-weight states).
@@ -613,9 +647,11 @@ The "$\,*\,$" product is a cleverly weighted residue that survives passing to th
 #### The classification theorem
 
 > **Theorem (Zhu).** There is a bijection
+>
 > $$
 > \{\text{irreducible }\mathbb{Z}_{\ge0}\text{-graded }V\text{-modules}\}\;\longleftrightarrow\;\{\text{irreducible }A(V)\text{-modules}\}
 > $$
+>
 > sending a $V$-module $M=\bigoplus_\Delta M_\Delta$ to its **lowest-weight space** $M_{\Delta_{\min}}$, on which the zero modes $o(A)=A_{(\Delta_A-1)}$ act and realize the $A(V)$-action.
 
 So: classify the modules of *one finite-dimensional-ish associative algebra* $A(V)$, and you have classified all the (graded) modules of the vertex algebra. In particular, $V$ is rational and $C_2$-cofinite only if $A(V)$ is a finite-dimensional semisimple algebra.
@@ -642,9 +678,11 @@ The **character** of a module records the dimensions of its energy levels in one
 #### The character
 
 > **Definition — character.** For a module $M=\bigoplus_\Delta M_\Delta$ of a conformal $V$ with central charge $c$, the **character** (or **graded dimension**) is
+>
 > $$
 > \chi_M(\tau)=\mathrm{tr}_M\,q^{\,L_0-c/24}=q^{\,\Delta_{\min}-c/24}\sum_{n\ge0}(\dim M_{\Delta_{\min}+n})\,q^{n},\qquad q=e^{2\pi i\tau},
 > $$
+>
 > with $\tau$ in the upper half-plane ($\mathrm{Im}\tau>0$, so $|q|<1$ and the series converges). The shift $-c/24$ is the **Casimir/Virasoro shift**; it is exactly what makes the character modular.
 
 The variable $\tau$ is the **modular parameter** of a torus (a [Complex Analysis](../complex-analysis/complex-analysis.md) object): the torus is $\mathbb{C}/(\mathbb{Z}+\tau\mathbb{Z})$, and $\mathrm{tr}\,q^{L_0-c/24}$ is the **partition function** of the CFT on that torus.
@@ -662,9 +700,11 @@ generate $SL(2,\mathbb{Z})$, the **modular group** (they describe the two ways t
 > **Theorem (Zhu, modular invariance).** Let $V$ be rational and $C_2$-cofinite with irreducible modules $M_1,\dots,M_r$. Then:
 > 1. each character $\chi_{M_i}(\tau)$ converges to a holomorphic function on the upper half-plane;
 > 2. the span $\{\chi_{M_1},\dots,\chi_{M_r}\}$ is **invariant under $SL(2,\mathbb{Z})$**: there are constant matrices $S_{ij},T_{ij}$ with
+>
 > $$
 > \chi_{M_i}(-1/\tau)=\sum_j S_{ij}\,\chi_{M_j}(\tau),\qquad \chi_{M_i}(\tau+1)=\sum_j T_{ij}\,\chi_{M_j}(\tau).
 > $$
+>
 > The matrix $T$ is diagonal with entries $e^{2\pi i(\Delta_i-c/24)}$; $S$ is symmetric and unitary.
 
 In one line: **the characters of a rational VOA form a finite-dimensional representation of $SL(2,\mathbb{Z})$.** This is why CFT partition functions can be made modular invariant — one combines $|\chi_i|^2$ so that the $S,T$ action cancels.

@@ -39,9 +39,11 @@ Throughout, the central object is the **module**, the common generalization of "
 
 > **Definition — module.**
 > A **left module** over a ring $R$ (an "$R$-module") is an abelian group $(M,+)$ together with a scalar multiplication $R\times M\to M$, written $(r,m)\mapsto rm$, satisfying for all $r,s\in R$ and $m,n\in M$:
+>
 > $$
 > r(m+n)=rm+rn,\quad (r+s)m=rm+sm,\quad (rs)m=r(sm),\quad 1\,m=m.
 > $$
+>
 > *Examples:* a $\mathbb{Z}$-module is *exactly* an abelian group (scalar multiplication by $n$ is "add $m$ to itself $n$ times"); a module over a field $k$ is *exactly* a vector space over $k$. So "module" is the common parent of both.
 
 > **Definition — module homomorphism (= $R$-linear map).**
@@ -52,9 +54,11 @@ Throughout, the central object is the **module**, the common generalization of "
 
 > **Definition — exact sequence.**
 > A sequence of $R$-modules and homomorphisms $\cdots\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to\cdots$ is **exact at $B$** if $\mathrm{im}f=\ker g$. It is **exact** if it is exact at every interior module. A **short exact sequence (SES)** is an exact sequence
+>
 > $$
 > 0\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to 0,
 > $$
+>
 > which unpacks to: $f$ is injective (exactness at $A$: $\mathrm{im}(0\to A)=0=\ker f$), $g$ is surjective (exactness at $C$: $\mathrm{im}g=\ker(C\to0)=C$), and $\mathrm{im}f=\ker g$, so by the first isomorphism theorem $C\cong B/\mathrm{im}f$.
 
 *Worked example.* $0\to \mathbb{Z}\xrightarrow{\,\times 2\,}\mathbb{Z}\xrightarrow{\bmod 2}\mathbb{Z}/2\to 0$ is a short exact sequence of $\mathbb{Z}$-modules: multiplication by $2$ is injective, reduction mod $2$ is surjective, and the image of "$\times 2$" is the even integers, which is exactly the kernel of "mod $2$." We will use this exact sequence repeatedly.
@@ -66,6 +70,7 @@ Throughout, the central object is the **module**, the common generalization of "
 A **commutative diagram** is a picture of modules and arrows in which any two directed paths with the same start and end give equal composite maps. **Diagram chasing** proves statements by tracking a single element through such a diagram, justifying each move by exactness or commutativity. The two foundational results are the snake lemma and the five lemma.
 
 > **Snake Lemma.** Given a commutative diagram with exact rows
+>
 > $$
 > \begin{array}{ccccccccc}
 > & & A & \xrightarrow{\,f\,} & B & \xrightarrow{\,g\,} & C & \to & 0\\
@@ -73,10 +78,13 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 > 0 & \to & A' & \xrightarrow{\,f'\,} & B' & \xrightarrow{\,g'\,} & C' & &
 > \end{array}
 > $$
+>
 > there is an exact sequence
+>
 > $$
 > \ker a\to\ker b\to\ker c\xrightarrow{\;\partial\;}\mathrm{coker}a\to\mathrm{coker}b\to\mathrm{coker}c,
 > $$
+>
 > where $\mathrm{coker}a=A'/\mathrm{im}a$ is the **cokernel**, and $\partial$ is the **connecting homomorphism**. If $f$ is injective the sequence may be capped with $0\to\ker a$ on the left; if $g'$ is surjective, with $\mathrm{coker}c\to 0$ on the right.
 
 **Proof (complete diagram chase).**
@@ -91,6 +99,7 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 8. *Exactness at $\mathrm{coker}b$.* Mirror of step 5, dualized to cokernels: $\bar g'\circ\bar f'=0$ since $g'f'=0$, and a class killed by $\bar g'$ comes from $\mathrm{coker}a$ by surjectivity of $g$ and exactness of the bottom row. The argument is the formal dual of step 5 (reverse all arrows and swap kernels for cokernels). *(exactness at $B'$ and at $C$)* $\;\blacksquare$
 
 > **Five Lemma.** In a commutative diagram with exact rows
+>
 > $$
 > \begin{array}{ccccccccc}
 > A_1 & \to & A_2 & \to & A_3 & \to & A_4 & \to & A_5\\
@@ -98,6 +107,7 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 > B_1 & \to & B_2 & \to & B_3 & \to & B_4 & \to & B_5
 > \end{array}
 > $$
+>
 > if $f_1$ is surjective, $f_5$ is injective, and $f_2,f_4$ are isomorphisms, then $f_3$ is an isomorphism.
 
 **Proof.** Label the horizontal maps $\alpha_i:A_i\to A_{i+1}$ and $\beta_i:B_i\to B_{i+1}$.
@@ -106,9 +116,11 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 2. *($f_3$ surjective.)* Let $y\in B_3$. Then $\beta_3(y)\in B_4$; since $f_4$ is surjective, $\beta_3(y)=f_4(t)$ for some $t\in A_4$. Now $f_5(\alpha_4(t))=\beta_4(f_4(t))=\beta_4(\beta_3(y))=0$ (bottom exact at $B_4$), and $f_5$ injective gives $\alpha_4(t)=0$, so $t\in\ker\alpha_4=\mathrm{im}\alpha_3$; write $t=\alpha_3(s)$. Consider $y-f_3(s)$: $\beta_3(y-f_3(s))=f_4(t)-\beta_3(f_3(s))=f_4(t)-f_4(\alpha_3(s))=f_4(t)-f_4(t)=0$, so $y-f_3(s)\in\ker\beta_3=\mathrm{im}\beta_2$; write $y-f_3(s)=\beta_2(p)$. Since $f_2$ is surjective, $p=f_2(q)$, and $\beta_2(f_2(q))=f_3(\alpha_2(q))$, so $y-f_3(s)=f_3(\alpha_2(q))$, giving $y=f_3(s+\alpha_2(q))\in\mathrm{im}f_3$. *(surjectivity/injectivity of $f_4,f_5,f_2$; exactness)* $\;\blacksquare$
 
 > **Worked example — the snake lemma yields $0\to\mathbb{Z}/2\to\mathbb{Z}/4\to\mathbb{Z}/2\to0$ analysis.** Apply the snake lemma to the diagram with rows $0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to\mathbb{Z}/2\to0$ (top) and the same row (bottom), with vertical maps $a=b=\times2$ on the two $\mathbb{Z}$'s and $c$ the induced map on $\mathbb{Z}/2$ (which is $0$, since $2\equiv0$). Then $\ker a=\ker b=0$, $\ker c=\mathbb{Z}/2$, $\mathrm{coker}a=\mathrm{coker}b=\mathbb{Z}/2$, $\mathrm{coker}c=\mathbb{Z}/2$. The snake sequence reads
+>
 > $$
 > 0\to0\to\mathbb{Z}/2\xrightarrow{\partial}\mathbb{Z}/2\to\mathbb{Z}/2\to\mathbb{Z}/2\to0,
 > $$
+>
 > and exactness forces $\partial$ to be injective. Tracing the construction of $\partial$ in step 3: lift the generator of $\ker c=\mathbb{Z}/2$ to $1\in\mathbb{Z}$ (top), apply $b=\times2$ to get $2\in\mathbb{Z}$ (bottom), pull back along $f'=\times2$ to get $1\in\mathbb{Z}$, project to $1\in\mathrm{coker}a=\mathbb{Z}/2$ — so $\partial$ sends the generator to the generator, an isomorphism. The connecting map is exactly the Bockstein homomorphism that detects $\mathbb{Z}/4$ versus $\mathbb{Z}/2\oplus\mathbb{Z}/2$.
 
 **Pitfall.** Diagram chasing uses *elements*, which is legitimate for modules but not for an arbitrary abstract setting; §s6 explains how the same lemmas survive in any abelian category by a more careful argument. Also, the snake lemma's connecting map $\partial$ is canonical *despite* the choices made in step 3 — the well-definedness check is not a formality, it is the heart of the lemma.
@@ -123,9 +135,11 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 
 > **Definition — homology.**
 > The **$n$-th homology** is the quotient module
+>
 > $$
 > H_n(C_\bullet)=\ker\partial_n/\mathrm{im}\partial_{n+1}=Z_n/B_n.
 > $$
+>
 > It measures "cycles that are not boundaries." The complex is exact at $C_n$ iff $H_n=0$; thus **homology is the precise measure of non-exactness.** A **cochain complex** is the same with arrows raised, $d^n:C^n\to C^{n+1}$, $d^{n+1}d^n=0$; its **cohomology** is $H^n=\ker d^n/\mathrm{im}d^{n-1}$.
 
 *Worked example.* Let $C_1=\mathbb{Z}\xrightarrow{\times 2}C_0=\mathbb{Z}$, all other $C_n=0$. Then $\partial_1=\times2$, and $\partial_0=0$. Cycles in degree $0$: all of $\mathbb{Z}$ (since $\partial_0=0$). Boundaries in degree $0$: $\mathrm{im}(\times2)=2\mathbb{Z}$. So $H_0=\mathbb{Z}/2\mathbb{Z}$. In degree $1$: cycles $=\ker(\times2)=0$, so $H_1=0$. The complex "sees" the torsion $\mathbb{Z}/2$.
@@ -140,9 +154,11 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 
 > **Definition — chain homotopy.**
 > Two chain maps $f_\bullet,g_\bullet:C_\bullet\to D_\bullet$ are **chain homotopic** if there is a family $h_n:C_n\to D_{n+1}$ (no commutation required) with
+>
 > $$
 > f_n-g_n=\partial^D_{n+1}h_n+h_{n-1}\partial^C_n.
 > $$
+>
 > We write $f\simeq g$ and call $h$ a **chain homotopy**.
 
 > **Theorem (homotopy invariance).** If $f\simeq g$ then $f_*=g_*$ on homology.
@@ -153,6 +169,7 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 3. Hence $f_*(z+B)=g_*(z+B)$ for every cycle $z$, i.e. $f_*=g_*$. $\;\blacksquare$
 
 > **Theorem (long exact sequence of homology).** A short exact sequence of chain complexes $0\to A_\bullet\xrightarrow{f}B_\bullet\xrightarrow{g}C_\bullet\to 0$ (exact in each degree) induces a long exact sequence
+>
 > $$
 > \cdots\to H_n(A)\xrightarrow{f_*}H_n(B)\xrightarrow{g_*}H_n(C)\xrightarrow{\partial_*}H_{n-1}(A)\to\cdots
 > $$
@@ -160,9 +177,11 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 **Proof.** Apply the snake lemma (§s1) to the commutative diagram whose two rows are the $\partial$-maps of the SES of complexes in adjacent degrees; the snake's connecting map *is* $\partial_*$, and splicing the resulting six-term exact sequences over all $n$ produces the long exact sequence. Concretely: in each degree $0\to A_n\to B_n\to C_n\to 0$ is exact, $\partial$ commutes with $f,g$, and the snake lemma yields exactness at each $H_n$ together with $\partial_*$; the verification that consecutive six-term pieces splice is the matching of the snake's $\ker\to\mathrm{coker}$ map across degrees. $\;\blacksquare$
 
 > **Worked example — the long exact sequence in action (the pair $(D^2,S^1)$).** In algebraic topology the disk $D^2$ has the homology of a point ($H_0=\mathbb{Z}$, all higher $0$) and the circle $S^1$ has $H_0=H_1=\mathbb{Z}$. The relative chains fit into a SES of complexes $0\to C_\bullet(S^1)\to C_\bullet(D^2)\to C_\bullet(D^2,S^1)\to0$, giving the long exact sequence
+>
 > $$
 > \cdots\to H_2(D^2,S^1)\xrightarrow{\partial_*}H_1(S^1)\xrightarrow{i_*}H_1(D^2)\to H_1(D^2,S^1)\to H_0(S^1)\to\cdots
 > $$
+>
 > Substituting $H_1(D^2)=0$, exactness forces $\partial_*:H_2(D^2,S^1)\to H_1(S^1)=\mathbb{Z}$ to be surjective; combined with $H_2(D^2)=0$ on its left it is also injective, so $H_2(D^2,S^1)\cong\mathbb{Z}$. The connecting map "$\partial_*$" — the snake's $\partial$ — is precisely the boundary operator that detects the circle as the rim of the disk. This is the homological algebra of "the boundary of a $2$-cell is its bounding circle."
 
 **Intuition.** Homology turns "the failure to be exact" into a computable invariant; chain homotopy is the algebraic shadow of "continuous deformation," which is why homotopy-equivalent spaces have equal homology. The long exact sequence is the workhorse: it converts a known relationship between three complexes into a single infinite exact ladder relating all their homology groups, and the connecting map carries the geometric content.
@@ -189,9 +208,11 @@ A **commutative diagram** is a picture of modules and arrows in which any two di
 
 > **Definition — resolution.**
 > A **projective resolution** of $M$ is an exact sequence
+>
 > $$
 > \cdots\to P_2\xrightarrow{d_2}P_1\xrightarrow{d_1}P_0\xrightarrow{\varepsilon}M\to 0
 > $$
+>
 > with every $P_n$ projective. An **injective resolution** is an exact sequence $0\to M\xrightarrow{\eta}E^0\xrightarrow{d^0}E^1\to\cdots$ with every $E^n$ injective.
 
 > **Theorem (existence of projective resolutions).** Every $R$-module $M$ has a projective (indeed free) resolution.
@@ -212,9 +233,11 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 3. Iterate on $E^0/M$ to build $E^1,E^2,\dots$, producing the injective resolution. $\;\blacksquare$
 
 > **Worked example — a free resolution of $\mathbb{Z}/6$ over $\mathbb{Z}$.** Follow the construction. $P_0=\mathbb{Z}$ with $\varepsilon:\mathbb{Z}\twoheadrightarrow\mathbb{Z}/6$ the reduction map; $K_0=\ker\varepsilon=6\mathbb{Z}\cong\mathbb{Z}$. Take $P_1=\mathbb{Z}$ surjecting onto $6\mathbb{Z}$ by $1\mapsto6$, so $d_1=\times6:\mathbb{Z}\to\mathbb{Z}$. Now $\ker d_1=0$, so the resolution terminates:
+>
 > $$
 > 0\to\mathbb{Z}\xrightarrow{\times6}\mathbb{Z}\xrightarrow{\bmod6}\mathbb{Z}/6\to0.
 > $$
+>
 > It has length $1$ — the general phenomenon that finitely generated abelian groups have free resolutions of length $\leq1$, which is why $\mathrm{Tor}_n$ and $\mathrm{Ext}^n$ vanish over $\mathbb{Z}$ for $n\geq2$ (§s4).
 
 **Pitfall.** Projective is *not* the same as free for general rings (e.g. over $\mathbb{Z}/6\cong\mathbb{Z}/2\times\mathbb{Z}/3$ the factor $\mathbb{Z}/2$ is projective but not free); over $\mathbb{Z}$, however — and more generally over any PID — *every* projective module is free, so the two notions coincide for everything we use here. The choice of resolution is wildly non-unique (different generators, different free covers), which is exactly why the independence theorem of §s4 is indispensable: it guarantees the derived functors do not see the choice.
@@ -231,9 +254,11 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 
 > **Definition — derived functor (left).**
 > To compute $L_nF(M)$ for a right-exact functor $F$: take a projective resolution $P_\bullet\to M$, delete $M$ to get $\cdots\to P_1\to P_0\to0$, apply $F$ to get the complex $F(P_\bullet)$, and set
+>
 > $$
 > L_nF(M)=H_n\big(F(P_\bullet)\big).
 > $$
+>
 > Define $\mathrm{Tor}_n^R(M,N)=L_n(-\otimes_R N)(M)=H_n(P_\bullet\otimes_R N)$.
 
 > **Definition — derived functor (right) and Ext.**
@@ -256,6 +281,7 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 **Key facts (each provable as above).** $\mathrm{Tor}_0=\otimes$, $\mathrm{Ext}^0=\mathrm{Hom}$; over $\mathbb{Z}$, $\mathrm{Tor}_n=\mathrm{Ext}^n=0$ for $n\geq2$ (because every subgroup of a free abelian group is free, so resolutions have length $1$); a SES in either variable yields a **long exact sequence** of $\mathrm{Tor}$'s or $\mathrm{Ext}$'s (apply §s2's long exact sequence to the resolution complexes).
 
 > **Theorem (long exact sequence of $\mathrm{Tor}$).** A short exact sequence $0\to A'\to A\to A''\to0$ of right $R$-modules and a fixed left module $N$ produce a long exact sequence
+>
 > $$
 > \cdots\to\mathrm{Tor}_1(A',N)\to\mathrm{Tor}_1(A,N)\to\mathrm{Tor}_1(A'',N)\to A'\otimes N\to A\otimes N\to A''\otimes N\to0.
 > $$
@@ -277,9 +303,11 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 **What & why.** In topology one computes homology with integer coefficients, then wants homology or cohomology with other coefficients, and the homology of a product space. Both answers are governed by $\mathrm{Tor}$ and $\mathrm{Ext}$. We derive both. We work with a chain complex $C_\bullet$ of **free** abelian groups (the case of singular chains), which is what makes the splittings below possible.
 
 > **Universal Coefficient Theorem (homology).** Let $C_\bullet$ be a chain complex of free abelian groups and $G$ an abelian group. There is a short exact sequence, natural in $G$,
+>
 > $$
 > 0\to H_n(C)\otimes G\to H_n(C\otimes G)\to \mathrm{Tor}_1^{\mathbb{Z}}(H_{n-1}(C),G)\to 0,
 > $$
+>
 > and it splits (non-naturally), so $H_n(C\otimes G)\cong (H_n(C)\otimes G)\oplus\mathrm{Tor}_1^{\mathbb{Z}}(H_{n-1}(C),G)$.
 
 **Derivation.**
@@ -295,12 +323,15 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 6. Substituting into step 4 gives the stated SES. **Splitting:** since $Z_n$ is a direct summand of $C_n$ (step 1), choose a retraction $C_n\to Z_n$; it induces $H_n(C\otimes G)\to H_n(C)\otimes G$ splitting the first map. $\;\blacksquare$
 
 > **Universal Coefficient Theorem (cohomology).** With $C_\bullet$ free, there is a split SES
+>
 > $$
 > 0\to\mathrm{Ext}^1_{\mathbb{Z}}(H_{n-1}(C),G)\to H^n(\mathrm{Hom}(C,G))\to\mathrm{Hom}(H_n(C),G)\to0.
 > $$
+>
 > *Derivation:* identical to the above with $\mathrm{Hom}(-,G)$ in place of $\otimes G$; the connecting maps now produce $\mathrm{Hom}=\mathrm{Ext}^0$ and $\mathrm{Ext}^1$ from the same length-one free resolution. *(dualize steps 1–6)*
 
 > **Künneth Formula.** For free chain complexes $C_\bullet,D_\bullet$ of abelian groups there is a split SES
+>
 > $$
 > 0\to\bigoplus_{i+j=n}H_i(C)\otimes H_j(D)\to H_n(C\otimes D)\to\bigoplus_{i+j=n-1}\mathrm{Tor}_1^{\mathbb{Z}}(H_i(C),H_j(D))\to0.
 > $$
@@ -344,9 +375,11 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 
 > **Definition — adjoint functors.**
 > Functors $F:\mathcal{C}\to\mathcal{D}$ and $G:\mathcal{D}\to\mathcal{C}$ are an **adjoint pair** ($F$ left adjoint to $G$) if there is a natural isomorphism
+>
 > $$
 > \mathrm{Hom}_{\mathcal{D}}(F(X),Y)\cong\mathrm{Hom}_{\mathcal{C}}(X,G(Y))
 > $$
+>
 > for all $X,Y$. The prototype is the **tensor–Hom adjunction** $\mathrm{Hom}(M\otimes_R N,\,P)\cong\mathrm{Hom}\big(M,\mathrm{Hom}_R(N,P)\big)$.
 
 > **Why exactness behaviour is forced.** A left adjoint preserves all *colimits* (in particular cokernels), hence is **right exact** — this is precisely why $\otimes$ (a left adjoint) is right exact and needs left-derived functors $\mathrm{Tor}$. A right adjoint preserves all *limits* (kernels), hence is **left exact** — why $\mathrm{Hom}(-,N)$ and $(-)^G$ are left exact and need right-derived functors $\mathrm{Ext}$ and $H^*(G;-)$. The entire $\mathrm{Tor}$/$\mathrm{Ext}$ dichotomy is the shadow of this single adjunction fact. *(adjoints preserve (co)limits)*
@@ -365,13 +398,16 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 
 > **Definition — double complex.**
 > A **double complex** $C_{\bullet\bullet}=(C_{p,q})$ is a grid of modules with horizontal maps $d^h:C_{p,q}\to C_{p-1,q}$ and vertical maps $d^v:C_{p,q}\to C_{p,q-1}$ satisfying
+>
 > $$
 > d^h d^h=0,\qquad d^v d^v=0,\qquad d^h d^v + d^v d^h = 0.
 > $$
+>
 > (The sign convention $d^hd^v+d^vd^h=0$ — anticommuting — is what makes the total differential square to zero; some authors use commuting squares and insert a sign $(-1)^p$ instead.)
 
 > **Definition — total complex.**
 > The **total complex** $\mathrm{Tot}(C)_\bullet$ has
+>
 > $$
 > \mathrm{Tot}(C)_n=\bigoplus_{p+q=n}C_{p,q},\qquad D=d^h+d^v.
 > $$
@@ -399,13 +435,17 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 
 > **Definition — (homological) spectral sequence.**
 > A **spectral sequence** (of $R$-modules, starting at page $r_0$) is a family
+>
 > $$
 > \big\{E^r_{p,q},\ d^r:E^r_{p,q}\to E^r_{p-r,\,q+r-1}\big\}_{r\geq r_0}
 > $$
+>
 > such that each $d^r$ satisfies $d^r\circ d^r=0$, together with isomorphisms
+>
 > $$
 > E^{r+1}_{p,q}\cong H_{p,q}(E^r)=\frac{\ker\big(d^r:E^r_{p,q}\to E^r_{p-r,q+r-1}\big)}{\mathrm{im}\big(d^r:E^r_{p+r,q-r+1}\to E^r_{p,q}\big)}.
 > $$
+>
 > Thus each page is the homology of the previous page with respect to its differential $d^r$. The bidegree of $d^r$ is $(-r,\,r-1)$: as $r$ grows the differentials get "longer and flatter."
 
 > **Definition — the limit page $E^\infty$.**
@@ -413,9 +453,11 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 
 > **Definition — convergence.**
 > The spectral sequence **converges** to a graded module $H_\bullet$ (written $E^r_{p,q}\Rightarrow H_{p+q}$) if $H_n$ carries a filtration $0=F_{-1}\subseteq F_0\subseteq\cdots\subseteq F_n=H_n$ with isomorphisms
+>
 > $$
 > E^\infty_{p,q}\cong F_p H_{p+q}/F_{p-1}H_{p+q}.
 > $$
+>
 > In words: the limit page is the **associated graded** of a filtration on the answer. Recovering $H_n$ from the $E^\infty_{p,q}$ on the anti-diagonal $p+q=n$ is an **extension problem** (one must reassemble the pieces), which can have several solutions.
 
 **Concrete reading guide.**
@@ -439,9 +481,11 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 > A **filtration** of a chain complex $(C_\bullet,D)$ is a nested family of subcomplexes $\cdots\subseteq F_{p-1}C\subseteq F_pC\subseteq F_{p+1}C\subseteq\cdots$ with $D(F_pC)\subseteq F_pC$. It is **bounded** if for each $n$ there are $s<t$ with $F_sC_n=0$ and $F_tC_n=C_n$.
 
 > **Theorem (spectral sequence of a filtered complex).** A bounded filtration on $C_\bullet$ determines a spectral sequence with
+>
 > $$
 > E^0_{p,q}=F_pC_{p+q}/F_{p-1}C_{p+q},\qquad E^1_{p,q}=H_{p+q}\big(F_pC/F_{p-1}C\big),
 > $$
+>
 > converging to $H_{p+q}(C)$ with the filtration induced by $F_\bullet$.
 
 **Derivation (the exact-couple construction).**
@@ -456,6 +500,7 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 5. *Convergence.* Boundedness makes the filtration on each $H_n(C)$ finite, so $E^r$ stabilizes to $E^\infty$, and tracking the derived couples identifies $E^\infty_{p,q}=F_pH_{p+q}(C)/F_{p-1}H_{p+q}(C)$. *(bounded filtration $\Rightarrow$ stabilization, §s8)* $\;\blacksquare$
 
 > **Corollary (double-complex spectral sequences).** A first-quadrant double complex $C_{\bullet\bullet}$ gives **two** spectral sequences converging to $H_*(\mathrm{Tot}\,C)$:
+>
 > $$
 > {}^{I}\!E^2_{p,q}=H^h_p\big(H^v_q(C)\big)\ \Rightarrow\ H_{p+q}(\mathrm{Tot}\,C),\qquad
 > {}^{II}\!E^2_{p,q}=H^v_p\big(H^h_q(C)\big)\ \Rightarrow\ H_{p+q}(\mathrm{Tot}\,C).
@@ -475,9 +520,11 @@ For injective resolutions over $\mathbb{Z}$ (and any ring) the dual existence th
 > **Definition — fibration (Serre).** A continuous map $\pi:E\to B$ is a **(Serre) fibration** if it has the homotopy lifting property for cubes: any homotopy of a cube in $B$ lifts, given a lift of its start, to a homotopy in $E$. The **fiber** is $F=\pi^{-1}(b_0)$. *Example:* the Hopf map $S^1\to S^3\xrightarrow{\pi}S^2$ has fiber $S^1$.
 
 > **Theorem (Leray–Serre, homology).** For a fibration $F\to E\xrightarrow{\pi}B$ with $B$ path-connected and acting trivially on $H_*(F)$ (the simply-connected base case), there is a first-quadrant spectral sequence
+>
 > $$
 > E^2_{p,q}=H_p\big(B;\,H_q(F)\big)\ \Rightarrow\ H_{p+q}(E).
 > $$
+>
 > The differentials are $d^r:E^r_{p,q}\to E^r_{p-r,q+r-1}$, and $E^\infty$ is the associated graded of a filtration of $H_*(E)$.
 
 **Worked computation — homology of $S^3$ from the Hopf fibration $S^1\to S^3\to S^2$.** We will *verify* $H_*(S^3)$ and in the process pin down a differential.
@@ -519,16 +566,21 @@ all others $0$. *(Künneth with free coefficients, §s5; given homologies of $S^
 > $H^n(G;M)=\mathrm{Ext}^n_{\mathbb{Z}[G]}(\mathbb{Z},M)=R^n(-)^G(M)$, the right derived functors (§s4) of taking $G$-invariants. So $H^0(G;M)=M^G$, and the higher $H^n$ measure the failure of invariants to be exact. *Example:* $H^1(G;M)$ classifies "crossed homomorphisms modulo principal ones"; for trivial action $H^1(G;M)=\mathrm{Hom}(G,M)$.
 
 > **Full computation — $H^n(\mathbb{Z}/2;\mathbb{Z})$ from a free resolution.** Let $G=\mathbb{Z}/2=\langle t\mid t^2=1\rangle$, so $\mathbb{Z}[G]=\mathbb{Z}[t]/(t^2-1)$. There is a standard **periodic** free resolution of the trivial module $\mathbb{Z}$ over $\mathbb{Z}[G]$:
+>
 > $$
 > \cdots\to\mathbb{Z}[G]\xrightarrow{\,t-1\,}\mathbb{Z}[G]\xrightarrow{\,t+1\,}\mathbb{Z}[G]\xrightarrow{\,t-1\,}\mathbb{Z}[G]\xrightarrow{\,\varepsilon\,}\mathbb{Z}\to0,
 > $$
+>
 > where $\varepsilon(t)=1$ is the augmentation. One checks $(t-1)(t+1)=t^2-1=0$ and $(t+1)(t-1)=0$ in $\mathbb{Z}[G]$, and exactness because $\ker\varepsilon$ is generated by $t-1$, $\ker(t-1)$ by $t+1$, etc. Apply $\mathrm{Hom}_{\mathbb{Z}[G]}(-,\mathbb{Z})$ with $\mathbb{Z}$ trivial; each $\mathrm{Hom}_{\mathbb{Z}[G]}(\mathbb{Z}[G],\mathbb{Z})=\mathbb{Z}$, the dual of $t-1$ becomes multiplication by $\varepsilon(t)-1=0$, and the dual of $t+1$ becomes $\varepsilon(t)+1=2$. The cochain complex is
+>
 > $$
 > \mathbb{Z}\xrightarrow{0}\mathbb{Z}\xrightarrow{2}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\xrightarrow{2}\cdots
 > $$
+>
 > Cohomology: $H^0=\mathbb{Z}$; in odd degrees $H^{2k+1}=\ker(2)/\mathrm{im}(0)=0$; in positive even degrees $H^{2k}=\ker(0)/\mathrm{im}(2)=\mathbb{Z}/2$. So $H^n(\mathbb{Z}/2;\mathbb{Z})=\mathbb{Z},0,\mathbb{Z}/2,0,\mathbb{Z}/2,\dots$ — the same pattern as $H^*(\mathbb{RP}^\infty;\mathbb{Z})$, because $\mathbb{RP}^\infty$ is the classifying space $B(\mathbb{Z}/2)$ and group cohomology *is* the cohomology of the classifying space.
 
 > **Theorem (Lyndon–Hochschild–Serre).** For a short exact sequence of groups $1\to N\to G\to Q\to1$ and a $G$-module $M$, there is a first-quadrant spectral sequence
+>
 > $$
 > E_2^{p,q}=H^p\big(Q;\,H^q(N;M)\big)\ \Rightarrow\ H^{p+q}(G;M).
 > $$
@@ -536,9 +588,11 @@ all others $0$. *(Künneth with free coefficients, §s5; given homologies of $S^
 **Where it comes from (overview).** The functor "take $G$-invariants" factors as "take $N$-invariants, then take $Q=G/N$-invariants": $M^G=(M^N)^Q$. LHS is the **Grothendieck spectral sequence** of this composite of functors — the general theorem that for a composable pair of functors $F,F'$ with $F$ sending injectives/acyclics to $F'$-acyclics, there is a spectral sequence $R^pF'\big(R^qF(M)\big)\Rightarrow R^{p+q}(F'\circ F)(M)$. Concretely it is the double-complex spectral sequence (§s9) of a suitable double resolution. *(composite-functor / Grothendieck spectral sequence, built from §s9)*
 
 > **Worked use — the five-term exact sequence.** Reading the low-degree corner of LHS exactly as in the two-column example of §s8 gives, for any $1\to N\to G\to Q\to1$,
+>
 > $$
 > 0\to H^1(Q;M^N)\to H^1(G;M)\to H^1(N;M)^Q\xrightarrow{\,d_2\,} H^2(Q;M^N)\to H^2(G;M).
 > $$
+>
 > *Derivation:* the entries $E_2^{p,q}$ with $p+q\leq2$ and the single $d_2:E_2^{0,1}\to E_2^{2,0}$ are all that can be nonzero in low degree; assembling their kernels/cokernels by the convergence filtration (§s8) yields the five terms. This recovers, among other things, the inflation–restriction sequence of Galois cohomology. *(low-degree reading of a first-quadrant spectral sequence, §s8)*
 
 **Intuition.** A normal subgroup $N\trianglelefteq G$ behaves like a "fiber" and $Q=G/N$ like a "base"; LHS is the algebraic Leray–Serre spectral sequence of the fibration $BN\to BG\to BQ$ of classifying spaces. The whole guide closes the loop: the same two-dimensional bookkeeping computes the (co)homology of spaces, of modules, and of groups.

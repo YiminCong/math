@@ -48,9 +48,11 @@ A fiber bundle is the precise notion of "a family of identical spaces, one over 
 > - a smooth manifold $F$, the **typical fiber**,
 >
 > such that $\pi$ is **locally trivial**: every point $x\in M$ has an open neighborhood $U\subseteq M$ and a diffeomorphism (a smooth map with smooth inverse)
+>
 > $$
 > \phi_U:\ \pi^{-1}(U)\ \xrightarrow{\ \sim\ }\ U\times F
 > $$
+>
 > such that $\mathrm{pr}_1\circ\phi_U=\pi$, where $\mathrm{pr}_1:U\times F\to U$ is projection onto the first factor. The pair $(U,\phi_U)$ is a **local trivialization**.
 
 Unpacking this: $\pi^{-1}(\{x\})$ is the **fiber over $x$**, written $E_x$; the condition $\mathrm{pr}_1\circ\phi_U=\pi$ forces $\phi_U$ to carry the fiber $E_x$ diffeomorphically onto $\{x\}\times F$, so every fiber is a copy of $F$. "Locally trivial" means: zoom into a small patch $U$ of the base, and the part of $E$ above it is just the product $U\times F$ — boring and untwisted. The interesting content is *global*: how the local product pictures over overlapping patches are glued.
@@ -60,9 +62,11 @@ Unpacking this: $\pi^{-1}(\{x\})$ is the **fiber over $x$**, written $E_x$; the 
 > **Definition — transition functions.**
 >
 > Let $(U_\alpha,\phi_\alpha)$ and $(U_\beta,\phi_\beta)$ be two local trivializations with $U_\alpha\cap U_\beta\ne\varnothing$. On the overlap, the composite
+>
 > $$
 > \phi_\alpha\circ\phi_\beta^{-1}:\ (U_\alpha\cap U_\beta)\times F\ \to\ (U_\alpha\cap U_\beta)\times F
 > $$
+>
 > preserves the base point (both sides project to the same $x$), so it has the form $(x,f)\mapsto\big(x,\ g_{\alpha\beta}(x)\cdot f\big)$ for a smooth map $g_{\alpha\beta}:U_\alpha\cap U_\beta\to \mathrm{Diff}(F)$ into transformations of the fiber. The $g_{\alpha\beta}$ are the **transition functions**.
 
 The transition functions encode the gluing — the "twist." They satisfy two consistency conditions that follow directly from their definition:
@@ -160,9 +164,11 @@ The principal bundle is the master object; vector bundles are *recovered* from i
 > **Definition — associated bundle.**
 >
 > Let $\pi:P\to M$ be a principal $G$-bundle and let $\rho:G\to GL(V)$ be a **representation** of $G$ on a vector space $V$ (a homomorphism into linear maps of $V$; Group Theory guide). The **associated vector bundle** is
+>
 > $$
 > P\times_\rho V\ :=\ (P\times V)\big/\sim,\qquad (p\cdot g,\,v)\sim(p,\,\rho(g)v),
 > $$
+>
 > the quotient of $P\times V$ by the equivalence that "moving the frame by $g$ and the components by $\rho(g)$ leaves the physical vector fixed." It is a vector bundle over $M$ with fiber $V$ and structure group $\rho(G)$.
 
 > **Intuition.** $P$ stores *all possible frames and how the group permutes them*. A representation $\rho$ says *how a given kind of matter responds* to a frame change. Pairing them ($P\times_\rho V$) reconstructs the physical field bundle. One principal bundle, many associated matter bundles — electrons, quarks, Higgs fields — each via its own representation. This is why gauge theory puts the principal bundle first.
@@ -203,9 +209,11 @@ The split is encoded compactly by a $\mathfrak{g}$-valued 1-form.
 > - $\ker\omega_p=H_p$ (its kernel is the horizontal subspace).
 >
 > Equivalently, $\omega$ projects each tangent vector onto its vertical part and identifies that with an element of $\mathfrak{g}$. Equivariance of $H$ is encoded by
+>
 > $$
 > R_g^*\omega=\mathrm{Ad}_{g^{-1}}\circ\,\omega,
 > $$
+>
 > where $\mathrm{Ad}_{g^{-1}}(\xi)=g^{-1}\xi g$ is the **adjoint action** of $G$ on $\mathfrak{g}$.
 
 > **Why these two data agree.** Given $\omega$, set $H_p=\ker\omega_p$; since $\omega$ restricted to $V_p$ is the isomorphism $V_p\cong\mathfrak{g}$ (first bullet), its kernel meets $V_p$ only in $0$ and has the complementary dimension, so $T_pP=V_p\oplus H_p$. Conversely a split defines $\omega$ as "vertical projection followed by $V_p\cong\mathfrak{g}$." The two formulations of a connection are therefore equivalent — we use whichever is convenient.
@@ -222,9 +230,11 @@ The connection 1-form $\omega$ lives upstairs on $P$, which is hard to picture. 
 > **Definition — local gauge potential.**
 >
 > Let $\sigma_\alpha:U_\alpha\to P$ be a local section (a gauge choice). The **local gauge potential** is the pulled-back 1-form
+>
 > $$
 > A_\alpha\ :=\ \sigma_\alpha^*\omega\ \in\ \Omega^1(U_\alpha;\mathfrak{g}),
 > $$
+>
 > a $\mathfrak{g}$-valued 1-form on the patch $U_\alpha\subseteq M$. In coordinates $A_\alpha=A_\mu\,dx^\mu$ with each $A_\mu(x)\in\mathfrak{g}$ a Lie-algebra element. For a matrix group, $A_\mu$ is a matrix of 1-form components; this is the **gauge field** of physics (the photon potential, the gluon field).
 
 #### How $A$ transforms under a change of gauge
@@ -232,6 +242,7 @@ The connection 1-form $\omega$ lives upstairs on $P$, which is hard to picture. 
 Two gauges $\sigma_\alpha,\sigma_\beta$ over the overlap $U_\alpha\cap U_\beta$ are related by the transition function $g_{\alpha\beta}:U_\alpha\cap U_\beta\to G$ via $\sigma_\beta=\sigma_\alpha\cdot g_{\alpha\beta}$ (relabel the reference frame by a group element at each point). We derive the resulting change in $A$. Write $g:=g_{\alpha\beta}$.
 
 > **Theorem — gauge transformation of the potential.**
+>
 > $$
 > A_\beta\ =\ g^{-1}A_\alpha\,g\ +\ g^{-1}\,dg.
 > $$
@@ -268,9 +279,11 @@ Curvature measures the failure of horizontal transport to close up around a loop
 > **Definition — curvature 2-form.**
 >
 > The **curvature 2-form** of a connection $\omega$ is
+>
 > $$
 > \Omega\ :=\ d\omega+\tfrac12[\omega,\omega]\ \in\ \Omega^2(P;\mathfrak{g}),
 > $$
+>
 > where $d$ is the exterior derivative and $[\omega,\omega]$ is the Lie-bracket-valued wedge: on vectors $u,v$, $[\omega,\omega](u,v)=2[\omega(u),\omega(v)]$. Equivalently $\Omega=d\omega\circ(\mathrm{horizontal\ projection})$ — curvature is the *horizontal* part of $d\omega$ (**Cartan's structure equation**).
 
 For a matrix group the bracket is the commutator, and $\tfrac12[\omega,\omega]=\omega\wedge\omega$ (matrix wedge), so $\Omega=d\omega+\omega\wedge\omega$.
@@ -280,10 +293,13 @@ For a matrix group the bracket is the commutator, and $\tfrac12[\omega,\omega]=\
 > **Definition — field strength.**
 >
 > Pulling back by a gauge $\sigma_\alpha$, the **field strength** is
+>
 > $$
 > F\ :=\ \sigma_\alpha^*\Omega\ =\ dA+A\wedge A\ \in\ \Omega^2(U_\alpha;\mathfrak{g}),
 > $$
+>
 > using $\sigma^*d\omega=d\sigma^*\omega=dA$ (pullback commutes with $d$) and $\sigma^*(\omega\wedge\omega)=A\wedge A$. In components, with $A=A_\mu dx^\mu$,
+>
 > $$
 > F=\tfrac12 F_{\mu\nu}\,dx^\mu\wedge dx^\nu,\qquad F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu+[A_\mu,A_\nu].
 > $$
@@ -298,6 +314,7 @@ For $U(1)$ the commutator vanishes and $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\
 #### How $F$ transforms (the gauge covariance)
 
 > **Theorem.** Under a gauge change with transition $g$,
+>
 > $$
 > F_\beta\ =\ g^{-1}F_\alpha\,g\qquad(\text{i.e. }F\mapsto g^{-1}Fg,\text{ homogeneous adjoint transformation}).
 > $$
@@ -386,9 +403,11 @@ A matter field is a section $\psi$ of an associated vector bundle $E=P\times_\rh
 > **Definition — covariant derivative (gauge derivative).**
 >
 > Let $\rho:G\to GL(V)$ be the representation and $d\rho:\mathfrak g\to\mathfrak{gl}(V)$ its induced Lie-algebra representation. For a section $\psi$ (in a gauge, a $V$-valued function on $U$), the **covariant derivative** is
+>
 > $$
 > D\psi=d\psi+\rho_*(A)\,\psi,\qquad\text{componentwise } D_\mu\psi=\partial_\mu\psi+\rho_*(A_\mu)\,\psi,
 > $$
+>
 > where $\rho_*=d\rho$ represents the algebra element $A_\mu$ as an operator on $V$. For the defining representation of a matrix group, $\rho_*(A_\mu)=A_\mu$ acts by matrix multiplication.
 
 #### Gauge covariance — the point of the construction
@@ -430,17 +449,21 @@ We now give the gauge field its own dynamics. The principle: build the simplest 
 Recall (prerequisite guide) the **Hodge star** $\star$ on an oriented (pseudo-)Riemannian $n$-manifold maps $p$-forms to $(n-p)$-forms using the metric, and that $\int_M \alpha\wedge\star\beta$ is the natural inner product of forms. For $\mathfrak g$-valued forms we also take a trace (an invariant inner product on $\mathfrak g$, the **Killing form** up to scale).
 
 > **Definition — Yang–Mills action.**
+>
 > $$
 > S_{\mathrm{YM}}[A]=-\frac{1}{2g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F\wedge\star F\big)=-\frac{1}{4g_{\mathrm{YM}}^2}\int_M \mathrm{tr}\big(F_{\mu\nu}F^{\mu\nu}\big)\sqrt{-\det g}\,\,d^nx,
 > $$
+>
 > where $g_{\mathrm{YM}}$ is the **coupling constant** (written $g_{\mathrm{YM}}$ to distinguish it from the gauge/transition elements $g$ of §s5–s8), $\sqrt{-\det g}$ is the invariant volume factor built from the determinant of the spacetime metric $g_{\mu\nu}$, and indices are raised with that same metric. The integrand is gauge-invariant because $F\mapsto g^{-1}Fg$ and the trace is conjugation-invariant (cyclicity).
 
 #### The field equations
 
 > **Theorem — Yang–Mills equations.** Extremizing $S_{\mathrm{YM}}$ over $A$ gives
+>
 > $$
 > D\star F=0,\qquad\text{i.e.}\qquad D_\mu F^{\mu\nu}=\partial_\mu F^{\mu\nu}+[A_\mu,F^{\mu\nu}]=0,
 > $$
+>
 > together with the Bianchi identity $DF=0$ (s6) which holds automatically.
 
 *Derivation.*
@@ -479,19 +502,25 @@ Some properties of a bundle cannot be changed by any smooth deformation of the c
 For a *complex* vector bundle (structure group $U(k)$, the physically central case), the invariant polynomials of $\frac{i}{2\pi}F$ give the **Chern classes**.
 
 > **Definition — Chern classes.** Expand the **total Chern class**
+>
 > $$
 > c(F)=\det\!\Big(\mathrm{id}+\tfrac{i}{2\pi}F\Big)=1+c_1(F)+c_2(F)+\cdots,
 > $$
+>
 > where $c_j(F)$ is the degree-$2j$ part. In particular:
+>
 > $$
 > c_1=\tfrac{i}{2\pi}\,\mathrm{tr}\,F,\qquad c_2=\tfrac{1}{8\pi^2}\big(\mathrm{tr}\,F\wedge\mathrm{tr}\,F-\mathrm{tr}(F\wedge F)\big).
 > $$
+>
 > Integrals $\int_\Sigma c_j$ over closed submanifolds are **integers** (Chern numbers).
 
 > **Worked example — the first Chern number of a $U(1)$ bundle over $S^2$.** Here $F$ is an ordinary (imaginary) 2-form and $c_1=\frac{i}{2\pi}F$. The integral
+>
 > $$
 > n=\int_{S^2}c_1=\frac{i}{2\pi}\int_{S^2}F
 > $$
+>
 > is forced to be an integer: split $S^2$ into northern and southern caps with potentials $A_N,A_S$ differing by a gauge transformation $g=e^{in\phi}$ on the equator. By Stokes, $\int_{S^2}F=\oint_{\mathrm{eq}}(A_N-A_S)=\oint g^{-1}dg=2\pi i\,n$, giving integer $n$. This integer is the **magnetic charge** of a Dirac monopole (s11) and the **TKNN integer** of the quantum Hall effect — a topological invariant that cannot change continuously.
 
 #### The Chern–Simons form
@@ -499,6 +528,7 @@ For a *complex* vector bundle (structure group $U(k)$, the physically central ca
 The Chern classes are *closed* but, locally, *exact*: $c_j(F)=d(\text{something})$. That "something" is the **Chern–Simons form**.
 
 > **Definition — Chern–Simons 3-form.** For the second Chern class, $\mathrm{tr}(F\wedge F)=d\,\mathrm{CS}(A)$ with
+>
 > $$
 > \mathrm{CS}(A)=\mathrm{tr}\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
 > $$
@@ -521,6 +551,7 @@ We close by showing the abstract machinery at work in three landmark phenomena, 
 A magnetic monopole is a hypothetical point source of magnetic field $\mathbf B=\frac{q_m}{4\pi}\frac{\hat r}{r^2}$. Then $\int_{S^2}\mathbf B\cdot d\mathbf S=q_m\ne 0$, so $F$ has nonzero flux through any sphere surrounding it — but $F=dA$ would force the flux to vanish by Stokes. The resolution is geometric.
 
 > **Resolution — no global potential; a nontrivial $U(1)$ bundle.** There is no single smooth $A$ on $S^2$; instead use two patches (s10's caps) with potentials $A_N,A_S$ related on the equator by a $U(1)$ gauge transformation $g=e^{iq q_m\phi/(2\pi)}$. Smoothness of $g$ as $\phi\to\phi+2\pi$ (single-valuedness, since $\psi$ is a section of the bundle, not a function) requires the exponent to advance by an integer multiple of $2\pi i$:
+>
 > $$
 > q\,q_m=2\pi n,\qquad n\in\mathbb{Z}.
 > $$
@@ -534,9 +565,11 @@ This is the **Dirac quantization condition**: *the existence of a single magneti
 Take an infinite solenoid carrying flux $\Phi$, with $\mathbf B=0$ outside it. An electron travels through the field-free region outside, on either side of the solenoid, and the two beams interfere.
 
 > **Analysis.** Outside, $F=0$, so the connection is *flat*; classically no force acts ($\mathbf E=\mathbf B=0$). Yet the holonomy (s7) around a loop encircling the solenoid is, by Stokes applied to the enclosed (non-simply-connected) region,
+>
 > $$
 > U[\gamma]=\exp\!\Big(iq\oint_\gamma\mathbf A\cdot d\mathbf l\Big)=\exp\!\Big(iq\!\int_\Sigma F\Big)=\exp(iq\Phi)\ne 1.
 > $$
+>
 > The relative phase $q\Phi$ between the two paths shifts the interference pattern — a measurable effect of a region the electron never entered.
 
 The lesson: in gauge theory the *potential $A$ (the connection), not just the field $F$ (the curvature), has physical reality* — but only through gauge-invariant holonomies. The effect is topological: it depends only on the enclosed flux, i.e. on the homotopy class of the loop around the non-simply-connected region, and was confirmed experimentally by Tonomura. It is the cleanest demonstration that physics lives on bundles, not merely on spacetime fields.
