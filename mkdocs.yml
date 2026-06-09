@@ -1,0 +1,119 @@
+site_name: Math Guides
+site_url: https://yimincong.github.io/math/
+repo_url: https://github.com/YiminCong/math
+docs_dir: docs
+use_directory_urls: true
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tracking
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: { icon: material/weather-night, name: Dark mode }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: { icon: material/weather-sunny, name: Light mode }
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - assets/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: 简体中文
+          build: true
+
+validation:
+  nav:
+    omitted_files: ignore
+    not_found: warn
+  links:
+    not_found: ignore
+    anchors: ignore
+    absolute_links: ignore
+    unrecognized_links: ignore
+
+nav:
+  - Home: README.md
+  - Calculus 微积分:
+    - Complete Guide: calculus/complete-guide.md
+    - Derived From Scratch: calculus/derived-from-scratch.md
+    - Connected Map: calculus/connected-map.md
+    - Multivariable Vector: calculus/multivariable-vector.md
+    - Differential Equations: calculus/differential-equations.md
+    - Analysis Foundations: calculus/analysis-foundations.md
+    - Glossary: calculus/glossary.md
+  - Linear Algebra 线性代数:
+    - Linear Algebra: linear-algebra/linear-algebra.md
+  - Complex Analysis 复分析:
+    - Complex Analysis: complex-analysis/complex-analysis.md
+  - Topology 拓扑:
+    - General Topology: topology/general-topology.md
+    - Algebraic Topology: topology/algebraic-topology.md
+    - Differential Topology: topology/differential-topology.md
+    - Homological Algebra: topology/homological-algebra.md
+    - K Theory: topology/k-theory.md
+    - Tqft: topology/tqft.md
+    - Glossary: topology/glossary.md
+  - Differential Geometry 微分几何:
+    - Differential Geometry: differential-geometry/differential-geometry.md
+    - Tensor Analysis: differential-geometry/tensor-analysis.md
+    - Fiber Bundles Gauge: differential-geometry/fiber-bundles-gauge.md
+    - General Relativity: differential-geometry/general-relativity.md
+    - Index Theory: differential-geometry/index-theory.md
+    - Symplectic Geometry: differential-geometry/symplectic-geometry.md
+    - Deformation Quantization: differential-geometry/deformation-quantization.md
+  - Group Theory 群论:
+    - Group Theory: group-theory/group-theory.md
+    - Lie Representations: group-theory/lie-representations.md
+    - Quantum Groups: group-theory/quantum-groups.md
+  - Functional Analysis 泛函分析:
+    - Functional Analysis: functional-analysis/functional-analysis.md
+    - Operator Algebras: functional-analysis/operator-algebras.md
+  - Math Methods 数学方法:
+    - Fourier Transforms: math-methods/fourier-transforms.md
+    - Partial Differential Equations: math-methods/partial-differential-equations.md
+    - Special Functions: math-methods/special-functions.md
+    - Calculus Of Variations: math-methods/calculus-of-variations.md
+    - Conformal Field Theory: math-methods/conformal-field-theory.md
+    - Vertex Operator Algebras: math-methods/vertex-operator-algebras.md
+    - Modular Forms: math-methods/modular-forms.md
+    - Stochastic Processes: math-methods/stochastic-processes.md
+    - Stochastic Pdes: math-methods/stochastic-pdes.md
+  - Statistics 统计:
+    - Complete Guide: statistics/complete-guide.md
+    - Probability: statistics/probability.md
+    - Inference: statistics/inference.md
+    - Regression: statistics/regression.md
+    - Glossary: statistics/glossary.md
