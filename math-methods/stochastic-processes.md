@@ -302,7 +302,7 @@ In words: *you cannot beat a fair game by any non-anticipating stopping strategy
 A gambler starts with $\$a$ and bets $\$1$ on fair coin flips, quitting when broke ($0$) or reaching a target $\$N$ (so $0<a<N$). What is the probability $q$ of reaching $N$ before $0$?
 
 1. Model the fortune as the random walk $X_n=a+\xi_1+\dots+\xi_n$ (steps $\pm1$, fair). Then $X_n$ is a martingale: $\mathbb{E}[X_{n+1}\mid\mathcal{F}_n]=X_n+\mathbb{E}[\xi_{n+1}]=X_n+0=X_n$.
-2. Let $\tau$ be the first time the fortune hits $0$ or $N$ — a stopping time. One shows $\tau$ is finite with probability $1$ and the conditions for optional stopping hold.
+2. Let $\tau$ be the first time the fortune hits $0$ or $N$ — a stopping time. One shows $\tau$ is finite with probability $1$. Optional stopping applies because the *stopped* fortune $X_{n\wedge\tau}$ is confined to the interval $[0,N]$ (before stopping it lies strictly between, and at stopping it equals $0$ or $N$), hence uniformly bounded; a bounded martingale satisfies the dominated-convergence hypothesis of the theorem, so $\mathbb{E}[X_\tau]=\mathbb{E}[X_0]$ is licensed.
 3. Apply optional stopping: $\mathbb{E}[X_\tau]=\mathbb{E}[X_0]=a$.
 4. At time $\tau$ the fortune is either $0$ (probability $1-q$) or $N$ (probability $q$). So $\mathbb{E}[X_\tau]=0\cdot(1-q)+N\cdot q=Nq$.
 5. Equate: $Nq=a$, hence $q=a/N$.
@@ -353,8 +353,8 @@ $$
 $$
 (dW)^2=dt,\qquad dt\,dW=0,\qquad (dt)^2=0.
 $$
-- $(dW)^2=dt$ is the quadratic-variation result (§s4): squared Brownian increments accumulate at rate $1$ per unit time.
-- $(dt)^2=0$ and $dt\,dW=0$ because $dt$ is of order the step size while these products are of higher order (e.g. $dt\,dW\sim\Delta t\cdot\sqrt{\Delta t}=(\Delta t)^{3/2}$), which vanish faster than $dt$ when summed and so contribute nothing in the mean-square limit.
+- $(dW)^2=dt$ is the quadratic-variation result (§s4): squared Brownian increments accumulate at rate $1$ per unit time. Crucially $(dW)^2$ does **not** vanish, even though one might expect a "second-order" term to. The reason is a mean/variance argument: over a step, $\mathbb{E}[(\Delta W)^2]=\Delta t$ (its mean is exactly $\Delta t$, not zero), while its fluctuation about that mean is itself higher order — $\mathrm{Var}[(\Delta W)^2]=2(\Delta t)^2$, which sums to $\to0$. So $(\Delta W)^2$ may be replaced by its deterministic mean $\Delta t$ in the limit, giving $(dW)^2=dt$ — a *surviving* first-order term, not zero.
+- $(dt)^2=0$ and $dt\,dW=0$ vanish for a different reason. Here too the mean is the diagnostic: $\mathbb{E}[\Delta t\,\Delta W]=\Delta t\,\mathbb{E}[\Delta W]=0$, so unlike $(\Delta W)^2$ this product has no surviving deterministic mean at order $dt$. Its size is genuinely higher order ($dt\,dW\sim\Delta t\cdot\sqrt{\Delta t}=(\Delta t)^{3/2}$, and $(dt)^2\sim(\Delta t)^2$), so summed over $\sim t/\Delta t$ steps it vanishes in the mean-square limit. The contrast is the whole point: $(dW)^2$ survives because its mean is $dt$, whereas $dt\,dW$ dies because its mean is zero and its scale is subleading.
 4. Therefore $(dX)^2=b^2\,dt$, all other second-order terms vanish, and the $\partial_{tt}$ and mixed terms drop out. Collecting the surviving pieces:
 $$
 df=\frac{\partial f}{\partial t}\,dt+\frac{\partial f}{\partial x}(a\,dt+b\,dW)+\tfrac12\frac{\partial^2 f}{\partial x^2}\,b^2\,dt,
@@ -547,7 +547,7 @@ $$
 \rho_n(x_1,\dots,x_{n-1})=\prod_{k=1}^{n}\frac{1}{\sqrt{2\pi\epsilon}}\exp\!\Big(-\frac{(x_k-x_{k-1})^2}{2\epsilon}\Big)
 =\Big(\frac{1}{2\pi\epsilon}\Big)^{n/2}\exp\!\Big(-\frac{1}{2\epsilon}\sum_{k=1}^{n}(x_k-x_{k-1})^2\Big).
 $$
-3. Recognize the exponent. Writing $\frac{x_k-x_{k-1}}{\epsilon}$ as a discrete velocity $\dot x$, the sum becomes $\sum_k(x_k-x_{k-1})^2=\epsilon\sum_k\big(\tfrac{x_k-x_{k-1}}{\epsilon}\big)^2\epsilon\to\int_0^t\dot x(s)^2\,ds$ as $\epsilon\to0$. So formally
+3. Recognize the exponent. Writing $\frac{x_k-x_{k-1}}{\epsilon}$ as a discrete velocity $\dot x$, the sum becomes $\frac1\epsilon\sum_k(x_k-x_{k-1})^2=\sum_k\big(\tfrac{x_k-x_{k-1}}{\epsilon}\big)^2\epsilon\to\int_0^t\dot x(s)^2\,ds$ as $\epsilon\to0$. So formally
 $$
 \rho\,\propto\,\exp\!\Big(-\frac12\int_0^t\dot x(s)^2\,ds\Big).
 $$
@@ -652,7 +652,7 @@ with a crucial sign flip: the Lagrangian $\tfrac12 m\dot x^2-V$ becomes the *ene
 $$
 e^{iS/\hbar}\;\longrightarrow\;e^{-S_E/\hbar}.
 $$
-*Why the sign flips.* With $t=-i\tau$, $dt=-i\,d\tau$ and $\dot x=dx/dt=i\,dx/d\tau$, so the kinetic term $\tfrac12 m\dot x^2\,dt=\tfrac12 m(i x')^2(-i\,d\tau)=\tfrac12 m x'^2\,(i)\,d\tau\cdot(-1)\cdot\!\dots$ — carrying the factors through, $iS/\hbar=-S_E/\hbar$ with $S_E$ the energy integral above. The oscillatory measure has become the genuinely convergent Wiener-type measure of §s10 (with $\hbar$ playing the role that $\epsilon$ played there).
+*Why the sign flips.* With $t=-i\tau$ we have $dt=-i\,d\tau$ and $\dot x=dx/dt=i\,dx/d\tau=ix'$ (writing $x'=dx/d\tau$). Treat the two terms of the action separately. The **kinetic** term: $\tfrac12 m\dot x^2\,dt=\tfrac12 m(ix')^2(-i\,d\tau)=\tfrac12 m\,(-x'^2)(-i)\,d\tau=+\tfrac{i}{2} m\,x'^2\,d\tau$. The **potential** term: $-V\,dt=-V\,(-i\,d\tau)=+iV\,d\tau$. Adding them, the Lagrangian time-integral becomes $S=\int\big(\tfrac12 m\dot x^2-V\big)dt=i\int\big(\tfrac12 m x'^2+V\big)d\tau=i\,S_E$, with $S_E=\int\big(\tfrac12 m x'^2+V\big)d\tau$ the energy (kinetic plus potential) integral above. Hence $iS/\hbar=i(iS_E)/\hbar=-S_E/\hbar$, exactly the claimed sign flip. The oscillatory measure has become the genuinely convergent Wiener-type measure of §s10 (with $\hbar$ playing the role that $\epsilon$ played there).
 
 #### The partition function connection
 

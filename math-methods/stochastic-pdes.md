@@ -245,7 +245,7 @@ The crucial move is that *no derivative of the noise appears.* The noise is inte
 3. Sum over modes: $\mathbb{E}\|Z(t)\|^2=\sum_k\dfrac{1-e^{-2\gamma_k t}}{2\gamma_k}\le\sum_k\dfrac{1}{2\gamma_k}$, bounding the numerator by $1$.
 4. In dimension $d=1$ on $[0,2\pi]$ the eigenvalues are $\gamma_k\sim k^2$, so $\sum_k\frac{1}{2\gamma_k}\sim\sum_k\frac{1}{2k^2}<\infty$ (Basel-type sum). Therefore $\mathbb{E}\|Z(t)\|^2<\infty$ and $Z(t)\in H$. $\blacksquare$
 
-This is the punchline of the linear theory: **the heat semigroup's damping $e^{-2\gamma_k t}$, summed against $\gamma_k\sim k^2$, converts the divergent white noise into a convergent, genuinely function-valued field — in one space dimension.** Note where dimension enters: in $d$ dimensions $\gamma_k\sim|k|^2$ but the number of modes with $\gamma_k\le R$ grows like $R^{d/2}$, so $\sum_k\gamma_k^{-1}$ converges only for $d=1$. This single estimate foreshadows §s7: SPDEs with white noise are function-valued only in low dimension.
+This is the punchline of the linear theory: **the heat semigroup's damping $e^{-2\gamma_k t}$, summed against $\gamma_k\sim k^2$, converts the divergent white noise into a convergent, genuinely function-valued field — in one space dimension.** Note where dimension enters: in $d$ dimensions $\gamma_k\sim|k|^2$ but the number of modes with $\gamma_k\le R$ grows like $R^{d/2}$, so $\sum_k\gamma_k^{-1}$ converges precisely when $d<2$; among integer dimensions this means $d=1$ alone, with $d=2$ already diverging (logarithmically) and higher $d$ diverging faster. This single estimate foreshadows §s7: SPDEs with white noise are function-valued only in low dimension.
 
 #### Numerical check of the convergence boundary
 
@@ -359,7 +359,7 @@ $$
 $$
 \mathbb{E}\Big\|\int_0^t S(t-s)[\sigma(u)-\sigma(v)]\,dW\Big\|^2\le\int_0^t\mathbb{E}\|\sigma(u(s))-\sigma(v(s))\|_{\mathrm{HS}}^2\,ds\le L^2\int_0^t\mathbb{E}\|u(s)-v(s)\|^2\,ds.
 $$
-(For genuine white noise one needs $S(t-s)$ Hilbert–Schmidt, as in §s3, supplying an extra integrable factor $(t-s)^{-1/2}$ in $d=1$; the structure of the estimate is unchanged.)
+(For genuine white noise one needs $S(t-s)$ Hilbert–Schmidt, as in §s3, supplying an extra singular but still integrable factor $(t-s)^{-1/2}$ in $d=1$; this turns the plain time integral $\int_0^t(\cdots)\,ds$ into the weighted one $\int_0^t(t-s)^{-1/2}(\cdots)\,ds$, so the contraction *constant* changes — the resulting bound is $L^2(T^2+2\sqrt{T})$ rather than $L^2(T^2+T)$ — though it still vanishes as $T\to0$, so existence and uniqueness are unaffected.)
 5. Add steps 3 and 4 and take the supremum over $t\le T$: $\|\mathcal{T}u-\mathcal{T}v\|_{\mathcal{X}}^2\le L^2(T^2+T)\,\|u-v\|_{\mathcal{X}}^2$.
 6. Choose $T$ small enough that $\theta^2:=L^2(T^2+T)<1$. Then $\mathcal{T}$ is a contraction, so by Banach's theorem it has a unique fixed point on $[0,T]$: a unique mild solution.
 7. **Globalization.** Restart the argument from $u(T)$ on $[T,2T]$ and concatenate. Since the small step size $T$ depends only on $L$ (not on the data), iterating covers any finite interval, giving a unique global solution. $\blacksquare$
