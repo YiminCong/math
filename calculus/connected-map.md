@@ -233,7 +233,7 @@ $$(fg)' = f'g + fg'$$
 2. Add and subtract $f(x+h)g(x)$ in the numerator (it cancels, so value unchanged): numerator $= f(x+h)g(x+h)-f(x+h)g(x)+f(x+h)g(x)-f(x)g(x)$. *(Reason: adding zero in a clever form.)*
 3. Group: $= f(x+h)\big[g(x+h)-g(x)\big]+g(x)\big[f(x+h)-f(x)\big]$. *(Reason: factoring common terms.)*
 4. Divide by $h$ and split into two limits: $\lim f(x+h)\cdot\frac{g(x+h)-g(x)}{h}+\lim g(x)\cdot\frac{f(x+h)-f(x)}{h}$. *(Reason: sum limit law.)*
-5. As $h\to0$: $f(x+h)\to f(x)$ (continuity), the two difference quotients become $g'$ and $f'$. Result: $f g' + g f'$. *(Reason: definition of derivative and product limit law.)*
+5. As $h\to0$: $f(x+h)\to f(x)$ because differentiability forces continuity — $f(x+h)-f(x)=\frac{f(x+h)-f(x)}{h}\cdot h\to f'(x)\cdot 0=0$ — and the two difference quotients become $g'$ and $f'$. Result: $f g' + g f'$. *(Reason: definition of derivative, continuity of $f$, and product limit law.)*
 
 **Worked example.** $\frac{d}{dx}\big[x^2\sin x\big]=2x\sin x + x^2\cos x$, using $(\sin x)'=\cos x$ from §s4.
 
@@ -242,6 +242,13 @@ $$(fg)' = f'g + fg'$$
 $$\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^{2}}$$
 
 *"Low d-high minus high d-low, over low squared,"* where "low" $=g$ (the bottom) and "high" $=f$ (the top). It follows from the product rule applied to $f\cdot g^{-1}$ together with the chain rule below.
+
+**Derivation of the quotient rule.**
+
+1. Write $\frac{f}{g}=f\cdot g^{-1}$ and apply the product rule: $\left(\frac{f}{g}\right)'=f'\,g^{-1}+f\,(g^{-1})'$. *(Reason: product rule on the two factors $f$ and $g^{-1}$.)*
+2. By the chain rule on $g^{-1}=g^{-1}$ (power rule outer, $g$ inner): $(g^{-1})'=-g^{-2}g'$. *(Reason: chain rule, since $\frac{d}{dg}g^{-1}=-g^{-2}$.)*
+3. Substitute: $\left(\frac{f}{g}\right)'=\frac{f'}{g}-\frac{fg'}{g^{2}}$. *(Reason: insert step 2.)*
+4. Put over the common denominator $g^2$: $\frac{f'}{g}=\frac{f'g}{g^2}$, so the result is $\frac{f'g-fg'}{g^{2}}$. *(Reason: combine the two fractions.)*
 
 **Worked example.** $\dfrac{d}{dx}\dfrac{x}{x^2+1}=\dfrac{(1)(x^2+1)-(x)(2x)}{(x^2+1)^2}=\dfrac{1-x^2}{(x^2+1)^2}$.
 
@@ -591,7 +598,7 @@ $$\bar f=\frac{1}{b-a}\int_a^b f(x)\,dx$$
 
 $$\sum_{n=0}^{\infty} a r^{n} = \frac{a}{1-r}\quad (|r|<1)$$
 
-Here each term is the previous one times a fixed **ratio** $r$, starting from $a$. *Why it converges when $|r|<1$:* let $S=a+ar+ar^2+\cdots$; then $rS=ar+ar^2+\cdots$; subtracting, $S-rS=a$, so $S(1-r)=a$ and $S=\frac{a}{1-r}$. *(Reason: subtracting the shifted copy cancels all but the first term, valid because the tail shrinks to $0$ when $|r|<1$.)*
+Here each term is the previous one times a fixed **ratio** $r$, starting from $a$. *Why it converges when $|r|<1$:* work with the finite partial sum $S_n=a+ar+\cdots+ar^{n-1}$ first, so nothing is assumed about an infinite total. Then $rS_n=ar+ar^2+\cdots+ar^{n}$, and subtracting cancels every middle term: $S_n-rS_n=a-ar^{n}$, so $S_n=\frac{a(1-r^{n})}{1-r}$. Now let $n\to\infty$: when $|r|<1$, $r^{n}\to0$, hence $S_n\to\frac{a}{1-r}$. *(Reason: the partial-sum formula is plain algebra; convergence enters only at the last step, where $r^{n}\to0$.)*
 
 **Worked example.** $\frac12+\frac14+\frac18+\cdots$ has $a=\frac12$, $r=\frac12$, sum $=\frac{1/2}{1-1/2}=1$.
 

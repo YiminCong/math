@@ -269,7 +269,7 @@ $$(fg)' = f'g + fg'$$
 4. 除以 $h$ 并拆开极限（和与积的极限法则，§s1）：
 
    $$\lim_{h\to0} f(x+h)\frac{g(x+h)-g(x)}{h}+\lim_{h\to0} g(x)\frac{f(x+h)-f(x)}{h}.$$
-5. 当 $h\to0$：$f(x+h)\to f(x)$（因为 $f$ 在可微处连续，§s1），第一个商变成 $g'$，第二个变成 $f'$：
+5. 当 $h\to0$：$f(x+h)\to f(x)$，因为可微必然推出连续——$f(x+h)-f(x) = \tfrac{f(x+h)-f(x)}{h}\cdot h \to f'(x)\cdot 0 = 0$——第一个商变成 $g'$，第二个变成 $f'$：
 
    $$(fg)'=f g' + g f'.$$
 
@@ -690,6 +690,17 @@ $$\int u\,dv=uv-\int v\,du$$
 *把它用在像 $\int x e^{x}\,dx$ 或 $\int \ln x\,dx$（取 $u=\ln x,\ dv=dx$）这样的乘积上。*
 
 **实战例子 — $\int x e^x\,dx$。** 选 $u = x$（于是 $du = dx$）和 $dv = e^x\,dx$（于是 $v = e^x$）。则 $\int x e^x\,dx = x e^x - \int e^x\,dx = x e^x - e^x + C$。检验：$(xe^x - e^x)' = (e^x + xe^x) - e^x = xe^x$。
+
+**演示 — $\int \sec x\,dx$ 的技巧（§s8 中的三个表项）**
+
+§s8 中承诺的三个“需要小技巧”的积分在此解决。$\int \ln x\,dx = x\ln x - x + C$ 用分部积分（取 $u=\ln x,\ dv=dx$，见上）；$\int \tan x\,dx = \int \tfrac{\sin x}{\cos x}\,dx$ 用 $u=\cos x$、$du=-\sin x\,dx$ 换元，得 $-\ln|u| + C = \ln|\sec x| + C$。真正巧妙的是 $\int \sec x\,dx$：
+
+1. 乘以一个伪装的 $1$，即 $\dfrac{\sec x + \tan x}{\sec x + \tan x}$：
+
+   $$\int \sec x\,dx = \int \sec x\cdot\frac{\sec x + \tan x}{\sec x + \tan x}\,dx = \int \frac{\sec^2 x + \sec x\tan x}{\sec x + \tan x}\,dx.$$
+2. 注意分子恰好是分母的导数：$(\sec x + \tan x)' = \sec x\tan x + \sec^2 x$（来自 §s4）。于是令 $u = \sec x + \tan x$，便有 $du = (\sec^2 x + \sec x\tan x)\,dx$，积分变为 $\int \tfrac{du}{u}$：
+
+   $$\int \frac{du}{u} = \ln|u| + C = \ln|\sec x + \tan x| + C.$$
 
 **三角换元**
 
