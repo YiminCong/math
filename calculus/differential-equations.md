@@ -121,7 +121,7 @@ So separation is exactly the substitution rule; nothing illegal happened.
    $$y=\sqrt{x^2+9}\quad(\text{positive root, to match }y(0)=3>0).$$
    We take the positive square root because $y(0)=3$ is positive and a solution curve cannot jump signs.
 
-The general solution $y^2-x^2=C$ is a family of hyperbolas; the initial condition selects one branch. Pitfall: had $h(y)=1/y$ been written as $h(y)=y$ we would have looked for $h(y^*)=0$ at $y^*=0$ — but $y=0$ makes the original right side undefined, so it is excluded rather than a constant solution.
+The general solution $y^2-x^2=C$ is a family of hyperbolas; the initial condition selects one branch. Pitfall about constant solutions: here $h(y)=1/y$ is never zero, so this equation has no constant solution. The line $y=0$ is special for a different reason — it makes the original right side $x/y$ undefined, so it is excluded from the domain rather than being a hidden constant solution. (Constant solutions $y\equiv y^*$ arise only from genuine zeros $h(y^*)=0$, which do not occur for $h(y)=1/y$.)
 
 <a id="s2"></a>
 ### First-order linear equations & the integrating factor
@@ -617,7 +617,11 @@ These are exactly the three discriminant cases of $mr^2+cr+k=0$ from §s8: two r
 
 1. Undamped ($c=0$), driven at the natural frequency: $y''+\omega_0^2 y=F_0\cos\omega_0 t$. The characteristic equation $r^2+\omega_0^2=0$ gives $r=\pm i\omega_0$, so $y_h=c_1\cos\omega_0 t+c_2\sin\omega_0 t$.
 2. The forcing $\cos\omega_0 t$ already appears in $y_h$, so by the **modification rule** (§s9) multiply the guess by $t$: $y_p=t(A\cos\omega_0 t+B\sin\omega_0 t)$.
-3. Differentiating twice and substituting (the $t\cos,t\sin$ terms cancel against $\omega_0^2$, leaving only the derivative-of-$t$ pieces) matches coefficients to give
+3. Differentiate twice. Writing $y_p=t(A\cos\omega_0 t+B\sin\omega_0 t)$, the product rule gives
+   $$y_p''=2(-A\omega_0\sin\omega_0 t+B\omega_0\cos\omega_0 t)-\omega_0^2\,t(A\cos\omega_0 t+B\sin\omega_0 t).$$
+   Then $y_p''+\omega_0^2 y_p$ has its $t\cos\omega_0 t$ and $t\sin\omega_0 t$ terms cancel against $\omega_0^2 y_p$, leaving
+   $$-2A\omega_0\sin\omega_0 t+2B\omega_0\cos\omega_0 t=F_0\cos\omega_0 t.$$
+   Matching coefficients: the $\sin$ term forces $-2A\omega_0=0$, so $A=0$; the $\cos$ term forces $2B\omega_0=F_0$, so $B=\dfrac{F_0}{2\omega_0}$. Hence
    $$y_p=\frac{F_0}{2\omega_0}\,t\,\sin\omega_0 t.$$
 4. The explicit factor $t$ means the amplitude $\frac{F_0}{2\omega_0}t$ grows without bound: **resonance**.
 
@@ -742,6 +746,12 @@ $$u_c(t)=\begin{cases}0,&t<c\\ 1,&t\ge c\end{cases},\qquad \mathcal{L}\{u_c(t)\}
 
 In words: $u_c$ switches a forcing term on at $t=c$, and its transform carries the tell-tale shift factor $e^{-cs}$; the Dirac delta $\delta$ models an instantaneous kick and transforms to the clean exponential $e^{-cs}$.
 
+**Statement — the second shifting theorem.** A shift factor $e^{-cs}$ in the $s$-domain corresponds to a time-shifted, switched-on function in the $t$-domain:
+
+$$\mathcal{L}\{u_c(t)\,g(t-c)\}=e^{-cs}\,G(s),\qquad\text{equivalently}\qquad \mathcal{L}^{-1}\{e^{-cs}G(s)\}=u_c(t)\,g(t-c),$$
+
+where $G(s)=\mathcal{L}\{g(t)\}$. This is the rule used to invert any $Y(s)$ carrying an $e^{-cs}$ factor.
+
 **Demonstration — solving an IVP by transform.**
 
 1. Solve $y''+y=0$ with $y(0)=1,\ y'(0)=0$. Transform both sides. *Reason (derivative rule, §s13):* $\mathcal{L}\{y''\}=s^2Y-sy(0)-y'(0)=s^2Y-s$, and $\mathcal{L}\{y\}=Y$.
@@ -752,6 +762,18 @@ In words: $u_c$ switches a forcing term on at $t=c$, and its transform carries t
    $$y(t)=\cos t.$$
 
 **Numeric check.** $y=\cos t$ gives $y(0)=1,\ y'(0)=-\sin0=0$ ✓, and $y''+y=-\cos t+\cos t=0$ ✓. The initial conditions were baked in from the very first transform — no constants to chase at the end. For step or impulse forcing, the factor $e^{-cs}$ appears in $Y(s)$ and inverts (via the second shifting theorem) into a time-shifted, switched-on response.
+
+**Demonstration — step forcing switched on at $t=1$.**
+
+1. Solve $y'+y=u_1(t)$ with $y(0)=0$: the system is at rest until a unit forcing switches on at $t=1$. Transform both sides, using $\mathcal{L}\{y'\}=sY-y(0)=sY$ and $\mathcal{L}\{u_1(t)\}=e^{-s}/s$:
+   $$sY+Y=\frac{e^{-s}}{s}.$$
+2. Solve the algebra for $Y$:
+   $$Y=\frac{e^{-s}}{s(s+1)}=e^{-s}\Big(\frac1s-\frac1{s+1}\Big),$$
+   where the partial-fraction split $\frac{1}{s(s+1)}=\frac1s-\frac1{s+1}$ matches table rows for $1$ and $e^{-t}$.
+3. Let $g(t)=\mathcal{L}^{-1}\{\frac1s-\frac1{s+1}\}=1-e^{-t}$. By the **second shifting theorem**, the $e^{-s}$ factor delays and switches it on at $t=1$:
+   $$y(t)=u_1(t)\,\big(1-e^{-(t-1)}\big)=\begin{cases}0,&t<1\\ 1-e^{-(t-1)},&t\ge1.\end{cases}$$
+
+**Numeric check.** For $t<1$ the solution is $0$ (no forcing yet), and $y(1)=1-e^0=0$, so it joins continuously; for large $t$ it approaches the steady state $1$. At $t=2$, $y=1-e^{-1}\approx0.632$ — the system relaxing toward $1$ after the step turned on.
 
 <a id="s15"></a>
 ### Series solutions & the method of Frobenius
