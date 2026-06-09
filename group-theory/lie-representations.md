@@ -50,25 +50,25 @@ The motivating model: for matrices, $[X,Y]=XY-YX$ (the **commutator**). This is 
 
 Ideals are the Lie-algebra analogue of normal subgroups. The whole algebra $\mathfrak{g}$ and the zero subspace $\{0\}$ are always ideals (the **trivial** ideals). An algebra with no others (and $\dim\mathfrak{g}>1$, with nonzero bracket) is called **simple** — these are the indivisible atoms we classify.
 
-> **Definition — the adjoint representation.** For $X\in\mathfrak{g}$ define the linear map $\operatorname{ad}_X:\mathfrak{g}\to\mathfrak{g}$ by $\operatorname{ad}_X(Y)=[X,Y]$. The assignment $X\mapsto\operatorname{ad}_X$ is the **adjoint representation**, $\operatorname{ad}:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})$, where $\mathfrak{gl}(\mathfrak{g})$ is the algebra of all linear maps on $\mathfrak{g}$ under the commutator.
+> **Definition — the adjoint representation.** For $X\in\mathfrak{g}$ define the linear map $\mathrm{ad}_X:\mathfrak{g}\to\mathfrak{g}$ by $\mathrm{ad}_X(Y)=[X,Y]$. The assignment $X\mapsto\mathrm{ad}_X$ is the **adjoint representation**, $\mathrm{ad}:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})$, where $\mathfrak{gl}(\mathfrak{g})$ is the algebra of all linear maps on $\mathfrak{g}$ under the commutator.
 
-> **Lemma — the adjoint is a Lie-algebra homomorphism.** For all $X,Y\in\mathfrak{g}$, $\operatorname{ad}_{[X,Y]}=[\operatorname{ad}_X,\operatorname{ad}_Y]$, where the right bracket is the commutator of operators.
+> **Lemma — the adjoint is a Lie-algebra homomorphism.** For all $X,Y\in\mathfrak{g}$, $\mathrm{ad}_{[X,Y]}=[\mathrm{ad}_X,\mathrm{ad}_Y]$, where the right bracket is the commutator of operators.
 
 **Proof.**
 1. Apply both sides to an arbitrary $Z\in\mathfrak{g}$; it suffices to show they agree on every $Z$ (a linear map is determined by its values, by *linearity*).
-2. Left side: $\operatorname{ad}_{[X,Y]}(Z)=[[X,Y],Z]$, by the *definition of $\operatorname{ad}$*.
-3. Right side: $[\operatorname{ad}_X,\operatorname{ad}_Y](Z)=\operatorname{ad}_X\operatorname{ad}_Y(Z)-\operatorname{ad}_Y\operatorname{ad}_X(Z)=[X,[Y,Z]]-[Y,[X,Z]]$, by the *definition of operator commutator* and of $\operatorname{ad}$.
+2. Left side: $\mathrm{ad}_{[X,Y]}(Z)=[[X,Y],Z]$, by the *definition of $\mathrm{ad}$*.
+3. Right side: $[\mathrm{ad}_X,\mathrm{ad}_Y](Z)=\mathrm{ad}_X\mathrm{ad}_Y(Z)-\mathrm{ad}_Y\mathrm{ad}_X(Z)=[X,[Y,Z]]-[Y,[X,Z]]$, by the *definition of operator commutator* and of $\mathrm{ad}$.
 4. The Jacobi identity, written as $[[X,Y],Z]=[X,[Y,Z]]-[Y,[X,Z]]$ (rearrange the three cyclic terms using *antisymmetry* on the last), shows steps 2 and 3 are equal. $\blacksquare$
 
 This lemma says the adjoint really is a representation: it sends brackets to commutators, exactly the defining property of a Lie-algebra homomorphism. The adjoint is where *roots* will live (s3).
 
-**Worked example — $\mathfrak{su}(2)$ structure constants and the adjoint.** Take the standard generators $J_1,J_2,J_3$ with $[J_a,J_b]=\sum_c \varepsilon_{abc}J_c$, where $\varepsilon_{abc}$ is the totally antisymmetric symbol ($\varepsilon_{123}=+1$). So the structure constants are $f_{ab}{}^{c}=\varepsilon_{abc}$. Compute $\operatorname{ad}_{J_3}$ in the basis $(J_1,J_2,J_3)$:
+**Worked example — $\mathfrak{su}(2)$ structure constants and the adjoint.** Take the standard generators $J_1,J_2,J_3$ with $[J_a,J_b]=\sum_c \varepsilon_{abc}J_c$, where $\varepsilon_{abc}$ is the totally antisymmetric symbol ($\varepsilon_{123}=+1$). So the structure constants are $f_{ab}{}^{c}=\varepsilon_{abc}$. Compute $\mathrm{ad}_{J_3}$ in the basis $(J_1,J_2,J_3)$:
 $$
-\operatorname{ad}_{J_3}(J_1)=[J_3,J_1]=J_2,\quad \operatorname{ad}_{J_3}(J_2)=[J_3,J_2]=-J_1,\quad \operatorname{ad}_{J_3}(J_3)=0 .
+\mathrm{ad}_{J_3}(J_1)=[J_3,J_1]=J_2,\quad \mathrm{ad}_{J_3}(J_2)=[J_3,J_2]=-J_1,\quad \mathrm{ad}_{J_3}(J_3)=0 .
 $$
 As a matrix (columns = images of $J_1,J_2,J_3$):
 $$
-\operatorname{ad}_{J_3}=\begin{pmatrix}0&-1&0\\ 1&0&0\\ 0&0&0\end{pmatrix}.
+\mathrm{ad}_{J_3}=\begin{pmatrix}0&-1&0\\ 1&0&0\\ 0&0&0\end{pmatrix}.
 $$
 This is the generator of rotations about the $3$-axis acting on a $3$-vector — the adjoint of $\mathfrak{su}(2)$ is the vector (spin-$1$) representation, recovering a fact from the prerequisite from pure algebra. Let us also *verify Jacobi numerically* on $(J_1,J_2,J_3)$: $[J_1,[J_2,J_3]]+[J_2,[J_3,J_1]]+[J_3,[J_1,J_2]] = [J_1,J_1]+[J_2,J_2]+[J_3,J_3]=0+0+0=0$. Good.
 
@@ -85,21 +85,21 @@ This is the generator of rotations about the $3$-axis acting on a $3$-vector —
 
 **Examples.** Every **abelian** algebra (all brackets zero) is nilpotent: $\mathfrak{g}^{(1)}=\{0\}$ already. The algebra of strictly upper-triangular $n\times n$ matrices (zeros on and below the diagonal) is nilpotent — each commutator pushes the nonzero band one step further from the diagonal until it falls off. The algebra of *all* upper-triangular matrices is solvable but not nilpotent.
 
-> **Definition — radical and semisimple.** Every finite-dimensional Lie algebra has a unique maximal solvable ideal, the **radical** $\operatorname{rad}\mathfrak{g}$ (the sum of all solvable ideals is solvable, so a largest one exists). $\mathfrak{g}$ is **semisimple** if $\operatorname{rad}\mathfrak{g}=\{0\}$ — no nonzero solvable ideals at all. Equivalently (a theorem we use, due to Cartan), a semisimple algebra is a direct sum of simple algebras.
+> **Definition — radical and semisimple.** Every finite-dimensional Lie algebra has a unique maximal solvable ideal, the **radical** $\mathrm{rad}\mathfrak{g}$ (the sum of all solvable ideals is solvable, so a largest one exists). $\mathfrak{g}$ is **semisimple** if $\mathrm{rad}\mathfrak{g}=\{0\}$ — no nonzero solvable ideals at all. Equivalently (a theorem we use, due to Cartan), a semisimple algebra is a direct sum of simple algebras.
 
 Semisimple is the sweet spot: "as far from solvable as possible." We now build the detector.
 
 > **Definition — Killing form.** The **Killing form** is the symmetric bilinear form $\kappa:\mathfrak{g}\times\mathfrak{g}\to\mathbb{F}$,
 > $$
-> \kappa(X,Y)=\operatorname{tr}\big(\operatorname{ad}_X\,\operatorname{ad}_Y\big),
+> \kappa(X,Y)=\mathrm{tr}\big(\mathrm{ad}_X\,\mathrm{ad}_Y\big),
 > $$
-> the trace of the composition of the two adjoint operators. It is symmetric because $\operatorname{tr}(AB)=\operatorname{tr}(BA)$, and it is **invariant**: $\kappa([X,Y],Z)=\kappa(X,[Y,Z])$.
+> the trace of the composition of the two adjoint operators. It is symmetric because $\mathrm{tr}(AB)=\mathrm{tr}(BA)$, and it is **invariant**: $\kappa([X,Y],Z)=\kappa(X,[Y,Z])$.
 
 **Proof of invariance.**
-1. By the lemma in s1, $\operatorname{ad}_{[X,Y]}=\operatorname{ad}_X\operatorname{ad}_Y-\operatorname{ad}_Y\operatorname{ad}_X$. Write $A=\operatorname{ad}_X,B=\operatorname{ad}_Y,C=\operatorname{ad}_Z$.
-2. Then $\kappa([X,Y],Z)=\operatorname{tr}((AB-BA)C)=\operatorname{tr}(ABC)-\operatorname{tr}(BAC)$, by *linearity of trace* and step 1.
-3. Likewise $\kappa(X,[Y,Z])=\operatorname{tr}(A(BC-CB))=\operatorname{tr}(ABC)-\operatorname{tr}(ACB)$.
-4. By *cyclicity of trace*, $\operatorname{tr}(BAC)=\operatorname{tr}(ACB)$. Hence steps 2 and 3 are equal. $\blacksquare$
+1. By the lemma in s1, $\mathrm{ad}_{[X,Y]}=\mathrm{ad}_X\mathrm{ad}_Y-\mathrm{ad}_Y\mathrm{ad}_X$. Write $A=\mathrm{ad}_X,B=\mathrm{ad}_Y,C=\mathrm{ad}_Z$.
+2. Then $\kappa([X,Y],Z)=\mathrm{tr}((AB-BA)C)=\mathrm{tr}(ABC)-\mathrm{tr}(BAC)$, by *linearity of trace* and step 1.
+3. Likewise $\kappa(X,[Y,Z])=\mathrm{tr}(A(BC-CB))=\mathrm{tr}(ABC)-\mathrm{tr}(ACB)$.
+4. By *cyclicity of trace*, $\mathrm{tr}(BAC)=\mathrm{tr}(ACB)$. Hence steps 2 and 3 are equal. $\blacksquare$
 
 The Killing form is basis-independent (it is a trace) — the invariant object we wanted in s1. Its key feature is **non-degeneracy**: $\kappa$ is non-degenerate if the only $X$ with $\kappa(X,Y)=0$ for all $Y$ is $X=0$.
 
@@ -109,13 +109,13 @@ We use this as a working tool; its proof rests on Cartan's criterion for *solvab
 
 **Proof that a nonzero abelian ideal forces degeneracy (so non-degenerate $\Rightarrow$ semisimple).**
 1. Suppose $\mathfrak{a}\ne\{0\}$ is an abelian ideal ($[\mathfrak{a},\mathfrak{a}]=0$). Take $A\in\mathfrak{a}$, $X\in\mathfrak{g}$; we show $\kappa(A,X)=0$, so every $A\in\mathfrak{a}$ lies in the degeneracy subspace, making $\kappa$ degenerate.
-2. Consider the operator $T=\operatorname{ad}_A\operatorname{ad}_X$. The map $\operatorname{ad}_X$ sends $\mathfrak{g}$ into $\mathfrak{g}$, and because $\mathfrak{a}$ is an ideal $\operatorname{ad}_A$ maps $\mathfrak{g}$ *into* $\mathfrak{a}$ (since $[A,\,\cdot\,]\in\mathfrak{a}$, as $\mathfrak{a}$ is an ideal). So $\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$.
-3. Then $T(\mathfrak{g})=\operatorname{ad}_A(\operatorname{ad}_X\mathfrak{g})\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$, and $T(\mathfrak{a})=\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$; moreover $T^2(\mathfrak{g})\subseteq\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{a}=[A,\mathfrak{a}]\subseteq[\mathfrak{a},\mathfrak{a}]=0$, using that $\mathfrak{a}$ is *abelian*. So $T$ is **nilpotent** ($T^2=0$).
-4. A nilpotent operator has all eigenvalues $0$, hence trace $0$: $\kappa(A,X)=\operatorname{tr}T=0$. Since $X$ was arbitrary, $A$ is in the degeneracy subspace. $\blacksquare$
+2. Consider the operator $T=\mathrm{ad}_A\mathrm{ad}_X$. The map $\mathrm{ad}_X$ sends $\mathfrak{g}$ into $\mathfrak{g}$, and because $\mathfrak{a}$ is an ideal $\mathrm{ad}_A$ maps $\mathfrak{g}$ *into* $\mathfrak{a}$ (since $[A,\,\cdot\,]\in\mathfrak{a}$, as $\mathfrak{a}$ is an ideal). So $\mathrm{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$.
+3. Then $T(\mathfrak{g})=\mathrm{ad}_A(\mathrm{ad}_X\mathfrak{g})\subseteq\mathrm{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$, and $T(\mathfrak{a})=\mathrm{ad}_A\mathrm{ad}_X\mathfrak{a}\subseteq\mathrm{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$; moreover $T^2(\mathfrak{g})\subseteq\mathrm{ad}_A\mathrm{ad}_X\mathfrak{a}\subseteq\mathrm{ad}_A\mathfrak{a}=[A,\mathfrak{a}]\subseteq[\mathfrak{a},\mathfrak{a}]=0$, using that $\mathfrak{a}$ is *abelian*. So $T$ is **nilpotent** ($T^2=0$).
+4. A nilpotent operator has all eigenvalues $0$, hence trace $0$: $\kappa(A,X)=\mathrm{tr}T=0$. Since $X$ was arbitrary, $A$ is in the degeneracy subspace. $\blacksquare$
 
-**Worked example — $\kappa$ for $\mathfrak{su}(2)$.** Using $f_{ab}{}^c=\varepsilon_{abc}$, the matrix entries of $\operatorname{ad}_{T_a}$ are $(\operatorname{ad}_{T_a})_{cb}=\varepsilon_{acb}$. Then
+**Worked example — $\kappa$ for $\mathfrak{su}(2)$.** Using $f_{ab}{}^c=\varepsilon_{abc}$, the matrix entries of $\mathrm{ad}_{T_a}$ are $(\mathrm{ad}_{T_a})_{cb}=\varepsilon_{acb}$. Then
 $$
-\kappa(T_a,T_b)=\operatorname{tr}(\operatorname{ad}_{T_a}\operatorname{ad}_{T_b})=\sum_{c,d}\varepsilon_{acd}\varepsilon_{bdc}=-\sum_{c,d}\varepsilon_{acd}\varepsilon_{bcd}=-2\,\delta_{ab},
+\kappa(T_a,T_b)=\mathrm{tr}(\mathrm{ad}_{T_a}\mathrm{ad}_{T_b})=\sum_{c,d}\varepsilon_{acd}\varepsilon_{bdc}=-\sum_{c,d}\varepsilon_{acd}\varepsilon_{bcd}=-2\,\delta_{ab},
 $$
 using the identity $\sum_{c,d}\varepsilon_{acd}\varepsilon_{bcd}=2\delta_{ab}$. So $\kappa=-2\,I$, which is non-degenerate ($\det=-8\ne0$): by Cartan's criterion $\mathfrak{su}(2)$ is semisimple, indeed simple. The form is negative-definite — a signature of a **compact** algebra, which is why $\mathfrak{su}(2)$ integrates to the compact group $SU(2)$.
 
@@ -130,9 +130,9 @@ using the identity $\sum_{c,d}\varepsilon_{acd}\varepsilon_{bcd}=2\delta_{ab}$. 
 
 We work over $\mathbb{C}$ from now on (complexify the algebra; e.g. $\mathfrak{su}(2)$ complexifies to $\mathfrak{sl}(2,\mathbb{C})$, spanned by $H,E,F$ below). Over $\mathbb{C}$ operators can be diagonalized, which the analysis needs.
 
-> **Definition — Cartan subalgebra (CSA).** A **Cartan subalgebra** $\mathfrak{h}\subseteq\mathfrak{g}$ is a maximal abelian subalgebra all of whose elements act diagonalizably under $\operatorname{ad}$ (such elements are called **semisimple**). Its dimension is the **rank** $r$ of $\mathfrak{g}$. For semisimple $\mathfrak{g}$ all Cartan subalgebras have the same dimension, so rank is well-defined.
+> **Definition — Cartan subalgebra (CSA).** A **Cartan subalgebra** $\mathfrak{h}\subseteq\mathfrak{g}$ is a maximal abelian subalgebra all of whose elements act diagonalizably under $\mathrm{ad}$ (such elements are called **semisimple**). Its dimension is the **rank** $r$ of $\mathfrak{g}$. For semisimple $\mathfrak{g}$ all Cartan subalgebras have the same dimension, so rank is well-defined.
 
-Because the elements of $\mathfrak{h}$ commute, their adjoint operators $\{\operatorname{ad}_H:H\in\mathfrak{h}\}$ commute, and commuting diagonalizable operators are **simultaneously diagonalizable** (a standard linear-algebra fact: a common eigenbasis exists). So $\mathfrak{g}$ breaks into joint eigenspaces.
+Because the elements of $\mathfrak{h}$ commute, their adjoint operators $\{\mathrm{ad}_H:H\in\mathfrak{h}\}$ commute, and commuting diagonalizable operators are **simultaneously diagonalizable** (a standard linear-algebra fact: a common eigenbasis exists). So $\mathfrak{g}$ breaks into joint eigenspaces.
 
 > **Definition — root space decomposition.** For a linear functional $\alpha\in\mathfrak{h}^{*}$ (a linear map $\mathfrak{h}\to\mathbb{C}$) define the **root space**
 > $$
@@ -155,13 +155,13 @@ A root $\alpha$ is the vector of "shifts" that the generator $X\in\mathfrak{g}_\
 $$
 [H,[X,Y]]=[[H,X],Y]+[X,[H,Y]]
 $$
-by the *Jacobi identity* (in the form $\operatorname{ad}_H$ is a derivation). The first term is $[\alpha(H)X,Y]=\alpha(H)[X,Y]$ and the second is $\beta(H)[X,Y]$, by the *definition of root space* and *bilinearity*. Summing, $[H,[X,Y]]=(\alpha+\beta)(H)\,[X,Y]$, so $[X,Y]\in\mathfrak{g}_{\alpha+\beta}$. $\blacksquare$
+by the *Jacobi identity* (in the form $\mathrm{ad}_H$ is a derivation). The first term is $[\alpha(H)X,Y]=\alpha(H)[X,Y]$ and the second is $\beta(H)[X,Y]$, by the *definition of root space* and *bilinearity*. Summing, $[H,[X,Y]]=(\alpha+\beta)(H)\,[X,Y]$, so $[X,Y]\in\mathfrak{g}_{\alpha+\beta}$. $\blacksquare$
 
 Property (4) is the engine of the whole theory: **every root gives a copy of the $\mathfrak{su}(2)$ ladder**. Because we already know $\mathfrak{su}(2)$ representations completely (eigenvalues of $H$ are integers, symmetric about $0$), we can transfer that knowledge to constrain how roots and weights sit relative to one another (s4, s6).
 
 > **The $\mathfrak{sl}(2)$ inside each root.** Normalize so that $H_\alpha,E_\alpha,E_{-\alpha}$ satisfy $[H_\alpha,E_\alpha]=2E_\alpha$, $[H_\alpha,E_{-\alpha}]=-2E_{-\alpha}$, $[E_\alpha,E_{-\alpha}]=H_\alpha$. This is *exactly* the $\mathfrak{sl}(2,\mathbb{C})$ relations with $H\leftrightarrow H_\alpha$. The element $H_\alpha\in\mathfrak{h}$ is the **coroot** of $\alpha$.
 
-**Worked example — $\mathfrak{su}(3)$ root system.** Complexify to $\mathfrak{sl}(3,\mathbb{C})$, the traceless $3\times3$ complex matrices, dimension $8$. The CSA $\mathfrak{h}$ is the diagonal traceless matrices, rank $2$. Let $E_{ij}$ ($i\ne j$) be the matrix with a single $1$ in row $i$, column $j$. For diagonal $H=\operatorname{diag}(h_1,h_2,h_3)$ (with $h_1+h_2+h_3=0$),
+**Worked example — $\mathfrak{su}(3)$ root system.** Complexify to $\mathfrak{sl}(3,\mathbb{C})$, the traceless $3\times3$ complex matrices, dimension $8$. The CSA $\mathfrak{h}$ is the diagonal traceless matrices, rank $2$. Let $E_{ij}$ ($i\ne j$) be the matrix with a single $1$ in row $i$, column $j$. For diagonal $H=\mathrm{diag}(h_1,h_2,h_3)$ (with $h_1+h_2+h_3=0$),
 $$
 [H,E_{ij}]=(h_i-h_j)\,E_{ij},
 $$
@@ -191,7 +191,7 @@ The integrality in (3) is not an assumption we impose by taste — it is *forced
 
 That a continuous quantity (an angle) is pinned to four discrete values is exactly why there are only finitely many root systems. We now reduce the data further.
 
-> **Definition — positive and simple roots.** Choose a linear functional on $E$ that is nonzero on every root (a "generic direction"). A root is **positive** ($\alpha>0$) if it has positive value, **negative** otherwise; $\Phi=\Phi^{+}\sqcup\Phi^{-}$ with $\Phi^{-}=-\Phi^{+}$. A positive root is **simple** if it is *not* the sum of two positive roots. The set $\Delta=\{\alpha_1,\dots,\alpha_r\}$ of simple roots is a **basis** of $E$ ($r=\operatorname{rank}$), and every positive root is a *non-negative integer combination* of simple roots.
+> **Definition — positive and simple roots.** Choose a linear functional on $E$ that is nonzero on every root (a "generic direction"). A root is **positive** ($\alpha>0$) if it has positive value, **negative** otherwise; $\Phi=\Phi^{+}\sqcup\Phi^{-}$ with $\Phi^{-}=-\Phi^{+}$. A positive root is **simple** if it is *not* the sum of two positive roots. The set $\Delta=\{\alpha_1,\dots,\alpha_r\}$ of simple roots is a **basis** of $E$ ($r=\mathrm{rank}$), and every positive root is a *non-negative integer combination* of simple roots.
 
 > **Definition — Cartan matrix.** With simple roots $\alpha_1,\dots,\alpha_r$, the **Cartan matrix** is the $r\times r$ integer matrix
 > $$
@@ -308,13 +308,13 @@ $M(\lambda)$ is *infinite-dimensional* — we have applied lowering operators wi
 
 > **Definition — Weyl group.** The **Weyl group** $W$ is the group generated by the reflections $s_{\alpha_i}$ in the simple roots, acting on weight space by $s_\alpha(\mu)=\mu-\langle\mu,\alpha\rangle\,\alpha$. It is finite, permutes the roots, and acts simply transitively on the possible choices of positive system. For $\mathfrak{su}(2)$, $W=\mathbb{Z}_2$ ($\mu\mapsto-\mu$); for $\mathfrak{su}(3)=A_2$, $W$ is the symmetry group of the hexagon, the order-$6$ dihedral group $S_3$.
 
-> **Definition — character.** The **character** of a representation $V$ is the formal sum over weights, $\operatorname{ch} V=\sum_\mu (\dim V_\mu)\,e^{\mu}$, where $e^\mu$ are formal exponentials with $e^\mu e^\nu=e^{\mu+\nu}$. It records all weights and multiplicities at once, and $\operatorname{ch}V|_{\text{set }e^\mu\to1}=\dim V$.
+> **Definition — character.** The **character** of a representation $V$ is the formal sum over weights, $\mathrm{ch} V=\sum_\mu (\dim V_\mu)\,e^{\mu}$, where $e^\mu$ are formal exponentials with $e^\mu e^\nu=e^{\mu+\nu}$. It records all weights and multiplicities at once, and $\mathrm{ch}V|_{\text{set }e^\mu\to1}=\dim V$.
 
 > **Definition — Weyl vector and the sign.** Let $\rho=\tfrac12\sum_{\alpha>0}\alpha$ be the **Weyl vector** (half the sum of positive roots; equals $\sum_i\omega_i$). For $w\in W$ let $\det(w)=(-1)^{\ell(w)}$ where $\ell(w)$ is the number of reflections needed to write $w$ (the **sign** of $w$).
 
 > **Theorem — Weyl character formula.** For the irreducible $V(\lambda)$ with $\lambda$ dominant integral,
 > $$
-> \operatorname{ch}V(\lambda)\ =\ \frac{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\lambda+\rho)}}{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\rho)}} .
+> \mathrm{ch}V(\lambda)\ =\ \frac{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\lambda+\rho)}}{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\rho)}} .
 > $$
 > The denominator equals the **Weyl denominator** $\displaystyle\prod_{\alpha>0}\big(e^{\alpha/2}-e^{-\alpha/2}\big)$.
 
@@ -379,7 +379,7 @@ The Gell-Mann–Nishijima relation $Q=t_3+\tfrac12 y$ converts each weight into 
 
 **What and why.** Combining systems (two quarks, quark + antiquark) means tensoring representations; the result is reducible and decomposing it is "addition of multiplets." For $\mathfrak{su}(n)$ there is a beautiful combinatorial bookkeeping — **Young tableaux** — that performs these decompositions by drawing boxes.
 
-> **Definition — tensor product of representations.** Given $\rho:\mathfrak{g}\to\mathfrak{gl}(V)$ and $\sigma:\mathfrak{g}\to\mathfrak{gl}(W)$, the **tensor product** acts on $V\otimes W$ (dimension $\dim V\cdot\dim W$) by the **sum** of generators: $(\rho\otimes\sigma)(X)=\rho(X)\otimes I+I\otimes\sigma(X)$. Consequently weights *add*: the weights of $V\otimes W$ are $\{\mu+\nu:\mu\in\operatorname{wt}V,\nu\in\operatorname{wt}W\}$ with multiplicities multiplied.
+> **Definition — tensor product of representations.** Given $\rho:\mathfrak{g}\to\mathfrak{gl}(V)$ and $\sigma:\mathfrak{g}\to\mathfrak{gl}(W)$, the **tensor product** acts on $V\otimes W$ (dimension $\dim V\cdot\dim W$) by the **sum** of generators: $(\rho\otimes\sigma)(X)=\rho(X)\otimes I+I\otimes\sigma(X)$. Consequently weights *add*: the weights of $V\otimes W$ are $\{\mu+\nu:\mu\in\mathrm{wt}V,\nu\in\mathrm{wt}W\}$ with multiplicities multiplied.
 
 > **Method — decomposition by weights.** To decompose $V\otimes W=\bigoplus_i V(\lambda_i)$: list all summed weights, find the highest, peel off the irreducible with that highest weight (subtract its known weight diagram), and repeat. This is the multi-dimensional version of the $\mathfrak{su}(2)$ Clebsch–Gordan algorithm.
 

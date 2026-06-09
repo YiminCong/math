@@ -66,25 +66,25 @@ $$
 
 #### 定义
 
-> **定义 —— Gamma 函数（Euler 积分）。** 对实部为正的复数 $z$，即 $\operatorname{Re}(z)>0$，
+> **定义 —— Gamma 函数（Euler 积分）。** 对实部为正的复数 $z$，即 $\mathrm{Re}(z)>0$，
 > $$
 > \Gamma(z)=\int_0^\infty t^{\,z-1}e^{-t}\,dt .
 > $$
 
-这里 $t$ 是实积分变量，$e^{-t}$ 是使积分在 $t\to\infty$ 处收敛的指数衰减，而 $t^{z-1}=e^{(z-1)\ln t}$ 是一个幂。条件 $\operatorname{Re}(z)>0$ 是必需的，以保证被积函数 $t^{z-1}$ 在 $t=0$ 附近可积：在原点附近，$\int_0 t^{z-1}\,dt$ 恰好在 $\operatorname{Re}(z-1)>-1$ 时收敛，即 $\operatorname{Re}(z)>0$。
+这里 $t$ 是实积分变量，$e^{-t}$ 是使积分在 $t\to\infty$ 处收敛的指数衰减，而 $t^{z-1}=e^{(z-1)\ln t}$ 是一个幂。条件 $\mathrm{Re}(z)>0$ 是必需的，以保证被积函数 $t^{z-1}$ 在 $t=0$ 附近可积：在原点附近，$\int_0 t^{z-1}\,dt$ 恰好在 $\mathrm{Re}(z-1)>-1$ 时收敛，即 $\mathrm{Re}(z)>0$。
 
 #### 递推关系 $\Gamma(z+1)=z\,\Gamma(z)$ —— 证明
 
 这条单一的恒等式是整个学科的引擎：它是"阶乘性质" $n!=n\cdot(n-1)!$ 的连续形式。
 
-> **定理。** 对所有满足 $\operatorname{Re}(z)>0$ 的 $z$，$\ \Gamma(z+1)=z\,\Gamma(z)$。
+> **定理。** 对所有满足 $\mathrm{Re}(z)>0$ 的 $z$，$\ \Gamma(z+1)=z\,\Gamma(z)$。
 
 **证明（分部积分）。**
 
 1. 从定义出发，把 $z+1$ 代入相应位置：$\displaystyle\Gamma(z+1)=\int_0^\infty t^{\,z}e^{-t}\,dt$。*（理由：在 Euler 积分中作替换 $z\mapsto z+1$；指数 $z-1$ 变成 $z$。）*
 2. 应用**分部积分** $\int u\,dv = uv-\int v\,du$，取 $u=t^{z}$、$dv=e^{-t}\,dt$。于是 $du=z\,t^{z-1}\,dt$（幂法则），$v=-e^{-t}$（$e^{-t}$ 的原函数）。*（理由：对 $(0,\infty)$ 上这些连续可微的因子而言，分部积分成立。）*
 3. 这给出 $\displaystyle\Gamma(z+1)=\Big[-t^{z}e^{-t}\Big]_0^\infty+\int_0^\infty z\,t^{z-1}e^{-t}\,dt$。
-4. 计算边界项 $\big[-t^{z}e^{-t}\big]_0^\infty$。当 $t\to\infty$ 时，$e^{-t}$ 的衰减快于任何幂 $t^{z}$ 的增长，故乘积 $\to 0$。当 $t\to 0^+$ 时，因 $\operatorname{Re}(z)>0$ 有 $t^{z}\to 0$，故乘积 $\to 0$。因此边界项为 $0$。*（理由：在无穷远处指数胜过多项式；在零点处正实部指数把幂压为零。）*
+4. 计算边界项 $\big[-t^{z}e^{-t}\big]_0^\infty$。当 $t\to\infty$ 时，$e^{-t}$ 的衰减快于任何幂 $t^{z}$ 的增长，故乘积 $\to 0$。当 $t\to 0^+$ 时，因 $\mathrm{Re}(z)>0$ 有 $t^{z}\to 0$，故乘积 $\to 0$。因此边界项为 $0$。*（理由：在无穷远处指数胜过多项式；在零点处正实部指数把幂压为零。）*
 5. 剩下的积分由 $\Gamma(z)$ 的定义即为 $z\int_0^\infty t^{z-1}e^{-t}\,dt=z\,\Gamma(z)$。*（理由：把常数 $z$ 提出积分；认出这是 Euler 积分。）*
 6. 因此 $\Gamma(z+1)=z\,\Gamma(z)$。$\blacksquare$
 
@@ -101,7 +101,7 @@ $$
 
 #### 关键取值与延拓
 
-递推关系还让我们能把 $\Gamma$ *延拓*到负宗量：把它改写为 $\Gamma(z)=\Gamma(z+1)/z$。只要 $\operatorname{Re}(z)>-1$（且 $z\ne0$），右边就有意义，从而在那里定义了 $\Gamma$；反复使用此技巧便覆盖整个平面，唯独除去非正整数 $0,-1,-2,\dots$，在那里 $1/z$ 型的因子发散。于是 $\Gamma$ 在 $z=0,-1,-2,\dots$ 处有**简单极点**，而在其他每一处都有限且光滑。
+递推关系还让我们能把 $\Gamma$ *延拓*到负宗量：把它改写为 $\Gamma(z)=\Gamma(z+1)/z$。只要 $\mathrm{Re}(z)>-1$（且 $z\ne0$），右边就有意义，从而在那里定义了 $\Gamma$；反复使用此技巧便覆盖整个平面，唯独除去非正整数 $0,-1,-2,\dots$，在那里 $1/z$ 型的因子发散。于是 $\Gamma$ 在 $z=0,-1,-2,\dots$ 处有**简单极点**，而在其他每一处都有限且光滑。
 
 有一个取值很著名，值得记录。**半整数**取值是
 
@@ -165,7 +165,7 @@ Gamma 函数实际上就是某个概率分布的归一化常数。**Gamma 分布
 
 #### 定义
 
-> **定义 —— Beta 函数。** 对 $\operatorname{Re}(p)>0$ 与 $\operatorname{Re}(q)>0$，
+> **定义 —— Beta 函数。** 对 $\mathrm{Re}(p)>0$ 与 $\mathrm{Re}(q)>0$，
 > $$
 > B(p,q)=\int_0^1 x^{\,p-1}(1-x)^{\,q-1}\,dx .
 > $$
@@ -174,7 +174,7 @@ Gamma 函数实际上就是某个概率分布的归一化常数。**Gamma 分布
 
 #### 关系式 $B(p,q)=\dfrac{\Gamma(p)\,\Gamma(q)}{\Gamma(p+q)}$ —— 证明
 
-> **定理。** 对 $\operatorname{Re}(p)>0,\operatorname{Re}(q)>0$，$\ B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$。
+> **定理。** 对 $\mathrm{Re}(p)>0,\mathrm{Re}(q)>0$，$\ B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$。
 
 **证明。**
 1. 写出乘积 $\Gamma(p)\Gamma(q)=\Big(\int_0^\infty s^{p-1}e^{-s}ds\Big)\Big(\int_0^\infty t^{q-1}e^{-t}dt\Big)=\iint_{s,t>0} s^{p-1}t^{q-1}e^{-(s+t)}\,ds\,dt$。*（理由：两个独立变量的积分之乘积就是在第一象限上的二重积分——Fubini 定理，因被积函数为正而成立。）*

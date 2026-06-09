@@ -316,11 +316,11 @@ $$E[g(X)]=\sum_x g(x)\,p_X(x)\quad\text{or}\quad \int g(x)\,f_X(x)\,dx$$
 
 The **variance** measures how far, on average, $X$ falls from its mean $\mu=E[X]$; it is the average *squared* deviation. We square so that overshoots and undershoots do not cancel.
 
-$$\operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2$$
+$$\mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2$$
 
 The square root of the variance is the **standard deviation** $\sigma$, in the same units as $X$.
 
-$$E[aX+b]=aE[X]+b,\qquad \operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)$$
+$$E[aX+b]=aE[X]+b,\qquad \mathrm{Var}(aX+b)=a^2\mathrm{Var}(X)$$
 
 These say expectation is **linear** (scaling by $a$ and shifting by $b$ pass straight through), while variance ignores the shift $b$ (shifting moves the whole distribution without changing its spread) and scales by $a^2$ (squaring because variance is a squared quantity).
 
@@ -340,23 +340,23 @@ The **$k$-th central moment** $\mu_k$ averages the $k$-th power of the deviation
 
 1. **Expand the square** in the definition, using $\mu=E[X]$ (a constant):
 
-   $$\operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].$$
+   $$\mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].$$
 2. **Use linearity** (just proved) and the fact that $E[X]=\mu$:
 
    $$=E[X^2]-2\mu\,E[X]+\mu^2=E[X^2]-2\mu^2+\mu^2.$$
 3. **Collect terms:**
 
-   $$\operatorname{Var}(X)=E[X^2]-\mu^2=E[X^2]-(E[X])^2.$$
+   $$\mathrm{Var}(X)=E[X^2]-\mu^2=E[X^2]-(E[X])^2.$$
 
 *"Mean of the square minus the square of the mean" — the everyday variance formula.*
 
-**Worked example — variance of one die.** We have $\mu=3.5$. The mean square is $E[X^2]=\tfrac{1^2+2^2+3^2+4^2+5^2+6^2}{6}=\tfrac{91}{6}\approx15.167$. So $\operatorname{Var}(X)=15.167-3.5^2=15.167-12.25=2.917$, and the standard deviation is $\sqrt{2.917}\approx1.708$.
+**Worked example — variance of one die.** We have $\mu=3.5$. The mean square is $E[X^2]=\tfrac{1^2+2^2+3^2+4^2+5^2+6^2}{6}=\tfrac{91}{6}\approx15.167$. So $\mathrm{Var}(X)=15.167-3.5^2=15.167-12.25=2.917$, and the standard deviation is $\sqrt{2.917}\approx1.708$.
 
 **Demonstration — variance scales by $a^2$.**
 
 1. Let $Y=aX+b$. Its mean is $E[Y]=a\mu+b$ (linearity).
 2. The deviation is $Y-E[Y]=(aX+b)-(a\mu+b)=a(X-\mu)$ — the shift $b$ cancels.
-3. Square and take expectation: $\operatorname{Var}(Y)=E[a^2(X-\mu)^2]=a^2E[(X-\mu)^2]=a^2\operatorname{Var}(X)$, using linearity to pull out the constant $a^2$.
+3. Square and take expectation: $\mathrm{Var}(Y)=E[a^2(X-\mu)^2]=a^2E[(X-\mu)^2]=a^2\mathrm{Var}(X)$, using linearity to pull out the constant $a^2$.
 
 **Demonstration — $E[X]$ for a non-negative variable via its tail**
 
@@ -412,9 +412,9 @@ The superscript $(k)$ means "differentiated $k$ times." So the $k$-th derivative
 2. **First derivative gives the mean.** $M'(t)=\dfrac{\lambda}{(\lambda-t)^2}$, so $E[X]=M'(0)=\lambda/\lambda^2=1/\lambda$.
 3. **Second derivative gives the second moment.** $M''(t)=\dfrac{2\lambda}{(\lambda-t)^3}$, so $E[X^2]=M''(0)=2\lambda/\lambda^3=2/\lambda^2$, and by the variance formula (§s5):
 
-   $$\operatorname{Var}(X)=\frac{2}{\lambda^2}-\frac1{\lambda^2}=\frac1{\lambda^2}.$$
+   $$\mathrm{Var}(X)=\frac{2}{\lambda^2}-\frac1{\lambda^2}=\frac1{\lambda^2}.$$
 
-**Worked example — numbers.** If $\lambda=2$ then $E[X]=1/2=0.5$ and $\operatorname{Var}(X)=1/4=0.25$, with standard deviation $0.5$. (For the exponential, mean and standard deviation always coincide.)
+**Worked example — numbers.** If $\lambda=2$ then $E[X]=1/2=0.5$ and $\mathrm{Var}(X)=1/4=0.25$, with standard deviation $0.5$. (For the exponential, mean and standard deviation always coincide.)
 
 **The key property: MGF of a sum**
 
@@ -447,13 +447,13 @@ Each row below is a named recipe for assigning probabilities to whole numbers. T
 
 **Demonstration — building the Binomial from Bernoulli (mean & variance)**
 
-1. **Decompose.** Write $X=X_1+\cdots+X_n$ as a sum of independent, identically distributed ("i.i.d.") Bernoulli($p$) indicators, each scoring $1$ for a success. Each has $E[X_i]=p$ (since $E[X_i]=1\cdot p+0\cdot(1-p)=p$) and $\operatorname{Var}(X_i)=p(1-p)$ (since $E[X_i^2]=p$ as $X_i^2=X_i$, so variance $=p-p^2=p(1-p)$).
+1. **Decompose.** Write $X=X_1+\cdots+X_n$ as a sum of independent, identically distributed ("i.i.d.") Bernoulli($p$) indicators, each scoring $1$ for a success. Each has $E[X_i]=p$ (since $E[X_i]=1\cdot p+0\cdot(1-p)=p$) and $\mathrm{Var}(X_i)=p(1-p)$ (since $E[X_i^2]=p$ as $X_i^2=X_i$, so variance $=p-p^2=p(1-p)$).
 2. **Sum the means** using linearity of expectation (§s5; no independence needed):
 
    $$E[X]=\sum_{i=1}^n E[X_i]=np.$$
 3. **Sum the variances.** For *independent* variables, variances add (proved in §s11):
 
-   $$\operatorname{Var}(X)=\sum_{i=1}^n \operatorname{Var}(X_i)=np(1-p).$$
+   $$\mathrm{Var}(X)=\sum_{i=1}^n \mathrm{Var}(X_i)=np(1-p).$$
 4. **Multiply the MGFs.** Each Bernoulli has $M_{X_i}(t)=E[e^{tX_i}]=(1-p)e^{0}+pe^{t}=1-p+pe^t$; since the $X_i$ are independent, MGFs multiply (§s6), so $M_X(t)=(1-p+pe^t)^n$, confirming the table.
 
 *Decompose into simple pieces, then sum — the recurring move of probability.*
@@ -470,7 +470,7 @@ Each row below is a named recipe for assigning probabilities to whole numbers. T
 2. **Confirm via the MGF.** With $M(t)=e^{\lambda(e^t-1)}$, the chain rule gives $M'(t)=\lambda e^t M(t)$, so $E[X]=M'(0)=\lambda\cdot1\cdot1=\lambda$.
 3. **Second moment and variance.** Differentiate again: $M''(t)=\lambda e^t M(t)+(\lambda e^t)^2 M(t)$, so $M''(0)=\lambda+\lambda^2=E[X^2]$, hence
 
-   $$\operatorname{Var}(X)=\lambda+\lambda^2-\lambda^2=\lambda.$$
+   $$\mathrm{Var}(X)=\lambda+\lambda^2-\lambda^2=\lambda.$$
 
 *The Poisson's signature: its mean and variance coincide.*
 
@@ -520,7 +520,7 @@ Here $\Gamma(\alpha)$ is the **Gamma function**, a continuous extension of the f
    $$E[X^2]=\int_a^b\frac{x^2}{b-a}\,dx=\frac{b^3-a^3}{3(b-a)}=\frac{a^2+ab+b^2}{3}.$$
 3. **Subtract the squared mean** (§s5) and simplify the algebra over a common denominator $12$:
 
-   $$\operatorname{Var}(X)=\frac{a^2+ab+b^2}{3}-\frac{(a+b)^2}{4}=\frac{4(a^2+ab+b^2)-3(a+b)^2}{12}=\frac{(b-a)^2}{12}.$$
+   $$\mathrm{Var}(X)=\frac{a^2+ab+b^2}{3}-\frac{(a+b)^2}{4}=\frac{4(a^2+ab+b^2)-3(a+b)^2}{12}=\frac{(b-a)^2}{12}.$$
 
 *Spread depends only on the width $b-a$, as symmetry demands.*
 
@@ -534,7 +534,7 @@ Here $\Gamma(\alpha)$ is the **Gamma function**, a continuous extension of the f
 
    The boundary term vanishes because $xe^{-\lambda x}\to0$ as $x\to\infty$ and is $0$ at $x=0$.
 2. **Second moment** similarly (or by parts twice): $E[X^2]=\int_0^\infty x^2\lambda e^{-\lambda x}\,dx=\dfrac{2}{\lambda^2}$.
-3. **Variance** (§s5): $\operatorname{Var}(X)=\dfrac{2}{\lambda^2}-\dfrac{1}{\lambda^2}=\dfrac{1}{\lambda^2}$, matching the MGF result of §s6.
+3. **Variance** (§s5): $\mathrm{Var}(X)=\dfrac{2}{\lambda^2}-\dfrac{1}{\lambda^2}=\dfrac{1}{\lambda^2}$, matching the MGF result of §s6.
 
 *The exponential is memoryless: $P(X\gt s+t\mid X\gt s)=e^{-\lambda t}=P(X\gt t)$* (same algebra as the geometric in §s7, with $P(X>x)=e^{-\lambda x}$).
 
@@ -546,7 +546,7 @@ Here $\Gamma(\alpha)$ is the **Gamma function**, a continuous extension of the f
 
    The remaining integral is the total area under a (shifted) standard Normal density, which equals $1$ (§s4).
 2. **General Normal by shifting and scaling.** Any $X\sim N(\mu,\sigma^2)$ can be written $X=\mu+\sigma Z$. Then $M_X(t)=E[e^{t(\mu+\sigma Z)}]=e^{\mu t}E[e^{(\sigma t)Z}]=e^{\mu t}M_Z(\sigma t)=e^{\mu t+\sigma^2 t^2/2}$.
-3. **Differentiate at $0$** (§s6): $M_X'(0)=\mu$ gives $E[X]=\mu$, and $M_X''(0)=\mu^2+\sigma^2$ gives $E[X^2]=\mu^2+\sigma^2$, so $\operatorname{Var}(X)=\sigma^2$.
+3. **Differentiate at $0$** (§s6): $M_X'(0)=\mu$ gives $E[X]=\mu$, and $M_X''(0)=\mu^2+\sigma^2$ gives $E[X^2]=\mu^2+\sigma^2$, so $\mathrm{Var}(X)=\sigma^2$.
 
 *The two parameters $\mu,\sigma^2$ are literally the mean and variance — and the standardizing $Z=(X-\mu)/\sigma$ is the z-score of the Statistics guide.*
 
@@ -657,44 +657,44 @@ $$X\perp Y \iff f(x,y)=f_X(x)\,f_Y(y)$$
 
 **Covariance, correlation & variance of a sum**
 
-$$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y],\qquad \rho=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}$$
+$$\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y],\qquad \rho=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}$$
 
 The **covariance** is positive when $X$ and $Y$ tend to be large together (and small together) and negative when one tends to be large while the other is small. The **correlation** $\rho$ (Greek "rho") divides covariance by the two standard deviations $\sigma_X,\sigma_Y$ to produce a pure number between $-1$ and $1$ with no units.
 
-$$\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y)$$
+$$\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)+2\mathrm{Cov}(X,Y)$$
 
-$$\operatorname{Cov}(aX+b,\,cY+d)=ac\,\operatorname{Cov}(X,Y)$$
+$$\mathrm{Cov}(aX+b,\,cY+d)=ac\,\mathrm{Cov}(X,Y)$$
 
 The last line: covariance ignores the shifts $b,d$ and scales by the product $ac$ of the multipliers.
 
-*$\rho\in[-1,1]$ is the average product of the two variables' z-scores. Independence $\Rightarrow$ $\operatorname{Cov}=0$, but not conversely.*
+*$\rho\in[-1,1]$ is the average product of the two variables' z-scores. Independence $\Rightarrow$ $\mathrm{Cov}=0$, but not conversely.*
 
 **Demonstration — variance of a sum, and why independent variances add.**
 
 1. By the definition of variance and expanding $((X+Y)-(\mu_X+\mu_Y))^2=((X-\mu_X)+(Y-\mu_Y))^2$:
 
-   $$\operatorname{Var}(X+Y)=E\big[(X-\mu_X)^2\big]+E\big[(Y-\mu_Y)^2\big]+2E\big[(X-\mu_X)(Y-\mu_Y)\big].$$
-2. The first two terms are $\operatorname{Var}(X)$ and $\operatorname{Var}(Y)$; the cross term is $2\operatorname{Cov}(X,Y)$ by definition. Hence the boxed formula.
-3. If $X\perp Y$ then $\operatorname{Cov}(X,Y)=0$ (next demonstration), so the cross term vanishes and $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ — the rule used for the Binomial in §s7.
+   $$\mathrm{Var}(X+Y)=E\big[(X-\mu_X)^2\big]+E\big[(Y-\mu_Y)^2\big]+2E\big[(X-\mu_X)(Y-\mu_Y)\big].$$
+2. The first two terms are $\mathrm{Var}(X)$ and $\mathrm{Var}(Y)$; the cross term is $2\mathrm{Cov}(X,Y)$ by definition. Hence the boxed formula.
+3. If $X\perp Y$ then $\mathrm{Cov}(X,Y)=0$ (next demonstration), so the cross term vanishes and $\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)$ — the rule used for the Binomial in §s7.
 
 **Demonstration — independence implies zero covariance (and why not the reverse)**
 
 1. **Factor the joint expectation.** If $X\perp Y$, the joint density factors (§s10), so
 
    $$E[XY]=\iint xy\,f_X(x)f_Y(y)\,dx\,dy=\Big(\int x f_X(x)dx\Big)\Big(\int y f_Y(y)dy\Big)=E[X]E[Y].$$
-2. **Covariance is zero.** Then $\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]=0$.
-3. **The converse fails.** Let $X\sim N(0,1)$ and $Y=X^2$. By symmetry $E[X]=0$ and $E[X^3]=0$, so $E[XY]=E[X^3]=0=E[X]E[Y]$, giving $\operatorname{Cov}=0$. Yet $Y$ is completely determined by $X$ — they are as dependent as possible.
+2. **Covariance is zero.** Then $\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y]=0$.
+3. **The converse fails.** Let $X\sim N(0,1)$ and $Y=X^2$. By symmetry $E[X]=0$ and $E[X^3]=0$, so $E[XY]=E[X^3]=0=E[X]E[Y]$, giving $\mathrm{Cov}=0$. Yet $Y$ is completely determined by $X$ — they are as dependent as possible.
 
 *Covariance sees only *linear* association; zero covariance is not independence.*
 
-**Worked example — covariance of two dice and their sum.** Let $X,Y$ be independent fair dice. Then $\operatorname{Cov}(X,Y)=0$, so $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)=2.917+2.917=5.833$ (using $\operatorname{Var}=2.917$ from §s5).
+**Worked example — covariance of two dice and their sum.** Let $X,Y$ be independent fair dice. Then $\mathrm{Cov}(X,Y)=0$, so $\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)=2.917+2.917=5.833$ (using $\mathrm{Var}=2.917$ from §s5).
 
 **Demonstration — $|\rho|\le1$ via Cauchy–Schwarz**
 
 1. **State the tool.** The Cauchy–Schwarz inequality for random variables says $\big(E[UV]\big)^2\le E[U^2]\,E[V^2]$ for any $U,V$ (proved as an inequality in §s14).
-2. **Apply to centered variables** $U=X-\mu_X$, $V=Y-\mu_Y$. Then $E[UV]=\operatorname{Cov}(X,Y)$, $E[U^2]=\operatorname{Var}(X)$, $E[V^2]=\operatorname{Var}(Y)$, so
+2. **Apply to centered variables** $U=X-\mu_X$, $V=Y-\mu_Y$. Then $E[UV]=\mathrm{Cov}(X,Y)$, $E[U^2]=\mathrm{Var}(X)$, $E[V^2]=\mathrm{Var}(Y)$, so
 
-   $$\operatorname{Cov}(X,Y)^2\le \operatorname{Var}(X)\,\operatorname{Var}(Y).$$
+   $$\mathrm{Cov}(X,Y)^2\le \mathrm{Var}(X)\,\mathrm{Var}(Y).$$
 3. **Divide by $\sigma_X^2\sigma_Y^2$:**
 
    $$\rho^2\le1\ \Rightarrow\ -1\le\rho\le1,$$
@@ -720,7 +720,7 @@ $E[X\mid Y=y]$ is the average of $X$ *once we know* $Y=y$ — computed against t
 
 $$\text{tower: }\ E\big[E[X\mid Y]\big]=E[X]$$
 
-$$\text{law of total variance: }\ \operatorname{Var}(X)=E\big[\operatorname{Var}(X\mid Y)\big]+\operatorname{Var}\big(E[X\mid Y]\big)$$
+$$\text{law of total variance: }\ \mathrm{Var}(X)=E\big[\mathrm{Var}(X\mid Y)\big]+\mathrm{Var}\big(E[X\mid Y]\big)$$
 
 *$E[X\mid Y]$ is the function of $Y$ that best predicts $X$ in mean-square. It is itself random because $Y$ is.*
 
@@ -742,11 +742,11 @@ $$\text{law of total variance: }\ \operatorname{Var}(X)=E\big[\operatorname{Var}
 
 **Demonstration — total variance from the tower property**
 
-1. **Define the conditional mean** $m(Y)=E[X\mid Y]$ and write the conditional variance $\operatorname{Var}(X\mid Y)=E[X^2\mid Y]-m(Y)^2$ (variance formula of §s5 applied inside the conditioning).
-2. **Take expectations** and apply the tower property to $E[X^2\mid Y]$: $E[\operatorname{Var}(X\mid Y)]=E[X^2]-E[m(Y)^2]$.
-3. **Add the variance of the conditional mean** $\operatorname{Var}(m(Y))=E[m(Y)^2]-(E[m(Y)])^2=E[m(Y)^2]-(E[X])^2$ (using $E[m(Y)]=E[X]$ by the tower property). The $E[m(Y)^2]$ terms cancel when added, leaving
+1. **Define the conditional mean** $m(Y)=E[X\mid Y]$ and write the conditional variance $\mathrm{Var}(X\mid Y)=E[X^2\mid Y]-m(Y)^2$ (variance formula of §s5 applied inside the conditioning).
+2. **Take expectations** and apply the tower property to $E[X^2\mid Y]$: $E[\mathrm{Var}(X\mid Y)]=E[X^2]-E[m(Y)^2]$.
+3. **Add the variance of the conditional mean** $\mathrm{Var}(m(Y))=E[m(Y)^2]-(E[m(Y)])^2=E[m(Y)^2]-(E[X])^2$ (using $E[m(Y)]=E[X]$ by the tower property). The $E[m(Y)^2]$ terms cancel when added, leaving
 
-   $$E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mid Y])=E[X^2]-(E[X])^2=\operatorname{Var}(X).$$
+   $$E[\mathrm{Var}(X\mid Y)]+\mathrm{Var}(E[X\mid Y])=E[X^2]-(E[X])^2=\mathrm{Var}(X).$$
 
 *Variance splits into "within-group" plus "between-group" — exactly the decomposition behind ANOVA.*
 
@@ -907,12 +907,12 @@ $$\text{SLLN: }\ \bar X_n\xrightarrow{a.s.}\mu\quad\text{(almost-sure convergenc
 **Demonstration — the Weak Law via Chebyshev**
 
 1. **Mean of the average.** Let $X_1,\dots,X_n$ be i.i.d. with mean $\mu$, variance $\sigma^2$. By linearity (§s5), $E[\bar X_n]=\tfrac1n\sum E[X_i]=\tfrac1n(n\mu)=\mu$.
-2. **Variance of the average shrinks.** Since the $X_i$ are independent their variances add (§s11), and $\operatorname{Var}(cX)=c^2\operatorname{Var}(X)$ with $c=1/n$:
+2. **Variance of the average shrinks.** Since the $X_i$ are independent their variances add (§s11), and $\mathrm{Var}(cX)=c^2\mathrm{Var}(X)$ with $c=1/n$:
 
-   $$\operatorname{Var}(\bar X_n)=\frac{1}{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}.$$
+   $$\mathrm{Var}(\bar X_n)=\frac{1}{n^2}\sum_{i=1}^n\mathrm{Var}(X_i)=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}.$$
 3. **Apply Chebyshev** (§s14) to $\bar X_n$, whose mean is $\mu$:
 
-   $$P\big(|\bar X_n-\mu|\ge\varepsilon\big)\le\frac{\operatorname{Var}(\bar X_n)}{\varepsilon^2}=\frac{\sigma^2}{n\varepsilon^2}\xrightarrow[n\to\infty]{}0.$$
+   $$P\big(|\bar X_n-\mu|\ge\varepsilon\big)\le\frac{\mathrm{Var}(\bar X_n)}{\varepsilon^2}=\frac{\sigma^2}{n\varepsilon^2}\xrightarrow[n\to\infty]{}0.$$
 
    The bound goes to $0$, which is convergence in probability — the Weak Law.
 
@@ -920,7 +920,7 @@ $$\text{SLLN: }\ \bar X_n\xrightarrow{a.s.}\mu\quad\text{(almost-sure convergenc
 
 > **Connection — why the standard error has a $\sqrt n$**
 >
-> The same computation $\operatorname{Var}(\bar X_n)=\sigma^2/n$ gives the standard error $\sigma/\sqrt n$ of the Statistics guide. The LLN says the estimate converges; the CLT (next) says *how fast* and *in what shape*.
+> The same computation $\mathrm{Var}(\bar X_n)=\sigma^2/n$ gives the standard error $\sigma/\sqrt n$ of the Statistics guide. The LLN says the estimate converges; the CLT (next) says *how fast* and *in what shape*.
 
 <a id="s17"></a>
 ### The Central Limit Theorem
@@ -937,7 +937,7 @@ The left side standardizes the sample mean: subtract its mean $\mu$ and divide b
 
 **Demonstration — the CLT via MGFs / characteristic functions**
 
-1. **Standardize each term.** Set $Y_i=(X_i-\mu)/\sigma$, so $E[Y_i]=0$ and $\operatorname{Var}(Y_i)=E[Y_i^2]=1$ (§s5). The standardized sum is $S_n=\tfrac{1}{\sqrt n}\sum_{i=1}^n Y_i$, which equals the left-hand side of the theorem.
+1. **Standardize each term.** Set $Y_i=(X_i-\mu)/\sigma$, so $E[Y_i]=0$ and $\mathrm{Var}(Y_i)=E[Y_i^2]=1$ (§s5). The standardized sum is $S_n=\tfrac{1}{\sqrt n}\sum_{i=1}^n Y_i$, which equals the left-hand side of the theorem.
 2. **MGFs multiply.** Because the $Y_i$ are i.i.d. and the sum is scaled by $1/\sqrt n$, the MGF-of-a-sum rule (§s6) gives $M_{S_n}(t)=\big[M_Y\!\big(t/\sqrt n\big)\big]^n$.
 3. **Taylor-expand $M_Y$ about $0$** using $M_Y(0)=1$, $M_Y'(0)=E[Y]=0$, $M_Y''(0)=E[Y^2]=1$ (§s6):
 

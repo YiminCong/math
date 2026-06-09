@@ -75,16 +75,16 @@ This single formula, read for all $v$, *defines* the law of $X$. We will lift ex
 > \int_H e^{i\langle v,x\rangle}\,\mu(dx)=\exp\!\Big(-\tfrac12\langle v,Qv\rangle\Big).
 > $$
 
-The requirement that $Q$ be **trace class** — that $\operatorname{Tr}Q=\sum_k\langle Qe_k,e_k\rangle<\infty$ for an orthonormal basis $\{e_k\}$ — is not a technicality but the heart of the matter. Here is why, derived completely.
+The requirement that $Q$ be **trace class** — that $\mathrm{Tr}Q=\sum_k\langle Qe_k,e_k\rangle<\infty$ for an orthonormal basis $\{e_k\}$ — is not a technicality but the heart of the matter. Here is why, derived completely.
 
-> **Proposition.** If a Gaussian measure $\mu$ with covariance $Q$ lives on $H$ (so $\int_H\|x\|^2\,\mu(dx)<\infty$), then $\operatorname{Tr}Q<\infty$.
+> **Proposition.** If a Gaussian measure $\mu$ with covariance $Q$ lives on $H$ (so $\int_H\|x\|^2\,\mu(dx)<\infty$), then $\mathrm{Tr}Q<\infty$.
 
 **Derivation.**
 1. Fix an orthonormal basis $\{e_k\}_{k\ge1}$ of $H$. By definition of the norm via Parseval's identity (a Hilbert-space fact), $\|x\|^2=\sum_k\langle x,e_k\rangle^2$ for every $x\in H$.
 2. Take the expectation under $\mu$ and exchange sum and integral, allowed because all terms are nonnegative (monotone convergence theorem): $\int_H\|x\|^2\,\mu(dx)=\sum_k\int_H\langle x,e_k\rangle^2\,\mu(dx)$.
 3. For each fixed $k$, the scalar $\langle x,e_k\rangle$ is, by the defining characteristic function with $v=e_k$, a one-dimensional centered normal with variance $\langle Qe_k,e_k\rangle$. Hence its second moment is exactly $\int_H\langle x,e_k\rangle^2\,\mu(dx)=\langle Qe_k,e_k\rangle$, by the definition of variance.
-4. Combining steps 2 and 3: $\int_H\|x\|^2\,\mu(dx)=\sum_k\langle Qe_k,e_k\rangle=\operatorname{Tr}Q$.
-5. The left side is finite by hypothesis, so $\operatorname{Tr}Q<\infty$. $\blacksquare$
+4. Combining steps 2 and 3: $\int_H\|x\|^2\,\mu(dx)=\sum_k\langle Qe_k,e_k\rangle=\mathrm{Tr}Q$.
+5. The left side is finite by hypothesis, so $\mathrm{Tr}Q<\infty$. $\blacksquare$
 
 The contrapositive is the lesson: **if $Q$ is not trace class, the Gaussian measure does not live on $H$ — it spills out onto a larger space.** White noise is precisely the case $Q=I$ (the identity), whose trace $\sum_k 1=\infty$ is infinite. This is the rigorous statement that *white noise is too rough to be a genuine $H$-valued random element*; it lives only in a bigger space of distributions.
 
@@ -172,12 +172,12 @@ So just like white noise (§s1), the cylindrical Wiener process is too big for $
 > W^Q(t)=\sum_{k=1}^\infty \sqrt{\lambda_k}\,\beta_k(t)\,e_k.
 > $$
 
-> **Proposition.** $W^Q(t)$ converges in mean square in $H$, with $\mathbb{E}\|W^Q(t)\|^2=t\operatorname{Tr}Q<\infty$.
+> **Proposition.** $W^Q(t)$ converges in mean square in $H$, with $\mathbb{E}\|W^Q(t)\|^2=t\mathrm{Tr}Q<\infty$.
 
 **Derivation.**
 1. As above, $\mathbb{E}\|W^Q(t)\|^2=\sum_k\lambda_k\,\mathbb{E}[\beta_k(t)^2]$ by orthonormality and independence.
-2. $=\sum_k\lambda_k\,t=t\sum_k\lambda_k=t\operatorname{Tr}Q$, using $\mathbb{E}[\beta_k(t)^2]=t$ and the definition of trace.
-3. By hypothesis $\operatorname{Tr}Q<\infty$, so the partial sums form a Cauchy sequence in $L^2(\Omega;H)$ and converge. $\blacksquare$
+2. $=\sum_k\lambda_k\,t=t\sum_k\lambda_k=t\mathrm{Tr}Q$, using $\mathbb{E}[\beta_k(t)^2]=t$ and the definition of trace.
+3. By hypothesis $\mathrm{Tr}Q<\infty$, so the partial sums form a Cauchy sequence in $L^2(\Omega;H)$ and converge. $\blacksquare$
 
 #### How white noise and the cylindrical process are two views of one object
 
@@ -185,7 +185,7 @@ The time-derivative of the cylindrical Wiener process *is* space–time white no
 
 #### Worked example — counting modes that converge
 
-Let $H=L^2([0,2\pi])$ with the basis from §s1. Choose $Q$ diagonal with $\lambda_k=1/k^2$. Then $\operatorname{Tr}Q=\sum_{k\ge1}k^{-2}=\pi^2/6<\infty$ (the Basel sum), so $W^Q$ lives in $H$. If instead $\lambda_k=1/k$ then $\sum 1/k=\infty$ diverges (harmonic series) and the process again escapes $H$. The borderline is sharp: trace-class is exactly the dividing line between "$H$-valued" and "merely cylindrical."
+Let $H=L^2([0,2\pi])$ with the basis from §s1. Choose $Q$ diagonal with $\lambda_k=1/k^2$. Then $\mathrm{Tr}Q=\sum_{k\ge1}k^{-2}=\pi^2/6<\infty$ (the Basel sum), so $W^Q$ lives in $H$. If instead $\lambda_k=1/k$ then $\sum 1/k=\infty$ diverges (harmonic series) and the process again escapes $H$. The borderline is sharp: trace-class is exactly the dividing line between "$H$-valued" and "merely cylindrical."
 
 #### Where the cylindrical process *does* converge
 
@@ -303,7 +303,7 @@ Unlike an ordinary Itô integral, the integrand $S(t-s)$ depends on the *upper l
 For a twice-Fréchet-differentiable functional $F:H\to\mathbb{R}$ and a process $X(t)=X(0)+\int_0^t b(s)\,ds+\int_0^t\Phi(s)\,dW(s)$,
 
 $$
-F(X(t))=F(X(0))+\int_0^t\langle F'(X(s)),dX(s)\rangle+\tfrac12\int_0^t\operatorname{Tr}\big[F''(X(s))\,\Phi(s)Q\Phi(s)^*\big]\,ds.
+F(X(t))=F(X(0))+\int_0^t\langle F'(X(s)),dX(s)\rangle+\tfrac12\int_0^t\mathrm{Tr}\big[F''(X(s))\,\Phi(s)Q\Phi(s)^*\big]\,ds.
 $$
 
 The new feature versus calculus is the second-order **trace term**, the exact analogue of the $\tfrac12 F''\,(dW)^2=\tfrac12 F''\,dt$ correction in one dimension, now summed over all noise directions via the trace. This is the engine for computing invariant measures in §s10.
@@ -312,7 +312,7 @@ The new feature versus calculus is the second-order **trace term**, the exact an
 
 Let $F(u)=\tfrac12\|u\|^2$, so $F'(u)=u$ and $F''(u)=I$. Apply Itô's formula to $u(t)$ solving the SHE ($b=\Delta u$, $\Phi=I$, $Q=I$ formally, but regularize):
 1. The drift term gives $\int_0^t\langle u,\Delta u\rangle\,ds=-\int_0^t\|\nabla u\|^2\,ds\le0$ (integration by parts; energy is dissipated by diffusion).
-2. The trace term gives $\tfrac12\int_0^t\operatorname{Tr}(I\cdot Q)\,ds=\tfrac12 t\operatorname{Tr}Q$ (energy is injected by noise at constant rate $\tfrac12\operatorname{Tr}Q$ per unit time).
+2. The trace term gives $\tfrac12\int_0^t\mathrm{Tr}(I\cdot Q)\,ds=\tfrac12 t\mathrm{Tr}Q$ (energy is injected by noise at constant rate $\tfrac12\mathrm{Tr}Q$ per unit time).
 3. Balancing injection against dissipation gives the stationary energy. With $Q=I$ truncated to $N$ modes, injection is $\tfrac12 N$ and the equilibrium energy is finite mode-by-mode but diverges as $N\to\infty$ — the same $d$-dependent divergence as before.
 
 #### Common pitfalls

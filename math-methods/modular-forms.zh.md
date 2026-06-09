@@ -41,7 +41,7 @@
 
 #### 定义
 
-> **定义 — 上半平面。** $\mathbb{H} = \{\tau \in \mathbb{C} : \operatorname{Im}\tau > 0\}$，即满足 $y>0$ 的复数 $\tau = x + iy$ 的集合。我们用 $\operatorname{Im}\tau$ 表示虚部 $y$，用 $\operatorname{Re}\tau$ 表示实部 $x$。
+> **定义 — 上半平面。** $\mathbb{H} = \{\tau \in \mathbb{C} : \mathrm{Im}\tau > 0\}$，即满足 $y>0$ 的复数 $\tau = x + iy$ 的集合。我们用 $\mathrm{Im}\tau$ 表示虚部 $y$，用 $\mathrm{Re}\tau$ 表示实部 $x$。
 
 > **定义 — 模群。** $SL(2,\mathbb{Z})$ 是所有具有**整数**元 $a,b,c,d$ 且**行列式** $ad-bc=1$ 的 $2\times 2$ 矩阵 $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ 的集合。（"$SL$"代表*特殊*——行列式为一——*线性*群；"$\mathbb{Z}$"是因为元为整数。）它在矩阵乘法下构成一个群，单位元为 $I=\begin{pmatrix}1&0\\0&1\end{pmatrix}$。
 
@@ -59,26 +59,26 @@
 
 **证明（无缝隙）。**
 
-1. 写 $\tau = x+iy$，其中 $y=\operatorname{Im}\tau>0$。计算 $\gamma\cdot\tau$ 的虚部。将分子分母同乘以共轭复数 $\overline{c\tau+d}=c\bar\tau+d$：
+1. 写 $\tau = x+iy$，其中 $y=\mathrm{Im}\tau>0$。计算 $\gamma\cdot\tau$ 的虚部。将分子分母同乘以共轭复数 $\overline{c\tau+d}=c\bar\tau+d$：
    $$
    \frac{a\tau+b}{c\tau+d} = \frac{(a\tau+b)(c\bar\tau+d)}{|c\tau+d|^2}.
    $$
    *（理由：$\frac{z}{w}=\frac{z\bar w}{|w|^2}$，即复数分母有理化的标准做法，之所以成立是因为当 $w\ne0$ 时 $|w|^2=w\bar w$ 是正实数。）*
-2. 展开分子：$(a\tau+b)(c\bar\tau+d) = ac\,|\tau|^2 + ad\,\tau + bc\,\bar\tau + bd$。其虚部：$|\tau|^2$ 与 $bd$ 是实数（贡献 $0$）；$\operatorname{Im}(ad\,\tau)=ad\,y$ 且 $\operatorname{Im}(bc\,\bar\tau)=-bc\,y$。于是
+2. 展开分子：$(a\tau+b)(c\bar\tau+d) = ac\,|\tau|^2 + ad\,\tau + bc\,\bar\tau + bd$。其虚部：$|\tau|^2$ 与 $bd$ 是实数（贡献 $0$）；$\mathrm{Im}(ad\,\tau)=ad\,y$ 且 $\mathrm{Im}(bc\,\bar\tau)=-bc\,y$。于是
    $$
-   \operatorname{Im}\big((a\tau+b)(c\bar\tau+d)\big) = (ad-bc)\,y.
+   \mathrm{Im}\big((a\tau+b)(c\bar\tau+d)\big) = (ad-bc)\,y.
    $$
-   *（理由：对实数 $r$，有 $\operatorname{Im}(r\tau)=r\,y$ 且 $\operatorname{Im}(r\bar\tau)=-r\,y$，因为 $\bar\tau=x-iy$。）*
+   *（理由：对实数 $r$，有 $\mathrm{Im}(r\tau)=r\,y$ 且 $\mathrm{Im}(r\bar\tau)=-r\,y$，因为 $\bar\tau=x-iy$。）*
 3. 因此
    $$
-   \operatorname{Im}(\gamma\cdot\tau) = \frac{(ad-bc)\,y}{|c\tau+d|^2} = \frac{y}{|c\tau+d|^2},
+   \mathrm{Im}(\gamma\cdot\tau) = \frac{(ad-bc)\,y}{|c\tau+d|^2} = \frac{y}{|c\tau+d|^2},
    $$
    这里用了 $ad-bc=1$。*（理由：$SL(2,\mathbb{Z})$ 的定义。）*
-4. 由于 $y>0$ 且 $|c\tau+d|^2>0$（分母非零，因为若 $c\tau+d=0$，则 $\tau=-d/c$ 将是实数，与 $y>0$ 矛盾；或 $c=d=0$，与 $ad-bc=1$ 矛盾），我们得到 $\operatorname{Im}(\gamma\cdot\tau)>0$，即 $\gamma\cdot\tau\in\mathbb{H}$。$\blacksquare$
+4. 由于 $y>0$ 且 $|c\tau+d|^2>0$（分母非零，因为若 $c\tau+d=0$，则 $\tau=-d/c$ 将是实数，与 $y>0$ 矛盾；或 $c=d=0$，与 $ad-bc=1$ 矛盾），我们得到 $\mathrm{Im}(\gamma\cdot\tau)>0$，即 $\gamma\cdot\tau\in\mathbb{H}$。$\blacksquare$
 
 第 3 步中的恒等式，
 $$
-\operatorname{Im}(\gamma\cdot\tau) = \frac{\operatorname{Im}\tau}{|c\tau+d|^2},
+\mathrm{Im}(\gamma\cdot\tau) = \frac{\mathrm{Im}\tau}{|c\tau+d|^2},
 $$
 将被反复使用；请牢记于心。
 
@@ -117,7 +117,7 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 
 #### 习题示例
 
-取 $\gamma=\begin{pmatrix}1&3\\1&4\end{pmatrix}$（核验：$1\cdot4-3\cdot1=1$，有效）以及 $\tau=i$。则 $\gamma\cdot i = \frac{i+3}{i+4} = \frac{(3+i)(4-i)}{|4+i|^2}=\frac{12-3i+4i+1}{17}=\frac{13+i}{17}$，虚部为 $\frac{1}{17}$。主公式预测 $\operatorname{Im}=\frac{\operatorname{Im} i}{|i+4|^2}=\frac{1}{17}$——一致。
+取 $\gamma=\begin{pmatrix}1&3\\1&4\end{pmatrix}$（核验：$1\cdot4-3\cdot1=1$，有效）以及 $\tau=i$。则 $\gamma\cdot i = \frac{i+3}{i+4} = \frac{(3+i)(4-i)}{|4+i|^2}=\frac{12-3i+4i+1}{17}=\frac{13+i}{17}$，虚部为 $\frac{1}{17}$。主公式预测 $\mathrm{Im}=\frac{\mathrm{Im} i}{|i+4|^2}=\frac{1}{17}$——一致。
 
 #### 直观：为何要用整数矩阵，以及它们"做了什么"
 
@@ -147,9 +147,9 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 
 > **定义 — 标准基本域。**
 > $$
-> \mathcal{F} = \left\{ \tau\in\mathbb{H} : |\operatorname{Re}\tau|\le \tfrac12 \ \text{ and } \ |\tau|\ge 1 \right\}.
+> \mathcal{F} = \left\{ \tau\in\mathbb{H} : |\mathrm{Re}\tau|\le \tfrac12 \ \text{ and } \ |\tau|\ge 1 \right\}.
 > $$
-> 它是位于单位圆之上、且夹在两条竖直线 $\operatorname{Re}\tau=\pm\frac12$ 之间的区域。
+> 它是位于单位圆之上、且夹在两条竖直线 $\mathrm{Re}\tau=\pm\frac12$ 之间的区域。
 
 #### 定理 3 — $S$ 与 $T$ 生成全群，且 $\mathcal{F}$ 是基本域
 
@@ -157,12 +157,12 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 
 **证明（两个断言由标准约化算法一并证明）。**
 
-1. 固定 $\tau\in\mathbb{H}$。考虑子群 $G=\langle S,T\rangle$，并观察轨道 $G\cdot\tau$。回忆 §s1 中 $\operatorname{Im}(\gamma\cdot\tau)=\operatorname{Im}\tau/|c\tau+d|^2$。当 $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ 遍历 $G$ 时，整数对 $(c,d)$ 取遍一组整数对；对固定的 $\tau$，$|c\tau+d|^2 = (c x + d)^2 + (cy)^2$ 在 $|c|,|d|\to\infty$ 时无界增长，所以它在整数对的格上取到一个*最小值*。*（理由：整数 $(c,d)$ 的正定二次型在任何上界之下只取有限多个值，故最小值存在。）* 选取使 $\operatorname{Im}(\gamma\cdot\tau)$ 达到**最大**的 $\gamma_0\in G$。令 $\tau' = \gamma_0\cdot\tau$；在所有 $G$-像中，$\tau'$ 的虚部最大。
-2. 施加 $T$ 的某个幂以把实部带入范围：用 $T^n\tau' = \tau'+n$ 替换 $\tau'$，选取整数 $n$ 使 $|\operatorname{Re}(\tau'+n)|\le\frac12$。*（理由：按整数平移使实部移动整数；其中之一会落入任何长度为 $1$ 的半开区间。）* 这不改变虚部，故 $\tau'$ 仍是其轨道中虚部最大者。把这个点重新记作 $\tau'$。
-3. **断言：$|\tau'|\ge 1$。** 假设不然，$|\tau'|<1$。施加 $S$：$S\tau' = -1/\tau'$ 的虚部为 $\operatorname{Im}(\tau')/|\tau'|^2 > \operatorname{Im}(\tau')$（因为 $|\tau'|^2<1$）。*（理由：主公式中取 $c=1,d=0$。）* 这与 $\operatorname{Im}\tau'$ 的最大性矛盾。故 $|\tau'|\ge1$。
+1. 固定 $\tau\in\mathbb{H}$。考虑子群 $G=\langle S,T\rangle$，并观察轨道 $G\cdot\tau$。回忆 §s1 中 $\mathrm{Im}(\gamma\cdot\tau)=\mathrm{Im}\tau/|c\tau+d|^2$。当 $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ 遍历 $G$ 时，整数对 $(c,d)$ 取遍一组整数对；对固定的 $\tau$，$|c\tau+d|^2 = (c x + d)^2 + (cy)^2$ 在 $|c|,|d|\to\infty$ 时无界增长，所以它在整数对的格上取到一个*最小值*。*（理由：整数 $(c,d)$ 的正定二次型在任何上界之下只取有限多个值，故最小值存在。）* 选取使 $\mathrm{Im}(\gamma\cdot\tau)$ 达到**最大**的 $\gamma_0\in G$。令 $\tau' = \gamma_0\cdot\tau$；在所有 $G$-像中，$\tau'$ 的虚部最大。
+2. 施加 $T$ 的某个幂以把实部带入范围：用 $T^n\tau' = \tau'+n$ 替换 $\tau'$，选取整数 $n$ 使 $|\mathrm{Re}(\tau'+n)|\le\frac12$。*（理由：按整数平移使实部移动整数；其中之一会落入任何长度为 $1$ 的半开区间。）* 这不改变虚部，故 $\tau'$ 仍是其轨道中虚部最大者。把这个点重新记作 $\tau'$。
+3. **断言：$|\tau'|\ge 1$。** 假设不然，$|\tau'|<1$。施加 $S$：$S\tau' = -1/\tau'$ 的虚部为 $\mathrm{Im}(\tau')/|\tau'|^2 > \mathrm{Im}(\tau')$（因为 $|\tau'|^2<1$）。*（理由：主公式中取 $c=1,d=0$。）* 这与 $\mathrm{Im}\tau'$ 的最大性矛盾。故 $|\tau'|\ge1$。
 4. 第 2–3 步把 $\tau'\in\mathcal{F}$，且 $\tau'$ 是仅用 $S$ 与 $T$ 从 $\tau$ 得到的。这证明了 **(i)**，其像通过 $G$ 中的一个元素落入 $\mathcal{F}$。
 5. **现在证明 (ii)。** 设 $\gamma\in PSL(2,\mathbb{Z})$ 为*任意*元。任取 $\mathcal{F}$ *内部*的一个点 $\tau_0$（使它不在边界上，例如 $\tau_0 = 2i$）。由第 4 步，存在 $g\in G$ 使 $g\cdot(\gamma\cdot\tau_0)\in\mathcal{F}$。我们将证明 $g\gamma\in G$，从而 $\gamma=g^{-1}(g\gamma)\in G$。为完成证明，我们需要下面的**唯一性**部分。
-6. **内部代表元的唯一性。** *断言：* 若 $\tau_0$ 在 $\mathcal{F}$ 内部，且对某 $h\in PSL(2,\mathbb{Z})$ 有 $h\cdot\tau_0\in\mathcal{F}$，则 $h=1$ 且 $h\cdot\tau_0=\tau_0$。写 $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$。$\tau_0$ 与 $h\tau_0$ 都落在 $\mathcal{F}$ 中，故二者虚部都 $\ge \sqrt3/2$（$\mathcal F$ 中的最小高度，在角点 $e^{\pm i\pi/3}$ 处取到）。假设 $c\ne0$。必要时把 $h$ 换成 $h^{-1}$，可设 $\operatorname{Im}(h\tau_0)\ge\operatorname{Im}\tau_0$，即 $|c\tau_0+d|^2\le 1$。但 $|c\tau_0+d|^2 = (c\operatorname{Re}\tau_0+d)^2+c^2\operatorname{Im}\tau_0^2 \ge c^2\operatorname{Im}\tau_0^2 > c^2\cdot\tfrac34$，这里用了严格的内部界 $\operatorname{Im}\tau_0>\sqrt3/2$。当 $|c|\ge2$ 时已有 $|c\tau_0+d|^2 > 4\cdot\tfrac34 = 3 > 1$，矛盾。当 $|c|=1$ 时得 $|c\tau_0+d|^2 > \tfrac34 + (\pm\operatorname{Re}\tau_0+d)^2$；由于 $|\operatorname{Re}\tau_0|<\tfrac12$ 严格，能使其 $\le1$ 的唯一整数 $d$ 是满足 $|{\pm\operatorname{Re}\tau_0+d}|<\tfrac12$ 的那个，即 $d=0$，于是 $|c\tau_0+d|^2=|\tau_0|^2>1$（因为 $\tau_0$ 严格在单位圆之上）——同样 $>1$，矛盾。所以 $c=0$。于是整数解 $ad=1$ 给出 $a=d=\pm1$，故在 $PSL$ 中 $h=\pm\begin{pmatrix}1&b\\0&1\end{pmatrix}=T^b$，作用为 $\tau_0\mapsto\tau_0+b$；为使 $\tau_0+b$ 保持 $|\operatorname{Re}|\le\frac12$，而 $|\operatorname{Re}\tau_0|<\frac12$ 是严格的，这就迫使 $b=0$。于是 $h=1$。
+6. **内部代表元的唯一性。** *断言：* 若 $\tau_0$ 在 $\mathcal{F}$ 内部，且对某 $h\in PSL(2,\mathbb{Z})$ 有 $h\cdot\tau_0\in\mathcal{F}$，则 $h=1$ 且 $h\cdot\tau_0=\tau_0$。写 $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$。$\tau_0$ 与 $h\tau_0$ 都落在 $\mathcal{F}$ 中，故二者虚部都 $\ge \sqrt3/2$（$\mathcal F$ 中的最小高度，在角点 $e^{\pm i\pi/3}$ 处取到）。假设 $c\ne0$。必要时把 $h$ 换成 $h^{-1}$，可设 $\mathrm{Im}(h\tau_0)\ge\mathrm{Im}\tau_0$，即 $|c\tau_0+d|^2\le 1$。但 $|c\tau_0+d|^2 = (c\mathrm{Re}\tau_0+d)^2+c^2\mathrm{Im}\tau_0^2 \ge c^2\mathrm{Im}\tau_0^2 > c^2\cdot\tfrac34$，这里用了严格的内部界 $\mathrm{Im}\tau_0>\sqrt3/2$。当 $|c|\ge2$ 时已有 $|c\tau_0+d|^2 > 4\cdot\tfrac34 = 3 > 1$，矛盾。当 $|c|=1$ 时得 $|c\tau_0+d|^2 > \tfrac34 + (\pm\mathrm{Re}\tau_0+d)^2$；由于 $|\mathrm{Re}\tau_0|<\tfrac12$ 严格，能使其 $\le1$ 的唯一整数 $d$ 是满足 $|{\pm\mathrm{Re}\tau_0+d}|<\tfrac12$ 的那个，即 $d=0$，于是 $|c\tau_0+d|^2=|\tau_0|^2>1$（因为 $\tau_0$ 严格在单位圆之上）——同样 $>1$，矛盾。所以 $c=0$。于是整数解 $ad=1$ 给出 $a=d=\pm1$，故在 $PSL$ 中 $h=\pm\begin{pmatrix}1&b\\0&1\end{pmatrix}=T^b$，作用为 $\tau_0\mapsto\tau_0+b$；为使 $\tau_0+b$ 保持 $|\mathrm{Re}|\le\frac12$，而 $|\mathrm{Re}\tau_0|<\frac12$ 是严格的，这就迫使 $b=0$。于是 $h=1$。
 7. 对 $h=g\gamma$ 配合内部点 $\tau_0$ 应用第 6 步：$g\gamma\cdot\tau_0\in\mathcal{F}$ 且 $\tau_0$ 在内部迫使 $g\gamma=1$，即 $\gamma=g^{-1}\in G$。由于 $\gamma$ 是任意的，$G=PSL(2,\mathbb{Z})$。$\blacksquare$
 
 这同时表明 $\mathcal{F}$ 是基本域：每条轨道都与它相交，且 $\mathcal F$ 的一个*内部*点是其轨道的唯一代表元（边界点被成对粘合——左边与右边由 $T$ 粘合，下方弧的两半由 $S$ 粘合）。
@@ -173,11 +173,11 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 
 #### 第二个约化习题
 
-约化 $\tau = -\tfrac{3}{7}+\tfrac{1}{14}i$。它已经满足 $|\operatorname{Re}\tau|=\tfrac37\le\tfrac12$，但 $|\tau|^2=\tfrac{9}{49}+\tfrac{1}{196}<1$，所以它在弧的下方。施加 $S$：$S\tau=-1/\tau$。计算 $-1/\tau = -\overline\tau/|\tau|^2$；由 $|\tau|^2=\frac{36+1}{196}=\frac{37}{196}$ 与 $\overline\tau=-\frac37-\frac{1}{14}i$，得 $-1/\tau=\frac{(3/7)+(1/14)i}{37/196}=\frac{196}{37}\big(\tfrac37+\tfrac{1}{14}i\big)=\frac{84}{37}+\frac{14}{37}i$。新高度是 $\frac{14}{37}$，正如第 3 步所许诺的那样大于 $\frac{1}{14}$。现在把实部带入：$\frac{84}{37}\approx2.27$，减去 $T^2$ 得 $\frac{84}{37}-2=\frac{10}{37}\approx0.27$，落在 $|\cdot|\le\frac12$ 内，而 $|\tfrac{10}{37}+\tfrac{14}{37}i|^2=\frac{100+196}{1369}=\frac{296}{1369}<1$——仍在弧的下方，故再次重复 $S$。每一轮都严格增大高度，而由于一条轨道中的高度有最大值，算法在 $\mathcal F$ 内部终止。这就是定理 3 的构造性内涵。
+约化 $\tau = -\tfrac{3}{7}+\tfrac{1}{14}i$。它已经满足 $|\mathrm{Re}\tau|=\tfrac37\le\tfrac12$，但 $|\tau|^2=\tfrac{9}{49}+\tfrac{1}{196}<1$，所以它在弧的下方。施加 $S$：$S\tau=-1/\tau$。计算 $-1/\tau = -\overline\tau/|\tau|^2$；由 $|\tau|^2=\frac{36+1}{196}=\frac{37}{196}$ 与 $\overline\tau=-\frac37-\frac{1}{14}i$，得 $-1/\tau=\frac{(3/7)+(1/14)i}{37/196}=\frac{196}{37}\big(\tfrac37+\tfrac{1}{14}i\big)=\frac{84}{37}+\frac{14}{37}i$。新高度是 $\frac{14}{37}$，正如第 3 步所许诺的那样大于 $\frac{1}{14}$。现在把实部带入：$\frac{84}{37}\approx2.27$，减去 $T^2$ 得 $\frac{84}{37}-2=\frac{10}{37}\approx0.27$，落在 $|\cdot|\le\frac12$ 内，而 $|\tfrac{10}{37}+\tfrac{14}{37}i|^2=\frac{100+196}{1369}=\frac{296}{1369}<1$——仍在弧的下方，故再次重复 $S$。每一轮都严格增大高度，而由于一条轨道中的高度有最大值，算法在 $\mathcal F$ 内部终止。这就是定理 3 的构造性内涵。
 
 #### 轨形图景与陷阱
 
-商 $\mathbb{H}/PSL(2,\mathbb{Z})$ 由粘合 $\mathcal F$ 的边而成，是一个带有两个特殊**轨形点**的球面——分别在 $\tau=i$（被 $S$ 固定，一个 2 阶对称）和 $\tau=\rho:=e^{2\pi i/3}$（被 $ST$ 固定，3 阶）——外加一个在 $\tau\to i\infty$ 处的**尖点**。尖点是 $\operatorname{Im}\tau\to\infty$ 处的"无穷远点"；正是在那里我们将要求模形式具有良好的行为。这里的 2 阶与 3 阶对称是赋值公式（§s6）和维数公式（§s5）中将要出现的 $\tfrac12$ 与 $\tfrac13$ 的来源——这些分数的每一次出现都可追溯到这两个不动点。
+商 $\mathbb{H}/PSL(2,\mathbb{Z})$ 由粘合 $\mathcal F$ 的边而成，是一个带有两个特殊**轨形点**的球面——分别在 $\tau=i$（被 $S$ 固定，一个 2 阶对称）和 $\tau=\rho:=e^{2\pi i/3}$（被 $ST$ 固定，3 阶）——外加一个在 $\tau\to i\infty$ 处的**尖点**。尖点是 $\mathrm{Im}\tau\to\infty$ 处的"无穷远点"；正是在那里我们将要求模形式具有良好的行为。这里的 2 阶与 3 阶对称是赋值公式（§s6）和维数公式（§s5）中将要出现的 $\tfrac12$ 与 $\tfrac13$ 的来源——这些分数的每一次出现都可追溯到这两个不动点。
 
 *陷阱：* (i) $\mathcal F$ 的边界并不"自由"——其上的点被粘合，所以只有 $\mathcal F$ 的内部才是唯一代表元。(ii) $PSL(2,\mathbb Z)$ 的表现是 $\langle S,T\mid S^2=(ST)^3=1\rangle$，这使它成为**自由积** $\mathbb Z/2 * \mathbb Z/3$；这意味着一般元素在 $S$ 与 $T$ 之下有*唯一*的既约字，正是唯一约化路径在代数上的影子。
 
@@ -198,9 +198,9 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
 > $$
 > f\!\left(\frac{a\tau+b}{c\tau+d}\right) = (c\tau+d)^k\, f(\tau).
 > $$
-> 3. **（尖点处全纯）** 当 $\operatorname{Im}\tau\to\infty$ 时 $f$ 保持有界。
+> 3. **（尖点处全纯）** 当 $\mathrm{Im}\tau\to\infty$ 时 $f$ 保持有界。
 >
-> 若此外还有当 $\operatorname{Im}\tau\to\infty$ 时 $f\to 0$（即下文展开式的常数项为零），则 $f$ 是一个**尖点形式**。
+> 若此外还有当 $\mathrm{Im}\tau\to\infty$ 时 $f\to 0$（即下文展开式的常数项为零），则 $f$ 是一个**尖点形式**。
 
 > **定义 — 模函数。** 一个**模函数**是*权为零*的亚纯函数（允许有极点），满足 $f(\gamma\cdot\tau)=f(\tau)$——真正不变——且在尖点处至多有一个极点。$j$-不变量（§s5）是其原型。
 
@@ -210,7 +210,7 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
    $$
    q := e^{2\pi i\tau},
    $$
-   即**诺姆（nome）**的洛朗级数。*（理由：$\tau\mapsto q$ 把竖条带 $0\le\operatorname{Re}\tau<1$ 映成去心单位圆盘；周期性使 $f$ 成为 $q$ 的单值函数，故由复分析中关于环域的定理可知它是洛朗级数 $\sum_{n} a_n q^n$。）* 当 $\operatorname{Im}\tau\to\infty$ 时，$q=e^{2\pi i(x+iy)}=e^{2\pi i x}e^{-2\pi y}\to 0$。所以尖点就是 $q=0$，而条件 3（有界性）变为：**没有 $q$ 的负幂**，即
+   即**诺姆（nome）**的洛朗级数。*（理由：$\tau\mapsto q$ 把竖条带 $0\le\mathrm{Re}\tau<1$ 映成去心单位圆盘；周期性使 $f$ 成为 $q$ 的单值函数，故由复分析中关于环域的定理可知它是洛朗级数 $\sum_{n} a_n q^n$。）* 当 $\mathrm{Im}\tau\to\infty$ 时，$q=e^{2\pi i(x+iy)}=e^{2\pi i x}e^{-2\pi y}\to 0$。所以尖点就是 $q=0$，而条件 3（有界性）变为：**没有 $q$ 的负幂**，即
    $$
    f(\tau) = \sum_{n=0}^{\infty} a_n q^n.
    $$
@@ -261,7 +261,7 @@ $SL(2,\mathbb{Z})$ 中唯一的标量矩阵是 $\pm I$。因此*真正*作用于
    $$
    其中对绝对收敛的和按双射后的指标重排是合法的。$\blacksquare$
 
-在 $\mathbb{H}$ 上的全纯性以及尖点处的有界性成立，因为该级数在紧集上一致收敛，且当 $\operatorname{Im}\tau\to\infty$ 时逐项趋于 $n^{-2k}$。所以 $G_{2k}$ 是一个真正的权-$2k$ 模形式。
+在 $\mathbb{H}$ 上的全纯性以及尖点处的有界性成立，因为该级数在紧集上一致收敛，且当 $\mathrm{Im}\tau\to\infty$ 时逐项趋于 $n^{-2k}$。所以 $G_{2k}$ 是一个真正的权-$2k$ 模形式。
 
 #### 推导 $q$-展开
 
@@ -276,7 +276,7 @@ $$
    $$
    \pi\cot(\pi\tau) = \frac1\tau + \sum_{n=1}^\infty\Big(\frac{1}{\tau+n}+\frac{1}{\tau-n}\Big) = \sum_{n=-\infty}^\infty \frac{1}{\tau+n}.
    $$
-2. 另一方面，$\pi\cot\pi\tau = \pi\frac{\cos\pi\tau}{\sin\pi\tau}$。用指数写 $\cos,\sin$：$\pi\cot\pi\tau = \pi i\,\frac{e^{i\pi\tau}+e^{-i\pi\tau}}{e^{i\pi\tau}-e^{-i\pi\tau}} = \pi i\,\frac{q+1}{q-1}$，其中 $q=e^{2\pi i\tau}$。整理：$\pi i\frac{q+1}{q-1} = \pi i\big(1+\frac{2}{q-1}\big) = \pi i - 2\pi i\frac{1}{1-q} = \pi i -2\pi i\sum_{r=0}^\infty q^r$。*（理由：几何级数 $\frac{1}{1-q}=\sum q^r$，由于 $\operatorname{Im}\tau>0$ 时 $|q|<1$，故成立。）*
+2. 另一方面，$\pi\cot\pi\tau = \pi\frac{\cos\pi\tau}{\sin\pi\tau}$。用指数写 $\cos,\sin$：$\pi\cot\pi\tau = \pi i\,\frac{e^{i\pi\tau}+e^{-i\pi\tau}}{e^{i\pi\tau}-e^{-i\pi\tau}} = \pi i\,\frac{q+1}{q-1}$，其中 $q=e^{2\pi i\tau}$。整理：$\pi i\frac{q+1}{q-1} = \pi i\big(1+\frac{2}{q-1}\big) = \pi i - 2\pi i\frac{1}{1-q} = \pi i -2\pi i\sum_{r=0}^\infty q^r$。*（理由：几何级数 $\frac{1}{1-q}=\sum q^r$，由于 $\mathrm{Im}\tau>0$ 时 $|q|<1$，故成立。）*
 3. 把第 1 步与第 2 步相等：$\sum_{n}\frac{1}{\tau+n} = \pi i - 2\pi i\sum_{r=0}^\infty q^r = -\pi i - 2\pi i\sum_{r=1}^\infty q^r$。
 4. 两边对 $\tau$ 求导 $2k-1$ 次。左端，$\frac{d^{2k-1}}{d\tau^{2k-1}}\frac{1}{\tau+n} = \frac{(-1)^{2k-1}(2k-1)!}{(\tau+n)^{2k}}=\frac{-(2k-1)!}{(\tau+n)^{2k}}$。右端，$\frac{d}{d\tau}q^r = 2\pi i\,r\,q^r$，故求导 $2k-1$ 次把第 $r$ 项乘以 $(2\pi i r)^{2k-1}$。*（理由：对 $\mathbb H$ 上一致收敛的全纯函数级数逐项求导，是允许的。）* 这给出
    $$
@@ -317,7 +317,7 @@ $$
 $$
 E_2\!\left(-\tfrac1\tau\right) = \tau^2 E_2(\tau) + \frac{12\tau}{2\pi i} = \tau^2 E_2(\tau) - \frac{6i\tau}{\pi}.
 $$
-*一行理由：* 对处于临界发散状态的二重和作条件重排会拾起一个边界项，恰好就是这额外的 $\frac{6i\tau}{\pi}$。$E_2$ 是**拟模形式**的原型。组合 $\widehat{E}_2(\tau)=E_2(\tau)-\frac{3}{\pi\operatorname{Im}\tau}$ *确实是*权 2 的模形式，但不再全纯——这正是 §s9 与 §s11 中作为"模反常"反复出现的同一种取舍（全纯性 vs. 精确模性）。
+*一行理由：* 对处于临界发散状态的二重和作条件重排会拾起一个边界项，恰好就是这额外的 $\frac{6i\tau}{\pi}$。$E_2$ 是**拟模形式**的原型。组合 $\widehat{E}_2(\tau)=E_2(\tau)-\frac{3}{\pi\mathrm{Im}\tau}$ *确实是*权 2 的模形式，但不再全纯——这正是 §s9 与 §s11 中作为"模反常"反复出现的同一种取舍（全纯性 vs. 精确模性）。
 
 #### 习题示例：拉马努金导数恒等式
 
@@ -398,11 +398,11 @@ $$
 
 #### 陈述
 
-> **定理 5（赋值公式）。** 设 $f\ne0$ 是权为 $k$ 的模形式。用 $\operatorname{ord}_p(f)$ 表示 $f$ 在点 $p$ 处的消失阶。则
+> **定理 5（赋值公式）。** 设 $f\ne0$ 是权为 $k$ 的模形式。用 $\mathrm{ord}_p(f)$ 表示 $f$ 在点 $p$ 处的消失阶。则
 > $$
-> \operatorname{ord}_\infty(f) + \tfrac12\operatorname{ord}_i(f) + \tfrac13\operatorname{ord}_\rho(f) + \sum_{p\ne i,\rho,\infty} \operatorname{ord}_p(f) \;=\; \frac{k}{12},
+> \mathrm{ord}_\infty(f) + \tfrac12\mathrm{ord}_i(f) + \tfrac13\mathrm{ord}_\rho(f) + \sum_{p\ne i,\rho,\infty} \mathrm{ord}_p(f) \;=\; \frac{k}{12},
 > $$
-> 其中 $\rho=e^{2\pi i/3}$，$\operatorname{ord}_\infty$ 是在尖点处关于 $q$ 的阶，而求和遍历 $\mathcal F$ 内部加边界（计一次）的轨道代表元。
+> 其中 $\rho=e^{2\pi i/3}$，$\mathrm{ord}_\infty$ 是在尖点处关于 $q$ 的阶，而求和遍历 $\mathcal F$ 内部加边界（计一次）的轨道代表元。
 
 分数 $\tfrac12,\tfrac13$ 反映了 $i$ 与 $\rho$ 处轨形对称的阶（§s2）。
 
@@ -410,17 +410,17 @@ $$
 
 思路：依**辐角原理**（重述自[复分析](../complex-analysis/complex-analysis.md)：$\frac{1}{2\pi i}\oint \frac{f'}{f}\,d\tau$ 等于所围零点数减极点数），把 $\frac{1}{2\pi i}\frac{f'}{f}$ 沿 $\partial\mathcal F$ 积分。由于 $f$ 全纯（在 $\mathbb H$ 中无极点），该积分计数内部零点；随后我们用模性逐边求出同一个积分，再令两种求法相等。
 
-1. **围道。** 取 $\partial\mathcal F$：沿右边 $\operatorname{Re}\tau=\frac12$ 上行至高处截断 $\operatorname{Im}\tau=Y$，横穿顶部，沿左边 $\operatorname{Re}\tau=-\frac12$ 下行，再沿底部弧 $|\tau|=1$。用绕角点 $i,\rho,\rho+1$ 的小圆弧作凹陷（使围道避开那里的零点），并在尖点附近的高度 $Y$ 处使用一段水平线段。假设（一般情形）$f$ 在各边上无零点（$i,\rho$ 处可能除外）。
-2. **顶部线段 $\leftrightarrow$ 尖点。** 高度 $Y$ 处的水平段，从右向左遍历，贡献 $\frac{1}{2\pi i}\int \frac{f'}{f}d\tau$。换元为 $q=e^{2\pi i\tau}$：该段映成绕 $q=0$ 顺时针遍历的小圆，积分等于 $-\operatorname{ord}_\infty(f)$。*（理由：$\frac{1}{2\pi i}\oint_{|q|=\epsilon}\frac{dq}{q}\cdot(\text{阶})$；$f$ 的首项 $q$ 幂给出它在尖点处的阶。）* 故这一部分对计数贡献 $-\operatorname{ord}_\infty(f)$。
+1. **围道。** 取 $\partial\mathcal F$：沿右边 $\mathrm{Re}\tau=\frac12$ 上行至高处截断 $\mathrm{Im}\tau=Y$，横穿顶部，沿左边 $\mathrm{Re}\tau=-\frac12$ 下行，再沿底部弧 $|\tau|=1$。用绕角点 $i,\rho,\rho+1$ 的小圆弧作凹陷（使围道避开那里的零点），并在尖点附近的高度 $Y$ 处使用一段水平线段。假设（一般情形）$f$ 在各边上无零点（$i,\rho$ 处可能除外）。
+2. **顶部线段 $\leftrightarrow$ 尖点。** 高度 $Y$ 处的水平段，从右向左遍历，贡献 $\frac{1}{2\pi i}\int \frac{f'}{f}d\tau$。换元为 $q=e^{2\pi i\tau}$：该段映成绕 $q=0$ 顺时针遍历的小圆，积分等于 $-\mathrm{ord}_\infty(f)$。*（理由：$\frac{1}{2\pi i}\oint_{|q|=\epsilon}\frac{dq}{q}\cdot(\text{阶})$；$f$ 的首项 $q$ 幂给出它在尖点处的阶。）* 故这一部分对计数贡献 $-\mathrm{ord}_\infty(f)$。
 3. **左右两边通过 $T$ 相消。** 映射 $T:\tau\mapsto\tau+1$ 把左边带到右边。由于 $f(\tau+1)=f(\tau)$，被积函数 $\frac{f'}{f}$ 在对应点取相等值，但两边沿*相反*方向遍历，故其贡献**相消**。*（理由：$f$ 在 $T$ 下的周期性。）*
 4. **底弧在 $i$ 处分开；$S$ 关联两半。** 弧 $|\tau|=1$ 被 $S:\tau\mapsto-1/\tau$ 映到自身，它交换两半（从 $\rho$ 到 $i$、以及从 $i$ 到 $\rho+1$）。模性 $f(-1/\tau)=\tau^k f(\tau)$ 经对数求导给出 $\frac{f'}{f}(-1/\tau)\cdot\frac{1}{\tau^2} = \frac{k}{\tau}+\frac{f'}{f}(\tau)$。对两段半弧之差积分，余下残项 $\frac{1}{2\pi i}\int \frac{k}{\tau}\,d\tau$ 在四分之一圈上（从 $\rho$ 到 $i$ 是辐角从 $\frac{2\pi}{3}$ 到 $\frac{\pi}{2}$ 的 $\frac{1}{12}$ 圈），求值得 $\frac{k}{12}$。*（理由：$\frac{1}{2\pi i}\int_C \frac{d\tau}{\tau}=\frac{\Delta(\arg)}{2\pi}$；净扫过的辐角为 $\frac{2\pi}{12}$。）* 这产生右端的 $\frac{k}{12}$。
-5. **角点凹陷给出轨形分数。** 绕 $i$ 的小弧张角为 $\pi$（半整圈，因 $i$ 是 2 阶不动点且区域在那里的内角为 $\pi$），贡献 $-\frac12\operatorname{ord}_i(f)$。绕 $\rho$ 与 $\rho+1$ 的两段弧合计张角 $\frac{2\pi}{3}$（3 阶不动点），贡献 $-\frac13\operatorname{ord}_\rho(f)$。*（理由：绕一个 $m$ 阶零点的张角为 $\theta$ 的凹陷，对辐角原理计数贡献 $-\frac{\theta}{2\pi}m$。）*
-6. **令二者相等。** 围道积分的总和等于 $\sum_{p\,\text{内部}}\operatorname{ord}_p(f)$（即真正的内部零点，由辐角原理）。把第 2–5 步的各边贡献相加并移项，恰好给出赋值公式。$\blacksquare$
+5. **角点凹陷给出轨形分数。** 绕 $i$ 的小弧张角为 $\pi$（半整圈，因 $i$ 是 2 阶不动点且区域在那里的内角为 $\pi$），贡献 $-\frac12\mathrm{ord}_i(f)$。绕 $\rho$ 与 $\rho+1$ 的两段弧合计张角 $\frac{2\pi}{3}$（3 阶不动点），贡献 $-\frac13\mathrm{ord}_\rho(f)$。*（理由：绕一个 $m$ 阶零点的张角为 $\theta$ 的凹陷，对辐角原理计数贡献 $-\frac{\theta}{2\pi}m$。）*
+6. **令二者相等。** 围道积分的总和等于 $\sum_{p\,\text{内部}}\mathrm{ord}_p(f)$（即真正的内部零点，由辐角原理）。把第 2–5 步的各边贡献相加并移项，恰好给出赋值公式。$\blacksquare$
 
 #### 习题推论
 
-- $\Delta$ 权为 $12$，故总零点数 $=1$。其 $q$-展开以 $q$ 开头，即 $\operatorname{ord}_\infty\Delta=1$。这就*耗尽了全部预算*，所以 $\Delta$ 在 $\mathbb H$ 中**无零点**——证实了 §s5 的断言，并说明除以 $\Delta$ 是允许的。
-- $E_4$ 权为 $4$：预算 $\frac{4}{12}=\frac13$，它只能是 $\frac13\operatorname{ord}_\rho$，所以 $E_4(\rho)=0$ 且 $E_4$ 在别处不为零。同理 $E_6$ 预算 $\frac{6}{12}=\frac12$：$E_6(i)=0$ 且别处不为零。
+- $\Delta$ 权为 $12$，故总零点数 $=1$。其 $q$-展开以 $q$ 开头，即 $\mathrm{ord}_\infty\Delta=1$。这就*耗尽了全部预算*，所以 $\Delta$ 在 $\mathbb H$ 中**无零点**——证实了 §s5 的断言，并说明除以 $\Delta$ 是允许的。
+- $E_4$ 权为 $4$：预算 $\frac{4}{12}=\frac13$，它只能是 $\frac13\mathrm{ord}_\rho$，所以 $E_4(\rho)=0$ 且 $E_4$ 在别处不为零。同理 $E_6$ 预算 $\frac{6}{12}=\frac12$：$E_6(i)=0$ 且别处不为零。
 
 #### 赋值公式如何导出维数公式
 
@@ -560,11 +560,11 @@ $$
 
 在模参数为 $\tau$ 的环面上的一个 $1+1$ 维共形场论中，配分函数是
 $$
-Z(\tau,\bar\tau) = \operatorname{Tr}\,q^{L_0-c/24}\,\bar q^{\bar L_0 - c/24},
+Z(\tau,\bar\tau) = \mathrm{Tr}\,q^{L_0-c/24}\,\bar q^{\bar L_0 - c/24},
 $$
 其中 $L_0$ 是能量算子，$c$ 是**中心荷**（一个度量"自由度数目"的数），而移位 $-c/24$ 是柱面的**卡西米尔能**。（重述自 [共形场论](conformal-field-theory.md) 指南：$Z$ 的模不变性是环面自洽条件。）对单个自由玻色子（$c=1$），
 $$
-Z_{\text{boson}}(\tau) \propto \frac{1}{\sqrt{\operatorname{Im}\tau}\;|\eta(\tau)|^2}.
+Z_{\text{boson}}(\tau) \propto \frac{1}{\sqrt{\mathrm{Im}\tau}\;|\eta(\tau)|^2}.
 $$
 
 **模反常 = 中心荷。** 在 $S:\tau\to-1/\tau$ 下，因子 $q^{-c/24}=e^{-2\pi i\tau(-c/24)}$ 与 $\eta$ 反演律结合。在 $T$ 下本该出现的反常相位 $e^{\pi i/12}$ 恰好就是 $e^{2\pi i\, c/24}$，其中 $c=1$（Dedekind $\eta$ 就是完整的 $c=1$ 自由玻色子，因为 $e^{2\pi i\cdot 1/24}=e^{\pi i/12}$）——所以要求 $Z$ 模不变就迫使 $-c/24$ 移位取其精确值。$\eta$ 中的"$24$"与玻色弦的"$26$"临界维数（$26 = 24 + 2$，横向 vs. 光锥）是*同一个* $24$：要抵消模（$\eta$）反常就需要 $24$ 个横向振子，故 $c=24\cdot1=24$，与 $\eta^{24}=\Delta$ 的权 12 结构相匹配。
@@ -582,7 +582,7 @@ $$
 > $$
 > L(f,s) = \sum_{n=1}^\infty \frac{a_n}{n^s},
 > $$
-> 一个关于复变量 $s$ 的**狄利克雷级数**，在 $\operatorname{Re}s$ 较大时收敛。
+> 一个关于复变量 $s$ 的**狄利克雷级数**，在 $\mathrm{Re}s$ 较大时收敛。
 
 > **定义 — 梅林变换。** 对 $(0,\infty)$ 上的函数 $h(t)$，$\ \mathcal M[h](s)=\int_0^\infty h(t)\,t^{s}\,\frac{dt}{t}$。
 
@@ -616,7 +616,7 @@ $$
 
 #### 习题示例
 
-对 $\Delta$（权 $12$），$L(\Delta,s)=\sum\tau(n)n^{-s}$，函数方程把 $s\leftrightarrow 12-s$ 关联起来，符号为 $(-1)^6=+1$，故 $\Lambda(\Delta,s)=\Lambda(\Delta,12-s)$，关于 $\operatorname{Re}s=6$ 对称。$\tau$ 的乘性（§s7）使 $L(\Delta,s)$ 分解为**欧拉乘积** $\prod_p(1-\tau(p)p^{-s}+p^{11-2s})^{-1}$。
+对 $\Delta$（权 $12$），$L(\Delta,s)=\sum\tau(n)n^{-s}$，函数方程把 $s\leftrightarrow 12-s$ 关联起来，符号为 $(-1)^6=+1$，故 $\Lambda(\Delta,s)=\Lambda(\Delta,12-s)$，关于 $\mathrm{Re}s=6$ 对称。$\tau$ 的乘性（§s7）使 $L(\Delta,s)$ 分解为**欧拉乘积** $\prod_p(1-\tau(p)p^{-s}+p^{11-2s})^{-1}$。
 
 #### 为何梅林变换是恰当的桥梁
 
@@ -641,9 +641,9 @@ $$
 
 > **物理要求。** 配分函数必须对所有 $\gamma\in SL(2,\mathbb{Z})$ 满足 $Z(\gamma\cdot\tau,\overline{\gamma\cdot\tau}) = Z(\tau,\bar\tau)$。
 
-对自由玻色子（§s9），$Z=\frac{1}{\sqrt{\operatorname{Im}\tau}|\eta(\tau)|^2}$ 之所以不变，恰恰因为：
-1. $\operatorname{Im}\tau$ 按 $\operatorname{Im}(\gamma\tau)=\operatorname{Im}\tau/|c\tau+d|^2$（主公式，§s1）变换，贡献 $|c\tau+d|$；
-2. $|\eta(\gamma\tau)|^2$ 由 $\eta,\bar\eta$ 各贡献一份（各权 $\tfrac12$），按 $|c\tau+d|^{1}$ 变换，当处于分母的平方中时贡献 $|c\tau+d|^{-1}$……各幂次恰好相消。*（理由：$\eta$ 的权 $\frac12$ 与 $(\operatorname{Im}\tau)^{-1/2}$ 的权 $-\frac12$ 经调谐而相消——这就是模不变性条件，正是它对单个玻色子固定了 $c=1$ 以及 $-c/24$ 卡西米尔移位。）*
+对自由玻色子（§s9），$Z=\frac{1}{\sqrt{\mathrm{Im}\tau}|\eta(\tau)|^2}$ 之所以不变，恰恰因为：
+1. $\mathrm{Im}\tau$ 按 $\mathrm{Im}(\gamma\tau)=\mathrm{Im}\tau/|c\tau+d|^2$（主公式，§s1）变换，贡献 $|c\tau+d|$；
+2. $|\eta(\gamma\tau)|^2$ 由 $\eta,\bar\eta$ 各贡献一份（各权 $\tfrac12$），按 $|c\tau+d|^{1}$ 变换，当处于分母的平方中时贡献 $|c\tau+d|^{-1}$……各幂次恰好相消。*（理由：$\eta$ 的权 $\frac12$ 与 $(\mathrm{Im}\tau)^{-1/2}$ 的权 $-\frac12$ 经调谐而相消——这就是模不变性条件，正是它对单个玻色子固定了 $c=1$ 以及 $-c/24$ 卡西米尔移位。）*
 
 这一约束如此之强，以至于一个 CFT 要自洽，其态谱就必须组织成特征标的一个模不变组合——即**模自举**。
 
@@ -659,17 +659,17 @@ $$
 
 IIB 型弦论的低能有效作用量包含一个著名的 **$R^4$ 修正**（一个四引力子相互作用）。作为复耦合 $\tau = \frac{\theta}{2\pi}+\frac{i}{g_s}$（轴子–伸缩子，$g_s$ 为弦耦合）的函数，它的系数被 S-对偶 $SL(2,\mathbb{Z})$ 要求为权 $0$ 的模不变量，并且它等于**非全纯爱森斯坦级数**
 $$
-E_{3/2}(\tau) = \sum_{(m,n)\ne(0,0)} \frac{(\operatorname{Im}\tau)^{3/2}}{|m\tau+n|^{3}}.
+E_{3/2}(\tau) = \sum_{(m,n)\ne(0,0)} \frac{(\mathrm{Im}\tau)^{3/2}}{|m\tau+n|^{3}}.
 $$
 它的 $q$-展开恰好有两个幂律项（$g_s$ 中的树级与单圈）外加指数小的 **D-瞬子**修正——这是一个*纯由模性预言*的结构。$E_{3/2}$ 的出现（以及更高修正对应的更高 $E_s$）是 §s4 的爱森斯坦级数直接进入物理的最干净的场所之一，其自守性编码了一个微扰展开的非微扰补全。
 
 #### $E_{3/2}$ 结构习题：模性如何预言物理
 
-非全纯爱森斯坦级数 $E_s(\tau)=\sum_{(m,n)\ne0}\frac{(\operatorname{Im}\tau)^s}{|m\tau+n|^{2s}}$，通过在 $n$ 变量上作一次泊松求和计算（与 §s8 同样的工具），具有如下形式的精确展开：
+非全纯爱森斯坦级数 $E_s(\tau)=\sum_{(m,n)\ne0}\frac{(\mathrm{Im}\tau)^s}{|m\tau+n|^{2s}}$，通过在 $n$ 变量上作一次泊松求和计算（与 §s8 同样的工具），具有如下形式的精确展开：
 $$
 E_s(\tau)=2\zeta(2s)\,y^s + 2\sqrt\pi\,\frac{\Gamma(s-\tfrac12)\zeta(2s-1)}{\Gamma(s)}\,y^{1-s} + (\text{在 } y \text{ 中指数小}),
 $$
-其中 $y=\operatorname{Im}\tau=1/g_s$。在 $s=\tfrac32$ 处作物理解读：第一项 $\sim y^{3/2}=g_s^{-3/2}$ 是**树级**贡献，第二项 $\sim y^{-1/2}=g_s^{1/2}$ 是**单圈**贡献，而指数小的余项 $\sim e^{-2\pi y}=e^{-2\pi/g_s}$ 是 **D-瞬子**效应。*（理由：$y=1/g_s$ 的幂是耦合的幂，而 $e^{-1/g_s}$ 是非微扰瞬子的标志。）* 至关重要的是，单凭微扰论永远无法告诉你*恰好只有两个*幂律项且别无其他——该级数在树级与单圈之后截断是一条由 $SL(2,\mathbb Z)$ 不变性加上特征值方程 $\Delta_{\mathbb H}E_s=s(s-1)E_s$（$\Delta_{\mathbb H}$ 为双曲拉普拉斯算子）强制成立的*定理*。模性由此*预言*了一个物理系数的整个非微扰耦合依赖。这是整本指南最锐利的回报：刚性化为预言。
+其中 $y=\mathrm{Im}\tau=1/g_s$。在 $s=\tfrac32$ 处作物理解读：第一项 $\sim y^{3/2}=g_s^{-3/2}$ 是**树级**贡献，第二项 $\sim y^{-1/2}=g_s^{1/2}$ 是**单圈**贡献，而指数小的余项 $\sim e^{-2\pi y}=e^{-2\pi/g_s}$ 是 **D-瞬子**效应。*（理由：$y=1/g_s$ 的幂是耦合的幂，而 $e^{-1/g_s}$ 是非微扰瞬子的标志。）* 至关重要的是，单凭微扰论永远无法告诉你*恰好只有两个*幂律项且别无其他——该级数在树级与单圈之后截断是一条由 $SL(2,\mathbb Z)$ 不变性加上特征值方程 $\Delta_{\mathbb H}E_s=s(s-1)E_s$（$\Delta_{\mathbb H}$ 为双曲拉普拉斯算子）强制成立的*定理*。模性由此*预言*了一个物理系数的整个非微扰耦合依赖。这是整本指南最锐利的回报：刚性化为预言。
 
 #### 陷阱与统一图景
 

@@ -258,9 +258,9 @@ The two constructions are mutually inverse: starting from $Z$, reading off $A$, 
 
 > **The genus formula.** For a $2$d TQFT $Z$ with Frobenius algebra $A$, the invariant of the closed orientable surface $\Sigma_g$ of genus $g$ (a sphere with $g$ handles) is, for $g\ge 1$,
 > $$
-> Z(\Sigma_g)=\operatorname{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
+> Z(\Sigma_g)=\mathrm{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
 > $$
-> where $H=m\circ\Delta$ is the **handle operator**, while the sphere is $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$. *Why:* a genus-$g$ surface read as $\varnothing\to\varnothing$ is a cap $u$, then $g$ handles (each handle is "copants then pants," i.e. $H$), then a cup $\varepsilon$, giving the scalar $\varepsilon\circ H^{g}\circ u$; the cap-then-cup pair contributes one cylinder's worth of nondegenerate pairing, so for $g\ge 1$ this collapses to $\operatorname{tr}(H^{g-1})$. In particular the torus ($g=1$) gives $Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A$, as the torus partition function must.
+> where $H=m\circ\Delta$ is the **handle operator**, while the sphere is $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$. *Why:* a genus-$g$ surface read as $\varnothing\to\varnothing$ is a cap $u$, then $g$ handles (each handle is "copants then pants," i.e. $H$), then a cup $\varepsilon$, giving the scalar $\varepsilon\circ H^{g}\circ u$; the cap-then-cup pair contributes one cylinder's worth of nondegenerate pairing, so for $g\ge 1$ this collapses to $\mathrm{tr}(H^{g-1})$. In particular the torus ($g=1$) gives $Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A$, as the torus partition function must.
 
 > **Worked example — group algebra of $\mathbb{Z}/2$.** Let $A=k[\mathbb{Z}/2]=k\{1,t\}$ with $t^2=1$, over $k=\mathbb{C}$. This is a commutative algebra of dimension $2$, with unit $u(1)=1$ and multiplication
 > $$
@@ -287,7 +287,7 @@ H(t)=m(1\otimes1+t\otimes t)=1+1=2\cdot 1.
 $$
 So in the basis $\{1,t\}$, $H=\begin{pmatrix}0&2\\2&0\end{pmatrix}$.
 
-Step 4 — **surface invariants.** The sphere $\Sigma_0$: $Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$. The torus $\Sigma_1$: $Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A=2$, as it must. The genus-two surface: $Z(\Sigma_2)=\operatorname{tr}(H)=0$. The genus-three surface: $Z(\Sigma_3)=\operatorname{tr}(H^2)$, and $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$ so $\operatorname{tr}(H^2)=8$. In general $\operatorname{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$, since $H$ has eigenvalues $\pm 2$; thus $Z(\Sigma_g)=2^{g}$ for odd $g$ and $0$ for even $g$. These are genuine homeomorphism invariants of the surfaces, computed purely algebraically — invariants from gluing in action.
+Step 4 — **surface invariants.** The sphere $\Sigma_0$: $Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$. The torus $\Sigma_1$: $Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A=2$, as it must. The genus-two surface: $Z(\Sigma_2)=\mathrm{tr}(H)=0$. The genus-three surface: $Z(\Sigma_3)=\mathrm{tr}(H^2)$, and $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$ so $\mathrm{tr}(H^2)=8$. In general $\mathrm{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$, since $H$ has eigenvalues $\pm 2$; thus $Z(\Sigma_g)=2^{g}$ for odd $g$ and $0$ for even $g$. These are genuine homeomorphism invariants of the surfaces, computed purely algebraically — invariants from gluing in action.
 
 > **A cleaner choice — semisimple algebras and counting.** If instead one takes $A=k^N$ (the product algebra, $N$ orthogonal idempotents $e_1,\dots,e_N$ with $e_ie_j=\delta_{ij}e_i$) and $\varepsilon(e_i)=1/\theta_i$ for nonzero scalars $\theta_i$, then $H=m\circ\Delta$ acts on $e_i$ by multiplication by $\theta_i$, and
 > $$
@@ -305,7 +305,7 @@ Step 4 — **surface invariants.** The sphere $\Sigma_0$: $Z(\Sigma_0)=\varepsil
 **What & why.** In dimension three the story is far richer than a single algebra. The state spaces $Z(\Sigma)$ are attached to surfaces, the linear maps to $3$-manifolds, and — crucially — the gluing data is now controlled not by a Frobenius algebra but by a whole *category* of "labels," a **modular tensor category**. Two landmark constructions realize this: the *algebraic* Reshetikhin–Turaev construction and the *physical* Witten–Chern–Simons construction. We survey both.
 
 > **Definition — ribbon / modular tensor category (informal but precise enough).**
-> A **(braided) tensor category** is a category $\mathcal{C}$ with a tensor product $\otimes$, a unit object $\mathbf{1}$, and a *braiding* $\beta_{X,Y}:X\otimes Y\to Y\otimes X$ that need *not* satisfy $\beta^2=1$ (so swapping twice can be nontrivial — the source of knotting). A **ribbon category** adds compatible duals $X^\ast$ and a *twist* $\theta_X:X\to X$. A **modular tensor category (MTC)** is a ribbon category that is *semisimple* with finitely many simple objects $\{X_0=\mathbf{1},X_1,\dots,X_r\}$ such that the **$S$-matrix** $S_{ij}=\operatorname{tr}(\beta_{X_j,X_i}\circ\beta_{X_i,X_j})$ (the "double braiding trace," a Hopf-link invariant) is *invertible*. Invertibility of $S$ is the "modularity" — it is exactly what makes the gluing data of $3$-manifolds consistent.
+> A **(braided) tensor category** is a category $\mathcal{C}$ with a tensor product $\otimes$, a unit object $\mathbf{1}$, and a *braiding* $\beta_{X,Y}:X\otimes Y\to Y\otimes X$ that need *not* satisfy $\beta^2=1$ (so swapping twice can be nontrivial — the source of knotting). A **ribbon category** adds compatible duals $X^\ast$ and a *twist* $\theta_X:X\to X$. A **modular tensor category (MTC)** is a ribbon category that is *semisimple* with finitely many simple objects $\{X_0=\mathbf{1},X_1,\dots,X_r\}$ such that the **$S$-matrix** $S_{ij}=\mathrm{tr}(\beta_{X_j,X_i}\circ\beta_{X_i,X_j})$ (the "double braiding trace," a Hopf-link invariant) is *invertible*. Invertibility of $S$ is the "modularity" — it is exactly what makes the gluing data of $3$-manifolds consistent.
 
 > **Theorem (Reshetikhin–Turaev, stated).** Every modular tensor category $\mathcal{C}$ produces a $3$-dimensional TQFT $Z_{\mathcal{C}}$. It assigns:
 > - to a closed surface $\Sigma$ with marked points labeled by simple objects, a finite-dimensional vector space $Z_{\mathcal{C}}(\Sigma)$ — the **space of conformal blocks**;
@@ -317,7 +317,7 @@ The mechanism deserves one sentence of explanation: any closed $3$-manifold can 
 
 > **Witten–Chern–Simons (physics origin).** Witten constructed the *same* $3$d invariants from a quantum field theory: the **Chern–Simons** theory for a compact gauge group $G$ (say $G=SU(2)$) at integer **level** $k$. Its action on a $3$-manifold $M$ with connection $A$ is
 > $$
-> S_{\mathrm{CS}}[A]=\frac{k}{4\pi}\int_M \operatorname{tr}\!\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
+> S_{\mathrm{CS}}[A]=\frac{k}{4\pi}\int_M \mathrm{tr}\!\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
 > $$
 > The partition function $Z(M)=\int \mathcal{D}A\,e^{iS_{\mathrm{CS}}[A]}$ is *metric-independent* (the action uses no metric, only the orientation), hence a topological invariant. Its mathematical incarnation is the Reshetikhin–Turaev invariant for the MTC of $SU(2)_k$ — the representations of the corresponding quantum group / affine Lie algebra at level $k$.
 

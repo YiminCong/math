@@ -261,7 +261,7 @@ $y''$ 的出现表明该方程一般是二阶的。
    $$
    y\sqrt{1+y'^2}-y'\cdot\frac{y\,y'}{\sqrt{1+y'^2}}=\frac{y}{\sqrt{1+y'^2}}=c .
    $$
-3. **求解。** 于是 $y=c\sqrt{1+y'^2}$，即 $y'=\sqrt{(y/c)^2-1}$。分离变量，$\displaystyle\int\frac{dy}{\sqrt{(y/c)^2-1}}=\int dx$ 给出 $c\,\operatorname{arccosh}(y/c)=x-x_0$，因此
+3. **求解。** 于是 $y=c\sqrt{1+y'^2}$，即 $y'=\sqrt{(y/c)^2-1}$。分离变量，$\displaystyle\int\frac{dy}{\sqrt{(y/c)^2-1}}=\int dx$ 给出 $c\,\mathrm{arccosh}(y/c)=x-x_0$，因此
    $$
    y=c\,\cosh\!\frac{x-x_0}{c}.
    $$

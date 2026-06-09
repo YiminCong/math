@@ -91,38 +91,38 @@ Here $\bar X$ (read "X-bar") denotes the **sample mean**, defined as $\bar X = \
 
 **Mean and variance of the sample mean**
 
-$$E[\bar X]=\mu,\qquad \operatorname{Var}(\bar X)=\frac{\sigma^2}{n},\qquad \text{SE}(\bar X)=\frac{\sigma}{\sqrt n}$$
+$$E[\bar X]=\mu,\qquad \mathrm{Var}(\bar X)=\frac{\sigma^2}{n},\qquad \text{SE}(\bar X)=\frac{\sigma}{\sqrt n}$$
 
-New symbols: $E[\,\cdot\,]$ is the **expected value** (the long-run average of a random quantity); $\mu$ (the Greek "mu") is the population mean $E[X]$; $\operatorname{Var}$ is the **variance** (the average squared distance from the mean, a measure of spread); $\sigma^2$ (sigma-squared) is the population variance $\operatorname{Var}(X)$; $\sigma$ is the **standard deviation** (the square root of the variance); and SE is the **standard error**, the standard deviation of the *estimator*.
+New symbols: $E[\,\cdot\,]$ is the **expected value** (the long-run average of a random quantity); $\mu$ (the Greek "mu") is the population mean $E[X]$; $\mathrm{Var}$ is the **variance** (the average squared distance from the mean, a measure of spread); $\sigma^2$ (sigma-squared) is the population variance $\mathrm{Var}(X)$; $\sigma$ is the **standard deviation** (the square root of the variance); and SE is the **standard error**, the standard deviation of the *estimator*.
 
 **Demonstration — mean and variance of $\bar X$, every step justified**
 
 1. By definition $\bar X=\frac1n\sum_{i=1}^n X_i$.
 2. Apply **linearity of expectation** (the expected value of a sum is the sum of the expected values, and a constant factor pulls out): $E[\bar X]=\frac1n\sum_{i=1}^n E[X_i]$.
 3. Each $X_i$ is identically distributed with mean $\mu$, so $E[X_i]=\mu$ for every $i$. Summing $n$ copies of $\mu$ gives $\frac1n\cdot n\mu=\mu$. Hence $E[\bar X]=\mu$.
-4. For the variance, use the rule that for **independent** variables the variance of a sum is the sum of the variances, and a constant factor $c$ comes out squared: $\operatorname{Var}(cY)=c^2\operatorname{Var}(Y)$. With $c=\frac1n$,
+4. For the variance, use the rule that for **independent** variables the variance of a sum is the sum of the variances, and a constant factor $c$ comes out squared: $\mathrm{Var}(cY)=c^2\mathrm{Var}(Y)$. With $c=\frac1n$,
 
-   $$\operatorname{Var}(\bar X)=\operatorname{Var}\!\Big(\tfrac1n\sum_{i=1}^n X_i\Big)=\tfrac{1}{n^2}\sum_{i=1}^n \operatorname{Var}(X_i).$$
-5. Each $\operatorname{Var}(X_i)=\sigma^2$, and summing $n$ copies gives $\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}$. Taking the square root gives the standard error $\sigma/\sqrt n$.
+   $$\mathrm{Var}(\bar X)=\mathrm{Var}\!\Big(\tfrac1n\sum_{i=1}^n X_i\Big)=\tfrac{1}{n^2}\sum_{i=1}^n \mathrm{Var}(X_i).$$
+5. Each $\mathrm{Var}(X_i)=\sigma^2$, and summing $n$ copies gives $\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}$. Taking the square root gives the standard error $\sigma/\sqrt n$.
 
 *The estimator $\bar X$ is centered on the truth ($E[\bar X]=\mu$) and gets tighter as $n$ grows (the variance shrinks like $1/n$) — the seed of consistency (Section 6).*
 
-**Worked numeric example.** Suppose a population has mean $\mu=10$ and standard deviation $\sigma=4$. Take a sample of size $n=16$. Then $E[\bar X]=10$ and $\operatorname{Var}(\bar X)=\frac{4^2}{16}=\frac{16}{16}=1$, so $\text{SE}(\bar X)=\sqrt 1=1$. Quadrupling the sample size to $n=64$ would give $\text{SE}=4/\sqrt{64}=4/8=0.5$ — to halve the error you must quadruple the data.
+**Worked numeric example.** Suppose a population has mean $\mu=10$ and standard deviation $\sigma=4$. Take a sample of size $n=16$. Then $E[\bar X]=10$ and $\mathrm{Var}(\bar X)=\frac{4^2}{16}=\frac{16}{16}=1$, so $\text{SE}(\bar X)=\sqrt 1=1$. Quadrupling the sample size to $n=64$ would give $\text{SE}=4/\sqrt{64}=4/8=0.5$ — to halve the error you must quadruple the data.
 
 **Demonstration — sampling distribution of $\bar X$ for a normal sample**
 
 1. Let $X_i\ \text{i.i.d.}\ \sim N(\mu,\sigma^2)$. The notation $N(\mu,\sigma^2)$ means the **normal** (bell-curve) distribution with mean $\mu$ and variance $\sigma^2$. A standard fact from probability is that any linear combination of independent normal variables is again normal. Since $\bar X$ is a linear combination ($\frac1n$ times a sum), $\bar X$ is normal.
-2. Its mean and variance were computed above: $E[\bar X]=\mu$, $\operatorname{Var}(\bar X)=\sigma^2/n$. A normal distribution is completely determined by its mean and variance, so
+2. Its mean and variance were computed above: $E[\bar X]=\mu$, $\mathrm{Var}(\bar X)=\sigma^2/n$. A normal distribution is completely determined by its mean and variance, so
 
    $$\bar X\sim N\!\left(\mu,\ \frac{\sigma^2}{n}\right),\qquad Z=\frac{\bar X-\mu}{\sigma/\sqrt n}\sim N(0,1).$$
-3. The transformation in step 2, subtracting the mean and dividing by the standard deviation, is called **standardizing**; it turns any normal into the **standard normal** $N(0,1)$ (mean $0$, variance $1$). We verify: $E[Z]=\frac{E[\bar X]-\mu}{\sigma/\sqrt n}=0$ and $\operatorname{Var}(Z)=\frac{\operatorname{Var}(\bar X)}{\sigma^2/n}=1$.
+3. The transformation in step 2, subtracting the mean and dividing by the standard deviation, is called **standardizing**; it turns any normal into the **standard normal** $N(0,1)$ (mean $0$, variance $1$). We verify: $E[Z]=\frac{E[\bar X]-\mu}{\sigma/\sqrt n}=0$ and $\mathrm{Var}(Z)=\frac{\mathrm{Var}(\bar X)}{\sigma^2/n}=1$.
 4. For a non-normal population the **Central Limit Theorem (CLT)** gives the same limiting form: $Z\xrightarrow{d}N(0,1)$ as $n\to\infty$. The arrow $\xrightarrow{d}$ means "converges in distribution" — for large $n$ the distribution of $Z$ is approximately standard normal regardless of the population's shape.
 
 *Exact for normals, asymptotic in general — this single distribution underwrites the $z$- and $t$-intervals of Part C.*
 
 > **Connection — the Probability guide (CLT & MGFs)**
 >
-> That $\bar X$ is normal for normal data, and asymptotically normal otherwise, is the CLT proved there via moment generating functions (MGFs). Sampling distributions are just transformations of random variables; the algebra of $E$, $\operatorname{Var}$, and MGFs from probability is the toolkit.
+> That $\bar X$ is normal for normal data, and asymptotically normal otherwise, is the CLT proved there via moment generating functions (MGFs). Sampling distributions are just transformations of random variables; the algebra of $E$, $\mathrm{Var}$, and MGFs from probability is the toolkit.
 
 #### Common pitfalls
 
@@ -262,7 +262,7 @@ $$\text{set } \mu_k(\theta)=E_\theta[X^k] \ \text{equal to}\ m_k=\frac1n\sum_{i=
 
 1. **Poisson($\lambda$).** The Poisson distribution counts rare events and has the property $E[X]=\lambda$ (its single parameter is also its mean). Matching the first theoretical moment $\lambda$ to the first empirical moment $\bar X$ gives one equation, $\lambda=\bar X$, so $\hat\lambda_{\text{MoM}}=\bar X$.
 2. **Bernoulli($p$).** Here $E[X]=p$. Matching to $\bar X$ gives $\hat p_{\text{MoM}}=\bar X$ — the sample proportion of successes.
-3. **Normal($\mu,\sigma^2$).** Two unknowns, so we need two equations. The first moment $E[X]=\mu$ matched to $\bar X$ gives $\hat\mu=\bar X$. The second moment is $E[X^2]=\operatorname{Var}(X)+(E[X])^2=\sigma^2+\mu^2$ (using the identity $\operatorname{Var}(X)=E[X^2]-(E[X])^2$ rearranged). Match it to $\frac1n\sum X_i^2$:
+3. **Normal($\mu,\sigma^2$).** Two unknowns, so we need two equations. The first moment $E[X]=\mu$ matched to $\bar X$ gives $\hat\mu=\bar X$. The second moment is $E[X^2]=\mathrm{Var}(X)+(E[X])^2=\sigma^2+\mu^2$ (using the identity $\mathrm{Var}(X)=E[X^2]-(E[X])^2$ rearranged). Match it to $\frac1n\sum X_i^2$:
 
    $$\sigma^2+\mu^2=\frac1n\sum_{i=1}^n X_i^2 \ \Rightarrow\ \hat\sigma^2_{\text{MoM}}=\frac1n\sum_{i=1}^n X_i^2-\hat\mu^2=\frac1n\sum_{i=1}^n X_i^2-\bar X^2.$$
 4. Finally, the algebraic identity $\frac1n\sum X_i^2-\bar X^2=\frac1n\sum (X_i-\bar X)^2$ (proved by expanding the right side: $\frac1n\sum(X_i^2-2X_i\bar X+\bar X^2)=\frac1n\sum X_i^2-2\bar X\cdot\bar X+\bar X^2=\frac1n\sum X_i^2-\bar X^2$) lets us write
@@ -355,9 +355,9 @@ Two darts players: one whose throws cluster tightly but all to the left of the b
 
 **Bias, variance and mean squared error**
 
-$$\operatorname{Bias}(\hat\theta)=E[\hat\theta]-\theta,\qquad \operatorname{MSE}(\hat\theta)=E\big[(\hat\theta-\theta)^2\big]$$
+$$\mathrm{Bias}(\hat\theta)=E[\hat\theta]-\theta,\qquad \mathrm{MSE}(\hat\theta)=E\big[(\hat\theta-\theta)^2\big]$$
 
-$$\operatorname{MSE}(\hat\theta)=\operatorname{Var}(\hat\theta)+\big[\operatorname{Bias}(\hat\theta)\big]^2$$
+$$\mathrm{MSE}(\hat\theta)=\mathrm{Var}(\hat\theta)+\big[\mathrm{Bias}(\hat\theta)\big]^2$$
 
 In words: the bias is how far the estimator's average lands from the truth; the MSE is the average squared miss; and the MSE splits exactly into scatter plus offset-squared.
 
@@ -372,30 +372,30 @@ In words: the bias is how far the estimator's average lands from the truth; the 
 
    Here $(E\hat\theta-\theta)$ is a constant, so it pulls out of the expectation in the cross term.
 3. The cross term vanishes because $E[\hat\theta-E\hat\theta]=E[\hat\theta]-E[\hat\theta]=0$ (the mean of a deviation from the mean is zero).
-4. What remains is $E[(\hat\theta-E\hat\theta)^2]$, which is the **definition of variance** $\operatorname{Var}(\hat\theta)$, plus $(E\hat\theta-\theta)^2$, which is $\operatorname{Bias}(\hat\theta)^2$. Hence $\operatorname{MSE}=\operatorname{Var}+\operatorname{Bias}^2$.
+4. What remains is $E[(\hat\theta-E\hat\theta)^2]$, which is the **definition of variance** $\mathrm{Var}(\hat\theta)$, plus $(E\hat\theta-\theta)^2$, which is $\mathrm{Bias}(\hat\theta)^2$. Hence $\mathrm{MSE}=\mathrm{Var}+\mathrm{Bias}^2$.
 
-*The same "add and subtract the mean" move underlies the identity $\operatorname{Var}(X)=E[X^2]-(E[X])^2$.*
+*The same "add and subtract the mean" move underlies the identity $\mathrm{Var}(X)=E[X^2]-(E[X])^2$.*
 
 **Demonstration — the MLE of normal variance is biased, with its MSE**
 
 1. Recall from Section 5 that $\hat\sigma^2_{\text{MLE}}=\frac1n\sum(X_i-\bar X)^2$. Define the **unbiased sample variance** $S^2=\frac{1}{n-1}\sum(X_i-\bar X)^2$. Comparing the two, $\hat\sigma^2_{\text{MLE}}=\frac{n-1}{n}S^2$ (because $\frac{1}{n}=\frac{n-1}{n}\cdot\frac{1}{n-1}$).
-2. A key sampling fact for normal data (proved in the Probability guide): $\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$, where $\chi^2_{n-1}$ is the **chi-squared distribution with $n-1$ degrees of freedom** — the distribution of a sum of $n-1$ squared independent standard normals, with mean $n-1$ and variance $2(n-1)$. From this, $E[S^2]=\sigma^2$ (so $S^2$ is unbiased) and $\operatorname{Var}(S^2)=\frac{2\sigma^4}{n-1}$ (rescaling: $\operatorname{Var}(S^2)=(\frac{\sigma^2}{n-1})^2\operatorname{Var}(\chi^2_{n-1})=\frac{\sigma^4}{(n-1)^2}\cdot 2(n-1)=\frac{2\sigma^4}{n-1}$).
+2. A key sampling fact for normal data (proved in the Probability guide): $\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$, where $\chi^2_{n-1}$ is the **chi-squared distribution with $n-1$ degrees of freedom** — the distribution of a sum of $n-1$ squared independent standard normals, with mean $n-1$ and variance $2(n-1)$. From this, $E[S^2]=\sigma^2$ (so $S^2$ is unbiased) and $\mathrm{Var}(S^2)=\frac{2\sigma^4}{n-1}$ (rescaling: $\mathrm{Var}(S^2)=(\frac{\sigma^2}{n-1})^2\mathrm{Var}(\chi^2_{n-1})=\frac{\sigma^4}{(n-1)^2}\cdot 2(n-1)=\frac{2\sigma^4}{n-1}$).
 3. Take expectations of step 1: $E[\hat\sigma^2_{\text{MLE}}]=\frac{n-1}{n}E[S^2]=\frac{n-1}{n}\sigma^2$. Hence
 
-   $$\operatorname{Bias}=\frac{n-1}{n}\sigma^2-\sigma^2=-\frac{\sigma^2}{n}.$$
+   $$\mathrm{Bias}=\frac{n-1}{n}\sigma^2-\sigma^2=-\frac{\sigma^2}{n}.$$
 
    The bias is negative: the MLE *under*-estimates the variance on average.
-4. Variance: $\operatorname{Var}(\hat\sigma^2_{\text{MLE}})=\big(\tfrac{n-1}{n}\big)^2\operatorname{Var}(S^2)=\big(\tfrac{n-1}{n}\big)^2\frac{2\sigma^4}{n-1}=\frac{2(n-1)\sigma^4}{n^2}$. Add the bias squared $\big(\frac{\sigma^2}{n}\big)^2=\frac{\sigma^4}{n^2}$:
+4. Variance: $\mathrm{Var}(\hat\sigma^2_{\text{MLE}})=\big(\tfrac{n-1}{n}\big)^2\mathrm{Var}(S^2)=\big(\tfrac{n-1}{n}\big)^2\frac{2\sigma^4}{n-1}=\frac{2(n-1)\sigma^4}{n^2}$. Add the bias squared $\big(\frac{\sigma^2}{n}\big)^2=\frac{\sigma^4}{n^2}$:
 
-   $$\operatorname{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2(n-1)\sigma^4}{n^2}+\frac{\sigma^4}{n^2}=\frac{(2n-1)\,\sigma^4}{n^2}.$$
+   $$\mathrm{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2(n-1)\sigma^4}{n^2}+\frac{\sigma^4}{n^2}=\frac{(2n-1)\,\sigma^4}{n^2}.$$
 
 *Strikingly, $\hat\sigma^2_{\text{MLE}}$ has **smaller** MSE than the unbiased $S^2$ (whose MSE is its variance, $2\sigma^4/(n-1)$): a textbook case where accepting a little bias lowers the total error.*
 
-**Worked numeric example.** Let $\sigma^2=1$ and $n=5$. Then $\operatorname{MSE}(S^2)=\frac{2}{4}=0.5$, while $\operatorname{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2\cdot5-1}{25}=\frac{9}{25}=0.36$. The biased MLE wins on MSE here.
+**Worked numeric example.** Let $\sigma^2=1$ and $n=5$. Then $\mathrm{MSE}(S^2)=\frac{2}{4}=0.5$, while $\mathrm{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2\cdot5-1}{25}=\frac{9}{25}=0.36$. The biased MLE wins on MSE here.
 
 > **Principle — consistency**
 >
-> An estimator is **consistent** if $\hat\theta_n\xrightarrow{p}\theta$ as $n\to\infty$ (the arrow $\xrightarrow{p}$ means "converges in probability": for any tiny tolerance, the chance of missing $\theta$ by more than that tolerance goes to $0$). A sufficient condition is $\operatorname{MSE}(\hat\theta_n)\to 0$ (mean-square consistency), which forces convergence in probability via **Chebyshev's inequality** $P(|\hat\theta-\theta|\ge\varepsilon)\le \operatorname{MSE}/\varepsilon^2$. Both the biased and unbiased variance estimators are consistent, since their bias ($\sim 1/n$) and variance ($\sim 1/n$) each vanish — bias matters in small samples, not the limit.
+> An estimator is **consistent** if $\hat\theta_n\xrightarrow{p}\theta$ as $n\to\infty$ (the arrow $\xrightarrow{p}$ means "converges in probability": for any tiny tolerance, the chance of missing $\theta$ by more than that tolerance goes to $0$). A sufficient condition is $\mathrm{MSE}(\hat\theta_n)\to 0$ (mean-square consistency), which forces convergence in probability via **Chebyshev's inequality** $P(|\hat\theta-\theta|\ge\varepsilon)\le \mathrm{MSE}/\varepsilon^2$. Both the biased and unbiased variance estimators are consistent, since their bias ($\sim 1/n$) and variance ($\sim 1/n$) each vanish — bias matters in small samples, not the limit.
 
 > **Connection — the intro guide's $n-1$ finally explained**
 >
@@ -445,24 +445,24 @@ The first expression is the **variance of the score** (its average squared value
 
 **Cramér–Rao lower bound (CRLB)**
 
-$$\text{for any unbiased }\hat\theta:\qquad \operatorname{Var}(\hat\theta)\ \ge\ \frac{1}{I_n(\theta)}=\frac{1}{n\,I_1(\theta)}$$
+$$\text{for any unbiased }\hat\theta:\qquad \mathrm{Var}(\hat\theta)\ \ge\ \frac{1}{I_n(\theta)}=\frac{1}{n\,I_1(\theta)}$$
 
 *No unbiased estimator can beat this variance. An estimator that attains it is **efficient**; its **relative efficiency** is the ratio of the bound to its actual variance (a number between $0$ and $1$, with $1$ meaning fully efficient).*
 
 **Demonstration — the Cramér–Rao bound**
 
-1. Let $\hat\theta$ be unbiased and let $U=U(\theta)$ be the score, with $E[U]=0$ (Section 3) and $\operatorname{Var}(U)=I_n(\theta)$ (the definition of information as the score's variance).
-2. We show $\operatorname{Cov}(\hat\theta,U)=1$. Start from unbiasedness $E[\hat\theta]=\int \hat\theta(\mathbf x) f(\mathbf x\mid\theta)\,d\mathbf x=\theta$. Differentiate in $\theta$ (regularity allows passing inside): $\int \hat\theta\,\partial_\theta f\,d\mathbf x=1$. Substitute $\partial_\theta f=f\,U$ (log-derivative identity): $\int \hat\theta\,U\,f\,d\mathbf x = E[\hat\theta U]=1$. Since $E[U]=0$, the covariance is $\operatorname{Cov}(\hat\theta,U)=E[\hat\theta U]-E[\hat\theta]E[U]=1-0=1$.
-3. Apply the **Cauchy–Schwarz inequality** for covariances, $\operatorname{Cov}(A,B)^2\le\operatorname{Var}(A)\operatorname{Var}(B)$ (the covariance can never exceed the product of the spreads). With $A=\hat\theta$, $B=U$:
+1. Let $\hat\theta$ be unbiased and let $U=U(\theta)$ be the score, with $E[U]=0$ (Section 3) and $\mathrm{Var}(U)=I_n(\theta)$ (the definition of information as the score's variance).
+2. We show $\mathrm{Cov}(\hat\theta,U)=1$. Start from unbiasedness $E[\hat\theta]=\int \hat\theta(\mathbf x) f(\mathbf x\mid\theta)\,d\mathbf x=\theta$. Differentiate in $\theta$ (regularity allows passing inside): $\int \hat\theta\,\partial_\theta f\,d\mathbf x=1$. Substitute $\partial_\theta f=f\,U$ (log-derivative identity): $\int \hat\theta\,U\,f\,d\mathbf x = E[\hat\theta U]=1$. Since $E[U]=0$, the covariance is $\mathrm{Cov}(\hat\theta,U)=E[\hat\theta U]-E[\hat\theta]E[U]=1-0=1$.
+3. Apply the **Cauchy–Schwarz inequality** for covariances, $\mathrm{Cov}(A,B)^2\le\mathrm{Var}(A)\mathrm{Var}(B)$ (the covariance can never exceed the product of the spreads). With $A=\hat\theta$, $B=U$:
 
-   $$1=\operatorname{Cov}(\hat\theta,U)^2\le \operatorname{Var}(\hat\theta)\,\operatorname{Var}(U)=\operatorname{Var}(\hat\theta)\,I_n(\theta).$$
+   $$1=\mathrm{Cov}(\hat\theta,U)^2\le \mathrm{Var}(\hat\theta)\,\mathrm{Var}(U)=\mathrm{Var}(\hat\theta)\,I_n(\theta).$$
 4. Divide both sides by $I_n(\theta)>0$:
 
-   $$\operatorname{Var}(\hat\theta)\ge\frac{1}{I_n(\theta)}.$$
+   $$\mathrm{Var}(\hat\theta)\ge\frac{1}{I_n(\theta)}.$$
 
-*Illustration: for Bernoulli, $\hat p=\bar X$ has $\operatorname{Var}(\bar X)=\frac{p(1-p)}{n}$ (Section 1, since $\operatorname{Var}(X)=p(1-p)$ for a Bernoulli). The bound is $\frac{1}{I_n(p)}=\frac{p(1-p)}{n}$ — they are equal, so $\bar X$ attains the floor and is **efficient**.*
+*Illustration: for Bernoulli, $\hat p=\bar X$ has $\mathrm{Var}(\bar X)=\frac{p(1-p)}{n}$ (Section 1, since $\mathrm{Var}(X)=p(1-p)$ for a Bernoulli). The bound is $\frac{1}{I_n(p)}=\frac{p(1-p)}{n}$ — they are equal, so $\bar X$ attains the floor and is **efficient**.*
 
-**Worked numeric example.** With $p=0.5$ and $n=100$, $I_n=\frac{100}{0.5\cdot0.5}=400$, so the CRLB is $1/400=0.0025$, and indeed $\operatorname{Var}(\bar X)=\frac{0.25}{100}=0.0025$. The standard error is $\sqrt{0.0025}=0.05$.
+**Worked numeric example.** With $p=0.5$ and $n=100$, $I_n=\frac{100}{0.5\cdot0.5}=400$, so the CRLB is $1/400=0.0025$, and indeed $\mathrm{Var}(\bar X)=\frac{0.25}{100}=0.0025$. The standard error is $\sqrt{0.0025}=0.05$.
 
 > **Connection — curvature, calculus & the MLE**
 >
@@ -484,12 +484,12 @@ Suppose you have a rough, unbiased guess that uses only part of the data. Sectio
 
 **Rao–Blackwell theorem**
 
-$$\text{if } E[\tilde\theta]=\theta \text{ and } T \text{ is sufficient, then } \hat\theta=E[\tilde\theta\mid T] \text{ satisfies } E[\hat\theta]=\theta,\quad \operatorname{Var}(\hat\theta)\le \operatorname{Var}(\tilde\theta)$$
+$$\text{if } E[\tilde\theta]=\theta \text{ and } T \text{ is sufficient, then } \hat\theta=E[\tilde\theta\mid T] \text{ satisfies } E[\hat\theta]=\theta,\quad \mathrm{Var}(\hat\theta)\le \mathrm{Var}(\tilde\theta)$$
 
 **Demonstration — why Rao–Blackwell works**
 
 1. **Unbiasedness is preserved.** The **law of total expectation** says $E\big[E[\tilde\theta\mid T]\big]=E[\tilde\theta]$. Since $\hat\theta=E[\tilde\theta\mid T]$, this gives $E[\hat\theta]=E[\tilde\theta]=\theta$.
-2. **Variance does not increase.** The **law of total variance** states $\operatorname{Var}(\tilde\theta)=\operatorname{Var}\big(E[\tilde\theta\mid T]\big)+E\big[\operatorname{Var}(\tilde\theta\mid T)\big]$. The first term is $\operatorname{Var}(\hat\theta)$; the second is an average of variances, hence $\ge 0$. Dropping a non-negative term, $\operatorname{Var}(\tilde\theta)\ge\operatorname{Var}(\hat\theta)$.
+2. **Variance does not increase.** The **law of total variance** states $\mathrm{Var}(\tilde\theta)=\mathrm{Var}\big(E[\tilde\theta\mid T]\big)+E\big[\mathrm{Var}(\tilde\theta\mid T)\big]$. The first term is $\mathrm{Var}(\hat\theta)$; the second is an average of variances, hence $\ge 0$. Dropping a non-negative term, $\mathrm{Var}(\tilde\theta)\ge\mathrm{Var}(\hat\theta)$.
 3. **Why $T$ must be sufficient.** If $T$ were not sufficient, $E[\tilde\theta\mid T]$ could still depend on the unknown $\theta$ (through the conditional distribution), making it uncomputable and not a valid statistic. Sufficiency guarantees the conditional distribution is free of $\theta$, so $\hat\theta$ is a genuine estimator.
 
 **Demonstration — Rao–Blackwellize a crude Poisson estimator**
@@ -675,9 +675,9 @@ New symbols: $\sup$ ("supremum") means the largest achievable value; $\Theta_0$ 
 
 **Wald and score (Rao) tests**
 
-$$W=\frac{(\hat\theta-\theta_0)^2}{\widehat{\operatorname{Var}}(\hat\theta)}=I_n(\hat\theta)\,(\hat\theta-\theta_0)^2,\qquad R=\frac{U(\theta_0)^2}{I_n(\theta_0)}$$
+$$W=\frac{(\hat\theta-\theta_0)^2}{\widehat{\mathrm{Var}}(\hat\theta)}=I_n(\hat\theta)\,(\hat\theta-\theta_0)^2,\qquad R=\frac{U(\theta_0)^2}{I_n(\theta_0)}$$
 
-*Both statistics $\xrightarrow{d}\chi^2_r$. The **Wald** test uses the MLE $\hat\theta$ and the curvature there ($\widehat{\operatorname{Var}}(\hat\theta)=1/I_n(\hat\theta)$ from Section 7); the **score** test uses the slope $U(\theta_0)$ of $\ell$ at $\theta_0$ and needs no MLE at all. LRT, Wald, and score agree asymptotically.*
+*Both statistics $\xrightarrow{d}\chi^2_r$. The **Wald** test uses the MLE $\hat\theta$ and the curvature there ($\widehat{\mathrm{Var}}(\hat\theta)=1/I_n(\hat\theta)$ from Section 7); the **score** test uses the slope $U(\theta_0)$ of $\ell$ at $\theta_0$ and needs no MLE at all. LRT, Wald, and score agree asymptotically.*
 
 **Worked numeric example (Wald, Bernoulli).** Test $H_0:p=0.5$ from $n=100$ flips with $40$ heads, so $\hat p=0.4$. The information at the MLE is $I_n(\hat p)=\frac{n}{\hat p(1-\hat p)}=\frac{100}{0.4\cdot0.6}=416.67$. Then $W=416.67\times(0.4-0.5)^2=416.67\times0.01=4.17>3.84$, so reject at the 5% level.
 
@@ -940,11 +940,11 @@ Here $g$ is any smooth transformation and $g'(\theta)$ its derivative. The resul
 
 1. **Taylor-expand** $g$ about $\theta$ to first order (the calculus fact that a smooth function is locally well-approximated by its tangent line): $g(\hat\theta)\approx g(\theta)+g'(\theta)(\hat\theta-\theta)$. The error is of order $(\hat\theta-\theta)^2$, which is negligible compared to the linear term as $\hat\theta\to\theta$.
 2. Subtract $g(\theta)$ and multiply by $\sqrt n$: $\sqrt n\,(g(\hat\theta)-g(\theta))\approx g'(\theta)\cdot\sqrt n\,(\hat\theta-\theta)$.
-3. By assumption $\sqrt n(\hat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$. Multiplying a quantity converging to $N(0,\sigma^2)$ by the constant $g'(\theta)$ scales its variance by $[g'(\theta)]^2$ (recall $\operatorname{Var}(cY)=c^2\operatorname{Var}(Y)$, Section 1). By **Slutsky's theorem** (which lets us combine a convergent-in-distribution sequence with constants), the right side $\xrightarrow{d}N(0,[g'(\theta)]^2\sigma^2)$, and so does the left.
+3. By assumption $\sqrt n(\hat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$. Multiplying a quantity converging to $N(0,\sigma^2)$ by the constant $g'(\theta)$ scales its variance by $[g'(\theta)]^2$ (recall $\mathrm{Var}(cY)=c^2\mathrm{Var}(Y)$, Section 1). By **Slutsky's theorem** (which lets us combine a convergent-in-distribution sequence with constants), the right side $\xrightarrow{d}N(0,[g'(\theta)]^2\sigma^2)$, and so does the left.
 
 *This is how standard errors are obtained for odds, rates, and other transformed parameters.*
 
-**Worked numeric example.** Suppose $\hat p=0.4$ from $n=100$, with $\operatorname{Var}(\hat p)=\frac{p(1-p)}{n}\approx\frac{0.4\cdot0.6}{100}=0.0024$. We want a standard error for the **log-odds** $g(p)=\log\frac{p}{1-p}$. Its derivative is $g'(p)=\frac{1}{p(1-p)}=\frac{1}{0.24}\approx 4.167$. By the delta method, $\operatorname{Var}(g(\hat p))\approx [g'(\hat p)]^2\operatorname{Var}(\hat p)=4.167^2\times 0.0024\approx 0.0417$, so the standard error of the log-odds is $\sqrt{0.0417}\approx 0.204$.
+**Worked numeric example.** Suppose $\hat p=0.4$ from $n=100$, with $\mathrm{Var}(\hat p)=\frac{p(1-p)}{n}\approx\frac{0.4\cdot0.6}{100}=0.0024$. We want a standard error for the **log-odds** $g(p)=\log\frac{p}{1-p}$. Its derivative is $g'(p)=\frac{1}{p(1-p)}=\frac{1}{0.24}\approx 4.167$. By the delta method, $\mathrm{Var}(g(\hat p))\approx [g'(\hat p)]^2\mathrm{Var}(\hat p)=4.167^2\times 0.0024\approx 0.0417$, so the standard error of the log-odds is $\sqrt{0.0417}\approx 0.204$.
 
 > **Principle — the asymptotic supremacy of the MLE**
 >

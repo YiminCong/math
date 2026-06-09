@@ -412,7 +412,7 @@ These "arc" functions are the inverses of $\sin,\cos,\tan$: $\arctan x$ returns 
 
 $$\sinh x=\frac{e^x-e^{-x}}{2},\quad \cosh x=\frac{e^x+e^{-x}}{2}$$
 
-$$(\sinh x)'=\cosh x,\quad (\cosh x)'=\sinh x,\quad (\tanh x)'=\operatorname{sech}^2 x$$
+$$(\sinh x)'=\cosh x,\quad (\cosh x)'=\sinh x,\quad (\tanh x)'=\mathrm{sech}^2 x$$
 
 The **hyperbolic sine/cosine** ($\sinh, \cosh$, pronounced "sinch, cosh") are cousins of $\sin,\cos$ built from $e^x$ instead of circles; they describe hanging cables and relativity.
 

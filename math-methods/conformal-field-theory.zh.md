@@ -575,7 +575,7 @@ $$
 
 > **定义 — 环面配分函数。** **配分函数**是对 Hilbert 空间的迹
 > $$
-> Z(\tau,\bar\tau)=\operatorname{Tr}\Big(q^{L_0-c/24}\,\bar q^{\bar L_0-\bar c/24}\Big),
+> Z(\tau,\bar\tau)=\mathrm{Tr}\Big(q^{L_0-c/24}\,\bar q^{\bar L_0-\bar c/24}\Big),
 > \qquad q=e^{2\pi i\tau}.
 > $$
 > 算符 $q^{L_0-c/24}$ 按每个态的能量给它加权（回忆 $L_0$ = 能量，§s5）；移位 $-c/24$ 是柱面的普适 **Casimir 能量**，它的出现是中心荷的又一副面孔。
@@ -584,7 +584,7 @@ $$
 $$
 Z=\sum_{h,\bar h}N_{h,\bar h}\;\chi_h(\tau)\,\overline{\chi_{\bar h}(\tau)},
 \qquad
-\chi_h(\tau)=\operatorname{Tr}_{V(c,h)}q^{L_0-c/24}=\frac{q^{\,h-c/24}}{\prod_{n\ge1}(1-q^n)}\ (\text{for a generic Verma module}),
+\chi_h(\tau)=\mathrm{Tr}_{V(c,h)}q^{L_0-c/24}=\frac{q^{\,h-c/24}}{\prod_{n\ge1}(1-q^n)}\ (\text{for a generic Verma module}),
 $$
 其中 $N_{h,\bar h}$ 是非负整数，计数每个表示出现多少次。分母 $\prod(1-q^n)^{-1}=\sum p(N)q^N$ 恰恰是 §s9 的分拆计数母函数——特征标*就是*逐级的态计数，再用能量加以修饰。
 

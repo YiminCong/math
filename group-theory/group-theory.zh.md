@@ -119,7 +119,7 @@
 
 > **定义 — 正规子群。** $N\le G$ 是**正规的**，记作 $N\trianglelefteq G$，如果对每个 $g\in G$ 都有 $gNg^{-1}=N$ ——等价地，左陪集与右陪集重合，即对所有 $g$ 有 $gN=Ng$。（在阿贝尔群中每个子群都是正规的。）
 
-> **定义 — 同态。** 群之间的映射 $\phi:G\to G'$ 是**同态**，如果它保持运算：对所有 $a,b\in G$ 有 $\phi(ab)=\phi(a)\phi(b)$。其**核**是 $\ker\phi=\{g\in G:\phi(g)=e'\}$，其**像**是 $\operatorname{im}\phi=\{\phi(g):g\in G\}$。双射同态是**同构**，记作 $G\cong G'$；同构的群是"重新标记了元素的同一个群"。
+> **定义 — 同态。** 群之间的映射 $\phi:G\to G'$ 是**同态**，如果它保持运算：对所有 $a,b\in G$ 有 $\phi(ab)=\phi(a)\phi(b)$。其**核**是 $\ker\phi=\{g\in G:\phi(g)=e'\}$，其**像**是 $\mathrm{im}\phi=\{\phi(g):g\in G\}$。双射同态是**同构**，记作 $G\cong G'$；同构的群是"重新标记了元素的同一个群"。
 
 > **引理 — 同态保持结构。** 对同态 $\phi:G\to G'$：(a) $\phi(e)=e'$；(b) $\phi(a^{-1})=\phi(a)^{-1}$；(c) $\ker\phi$ 是 $G$ 的正规子群；(d) $\phi$ 是单射当且仅当 $\ker\phi=\{e\}$。
 
@@ -135,20 +135,20 @@
 1. *（良定义。）* 麻烦在于一个陪集有许多名字：当 $a'=an$（某 $n\in N$）时 $aN=a'N$。我们必须验证乘积不依赖于所选的名字。设 $aN=a'N$ 且 $bN=b'N$，故 $a'=an_1$、$b'=bn_2$，其中 $n_1,n_2\in N$。则 $a'b' = a n_1 b n_2$。插入 $b^{-1}b=e$：$a'b' = a b\,(b^{-1}n_1 b)\,n_2$。现在 $b^{-1}n_1 b\in N$，因为 $N$ 正规（$b^{-1}Nb=N$）。所以 $a'b' = ab\,(\text{element of }N)$，这意味着 $(a'b')N=(ab)N$。因此陪集之积是无歧义的。*（这正是需要正规性之处）*
 2. *（群公理。）* 结合律：$((aN)(bN))(cN)=(ab)N\cdot cN=((ab)c)N=(a(bc))N=(aN)((bN)(cN))$，用到 $G$ 中的结合律。单位元：$eN=N$ 满足 $(N)(aN)=aN=(aN)(N)$。逆元：$(aN)^{-1}=a^{-1}N$，因为 $(aN)(a^{-1}N)=(aa^{-1})N=eN$。全部公理成立。$\blacksquare$
 
-> **定理 — 第一同构定理。** 设 $\phi:G\to G'$ 是同态。则 $\operatorname{im}\phi$ 是 $G'$ 的子群，$\ker\phi\trianglelefteq G$，且
+> **定理 — 第一同构定理。** 设 $\phi:G\to G'$ 是同态。则 $\mathrm{im}\phi$ 是 $G'$ 的子群，$\ker\phi\trianglelefteq G$，且
 > $$
-> G/\ker\phi \;\cong\; \operatorname{im}\phi .
+> G/\ker\phi \;\cong\; \mathrm{im}\phi .
 > $$
 
 **证明。** 记 $K=\ker\phi$，由引理它是正规的，故 $G/K$ 是群。
-1. 定义 $\Phi:G/K\to\operatorname{im}\phi$ 为 $\Phi(gK)=\phi(g)$。
+1. 定义 $\Phi:G/K\to\mathrm{im}\phi$ 为 $\Phi(gK)=\phi(g)$。
 2. *（良定义。）* 若 $gK=g'K$ 则 $g'=gk$（某 $k\in K$），故 $\phi(g')=\phi(g)\phi(k)=\phi(g)e'=\phi(g)$。其值不依赖于代表元。
 3. *（同态。）* $\Phi((gK)(hK))=\Phi((gh)K)=\phi(gh)=\phi(g)\phi(h)=\Phi(gK)\Phi(hK)$。
-4. *（满射。）* $\operatorname{im}\phi$ 的每个元素都是某 $g$ 的 $\phi(g)=\Phi(gK)$，故 $\Phi$ 是满的。
+4. *（满射。）* $\mathrm{im}\phi$ 的每个元素都是某 $g$ 的 $\phi(g)=\Phi(gK)$，故 $\Phi$ 是满的。
 5. *（单射。）* 设 $\Phi(gK)=e'$，即 $\phi(g)=e'$。则 $g\in K$，故 $gK=K$，即单位元陪集。于是 $\Phi$ 的核是平凡的，由引理 (d) 部分 $\Phi$ 是单射。
-6. 双射同态是同构，故 $G/K\cong\operatorname{im}\phi$。$\blacksquare$
+6. 双射同态是同构，故 $G/K\cong\mathrm{im}\phi$。$\blacksquare$
 
-**算例。** 设 $\phi:\mathbb{Z}\to\mathbb{Z}_n$ 把一个整数映到它模 $n$ 的余数。这是同态：和的余数等于余数之和模 $n$。它是满射，其核是 $n$ 的倍数 $n\mathbb{Z}$。定理给出 $\mathbb{Z}/n\mathbb{Z}\cong\mathbb{Z}_n$ ——钟表算术群确确实实就是把 $n$ 的倍数都坍缩为零的整数。第二个例子：**符号**同态 $\operatorname{sgn}:S_n\to\{+1,-1\}$（两个元素的乘法群）把一个置换映到 $+1$，若它是偶数个对换之积，否则映到 $-1$；其核是**交错群** $A_n$，且 $S_n/A_n\cong\{\pm1\}$，故 $A_n$ 的指数为 $2$，从而 $|A_n|=n!/2$。
+**算例。** 设 $\phi:\mathbb{Z}\to\mathbb{Z}_n$ 把一个整数映到它模 $n$ 的余数。这是同态：和的余数等于余数之和模 $n$。它是满射，其核是 $n$ 的倍数 $n\mathbb{Z}$。定理给出 $\mathbb{Z}/n\mathbb{Z}\cong\mathbb{Z}_n$ ——钟表算术群确确实实就是把 $n$ 的倍数都坍缩为零的整数。第二个例子：**符号**同态 $\mathrm{sgn}:S_n\to\{+1,-1\}$（两个元素的乘法群）把一个置换映到 $+1$，若它是偶数个对换之积，否则映到 $-1$；其核是**交错群** $A_n$，且 $S_n/A_n\cong\{\pm1\}$，故 $A_n$ 的指数为 $2$，从而 $|A_n|=n!/2$。
 
 <a id="s4"></a>
 ### 群作用、轨道与稳定子，以及轨道–稳定子定理
@@ -157,40 +157,40 @@
 
 > **定义 — 群作用。** 群 $G$ 在集合 $X$ 上的一个（左）**作用**是映射 $G\times X\to X$，记作 $g\cdot x$，满足：(i) 对所有 $x$ 有 $e\cdot x = x$；(ii) 对所有 $g,h\in G$、$x\in X$ 有 $g\cdot(h\cdot x) = (gh)\cdot x$。
 
-> **定义 — 轨道与稳定子。** 对 $x\in X$，**轨道**是 $\operatorname{Orb}(x)=\{g\cdot x : g\in G\}$ ——$x$ 能被送到的所有地方。**稳定子**是 $\operatorname{Stab}(x)=\{g\in G : g\cdot x = x\}$ ——固定 $x$ 的那些元素。
+> **定义 — 轨道与稳定子。** 对 $x\in X$，**轨道**是 $\mathrm{Orb}(x)=\{g\cdot x : g\in G\}$ ——$x$ 能被送到的所有地方。**稳定子**是 $\mathrm{Stab}(x)=\{g\in G : g\cdot x = x\}$ ——固定 $x$ 的那些元素。
 
-> **引理。** $\operatorname{Stab}(x)$ 是 $G$ 的子群。
+> **引理。** $\mathrm{Stab}(x)$ 是 $G$ 的子群。
 
-**证明。** 由 (i)，$e\in\operatorname{Stab}(x)$。若 $g,h$ 固定 $x$，则 $(gh)\cdot x = g\cdot(h\cdot x)=g\cdot x = x$，故 $gh$ 固定 $x$。若 $g\cdot x=x$，作用 $g^{-1}$：$g^{-1}\cdot(g\cdot x)=g^{-1}\cdot x$，而左侧是 $(g^{-1}g)\cdot x = e\cdot x = x$，故 $g^{-1}\cdot x = x$。三个子群条件全部成立。$\blacksquare$
+**证明。** 由 (i)，$e\in\mathrm{Stab}(x)$。若 $g,h$ 固定 $x$，则 $(gh)\cdot x = g\cdot(h\cdot x)=g\cdot x = x$，故 $gh$ 固定 $x$。若 $g\cdot x=x$，作用 $g^{-1}$：$g^{-1}\cdot(g\cdot x)=g^{-1}\cdot x$，而左侧是 $(g^{-1}g)\cdot x = e\cdot x = x$，故 $g^{-1}\cdot x = x$。三个子群条件全部成立。$\blacksquare$
 
-> **定理 — 轨道–稳定子。** 对作用在 $X$ 上的群 $G$ 和任意 $x\in X$，轨道 $\operatorname{Orb}(x)$ 与 $\operatorname{Stab}(x)$ 的左陪集集合之间存在一个双射。因此对有限 $G$，
+> **定理 — 轨道–稳定子。** 对作用在 $X$ 上的群 $G$ 和任意 $x\in X$，轨道 $\mathrm{Orb}(x)$ 与 $\mathrm{Stab}(x)$ 的左陪集集合之间存在一个双射。因此对有限 $G$，
 > $$
-> |\operatorname{Orb}(x)| = [\,G : \operatorname{Stab}(x)\,] = \frac{|G|}{|\operatorname{Stab}(x)|}.
+> |\mathrm{Orb}(x)| = [\,G : \mathrm{Stab}(x)\,] = \frac{|G|}{|\mathrm{Stab}(x)|}.
 > $$
 
-**证明。** 记 $S=\operatorname{Stab}(x)$。
-1. 定义 $\psi: G/S \to \operatorname{Orb}(x)$ 为 $\psi(gS)=g\cdot x$。
+**证明。** 记 $S=\mathrm{Stab}(x)$。
+1. 定义 $\psi: G/S \to \mathrm{Orb}(x)$ 为 $\psi(gS)=g\cdot x$。
 2. *（良定义。）* 若 $gS=g'S$ 则 $g'=gs$（某 $s\in S$），故 $g'\cdot x = (gs)\cdot x = g\cdot(s\cdot x)=g\cdot x$。其值只依赖于陪集。
 3. *（单射。）* 若 $g\cdot x = g'\cdot x$，在左侧作用 $g^{-1}$：$x = (g^{-1}g')\cdot x$，故 $g^{-1}g'\in S$，这意味着 $g'\in gS$，即 $gS=g'S$。不同的陪集给出不同的点。
 4. *（满射。）* 轨道中任一点都是某 $g$ 的 $g\cdot x=\psi(gS)$。
-5. 故 $\psi$ 是双射，给出 $|\operatorname{Orb}(x)|=[G:S]$，当 $G$ 有限时由拉格朗日定理这等于 $|G|/|S|$。$\blacksquare$
+5. 故 $\psi$ 是双射，给出 $|\mathrm{Orb}(x)|=[G:S]$，当 $G$ 有限时由拉格朗日定理这等于 $|G|/|S|$。$\blacksquare$
 
-**算例。** 设 $G=D_4$（阶为 $8$）作用在正方形的四个顶点上，$X=\{1,2,3,4\}$。顶点 $1$ 的轨道是全部四个顶点（任一顶点都能旋转到任一其他顶点），故 $|\operatorname{Orb}(1)|=4$。顶点 $1$ 的稳定子由单位元和过含顶点 $1$ 的对角线的反射组成——两个元素。验证定理：$|\operatorname{Orb}(1)|\cdot|\operatorname{Stab}(1)| = 4\cdot 2 = 8 = |G|$。仅知道该作用是*可迁的*（一个大小为 $4$ 的轨道）且 $|G|=8$，我们就能推出稳定子的阶为 $2$，无需把它列出来。
+**算例。** 设 $G=D_4$（阶为 $8$）作用在正方形的四个顶点上，$X=\{1,2,3,4\}$。顶点 $1$ 的轨道是全部四个顶点（任一顶点都能旋转到任一其他顶点），故 $|\mathrm{Orb}(1)|=4$。顶点 $1$ 的稳定子由单位元和过含顶点 $1$ 的对角线的反射组成——两个元素。验证定理：$|\mathrm{Orb}(1)|\cdot|\mathrm{Stab}(1)| = 4\cdot 2 = 8 = |G|$。仅知道该作用是*可迁的*（一个大小为 $4$ 的轨道）且 $|G|=8$，我们就能推出稳定子的阶为 $2$，无需把它列出来。
 
 **算例 — 三角形的染色计数。** 用 $2$ 种颜色给一个等边三角形的 $3$ 个顶点染色，将三角形的旋转视为相同，那么真正不同的染色方式有多少种？旋转群是 $\mathbb{Z}_3=\{e,r,r^2\}$，作用在 $2^3=8$ 种染色上。**伯恩赛德引理**（轨道–稳定子的一个推论：轨道数等于不动点的平均数 $\frac{1}{|G|}\sum_g|\text{Fix}(g)|$）给出计数。单位元固定所有 $8$ 种染色；每个非平凡旋转 $r,r^2$ 只固定 $2$ 种单色染色（所有顶点必须相同）。故不同染色的数目是 $\frac{1}{3}(8+2+2)=4$。一一列举可证实：全 A 色、全 B 色、两 A 一 B、两 B 一 A。对称性计数把一个琐碎的组合问题化简为一次取平均。
 
-> **直觉。** 轨道度量 $x$ 能移动多远；稳定子度量群中有多少"白费力气"地把 $x$ 留在原地。它们的大小相乘等于 $|G|$，因为轨道中的每个点恰由 $|\operatorname{Stab}(x)|$ 个群元到达（一整个陪集）。
+> **直觉。** 轨道度量 $x$ 能移动多远；稳定子度量群中有多少"白费力气"地把 $x$ 留在原地。它们的大小相乘等于 $|G|$，因为轨道中的每个点恰由 $|\mathrm{Stab}(x)|$ 个群元到达（一整个陪集）。
 
 <a id="s5"></a>
 ### 共轭类
 
 **是什么、为什么。** 在一个群内部，某些元素是"从不同视角看到的同一类操作"——例如正方形的所有反射都互为共轭。把元素归入**共轭类**是通往特征标、并最终解读表示的桥梁。
 
-> **定义 — 共轭。** 元素 $a,b\in G$ 是**共轭的**，如果 $b = gag^{-1}$（某 $g\in G$）。这是一个等价关系（取 $g=e$ 得自反性；取 $g^{-1}$ 得对称性；复合共轭元得传递性），故它把 $G$ 划分成互不相交的**共轭类**。$a$ 的类是 $\operatorname{Cl}(a)=\{gag^{-1}:g\in G\}$。
+> **定义 — 共轭。** 元素 $a,b\in G$ 是**共轭的**，如果 $b = gag^{-1}$（某 $g\in G$）。这是一个等价关系（取 $g=e$ 得自反性；取 $g^{-1}$ 得对称性；复合共轭元得传递性），故它把 $G$ 划分成互不相交的**共轭类**。$a$ 的类是 $\mathrm{Cl}(a)=\{gag^{-1}:g\in G\}$。
 
 由 $g$ 进行的共轭本身就是 $G$ 在自身上的作用 $g\cdot a = gag^{-1}$（可验证 (i) 和 (ii)），故共轭类恰是一条轨道。在此作用下 $a$ 的稳定子是**中心化子** $C_G(a)=\{g:ga=ag\}$。于是轨道–稳定子定理免费给出一个类大小公式：
 $$
-|\operatorname{Cl}(a)| = \frac{|G|}{|C_G(a)|},
+|\mathrm{Cl}(a)| = \frac{|G|}{|C_G(a)|},
 $$
 故每个类的大小都整除 $|G|$。
 
@@ -203,7 +203,7 @@ $$
 
 **重新标记规则的验证算例。** 在 $S_3$ 中用 $g=(1\,2)$ 共轭 $(1\,2\,3)$。规则说 $g(1\,2\,3)g^{-1}=(g(1)\,g(2)\,g(3))=(2\,1\,3)=(1\,3\,2)$。直接验证：$g^{-1}=(1\,2)$，我们在点 $2$ 处求 $g(1\,2\,3)g^{-1}$ ——从右往左读：$g^{-1}$ 把 $2\mapsto1$，然后 $(1\,2\,3)$ 把 $1\mapsto2$，然后 $g$ 把 $2\mapsto1$，净效果 $2\mapsto1$。而 $(1\,3\,2)$ 确实把 $2\mapsto1$。追踪其他点便确认 $g(1\,2\,3)g^{-1}=(1\,3\,2)$，恰是所预言的重新标记。所以两个 $3$-轮换确实互为共轭，正如类结构所断言。
 
-> **类方程。** 把 $G$ 拆成共轭类并计数给出 $|G|=\sum_i |\operatorname{Cl}(a_i)| = |Z(G)| + \sum_{\text{nontrivial classes}} \frac{|G|}{|C_G(a_i)|}$，其中**中心** $Z(G)=\{z : zg=gz\ \forall g\}$ 收集了所有单点类。对 $S_3$：$6 = 1 + 3 + 2$，中心仅为 $\{e\}$（大小 $1$）。这个方程是许多结构性定理背后的杠杆——例如，它迫使每个素数幂阶的群都有非平凡的中心。
+> **类方程。** 把 $G$ 拆成共轭类并计数给出 $|G|=\sum_i |\mathrm{Cl}(a_i)| = |Z(G)| + \sum_{\text{nontrivial classes}} \frac{|G|}{|C_G(a_i)|}$，其中**中心** $Z(G)=\{z : zg=gz\ \forall g\}$ 收集了所有单点类。对 $S_3$：$6 = 1 + 3 + 2$，中心仅为 $\{e\}$（大小 $1$）。这个方程是许多结构性定理背后的杠杆——例如，它迫使每个素数幂阶的群都有非平凡的中心。
 
 > **陷阱。** 共轭元素一般*不*相等，且该关系依赖于整个群：在较大群中共轭的两个元素，在子群中可能不共轭。轮换型刻画的具体是 $S_n$ 中的共轭性，而非任意群中的共轭性。
 
@@ -264,7 +264,7 @@ $$
 
 **证明。**
 1. *(a，核。)* $\ker T$ 在 $\rho$ 下不变：若 $v\in\ker T$ 则 $T(\rho(g)v)=\sigma(g)Tv=\sigma(g)0=0$，故 $\rho(g)v\in\ker T$。由于 $\rho$ 不可约，$\ker T$ 是 $\{0\}$ 或整个 $V$。若 $\ker T=V$ 则 $T=0$。
-2. *(a，像。)* $\operatorname{im}T$ 在 $\sigma$ 下不变：任一元素都是 $Tv$，而 $\sigma(g)(Tv)=T(\rho(g)v)\in\operatorname{im}T$。由于 $\sigma$ 不可约，$\operatorname{im}T$ 是 $\{0\}$ 或整个 $W$。若 $T\ne0$，则 $\ker T=\{0\}$（单射）且 $\operatorname{im}T=W$（满射），故 $T$ 是同构。
+2. *(a，像。)* $\mathrm{im}T$ 在 $\sigma$ 下不变：任一元素都是 $Tv$，而 $\sigma(g)(Tv)=T(\rho(g)v)\in\mathrm{im}T$。由于 $\sigma$ 不可约，$\mathrm{im}T$ 是 $\{0\}$ 或整个 $W$。若 $T\ne0$，则 $\ker T=\{0\}$（单射）且 $\mathrm{im}T=W$（满射），故 $T$ 是同构。
 3. *(b。)* 现在在 $\mathbb{C}$ 上 $V=W$。由于 $\mathbb{C}$ 代数封闭且 $V$ 有限维，$T$ 有一个特征值 $\lambda$（其特征多项式的一个根）。考虑 $T-\lambda I$。它也与 $\rho$ 自身交结，因为 $(T-\lambda I)\rho(g)=T\rho(g)-\lambda\rho(g)=\rho(g)T-\lambda\rho(g)=\rho(g)(T-\lambda I)$。但 $T-\lambda I$ 有非平凡核（$\lambda$-特征子空间非零），故由 (a) 部分它不可能是同构；从而 $T-\lambda I=0$，即 $T=\lambda I$。$\blacksquare$
 
 **算例式推论 — 阿贝尔群的不可约表示是 1 维的。** 设 $G$ 是阿贝尔群，$\rho$ 是其在 $\mathbb{C}$ 上的不可约表示。固定任意 $h\in G$；矩阵 $\rho(h)$ 与每个 $\rho(g)$ 交换，因为 $\rho(h)\rho(g)=\rho(hg)=\rho(gh)=\rho(g)\rho(h)$（用到 $G$ 阿贝尔）。由舒尔 (b)，$\rho(h)=\lambda_h I$，$\lambda_h$ 为标量。但那时*每个*一维子空间都不变（标量矩阵保持所有直线），故不可约性迫使 $\dim V=1$。这就是为什么 $\mathbb{Z}_n$ 只有 s6 中的 $n$ 个一维不可约表示，以及为什么谐波 $e^{2\pi i km/n}$ 是阿贝尔对称性的全部故事——傅里叶分析恰是阿贝尔群的表示论。
@@ -276,7 +276,7 @@ $$
 
 **是什么、为什么。** 随身携带整个矩阵很笨重。**特征标**——每个表示矩阵的迹——把一个表示提炼为每个共轭类一个数，却保留了足以完整辨识它的信息。正交关系把"分解为不可约表示"变成简单的算术。
 
-> **定义 — 特征标。** 表示 $\rho$ 的**特征标**是函数 $\chi_\rho(g)=\operatorname{tr}\rho(g)$（迹，即对角元之和）。关键事实，全部来自迹的性质：(i) $\chi_\rho(e)=\dim V$（$I$ 的迹）；(ii) $\chi_\rho$ 在共轭类上**为常数**（一个**类函数**），因为由迹的循环性 $\operatorname{tr}(\rho(g)\rho(a)\rho(g)^{-1})=\operatorname{tr}\rho(a)$；(iii) 等价表示有相等的特征标（迹与基无关）。
+> **定义 — 特征标。** 表示 $\rho$ 的**特征标**是函数 $\chi_\rho(g)=\mathrm{tr}\rho(g)$（迹，即对角元之和）。关键事实，全部来自迹的性质：(i) $\chi_\rho(e)=\dim V$（$I$ 的迹）；(ii) $\chi_\rho$ 在共轭类上**为常数**（一个**类函数**），因为由迹的循环性 $\mathrm{tr}(\rho(g)\rho(a)\rho(g)^{-1})=\mathrm{tr}\rho(a)$；(iii) 等价表示有相等的特征标（迹与基无关）。
 
 定义**类函数的内积**为
 $$
@@ -290,7 +290,7 @@ $$
 
 **证明（带有完整的承重步骤的概要）。**
 1. 对表示 $\rho$（在 $V$ 上）与 $\sigma$（在 $W$ 上）以及*任意*线性映射 $A:V\to W$，构造平均映射 $\tilde A=\frac{1}{|G|}\sum_g \sigma(g)A\rho(g)^{-1}$。代换 $g\mapsto hg$ 表明 $\sigma(h)\tilde A=\tilde A\rho(h)$，故 $\tilde A$ 交结。
-2. 由舒尔引理：若 $\rho\not\cong\sigma$ 则对每个 $A$ 都有 $\tilde A=0$；若 $\rho=\sigma$ 则 $\tilde A=\lambda I$，其中 $\lambda=\frac{\operatorname{tr}A}{\dim V}$（对 $\tilde A=\lambda I$ 两边取迹，用到取平均保持迹）。
+2. 由舒尔引理：若 $\rho\not\cong\sigma$ 则对每个 $A$ 都有 $\tilde A=0$；若 $\rho=\sigma$ 则 $\tilde A=\lambda I$，其中 $\lambda=\frac{\mathrm{tr}A}{\dim V}$（对 $\tilde A=\lambda I$ 两边取迹，用到取平均保持迹）。
 3. 取 $A$ 为初等矩阵（单个 $1$ 元），逐分量读出便得到矩阵元之间的**大正交关系**；把对角元求和（取迹）将其坍缩为上述特征标陈述。不等价情形给出 $0$；相等情形给出 $\frac{1}{|G|}\sum_g|\chi(g)|^2 = 1$。$\blacksquare$
 
 两个推论使特征标成为一套完整的记账工具：
@@ -299,7 +299,7 @@ $$
 
 **算例 — $S_3$ 的特征标表。** 由 s5，$S_3$ 有 $3$ 个共轭类：$\{e\}$（大小 $1$）、对换 $\{(1\,2),(1\,3),(2\,3)\}$（大小 $3$）、3-轮换 $\{(1\,2\,3),(1\,3\,2)\}$（大小 $2$）。故恰有 $3$ 个不可约表示。它们的维数满足 $d_1^2+d_2^2+d_3^2=6$；唯一的正整数解是 $1+1+4$，即维数 $1,1,2$。
 - **平凡**表示：对所有 $g$ 有 $\chi(g)=1$。
-- **符号**表示：$\chi(g)=\operatorname{sgn}(g)$，在 $e$ 上为 $+1$，在对换上为 $-1$，在 3-轮换上为 $+1$。
+- **符号**表示：$\chi(g)=\mathrm{sgn}(g)$，在 $e$ 上为 $+1$，在对换上为 $-1$，在 3-轮换上为 $+1$。
 - **2 维标准**表示 $\rho_{\text{std}}$：把 $S_3$ 实现为等边三角形作用在平面上的对称性。则 $\rho(e)=I$ 的迹为 $2$；一个反射（对换）的迹为 $0$（其特征值为 $+1,-1$）；一个 $120^\circ$ 旋转（3-轮换）的迹为 $2\cos120^\circ=-1$。
 
 把表组装起来（各列以类代表元为表头，类大小标在上方）：
@@ -363,8 +363,8 @@ $$
 > **定理 — 该代数对对易子封闭。** 若 $X,Y\in\mathfrak g$ 则**对易子** $[X,Y]=XY-YX$ 也在 $\mathfrak g$ 中。因此 $\mathfrak g$ 是对括号 $[\,,]$ 封闭的实矢量空间；这就是被称为**李代数**的抽象结构。
 
 **定义条件的推导算例。** 关于 $X$ 的条件来自在 $t=0$ 对群的定义方程求导。
-1. *（正交群／$SO(n)$。）* 条件是 $A^{\mathsf T}A=I$。令 $A=e^{tX}$，注意 $(e^{tX})^{\mathsf T}=e^{tX^{\mathsf T}}$，故 $e^{tX^{\mathsf T}}e^{tX}=I$。利用 $\frac{d}{dt}e^{tX}\big|_0=X$ 和乘积法则在 $t=0$ 求导：$X^{\mathsf T}+X=0$。故 $\mathfrak{so}(n)$ 是**反对称**矩阵（$X^{\mathsf T}=-X$）。$\det=1$ 的条件在无穷小层面不增添任何东西，因为 $\det e^{tX}=e^{t\operatorname{tr}X}$ 而反对称矩阵的迹已为零。
-2. *（酉群／$SU(n)$。）* 条件 $U^\dagger U=I$，取 $U=e^{tX}$ 及 $(e^{tX})^\dagger=e^{tX^\dagger}$，求导得 $X^\dagger+X=0$：$\mathfrak{u}(n)$ 是**反厄米**矩阵。额外的 $\det=1$ 由 $\det e^{tX}=e^{t\operatorname{tr}X}=1$ 给出**无迹**条件 $\operatorname{tr}X=0$。故 $\mathfrak{su}(n)$ = 无迹反厄米矩阵。
+1. *（正交群／$SO(n)$。）* 条件是 $A^{\mathsf T}A=I$。令 $A=e^{tX}$，注意 $(e^{tX})^{\mathsf T}=e^{tX^{\mathsf T}}$，故 $e^{tX^{\mathsf T}}e^{tX}=I$。利用 $\frac{d}{dt}e^{tX}\big|_0=X$ 和乘积法则在 $t=0$ 求导：$X^{\mathsf T}+X=0$。故 $\mathfrak{so}(n)$ 是**反对称**矩阵（$X^{\mathsf T}=-X$）。$\det=1$ 的条件在无穷小层面不增添任何东西，因为 $\det e^{tX}=e^{t\mathrm{tr}X}$ 而反对称矩阵的迹已为零。
+2. *（酉群／$SU(n)$。）* 条件 $U^\dagger U=I$，取 $U=e^{tX}$ 及 $(e^{tX})^\dagger=e^{tX^\dagger}$，求导得 $X^\dagger+X=0$：$\mathfrak{u}(n)$ 是**反厄米**矩阵。额外的 $\det=1$ 由 $\det e^{tX}=e^{t\mathrm{tr}X}=1$ 给出**无迹**条件 $\mathrm{tr}X=0$。故 $\mathfrak{su}(n)$ = 无迹反厄米矩阵。
 
 **$[X,Y]\in\mathfrak g$ 的证明。** 考虑 $G$ 中的光滑曲线 $\gamma(t)=e^{\sqrt t\,X}e^{\sqrt t\,Y}e^{-\sqrt t\,X}e^{-\sqrt t\,Y}$（群元之积，故在 $G$ 中）。把每个指数展开到 $\sqrt t$ 的二阶并乘开，零阶和一阶项相消，便得 $\gamma(t)=I+t[X,Y]+O(t^{3/2})$。于是 $\frac{d}{dt}\gamma(t)\big|_{t=0^+}=[X,Y]$ 是 $G$ 在单位元处的一个切矢量，即位于 $\mathfrak g$ 中。$\blacksquare$
 
@@ -414,7 +414,7 @@ $$
 4. *（用下降算符构造其余。）* 反复作用 $J_-$ 得到 $m=j,j-1,j-2,\dots$ 的态。范数计算 $\|J_-|j,m\rangle\|^2 = \langle j,m|J_+J_-|j,m\rangle = j(j+1)-m(m-1)$（用到 $J_+J_-=J^2-J_3^2+J_3$）恰好给出所引的系数，且它必须保持 $\ge0$。
 5. *（终止使 $j$ 量子化。）* 阶梯必须停在某个底档 $m=-j'$，那里 $J_-|j,-j'\rangle=0$ 迫使（由类似的底部计算）$j'=j$。从 $+j$ 一直下降到 $-j$ 的步数必为非负整数，故 $2j\in\{0,1,2,\dots\}$，即 $j\in\{0,\tfrac12,1,\tfrac32,\dots\}$。维数是档数 $2j+1$。$\blacksquare$
 
-**算例 — 自旋 $\tfrac12$。** 此处 $j=\tfrac12$，维数 $2$，态为 $|{\uparrow}\rangle=|\tfrac12,\tfrac12\rangle$ 和 $|{\downarrow}\rangle=|\tfrac12,-\tfrac12\rangle$。则 $J_3=\tfrac12\operatorname{diag}(1,-1)$，$J_+|{\downarrow}\rangle=\sqrt{\tfrac12\cdot\tfrac32-(-\tfrac12)(\tfrac12)}\,|{\uparrow}\rangle=|{\uparrow}\rangle$，恰好恢复 $J_a=\tfrac12\sigma_a$。这是电子的自旋。下一情形 $j=1$（维数 $3$）是自旋-1／矢量表示，由 $SO(3)$ 下普通的 $3$-矢量实现。
+**算例 — 自旋 $\tfrac12$。** 此处 $j=\tfrac12$，维数 $2$，态为 $|{\uparrow}\rangle=|\tfrac12,\tfrac12\rangle$ 和 $|{\downarrow}\rangle=|\tfrac12,-\tfrac12\rangle$。则 $J_3=\tfrac12\mathrm{diag}(1,-1)$，$J_+|{\downarrow}\rangle=\sqrt{\tfrac12\cdot\tfrac32-(-\tfrac12)(\tfrac12)}\,|{\uparrow}\rangle=|{\uparrow}\rangle$，恰好恢复 $J_a=\tfrac12\sigma_a$。这是电子的自旋。下一情形 $j=1$（维数 $3$）是自旋-1／矢量表示，由 $SO(3)$ 下普通的 $3$-矢量实现。
 
 <a id="s12"></a>
 ### $SU(3)$、根与权，以及夸克模型

@@ -45,21 +45,21 @@
 > *例：* 一个 $\mathbb{Z}$-模*恰好*是一个阿贝尔群（用 $n$ 做数乘就是“把 $m$ 自身相加 $n$ 次”）；域 $k$ 上的一个模*恰好*是 $k$ 上的一个向量空间。所以“模”是两者共同的母概念。
 
 > **定义 —— 模同态（= $R$-线性映射）。**
-> $R$-模之间的映射 $f:M\to N$ 若同时保持两种运算，则称为**同态**：$f(m+m')=f(m)+f(m')$ 且 $f(rm)=rf(m)$。它的**核**是 $\ker f=\{m:f(m)=0\}$，**像**是 $\operatorname{im}f=\{f(m):m\in M\}$；二者都是子模。$f$ 是**单射**（一对一）当且仅当 $\ker f=0$，是**满射**（映上）当且仅当 $\operatorname{im}f=N$。双射同态是**同构**，记作 $\cong$。
+> $R$-模之间的映射 $f:M\to N$ 若同时保持两种运算，则称为**同态**：$f(m+m')=f(m)+f(m')$ 且 $f(rm)=rf(m)$。它的**核**是 $\ker f=\{m:f(m)=0\}$，**像**是 $\mathrm{im}f=\{f(m):m\in M\}$；二者都是子模。$f$ 是**单射**（一对一）当且仅当 $\ker f=0$，是**满射**（映上）当且仅当 $\mathrm{im}f=N$。双射同态是**同构**，记作 $\cong$。
 
 > **定义 —— 商模。**
-> 若 $K\subseteq M$ 是子模，则**商** $M/K$ 的元素是陪集 $m+K=\{m+k:k\in K\}$，运算为 $(m+K)+(m'+K)=(m+m')+K$ 与 $r(m+K)=rm+K$。映射 $\pi:M\to M/K$，$\pi(m)=m+K$，是核为 $K$ 的满同态。*（下面要用到的第一同构定理：任意同态 $f:M\to N$ 诱导 $M/\ker f\cong \operatorname{im} f$。）*
+> 若 $K\subseteq M$ 是子模，则**商** $M/K$ 的元素是陪集 $m+K=\{m+k:k\in K\}$，运算为 $(m+K)+(m'+K)=(m+m')+K$ 与 $r(m+K)=rm+K$。映射 $\pi:M\to M/K$，$\pi(m)=m+K$，是核为 $K$ 的满同态。*（下面要用到的第一同构定理：任意同态 $f:M\to N$ 诱导 $M/\ker f\cong \mathrm{im} f$。）*
 
 > **定义 —— 正合列。**
-> $R$-模与同态构成的序列 $\cdots\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to\cdots$ 在 $B$ 处**正合**，若 $\operatorname{im}f=\ker g$。若它在每个内部模处都正合，则称它**正合**。**短正合列（SES）**是形如
+> $R$-模与同态构成的序列 $\cdots\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to\cdots$ 在 $B$ 处**正合**，若 $\mathrm{im}f=\ker g$。若它在每个内部模处都正合，则称它**正合**。**短正合列（SES）**是形如
 > $$
 > 0\to A\xrightarrow{\,f\,}B\xrightarrow{\,g\,}C\to 0
 > $$
-> 的正合列，它可展开为：$f$ 是单射（在 $A$ 处正合：$\operatorname{im}(0\to A)=0=\ker f$），$g$ 是满射（在 $C$ 处正合：$\operatorname{im}g=\ker(C\to0)=C$），且 $\operatorname{im}f=\ker g$，故由第一同构定理 $C\cong B/\operatorname{im}f$。
+> 的正合列，它可展开为：$f$ 是单射（在 $A$ 处正合：$\mathrm{im}(0\to A)=0=\ker f$），$g$ 是满射（在 $C$ 处正合：$\mathrm{im}g=\ker(C\to0)=C$），且 $\mathrm{im}f=\ker g$，故由第一同构定理 $C\cong B/\mathrm{im}f$。
 
 *已解例。* $0\to \mathbb{Z}\xrightarrow{\,\times 2\,}\mathbb{Z}\xrightarrow{\bmod 2}\mathbb{Z}/2\to 0$ 是 $\mathbb{Z}$-模的短正合列：乘以 $2$ 是单射，模 $2$ 约化是满射，而“$\times 2$”的像是偶整数，恰是“模 $2$”的核。我们将反复使用这条正合列。
 
-*第二个已解例（手工核验正合性）。* 考虑 $\mathbb{Z}\xrightarrow{\,f\,}\mathbb{Z}\xrightarrow{\,g\,}\mathbb{Z}/6$，其中 $f=\times3$ 而 $g=\bmod 6$。它在中间的 $\mathbb{Z}$ 处正合吗？计算 $\operatorname{im}f=3\mathbb{Z}=\{\dots,-3,0,3,6,\dots\}$ 与 $\ker g=6\mathbb{Z}$。由于 $3\mathbb{Z}\neq6\mathbb{Z}$（例如 $3\in\operatorname{im}f$ 但 $g(3)=3\neq0$，故 $3\notin\ker g$），该序列在中间处**不**正合。把 $f$ 换成 $\times6$：现在 $\operatorname{im}f=6\mathbb{Z}=\ker g$，于是它正合。这正是后面每个证明都归结到的那种显式的“核对像”记账。
+*第二个已解例（手工核验正合性）。* 考虑 $\mathbb{Z}\xrightarrow{\,f\,}\mathbb{Z}\xrightarrow{\,g\,}\mathbb{Z}/6$，其中 $f=\times3$ 而 $g=\bmod 6$。它在中间的 $\mathbb{Z}$ 处正合吗？计算 $\mathrm{im}f=3\mathbb{Z}=\{\dots,-3,0,3,6,\dots\}$ 与 $\ker g=6\mathbb{Z}$。由于 $3\mathbb{Z}\neq6\mathbb{Z}$（例如 $3\in\mathrm{im}f$ 但 $g(3)=3\neq0$，故 $3\notin\ker g$），该序列在中间处**不**正合。把 $f$ 换成 $\times6$：现在 $\mathrm{im}f=6\mathbb{Z}=\ker g$，于是它正合。这正是后面每个证明都归结到的那种显式的“核对像”记账。
 
 #### 图追踪
 
@@ -75,20 +75,20 @@
 > $$
 > 则存在一条正合列
 > $$
-> \ker a\to\ker b\to\ker c\xrightarrow{\;\partial\;}\operatorname{coker}a\to\operatorname{coker}b\to\operatorname{coker}c,
+> \ker a\to\ker b\to\ker c\xrightarrow{\;\partial\;}\mathrm{coker}a\to\mathrm{coker}b\to\mathrm{coker}c,
 > $$
-> 其中 $\operatorname{coker}a=A'/\operatorname{im}a$ 是**余核**，而 $\partial$ 是**连接同态**。若 $f$ 是单射，则该序列左端可补上 $0\to\ker a$；若 $g'$ 是满射，则右端可补上 $\operatorname{coker}c\to 0$。
+> 其中 $\mathrm{coker}a=A'/\mathrm{im}a$ 是**余核**，而 $\partial$ 是**连接同态**。若 $f$ 是单射，则该序列左端可补上 $0\to\ker a$；若 $g'$ 是满射，则右端可补上 $\mathrm{coker}c\to 0$。
 
 **证明（完整图追踪）。**
 
 1. *核上的诱导映射。* 若 $x\in\ker a\subseteq A$，则由左方形交换性 $b(f(x))=f'(a(x))=f'(0)=0$，故 $f$ 限制为 $\ker a\to\ker b$。同理 $g$ 限制为 $\ker b\to\ker c$。*（方形的交换性）*
-2. *余核上的诱导映射。* 若 $y\in A'$，则 $f'$ 把 $\operatorname{im}a$ 送入 $\operatorname{im}b$（因为 $f'(a(x))=b(f(x))\in\operatorname{im}b$），故 $f'$ 下降为 $\bar f':\operatorname{coker}a\to\operatorname{coker}b$，$\bar f'(y+\operatorname{im}a)=f'(y)+\operatorname{im}b$。同理 $g'$ 下降为 $\bar g'$。*（再次用交换性，加上商的泛性质）*
-3. *定义连接映射 $\partial:\ker c\to\operatorname{coker}a$。* 取 $z\in\ker c\subseteq C$。由于 $g$ 是满射（顶行在 $C$ 处正合），选 $b_0\in B$ 使 $g(b_0)=z$。则 $g'(b(b_0))=c(g(b_0))=c(z)=0$，故 $b(b_0)\in\ker g'=\operatorname{im}f'$（底行在 $B'$ 处正合）。选唯一的 $a_0\in A'$ 使 $f'(a_0)=b(b_0)$（唯一是因为 $f'$ 是单射）。令 $\partial(z)=a_0+\operatorname{im}a\in\operatorname{coker}a$。*（$g$ 的满射性；交换性；在 $B'$ 处正合；$f'$ 的单射性）*
-4. *$\partial$ 是良定义的。* 设 $b_1$ 是另一个提升，$g(b_1)=z$。则 $g(b_0-b_1)=0$，故对某 $w\in A$ 有 $b_0-b_1=f(w)$（在 $B$ 处正合）。于是 $b(b_0)-b(b_1)=b(f(w))=f'(a(w))$。因此对应的 $a_0$ 值相差 $a(w)\in\operatorname{im}a$，故它们在 $\operatorname{coker}a$ 中一致。$a_0$ 的选取无关性是自动的，因为 $f'$ 是单射。从而 $\partial$ 是良定义的同态（把所有选取都做成可加的即得线性性）。*（在 $B$ 处正合；交换性；coker 的定义）*
-5. *在 $\ker b$ 处正合。* 若 $x\in\ker a$，则 $g(f(x))=0$（顶行在 $B$ 处正合），故 $\operatorname{im}(\ker a\to\ker b)\subseteq\ker(\ker b\to\ker c)$。反之若 $u\in\ker b$ 且 $g(u)=0$，则对某 $x\in A$ 有 $u=f(x)$（在 $B$ 处正合）；且 $f'(a(x))=b(f(x))=b(u)=0$，故 $a(x)=0$（$f'$ 单射），即 $x\in\ker a$。于是 $u$ 落在像中。*（在 $B$ 处正合；$f'$ 的单射性）*
-6. *在 $\ker c$ 处正合。* 若 $u\in\ker b$，追踪 $\partial(g(u))$：$g(u)$ 的一个提升就是 $u$ 本身，$b(u)=0=f'(0)$，故 $\partial(g(u))=0$。反之若 $z\in\ker c$ 满足 $\partial(z)=0$，则在构造中 $a_0\in\operatorname{im}a$，设 $a_0=a(w)$；则 $b(b_0)=f'(a_0)=f'(a(w))=b(f(w))$，故 $b_0-f(w)\in\ker b$ 且 $g(b_0-f(w))=g(b_0)=z$，从而把 $z$ 展示为 $\ker b\to\ker c$ 像中的元素。*（定义；交换性；在 $B$ 处正合）*
-7. *在 $\operatorname{coker}a$ 处正合。* 对满足 $\partial(z)=a_0+\operatorname{im}a$ 的 $z\in\ker c$，有 $\bar f'(\partial(z))=f'(a_0)+\operatorname{im}b=b(b_0)+\operatorname{im}b=0$，故 $\bar f'\circ\partial=0$。反之若 $a_0+\operatorname{im}a\in\ker\bar f'$，则对某 $b_0\in B$ 有 $f'(a_0)=b(b_0)$；令 $z=g(b_0)$，则 $c(z)=c(g(b_0))=g'(b(b_0))=g'(f'(a_0))=0$（底行在 $B'$ 处正合），故 $z\in\ker c$ 且由构造 $\partial(z)=a_0+\operatorname{im}a$。*（交换性；在 $B'$ 处正合）*
-8. *在 $\operatorname{coker}b$ 处正合。* 第 5 步的镜像，对偶到余核上：由 $g'f'=0$ 得 $\bar g'\circ\bar f'=0$，而被 $\bar g'$ 零化的类，凭借 $g$ 的满射性与底行的正合性，来自 $\operatorname{coker}a$。这一论证是第 5 步的形式对偶（反转所有箭头并把核换成余核）。*（在 $B'$ 处与在 $C$ 处正合）* $\;\blacksquare$
+2. *余核上的诱导映射。* 若 $y\in A'$，则 $f'$ 把 $\mathrm{im}a$ 送入 $\mathrm{im}b$（因为 $f'(a(x))=b(f(x))\in\mathrm{im}b$），故 $f'$ 下降为 $\bar f':\mathrm{coker}a\to\mathrm{coker}b$，$\bar f'(y+\mathrm{im}a)=f'(y)+\mathrm{im}b$。同理 $g'$ 下降为 $\bar g'$。*（再次用交换性，加上商的泛性质）*
+3. *定义连接映射 $\partial:\ker c\to\mathrm{coker}a$。* 取 $z\in\ker c\subseteq C$。由于 $g$ 是满射（顶行在 $C$ 处正合），选 $b_0\in B$ 使 $g(b_0)=z$。则 $g'(b(b_0))=c(g(b_0))=c(z)=0$，故 $b(b_0)\in\ker g'=\mathrm{im}f'$（底行在 $B'$ 处正合）。选唯一的 $a_0\in A'$ 使 $f'(a_0)=b(b_0)$（唯一是因为 $f'$ 是单射）。令 $\partial(z)=a_0+\mathrm{im}a\in\mathrm{coker}a$。*（$g$ 的满射性；交换性；在 $B'$ 处正合；$f'$ 的单射性）*
+4. *$\partial$ 是良定义的。* 设 $b_1$ 是另一个提升，$g(b_1)=z$。则 $g(b_0-b_1)=0$，故对某 $w\in A$ 有 $b_0-b_1=f(w)$（在 $B$ 处正合）。于是 $b(b_0)-b(b_1)=b(f(w))=f'(a(w))$。因此对应的 $a_0$ 值相差 $a(w)\in\mathrm{im}a$，故它们在 $\mathrm{coker}a$ 中一致。$a_0$ 的选取无关性是自动的，因为 $f'$ 是单射。从而 $\partial$ 是良定义的同态（把所有选取都做成可加的即得线性性）。*（在 $B$ 处正合；交换性；coker 的定义）*
+5. *在 $\ker b$ 处正合。* 若 $x\in\ker a$，则 $g(f(x))=0$（顶行在 $B$ 处正合），故 $\mathrm{im}(\ker a\to\ker b)\subseteq\ker(\ker b\to\ker c)$。反之若 $u\in\ker b$ 且 $g(u)=0$，则对某 $x\in A$ 有 $u=f(x)$（在 $B$ 处正合）；且 $f'(a(x))=b(f(x))=b(u)=0$，故 $a(x)=0$（$f'$ 单射），即 $x\in\ker a$。于是 $u$ 落在像中。*（在 $B$ 处正合；$f'$ 的单射性）*
+6. *在 $\ker c$ 处正合。* 若 $u\in\ker b$，追踪 $\partial(g(u))$：$g(u)$ 的一个提升就是 $u$ 本身，$b(u)=0=f'(0)$，故 $\partial(g(u))=0$。反之若 $z\in\ker c$ 满足 $\partial(z)=0$，则在构造中 $a_0\in\mathrm{im}a$，设 $a_0=a(w)$；则 $b(b_0)=f'(a_0)=f'(a(w))=b(f(w))$，故 $b_0-f(w)\in\ker b$ 且 $g(b_0-f(w))=g(b_0)=z$，从而把 $z$ 展示为 $\ker b\to\ker c$ 像中的元素。*（定义；交换性；在 $B$ 处正合）*
+7. *在 $\mathrm{coker}a$ 处正合。* 对满足 $\partial(z)=a_0+\mathrm{im}a$ 的 $z\in\ker c$，有 $\bar f'(\partial(z))=f'(a_0)+\mathrm{im}b=b(b_0)+\mathrm{im}b=0$，故 $\bar f'\circ\partial=0$。反之若 $a_0+\mathrm{im}a\in\ker\bar f'$，则对某 $b_0\in B$ 有 $f'(a_0)=b(b_0)$；令 $z=g(b_0)$，则 $c(z)=c(g(b_0))=g'(b(b_0))=g'(f'(a_0))=0$（底行在 $B'$ 处正合），故 $z\in\ker c$ 且由构造 $\partial(z)=a_0+\mathrm{im}a$。*（交换性；在 $B'$ 处正合）*
+8. *在 $\mathrm{coker}b$ 处正合。* 第 5 步的镜像，对偶到余核上：由 $g'f'=0$ 得 $\bar g'\circ\bar f'=0$，而被 $\bar g'$ 零化的类，凭借 $g$ 的满射性与底行的正合性，来自 $\mathrm{coker}a$。这一论证是第 5 步的形式对偶（反转所有箭头并把核换成余核）。*（在 $B'$ 处与在 $C$ 处正合）* $\;\blacksquare$
 
 > **五引理。** 在一个行正合的交换图
 > $$
@@ -102,14 +102,14 @@
 
 **证明。** 把水平映射记作 $\alpha_i:A_i\to A_{i+1}$ 与 $\beta_i:B_i\to B_{i+1}$。
 
-1. *（$f_3$ 单射。）* 设 $x\in\ker f_3$。则 $f_4(\alpha_3(x))=\beta_3(f_3(x))=0$，而 $f_4$ 单射给出 $\alpha_3(x)=0$，故 $x\in\ker\alpha_3=\operatorname{im}\alpha_2$（顶行在 $A_3$ 处正合）；写 $x=\alpha_2(w)$。则 $\beta_2(f_2(w))=f_3(\alpha_2(w))=f_3(x)=0$，故 $f_2(w)\in\ker\beta_2=\operatorname{im}\beta_1$；写 $f_2(w)=\beta_1(v)$。由于 $f_1$ 是满射，$v=f_1(u)$；则 $\beta_1(f_1(u))=f_2(\alpha_1(u))$，故 $f_2(w)=f_2(\alpha_1(u))$，而 $f_2$ 单射给出 $w=\alpha_1(u)$。从而 $x=\alpha_2(w)=\alpha_2(\alpha_1(u))=0$（顶行在 $A_2$ 处正合）。故 $\ker f_3=0$。*（$f_4,f_2$ 的单射性；正合性；$f_1$ 的满射性）*
-2. *（$f_3$ 满射。）* 设 $y\in B_3$。则 $\beta_3(y)\in B_4$；由于 $f_4$ 是满射，对某 $t\in A_4$ 有 $\beta_3(y)=f_4(t)$。现 $f_5(\alpha_4(t))=\beta_4(f_4(t))=\beta_4(\beta_3(y))=0$（底行在 $B_4$ 处正合），而 $f_5$ 单射给出 $\alpha_4(t)=0$，故 $t\in\ker\alpha_4=\operatorname{im}\alpha_3$；写 $t=\alpha_3(s)$。考虑 $y-f_3(s)$：$\beta_3(y-f_3(s))=f_4(t)-\beta_3(f_3(s))=f_4(t)-f_4(\alpha_3(s))=f_4(t)-f_4(t)=0$，故 $y-f_3(s)\in\ker\beta_3=\operatorname{im}\beta_2$；写 $y-f_3(s)=\beta_2(p)$。由于 $f_2$ 是满射，$p=f_2(q)$，且 $\beta_2(f_2(q))=f_3(\alpha_2(q))$，故 $y-f_3(s)=f_3(\alpha_2(q))$，给出 $y=f_3(s+\alpha_2(q))\in\operatorname{im}f_3$。*（$f_4,f_5,f_2$ 的满射性/单射性；正合性）* $\;\blacksquare$
+1. *（$f_3$ 单射。）* 设 $x\in\ker f_3$。则 $f_4(\alpha_3(x))=\beta_3(f_3(x))=0$，而 $f_4$ 单射给出 $\alpha_3(x)=0$，故 $x\in\ker\alpha_3=\mathrm{im}\alpha_2$（顶行在 $A_3$ 处正合）；写 $x=\alpha_2(w)$。则 $\beta_2(f_2(w))=f_3(\alpha_2(w))=f_3(x)=0$，故 $f_2(w)\in\ker\beta_2=\mathrm{im}\beta_1$；写 $f_2(w)=\beta_1(v)$。由于 $f_1$ 是满射，$v=f_1(u)$；则 $\beta_1(f_1(u))=f_2(\alpha_1(u))$，故 $f_2(w)=f_2(\alpha_1(u))$，而 $f_2$ 单射给出 $w=\alpha_1(u)$。从而 $x=\alpha_2(w)=\alpha_2(\alpha_1(u))=0$（顶行在 $A_2$ 处正合）。故 $\ker f_3=0$。*（$f_4,f_2$ 的单射性；正合性；$f_1$ 的满射性）*
+2. *（$f_3$ 满射。）* 设 $y\in B_3$。则 $\beta_3(y)\in B_4$；由于 $f_4$ 是满射，对某 $t\in A_4$ 有 $\beta_3(y)=f_4(t)$。现 $f_5(\alpha_4(t))=\beta_4(f_4(t))=\beta_4(\beta_3(y))=0$（底行在 $B_4$ 处正合），而 $f_5$ 单射给出 $\alpha_4(t)=0$，故 $t\in\ker\alpha_4=\mathrm{im}\alpha_3$；写 $t=\alpha_3(s)$。考虑 $y-f_3(s)$：$\beta_3(y-f_3(s))=f_4(t)-\beta_3(f_3(s))=f_4(t)-f_4(\alpha_3(s))=f_4(t)-f_4(t)=0$，故 $y-f_3(s)\in\ker\beta_3=\mathrm{im}\beta_2$；写 $y-f_3(s)=\beta_2(p)$。由于 $f_2$ 是满射，$p=f_2(q)$，且 $\beta_2(f_2(q))=f_3(\alpha_2(q))$，故 $y-f_3(s)=f_3(\alpha_2(q))$，给出 $y=f_3(s+\alpha_2(q))\in\mathrm{im}f_3$。*（$f_4,f_5,f_2$ 的满射性/单射性；正合性）* $\;\blacksquare$
 
-> **已解例 —— 蛇引理给出对 $0\to\mathbb{Z}/2\to\mathbb{Z}/4\to\mathbb{Z}/2\to0$ 的分析。** 把蛇引理应用于这样的图：行为 $0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to\mathbb{Z}/2\to0$（顶行）与同一行（底行），竖直映射在两个 $\mathbb{Z}$ 上为 $a=b=\times2$，而 $c$ 是 $\mathbb{Z}/2$ 上的诱导映射（它是 $0$，因为 $2\equiv0$）。则 $\ker a=\ker b=0$，$\ker c=\mathbb{Z}/2$，$\operatorname{coker}a=\operatorname{coker}b=\mathbb{Z}/2$，$\operatorname{coker}c=\mathbb{Z}/2$。蛇序列读作
+> **已解例 —— 蛇引理给出对 $0\to\mathbb{Z}/2\to\mathbb{Z}/4\to\mathbb{Z}/2\to0$ 的分析。** 把蛇引理应用于这样的图：行为 $0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to\mathbb{Z}/2\to0$（顶行）与同一行（底行），竖直映射在两个 $\mathbb{Z}$ 上为 $a=b=\times2$，而 $c$ 是 $\mathbb{Z}/2$ 上的诱导映射（它是 $0$，因为 $2\equiv0$）。则 $\ker a=\ker b=0$，$\ker c=\mathbb{Z}/2$，$\mathrm{coker}a=\mathrm{coker}b=\mathbb{Z}/2$，$\mathrm{coker}c=\mathbb{Z}/2$。蛇序列读作
 > $$
 > 0\to0\to\mathbb{Z}/2\xrightarrow{\partial}\mathbb{Z}/2\to\mathbb{Z}/2\to\mathbb{Z}/2\to0,
 > $$
-> 正合性迫使 $\partial$ 为单射。按第 3 步追踪 $\partial$ 的构造：把 $\ker c=\mathbb{Z}/2$ 的生成元提升到 $1\in\mathbb{Z}$（顶行），施以 $b=\times2$ 得 $2\in\mathbb{Z}$（底行），沿 $f'=\times2$ 拉回得 $1\in\mathbb{Z}$，投影到 $1\in\operatorname{coker}a=\mathbb{Z}/2$——于是 $\partial$ 把生成元送到生成元，是一个同构。这个连接映射正是检测 $\mathbb{Z}/4$ 与 $\mathbb{Z}/2\oplus\mathbb{Z}/2$ 之差异的 Bockstein 同态。
+> 正合性迫使 $\partial$ 为单射。按第 3 步追踪 $\partial$ 的构造：把 $\ker c=\mathbb{Z}/2$ 的生成元提升到 $1\in\mathbb{Z}$（顶行），施以 $b=\times2$ 得 $2\in\mathbb{Z}$（底行），沿 $f'=\times2$ 拉回得 $1\in\mathbb{Z}$，投影到 $1\in\mathrm{coker}a=\mathbb{Z}/2$——于是 $\partial$ 把生成元送到生成元，是一个同构。这个连接映射正是检测 $\mathbb{Z}/4$ 与 $\mathbb{Z}/2\oplus\mathbb{Z}/2$ 之差异的 Bockstein 同态。
 
 **陷阱。** 图追踪使用*元素*，这对模是合法的，但对任意抽象情形并非如此；§s6 解释这些引理如何凭借更细致的论证在任意阿贝尔范畴中存活。此外，蛇引理的连接映射 $\partial$ 是典范的，*尽管*第 3 步中做了选择——良定义性的核验并非走过场，它正是该引理的核心。
 
@@ -119,16 +119,16 @@
 **是什么与为什么。** 单条正合列没有“洞”。同调的要点在于研究*未能*正合的序列并度量这一失败。承载这一思想的载体就是链复形。
 
 > **定义 —— 链复形。**
-> $R$-模的一个**链复形** $C_\bullet$ 是一族 $(C_n)_{n\in\mathbb{Z}}$ 连同**边界映射** $\partial_n:C_n\to C_{n-1}$，对一切 $n$ 满足 $\partial_{n-1}\circ\partial_n=0$。条件 $\partial\partial=0$ 即 $\operatorname{im}\partial_{n+1}\subseteq\ker\partial_n$。$\ker\partial_n$ 中的元素是**闭链** $Z_n$；$\operatorname{im}\partial_{n+1}$ 中的元素是**边缘链** $B_n$。
+> $R$-模的一个**链复形** $C_\bullet$ 是一族 $(C_n)_{n\in\mathbb{Z}}$ 连同**边界映射** $\partial_n:C_n\to C_{n-1}$，对一切 $n$ 满足 $\partial_{n-1}\circ\partial_n=0$。条件 $\partial\partial=0$ 即 $\mathrm{im}\partial_{n+1}\subseteq\ker\partial_n$。$\ker\partial_n$ 中的元素是**闭链** $Z_n$；$\mathrm{im}\partial_{n+1}$ 中的元素是**边缘链** $B_n$。
 
 > **定义 —— 同调。**
 > **第 $n$ 阶同调**是商模
 > $$
-> H_n(C_\bullet)=\ker\partial_n/\operatorname{im}\partial_{n+1}=Z_n/B_n.
+> H_n(C_\bullet)=\ker\partial_n/\mathrm{im}\partial_{n+1}=Z_n/B_n.
 > $$
-> 它度量“不是边缘链的闭链”。该复形在 $C_n$ 处正合当且仅当 $H_n=0$；于是**同调是非正合性的精确度量。** **上链复形**是把箭头升起的同物，$d^n:C^n\to C^{n+1}$，$d^{n+1}d^n=0$；其**上同调**是 $H^n=\ker d^n/\operatorname{im}d^{n-1}$。
+> 它度量“不是边缘链的闭链”。该复形在 $C_n$ 处正合当且仅当 $H_n=0$；于是**同调是非正合性的精确度量。** **上链复形**是把箭头升起的同物，$d^n:C^n\to C^{n+1}$，$d^{n+1}d^n=0$；其**上同调**是 $H^n=\ker d^n/\mathrm{im}d^{n-1}$。
 
-*已解例。* 设 $C_1=\mathbb{Z}\xrightarrow{\times 2}C_0=\mathbb{Z}$，其余 $C_n=0$。则 $\partial_1=\times2$，$\partial_0=0$。度数 $0$ 处的闭链：整个 $\mathbb{Z}$（因 $\partial_0=0$）。度数 $0$ 处的边缘链：$\operatorname{im}(\times2)=2\mathbb{Z}$。故 $H_0=\mathbb{Z}/2\mathbb{Z}$。度数 $1$ 处：闭链 $=\ker(\times2)=0$，故 $H_1=0$。该复形“看见”了挠 $\mathbb{Z}/2$。
+*已解例。* 设 $C_1=\mathbb{Z}\xrightarrow{\times 2}C_0=\mathbb{Z}$，其余 $C_n=0$。则 $\partial_1=\times2$，$\partial_0=0$。度数 $0$ 处的闭链：整个 $\mathbb{Z}$（因 $\partial_0=0$）。度数 $0$ 处的边缘链：$\mathrm{im}(\times2)=2\mathbb{Z}$。故 $H_0=\mathbb{Z}/2\mathbb{Z}$。度数 $1$ 处：闭链 $=\ker(\times2)=0$，故 $H_1=0$。该复形“看见”了挠 $\mathbb{Z}/2$。
 
 > **定义 —— 链映射。**
 > 一个**链映射** $f_\bullet:C_\bullet\to D_\bullet$ 是一族 $f_n:C_n\to D_n$，与边界映射交换：$\partial^D_n f_n=f_{n-1}\partial^C_n$。链映射把闭链送到闭链、边缘链送到边缘链，因此在同调上诱导 $f_*:H_n(C)\to H_n(D)$。
@@ -157,7 +157,7 @@
 > \cdots\to H_n(A)\xrightarrow{f_*}H_n(B)\xrightarrow{g_*}H_n(C)\xrightarrow{\partial_*}H_{n-1}(A)\to\cdots
 > $$
 
-**证明。** 把蛇引理（§s1）应用于这样的交换图：其两行是相邻度数上复形 SES 的 $\partial$-映射；蛇引理的连接映射*正是* $\partial_*$，而把所得六项正合列在所有 $n$ 上拼接即产生长正合列。具体地：每个度数上 $0\to A_n\to B_n\to C_n\to 0$ 正合，$\partial$ 与 $f,g$ 交换，蛇引理给出在每个 $H_n$ 处的正合性连同 $\partial_*$；核验相继的六项片段能够拼接，即是把蛇的 $\ker\to\operatorname{coker}$ 映射跨度数对接起来。$\;\blacksquare$
+**证明。** 把蛇引理（§s1）应用于这样的交换图：其两行是相邻度数上复形 SES 的 $\partial$-映射；蛇引理的连接映射*正是* $\partial_*$，而把所得六项正合列在所有 $n$ 上拼接即产生长正合列。具体地：每个度数上 $0\to A_n\to B_n\to C_n\to 0$ 正合，$\partial$ 与 $f,g$ 交换，蛇引理给出在每个 $H_n$ 处的正合性连同 $\partial_*$；核验相继的六项片段能够拼接，即是把蛇的 $\ker\to\mathrm{coker}$ 映射跨度数对接起来。$\;\blacksquare$
 
 > **已解例 —— 长正合列的实际运用（偶对 $(D^2,S^1)$）。** 在代数拓扑中，圆盘 $D^2$ 具有一点的同调（$H_0=\mathbb{Z}$，所有更高阶为 $0$），而圆 $S^1$ 具有 $H_0=H_1=\mathbb{Z}$。相对链拼成复形的 SES $0\to C_\bullet(S^1)\to C_\bullet(D^2)\to C_\bullet(D^2,S^1)\to0$，给出长正合列
 > $$
@@ -198,8 +198,8 @@
 
 **证明（显式构造）。**
 1. 选一个经 $\varepsilon:P_0\twoheadrightarrow M$ 映满到 $M$ 的自由模 $P_0$——取 $M$ 的一个生成集上的自由模作 $P_0$。由引理 $P_0$ 是投射的。*（每个模都是某自由模的商）*
-2. 令 $K_0=\ker\varepsilon$。选一个映满到 $K_0$ 的自由模 $P_1$；与包含映射 $K_0\hookrightarrow P_0$ 复合得 $d_1:P_1\to P_0$，满足 $\operatorname{im}d_1=K_0=\ker\varepsilon$，给出在 $P_0$ 处的正合性。*（同一事实，应用于 $K_0$）*
-3. 归纳地，给定 $d_n:P_n\to P_{n-1}$，令 $K_{n}=\ker d_n$ 并选自由模 $P_{n+1}\twoheadrightarrow K_n$；令 $d_{n+1}$ 为复合 $P_{n+1}\twoheadrightarrow K_n\hookrightarrow P_n$。则 $\operatorname{im}d_{n+1}=K_n=\ker d_n$，在 $P_n$ 处正合，且 $d_n d_{n+1}=0$。*（归纳；每个模都是某自由模的商）*
+2. 令 $K_0=\ker\varepsilon$。选一个映满到 $K_0$ 的自由模 $P_1$；与包含映射 $K_0\hookrightarrow P_0$ 复合得 $d_1:P_1\to P_0$，满足 $\mathrm{im}d_1=K_0=\ker\varepsilon$，给出在 $P_0$ 处的正合性。*（同一事实，应用于 $K_0$）*
+3. 归纳地，给定 $d_n:P_n\to P_{n-1}$，令 $K_{n}=\ker d_n$ 并选自由模 $P_{n+1}\twoheadrightarrow K_n$；令 $d_{n+1}$ 为复合 $P_{n+1}\twoheadrightarrow K_n\hookrightarrow P_n$。则 $\mathrm{im}d_{n+1}=K_n=\ker d_n$，在 $P_n$ 处正合，且 $d_n d_{n+1}=0$。*（归纳；每个模都是某自由模的商）*
 4. 所得复形是一个自由的、从而投射的消解。$\;\blacksquare$
 
 对于 $\mathbb{Z}$ 上（以及任意环上）的内射消解，对偶的存在性定理成立；关键的输入是*每个阿贝尔群都嵌入某个可除群*，而可除阿贝尔群恰是内射 $\mathbb{Z}$-模。
@@ -248,7 +248,7 @@
 3. 施以 $F$。链同伦 $f-g=\partial h+h\partial$ 在可加函子 $F$ 之下映为 $F(f)-F(g)=F(\partial)F(h)+F(h)F(\partial)$——仍是链同伦。从而 $F(\tilde\phi)$ 与 $F(\tilde\psi)$ 在同调上互逆（由 §s2 同伦不变性），给出*典范*同构 $H_n(F(P))\cong H_n(F(Q))$。*（$F$ 的可加性；§s2 同伦不变性）* $\;\blacksquare$
 
 > **计算 —— $\mathrm{Tor}_1^{\mathbb{Z}}(\mathbb{Z}/2,\mathbb{Z}/2)$。**
-> $\mathbb{Z}/2$ 的投射（自由）消解：$0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to0$（然后 $\to\mathbb{Z}/2$）。与 $\mathbb{Z}/2$ 做张量积并删去增广：$0\to\mathbb{Z}/2\xrightarrow{\times2=0}\mathbb{Z}/2\to0$。同调：$H_0=\mathbb{Z}/2$（$0$ 的余核）$=\mathrm{Tor}_0=\mathbb{Z}/2\otimes\mathbb{Z}/2$；$H_1=\ker(0)/\operatorname{im}=\mathbb{Z}/2$。故 $\mathrm{Tor}_1^{\mathbb{Z}}(\mathbb{Z}/2,\mathbb{Z}/2)=\mathbb{Z}/2$——恰是失败例中那“缺失的核”。
+> $\mathbb{Z}/2$ 的投射（自由）消解：$0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to0$（然后 $\to\mathbb{Z}/2$）。与 $\mathbb{Z}/2$ 做张量积并删去增广：$0\to\mathbb{Z}/2\xrightarrow{\times2=0}\mathbb{Z}/2\to0$。同调：$H_0=\mathbb{Z}/2$（$0$ 的余核）$=\mathrm{Tor}_0=\mathbb{Z}/2\otimes\mathbb{Z}/2$；$H_1=\ker(0)/\mathrm{im}=\mathbb{Z}/2$。故 $\mathrm{Tor}_1^{\mathbb{Z}}(\mathbb{Z}/2,\mathbb{Z}/2)=\mathbb{Z}/2$——恰是失败例中那“缺失的核”。
 
 > **计算 —— $\mathrm{Ext}^1_{\mathbb{Z}}(\mathbb{Z}/2,\mathbb{Z})$。**
 > 把 $\mathrm{Hom}_{\mathbb{Z}}(-,\mathbb{Z})$ 应用于 $0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to0$：得 $0\to\mathbb{Z}\xrightarrow{\times2}\mathbb{Z}\to0$（因为 $\mathrm{Hom}(\mathbb{Z},\mathbb{Z})=\mathbb{Z}$，而 $\times2$ 的对偶是 $\times2$）。上同调：$H^0=\ker(\times2)=0=\mathrm{Ext}^0=\mathrm{Hom}(\mathbb{Z}/2,\mathbb{Z})$；$H^1=\mathbb{Z}/2\mathbb{Z}=\mathrm{Ext}^1$。故 $\mathrm{Ext}^1_{\mathbb{Z}}(\mathbb{Z}/2,\mathbb{Z})=\mathbb{Z}/2$。
@@ -288,10 +288,10 @@
 3. 与 $G$ 做张量积。由于每一项都自由（从而 SES 分裂），张量化的序列 $0\to Z_\bullet\otimes G\to C_\bullet\otimes G\to B_{\bullet-1}\otimes G\to0$ 仍是短正合的。*（分裂 SES 在施以任意可加函子后仍分裂，从而正合）*
 4. 它的长正合同调列（§s2）的连接映射等于包含映射 $B_n\hookrightarrow Z_n$ 与 $G$ 的张量积，即 $i\otimes\mathrm{id}_G:B_n\otimes G\to Z_n\otimes G$。（这一辨识恰是把 §s1 的蛇引理连接映射应用于第 3 步的分裂 SES：由于 $Z_\bullet$ 与 $B_\bullet$ 带零微分，张量后唯一残存的微分就是边缘到闭链的包含 $i:B_n\hookrightarrow Z_n$，故 $\partial_*=i\otimes\mathrm{id}_G$。）拼接对每个 $n$ 给出
 > $$
-> 0\to\operatorname{coker}(i\otimes\mathrm{id})_n\to H_n(C\otimes G)\to\ker(i\otimes\mathrm{id})_{n-1}\to0.
+> 0\to\mathrm{coker}(i\otimes\mathrm{id})_n\to H_n(C\otimes G)\to\ker(i\otimes\mathrm{id})_{n-1}\to0.
 > $$
 *（长正合列；辨识连接映射）*
-5. 现使用 $H_n(C)$ 的自由消解 $0\to B_n\xrightarrow{i}Z_n\to H_n(C)\to0$（因 $B_n,Z_n$ 自由，它是由自由群构成的消解）。与 $G$ 做张量积并取同调：由 $\mathrm{Tor}$ 从这一长度为一的自由消解所得的定义，$\operatorname{coker}(i\otimes\mathrm{id})=H_n(C)\otimes G$ 且 $\ker(i\otimes\mathrm{id})=\mathrm{Tor}_1^{\mathbb{Z}}(H_n(C),G)$。*（$\otimes$ 作为 $\mathrm{Tor}_0$ 与 $\mathrm{Tor}_1$ 的定义，§s4）*
+5. 现使用 $H_n(C)$ 的自由消解 $0\to B_n\xrightarrow{i}Z_n\to H_n(C)\to0$（因 $B_n,Z_n$ 自由，它是由自由群构成的消解）。与 $G$ 做张量积并取同调：由 $\mathrm{Tor}$ 从这一长度为一的自由消解所得的定义，$\mathrm{coker}(i\otimes\mathrm{id})=H_n(C)\otimes G$ 且 $\ker(i\otimes\mathrm{id})=\mathrm{Tor}_1^{\mathbb{Z}}(H_n(C),G)$。*（$\otimes$ 作为 $\mathrm{Tor}_0$ 与 $\mathrm{Tor}_1$ 的定义，§s4）*
 6. 代入第 4 步即给出所述 SES。**分裂：** 由于 $Z_n$ 是 $C_n$ 的直和因子（第 1 步），选一个收缩 $C_n\to Z_n$；它诱导 $H_n(C\otimes G)\to H_n(C)\otimes G$，分裂第一个映射。$\;\blacksquare$
 
 > **万有系数定理（上同调）。** 当 $C_\bullet$ 自由时，存在一条分裂 SES
@@ -354,7 +354,7 @@
 **演示 —— 左伴随 $F$ 是右正合的。**
 1. 右正合性意味着：应用于 $A\to B\to C\to0$，结果 $F(A)\to F(B)\to F(C)\to0$ 正合，即 $F(C)$ 是 $F(A)\to F(B)$ 的余核。*（右正合的定义）*
 2. 余核是一个余极限（$A\to B$ 与 $0$ 的余等化子）。*（余核 = 余极限）*
-3. 左伴随保持余极限：$\mathrm{Hom}(F(\operatorname{colim}),Y)\cong\mathrm{Hom}(\operatorname{colim},G(Y))\cong\lim\mathrm{Hom}(-,G(Y))\cong\lim\mathrm{Hom}(F(-),Y)\cong\mathrm{Hom}(\operatorname{colim}F(-),Y)$，然后 Yoneda 辨识出 $F(\operatorname{colim})=\operatorname{colim}F(-)$。所以 $F$ 把余核送到余核，这恰是右正合性。*（伴随；反变 $\mathrm{Hom}$ 把余极限变为极限；Yoneda）* $\;\blacksquare$
+3. 左伴随保持余极限：$\mathrm{Hom}(F(\mathrm{colim}),Y)\cong\mathrm{Hom}(\mathrm{colim},G(Y))\cong\lim\mathrm{Hom}(-,G(Y))\cong\lim\mathrm{Hom}(F(-),Y)\cong\mathrm{Hom}(\mathrm{colim}F(-),Y)$，然后 Yoneda 辨识出 $F(\mathrm{colim})=\mathrm{colim}F(-)$。所以 $F$ 把余核送到余核，这恰是右正合性。*（伴随；反变 $\mathrm{Hom}$ 把余极限变为极限；Yoneda）* $\;\blacksquare$
 
 **陷阱。** 在一般范畴中，一个态射可以既是单态射又是满态射却不是同构（例如环范畴中的 $\mathbb{Z}\hookrightarrow\mathbb{Q}$）；阿贝尔范畴恰是“单 + 满 $\Rightarrow$ 同构”成立的情形，而这正是图引理悄然使用的。
 
@@ -386,7 +386,7 @@
 
 *已解例。* 取只有一非零行的双复形 $\cdots\to C_{1,0}\to C_{0,0}$。则 $\mathrm{Tot}$ 就是那一行，而 $H_n(\mathrm{Tot})$ 是该行的普通同调。更有趣地，一个 $2\times2$ 方形 $C_{1,1}\to C_{1,0}$，$C_{1,1}\to C_{0,1}$ 等，全化为 $C_{1,1}\xrightarrow{(d^h,d^v)}C_{1,0}\oplus C_{0,1}\xrightarrow{d^v - d^h}C_{0,0}$，其中间同调恰是 §s9 中一个 $2$-页谱序列将要计算的对象。
 
-> **已解例 —— 迭代同调可能与全同调不一致。** 考虑 $2\times2$ 第一象限双复形（位于 $(0,0),(1,0),(0,1),(1,1)$ 的项）全等于 $\mathbb{Z}$，两个非零水平映射与两个非零竖直映射都是恒等映射，符号安排得使方形反交换。先取竖直同调：每列 $\mathbb{Z}\xrightarrow{\mathrm{id}}\mathbb{Z}$ 正合，故处处 $H^v=0$，从而“$H^h(H^v)=0$”。现直接计算 $H_*(\mathrm{Tot})$：$\mathrm{Tot}_2=C_{1,1}=\mathbb{Z}$，$\mathrm{Tot}_1=C_{1,0}\oplus C_{0,1}=\mathbb{Z}^2$，$\mathrm{Tot}_0=C_{0,0}=\mathbb{Z}$，其中 $D_2=(\mathrm{id},\mathrm{id})$ 单射，$D_1=(\mathrm{id},-\mathrm{id})$ 映满到 $\mathbb{Z}$ 且核为反对角线 $=\operatorname{im}D_2$。故 $H_*(\mathrm{Tot})=0$ 也成立——此处二者一致，因为该复形无圈。把一个映射扰动为 $\times2$，则两个迭代同调与全同调将出现差异，差异由 $E^2$ 页上一个非零 $d^2$ 记录（§s9）。这正是谱序列“修正”朴素迭代同调的精确意义。
+> **已解例 —— 迭代同调可能与全同调不一致。** 考虑 $2\times2$ 第一象限双复形（位于 $(0,0),(1,0),(0,1),(1,1)$ 的项）全等于 $\mathbb{Z}$，两个非零水平映射与两个非零竖直映射都是恒等映射，符号安排得使方形反交换。先取竖直同调：每列 $\mathbb{Z}\xrightarrow{\mathrm{id}}\mathbb{Z}$ 正合，故处处 $H^v=0$，从而“$H^h(H^v)=0$”。现直接计算 $H_*(\mathrm{Tot})$：$\mathrm{Tot}_2=C_{1,1}=\mathbb{Z}$，$\mathrm{Tot}_1=C_{1,0}\oplus C_{0,1}=\mathbb{Z}^2$，$\mathrm{Tot}_0=C_{0,0}=\mathbb{Z}$，其中 $D_2=(\mathrm{id},\mathrm{id})$ 单射，$D_1=(\mathrm{id},-\mathrm{id})$ 映满到 $\mathbb{Z}$ 且核为反对角线 $=\mathrm{im}D_2$。故 $H_*(\mathrm{Tot})=0$ 也成立——此处二者一致，因为该复形无圈。把一个映射扰动为 $\times2$，则两个迭代同调与全同调将出现差异，差异由 $E^2$ 页上一个非零 $d^2$ 记录（§s9）。这正是谱序列“修正”朴素迭代同调的精确意义。
 
 **取同调的两种方式。** 人们可以先沿列取同调（用 $d^v$），再沿行取（用诱导的 $d^h$），或反过来。这两个答案通常彼此不同、也与 $H_*(\mathrm{Tot})$ 不同。谱序列是把这些“迭代同调”与 $H_*(\mathrm{Tot})$ 精确联系起来的机器：每一个都从其 $E^2$ 页上的某个迭代同调出发，并收敛到 $H_*(\mathrm{Tot})$，故微分恰好度量这一差距。
 
@@ -404,7 +404,7 @@
 > $$
 > 使得每个 $d^r$ 满足 $d^r\circ d^r=0$，连同同构
 > $$
-> E^{r+1}_{p,q}\cong H_{p,q}(E^r)=\frac{\ker\big(d^r:E^r_{p,q}\to E^r_{p-r,q+r-1}\big)}{\operatorname{im}\big(d^r:E^r_{p+r,q-r+1}\to E^r_{p,q}\big)}.
+> E^{r+1}_{p,q}\cong H_{p,q}(E^r)=\frac{\ker\big(d^r:E^r_{p,q}\to E^r_{p-r,q+r-1}\big)}{\mathrm{im}\big(d^r:E^r_{p+r,q-r+1}\to E^r_{p,q}\big)}.
 > $$
 > 因此每一页都是前一页关于其微分 $d^r$ 的同调。$d^r$ 的双度数是 $(-r,\,r-1)$：随 $r$ 增大，微分变得“更长更平”。
 
@@ -451,7 +451,7 @@
 > $$
 *（复形 SES 的长正合列，§s2）*
 2. *正合偶。* 这些长正合列装配为映射的单一图：$i:A_{p-1}\to A_p$（由包含诱导）、$j:A_p\to E^1$（商映射）、$k:E^1\to A_{p-1}$（连接映射），构成一个**正合偶**：在 $A,E,A$ 各处正合。*（每条 LES 的正合性）*
-3. *导出该偶。* 定义 $d^1=j\circ k:E^1\to E^1$。则 $d^1d^1=jk\,jk=j(kj)k=0$，因为由在 $A$ 处的正合性 $kj=0$。令 $E^2=\ker d^1/\operatorname{im}d^1$ 并把 $A$ 替换为 $iA$；可验证新的三元组 $(iA,E^2,\dots)$ 又是一个正合偶——即**导出偶**。*（在 $A$ 处正合给出 $kj=0$）*
+3. *导出该偶。* 定义 $d^1=j\circ k:E^1\to E^1$。则 $d^1d^1=jk\,jk=j(kj)k=0$，因为由在 $A$ 处的正合性 $kj=0$。令 $E^2=\ker d^1/\mathrm{im}d^1$ 并把 $A$ 替换为 $iA$；可验证新的三元组 $(iA,E^2,\dots)$ 又是一个正合偶——即**导出偶**。*（在 $A$ 处正合给出 $kj=0$）*
 4. *迭代。* 第 $r$ 个导出偶有 $E^r$ 与双度数 $(-r,r-1)$ 的微分 $d^r=j^{(r)}k^{(r)}$，且由构造 $E^{r+1}=H(E^r,d^r)$。这恰是一个谱序列的数据（§s8）。*（归纳：把该偶导出 $r$ 次）*
 5. *收敛。* 有界性使每个 $H_n(C)$ 上的过滤有限，故 $E^r$ 稳定到 $E^\infty$，而追踪各导出偶辨识出 $E^\infty_{p,q}=F_pH_{p+q}(C)/F_{p-1}H_{p+q}(C)$。*（有界过滤 $\Rightarrow$ 稳定，§s8）* $\;\blacksquare$
 
@@ -526,7 +526,7 @@
 > $$
 > \mathbb{Z}\xrightarrow{0}\mathbb{Z}\xrightarrow{2}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\xrightarrow{2}\cdots
 > $$
-> 上同调：$H^0=\mathbb{Z}$；在奇度数 $H^{2k+1}=\ker(2)/\operatorname{im}(0)=0$；在正偶度数 $H^{2k}=\ker(0)/\operatorname{im}(2)=\mathbb{Z}/2$。故 $H^n(\mathbb{Z}/2;\mathbb{Z})=\mathbb{Z},0,\mathbb{Z}/2,0,\mathbb{Z}/2,\dots$——与 $H^*(\mathbb{RP}^\infty;\mathbb{Z})$ 同样的模式，因为 $\mathbb{RP}^\infty$ 是分类空间 $B(\mathbb{Z}/2)$，而群上同调*就是*分类空间的上同调。
+> 上同调：$H^0=\mathbb{Z}$；在奇度数 $H^{2k+1}=\ker(2)/\mathrm{im}(0)=0$；在正偶度数 $H^{2k}=\ker(0)/\mathrm{im}(2)=\mathbb{Z}/2$。故 $H^n(\mathbb{Z}/2;\mathbb{Z})=\mathbb{Z},0,\mathbb{Z}/2,0,\mathbb{Z}/2,\dots$——与 $H^*(\mathbb{RP}^\infty;\mathbb{Z})$ 同样的模式，因为 $\mathbb{RP}^\infty$ 是分类空间 $B(\mathbb{Z}/2)$，而群上同调*就是*分类空间的上同调。
 
 > **定理（Lyndon–Hochschild–Serre）。** 对群的短正合列 $1\to N\to G\to Q\to1$ 与一个 $G$-模 $M$，存在一个第一象限谱序列
 > $$

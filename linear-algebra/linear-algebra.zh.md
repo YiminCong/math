@@ -75,7 +75,7 @@
 
 **是什么以及为什么。** 我们想要一个由少量向量组成的列表，从中可以通过相加与缩放构建出*每个*向量，且没有冗余。那个既极小又完备的列表就是**基**，而它的长度将被证明是一个内在的数，即**维数**。这是本学科中唯一最重要的结构性事实，因此我们小心地构建它。
 
-> **定义 —— 线性组合与张成。** 向量 $v_1,\dots,v_k$ 的**线性组合**是任何形如 $\lambda_1 v_1+\dots+\lambda_k v_k$ 的向量，其中标量 $\lambda_i\in\mathbb{F}$。**张成** $\operatorname{span}(v_1,\dots,v_k)$ 是*所有*这种组合的集合。张成总是一个子空间（它对加法与缩放封闭，因为组合的和/缩放仍是组合）。若 $v_i$ 的张成是整个 $V$，我们就说 $v_i$ **张成** $V$。
+> **定义 —— 线性组合与张成。** 向量 $v_1,\dots,v_k$ 的**线性组合**是任何形如 $\lambda_1 v_1+\dots+\lambda_k v_k$ 的向量，其中标量 $\lambda_i\in\mathbb{F}$。**张成** $\mathrm{span}(v_1,\dots,v_k)$ 是*所有*这种组合的集合。张成总是一个子空间（它对加法与缩放封闭，因为组合的和/缩放仍是组合）。若 $v_i$ 的张成是整个 $V$，我们就说 $v_i$ **张成** $V$。
 
 > **定义 —— 线性无关。** 向量 $v_1,\dots,v_k$ **线性无关**，如果把它们组合成零向量的唯一方式是平凡方式：$\lambda_1 v_1+\dots+\lambda_k v_k=0$ 迫使 $\lambda_1=\dots=\lambda_k=0$。否则它们**线性相关**，意味着某个非平凡组合为零——等价地，其中某个向量是其余向量的组合（一种冗余）。
 
@@ -90,7 +90,7 @@
 **证明（一次一个地把 $w$ 换入张成列表）。**
 1. 由于 $v_i$ 张成 $V$，我们可把 $w_1$ 写成组合 $w_1=\sum_{i=1}^m a_i v_i$。*（张成的定义）*
 2. 并非所有 $a_i$ 都为零，因为若都为零，则 $w_1=0$ 将是 $w$ 之间的一个非平凡相关关系（$w_1$ 的系数为 $1$），与无关性矛盾。重新排序使 $a_1\ne 0$。*（$w$ 的无关性排除了 $w_1=0$）*
-3. 解出 $v_1$：$v_1=\tfrac{1}{a_1}\big(w_1-\sum_{i\ge2}a_i v_i\big)$，因 $a_1\ne0$ 故可在域中作除法。于是 $v_1\in\operatorname{span}(w_1,v_2,\dots,v_m)$，从而列表 $w_1,v_2,\dots,v_m$ 仍张成 $V$（任何用 $v_1$ 表示的东西现在都可改用 $w_1$ 表示）。*（域中除法；代入张成）*
+3. 解出 $v_1$：$v_1=\tfrac{1}{a_1}\big(w_1-\sum_{i\ge2}a_i v_i\big)$，因 $a_1\ne0$ 故可在域中作除法。于是 $v_1\in\mathrm{span}(w_1,v_2,\dots,v_m)$，从而列表 $w_1,v_2,\dots,v_m$ 仍张成 $V$（任何用 $v_1$ 表示的东西现在都可改用 $w_1$ 表示）。*（域中除法；代入张成）*
 4. 重复：假设 $k$ 步后列表 $w_1,\dots,w_k,v_{k+1},\dots,v_m$ 张成 $V$（迄今 $k\le n$ 且 $k\le m$）。用此张成列表把 $w_{k+1}=\sum_{j\le k}b_j w_j+\sum_{i>k}c_i v_i$ 写出。*（张成的定义）*
 5. 某个 $c_i\ne0$：否则 $w_{k+1}=\sum_{j\le k}b_j w_j$，是 $w_1,\dots,w_{k+1}$ 之间的非平凡相关关系，与 $w$ 的无关性矛盾。特别地，这迫使*确实还剩下*一个 $v$ 可供替换，即 $k<m$。重新排序剩下的 $v$ 使 $c_{k+1}\ne0$，并如第 3 步那样把 $v_{k+1}$ 换出、换入 $w_{k+1}$，保持张成列表。*（无关性禁止 $c_i$ 全为零，这也迫使 $m>k$）*
 6. 只要还有 $w$ 剩下，我们就能继续交换。第 5 步表明每个新的 $w$ 都需要一个未用过的 $v$ 来替换，所以 $w$ 的个数不能超过 $v$ 的个数：$n\le m$。$\blacksquare$
@@ -124,7 +124,7 @@
 >
 > 从 $V$ 到自身的线性映射称为**线性算子**。（注意 $T(0)=T(0\cdot 0)=0\cdot T(0)=0$：线性映射固定零向量。）
 
-> **定义 —— 核与像。** **核**是 $\ker T=\{v\in V : T(v)=0\}$（所有被送到零的元素）。**像**是 $\operatorname{im}T=\{T(v):v\in V\}$（所有真正被命中的元素）。两者都是子空间：核是因为 $T(u)=T(v)=0\Rightarrow T(u+\lambda v)=0$；像是因为 $T(u)+\lambda T(v)=T(u+\lambda v)$。核的维数是**零化度**；像的维数是**秩**。
+> **定义 —— 核与像。** **核**是 $\ker T=\{v\in V : T(v)=0\}$（所有被送到零的元素）。**像**是 $\mathrm{im}T=\{T(v):v\in V\}$（所有真正被命中的元素）。两者都是子空间：核是因为 $T(u)=T(v)=0\Rightarrow T(u+\lambda v)=0$；像是因为 $T(u)+\lambda T(v)=T(u+\lambda v)$。核的维数是**零化度**；像的维数是**秩**。
 
 > **引理 —— 单射当且仅当核平凡。** 线性映射 $T$ 是**单射**（一对一）当且仅当 $\ker T=\{0\}$。
 **证明。** 若 $T$ 是单射且 $T(v)=0=T(0)$，则 $v=0$，故核平凡。反之若 $\ker T=\{0\}$ 且 $T(u)=T(v)$，则 $T(u-v)=T(u)-T(v)=0$（线性性），所以 $u-v\in\ker T=\{0\}$，给出 $u=v$。$\blacksquare$
@@ -132,22 +132,22 @@
 > **定理 —— 秩-零化度。** 若 $V$ 有限维且 $T:V\to W$ 线性，则
 >
 > $$
-> \dim(\ker T)+\dim(\operatorname{im}T)=\dim V.
+> \dim(\ker T)+\dim(\mathrm{im}T)=\dim V.
 > $$
 
 **证明（扩充一组核的基并追踪它的去向）。**
 1. 设 $\dim V=n$，并令 $u_1,\dots,u_k$ 为 $\ker T$ 的一组基，故 $\dim(\ker T)=k$。*（每个有限维空间都有基）*
 2. 一个线性无关集可被扩充为整个空间的一组基（添加不在当前张成中的向量，直到张成 $V$；因维数有限故终止）。扩充为 $V$ 的一组基 $u_1,\dots,u_k,w_1,\dots,w_{n-k}$。*（基的扩充）*
-3. **断言：** $T(w_1),\dots,T(w_{n-k})$ 是 $\operatorname{im}T$ 的一组基。若证得此事，则 $\dim(\operatorname{im}T)=n-k$，于是 $k+(n-k)=n=\dim V$，正如所求。
-4. *（它们张成像。）* $\operatorname{im}T$ 的任何元素都是某个 $v\in V$ 的 $T(v)$。在基下写出 $v=\sum a_i u_i+\sum b_j w_j$。施加 $T$：$T(v)=\sum a_i T(u_i)+\sum b_j T(w_j)=\sum b_j T(w_j)$，因为每个 $u_i\in\ker T$ 使 $T(u_i)=0$。所以每个像元素都是 $T(w_j)$ 的组合。*（线性性；$u_i$ 在核中）*
+3. **断言：** $T(w_1),\dots,T(w_{n-k})$ 是 $\mathrm{im}T$ 的一组基。若证得此事，则 $\dim(\mathrm{im}T)=n-k$，于是 $k+(n-k)=n=\dim V$，正如所求。
+4. *（它们张成像。）* $\mathrm{im}T$ 的任何元素都是某个 $v\in V$ 的 $T(v)$。在基下写出 $v=\sum a_i u_i+\sum b_j w_j$。施加 $T$：$T(v)=\sum a_i T(u_i)+\sum b_j T(w_j)=\sum b_j T(w_j)$，因为每个 $u_i\in\ker T$ 使 $T(u_i)=0$。所以每个像元素都是 $T(w_j)$ 的组合。*（线性性；$u_i$ 在核中）*
 5. *（它们无关。）* 假设 $\sum b_j T(w_j)=0$。由线性性 $T\!\left(\sum b_j w_j\right)=0$，所以 $\sum b_j w_j\in\ker T$，因而等于核的基的某个组合 $\sum a_i u_i$。于是 $\sum b_j w_j-\sum a_i u_i=0$。但 $u_1,\dots,u_k,w_1,\dots,w_{n-k}$ 无关（一组基），所以所有系数为零；特别地每个 $b_j=0$。*（属于核；整组基的无关性）*
 6. 由第 4–5 步，$T(w_j)$ 构成像的一组基，证得断言与定理。$\blacksquare$
 
-**例题。** 设 $T:\mathbb{R}^3\to\mathbb{R}^2$，$T(x,y,z)=(x+y,\ y+z)$。核求解 $x+y=0,\ y+z=0$，即 $y=-x,\ z=-y=x$，所以 $\ker T=\{(x,-x,x)\}=\operatorname{span}\big((1,-1,1)\big)$，零化度为 $1$。像包含 $T(e_1)=(1,0)$ 与 $T(e_2)=(1,1)$，它们无关且张成 $\mathbb{R}^2$，所以秩为 $2$。检验：$1+2=3=\dim\mathbb{R}^3$。
+**例题。** 设 $T:\mathbb{R}^3\to\mathbb{R}^2$，$T(x,y,z)=(x+y,\ y+z)$。核求解 $x+y=0,\ y+z=0$，即 $y=-x,\ z=-y=x$，所以 $\ker T=\{(x,-x,x)\}=\mathrm{span}\big((1,-1,1)\big)$，零化度为 $1$。像包含 $T(e_1)=(1,0)$ 与 $T(e_2)=(1,1)$，它们无关且张成 $\mathbb{R}^2$，所以秩为 $2$。检验：$1+2=3=\dim\mathbb{R}^3$。
 
 **第二个例题 —— 微分作为线性映射。** 在 $P_3$（次数 $\le3$ 的多项式，维数为 $4$）上，导数 $D(p)=p'$ 是线性的，因为 $(p+q)'=p'+q'$ 且 $(\lambda p)'=\lambda p'$——熟悉的微积分法则*正是*线性性公理。它的核是常数 $\{a\}$，零化度为 $1$；它的像是 $P_2$（每个二次式都是某个三次式的导数），秩为 $3$。秩-零化度：$1+3=4=\dim P_3$。注意 $D$ *不是*单射（常数被抹去）却*是*到 $P_2$ 的满射——这正是非零零化度所强制的。
 
-> **推论 —— 对有限维空间上的算子，单射 $\Leftrightarrow$ 满射。** 若 $T:V\to V$ 且 $\dim V<\infty$，则 $T$ 单射 $\iff$ $\ker T=\{0\}$ $\iff$ $\dim(\operatorname{im}T)=\dim V$（由秩-零化度）$\iff$ $\operatorname{im}T=V$ $\iff$ $T$ 满射。所以一个方阵系统要么对每个右端项都有唯一解，要么两头都失败。（这在无穷维中失效：序列上的移位算子是单射但非满射——这一事实正是泛函分析的核心。）
+> **推论 —— 对有限维空间上的算子，单射 $\Leftrightarrow$ 满射。** 若 $T:V\to V$ 且 $\dim V<\infty$，则 $T$ 单射 $\iff$ $\ker T=\{0\}$ $\iff$ $\dim(\mathrm{im}T)=\dim V$（由秩-零化度）$\iff$ $\mathrm{im}T=V$ $\iff$ $T$ 满射。所以一个方阵系统要么对每个右端项都有唯一解，要么两头都失败。（这在无穷维中失效：序列上的移位算子是单射但非满射——这一事实正是泛函分析的核心。）
 
 **陷阱。** 秩-零化度讲的是*维数*，而非子空间本身。核与像甚至可以生活在不同的空间中（当 $V\ne W$ 时），而且一般没有自然的方式把它们“加”回 $V$ 中；守恒的只是维数的计数。
 
@@ -204,13 +204,13 @@
 
 > **定义 —— 秩。** $A$ 的**秩**是其阶梯形中主元的个数——等价地（这需要证明）是像的维数，即独立列的个数。
 
-> **命题 —— 主元计数独立列。** 主元的个数等于 $\dim(\operatorname{im}A)$，即列秩。
+> **命题 —— 主元计数独立列。** 主元的个数等于 $\dim(\mathrm{im}A)$，即列秩。
 **证明。**
 1. 行变换是用可逆矩阵作左乘，所以它们不改变*列之间的线性关系*：若 $A$ 的各列满足 $\sum c_j a_j=0$，则任何行变换之后同样的系数给出 $\sum c_j a'_j=0$，反之亦然。*（可逆左乘保持 $A\mathbf c=0$）*
 2. 在阶梯形中，**主元列**是无关的（每个主元位于一行中而其他列在该行为零，所以主元列的任何非平凡组合都不能相消），而每个**非主元列**是其左侧主元列的组合（回代将其表示出来）。*（阶梯形的结构）*
-3. 因此主元列构成列空间的一组基，故其个数——主元的个数——等于 $\dim(\operatorname{im}A)$。由第 1 步这对 $A$ 也相同。$\blacksquare$
+3. 因此主元列构成列空间的一组基，故其个数——主元的个数——等于 $\dim(\mathrm{im}A)$。由第 1 步这对 $A$ 也相同。$\blacksquare$
 
-> **解的存在性/唯一性。** 方程组 $A\mathbf x=\mathbf b$ **相容**（有解）当且仅当 $\mathbf b$ 位于 $\operatorname{im}A$ 中，其判别为：不存在形如 $[0\,\cdots\,0\,|\,c]$ 且 $c\ne0$ 的阶梯行。当相容时，解**唯一**当且仅当每一列都是主元列（无自由变量）；否则自由变量参数化出一族仿射解。这是伪装的秩-零化度（§s3）：$\#\text{自由变量}=\dim(\ker A)=n-\operatorname{rank}A$。
+> **解的存在性/唯一性。** 方程组 $A\mathbf x=\mathbf b$ **相容**（有解）当且仅当 $\mathbf b$ 位于 $\mathrm{im}A$ 中，其判别为：不存在形如 $[0\,\cdots\,0\,|\,c]$ 且 $c\ne0$ 的阶梯行。当相容时，解**唯一**当且仅当每一列都是主元列（无自由变量）；否则自由变量参数化出一族仿射解。这是伪装的秩-零化度（§s3）：$\#\text{自由变量}=\dim(\ker A)=n-\mathrm{rank}A$。
 
 **例题。** 求解 $\begin{cases}x+2y+z=4\\ 2x+y-z=1\\ x-y-2z=-3\end{cases}$。
 增广矩阵与消元：
@@ -233,9 +233,9 @@ $$
 > **定义 —— 行列式。** 对于 $n\times n$ 矩阵 $A=[A_{ij}]$，
 >
 > $$
-> \det A=\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)\,A_{1\sigma(1)}A_{2\sigma(2)}\cdots A_{n\sigma(n)},
+> \det A=\sum_{\sigma\in S_n}\mathrm{sgn}(\sigma)\,A_{1\sigma(1)}A_{2\sigma(2)}\cdots A_{n\sigma(n)},
 > $$
-> 其中和遍历 $\{1,\dots,n\}$ 的所有**置换** $\sigma$（重排），而 $\operatorname{sgn}(\sigma)=\pm1$：若 $\sigma$ 由偶数次对换组成则为 $+1$，奇数次则为 $-1$。对 $2\times2$：$\det\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix}=ad-bc$。对 $3\times3$ 这就是熟悉的六项规则。
+> 其中和遍历 $\{1,\dots,n\}$ 的所有**置换** $\sigma$（重排），而 $\mathrm{sgn}(\sigma)=\pm1$：若 $\sigma$ 由偶数次对换组成则为 $+1$，奇数次则为 $-1$。对 $2\times2$：$\det\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix}=ad-bc$。对 $3\times3$ 这就是熟悉的六项规则。
 
 定义性的公式很笨重；我们实际使用的是它的**刻画性质**，下面我们陈述它们，它们唯一地确定了行列式。
 
@@ -243,7 +243,7 @@ $$
 
 **证明纲要：先说明性质 (a)–(d) 由定义推出，再说明它们决定了行列式。**
 1. *（多重线性，a。）* 每个乘积项恰含来自每一列的一个因子，所以每项关于任一单列是线性的；求和保持线性。*（每项线性 $\Rightarrow$ 和线性）*
-2. *（交替，c。）* 交换列 $p,q$ 把每个置换重标为 $\sigma\mapsto\sigma\circ(p\,q)$，这使 $\operatorname{sgn}$ 乘以 $-1$；对和重新编号即知 $\det$ 取反。*（对换的符号为 $-1$）*
+2. *（交替，c。）* 交换列 $p,q$ 把每个置换重标为 $\sigma\mapsto\sigma\circ(p\,q)$，这使 $\mathrm{sgn}$ 乘以 $-1$；对和重新编号即知 $\det$ 取反。*（对换的符号为 $-1$）*
 3. *（b 由此得出。）* 若两列相等，交换它们既使行列式取反（由 c）又使其不变（同一矩阵），所以 $\det=-\det$，给出 $\det=0$。把 $\lambda(\text{第 }q\text{ 列})$ 加到第 $p$ 列上，相当于加上 $\lambda\det(\text{有两个槽位都是第 }q\text{ 列的矩阵})=0$。*（交替 $\Rightarrow$ 重复列给出 }0)*
 4. *（唯一性。）* 任何满足 $\det I=1$ 的多重线性交替函数，对按标准基写出的各列展开后，由 (a)–(c) 坍缩为恰好那个置换和——所以公式被强制确定。$\blacksquare$
 
@@ -292,7 +292,7 @@ $$
 
 **第二个例题 —— 无实特征值。** $90^\circ$ 旋转 $R=\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$ 有 $p(\lambda)=\lambda^2+1$，其根为 $\pm i$——*非实数*。在 $\mathbb{R}$ 上这个矩阵**没有**特征向量，这与几何相符：$90^\circ$ 旋转不留下任何不动方向。在 $\mathbb{C}$ 上它有特征值 $\pm i$，特征向量为 $(1,\mp i)$。这是为什么域很重要、以及为什么复标量保证有谱的最干净的示例。
 
-> **由特征值得到迹与行列式。** 展开 $p(\lambda)=\det(A-\lambda I)=(-1)^n\big(\lambda^n-(\operatorname{tr}A)\lambda^{n-1}+\dots+(-1)^n\det A\big)$ 并与 $\prod(\lambda-\lambda_k)$ 比较，可知特征值之和等于**迹**（对角元素之和），其积等于**行列式**。对例子 $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$：特征值 $1+3=4=\operatorname{tr}A$，且 $1\cdot3=3=\det A$。这两个检验能即刻捕捉到大多数算术错误。
+> **由特征值得到迹与行列式。** 展开 $p(\lambda)=\det(A-\lambda I)=(-1)^n\big(\lambda^n-(\mathrm{tr}A)\lambda^{n-1}+\dots+(-1)^n\det A\big)$ 并与 $\prod(\lambda-\lambda_k)$ 比较，可知特征值之和等于**迹**（对角元素之和），其积等于**行列式**。对例子 $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$：特征值 $1+3=4=\mathrm{tr}A$，且 $1\cdot3=3=\det A$。这两个检验能即刻捕捉到大多数算术错误。
 
 **陷阱。** 特征向量按定义是非零的；方程 $T(0)=\lambda 0$ 对*每个* $\lambda$ 都成立，所以若允许 $v=0$ 就会使每个标量都成为“特征值”。零向量存在于每个特征空间中，但绝非特征向量。
 
@@ -306,7 +306,7 @@ $$
 > **定理 —— 特征向量基 $\Leftrightarrow$ 可对角化。** $A$ 可对角化当且仅当 $V$ 有一组由 $A$ 的特征向量组成的基；此时 $P$ 的各列是那些特征向量，而 $D$ 的对角元素是对应的特征值。
 
 **证明。**
-1. 设 $v_1,\dots,v_n$ 是构成一组基的特征向量，$Av_j=\lambda_j v_j$。令 $P$ 以它们为列。则 $AP$ 的第 $j$ 列是 $Av_j=\lambda_j v_j$，而 $PD$（其中 $D=\operatorname{diag}(\lambda_j)$）的第 $j$ 列也是 $\lambda_j v_j$。所以 $AP=PD$，从而 $P^{-1}AP=D$。*（逐列的矩阵恒等式；$P$ 可逆因其各列是一组基）*
+1. 设 $v_1,\dots,v_n$ 是构成一组基的特征向量，$Av_j=\lambda_j v_j$。令 $P$ 以它们为列。则 $AP$ 的第 $j$ 列是 $Av_j=\lambda_j v_j$，而 $PD$（其中 $D=\mathrm{diag}(\lambda_j)$）的第 $j$ 列也是 $\lambda_j v_j$。所以 $AP=PD$，从而 $P^{-1}AP=D$。*（逐列的矩阵恒等式；$P$ 可逆因其各列是一组基）*
 2. 反之若 $P^{-1}AP=D$ 为对角阵，逆转计算：$AP=PD$ 说 $A(\text{col}_j P)=\lambda_j(\text{col}_j P)$，所以 $P$ 的各列是特征向量，而作为可逆矩阵的各列它们构成一组基。$\blacksquare$
 
 > **定理 —— 对应不同特征值的特征向量无关。** 因此具有 $n$ 个不同特征值的 $n\times n$ 矩阵可对角化。
@@ -321,7 +321,7 @@ $$
 
 **例题（可对角化）。** 重用 $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$，其特征对为 $(3,(1,1)),(1,(1,-1))$：取 $P=\begin{psmallmatrix}1&1\\1&-1\end{psmallmatrix}$，$D=\begin{psmallmatrix}3&0\\0&1\end{psmallmatrix}$。则 $P^{-1}AP=D$，而 $A^n=PD^nP^{-1}$ 可即刻算出。
 
-**例题（亏损）。** $N=\begin{psmallmatrix}0&1\\0&0\end{psmallmatrix}$ 的特征多项式是 $\lambda^2$，所以 $\lambda=0$ 的代数重数为 $2$，但 $\ker N=\operatorname{span}((1,0))$ 的维数为 $1$。几何 $<$ 代数，所以 $N$ **不可**对角化。（这样的矩阵是最小的**约当块**；约当形是对亏损矩阵的系统性“尽可能接近”的对角化，但厄米算子——量子力学所关心的那些——绝不亏损，§s11 将予以证明。）
+**例题（亏损）。** $N=\begin{psmallmatrix}0&1\\0&0\end{psmallmatrix}$ 的特征多项式是 $\lambda^2$，所以 $\lambda=0$ 的代数重数为 $2$，但 $\ker N=\mathrm{span}((1,0))$ 的维数为 $1$。几何 $<$ 代数，所以 $N$ **不可**对角化。（这样的矩阵是最小的**约当块**；约当形是对亏损矩阵的系统性“尽可能接近”的对角化，但厄米算子——量子力学所关心的那些——绝不亏损，§s11 将予以证明。）
 
 **为何对角化有用 —— 计算 $A^{100}$。** 若 $A=PDP^{-1}$ 则 $A^k=PD^kP^{-1}$，因为内部的 $P^{-1}P$ 成对消去：$A^2=PDP^{-1}PDP^{-1}=PD^2P^{-1}$，归纳继续。把*对角*矩阵升幂只需把每个对角元素升幂。所以对 $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$，$A^{100}=P\begin{psmallmatrix}3^{100}&0\\0&1\end{psmallmatrix}P^{-1}$——一个闭式，无需重复相乘。同样的技巧定义了**矩阵指数** $e^{A}=Pe^{D}P^{-1}$，它求解线性微分方程 $\dot x=Ax$，并且当 $A=-iHt/\hbar$ 时生成量子时间演化（§s14）。
 
@@ -353,7 +353,7 @@ $$
 5. 整理：$|\langle u,v\rangle|^2\le\|u\|^2\|v\|^2$；取平方根。等号成立当且仅当 $w=0$，即 $u=\lambda v$——线性相关。$\blacksquare$
 
 > **推论 —— 三角不等式。** $\|u+v\|\le\|u\|+\|v\|$。
-**证明。** $\|u+v\|^2=\|u\|^2+2\operatorname{Re}\langle u,v\rangle+\|v\|^2\le\|u\|^2+2\|u\|\|v\|+\|v\|^2=(\|u\|+\|v\|)^2$，用到 $\operatorname{Re}\langle u,v\rangle\le|\langle u,v\rangle|\le\|u\|\|v\|$（柯西–施瓦茨）。取根。$\blacksquare$
+**证明。** $\|u+v\|^2=\|u\|^2+2\mathrm{Re}\langle u,v\rangle+\|v\|^2\le\|u\|^2+2\|u\|\|v\|+\|v\|^2=(\|u\|+\|v\|)^2$，用到 $\mathrm{Re}\langle u,v\rangle\le|\langle u,v\rangle|\le\|u\|\|v\|$（柯西–施瓦茨）。取根。$\blacksquare$
 
 > **定义 —— 标准正交基。** 一组基 $(e_1,\dots,e_n)$ 是**标准正交的**，如果 $\langle e_i,e_j\rangle=\delta_{ij}$（$i=j$ 时为 $1$，否则为 $0$）。在这样的基下坐标就是内积：$v=\sum_i\langle v,e_i\rangle e_i$。
 
@@ -362,7 +362,7 @@ $$
 **证明（构造性算法）。**
 1. 取 $u_1=v_1$ 和 $e_1=u_1/\|u_1\|$（允许：因无关故 $v_1\ne0$）。*（归一化第一个）*
 2. 已有标准正交的 $e_1,\dots,e_{j-1}$，从 $v_j$ 中减去它沿这些向量的分量：$u_j=v_j-\sum_{i<j}\langle v_j,e_i\rangle e_i$。*（投影掉先前的方向）*
-3. 则 $u_j\ne0$：若它为 $0$，$v_j$ 将落在 $\operatorname{span}(e_1,\dots,e_{j-1})=\operatorname{span}(v_1,\dots,v_{j-1})$ 中，与无关性矛盾。取 $e_j=u_j/\|u_j\|$。*（无关性使 $u_j$ 非零）*
+3. 则 $u_j\ne0$：若它为 $0$，$v_j$ 将落在 $\mathrm{span}(e_1,\dots,e_{j-1})=\mathrm{span}(v_1,\dots,v_{j-1})$ 中，与无关性矛盾。取 $e_j=u_j/\|u_j\|$。*（无关性使 $u_j$ 非零）*
 4. 检验正交性：对 $i<j$，$\langle u_j,e_i\rangle=\langle v_j,e_i\rangle-\langle v_j,e_i\rangle\langle e_i,e_i\rangle=\langle v_j,e_i\rangle-\langle v_j,e_i\rangle=0$（其他项因先前 $e$ 的标准正交性而消失）。所以每个新的 $e_j$ 都与所有先前的正交，且每一阶段张成都吻合。$\blacksquare$
 
 **例题。** 在 $\mathbb{R}^3$ 中正交标准化 $v_1=(1,1,0),v_2=(1,0,1)$。$e_1=\tfrac1{\sqrt2}(1,1,0)$。则 $\langle v_2,e_1\rangle=\tfrac1{\sqrt2}$，所以 $u_2=(1,0,1)-\tfrac1{\sqrt2}\cdot\tfrac1{\sqrt2}(1,1,0)=(1,0,1)-(\tfrac12,\tfrac12,0)=(\tfrac12,-\tfrac12,1)$，且 $\|u_2\|=\sqrt{\tfrac14+\tfrac14+1}=\sqrt{\tfrac32}$，给出 $e_2=\sqrt{\tfrac23}(\tfrac12,-\tfrac12,1)$。可验证 $\langle e_1,e_2\rangle=0$。
@@ -429,7 +429,7 @@ $$
 
 > **谱分解。** 等价地，一个厄米/正规的 $T$ 可写成 $T=\sum_k\lambda_k P_k$，其中 $P_k$ 是到特征空间 $E_{\lambda_k}$ 的正交投影。在狄拉克记号（§s14）中，$T=\sum_k\lambda_k|e_k\rangle\langle e_k|$。这*正是*量子测量公设：一个可观测量是它的特征值以到确定值状态的投影为权重的加权。
 
-**例题。** $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$ 是实对称（厄米）。特征对 $(3,(1,1)),(1,(1,-1))$——特征值为实，特征向量正交。归一化：$e_1=\tfrac1{\sqrt2}(1,1),e_2=\tfrac1{\sqrt2}(1,-1)$。用正交阵 $Q=\tfrac1{\sqrt2}\begin{psmallmatrix}1&1\\1&-1\end{psmallmatrix}$，$Q^{*}AQ=\operatorname{diag}(3,1)$，且谱分解为 $A=3\,e_1e_1^{*}+1\,e_2e_2^{*}$。
+**例题。** $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$ 是实对称（厄米）。特征对 $(3,(1,1)),(1,(1,-1))$——特征值为实，特征向量正交。归一化：$e_1=\tfrac1{\sqrt2}(1,1),e_2=\tfrac1{\sqrt2}(1,-1)$。用正交阵 $Q=\tfrac1{\sqrt2}\begin{psmallmatrix}1&1\\1&-1\end{psmallmatrix}$，$Q^{*}AQ=\mathrm{diag}(3,1)$，且谱分解为 $A=3\,e_1e_1^{*}+1\,e_2e_2^{*}$。
 
 > **为何这是本指南中最深刻的定理。** 对厄米算子三个独立的奇迹同时发生：(1) 特征值是*实数*（所以它们可以是物理测量值）；(2) 特征向量可被选为*标准正交*（所以不同结果是相互排斥的状态）；(3) 它们构成一组*完备的基*（所以每个状态都是确定值状态的叠加）。除 $T=T^*$ 外不需要任何特殊结构。量子力学的整个测量框架都是这三个事实的下游产物。
 
@@ -448,7 +448,7 @@ $$
 
 > **定义 —— 二次型。** 一个**二次型**是 $q(v)=\langle Av,v\rangle=\sum_{i,j}A_{ij}\,\overline{v_i}\,v_j$，其中 $A$ 厄米。谱定理把它**对角化**：在特征基下，$q=\sum_k\lambda_k|c_k|^2$——一个加权平方和（*主轴*）。这就是为什么谱定理分类圆锥曲线以及平衡点的稳定性。
 
-> **定理 —— 奇异值分解。** 每个 $m\times n$ 矩阵 $A$（在 $\mathbb{C}$ 上）都分解为 $A=U\Sigma V^*$，其中 $U$（$m\times m$）与 $V$（$n\times n$）是酉的，而 $\Sigma$ 是 $m\times n$ 对角阵，其实元素为 $\sigma_1\ge\dots\ge\sigma_r>0$（**奇异值**）后接若干零，$r=\operatorname{rank}A$。
+> **定理 —— 奇异值分解。** 每个 $m\times n$ 矩阵 $A$（在 $\mathbb{C}$ 上）都分解为 $A=U\Sigma V^*$，其中 $U$（$m\times m$）与 $V$（$n\times n$）是酉的，而 $\Sigma$ 是 $m\times n$ 对角阵，其实元素为 $\sigma_1\ge\dots\ge\sigma_r>0$（**奇异值**）后接若干零，$r=\mathrm{rank}A$。
 
 **证明（由作用于 $A^*A$ 的谱定理来构建）。**
 1. $A^*A$ 是厄米的（$(A^*A)^*=A^*A$）且正半定的（$\langle A^*Av,v\rangle=\langle Av,Av\rangle=\|Av\|^2\ge0$）。由谱定理它有一组标准正交特征基 $v_1,\dots,v_n$，实特征值 $\lambda_i\ge0$。将它们排序使 $\lambda_1\ge\dots\ge\lambda_n\ge0$；令 $r$ 为正者的个数并设 $\sigma_i=\sqrt{\lambda_i}$。*（对 $A^*A$ 用谱定理；特征值非负）*

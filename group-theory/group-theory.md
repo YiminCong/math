@@ -119,7 +119,7 @@ A coset is $H$ "shifted" by $g$. The key technical fact is that distinct cosets 
 
 > **Definition — normal subgroup.** $N\le G$ is **normal**, written $N\trianglelefteq G$, if $gNg^{-1}=N$ for every $g\in G$ — equivalently, the left and right cosets coincide, $gN=Ng$ for all $g$. (In an abelian group every subgroup is normal.)
 
-> **Definition — homomorphism.** A map $\phi:G\to G'$ between groups is a **homomorphism** if it respects the operation: $\phi(ab)=\phi(a)\phi(b)$ for all $a,b\in G$. Its **kernel** is $\ker\phi=\{g\in G:\phi(g)=e'\}$ and its **image** is $\operatorname{im}\phi=\{\phi(g):g\in G\}$. A bijective homomorphism is an **isomorphism**, written $G\cong G'$; isomorphic groups are "the same group with relabeled elements."
+> **Definition — homomorphism.** A map $\phi:G\to G'$ between groups is a **homomorphism** if it respects the operation: $\phi(ab)=\phi(a)\phi(b)$ for all $a,b\in G$. Its **kernel** is $\ker\phi=\{g\in G:\phi(g)=e'\}$ and its **image** is $\mathrm{im}\phi=\{\phi(g):g\in G\}$. A bijective homomorphism is an **isomorphism**, written $G\cong G'$; isomorphic groups are "the same group with relabeled elements."
 
 > **Lemma — homomorphisms preserve structure.** For a homomorphism $\phi:G\to G'$: (a) $\phi(e)=e'$; (b) $\phi(a^{-1})=\phi(a)^{-1}$; (c) $\ker\phi$ is a normal subgroup of $G$; (d) $\phi$ is one-to-one if and only if $\ker\phi=\{e\}$.
 
@@ -135,20 +135,20 @@ A coset is $H$ "shifted" by $g$. The key technical fact is that distinct cosets 
 1. *(Well defined.)* The trouble is that a coset has many names: $aN=a'N$ when $a'=an$ for some $n\in N$. We must check the product does not depend on the chosen names. Suppose $aN=a'N$ and $bN=b'N$, so $a'=an_1$, $b'=bn_2$ with $n_1,n_2\in N$. Then $a'b' = a n_1 b n_2$. Insert $b^{-1}b=e$: $a'b' = a b\,(b^{-1}n_1 b)\,n_2$. Now $b^{-1}n_1 b\in N$ because $N$ is normal ($b^{-1}Nb=N$). So $a'b' = ab\,(\text{element of }N)$, which means $(a'b')N=(ab)N$. The product of cosets is therefore unambiguous. *(this is exactly where normality is needed)*
 2. *(Group axioms.)* Associativity: $((aN)(bN))(cN)=(ab)N\cdot cN=((ab)c)N=(a(bc))N=(aN)((bN)(cN))$, using associativity in $G$. Identity: $eN=N$ satisfies $(N)(aN)=aN=(aN)(N)$. Inverse: $(aN)^{-1}=a^{-1}N$, since $(aN)(a^{-1}N)=(aa^{-1})N=eN$. All axioms hold. $\blacksquare$
 
-> **Theorem — First Isomorphism Theorem.** Let $\phi:G\to G'$ be a homomorphism. Then $\operatorname{im}\phi$ is a subgroup of $G'$, $\ker\phi\trianglelefteq G$, and
+> **Theorem — First Isomorphism Theorem.** Let $\phi:G\to G'$ be a homomorphism. Then $\mathrm{im}\phi$ is a subgroup of $G'$, $\ker\phi\trianglelefteq G$, and
 > $$
-> G/\ker\phi \;\cong\; \operatorname{im}\phi .
+> G/\ker\phi \;\cong\; \mathrm{im}\phi .
 > $$
 
 **Proof.** Write $K=\ker\phi$, which is normal by the Lemma, so $G/K$ is a group.
-1. Define $\Phi:G/K\to\operatorname{im}\phi$ by $\Phi(gK)=\phi(g)$.
+1. Define $\Phi:G/K\to\mathrm{im}\phi$ by $\Phi(gK)=\phi(g)$.
 2. *(Well defined.)* If $gK=g'K$ then $g'=gk$ for some $k\in K$, so $\phi(g')=\phi(g)\phi(k)=\phi(g)e'=\phi(g)$. The value does not depend on the representative.
 3. *(Homomorphism.)* $\Phi((gK)(hK))=\Phi((gh)K)=\phi(gh)=\phi(g)\phi(h)=\Phi(gK)\Phi(hK)$.
-4. *(Onto.)* Every element of $\operatorname{im}\phi$ is $\phi(g)=\Phi(gK)$ for some $g$, so $\Phi$ is onto.
+4. *(Onto.)* Every element of $\mathrm{im}\phi$ is $\phi(g)=\Phi(gK)$ for some $g$, so $\Phi$ is onto.
 5. *(One-to-one.)* Suppose $\Phi(gK)=e'$, i.e. $\phi(g)=e'$. Then $g\in K$, so $gK=K$, the identity coset. Thus the kernel of $\Phi$ is trivial, and by part (d) of the Lemma $\Phi$ is injective.
-6. A bijective homomorphism is an isomorphism, so $G/K\cong\operatorname{im}\phi$. $\blacksquare$
+6. A bijective homomorphism is an isomorphism, so $G/K\cong\mathrm{im}\phi$. $\blacksquare$
 
-**Worked example.** Let $\phi:\mathbb{Z}\to\mathbb{Z}_n$ send an integer to its remainder mod $n$. This is a homomorphism: the remainder of a sum is the sum of remainders mod $n$. It is onto, and its kernel is the multiples of $n$, $n\mathbb{Z}$. The theorem gives $\mathbb{Z}/n\mathbb{Z}\cong\mathbb{Z}_n$ — the clock arithmetic group is literally the integers with multiples of $n$ collapsed to zero. A second example: the **sign** homomorphism $\operatorname{sgn}:S_n\to\{+1,-1\}$ (multiplicative group of two elements) sends a permutation to $+1$ if it is a product of an even number of transpositions and $-1$ otherwise; its kernel is the **alternating group** $A_n$, and $S_n/A_n\cong\{\pm1\}$, so $A_n$ has index $2$ and thus $|A_n|=n!/2$.
+**Worked example.** Let $\phi:\mathbb{Z}\to\mathbb{Z}_n$ send an integer to its remainder mod $n$. This is a homomorphism: the remainder of a sum is the sum of remainders mod $n$. It is onto, and its kernel is the multiples of $n$, $n\mathbb{Z}$. The theorem gives $\mathbb{Z}/n\mathbb{Z}\cong\mathbb{Z}_n$ — the clock arithmetic group is literally the integers with multiples of $n$ collapsed to zero. A second example: the **sign** homomorphism $\mathrm{sgn}:S_n\to\{+1,-1\}$ (multiplicative group of two elements) sends a permutation to $+1$ if it is a product of an even number of transpositions and $-1$ otherwise; its kernel is the **alternating group** $A_n$, and $S_n/A_n\cong\{\pm1\}$, so $A_n$ has index $2$ and thus $|A_n|=n!/2$.
 
 <a id="s4"></a>
 ### Group actions, orbits and stabilizers, and the orbit–stabilizer theorem
@@ -157,40 +157,40 @@ A coset is $H$ "shifted" by $g$. The key technical fact is that distinct cosets 
 
 > **Definition — group action.** A (left) **action** of a group $G$ on a set $X$ is a map $G\times X\to X$, written $g\cdot x$, such that: (i) $e\cdot x = x$ for all $x$; (ii) $g\cdot(h\cdot x) = (gh)\cdot x$ for all $g,h\in G$, $x\in X$.
 
-> **Definition — orbit and stabilizer.** For $x\in X$, the **orbit** is $\operatorname{Orb}(x)=\{g\cdot x : g\in G\}$ — everywhere $x$ can be sent. The **stabilizer** is $\operatorname{Stab}(x)=\{g\in G : g\cdot x = x\}$ — the elements that fix $x$.
+> **Definition — orbit and stabilizer.** For $x\in X$, the **orbit** is $\mathrm{Orb}(x)=\{g\cdot x : g\in G\}$ — everywhere $x$ can be sent. The **stabilizer** is $\mathrm{Stab}(x)=\{g\in G : g\cdot x = x\}$ — the elements that fix $x$.
 
-> **Lemma.** $\operatorname{Stab}(x)$ is a subgroup of $G$.
+> **Lemma.** $\mathrm{Stab}(x)$ is a subgroup of $G$.
 
-**Proof.** $e\in\operatorname{Stab}(x)$ by (i). If $g,h$ fix $x$ then $(gh)\cdot x = g\cdot(h\cdot x)=g\cdot x = x$, so $gh$ fixes $x$. If $g\cdot x=x$, apply $g^{-1}$: $g^{-1}\cdot(g\cdot x)=g^{-1}\cdot x$, and the left side is $(g^{-1}g)\cdot x = e\cdot x = x$, so $g^{-1}\cdot x = x$. All three subgroup conditions hold. $\blacksquare$
+**Proof.** $e\in\mathrm{Stab}(x)$ by (i). If $g,h$ fix $x$ then $(gh)\cdot x = g\cdot(h\cdot x)=g\cdot x = x$, so $gh$ fixes $x$. If $g\cdot x=x$, apply $g^{-1}$: $g^{-1}\cdot(g\cdot x)=g^{-1}\cdot x$, and the left side is $(g^{-1}g)\cdot x = e\cdot x = x$, so $g^{-1}\cdot x = x$. All three subgroup conditions hold. $\blacksquare$
 
-> **Theorem — Orbit–Stabilizer.** For a group $G$ acting on $X$ and any $x\in X$, there is a bijection between the orbit $\operatorname{Orb}(x)$ and the set of left cosets of $\operatorname{Stab}(x)$. Hence for finite $G$,
+> **Theorem — Orbit–Stabilizer.** For a group $G$ acting on $X$ and any $x\in X$, there is a bijection between the orbit $\mathrm{Orb}(x)$ and the set of left cosets of $\mathrm{Stab}(x)$. Hence for finite $G$,
 > $$
-> |\operatorname{Orb}(x)| = [\,G : \operatorname{Stab}(x)\,] = \frac{|G|}{|\operatorname{Stab}(x)|}.
+> |\mathrm{Orb}(x)| = [\,G : \mathrm{Stab}(x)\,] = \frac{|G|}{|\mathrm{Stab}(x)|}.
 > $$
 
-**Proof.** Write $S=\operatorname{Stab}(x)$.
-1. Define $\psi: G/S \to \operatorname{Orb}(x)$ by $\psi(gS)=g\cdot x$.
+**Proof.** Write $S=\mathrm{Stab}(x)$.
+1. Define $\psi: G/S \to \mathrm{Orb}(x)$ by $\psi(gS)=g\cdot x$.
 2. *(Well defined.)* If $gS=g'S$ then $g'=gs$ for some $s\in S$, so $g'\cdot x = (gs)\cdot x = g\cdot(s\cdot x)=g\cdot x$. The value depends only on the coset.
 3. *(One-to-one.)* If $g\cdot x = g'\cdot x$, apply $g^{-1}$ on the left: $x = (g^{-1}g')\cdot x$, so $g^{-1}g'\in S$, which means $g'\in gS$, i.e. $gS=g'S$. Distinct cosets give distinct points.
 4. *(Onto.)* Any point of the orbit is $g\cdot x=\psi(gS)$ for some $g$.
-5. So $\psi$ is a bijection, giving $|\operatorname{Orb}(x)|=[G:S]$, and by Lagrange this equals $|G|/|S|$ when $G$ is finite. $\blacksquare$
+5. So $\psi$ is a bijection, giving $|\mathrm{Orb}(x)|=[G:S]$, and by Lagrange this equals $|G|/|S|$ when $G$ is finite. $\blacksquare$
 
-**Worked example.** Let $G=D_4$ (order $8$) act on the four vertices of a square, $X=\{1,2,3,4\}$. The orbit of vertex $1$ is all four vertices (any vertex can be rotated to any other), so $|\operatorname{Orb}(1)|=4$. The stabilizer of vertex $1$ consists of the identity and the reflection through the diagonal containing vertex $1$ — two elements. Check the theorem: $|\operatorname{Orb}(1)|\cdot|\operatorname{Stab}(1)| = 4\cdot 2 = 8 = |G|$. Knowing only that the action is *transitive* (one orbit of size $4$) and that $|G|=8$, we deduce the stabilizer has order $2$ without listing it.
+**Worked example.** Let $G=D_4$ (order $8$) act on the four vertices of a square, $X=\{1,2,3,4\}$. The orbit of vertex $1$ is all four vertices (any vertex can be rotated to any other), so $|\mathrm{Orb}(1)|=4$. The stabilizer of vertex $1$ consists of the identity and the reflection through the diagonal containing vertex $1$ — two elements. Check the theorem: $|\mathrm{Orb}(1)|\cdot|\mathrm{Stab}(1)| = 4\cdot 2 = 8 = |G|$. Knowing only that the action is *transitive* (one orbit of size $4$) and that $|G|=8$, we deduce the stabilizer has order $2$ without listing it.
 
 **Worked counting application — colorings of a triangle.** How many genuinely different ways are there to color the $3$ vertices of an equilateral triangle with $2$ colors, where rotations of the triangle count as the same? The rotation group is $\mathbb{Z}_3=\{e,r,r^2\}$ acting on the $2^3=8$ colorings. **Burnside's lemma** (a consequence of orbit–stabilizer: the number of orbits equals the average number of fixed points, $\frac{1}{|G|}\sum_g|\text{Fix}(g)|$) gives the count. The identity fixes all $8$ colorings; each nontrivial rotation $r,r^2$ fixes only the $2$ monochromatic colorings (all vertices must match). So the number of distinct colorings is $\frac{1}{3}(8+2+2)=4$. Listing them confirms it: all-color-A, all-color-B, two-A-one-B, two-B-one-A. Symmetry counting reduces a fiddly combinatorial question to one average.
 
-> **Intuition.** The orbit measures how far $x$ can move; the stabilizer measures how much of the group "wastes its effort" leaving $x$ fixed. Their sizes multiply to $|G|$ because each point in the orbit is reached by exactly $|\operatorname{Stab}(x)|$ group elements (a full coset).
+> **Intuition.** The orbit measures how far $x$ can move; the stabilizer measures how much of the group "wastes its effort" leaving $x$ fixed. Their sizes multiply to $|G|$ because each point in the orbit is reached by exactly $|\mathrm{Stab}(x)|$ group elements (a full coset).
 
 <a id="s5"></a>
 ### Conjugacy classes
 
 **What and why.** Within a group, some elements are "the same kind of operation seen from a different viewpoint" — for instance all reflections of a square are conjugate. Sorting elements into **conjugacy classes** is the bridge to characters and the eventual reading of representations.
 
-> **Definition — conjugacy.** Elements $a,b\in G$ are **conjugate** if $b = gag^{-1}$ for some $g\in G$. This is an equivalence relation (reflexive via $g=e$; symmetric via $g^{-1}$; transitive by composing the conjugators), so it partitions $G$ into disjoint **conjugacy classes**. The class of $a$ is $\operatorname{Cl}(a)=\{gag^{-1}:g\in G\}$.
+> **Definition — conjugacy.** Elements $a,b\in G$ are **conjugate** if $b = gag^{-1}$ for some $g\in G$. This is an equivalence relation (reflexive via $g=e$; symmetric via $g^{-1}$; transitive by composing the conjugators), so it partitions $G$ into disjoint **conjugacy classes**. The class of $a$ is $\mathrm{Cl}(a)=\{gag^{-1}:g\in G\}$.
 
 Conjugation by $g$ is itself the action $g\cdot a = gag^{-1}$ of $G$ on itself (one checks (i) and (ii)), so the conjugacy class is exactly an orbit. The stabilizer of $a$ under this action is the **centralizer** $C_G(a)=\{g:ga=ag\}$. Orbit–stabilizer then gives a class-size formula for free:
 $$
-|\operatorname{Cl}(a)| = \frac{|G|}{|C_G(a)|},
+|\mathrm{Cl}(a)| = \frac{|G|}{|C_G(a)|},
 $$
 so every class size divides $|G|$.
 
@@ -203,7 +203,7 @@ Check: $1+3+2 = 6 = |S_3|$, and each size ($1,3,2$) divides $6$, consistent with
 
 **Worked verification of the relabeling rule.** Conjugate $(1\,2\,3)$ by $g=(1\,2)$ in $S_3$. The rule says $g(1\,2\,3)g^{-1}=(g(1)\,g(2)\,g(3))=(2\,1\,3)=(1\,3\,2)$. Check directly: $g^{-1}=(1\,2)$, and we evaluate $g(1\,2\,3)g^{-1}$ on the point $2$ — read right to left: $g^{-1}$ sends $2\mapsto1$, then $(1\,2\,3)$ sends $1\mapsto2$, then $g$ sends $2\mapsto1$, net $2\mapsto1$. And $(1\,3\,2)$ indeed sends $2\mapsto1$. Tracing the other points confirms $g(1\,2\,3)g^{-1}=(1\,3\,2)$, exactly the predicted relabeling. So the two $3$-cycles are genuinely conjugate, as the class structure claimed.
 
-> **The class equation.** Splitting $G$ into conjugacy classes and counting gives $|G|=\sum_i |\operatorname{Cl}(a_i)| = |Z(G)| + \sum_{\text{nontrivial classes}} \frac{|G|}{|C_G(a_i)|}$, where the **center** $Z(G)=\{z : zg=gz\ \forall g\}$ collects the singleton classes. For $S_3$: $6 = 1 + 3 + 2$, with center $\{e\}$ only (size $1$). This equation is the lever behind many structural theorems — for instance, it forces every group of prime-power order to have a nontrivial center.
+> **The class equation.** Splitting $G$ into conjugacy classes and counting gives $|G|=\sum_i |\mathrm{Cl}(a_i)| = |Z(G)| + \sum_{\text{nontrivial classes}} \frac{|G|}{|C_G(a_i)|}$, where the **center** $Z(G)=\{z : zg=gz\ \forall g\}$ collects the singleton classes. For $S_3$: $6 = 1 + 3 + 2$, with center $\{e\}$ only (size $1$). This equation is the lever behind many structural theorems — for instance, it forces every group of prime-power order to have a nontrivial center.
 
 > **Pitfall.** Conjugate elements are *not* generally equal, and the relation depends on the whole group: two elements conjugate in a larger group may fail to be conjugate in a subgroup. Cycle type characterizes conjugacy in $S_n$ specifically, not in arbitrary groups.
 
@@ -264,7 +264,7 @@ using that $\rho(g)$ is unitary so its adjoint is $\rho(g)^{-1}$. Since $W$ is i
 
 **Proof.**
 1. *(a, kernel.)* $\ker T$ is invariant under $\rho$: if $v\in\ker T$ then $T(\rho(g)v)=\sigma(g)Tv=\sigma(g)0=0$, so $\rho(g)v\in\ker T$. Since $\rho$ is irreducible, $\ker T$ is $\{0\}$ or all of $V$. If $\ker T=V$ then $T=0$.
-2. *(a, image.)* $\operatorname{im}T$ is invariant under $\sigma$: any element is $Tv$, and $\sigma(g)(Tv)=T(\rho(g)v)\in\operatorname{im}T$. Since $\sigma$ is irreducible, $\operatorname{im}T$ is $\{0\}$ or all of $W$. If $T\ne0$, then $\ker T=\{0\}$ (injective) and $\operatorname{im}T=W$ (onto), so $T$ is an isomorphism.
+2. *(a, image.)* $\mathrm{im}T$ is invariant under $\sigma$: any element is $Tv$, and $\sigma(g)(Tv)=T(\rho(g)v)\in\mathrm{im}T$. Since $\sigma$ is irreducible, $\mathrm{im}T$ is $\{0\}$ or all of $W$. If $T\ne0$, then $\ker T=\{0\}$ (injective) and $\mathrm{im}T=W$ (onto), so $T$ is an isomorphism.
 3. *(b.)* Now $V=W$ over $\mathbb{C}$. Since $\mathbb{C}$ is algebraically closed and $V$ is finite-dimensional, $T$ has an eigenvalue $\lambda$ (a root of its characteristic polynomial). Consider $T-\lambda I$. It also intertwines $\rho$ with itself, because $(T-\lambda I)\rho(g)=T\rho(g)-\lambda\rho(g)=\rho(g)T-\lambda\rho(g)=\rho(g)(T-\lambda I)$. But $T-\lambda I$ has nontrivial kernel (the $\lambda$-eigenspace is nonzero), so by part (a) it cannot be an isomorphism; hence $T-\lambda I=0$, i.e. $T=\lambda I$. $\blacksquare$
 
 **Worked consequence — irreducible representations of abelian groups are 1-dimensional.** Let $G$ be abelian and $\rho$ an irreducible representation over $\mathbb{C}$. Fix any $h\in G$; the matrix $\rho(h)$ commutes with every $\rho(g)$ because $\rho(h)\rho(g)=\rho(hg)=\rho(gh)=\rho(g)\rho(h)$ (using that $G$ is abelian). By Schur (b), $\rho(h)=\lambda_h I$ for a scalar. But then *every* one-dimensional subspace is invariant (a scalar matrix preserves all lines), so irreducibility forces $\dim V=1$. This is why $\mathbb{Z}_n$ had only the $n$ one-dimensional irreducibles of s6, and why the harmonics $e^{2\pi i km/n}$ are the complete story for abelian symmetry — Fourier analysis is exactly the representation theory of abelian groups.
@@ -276,7 +276,7 @@ using that $\rho(g)$ is unitary so its adjoint is $\rho(g)^{-1}$. Since $W$ is i
 
 **What and why.** Carrying around whole matrices is unwieldy. The **character** — the trace of each representation matrix — distills a representation to one number per conjugacy class, yet retains enough information to identify it completely. Orthogonality relations turn "decompose into irreducibles" into simple arithmetic.
 
-> **Definition — character.** The **character** of a representation $\rho$ is the function $\chi_\rho(g)=\operatorname{tr}\rho(g)$ (the trace, the sum of diagonal entries). Key facts, all from properties of the trace: (i) $\chi_\rho(e)=\dim V$ (trace of $I$); (ii) $\chi_\rho$ is **constant on conjugacy classes** (a **class function**), because $\operatorname{tr}(\rho(g)\rho(a)\rho(g)^{-1})=\operatorname{tr}\rho(a)$ by the cyclic property of trace; (iii) equivalent representations have equal characters (trace is basis-independent).
+> **Definition — character.** The **character** of a representation $\rho$ is the function $\chi_\rho(g)=\mathrm{tr}\rho(g)$ (the trace, the sum of diagonal entries). Key facts, all from properties of the trace: (i) $\chi_\rho(e)=\dim V$ (trace of $I$); (ii) $\chi_\rho$ is **constant on conjugacy classes** (a **class function**), because $\mathrm{tr}(\rho(g)\rho(a)\rho(g)^{-1})=\mathrm{tr}\rho(a)$ by the cyclic property of trace; (iii) equivalent representations have equal characters (trace is basis-independent).
 
 Define the **inner product of class functions** by
 $$
@@ -290,7 +290,7 @@ $$
 
 **Proof (sketch with the load-bearing steps complete).**
 1. For representations $\rho$ (on $V$) and $\sigma$ (on $W$) and *any* linear map $A:V\to W$, form the averaged map $\tilde A=\frac{1}{|G|}\sum_g \sigma(g)A\rho(g)^{-1}$. A substitution $g\mapsto hg$ shows $\sigma(h)\tilde A=\tilde A\rho(h)$, so $\tilde A$ intertwines.
-2. By Schur's Lemma: if $\rho\not\cong\sigma$ then $\tilde A=0$ for every choice of $A$; if $\rho=\sigma$ then $\tilde A=\lambda I$ with $\lambda=\frac{\operatorname{tr}A}{\dim V}$ (take traces of both sides of $\tilde A=\lambda I$, using that averaging preserves trace).
+2. By Schur's Lemma: if $\rho\not\cong\sigma$ then $\tilde A=0$ for every choice of $A$; if $\rho=\sigma$ then $\tilde A=\lambda I$ with $\lambda=\frac{\mathrm{tr}A}{\dim V}$ (take traces of both sides of $\tilde A=\lambda I$, using that averaging preserves trace).
 3. Choosing $A$ to be the elementary matrices (a single $1$ entry) and reading off components gives the **Grand Orthogonality relations** among matrix entries; summing the diagonal entries (taking traces) collapses these to the character statement above. The non-equivalent case yields $0$; the equal case yields $\frac{1}{|G|}\sum_g|\chi(g)|^2 = 1$. $\blacksquare$
 
 Two corollaries make characters a complete bookkeeping tool:
@@ -299,7 +299,7 @@ Two corollaries make characters a complete bookkeeping tool:
 
 **Worked example — the character table of $S_3$.** From s5, $S_3$ has $3$ conjugacy classes: $\{e\}$ (size $1$), the transpositions $\{(1\,2),(1\,3),(2\,3)\}$ (size $3$), and the 3-cycles $\{(1\,2\,3),(1\,3\,2)\}$ (size $2$). So there are exactly $3$ irreducibles. Their dimensions satisfy $d_1^2+d_2^2+d_3^2=6$; the only positive-integer solution is $1+1+4$, i.e. dimensions $1,1,2$.
 - The **trivial** representation: $\chi(g)=1$ for all $g$.
-- The **sign** representation: $\chi(g)=\operatorname{sgn}(g)$, which is $+1$ on $e$, $-1$ on transpositions, $+1$ on 3-cycles.
+- The **sign** representation: $\chi(g)=\mathrm{sgn}(g)$, which is $+1$ on $e$, $-1$ on transpositions, $+1$ on 3-cycles.
 - The **2-dimensional standard** representation $\rho_{\text{std}}$: realize $S_3$ as the symmetries of an equilateral triangle acting on the plane. Then $\rho(e)=I$ has trace $2$; a reflection (transposition) has trace $0$ (it has eigenvalues $+1,-1$); a $120^\circ$ rotation (3-cycle) has trace $2\cos120^\circ=-1$.
 
 Assemble the table (columns headed by a class representative, with the class size above):
@@ -363,8 +363,8 @@ with $\alpha,\beta\in\mathbb{C}$. Writing $\alpha=a_0+ia_3$, $\beta=a_2+ia_1$ wi
 > **Theorem — the algebra is closed under the commutator.** If $X,Y\in\mathfrak g$ then the **commutator** $[X,Y]=XY-YX$ is also in $\mathfrak g$. Thus $\mathfrak g$ is a real vector space closed under the bracket $[\,,]$; this is the abstract structure called a **Lie algebra**.
 
 **Worked derivation of the defining conditions.** The conditions on $X$ come from differentiating the group's defining equation at $t=0$.
-1. *(Orthogonal/$SO(n)$.)* The condition is $A^{\mathsf T}A=I$. Put $A=e^{tX}$, note $(e^{tX})^{\mathsf T}=e^{tX^{\mathsf T}}$, so $e^{tX^{\mathsf T}}e^{tX}=I$. Differentiate at $t=0$ using $\frac{d}{dt}e^{tX}\big|_0=X$ and the product rule: $X^{\mathsf T}+X=0$. So $\mathfrak{so}(n)$ is the **antisymmetric** matrices ($X^{\mathsf T}=-X$). The $\det=1$ condition adds nothing infinitesimally because $\det e^{tX}=e^{t\operatorname{tr}X}$ and antisymmetric matrices already have zero trace.
-2. *(Unitary/$SU(n)$.)* The condition $U^\dagger U=I$ with $U=e^{tX}$ and $(e^{tX})^\dagger=e^{tX^\dagger}$ differentiates to $X^\dagger+X=0$: $\mathfrak{u}(n)$ is the **anti-Hermitian** matrices. The extra $\det=1$ gives, from $\det e^{tX}=e^{t\operatorname{tr}X}=1$, the **traceless** condition $\operatorname{tr}X=0$. So $\mathfrak{su}(n)$ = traceless anti-Hermitian matrices.
+1. *(Orthogonal/$SO(n)$.)* The condition is $A^{\mathsf T}A=I$. Put $A=e^{tX}$, note $(e^{tX})^{\mathsf T}=e^{tX^{\mathsf T}}$, so $e^{tX^{\mathsf T}}e^{tX}=I$. Differentiate at $t=0$ using $\frac{d}{dt}e^{tX}\big|_0=X$ and the product rule: $X^{\mathsf T}+X=0$. So $\mathfrak{so}(n)$ is the **antisymmetric** matrices ($X^{\mathsf T}=-X$). The $\det=1$ condition adds nothing infinitesimally because $\det e^{tX}=e^{t\mathrm{tr}X}$ and antisymmetric matrices already have zero trace.
+2. *(Unitary/$SU(n)$.)* The condition $U^\dagger U=I$ with $U=e^{tX}$ and $(e^{tX})^\dagger=e^{tX^\dagger}$ differentiates to $X^\dagger+X=0$: $\mathfrak{u}(n)$ is the **anti-Hermitian** matrices. The extra $\det=1$ gives, from $\det e^{tX}=e^{t\mathrm{tr}X}=1$, the **traceless** condition $\mathrm{tr}X=0$. So $\mathfrak{su}(n)$ = traceless anti-Hermitian matrices.
 
 **Proof that $[X,Y]\in\mathfrak g$.** Consider the smooth curve $\gamma(t)=e^{\sqrt t\,X}e^{\sqrt t\,Y}e^{-\sqrt t\,X}e^{-\sqrt t\,Y}$ in $G$ (a product of group elements, hence in $G$). Expanding each exponential to second order in $\sqrt t$ and multiplying out, the zeroth and first-order terms cancel and one finds $\gamma(t)=I+t[X,Y]+O(t^{3/2})$. Hence $\frac{d}{dt}\gamma(t)\big|_{t=0^+}=[X,Y]$ is a tangent vector to $G$ at the identity, i.e. lies in $\mathfrak g$. $\blacksquare$
 
@@ -414,7 +414,7 @@ where $\epsilon_{abc}$ is the totally antisymmetric symbol ($\epsilon_{123}=1$).
 4. *(Build the rest by lowering.)* Apply $J_-$ repeatedly to get states with $m=j,j-1,j-2,\dots$. The norm computation $\|J_-|j,m\rangle\|^2 = \langle j,m|J_+J_-|j,m\rangle = j(j+1)-m(m-1)$ (using $J_+J_-=J^2-J_3^2+J_3$) gives exactly the coefficient quoted, and it must stay $\ge0$.
 5. *(Termination quantizes $j$.)* The ladder must stop at some bottom rung $m=-j'$, where $J_-|j,-j'\rangle=0$ forces (by the analogous bottom computation) $j'=j$. The number of steps from $+j$ down to $-j$ must be a nonnegative integer, so $2j\in\{0,1,2,\dots\}$, i.e. $j\in\{0,\tfrac12,1,\tfrac32,\dots\}$. The dimension is the number of rungs, $2j+1$. $\blacksquare$
 
-**Worked example — spin $\tfrac12$.** Here $j=\tfrac12$, dimension $2$, states $|{\uparrow}\rangle=|\tfrac12,\tfrac12\rangle$ and $|{\downarrow}\rangle=|\tfrac12,-\tfrac12\rangle$. Then $J_3=\tfrac12\operatorname{diag}(1,-1)$, $J_+|{\downarrow}\rangle=\sqrt{\tfrac12\cdot\tfrac32-(-\tfrac12)(\tfrac12)}\,|{\uparrow}\rangle=|{\uparrow}\rangle$, recovering exactly $J_a=\tfrac12\sigma_a$. This is the electron's spin. The next case $j=1$ (dimension $3$) is the spin-1 / vector representation, realized by ordinary $3$-vectors under $SO(3)$.
+**Worked example — spin $\tfrac12$.** Here $j=\tfrac12$, dimension $2$, states $|{\uparrow}\rangle=|\tfrac12,\tfrac12\rangle$ and $|{\downarrow}\rangle=|\tfrac12,-\tfrac12\rangle$. Then $J_3=\tfrac12\mathrm{diag}(1,-1)$, $J_+|{\downarrow}\rangle=\sqrt{\tfrac12\cdot\tfrac32-(-\tfrac12)(\tfrac12)}\,|{\uparrow}\rangle=|{\uparrow}\rangle$, recovering exactly $J_a=\tfrac12\sigma_a$. This is the electron's spin. The next case $j=1$ (dimension $3$) is the spin-1 / vector representation, realized by ordinary $3$-vectors under $SO(3)$.
 
 <a id="s12"></a>
 ### $SU(3)$, roots and weights, and the quark model

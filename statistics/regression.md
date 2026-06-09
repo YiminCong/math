@@ -148,9 +148,9 @@ Two new words must be pinned down first. An estimator is **unbiased** if its ave
 
 $$E[\hat\beta_1]=\beta_1,\qquad E[\hat\beta_0]=\beta_0$$
 
-$$\operatorname{Var}(\hat\beta_1)=\frac{\sigma^2}{S_{xx}},\qquad \operatorname{Var}(\hat\beta_0)=\sigma^2\!\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right)$$
+$$\mathrm{Var}(\hat\beta_1)=\frac{\sigma^2}{S_{xx}},\qquad \mathrm{Var}(\hat\beta_0)=\sigma^2\!\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right)$$
 
-The first line says least squares hits the true intercept and slope on average. The second gives the variances: notice $S_{xx}$ sits in the denominator of $\operatorname{Var}(\hat\beta_1)$, so *more spread in $x$ (larger $S_{xx}$) means a more tightly pinned slope*. This is exactly why good experiment design spreads the predictor values far apart.
+The first line says least squares hits the true intercept and slope on average. The second gives the variances: notice $S_{xx}$ sits in the denominator of $\mathrm{Var}(\hat\beta_1)$, so *more spread in $x$ (larger $S_{xx}$) means a more tightly pinned slope*. This is exactly why good experiment design spreads the predictor values far apart.
 
 **Demonstration — $\hat\beta_1$ is unbiased and find its variance**
 
@@ -162,13 +162,13 @@ The first line says least squares hits the true intercept and slope on average. 
    *Reason:* linearity of expectation and the two weight facts from step 1.
 3. **Compute the variance.** For *independent* quantities the variance of a weighted sum is the sum of the squared weights times each variance (cross terms vanish because independent variables do not co-vary), and each $y_i$ has variance $\sigma^2$:
 
-   $$\operatorname{Var}(\hat\beta_1)=\sum c_i^2\,\operatorname{Var}(y_i)=\sigma^2\sum c_i^2=\frac{\sigma^2}{S_{xx}^2}\sum(x_i-\bar x)^2=\frac{\sigma^2}{S_{xx}^2}\,S_{xx}=\frac{\sigma^2}{S_{xx}}.$$
+   $$\mathrm{Var}(\hat\beta_1)=\sum c_i^2\,\mathrm{Var}(y_i)=\sigma^2\sum c_i^2=\frac{\sigma^2}{S_{xx}^2}\sum(x_i-\bar x)^2=\frac{\sigma^2}{S_{xx}^2}\,S_{xx}=\frac{\sigma^2}{S_{xx}}.$$
 
    *Reason:* the variance-of-a-sum rule for independent terms, then $\sum c_i^2 = \sum (x_i-\bar x)^2/S_{xx}^2 = S_{xx}/S_{xx}^2 = 1/S_{xx}$.
 
 *No Normality assumption was needed here — only $E[\varepsilon] = 0$, constant variance $\sigma^2$, and independence.*
 
-**Worked example (continued).** Suppose the true noise level is $\sigma = 2$, so $\sigma^2 = 4$. With $S_{xx} = 10$ from the students, $\operatorname{Var}(\hat\beta_1) = 4/10 = 0.4$, giving a standard deviation of the slope of $\sqrt{0.4} \approx 0.632$. Had we spread study times over $0,2,4,6,8$ hours instead (same five points, wider), $S_{xx}$ would be $40$ and the slope variance would drop to $4/40 = 0.1$ — four times more precise from wider design alone.
+**Worked example (continued).** Suppose the true noise level is $\sigma = 2$, so $\sigma^2 = 4$. With $S_{xx} = 10$ from the students, $\mathrm{Var}(\hat\beta_1) = 4/10 = 0.4$, giving a standard deviation of the slope of $\sqrt{0.4} \approx 0.632$. Had we spread study times over $0,2,4,6,8$ hours instead (same five points, wider), $S_{xx}$ would be $40$ and the slope variance would drop to $4/40 = 0.1$ — four times more precise from wider design alone.
 
 > **Principle — Gauss–Markov: OLS is BLUE**
 >
@@ -180,10 +180,10 @@ The first line says least squares hits the true intercept and slope on average. 
 2. **Split the rival weights from the OLS weights.** Write $d_i = c_i + \delta_i$, defining the *difference* $\delta_i = d_i - c_i$. Subtracting the constraint pairs, $\sum \delta_i = \sum d_i - \sum c_i = 0 - 0 = 0$ and $\sum \delta_i x_i = \sum d_i x_i - \sum c_i x_i = 1 - 1 = 0$. From these, the **cross term** vanishes: $\sum c_i \delta_i = \sum \frac{x_i - \bar x}{S_{xx}}\delta_i = \frac{1}{S_{xx}}\big(\sum x_i \delta_i - \bar x \sum \delta_i\big) = \frac{1}{S_{xx}}(0 - 0) = 0$. *Reason:* substitute $c_i = (x_i-\bar x)/S_{xx}$ and apply the two facts about $\delta_i$.
 3. **Split the variance.** Because the $y_i$ are independent with variance $\sigma^2$:
 
-   $$\operatorname{Var}(\tilde\beta_1)=\sigma^2\sum d_i^2=\sigma^2\sum (c_i+\delta_i)^2=\sigma^2\Big(\sum c_i^2 + 2\sum c_i\delta_i + \sum \delta_i^2\Big)=\operatorname{Var}(\hat\beta_1)+\sigma^2\sum\delta_i^2.$$
+   $$\mathrm{Var}(\tilde\beta_1)=\sigma^2\sum d_i^2=\sigma^2\sum (c_i+\delta_i)^2=\sigma^2\Big(\sum c_i^2 + 2\sum c_i\delta_i + \sum \delta_i^2\Big)=\mathrm{Var}(\hat\beta_1)+\sigma^2\sum\delta_i^2.$$
 
-   *Reason:* expand the square; the middle cross term is zero by step 2; $\sigma^2 \sum c_i^2 = \operatorname{Var}(\hat\beta_1)$ from before.
-4. **Conclude.** A sum of squares is never negative, so $\sum \delta_i^2 \ge 0$, hence $\operatorname{Var}(\tilde\beta_1) \ge \operatorname{Var}(\hat\beta_1)$, with equality only when every $\delta_i = 0$, i.e. when the rival *is* OLS. *Reason:* squares are non-negative. Therefore no linear unbiased estimator beats OLS for variance.
+   *Reason:* expand the square; the middle cross term is zero by step 2; $\sigma^2 \sum c_i^2 = \mathrm{Var}(\hat\beta_1)$ from before.
+4. **Conclude.** A sum of squares is never negative, so $\sum \delta_i^2 \ge 0$, hence $\mathrm{Var}(\tilde\beta_1) \ge \mathrm{Var}(\hat\beta_1)$, with equality only when every $\delta_i = 0$, i.e. when the rival *is* OLS. *Reason:* squares are non-negative. Therefore no linear unbiased estimator beats OLS for variance.
 
 *OLS sits at the very bottom of the variance bowl among all linear unbiased competitors — the Gauss–Markov optimum.*
 
@@ -208,7 +208,7 @@ A **hypothesis test** asks whether the data are surprising under a tentative ass
 
 **The t-statistic for a coefficient**
 
-$$t = \frac{\hat\beta_1 - \beta_1^{(0)}}{\operatorname{SE}(\hat\beta_1)},\qquad \operatorname{SE}(\hat\beta_1)=\frac{s}{\sqrt{S_{xx}}}$$
+$$t = \frac{\hat\beta_1 - \beta_1^{(0)}}{\mathrm{SE}(\hat\beta_1)},\qquad \mathrm{SE}(\hat\beta_1)=\frac{s}{\sqrt{S_{xx}}}$$
 
 The numerator is "how far the estimate landed from the hypothesized value $\beta_1^{(0)}$"; the denominator rescales that distance into *standard-error units*. The standard error replaces the unknown $\sigma$ in $\sqrt{\sigma^2/S_{xx}} = \sigma/\sqrt{S_{xx}}$ (from §s2) by its estimate $s$.
 
@@ -224,7 +224,7 @@ $$\hat\beta_1 \pm t^{*}_{n-2}\;\frac{s}{\sqrt{S_{xx}}}$$
 
 This is the universal template "estimate $\pm$ critical value $\times$ standard error." The **critical value** $t^*_{n-2}$ is the cutoff from the $t$-distribution that leaves the desired tail probability (for 95% confidence, the central 95% lies between $-t^*$ and $+t^*$).
 
-**Worked example (continued).** $\operatorname{SE}(\hat\beta_1) = s/\sqrt{S_{xx}} = 1.461/\sqrt{10} = 1.461/3.162 = 0.462$. To test $H_0: \beta_1 = 0$: $t = 5.6/0.462 = 12.1$ on $n - 2 = 3$ degrees of freedom. The two-sided 5% critical value is $t^*_3 = 3.182$. Since $12.1 > 3.182$, we reject $H_0$ — the slope is convincingly nonzero. A 95% confidence interval for the slope is $5.6 \pm 3.182 \times 0.462 = 5.6 \pm 1.47 = [4.13,\,7.07]$.
+**Worked example (continued).** $\mathrm{SE}(\hat\beta_1) = s/\sqrt{S_{xx}} = 1.461/\sqrt{10} = 1.461/3.162 = 0.462$. To test $H_0: \beta_1 = 0$: $t = 5.6/0.462 = 12.1$ on $n - 2 = 3$ degrees of freedom. The two-sided 5% critical value is $t^*_3 = 3.182$. Since $12.1 > 3.182$, we reject $H_0$ — the slope is convincingly nonzero. A 95% confidence interval for the slope is $5.6 \pm 3.182 \times 0.462 = 5.6 \pm 1.47 = [4.13,\,7.07]$.
 
 > **Principle — confidence interval vs prediction interval**
 >
@@ -241,13 +241,13 @@ The lone extra $1$ under the second root is the variance contributed by the fres
 **Demonstration — why both intervals widen away from $\bar x$**
 
 1. **Rewrite the fitted mean.** Using $\hat\beta_0 = \bar y - \hat\beta_1\bar x$ (from §s1), the prediction at $x_0$ is $\hat y_0 = \hat\beta_0 + \hat\beta_1 x_0 = \bar y - \hat\beta_1 \bar x + \hat\beta_1 x_0 = \bar y + \hat\beta_1 (x_0 - \bar x)$. *Reason:* substitute the intercept formula and group the slope terms.
-2. **Combine the two sources of variance.** The terms $\bar y$ and $\hat\beta_1$ are uncorrelated: $\operatorname{Cov}(\bar y,\hat\beta_1)=\operatorname{Cov}\!\big(\tfrac1n\sum y_i,\sum c_i y_i\big)=\tfrac{\sigma^2}{n}\sum c_i=0$, since the weights $c_i=(x_i-\bar x)/S_{xx}$ sum to zero (step 1 of the §s2 demonstration). So the variance of their combination is the sum of the parts. With $\operatorname{Var}(\bar y) = \sigma^2/n$ (the variance of an average of $n$ independent points) and $\operatorname{Var}(\hat\beta_1) = \sigma^2/S_{xx}$ (from §s2):
+2. **Combine the two sources of variance.** The terms $\bar y$ and $\hat\beta_1$ are uncorrelated: $\mathrm{Cov}(\bar y,\hat\beta_1)=\mathrm{Cov}\!\big(\tfrac1n\sum y_i,\sum c_i y_i\big)=\tfrac{\sigma^2}{n}\sum c_i=0$, since the weights $c_i=(x_i-\bar x)/S_{xx}$ sum to zero (step 1 of the §s2 demonstration). So the variance of their combination is the sum of the parts. With $\mathrm{Var}(\bar y) = \sigma^2/n$ (the variance of an average of $n$ independent points) and $\mathrm{Var}(\hat\beta_1) = \sigma^2/S_{xx}$ (from §s2):
 
-   $$\operatorname{Var}(\hat y_0)=\operatorname{Var}(\bar y)+(x_0-\bar x)^2\operatorname{Var}(\hat\beta_1)=\frac{\sigma^2}{n}+(x_0-\bar x)^2\frac{\sigma^2}{S_{xx}}=\sigma^2\!\left(\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}\right).$$
+   $$\mathrm{Var}(\hat y_0)=\mathrm{Var}(\bar y)+(x_0-\bar x)^2\mathrm{Var}(\hat\beta_1)=\frac{\sigma^2}{n}+(x_0-\bar x)^2\frac{\sigma^2}{S_{xx}}=\sigma^2\!\left(\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}\right).$$
 
    *Reason:* variance of a sum of uncorrelated terms, and the constant $(x_0-\bar x)$ comes out squared. Estimating $\sigma^2$ by $s^2$ and taking the square root gives the mean-response interval's width.
 3. **Read off the shape.** The term $(x_0 - \bar x)^2$ grows *quadratically* as $x_0$ leaves the center, so the interval bows outward into a hyperbola — narrowest at $\bar x$, ever-wider in both directions. *Reason:* a squared distance increases without bound.
-4. **Add the new point's own noise.** For predicting a single new $y_0 = \beta_0 + \beta_1 x_0 + \varepsilon_0$, the fresh error $\varepsilon_0$ is independent of the fitted line and has variance $\sigma^2$, so it adds on: $\operatorname{Var}(y_0 - \hat y_0) = \sigma^2 + \operatorname{Var}(\hat y_0) = \sigma^2\big(1 + \frac1n + \frac{(x_0-\bar x)^2}{S_{xx}}\big)$. *Reason:* independence makes variances add; this produces the extra $+1$.
+4. **Add the new point's own noise.** For predicting a single new $y_0 = \beta_0 + \beta_1 x_0 + \varepsilon_0$, the fresh error $\varepsilon_0$ is independent of the fitted line and has variance $\sigma^2$, so it adds on: $\mathrm{Var}(y_0 - \hat y_0) = \sigma^2 + \mathrm{Var}(\hat y_0) = \sigma^2\big(1 + \frac1n + \frac{(x_0-\bar x)^2}{S_{xx}}\big)$. *Reason:* independence makes variances add; this produces the extra $+1$.
 
 *Predictions are most trustworthy near the heart of the observed $x$-range; extrapolating far outside it is dangerous.*
 
@@ -320,11 +320,11 @@ First, the language of **matrices and vectors**, defined plainly. A **vector** i
 
 **The model, stacked into matrices**
 
-$$\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},\qquad E[\boldsymbol{\varepsilon}]=\mathbf{0},\quad \operatorname{Cov}(\boldsymbol{\varepsilon})=\sigma^2\mathbf{I}$$
+$$\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},\qquad E[\boldsymbol{\varepsilon}]=\mathbf{0},\quad \mathrm{Cov}(\boldsymbol{\varepsilon})=\sigma^2\mathbf{I}$$
 
 $$\mathbf{y}\in\mathbb{R}^{n},\quad \mathbf{X}\in\mathbb{R}^{n\times p},\quad \boldsymbol{\beta}\in\mathbb{R}^{p}$$
 
-Reading it: $\mathbf{y}$ is the length-$n$ vector of responses; $\mathbf{X}$ is the $n \times p$ **design matrix** whose row $i$ holds observation $i$'s predictors (usually a leading column of all $1$s to carry the intercept); $\boldsymbol\beta$ is the length-$p$ vector of coefficients; $\boldsymbol\varepsilon$ is the length-$n$ error vector. The notation "$\in \mathbb{R}^n$" means "is a list of $n$ real numbers." $E[\boldsymbol\varepsilon] = \mathbf{0}$ says every error averages to zero. $\operatorname{Cov}(\boldsymbol\varepsilon) = \sigma^2\mathbf{I}$ is the **covariance matrix** of the errors: its diagonal $\sigma^2$ says each error has the same variance (homoscedasticity), and its zero off-diagonals say different errors are uncorrelated (independence). The single line $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$ encodes all $n$ scalar equations $y_i = \beta_0 + \beta_1 x_{i1} + \cdots + \varepsilon_i$ at once.
+Reading it: $\mathbf{y}$ is the length-$n$ vector of responses; $\mathbf{X}$ is the $n \times p$ **design matrix** whose row $i$ holds observation $i$'s predictors (usually a leading column of all $1$s to carry the intercept); $\boldsymbol\beta$ is the length-$p$ vector of coefficients; $\boldsymbol\varepsilon$ is the length-$n$ error vector. The notation "$\in \mathbb{R}^n$" means "is a list of $n$ real numbers." $E[\boldsymbol\varepsilon] = \mathbf{0}$ says every error averages to zero. $\mathrm{Cov}(\boldsymbol\varepsilon) = \sigma^2\mathbf{I}$ is the **covariance matrix** of the errors: its diagonal $\sigma^2$ says each error has the same variance (homoscedasticity), and its zero off-diagonals say different errors are uncorrelated (independence). The single line $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$ encodes all $n$ scalar equations $y_i = \beta_0 + \beta_1 x_{i1} + \cdots + \varepsilon_i$ at once.
 
 > **Concept — the design matrix $\mathbf{X}$**
 >
@@ -416,13 +416,13 @@ A matrix that is both **symmetric** ($\mathbf{H}^\top = \mathbf{H}$) and **idemp
 
 **Covariance of the estimator**
 
-$$\operatorname{Cov}(\hat{\boldsymbol\beta})=\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$$
+$$\mathrm{Cov}(\hat{\boldsymbol\beta})=\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$$
 
-The **covariance matrix** $\operatorname{Cov}(\hat{\boldsymbol\beta})$ collects the variances of each coefficient (on its diagonal) and the covariances between pairs (off-diagonal). Its diagonal square roots are the standard errors. *Geometrically: directions in which the predictors carry little variation (small eigenvalues of $\mathbf{X}^\top\mathbf{X}$) produce large coefficient variance — the seed of multicollinearity in §s7.*
+The **covariance matrix** $\mathrm{Cov}(\hat{\boldsymbol\beta})$ collects the variances of each coefficient (on its diagonal) and the covariances between pairs (off-diagonal). Its diagonal square roots are the standard errors. *Geometrically: directions in which the predictors carry little variation (small eigenvalues of $\mathbf{X}^\top\mathbf{X}$) produce large coefficient variance — the seed of multicollinearity in §s7.*
 
-**Demonstration — the covariance formula.** Writing $\hat{\boldsymbol\beta} = \mathbf{A}\mathbf{y}$ with the constant matrix $\mathbf{A} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, the rule $\operatorname{Cov}(\mathbf{A}\mathbf{y}) = \mathbf{A}\operatorname{Cov}(\mathbf{y})\mathbf{A}^\top$ with $\operatorname{Cov}(\mathbf{y}) = \sigma^2\mathbf{I}$ gives $\operatorname{Cov}(\hat{\boldsymbol\beta}) = \sigma^2\mathbf{A}\mathbf{A}^\top = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1} = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$, since the middle $\mathbf{X}^\top\mathbf{X}$ cancels one inverse. *Reason:* the linear-transformation rule for covariance and the inverse-cancellation from step 2 above.
+**Demonstration — the covariance formula.** Writing $\hat{\boldsymbol\beta} = \mathbf{A}\mathbf{y}$ with the constant matrix $\mathbf{A} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, the rule $\mathrm{Cov}(\mathbf{A}\mathbf{y}) = \mathbf{A}\mathrm{Cov}(\mathbf{y})\mathbf{A}^\top$ with $\mathrm{Cov}(\mathbf{y}) = \sigma^2\mathbf{I}$ gives $\mathrm{Cov}(\hat{\boldsymbol\beta}) = \sigma^2\mathbf{A}\mathbf{A}^\top = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1} = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$, since the middle $\mathbf{X}^\top\mathbf{X}$ cancels one inverse. *Reason:* the linear-transformation rule for covariance and the inverse-cancellation from step 2 above.
 
-**Worked example (continued).** With $\sigma^2$ estimated by $s^2 = 2.133$ and $(\mathbf{X}^\top\mathbf{X})^{-1} = \frac{1}{50}\begin{psmallmatrix}55&-15\\-15&5\end{psmallmatrix}$, the slope's variance is the bottom-right entry times $s^2$: $\frac{5}{50}\times 2.133 = 0.1\times 2.133 = 0.2133$, so $\operatorname{SE}(\hat\beta_1) = \sqrt{0.2133} = 0.462$ — matching §s3 exactly.
+**Worked example (continued).** With $\sigma^2$ estimated by $s^2 = 2.133$ and $(\mathbf{X}^\top\mathbf{X})^{-1} = \frac{1}{50}\begin{psmallmatrix}55&-15\\-15&5\end{psmallmatrix}$, the slope's variance is the bottom-right entry times $s^2$: $\frac{5}{50}\times 2.133 = 0.1\times 2.133 = 0.2133$, so $\mathrm{SE}(\hat\beta_1) = \sqrt{0.2133} = 0.462$ — matching §s3 exactly.
 
 > **Connection — projection & eigenvalues from linear algebra**
 >
@@ -435,7 +435,7 @@ The **covariance matrix** $\operatorname{Cov}(\hat{\boldsymbol\beta})$ collects 
 
 **t-test for a single coefficient**
 
-$$t_j = \frac{\hat\beta_j}{\operatorname{SE}(\hat\beta_j)},\qquad \operatorname{SE}(\hat\beta_j)=s\sqrt{[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}}$$
+$$t_j = \frac{\hat\beta_j}{\mathrm{SE}(\hat\beta_j)},\qquad \mathrm{SE}(\hat\beta_j)=s\sqrt{[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}}$$
 
 The notation $[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}$ means the $j$-th diagonal entry of that inverse matrix — the per-coefficient piece of the covariance from §s6. The ratio $t_j$ measures how many standard errors the estimate sits away from zero.
 
@@ -447,11 +447,11 @@ The notation $[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}$ means the $j$-th diagonal
 
 **The variance inflation factor**
 
-$$\operatorname{VIF}_j=\frac{1}{1-R_j^2}$$
+$$\mathrm{VIF}_j=\frac{1}{1-R_j^2}$$
 
-Here $R_j^2$ is the $R^2$ obtained by regressing predictor $x_j$ on *all the other predictors*. If $x_j$ is nearly predictable from the others, $R_j^2$ is near $1$ and the VIF blows up. *A rule of thumb: $\operatorname{VIF}_j > 5$ to $10$ flags problematic collinearity — the variance of $\hat\beta_j$ is inflated by exactly that factor compared with a perfectly orthogonal design.*
+Here $R_j^2$ is the $R^2$ obtained by regressing predictor $x_j$ on *all the other predictors*. If $x_j$ is nearly predictable from the others, $R_j^2$ is near $1$ and the VIF blows up. *A rule of thumb: $\mathrm{VIF}_j > 5$ to $10$ flags problematic collinearity — the variance of $\hat\beta_j$ is inflated by exactly that factor compared with a perfectly orthogonal design.*
 
-**Worked example — VIF.** If regressing $x_2$ on the remaining predictors yields $R_2^2 = 0.9$, then $\operatorname{VIF}_2 = 1/(1-0.9) = 10$: the standard error of $\hat\beta_2$ is $\sqrt{10} \approx 3.16$ times larger than it would be if $x_2$ were uncorrelated with the others. A modest $R_2^2 = 0.5$ gives only $\operatorname{VIF}_2 = 2$ ($\sqrt2 \approx 1.41$ times inflation) — usually tolerable.
+**Worked example — VIF.** If regressing $x_2$ on the remaining predictors yields $R_2^2 = 0.9$, then $\mathrm{VIF}_2 = 1/(1-0.9) = 10$: the standard error of $\hat\beta_2$ is $\sqrt{10} \approx 3.16$ times larger than it would be if $x_2$ were uncorrelated with the others. A modest $R_2^2 = 0.5$ gives only $\mathrm{VIF}_2 = 2$ ($\sqrt2 \approx 1.41$ times inflation) — usually tolerable.
 
 | Criterion | Formula / idea | What it rewards |
 | --- | --- | --- |
@@ -563,7 +563,7 @@ A **binary** response takes only two values, coded $0$ and $1$ (no/yes, fail/pas
 
 **The logistic model & the logit link**
 
-$$p(\mathbf{x})=\frac{1}{1+e^{-\boldsymbol{\beta}^\top\mathbf{x}}},\qquad \operatorname{logit}(p)=\ln\frac{p}{1-p}=\boldsymbol{\beta}^\top\mathbf{x}$$
+$$p(\mathbf{x})=\frac{1}{1+e^{-\boldsymbol{\beta}^\top\mathbf{x}}},\qquad \mathrm{logit}(p)=\ln\frac{p}{1-p}=\boldsymbol{\beta}^\top\mathbf{x}$$
 
 The left equation is the sigmoid: as the linear predictor $\boldsymbol\beta^\top\mathbf{x}$ runs from $-\infty$ to $+\infty$, $p$ rises smoothly from $0$ to $1$. The **odds** of an event are $p/(1-p)$ (e.g. $p = 0.8$ gives odds $4$, "4 to 1"); the **logit** is the natural log of the odds. *The right equation says the log-odds are a plain linear function of the predictors. Consequently $e^{\beta_j}$ is an **odds ratio** — the multiplicative factor by which the odds of $y=1$ change for a one-unit increase in $x_j$.*
 

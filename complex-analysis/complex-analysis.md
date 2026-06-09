@@ -21,7 +21,7 @@ The equation $x^2+1=0$ has no real solution, because the square of any real numb
 
 > **Definition — complex numbers**
 >
-> A **complex number** is an expression $z = x + iy$ where $x,y$ are real numbers and $i$ is a symbol satisfying $i^2=-1$. We call $x = \operatorname{Re} z$ the **real part** and $y = \operatorname{Im} z$ the **imaginary part** (note: $\operatorname{Im} z$ is the *real number* $y$, not $iy$). The set of all complex numbers is denoted $\mathbb{C}$.
+> A **complex number** is an expression $z = x + iy$ where $x,y$ are real numbers and $i$ is a symbol satisfying $i^2=-1$. We call $x = \mathrm{Re} z$ the **real part** and $y = \mathrm{Im} z$ the **imaginary part** (note: $\mathrm{Im} z$ is the *real number* $y$, not $iy$). The set of all complex numbers is denoted $\mathbb{C}$.
 
 Two complex numbers are **equal** exactly when their real parts agree and their imaginary parts agree. Addition and multiplication are defined by treating $i$ as an ordinary quantity and reducing $i^2$ to $-1$:
 
@@ -63,7 +63,7 @@ This is well-defined because $z\ne 0$ means $x^2+y^2 > 0$. With division availab
 >
 > $\dfrac{1}{2+3i} = \dfrac{2-3i}{2^2+3^2} = \dfrac{2-3i}{13} = \dfrac{2}{13} - \dfrac{3}{13}i.$ Check: $(2+3i)\left(\tfrac{2}{13}-\tfrac{3}{13}i\right) = \tfrac{1}{13}(2+3i)(2-3i) = \tfrac{1}{13}(4+9) = 1$. ✓
 
-Two conjugation rules we will reuse, each proved by direct computation: $\overline{z_1+z_2} = \bar z_1 + \bar z_2$ and $\overline{z_1 z_2} = \bar z_1\,\bar z_2$. Also $\operatorname{Re} z = \tfrac12(z+\bar z)$ and $\operatorname{Im} z = \tfrac{1}{2i}(z-\bar z)$.
+Two conjugation rules we will reuse, each proved by direct computation: $\overline{z_1+z_2} = \bar z_1 + \bar z_2$ and $\overline{z_1 z_2} = \bar z_1\,\bar z_2$. Also $\mathrm{Re} z = \tfrac12(z+\bar z)$ and $\mathrm{Im} z = \tfrac{1}{2i}(z-\bar z)$.
 
 #### The complex plane
 
@@ -77,7 +77,7 @@ A point in the plane is also described by its distance $r$ from the origin and t
 
 > **Definition — modulus and argument**
 >
-> For $z\ne 0$, write $r = |z| = \sqrt{x^2+y^2}$ and let $\theta$ be an angle with $x = r\cos\theta$, $y = r\sin\theta$. Then $z = r(\cos\theta + i\sin\theta)$ is the **polar form**, $r$ is the modulus and $\theta$ is an **argument** of $z$, written $\arg z$. Because $\cos$ and $\sin$ have period $2\pi$, the argument is determined only up to adding integer multiples of $2\pi$; the unique value in $(-\pi,\pi]$ is the **principal argument** $\operatorname{Arg} z$.
+> For $z\ne 0$, write $r = |z| = \sqrt{x^2+y^2}$ and let $\theta$ be an angle with $x = r\cos\theta$, $y = r\sin\theta$. Then $z = r(\cos\theta + i\sin\theta)$ is the **polar form**, $r$ is the modulus and $\theta$ is an **argument** of $z$, written $\arg z$. Because $\cos$ and $\sin$ have period $2\pi$, the argument is determined only up to adding integer multiples of $2\pi$; the unique value in $(-\pi,\pi]$ is the **principal argument** $\mathrm{Arg} z$.
 
 Now we derive **Euler's formula**, the identity $e^{i\theta} = \cos\theta + i\sin\theta$. We take as known the real Taylor (Maclaurin) series, which converge for all real arguments (a prerequisite from calculus):
 
@@ -107,7 +107,7 @@ So **polar form is exponential form**: $z = re^{i\theta}$. Multiplication become
 
 > **Common pitfalls**
 >
-> - $\operatorname{Im} z$ is a real number ($y$), not $iy$. - The argument is not a function until you fix a range; $\arg(1) = 0$ and $\arg(1)=2\pi$ are both "true." - There is **no ordering** on $\mathbb{C}$ compatible with arithmetic: "$z_1 < z_2$" is meaningless for non-real complex numbers. Only $|z|$ can be compared.
+> - $\mathrm{Im} z$ is a real number ($y$), not $iy$. - The argument is not a function until you fix a range; $\arg(1) = 0$ and $\arg(1)=2\pi$ are both "true." - There is **no ordering** on $\mathbb{C}$ compatible with arithmetic: "$z_1 < z_2$" is meaningless for non-real complex numbers. Only $|z|$ can be compared.
 
 <a id="s1"></a>
 ### Functions of a complex variable: limits and continuity in the plane
@@ -118,7 +118,7 @@ Once $\mathbb{C}$ is a plane, a function $f:\mathbb{C}\to\mathbb{C}$ is a rule s
 
 > **Definition — complex function**
 >
-> Let $D\subseteq\mathbb{C}$. A **function of a complex variable** is a rule $f:D\to\mathbb{C}$ assigning to each $z\in D$ a single value $w=f(z)$. Writing $z = x+iy$ and $f = u+iv$, the single complex equation $w=f(z)$ packages **two** real functions of two real variables: $u(x,y) = \operatorname{Re} f$ and $v(x,y) = \operatorname{Im} f$.
+> Let $D\subseteq\mathbb{C}$. A **function of a complex variable** is a rule $f:D\to\mathbb{C}$ assigning to each $z\in D$ a single value $w=f(z)$. Writing $z = x+iy$ and $f = u+iv$, the single complex equation $w=f(z)$ packages **two** real functions of two real variables: $u(x,y) = \mathrm{Re} f$ and $v(x,y) = \mathrm{Im} f$.
 
 For example $f(z) = z^2 = (x+iy)^2 = (x^2-y^2) + i(2xy)$, so $u = x^2 - y^2$ and $v = 2xy$.
 
@@ -233,7 +233,7 @@ $$
 
 > **Intuition and the $\bar z$ test**
 >
-> Define $\partial/\partial\bar z = \tfrac12(\partial_x + i\partial_y)$. A short computation shows the CR equations are equivalent to $\partial f/\partial\bar z = 0$. The slogan: *holomorphic functions are those that depend on $z$ only, not on $\bar z$.* Any honest appearance of $\bar z$, $|z|$, $\operatorname{Re} z$, or $\operatorname{Im} z$ in a formula is a warning that the function is probably not holomorphic.
+> Define $\partial/\partial\bar z = \tfrac12(\partial_x + i\partial_y)$. A short computation shows the CR equations are equivalent to $\partial f/\partial\bar z = 0$. The slogan: *holomorphic functions are those that depend on $z$ only, not on $\bar z$.* Any honest appearance of $\bar z$, $|z|$, $\mathrm{Re} z$, or $\mathrm{Im} z$ in a formula is a warning that the function is probably not holomorphic.
 
 <a id="s3"></a>
 ### Harmonic functions, the link to holomorphy, and the conformal property
@@ -307,25 +307,25 @@ To invert $e^w = z$, write $z = re^{i\theta}$ and $w = u+iv$. Then $e^u e^{iv} =
 
 > **Definition — complex logarithm**
 >
-> For $z\ne 0$, the **(multivalued) logarithm** is $\log z = \ln|z| + i\arg z$, where $\arg z$ ranges over all its values, differing by multiples of $2\pi$. The **principal logarithm** picks the principal argument: $\operatorname{Log} z = \ln|z| + i\operatorname{Arg} z$, with $\operatorname{Arg} z\in(-\pi,\pi]$.
+> For $z\ne 0$, the **(multivalued) logarithm** is $\log z = \ln|z| + i\arg z$, where $\arg z$ ranges over all its values, differing by multiples of $2\pi$. The **principal logarithm** picks the principal argument: $\mathrm{Log} z = \ln|z| + i\mathrm{Arg} z$, with $\mathrm{Arg} z\in(-\pi,\pi]$.
 
 > **Worked example**
 >
-> $\log(-1)$: here $|-1| = 1$ so $\ln|z| = 0$, and $\arg(-1) = \pi + 2\pi k$. So $\log(-1) = i(\pi + 2\pi k) = i\pi, 3i\pi, -i\pi,\dots$. The principal value is $\operatorname{Log}(-1) = i\pi$ — a clean meaning for "the log of a negative number," impossible over $\mathbb{R}$.
+> $\log(-1)$: here $|-1| = 1$ so $\ln|z| = 0$, and $\arg(-1) = \pi + 2\pi k$. So $\log(-1) = i(\pi + 2\pi k) = i\pi, 3i\pi, -i\pi,\dots$. The principal value is $\mathrm{Log}(-1) = i\pi$ — a clean meaning for "the log of a negative number," impossible over $\mathbb{R}$.
 
 #### Branch cuts
 
-A **branch** of a multivalued function is a choice making it single-valued and continuous on a region. The principal logarithm is continuous everywhere except along the negative real axis, where $\operatorname{Arg}$ jumps from near $\pi$ to near $-\pi$. We exclude this ray:
+A **branch** of a multivalued function is a choice making it single-valued and continuous on a region. The principal logarithm is continuous everywhere except along the negative real axis, where $\mathrm{Arg}$ jumps from near $\pi$ to near $-\pi$. We exclude this ray:
 
 > **Definition — branch cut**
 >
-> A **branch cut** is a curve removed from the plane to render a multivalued function single-valued and continuous. The standard **principal branch** of $\operatorname{Log}$ uses the cut along $(-\infty, 0]$. On the cut plane $\mathbb{C}\setminus(-\infty,0]$, $\operatorname{Log}$ is holomorphic with $(\operatorname{Log} z)' = 1/z$. A point you cannot encircle without forcing a jump (here $z=0$) is a **branch point**.
+> A **branch cut** is a curve removed from the plane to render a multivalued function single-valued and continuous. The standard **principal branch** of $\mathrm{Log}$ uses the cut along $(-\infty, 0]$. On the cut plane $\mathbb{C}\setminus(-\infty,0]$, $\mathrm{Log}$ is holomorphic with $(\mathrm{Log} z)' = 1/z$. A point you cannot encircle without forcing a jump (here $z=0$) is a **branch point**.
 
 #### Complex powers, trig, and hyperbolic functions
 
 > **Definition — complex power**
 >
-> For $z\ne0$ and any complex $\alpha$, define $z^\alpha = e^{\alpha\log z}$. With the multivalued $\log$ this is generally multivalued; using $\operatorname{Log}$ gives the principal value.
+> For $z\ne0$ and any complex $\alpha$, define $z^\alpha = e^{\alpha\log z}$. With the multivalued $\log$ this is generally multivalued; using $\mathrm{Log}$ gives the principal value.
 
 > **Worked example**
 >
@@ -390,7 +390,7 @@ We constantly need to *bound* a contour integral without evaluating it.
 > $$
 
 **Proof.**
-1. First, for any complex-valued $g(t)$ on $[a,b]$, $\left|\int_a^b g\,dt\right| \le \int_a^b |g|\,dt$. To see this, write $\int_a^b g\,dt = Re^{i\phi}$ in polar form ($R\ge 0$). Then $R = e^{-i\phi}\int_a^b g\,dt = \int_a^b e^{-i\phi}g\,dt$. Since $R$ is real, it equals the real part: $R = \int_a^b \operatorname{Re}(e^{-i\phi}g)\,dt \le \int_a^b |e^{-i\phi}g|\,dt = \int_a^b |g|\,dt$ (because the real part of a complex number never exceeds its modulus, and $|e^{-i\phi}|=1$).
+1. First, for any complex-valued $g(t)$ on $[a,b]$, $\left|\int_a^b g\,dt\right| \le \int_a^b |g|\,dt$. To see this, write $\int_a^b g\,dt = Re^{i\phi}$ in polar form ($R\ge 0$). Then $R = e^{-i\phi}\int_a^b g\,dt = \int_a^b e^{-i\phi}g\,dt$. Since $R$ is real, it equals the real part: $R = \int_a^b \mathrm{Re}(e^{-i\phi}g)\,dt \le \int_a^b |e^{-i\phi}g|\,dt = \int_a^b |g|\,dt$ (because the real part of a complex number never exceeds its modulus, and $|e^{-i\phi}|=1$).
 2. Apply step 1 to $g(t) = f(z(t))z'(t)$:
 $$
 \left|\int_\gamma f\,dz\right| = \left|\int_a^b f(z(t))z'(t)\,dt\right| \le \int_a^b |f(z(t))|\,|z'(t)|\,dt.
@@ -551,7 +551,7 @@ So $f(z_0)$ is the **average** of its values on any circle around $z_0$.
 
 > **Worked example**
 >
-> On the closed unit disk, where is $|e^z|$ largest? Since $|e^z| = e^{\operatorname{Re} z} = e^x$, and $f=e^z$ is non-constant, the maximum is on the boundary $|z|=1$, at $x=1$, i.e. $z=1$: value $e$. The principle correctly predicts the maximum is on the boundary.
+> On the closed unit disk, where is $|e^z|$ largest? Since $|e^z| = e^{\mathrm{Re} z} = e^x$, and $f=e^z$ is non-constant, the maximum is on the boundary $|z|=1$, at $x=1$, i.e. $z=1$: value $e$. The principle correctly predicts the maximum is on the boundary.
 
 ## Part D · Series and residues
 
@@ -632,7 +632,7 @@ The single coefficient $a_{-1}$ in a Laurent series is special: it is the only t
 >
 > The **residue** of $f$ at an isolated singularity $z_0$ is the Laurent coefficient $a_{-1}$:
 > $$
-> \operatorname{Res}(f,z_0) = a_{-1} = \frac{1}{2\pi i}\oint_C f(z)\,dz,
+> \mathrm{Res}(f,z_0) = a_{-1} = \frac{1}{2\pi i}\oint_C f(z)\,dz,
 > $$
 > for a small circle $C$ around $z_0$.
 
@@ -640,7 +640,7 @@ The single coefficient $a_{-1}$ in a Laurent series is special: it is the only t
 >
 > Let $f$ be holomorphic on and inside a positively oriented simple closed contour $\gamma$, except for finitely many isolated singularities $z_1,\dots,z_k$ inside $\gamma$. Then
 > $$
-> \oint_\gamma f(z)\,dz = 2\pi i\sum_{j=1}^k \operatorname{Res}(f,z_j).
+> \oint_\gamma f(z)\,dz = 2\pi i\sum_{j=1}^k \mathrm{Res}(f,z_j).
 > $$
 
 **Proof.**
@@ -651,24 +651,24 @@ $$
 0 = \oint_\gamma f\,dz - \sum_{j=1}^k \oint_{C_j} f\,dz,
 $$
 where the minus sign converts each clockwise circle to counterclockwise.
-4. By the definition of residue (step's box above), $\oint_{C_j} f\,dz = 2\pi i\operatorname{Res}(f,z_j)$. Substitute:
+4. By the definition of residue (step's box above), $\oint_{C_j} f\,dz = 2\pi i\mathrm{Res}(f,z_j)$. Substitute:
 $$
-\oint_\gamma f\,dz = \sum_{j=1}^k 2\pi i\,\operatorname{Res}(f,z_j) = 2\pi i\sum_{j=1}^k \operatorname{Res}(f,z_j). \qquad \blacksquare
+\oint_\gamma f\,dz = \sum_{j=1}^k 2\pi i\,\mathrm{Res}(f,z_j) = 2\pi i\sum_{j=1}^k \mathrm{Res}(f,z_j). \qquad \blacksquare
 $$
 
 #### Computing residues
 
 > **Formulas — residues at poles**
 >
-> - Simple pole: $\operatorname{Res}(f,z_0) = \lim_{z\to z_0}(z-z_0)f(z)$.
-> - If $f = p/q$ with $p(z_0)\ne 0$ and $q$ having a simple zero at $z_0$: $\operatorname{Res}(f,z_0) = p(z_0)/q'(z_0)$.
-> - Pole of order $m$: $\operatorname{Res}(f,z_0) = \dfrac{1}{(m-1)!}\lim_{z\to z_0}\dfrac{d^{m-1}}{dz^{m-1}}\bigl[(z-z_0)^m f(z)\bigr]$.
+> - Simple pole: $\mathrm{Res}(f,z_0) = \lim_{z\to z_0}(z-z_0)f(z)$.
+> - If $f = p/q$ with $p(z_0)\ne 0$ and $q$ having a simple zero at $z_0$: $\mathrm{Res}(f,z_0) = p(z_0)/q'(z_0)$.
+> - Pole of order $m$: $\mathrm{Res}(f,z_0) = \dfrac{1}{(m-1)!}\lim_{z\to z_0}\dfrac{d^{m-1}}{dz^{m-1}}\bigl[(z-z_0)^m f(z)\bigr]$.
 
 The simple-pole formula holds because $(z-z_0)f(z) = a_{-1} + a_0(z-z_0)+\cdots$, whose limit is $a_{-1}$. The order-$m$ formula multiplies away the pole to leave a Taylor series, then differentiates $m-1$ times to isolate $a_{-1}$.
 
 > **Worked example**
 >
-> $\operatorname{Res}\left(\frac{e^z}{z^2-1}, 1\right)$: simple pole at $z=1$, with $p=e^z$, $q=z^2-1$, $q'=2z$. Residue $= e^1/(2\cdot 1) = e/2$.
+> $\mathrm{Res}\left(\frac{e^z}{z^2-1}, 1\right)$: simple pole at $z=1$, with $p=e^z$, $q=z^2-1$, $q'=2z$. Residue $= e^1/(2\cdot 1) = e/2$.
 
 <a id="s12"></a>
 ### Evaluating real definite integrals by residues
@@ -703,7 +703,7 @@ The proof refines ML using $\int_0^\pi e^{-aR\sin\theta}\,d\theta \le \pi/(aR)$ 
 
 > **Worked example**
 >
-> $\displaystyle\int_{-\infty}^\infty\frac{\cos x}{1+x^2}\,dx = \operatorname{Re}\int_{-\infty}^\infty\frac{e^{ix}}{1+x^2}\,dx$. Pole at $z=i$ in the upper half-plane; residue of $\frac{e^{iz}}{1+z^2}$ there is $\frac{e^{i\cdot i}}{2i} = \frac{e^{-1}}{2i}$. So the integral $= 2\pi i\cdot\frac{e^{-1}}{2i} = \pi e^{-1} = \pi/e$ (already real, and we take the real part). Result: $\pi/e$.
+> $\displaystyle\int_{-\infty}^\infty\frac{\cos x}{1+x^2}\,dx = \mathrm{Re}\int_{-\infty}^\infty\frac{e^{ix}}{1+x^2}\,dx$. Pole at $z=i$ in the upper half-plane; residue of $\frac{e^{iz}}{1+z^2}$ there is $\frac{e^{i\cdot i}}{2i} = \frac{e^{-1}}{2i}$. So the integral $= 2\pi i\cdot\frac{e^{-1}}{2i} = \pi e^{-1} = \pi/e$ (already real, and we take the real part). Result: $\pi/e$.
 
 #### Principal values and poles on the contour
 
@@ -711,7 +711,7 @@ When $q$ has a *simple zero on the real axis*, the integral may exist only as a 
 
 > **Worked example**
 >
-> $\displaystyle\int_{-\infty}^\infty \frac{\sin x}{x}\,dx$. Use $\frac{e^{iz}}{z}$, which has a simple pole at $0$ on the axis. Indent **above** the pole with a small semicircle (pushing the contour into the upper half-plane so the pole is left *outside*). The full closed contour then encloses no poles, so its integral is $0$; the small semicircle is traversed **clockwise**, so it contributes $-\pi i\operatorname{Res}(e^{iz}/z,0) = -\pi i\cdot 1$ (minus half of $2\pi i\cdot\text{Res}$); the large arc vanishes by Jordan. Balancing gives $\mathrm{P}\!\int_{-\infty}^\infty \frac{e^{ix}}{x}\,dx = \pi i$. Taking imaginary parts: $\int_{-\infty}^\infty\frac{\sin x}{x}\,dx = \pi$.
+> $\displaystyle\int_{-\infty}^\infty \frac{\sin x}{x}\,dx$. Use $\frac{e^{iz}}{z}$, which has a simple pole at $0$ on the axis. Indent **above** the pole with a small semicircle (pushing the contour into the upper half-plane so the pole is left *outside*). The full closed contour then encloses no poles, so its integral is $0$; the small semicircle is traversed **clockwise**, so it contributes $-\pi i\mathrm{Res}(e^{iz}/z,0) = -\pi i\cdot 1$ (minus half of $2\pi i\cdot\text{Res}$); the large arc vanishes by Jordan. Balancing gives $\mathrm{P}\!\int_{-\infty}^\infty \frac{e^{ix}}{x}\,dx = \pi i$. Taking imaginary parts: $\int_{-\infty}^\infty\frac{\sin x}{x}\,dx = \pi$.
 
 <a id="s13"></a>
 ### The argument principle and Rouché's theorem
@@ -771,7 +771,7 @@ The condition $ad-bc\ne 0$ keeps $T$ non-constant: $T'(z) = \frac{ad-bc}{(cz+d)^
 >
 > Every Möbius transformation maps the family of lines-and-circles to itself (a line is a "circle through $\infty$").
 
-**Proof sketch.** Any Möbius map is a composition of translations $z\mapsto z+b$, scalings/rotations $z\mapsto az$, and the inversion $z\mapsto 1/z$ (algebraically decompose $\frac{az+b}{cz+d}$). The first two preserve lines and circles (a translation or rotation/scaling carries any line to a line and any circle to a circle); one checks by direct computation that $z\mapsto 1/z$ sends the general cline equation $A|z|^2 + \operatorname{Re}(\bar Bz) + C = 0$ to another of the same form. $\blacksquare$
+**Proof sketch.** Any Möbius map is a composition of translations $z\mapsto z+b$, scalings/rotations $z\mapsto az$, and the inversion $z\mapsto 1/z$ (algebraically decompose $\frac{az+b}{cz+d}$). The first two preserve lines and circles (a translation or rotation/scaling carries any line to a line and any circle to a circle); one checks by direct computation that $z\mapsto 1/z$ sends the general cline equation $A|z|^2 + \mathrm{Re}(\bar Bz) + C = 0$ to another of the same form. $\blacksquare$
 
 > **Theorem — three points determine a Möbius map**
 >
@@ -781,7 +781,7 @@ This is the practical engine: to map a circular region to another, send three bo
 
 > **Worked example — upper half-plane to unit disk**
 >
-> The map $T(z) = \dfrac{z-i}{z+i}$ sends the upper half-plane $\{\operatorname{Im} z>0\}$ conformally onto the unit disk $\{|w|<1\}$. Check the boundary: for real $z$, $|z-i| = |z+i| = \sqrt{z^2+1}$, so $|T(z)| = 1$ — the real axis maps to the unit circle. And $T(i) = 0$, an interior point, confirming the upper half-plane maps inside. This is the standard bridge used to transfer disk results to half-plane problems.
+> The map $T(z) = \dfrac{z-i}{z+i}$ sends the upper half-plane $\{\mathrm{Im} z>0\}$ conformally onto the unit disk $\{|w|<1\}$. Check the boundary: for real $z$, $|z-i| = |z+i| = \sqrt{z^2+1}$, so $|T(z)| = 1$ — the real axis maps to the unit circle. And $T(i) = 0$, an interior point, confirming the upper half-plane maps inside. This is the standard bridge used to transfer disk results to half-plane problems.
 
 > **Why physicists care**
 >
@@ -806,7 +806,7 @@ We can also continue by **chains of overlapping disks**, re-expanding the Taylor
 
 > **Worked example — the logarithm's monodromy**
 >
-> Start with $\operatorname{Log} z$ near $z=1$ (value $0$). Continue it counterclockwise around the origin. Each step the imaginary part (the argument) increases continuously; after a full loop the value has grown by $2\pi i$ — we return to $z=1$ but with value $2\pi i$, not $0$. The function does not come back to itself. The origin is a branch point; encircling it permanently shifts the branch.
+> Start with $\mathrm{Log} z$ near $z=1$ (value $0$). Continue it counterclockwise around the origin. Each step the imaginary part (the argument) increases continuously; after a full loop the value has grown by $2\pi i$ — we return to $z=1$ but with value $2\pi i$, not $0$. The function does not come back to itself. The origin is a branch point; encircling it permanently shifts the branch.
 
 This non-single-valuedness is not a defect to be patched with a branch cut (§s4) but a feature with a natural home.
 

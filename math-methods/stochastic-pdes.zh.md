@@ -76,16 +76,16 @@ $$
 > $$
 > 则称 $\mu$ 为**均值为 $0$、协方差算子为 $Q$ 的高斯测度**（其中 $Q:H\to H$ 对称、正定且为**迹类**）。
 
-要求 $Q$ 为**迹类**——即对某个标准正交基 $\{e_k\}$ 有 $\operatorname{Tr}Q=\sum_k\langle Qe_k,e_k\rangle<\infty$——并非技术细节，而是问题的核心。下面给出完整推导以说明原因。
+要求 $Q$ 为**迹类**——即对某个标准正交基 $\{e_k\}$ 有 $\mathrm{Tr}Q=\sum_k\langle Qe_k,e_k\rangle<\infty$——并非技术细节，而是问题的核心。下面给出完整推导以说明原因。
 
-> **命题。** 若一个协方差为 $Q$ 的高斯测度 $\mu$ 居于 $H$ 上（即 $\int_H\|x\|^2\,\mu(dx)<\infty$），则 $\operatorname{Tr}Q<\infty$。
+> **命题。** 若一个协方差为 $Q$ 的高斯测度 $\mu$ 居于 $H$ 上（即 $\int_H\|x\|^2\,\mu(dx)<\infty$），则 $\mathrm{Tr}Q<\infty$。
 
 **推导。**
 1. 固定 $H$ 的一个标准正交基 $\{e_k\}_{k\ge1}$。由帕塞瓦尔恒等式给出的范数定义（一条希尔伯特空间事实），对每个 $x\in H$ 有 $\|x\|^2=\sum_k\langle x,e_k\rangle^2$。
 2. 在 $\mu$ 下取期望并交换求和与积分的次序，这是因为所有项非负（单调收敛定理）：$\int_H\|x\|^2\,\mu(dx)=\sum_k\int_H\langle x,e_k\rangle^2\,\mu(dx)$。
 3. 对每个固定的 $k$，由取 $v=e_k$ 的定义性特征函数知，标量 $\langle x,e_k\rangle$ 是方差为 $\langle Qe_k,e_k\rangle$ 的一维中心正态变量。于是由方差的定义，其二阶矩恰为 $\int_H\langle x,e_k\rangle^2\,\mu(dx)=\langle Qe_k,e_k\rangle$。
-4. 综合第 2、3 步：$\int_H\|x\|^2\,\mu(dx)=\sum_k\langle Qe_k,e_k\rangle=\operatorname{Tr}Q$。
-5. 由假设左边有限，故 $\operatorname{Tr}Q<\infty$。$\blacksquare$
+4. 综合第 2、3 步：$\int_H\|x\|^2\,\mu(dx)=\sum_k\langle Qe_k,e_k\rangle=\mathrm{Tr}Q$。
+5. 由假设左边有限，故 $\mathrm{Tr}Q<\infty$。$\blacksquare$
 
 逆否命题正是这条教训：**若 $Q$ 不是迹类，则该高斯测度不居于 $H$ 上——它会溢出到一个更大的空间。** 白噪声恰恰是 $Q=I$（恒等算子）的情形，其迹 $\sum_k 1=\infty$ 为无穷。这就是"白噪声太粗糙，不可能是一个真正的 $H$ 值随机元素"的严格陈述；它只能存在于一个更大的分布空间里。
 
@@ -173,12 +173,12 @@ $$
 > W^Q(t)=\sum_{k=1}^\infty \sqrt{\lambda_k}\,\beta_k(t)\,e_k.
 > $$
 
-> **命题。** $W^Q(t)$ 在 $H$ 中均方收敛，且 $\mathbb{E}\|W^Q(t)\|^2=t\operatorname{Tr}Q<\infty$。
+> **命题。** $W^Q(t)$ 在 $H$ 中均方收敛，且 $\mathbb{E}\|W^Q(t)\|^2=t\mathrm{Tr}Q<\infty$。
 
 **推导。**
 1. 如上，由标准正交性与独立性，$\mathbb{E}\|W^Q(t)\|^2=\sum_k\lambda_k\,\mathbb{E}[\beta_k(t)^2]$。
-2. $=\sum_k\lambda_k\,t=t\sum_k\lambda_k=t\operatorname{Tr}Q$，用到了 $\mathbb{E}[\beta_k(t)^2]=t$ 与迹的定义。
-3. 由假设 $\operatorname{Tr}Q<\infty$，故部分和在 $L^2(\Omega;H)$ 中构成柯西列并收敛。$\blacksquare$
+2. $=\sum_k\lambda_k\,t=t\sum_k\lambda_k=t\mathrm{Tr}Q$，用到了 $\mathbb{E}[\beta_k(t)^2]=t$ 与迹的定义。
+3. 由假设 $\mathrm{Tr}Q<\infty$，故部分和在 $L^2(\Omega;H)$ 中构成柯西列并收敛。$\blacksquare$
 
 #### 白噪声与柱形过程如何是同一对象的两种视角
 
@@ -186,7 +186,7 @@ $$
 
 #### 例题 —— 数清哪些模式会收敛
 
-设 $H=L^2([0,2\pi])$ 并取 §s1 中的基。选取对角的 $Q$，使 $\lambda_k=1/k^2$。则 $\operatorname{Tr}Q=\sum_{k\ge1}k^{-2}=\pi^2/6<\infty$（巴塞尔求和），故 $W^Q$ 居于 $H$ 中。若改取 $\lambda_k=1/k$，则 $\sum 1/k=\infty$ 发散（调和级数），过程又一次逃出 $H$。临界界限非常锐利：迹类恰恰是"$H$ 值"与"仅为柱形"之间的分界线。
+设 $H=L^2([0,2\pi])$ 并取 §s1 中的基。选取对角的 $Q$，使 $\lambda_k=1/k^2$。则 $\mathrm{Tr}Q=\sum_{k\ge1}k^{-2}=\pi^2/6<\infty$（巴塞尔求和），故 $W^Q$ 居于 $H$ 中。若改取 $\lambda_k=1/k$，则 $\sum 1/k=\infty$ 发散（调和级数），过程又一次逃出 $H$。临界界限非常锐利：迹类恰恰是"$H$ 值"与"仅为柱形"之间的分界线。
 
 #### 柱形过程*确实*收敛的去处
 
@@ -304,7 +304,7 @@ $$
 对一个二次弗雷歇可微的泛函 $F:H\to\mathbb{R}$ 以及过程 $X(t)=X(0)+\int_0^t b(s)\,ds+\int_0^t\Phi(s)\,dW(s)$，
 
 $$
-F(X(t))=F(X(0))+\int_0^t\langle F'(X(s)),dX(s)\rangle+\tfrac12\int_0^t\operatorname{Tr}\big[F''(X(s))\,\Phi(s)Q\Phi(s)^*\big]\,ds.
+F(X(t))=F(X(0))+\int_0^t\langle F'(X(s)),dX(s)\rangle+\tfrac12\int_0^t\mathrm{Tr}\big[F''(X(s))\,\Phi(s)Q\Phi(s)^*\big]\,ds.
 $$
 
 相对于普通微积分的新特征是二阶的**迹项**，它恰是一维情形中 $\tfrac12 F''\,(dW)^2=\tfrac12 F''\,dt$ 修正项的类比，现在通过迹对所有噪声方向求和。这是 §s10 中计算不变测度的引擎。
@@ -313,7 +313,7 @@ $$
 
 设 $F(u)=\tfrac12\|u\|^2$，故 $F'(u)=u$ 且 $F''(u)=I$。对求解 SHE 的 $u(t)$ 应用伊藤公式（$b=\Delta u$，$\Phi=I$，形式上 $Q=I$，但需正则化）：
 1. 漂移项给出 $\int_0^t\langle u,\Delta u\rangle\,ds=-\int_0^t\|\nabla u\|^2\,ds\le0$（分部积分；能量被扩散耗散）。
-2. 迹项给出 $\tfrac12\int_0^t\operatorname{Tr}(I\cdot Q)\,ds=\tfrac12 t\operatorname{Tr}Q$（能量被噪声以每单位时间 $\tfrac12\operatorname{Tr}Q$ 的恒定速率注入）。
+2. 迹项给出 $\tfrac12\int_0^t\mathrm{Tr}(I\cdot Q)\,ds=\tfrac12 t\mathrm{Tr}Q$（能量被噪声以每单位时间 $\tfrac12\mathrm{Tr}Q$ 的恒定速率注入）。
 3. 让注入与耗散平衡便给出稳态能量。当 $Q=I$ 被截断到 $N$ 个模式时，注入为 $\tfrac12 N$，平衡能量逐模式有限，但随 $N\to\infty$ 发散——与之前同样的依赖于 $d$ 的发散。
 
 #### 常见陷阱

@@ -180,7 +180,7 @@ $$
    \sum (x_i-\mu)^2=\sum(x_i-\bar x)^2+n(\bar x-\mu)^2.
    $$
 6. 重新整理，$\sum(x_i-\bar x)^2=\sum(x_i-\mu)^2-n(\bar x-\mu)^2$。第二部分是正的，证实了第 2 步：相对于 $\bar x$ 的离差比相对于 $\mu$ 的离差更小。
-7. 取期望（长期平均）。$\sum(x_i-\mu)^2$ 的平均是 $n\sigma^2$（由 $\sigma^2$ 的定义，每一项平均为 $\sigma^2$）。$n(\bar x-\mu)^2$ 的平均是 $n\cdot\operatorname{Var}(\bar x)=n\cdot\frac{\sigma^2}{n}=\sigma^2$（使用 §s9 中证明的标准误结果）。因此：
+7. 取期望（长期平均）。$\sum(x_i-\mu)^2$ 的平均是 $n\sigma^2$（由 $\sigma^2$ 的定义，每一项平均为 $\sigma^2$）。$n(\bar x-\mu)^2$ 的平均是 $n\cdot\mathrm{Var}(\bar x)=n\cdot\frac{\sigma^2}{n}=\sigma^2$（使用 §s9 中证明的标准误结果）。因此：
    $$
    E\!\left[\sum(x_i-\bar x)^2\right]=n\sigma^2-\sigma^2=(n-1)\sigma^2.
    $$
@@ -376,14 +376,14 @@ E[X]=\sum_x x\,P(x)\quad\text{(discrete)},\qquad E[X]=\int x\,f(x)\,dx\quad\text
 $$
 
 $$
-\operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2
+\mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2
 $$
 
 定义：
 
 - 对于**离散**变量，$P(x)$ 是 $X$ 等于值 $x$ 的概率，我们对所有可能的值求和。
 - 对于**连续**变量，$f(x)$ 是**概率密度函数**——一条其高度代表相对可能性的曲线——而积分 $\int$ 是求和的连续版本。
-- $\operatorname{Var}(X)$ 是 $X$ 的**方差**：离其均值 $\mu=E[X]$ 的期望平方距离。它的平方根是 $X$ 的标准差。
+- $\mathrm{Var}(X)$ 是 $X$ 的**方差**：离其均值 $\mu=E[X]$ 的期望平方距离。它的平方根是 $X$ 的标准差。
 - 更一般地，$X$ 的*任意函数*的期望都用同样的加权平均求得：$E[g(X)]=\sum_x g(x)\,P(x)$（离散）或 $\int g(x)f(x)\,dx$（连续）。特别地 $E[X^2]=\sum_x x^2\,P(x)$——下文方差捷径与骰子例子中用到。
 
 > **联系 — 微积分在此登场**
@@ -401,7 +401,7 @@ E[aX+b]=a\,E[X]+b,\qquad E[X+Y]=E[X]+E[Y]
 $$
 
 $$
-\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X),\qquad \operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\ \text{(if independent)}
+\mathrm{Var}(aX+b)=a^2\mathrm{Var}(X),\qquad \mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)\ \text{(if independent)}
 $$
 
 这里 $a$ 和 $b$ 是固定常数，$Y$ 是另一个随机变量。"期望的线性"——规则 $E[X+Y]=E[X]+E[Y]$——之所以了不起，是因为它**即使在 $X$ 与 $Y$ 不独立时也成立**。方差只有对*独立*变量才相加。
@@ -421,11 +421,11 @@ $$
    =a\,E[X]+b\cdot 1=a\,E[X]+b.
    $$
 
-**演示 — 方差捷径 $\operatorname{Var}(X)=E[X^2]-(E[X])^2$**
+**演示 — 方差捷径 $\mathrm{Var}(X)=E[X^2]-(E[X])^2$**
 
 1. 从方差的定义出发，用 $(X-\mu)^2=X^2-2\mu X+\mu^2$ 把里面的平方展开：
    $$
-   \operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].
+   \mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].
    $$
 2. 应用期望的线性（刚刚证明的规则），把期望拆到三项上；注意 $\mu$ 是常数，所以它移到外面：
    $$
@@ -437,7 +437,7 @@ $$
    $$
 4. 把 $\mu=E[X]$ 写回去，得到醒目的形式，即方便的"平方的均值减去均值的平方"：
    $$
-   \operatorname{Var}(X)=E[X^2]-\big(E[X]\big)^2.
+   \mathrm{Var}(X)=E[X^2]-\big(E[X]\big)^2.
    $$
 
 **演算例 — 一个骰子的期望与方差**
@@ -446,7 +446,7 @@ $$
 
 1. $E[X]=\sum_{x=1}^{6} x\cdot\frac16=\frac{1+2+3+4+5+6}{6}=\frac{21}{6}=3.5$。
 2. $E[X^2]=\frac{1^2+2^2+3^2+4^2+5^2+6^2}{6}=\frac{1+4+9+16+25+36}{6}=\frac{91}{6}\approx15.17$。
-3. 由捷径，$\operatorname{Var}(X)=E[X^2]-(E[X])^2=\frac{91}{6}-(3.5)^2=15.1\overline{6}-12.25=2.91\overline{6}$。
+3. 由捷径，$\mathrm{Var}(X)=E[X^2]-(E[X])^2=\frac{91}{6}-(3.5)^2=15.1\overline{6}-12.25=2.91\overline{6}$。
 4. 标准差：$\sqrt{2.9167}\approx1.71$。所以单次掷骰通常落在离平均 $3.5$ 约 $1.7$ 的地方——对于分布在 $1$ 到 $6$ 上的值来说很合理。
 
 <a id="s7"></a>
@@ -486,10 +486,10 @@ $$
    $$
    E[X]=E[X_1]+\cdots+E[X_n]=\underbrace{p+\cdots+p}_{n\text{ terms}}=np.
    $$
-4. 通过捷径 $\operatorname{Var}(X_i)=E[X_i^2]-(E[X_i])^2$（§s6）求一次试验的方差。由于 $X_i$ 是 $0$ 或 $1$，$X_i^2=X_i$，所以 $E[X_i^2]=p$，得 $\operatorname{Var}(X_i)=p-p^2=p(1-p)$。
+4. 通过捷径 $\mathrm{Var}(X_i)=E[X_i^2]-(E[X_i])^2$（§s6）求一次试验的方差。由于 $X_i$ 是 $0$ 或 $1$，$X_i^2=X_i$，所以 $E[X_i^2]=p$，得 $\mathrm{Var}(X_i)=p-p^2=p(1-p)$。
 5. 因为试验是**独立的**，方差相加（§s6）：
    $$
-   \operatorname{Var}(X)=\sum_{i=1}^{n}\operatorname{Var}(X_i)=np(1-p).
+   \mathrm{Var}(X)=\sum_{i=1}^{n}\mathrm{Var}(X_i)=np(1-p).
    $$
 
 概率学反复出现的招式在此展现：**把一个复杂的变量分解成简单的独立部分，处理其中一个部分，然后求和。**
@@ -579,17 +579,17 @@ $$
    \bar X=\frac1n\big(X_1+X_2+\cdots+X_n\big),
    $$
    其中 $X_i$ 是独立抽取，每个的方差为 $\sigma^2$。
-2. 使用方差的缩放规则 $\operatorname{Var}(aX)=a^2\operatorname{Var}(X)$（§s6），取 $a=\frac1n$，再加上独立方差相加的规则（§s6）：
+2. 使用方差的缩放规则 $\mathrm{Var}(aX)=a^2\mathrm{Var}(X)$（§s6），取 $a=\frac1n$，再加上独立方差相加的规则（§s6）：
    $$
-   \operatorname{Var}(\bar X)=\frac{1}{n^2}\operatorname{Var}(X_1+\cdots+X_n)=\frac{1}{n^2}\sum_{i=1}^{n}\operatorname{Var}(X_i).
+   \mathrm{Var}(\bar X)=\frac{1}{n^2}\mathrm{Var}(X_1+\cdots+X_n)=\frac{1}{n^2}\sum_{i=1}^{n}\mathrm{Var}(X_i).
    $$
 3. 这 $n$ 项中的每一项都等于 $\sigma^2$，所以和是 $n\sigma^2$：
    $$
-   \operatorname{Var}(\bar X)=\frac{1}{n^2}\,(n\sigma^2)=\frac{\sigma^2}{n}.
+   \mathrm{Var}(\bar X)=\frac{1}{n^2}\,(n\sigma^2)=\frac{\sigma^2}{n}.
    $$
 4. 标准误是 $\bar X$ 的标准差，即它方差的平方根：
    $$
-   \text{SE}(\bar X)=\sqrt{\operatorname{Var}(\bar X)}=\sqrt{\frac{\sigma^2}{n}}=\frac{\sigma}{\sqrt n}.
+   \text{SE}(\bar X)=\sqrt{\mathrm{Var}(\bar X)}=\sqrt{\frac{\sigma^2}{n}}=\frac{\sigma}{\sqrt n}.
    $$
 
 分母上的 $\sqrt n$ 有一个著名的后果：要把你的不确定性**减半**，你必须把样本量**翻四倍**（因为 $\sqrt{4}=2$）。这就是支配每一次民意调查和实验的收益递减规律。
@@ -744,12 +744,12 @@ $$
 > **它说的是什么以及我们为何关心。****协方差**度量两个变量是倾向于一起移动（同时都在各自均值之上）还是朝相反方向移动。**相关** $r$ 是把协方差重新标度后得到的一个干净、无单位、介于 $-1$ 与 $1$ 之间的数字，你可以在任意数据集之间比较它。
 
 $$
-\operatorname{Cov}(X,Y)=E[XY]-E[X]\,E[Y],\qquad r=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\,\sigma_Y}
+\mathrm{Cov}(X,Y)=E[XY]-E[X]\,E[Y],\qquad r=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\,\sigma_Y}
 $$
 
 定义：$\sigma_X$ 和 $\sigma_Y$ 是 $X$ 和 $Y$ 的标准差；$E[XY]$ 是乘积的平均。正的协方差意味着"当 $X$ 高时，$Y$ 倾向于高"；负的则意味着相反。
 
-**为什么 $r$ 是 z-分数乘积的平均（论证）。**由 §s3，$X$ 的 z-分数是 $z_X=\frac{X-\mu_X}{\sigma_X}$，$z_Y$ 类似。它们乘积的平均是 $E[z_X z_Y]=E\!\left[\frac{(X-\mu_X)(Y-\mu_Y)}{\sigma_X\sigma_Y}\right]=\frac{E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X\sigma_Y}=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}=r$。所以**相关就是两个变量的 z-分数乘积的平均**——当两个变量同时高于（或低于）平均时，它又大又正。因为 z-分数是无单位的，$r$ 也是，并且可以证明它始终落在 $[-1,1]$ 内：$r=\pm1$ 意味着完美的直线关系；$r=0$ 意味着没有*线性*关系。
+**为什么 $r$ 是 z-分数乘积的平均（论证）。**由 §s3，$X$ 的 z-分数是 $z_X=\frac{X-\mu_X}{\sigma_X}$，$z_Y$ 类似。它们乘积的平均是 $E[z_X z_Y]=E\!\left[\frac{(X-\mu_X)(Y-\mu_Y)}{\sigma_X\sigma_Y}\right]=\frac{E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X\sigma_Y}=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}=r$。所以**相关就是两个变量的 z-分数乘积的平均**——当两个变量同时高于（或低于）平均时，它又大又正。因为 z-分数是无单位的，$r$ 也是，并且可以证明它始终落在 $[-1,1]$ 内：$r=\pm1$ 意味着完美的直线关系；$r=0$ 意味着没有*线性*关系。
 
 **最小二乘回归直线**
 
@@ -788,7 +788,7 @@ $$
    $$
    b_1=\frac{\sum (x_i-\bar x)(y_i-\bar y)}{\sum (x_i-\bar x)^2}.
    $$
-6. 辨认各部分：分子除以 $n$ 是协方差，分母除以 $n$ 是 $s_x^2$，所以 $b_1=\frac{\operatorname{Cov}(x,y)}{s_x^2}=\frac{\operatorname{Cov}(x,y)}{s_x s_y}\cdot\frac{s_y}{s_x}=r\,\frac{s_y}{s_x}$，与方框中的公式相符。
+6. 辨认各部分：分子除以 $n$ 是协方差，分母除以 $n$ 是 $s_x^2$，所以 $b_1=\frac{\mathrm{Cov}(x,y)}{s_x^2}=\frac{\mathrm{Cov}(x,y)}{s_x s_y}\cdot\frac{s_y}{s_x}=r\,\frac{s_y}{s_x}$，与方框中的公式相符。
 
 这就是配套指南中的微积分最优化——"把导数置零"——应用到数据上。
 

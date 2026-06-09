@@ -48,7 +48,7 @@ The point of the compatibility condition: "$f:M\to\mathbb{R}$ is smooth" can be 
 Now the workhorse tool. Calculus is local, but we constantly need to *assemble* local data (a vector field defined chart-by-chart, an integral over the whole manifold) into a global object without seams. The device that does the gluing is the partition of unity.
 
 > **Definition — support; partition of unity.**
-> The **support** of a function $f:M\to\mathbb{R}$ is $\operatorname{supp} f=\overline{\{p:f(p)\neq 0\}}$, the closure of the set where $f$ is nonzero. A family of functions $\{f_\alpha\}$ is **locally finite** if every point has a neighborhood meeting $\operatorname{supp} f_\alpha$ for only finitely many $\alpha$. Given an open cover $\{U_\alpha\}$ of $M$, a **partition of unity subordinate to $\{U_\alpha\}$** is a family of smooth functions $\rho_\alpha:M\to[0,1]$ with (i) $\operatorname{supp}\rho_\alpha\subseteq U_\alpha$, (ii) the family is locally finite, and (iii) $\sum_\alpha \rho_\alpha(p)=1$ for every $p\in M$ (a finite sum at each point by (ii)).
+> The **support** of a function $f:M\to\mathbb{R}$ is $\mathrm{supp} f=\overline{\{p:f(p)\neq 0\}}$, the closure of the set where $f$ is nonzero. A family of functions $\{f_\alpha\}$ is **locally finite** if every point has a neighborhood meeting $\mathrm{supp} f_\alpha$ for only finitely many $\alpha$. Given an open cover $\{U_\alpha\}$ of $M$, a **partition of unity subordinate to $\{U_\alpha\}$** is a family of smooth functions $\rho_\alpha:M\to[0,1]$ with (i) $\mathrm{supp}\rho_\alpha\subseteq U_\alpha$, (ii) the family is locally finite, and (iii) $\sum_\alpha \rho_\alpha(p)=1$ for every $p\in M$ (a finite sum at each point by (ii)).
 
 > **Theorem (existence of partitions of unity).** Every smooth manifold (Hausdorff, second countable) admits a smooth partition of unity subordinate to any given open cover.
 
@@ -60,7 +60,7 @@ The construction rests on a single explicit gadget — a smooth function that is
 2. Set $g(t)=h(t)\,h(1-t)$. Then $g>0$ exactly on $0<t<1$ and $g=0$ elsewhere, and $g\in C^\infty$ as a product of $C^\infty$ functions. *(product rule keeps smoothness)*
 3. Let $G(t)=\dfrac{\int_t^\infty g}{\int_0^1 g}$ (a normalized tail integral). By the fundamental theorem of calculus $G$ is $C^\infty$, with $G(t)=1$ for $t\le 0$ and $G(t)=0$ for $t\ge 1$, decreasing in between — a smooth step from $1$ down to $0$. *(integrating a $C^\infty$ function gives a $C^\infty$ function)*
 4. Now define on $\mathbb{R}^n$ the **bump** $\beta(x)=G(|x|^2)$ rescaled: $\beta=1$ on the ball $|x|\le r$, $\beta=0$ outside $|x|\le R$ for chosen $0<r<R$, smooth and valued in $[0,1]$. We have a $C^\infty$ function equal to $1$ near a point and supported in any prescribed neighborhood. *(compose smooth $G$ with smooth $x\mapsto|x|^2$)*
-5. To build the partition: by second countability and Hausdorffness $M$ admits a locally finite refinement of $\{U_\alpha\}$ by chart domains $\{V_i\}$, each carrying a bump $\beta_i\ge 0$ with $\operatorname{supp}\beta_i\subseteq V_i$ and $\sum_i\beta_i>0$ everywhere (every point sits inside some $V_i$ where its bump is positive). Set $\rho_i=\beta_i/\sum_j\beta_j$. The sum is locally finite, so $\rho_i\in C^\infty$, $\rho_i\ge 0$, and $\sum_i\rho_i=1$. Reindexing the $V_i$ into the original $U_\alpha$ gives the claimed partition. $\;\blacksquare$
+5. To build the partition: by second countability and Hausdorffness $M$ admits a locally finite refinement of $\{U_\alpha\}$ by chart domains $\{V_i\}$, each carrying a bump $\beta_i\ge 0$ with $\mathrm{supp}\beta_i\subseteq V_i$ and $\sum_i\beta_i>0$ everywhere (every point sits inside some $V_i$ where its bump is positive). Set $\rho_i=\beta_i/\sum_j\beta_j$. The sum is locally finite, so $\rho_i\in C^\infty$, $\rho_i\ge 0$, and $\sum_i\rho_i=1$. Reindexing the $V_i$ into the original $U_\alpha$ gives the claimed partition. $\;\blacksquare$
 
 **What partitions of unity buy you.** Three things we use repeatedly. (a) *Globalize local objects:* if each $U_\alpha$ carries an object $s_\alpha$ (a metric, a connection, a function), then $\sum_\alpha\rho_\alpha s_\alpha$ is a global object, provided the objects live in a *convex* set so that the weighted average makes sense — this is how every manifold gets a Riemannian metric (§s11) and how vector bundles get connections (§s10). (b) *Define integration over $M$:* write $\int_M\omega=\sum_\alpha\int_M\rho_\alpha\omega$, each summand supported in one chart where the ordinary multivariable integral applies (§s7). (c) *Extend functions:* a function defined near a closed set extends smoothly to all of $M$ by multiplying with a bump. The smooth category is *soft* — these constructions have no analogue for analytic or holomorphic functions, where rigidity forbids bumps.
 
@@ -107,7 +107,7 @@ This is the precise sense in which "abstract manifold" is no more general than "
 
 **Demonstration — every compact $n$-manifold embeds in some $\mathbb{R}^N$.**
 
-1. Compactness gives a finite atlas $(U_1,\varphi_1),\dots,(U_k,\varphi_k)$ and a subordinate partition of unity $\rho_1,\dots,\rho_k$ with $\operatorname{supp}\rho_i\subseteq U_i$ (§s1). *(partition of unity exists)*
+1. Compactness gives a finite atlas $(U_1,\varphi_1),\dots,(U_k,\varphi_k)$ and a subordinate partition of unity $\rho_1,\dots,\rho_k$ with $\mathrm{supp}\rho_i\subseteq U_i$ (§s1). *(partition of unity exists)*
 2. Define $F:M\to\mathbb{R}^{k(n+1)}$ by $F(p)=\big(\rho_1(p)\varphi_1(p),\dots,\rho_k(p)\varphi_k(p),\;\rho_1(p),\dots,\rho_k(p)\big)$, where $\rho_i\varphi_i$ is extended by $0$ off $U_i$ (smooth because $\rho_i$ vanishes near $\partial U_i$). $F$ is smooth. *(smoothness of each smooth block; bump extension from §s1)*
 3. $F$ is an immersion: fix $p$, pick $i$ with $\rho_i(p)>0$; near $p$ the block $\rho_i\varphi_i$ together with $\rho_i$ recovers $\varphi_i$ (divide by $\rho_i$), whose differential is invertible, so $dF_p$ is injective. *(charts are diffeomorphisms, so $d\varphi_i$ is invertible)*
 4. $F$ is injective: if $F(p)=F(q)$ then all $\rho_i(p)=\rho_i(q)$; choosing $i$ with $\rho_i(p)>0$ gives $\rho_i(q)>0$ too, so $p,q\in U_i$, and $\rho_i(p)\varphi_i(p)=\rho_i(q)\varphi_i(q)$ with equal positive $\rho_i$ forces $\varphi_i(p)=\varphi_i(q)$, hence $p=q$ since $\varphi_i$ is injective. *(charts are injective)*
@@ -173,7 +173,7 @@ In words: the directions you can reach moving in $X$ plus the directions inside 
 
 **Demonstration (preimage version).**
 
-1. Near a point $c\in Z$, write $Z$ locally as a regular level set: there is a submersion $g:V\to\mathbb{R}^{k}$ on a neighborhood $V$ of $c$ in $N$ with $Z\cap V=g^{-1}(0)$, where $k=\operatorname{codim}Z$. *(a submanifold is locally a regular level set, by §s3 normal form)*
+1. Near a point $c\in Z$, write $Z$ locally as a regular level set: there is a submersion $g:V\to\mathbb{R}^{k}$ on a neighborhood $V$ of $c$ in $N$ with $Z\cap V=g^{-1}(0)$, where $k=\mathrm{codim}Z$. *(a submanifold is locally a regular level set, by §s3 normal form)*
 2. Consider $g\circ f$ near $p\in f^{-1}(Z)$. Its differential is $dg_{f(p)}\circ df_p$. The transversality condition $df_p(T_pM)+T_{f(p)}Z=T_{f(p)}N$ together with $T_{f(p)}Z=\ker dg_{f(p)}$ implies $dg_{f(p)}\big(df_p(T_pM)\big)=dg_{f(p)}(T_{f(p)}N)=\mathbb{R}^k$. So $d(g\circ f)_p$ is surjective. *(applying $dg$ to both summands; $dg$ kills $T_pZ$ and is onto)*
 3. Hence $0$ is a regular value of $g\circ f$, and $f^{-1}(Z)=(g\circ f)^{-1}(0)$ locally is a submanifold of codimension $k$ by the preimage theorem (§s3). Patching over $Z$ gives the global statement. $\;\blacksquare$
 
@@ -220,8 +220,8 @@ The key lemma is the *classification of compact $1$-manifolds with boundary*: ev
 To get an *integer* (more information), orient everything and count with signs.
 
 > **Definition — orientation and the integer degree.**
-> An **orientation** of a manifold is a consistent choice of "positively oriented" ordered basis in each tangent space, varying continuously; equivalently a choice of nowhere-zero top-degree form. Let $M,N$ be closed, oriented, connected, $\dim M=\dim N=n$. At a regular value $c$, each $p\in f^{-1}(c)$ has $df_p:T_pM\to T_cN$ an isomorphism (equal dimensions, surjective); set the **local sign** $\operatorname{sign}(df_p)=+1$ if $df_p$ preserves orientation ($\det>0$ in oriented bases) and $-1$ if it reverses it. Define
-> $$\deg(f)=\sum_{p\in f^{-1}(c)}\operatorname{sign}(df_p)\ \in\ \mathbb{Z}.$$
+> An **orientation** of a manifold is a consistent choice of "positively oriented" ordered basis in each tangent space, varying continuously; equivalently a choice of nowhere-zero top-degree form. Let $M,N$ be closed, oriented, connected, $\dim M=\dim N=n$. At a regular value $c$, each $p\in f^{-1}(c)$ has $df_p:T_pM\to T_cN$ an isomorphism (equal dimensions, surjective); set the **local sign** $\mathrm{sign}(df_p)=+1$ if $df_p$ preserves orientation ($\det>0$ in oriented bases) and $-1$ if it reverses it. Define
+> $$\deg(f)=\sum_{p\in f^{-1}(c)}\mathrm{sign}(df_p)\ \in\ \mathbb{Z}.$$
 
 The same cobordism argument as above, now keeping track of orientations of the boundary $1$-manifold (the two endpoints of an interval carry *opposite* induced orientations), upgrades "even cardinality" to "signed count cancels," proving $\deg(f)$ is independent of $c$ and a homotopy invariant. In cohomology, $\deg(f)$ is the integer by which $f^*$ multiplies the fundamental cohomology class: $f^*[\omega]=\deg(f)\,[\omega']$ after normalizing $\int_N\omega'=1$, equivalently $\int_M f^*\omega=\deg(f)\int_N\omega$ (this is how we compute degrees by integration in §s7).
 
@@ -235,7 +235,7 @@ matching the pointwise count. The two computations of degree — counting signed
 
 **Application 1 — the Fundamental Theorem of Algebra.** Let $p(z)=z^n+a_{n-1}z^{n-1}+\dots+a_0$ with $n\ge 1$. Suppose $p$ had no root. Then $p:\mathbb{C}\to\mathbb{C}\setminus\{0\}$, and after compactifying to the sphere $S^2=\mathbb{C}\cup\{\infty\}$, $p$ extends to a smooth map $S^2\to S^2$. For large $|z|$, $p(z)\approx z^n$, which has degree $n$; the lower terms are a homotopy (scale $a_i\to t a_i$), so $\deg(p)=\deg(z^n)=n\ge 1$. But a map missing a value $0$ factors through $S^2\setminus\{0\}$, which is contractible, forcing $\deg(p)=0$. Contradiction $n\ge1$ vs $0$. So $p$ has a root. *(degree is a homotopy invariant and detects surjectivity)*
 
-**Application 2 — the Hairy Ball Theorem.** *There is no nowhere-zero continuous tangent vector field on the even sphere $S^{2m}$.* Suppose $v(x)$ were a unit tangent field on $S^{2m}$ (normalize a nonzero one). Define $H(x,t)=\cos(\pi t)\,x+\sin(\pi t)\,v(x)$. Each $H(\cdot,t):S^{2m}\to S^{2m}$ is smooth (unit norm since $x\perp v(x)$), with $H(\cdot,0)=\operatorname{id}$ (degree $+1$) and $H(\cdot,1)=-\operatorname{id}$, the antipodal map. The antipodal map of $S^n$ has degree $(-1)^{n+1}$; for $n=2m$ that is $(-1)^{2m+1}=-1$. So a homotopy connects a map of degree $+1$ to one of degree $-1$, contradicting homotopy invariance of degree ($+1\neq-1$). Hence no such $v$ exists — "you cannot comb a hairy ball flat." (On *odd* spheres $S^{2m-1}$ a nonvanishing field exists, e.g. $v(x_1,x_2,\dots)=(-x_2,x_1,\dots)$, consistent with degree $+1=+1$.) $\;\blacksquare$
+**Application 2 — the Hairy Ball Theorem.** *There is no nowhere-zero continuous tangent vector field on the even sphere $S^{2m}$.* Suppose $v(x)$ were a unit tangent field on $S^{2m}$ (normalize a nonzero one). Define $H(x,t)=\cos(\pi t)\,x+\sin(\pi t)\,v(x)$. Each $H(\cdot,t):S^{2m}\to S^{2m}$ is smooth (unit norm since $x\perp v(x)$), with $H(\cdot,0)=\mathrm{id}$ (degree $+1$) and $H(\cdot,1)=-\mathrm{id}$, the antipodal map. The antipodal map of $S^n$ has degree $(-1)^{n+1}$; for $n=2m$ that is $(-1)^{2m+1}=-1$. So a homotopy connects a map of degree $+1$ to one of degree $-1$, contradicting homotopy invariance of degree ($+1\neq-1$). Hence no such $v$ exists — "you cannot comb a hairy ball flat." (On *odd* spheres $S^{2m-1}$ a nonvanishing field exists, e.g. $v(x_1,x_2,\dots)=(-x_2,x_1,\dots)$, consistent with degree $+1=+1$.) $\;\blacksquare$
 
 <a id="s6"></a>
 ### The Euler characteristic and Poincaré–Hopf
@@ -243,28 +243,28 @@ matching the pointwise count. The two computations of degree — counting signed
 A vector field on $M$ is a smooth choice of tangent vector $X(p)\in T_pM$ at each $p$. The hairy-ball theorem said $S^2$ cannot carry a nonvanishing one. Poincaré–Hopf explains *why* and *how much*: the zeros, counted with a sign called the index, must add up to a topological invariant — the Euler characteristic.
 
 > **Definition — index of an isolated zero.**
-> Let $X$ be a vector field with an isolated zero at $p$ (so $X\neq 0$ on a small punctured neighborhood). In a chart, $X$ restricted to a small sphere $S^{n-1}_\varepsilon$ around $p$, normalized to $X/|X|$, defines a map $S^{n-1}_\varepsilon\to S^{n-1}$ (the **Gauss map of the field**). Its degree (§s5) is the **index** $\operatorname{ind}_p(X)\in\mathbb{Z}$. It measures how many times the field rotates around $p$.
+> Let $X$ be a vector field with an isolated zero at $p$ (so $X\neq 0$ on a small punctured neighborhood). In a chart, $X$ restricted to a small sphere $S^{n-1}_\varepsilon$ around $p$, normalized to $X/|X|$, defines a map $S^{n-1}_\varepsilon\to S^{n-1}$ (the **Gauss map of the field**). Its degree (§s5) is the **index** $\mathrm{ind}_p(X)\in\mathbb{Z}$. It measures how many times the field rotates around $p$.
 
 Intuition in the plane ($n=2$): a *source* (arrows out) and a *sink* (arrows in) both have index $+1$; a *saddle* has index $-1$; a *center* (closed orbits) has index $+1$. Index is unchanged by perturbing $X$ near $p$, because degree is homotopy invariant (§s5).
 
 **Worked example — indices of planar fields.** Identify the plane with $\mathbb{C}$ and consider $X(z)=z^m$ as a vector field (the vector at $z$ is the complex number $z^m$). On a small circle $z=\varepsilon e^{i\theta}$ the normalized field is $e^{im\theta}$, which winds $m$ times as $\theta$ runs once around, so
 $$
-\operatorname{ind}_0(z^m)=m.
+\mathrm{ind}_0(z^m)=m.
 $$
 Thus $X(z)=z$ (identity, a source) has index $+1$; $X(z)=\bar z$ rewrites as a saddle and one checks index $-1$; $X(z)=z^2$ a "monkey saddle" of index $2$. Summing local windings is exactly what Poincaré–Hopf globalizes.
 
 > **Theorem (Poincaré–Hopf).** For a vector field $X$ with only isolated zeros on a closed manifold $M$,
-> $$\sum_{p:\,X(p)=0}\operatorname{ind}_p(X)\ =\ \chi(M),$$
+> $$\sum_{p:\,X(p)=0}\mathrm{ind}_p(X)\ =\ \chi(M),$$
 > the Euler characteristic — independent of the field $X$.
 
 **Demonstration — the structure of the proof, with the surface case explicit.**
 
-1. *The sum is independent of $X$.* Given two fields $X_0,X_1$ with isolated zeros, build a generic homotopy $X_t$ between them (transversality, §s4) as a section over $M\times[0,1]$; its zero set is a compact $1$-manifold whose boundary is the (signed) zero sets of $X_0$ and $X_1$. The signed boundary count of a compact oriented $1$-manifold is $0$ (each interval contributes $+1$ and $-1$ at its ends), so $\sum\operatorname{ind}(X_0)=\sum\operatorname{ind}(X_1)$. *(cobordism/boundary argument as in §s5, now for sections)*
+1. *The sum is independent of $X$.* Given two fields $X_0,X_1$ with isolated zeros, build a generic homotopy $X_t$ between them (transversality, §s4) as a section over $M\times[0,1]$; its zero set is a compact $1$-manifold whose boundary is the (signed) zero sets of $X_0$ and $X_1$. The signed boundary count of a compact oriented $1$-manifold is $0$ (each interval contributes $+1$ and $-1$ at its ends), so $\sum\mathrm{ind}(X_0)=\sum\mathrm{ind}(X_1)$. *(cobordism/boundary argument as in §s5, now for sections)*
 2. *The common value is $\chi(M)$.* Pick one convenient field built from a triangulation (or a Morse function, see below) whose index sum is visibly $\chi$. For a triangulation, place a source at each vertex (index $+1$), a saddle at the midpoint of each edge (index $-1$), and a source at the center of each face (index $+1$ in dimension $2$). The total is $V-E+F$, which is $\chi(M)$ by the algebraic-topology definition $\chi=\sum(-1)^k(\#k\text{-cells})$. By Step 1 every field gives this same sum. $\;\blacksquare$
 
 > **Definition — Morse function and its link to $\chi$.**
 > A **Morse function** $f:M\to\mathbb{R}$ is a smooth function whose critical points (where $df=0$) are all **nondegenerate** (the Hessian matrix of second derivatives is invertible there). The **index** of a nondegenerate critical point is the number of negative eigenvalues of the Hessian (the count of "downhill" directions). The gradient field $\nabla f$ has a zero exactly at each critical point, with vector-field index $(-1)^{\text{Morse index}}$, so Poincaré–Hopf gives
-> $$\chi(M)=\sum_{\text{crit }p}(-1)^{\operatorname{ind}_M(p)}.$$
+> $$\chi(M)=\sum_{\text{crit }p}(-1)^{\mathrm{ind}_M(p)}.$$
 
 **Worked example — the torus.** On the standing torus $T^2$, height gives a Morse function with four critical points: a bottom minimum (index $0$, sign $+$), two saddles on the inner ring (index $1$, sign $-$ each), a top maximum (index $2$, sign $+$). Sum of signs: $1-1-1+1=0$, so $\chi(T^2)=0$ — consistent with the torus admitting a nonvanishing vector field (it does: the constant "around the tube" field). For the sphere $S^2$, height gives one min and one max, sum $1+1=2=\chi(S^2)$, and the hairy-ball obstruction is exactly that $\chi(S^2)=2\neq0$. The two parts of this guide just shook hands.
 
@@ -277,7 +277,7 @@ From the Differential Geometry guide: a **differential $k$-form** $\omega$ is a 
 
 > **Definition — de Rham cohomology.**
 > The **$k$-th de Rham cohomology** of $M$ is
-> $$H^k_{\mathrm{dR}}(M)=\frac{\{\text{closed }k\text{-forms}\}}{\{\text{exact }k\text{-forms}\}}=\frac{\ker(d:\Omega^k\to\Omega^{k+1})}{\operatorname{im}(d:\Omega^{k-1}\to\Omega^k)}.$$
+> $$H^k_{\mathrm{dR}}(M)=\frac{\{\text{closed }k\text{-forms}\}}{\{\text{exact }k\text{-forms}\}}=\frac{\ker(d:\Omega^k\to\Omega^{k+1})}{\mathrm{im}(d:\Omega^{k-1}\to\Omega^k)}.$$
 > A class $[\omega]$ records "closed modulo exact."
 
 > **Theorem (de Rham).** For a smooth manifold, $H^k_{\mathrm{dR}}(M)\cong H^k(M;\mathbb{R})$, the real singular cohomology of the Algebraic Topology guide. Analysis (forms) computes topology (cohomology), and the isomorphism is given by integrating forms over cycles: $[\omega]\mapsto\big(c\mapsto\int_c\omega\big)$, well defined by **Stokes' theorem** $\int_c d\eta=\int_{\partial c}\eta$.
@@ -310,7 +310,7 @@ This recovers $b_0=b_1=1$ for $S^1$ purely by integrating, and Poincaré duality
 ### Vector bundles and characteristic classes (axiomatic)
 
 > **Definition — vector bundle.**
-> A **real vector bundle of rank $r$** over $M$ is a smooth manifold $E$ with a smooth surjection $\pi:E\to M$ such that each **fiber** $E_p=\pi^{-1}(p)$ is an $r$-dimensional real vector space, and $E$ is **locally trivial**: every $p$ has a neighborhood $U$ with a diffeomorphism $\pi^{-1}(U)\cong U\times\mathbb{R}^r$ that is linear on fibers and commutes with projection to $U$. A **complex vector bundle** uses $\mathbb{C}^r$ fibers. A **section** is a smooth map $s:M\to E$ with $\pi\circ s=\operatorname{id}$ (a choice of vector in each fiber). The **trivial bundle** is $M\times\mathbb{R}^r$. The **tangent bundle** $TM=\bigsqcup_p T_pM$ is the prototype.
+> A **real vector bundle of rank $r$** over $M$ is a smooth manifold $E$ with a smooth surjection $\pi:E\to M$ such that each **fiber** $E_p=\pi^{-1}(p)$ is an $r$-dimensional real vector space, and $E$ is **locally trivial**: every $p$ has a neighborhood $U$ with a diffeomorphism $\pi^{-1}(U)\cong U\times\mathbb{R}^r$ that is linear on fibers and commutes with projection to $U$. A **complex vector bundle** uses $\mathbb{C}^r$ fibers. A **section** is a smooth map $s:M\to E$ with $\pi\circ s=\mathrm{id}$ (a choice of vector in each fiber). The **trivial bundle** is $M\times\mathbb{R}^r$. The **tangent bundle** $TM=\bigsqcup_p T_pM$ is the prototype.
 
 A bundle is *trivial* if globally $E\cong M\times\mathbb{R}^r$. Most are not — the Möbius band is a nontrivial rank-$1$ bundle over $S^1$. **Characteristic classes** are cohomology classes that detect this nontriviality: they vanish for trivial bundles, so a nonzero class proves nontriviality. They are *natural*: pulling a bundle back along a map pulls the class back the same way.
 
@@ -318,10 +318,10 @@ A bundle is *trivial* if globally $E\cong M\times\mathbb{R}^r$. Most are not —
 > 1. **Naturality:** $w(f^*E)=f^*w(E)$ for smooth $f$.
 > 2. **Whitney sum:** $w(E\oplus F)=w(E)\smile w(F)$ (cup product).
 > 3. **Normalization:** for the tautological line bundle $\gamma^1$ over $\mathbb{RP}^1$, $w_1(\gamma^1)\neq 0$.
-> 4. **Rank bound:** $w_i(E)=0$ for $i>\operatorname{rank}E$.
+> 4. **Rank bound:** $w_i(E)=0$ for $i>\mathrm{rank}E$.
 > These axioms determine the $w_i$ uniquely.
 
-> **Definition / Theorem (Chern classes, axiomatic).** To each *complex* vector bundle $E\to M$ there is assigned $c(E)=1+c_1(E)+c_2(E)+\dots$ with $c_i(E)\in H^{2i}(M;\mathbb{Z})$ (integer coefficients, even degree!) satisfying the same naturality, Whitney-sum $c(E\oplus F)=c(E)\smile c(F)$, normalization on the tautological line bundle over $\mathbb{CP}^1$, and $c_i=0$ for $i>\operatorname{rank}_{\mathbb C}E$.
+> **Definition / Theorem (Chern classes, axiomatic).** To each *complex* vector bundle $E\to M$ there is assigned $c(E)=1+c_1(E)+c_2(E)+\dots$ with $c_i(E)\in H^{2i}(M;\mathbb{Z})$ (integer coefficients, even degree!) satisfying the same naturality, Whitney-sum $c(E\oplus F)=c(E)\smile c(F)$, normalization on the tautological line bundle over $\mathbb{CP}^1$, and $c_i=0$ for $i>\mathrm{rank}_{\mathbb C}E$.
 
 > **Definition (Pontryagin classes).** For a real bundle $E$, complexify ($E\otimes\mathbb{C}$) and set $p_i(E)=(-1)^i c_{2i}(E\otimes\mathbb{C})\in H^{4i}(M;\mathbb{Z})$. (Odd Chern classes of a complexification are $2$-torsion, hence dropped.)
 
@@ -368,8 +368,8 @@ The **Euler class** is the characteristic class tied most directly to the counti
 **Demonstration — why this equals the Euler characteristic.**
 
 1. A section of the tangent bundle $TM$ is exactly a vector field $X$ on $M$ (a tangent vector at each point). *(definition of $TM$, §s8)*
-2. The zero set of a generic such section is the zero set of a generic vector field; its Poincaré-dual class integrated over $M$ is the **signed count of zeros** of $X$, with the local sign being precisely the vector-field index $\operatorname{ind}_p(X)$ of §s6. *(transversal zeros are isolated and signed by the local degree)*
-3. So $\int_M e(TM)=\sum_p\operatorname{ind}_p(X)$. By Poincaré–Hopf (§s6) this sum is $\chi(M)$. Therefore $\int_M e(TM)=\chi(M)$. $\;\blacksquare$
+2. The zero set of a generic such section is the zero set of a generic vector field; its Poincaré-dual class integrated over $M$ is the **signed count of zeros** of $X$, with the local sign being precisely the vector-field index $\mathrm{ind}_p(X)$ of §s6. *(transversal zeros are isolated and signed by the local degree)*
+3. So $\int_M e(TM)=\sum_p\mathrm{ind}_p(X)$. By Poincaré–Hopf (§s6) this sum is $\chi(M)$. Therefore $\int_M e(TM)=\chi(M)$. $\;\blacksquare$
 
 **Relations to the other classes.** For a complex line bundle (rank-$2$ real, oriented), $e=c_1$, the first Chern class — the Euler class *is* a Chern class in this case. For a rank-$r$ oriented real bundle, $e(E)^2=p_{\,r/2}(E)$ (top Pontryagin class) when $r$ is even. And the top Stiefel–Whitney class is the mod-$2$ reduction $w_r(E)=e(E)\bmod 2$, which is why $\chi(M)\bmod 2$ obstructs nonvanishing fields even without orientation.
 
@@ -377,7 +377,7 @@ The **Euler class** is the characteristic class tied most directly to the counti
 
 **Worked example — counting zeros via the Euler number.** Suppose someone builds a vector field on $S^2$ with exactly three zeros, two sources and one zero of some unknown index $k$. The Euler-class identity forces the signed total:
 $$
-\sum_p\operatorname{ind}_p(X)=\int_{S^2}e(TS^2)=\chi(S^2)=2 \;\Longrightarrow\; 1+1+k=2 \;\Longrightarrow\; k=0.
+\sum_p\mathrm{ind}_p(X)=\int_{S^2}e(TS^2)=\chi(S^2)=2 \;\Longrightarrow\; 1+1+k=2 \;\Longrightarrow\; k=0.
 $$
 So such a third zero would have to be *degenerate* (a perturbation splits it into zeros whose indices cancel). The Euler number constrains what zero configurations are even possible — topology disciplines analysis.
 
@@ -392,7 +392,7 @@ So far characteristic classes were defined by axioms or by counting zeros. Chern
 > measuring the failure of "parallel transport around small loops" to return vectors unchanged. Every bundle admits a connection (build local ones, glue with a partition of unity, §s1).
 
 > **Theorem (Chern–Weil).** Let $P$ be an invariant polynomial on matrices (one with $P(g X g^{-1})=P(X)$ for invertible $g$ — e.g. trace, determinant, or coefficients of $\det(I+\tfrac{t}{2\pi i}X)$). Then the form $P(\Omega)$ built by substituting the curvature is **closed**, and its de Rham class is **independent of the connection**. Assigning these classes to bundles reproduces the Chern (and, via complexification, Pontryagin and Euler) classes axiomatically defined in §s8–s9. Concretely, for a complex bundle,
-> $$c(E)=\Big[\det\Big(I+\tfrac{i}{2\pi}\Omega\Big)\Big],\qquad c_1(E)=\Big[\tfrac{i}{2\pi}\operatorname{tr}\Omega\Big].$$
+> $$c(E)=\Big[\det\Big(I+\tfrac{i}{2\pi}\Omega\Big)\Big],\qquad c_1(E)=\Big[\tfrac{i}{2\pi}\mathrm{tr}\Omega\Big].$$
 
 **Demonstration — $P(\Omega)$ is closed and connection-independent.**
 
@@ -427,8 +427,8 @@ This is the Chern–Weil identity for the tangent bundle of a surface: $\tfrac{1
 
 1. *Geometry $\to$ Euler class.* For an oriented Riemannian surface the Levi–Civita connection on $T\Sigma$ has curvature $2$-form whose Chern–Weil Euler representative is $\tfrac{1}{2\pi}K\,dA$. *(Chern–Weil, §s10, applied to the rank-$2$ oriented tangent bundle)*
 2. *Euler class $\to$ topology.* By §s9, $\int_\Sigma e(T\Sigma)=\chi(\Sigma)$. *(Euler class integrates to the Euler characteristic)*
-3. *Topology $\to$ counting.* By §s6, $\chi(\Sigma)=\sum_p\operatorname{ind}_p(X)$ for any vector field, the alternating cell count $V-E+F$. *(Poincaré–Hopf)*
-4. Chaining: $\tfrac{1}{2\pi}\int_\Sigma K\,dA=\int_\Sigma e(T\Sigma)=\chi(\Sigma)=\sum\operatorname{ind}$. An analytic integral, a topological invariant, and a geometric count are one number. $\;\blacksquare$
+3. *Topology $\to$ counting.* By §s6, $\chi(\Sigma)=\sum_p\mathrm{ind}_p(X)$ for any vector field, the alternating cell count $V-E+F$. *(Poincaré–Hopf)*
+4. Chaining: $\tfrac{1}{2\pi}\int_\Sigma K\,dA=\int_\Sigma e(T\Sigma)=\chi(\Sigma)=\sum\mathrm{ind}$. An analytic integral, a topological invariant, and a geometric count are one number. $\;\blacksquare$
 
 **Worked example.** The unit sphere has $K=1$ everywhere and area $4\pi$, so $\tfrac{1}{2\pi}\int K\,dA=\tfrac{1}{2\pi}(4\pi)=2=\chi(S^2)$ ✓. The flat torus has $K\equiv 0$, giving $0=\chi(T^2)$ ✓. The genus-$g$ surface must average negative curvature for $g\ge 2$, since $\tfrac1{2\pi}\int K\,dA=2-2g<0$ — geometry is *forced* by topology.
 
@@ -436,29 +436,29 @@ This is the Chern–Weil identity for the tangent bundle of a surface: $\tfrac{1
 $$
 \int_T K\,dA = (\alpha+\beta+\gamma)-\pi.
 $$
-On the flat plane $K=0$, so the angles sum to exactly $\pi$ — ordinary Euclidean geometry. On the unit sphere $K=1$, so $\alpha+\beta+\gamma-\pi=\operatorname{Area}(T)>0$: spherical triangles have angle excess equal to their area (a triangle with three right angles covers an octant, area $\pi/2$, excess $3\cdot\tfrac\pi2-\pi=\tfrac\pi2$ ✓). On a saddle ($K<0$) triangles are angle-*deficient*. Summing this local statement over a triangulation, the interior angles assemble to $2\pi$ at each vertex and the boundary terms telescope, producing the global $\tfrac1{2\pi}\int_\Sigma K\,dA=\chi$ — which is how Gauss and Bonnet first found it, before bundles existed.
+On the flat plane $K=0$, so the angles sum to exactly $\pi$ — ordinary Euclidean geometry. On the unit sphere $K=1$, so $\alpha+\beta+\gamma-\pi=\mathrm{Area}(T)>0$: spherical triangles have angle excess equal to their area (a triangle with three right angles covers an octant, area $\pi/2$, excess $3\cdot\tfrac\pi2-\pi=\tfrac\pi2$ ✓). On a saddle ($K<0$) triangles are angle-*deficient*. Summing this local statement over a triangulation, the interior angles assemble to $2\pi$ at each vertex and the boundary terms telescope, producing the global $\tfrac1{2\pi}\int_\Sigma K\,dA=\chi$ — which is how Gauss and Bonnet first found it, before bundles existed.
 
 The vast generalization replaces "$\chi$ as alternating sum of cohomology" with "alternating sum of solution-space dimensions of a differential operator."
 
 > **Theorem (Atiyah–Singer index theorem, statement).** Let $D$ be an **elliptic differential operator** on a closed manifold $M$ (elliptic: its highest-order part is invertible in every nonzero direction, the condition guaranteeing finite-dimensional kernel and cokernel). Its **analytic index** is
-> $$\operatorname{ind}_a(D)=\dim\ker D-\dim\operatorname{coker}D,$$
+> $$\mathrm{ind}_a(D)=\dim\ker D-\dim\mathrm{coker}D,$$
 > the net number of solutions. The theorem states this *analytic* integer equals a *topological* integer:
-> $$\operatorname{ind}_a(D)=\int_M \operatorname{ch}(\sigma D)\,\operatorname{Td}(TM),$$
-> a characteristic-class integral built from the symbol of $D$ (its Chern character $\operatorname{ch}$) and the manifold's tangent bundle (its Todd class $\operatorname{Td}$).
+> $$\mathrm{ind}_a(D)=\int_M \mathrm{ch}(\sigma D)\,\mathrm{Td}(TM),$$
+> a characteristic-class integral built from the symbol of $D$ (its Chern character $\mathrm{ch}$) and the manifold's tangent bundle (its Todd class $\mathrm{Td}$).
 
 Gauss–Bonnet is the special case where $D$ is the de Rham operator $d+d^*$: its index is exactly the alternating sum of Betti numbers, namely $\chi(M)$, and the right-hand integral is $\int_M e(TM)$. Other choices of $D$ yield the Riemann–Roch theorem (holomorphic Euler characteristics), the signature theorem (Hirzebruch's $L$-genus), and the spin/Dirac index ($\hat A$-genus) — each an identity "number of solutions $=$ a characteristic number." In physics this is the engine behind anomaly cancellation and instanton counting. It is the mature form of the single idea of this guide: **local analytic data, integrated, computes a global topological invariant.**
 
 > **Worked example — the index theorem reproduces Gauss–Bonnet, term by term.** Take $M$ a closed oriented surface and $D=d+d^\ast:\Omega^{\mathrm{even}}\to\Omega^{\mathrm{odd}}$ (the de Rham operator regrouped by parity). By **Hodge theory** the kernel of $D$ is the even harmonic forms and the cokernel is the odd harmonic forms, and harmonic forms represent cohomology, so
 > $$
-> \operatorname{ind}_a(D)=\big(b_0+b_2\big)-b_1=\sum_k(-1)^k b_k=\chi(M).
+> \mathrm{ind}_a(D)=\big(b_0+b_2\big)-b_1=\sum_k(-1)^k b_k=\chi(M).
 > $$
 > The Atiyah–Singer right-hand side specializes for this $D$ to the Euler-class integral $\int_M e(TM)=\tfrac1{2\pi}\int_M K\,dA$. Equating the two sides is exactly Gauss–Bonnet. The index theorem thus *contains* the climax of this guide, and replaces "alternating sum of Betti numbers" with "net count of harmonic solutions" — analysis again equal to topology.
 
 > **Worked example — a $4$-manifold signature.** For a closed oriented $4$-manifold $M$, choosing $D$ to be the signature operator gives Hirzebruch's identity
 > $$
-> \operatorname{sign}(M)=\frac{1}{3}\int_M p_1(TM),
+> \mathrm{sign}(M)=\frac{1}{3}\int_M p_1(TM),
 > $$
-> where $\operatorname{sign}(M)$ is the signature of the intersection form on $H^2(M)$ (a purely topological integer: $\#$positive $-$ $\#$negative eigenvalues) and $p_1$ is the first Pontryagin class (§s8). For $\mathbb{CP}^2$, $\operatorname{sign}=1$ and indeed $\tfrac13\int p_1=\tfrac13\cdot 3=1$ (here $\int_{\mathbb{CP}^2}p_1=3$ because the total Chern class $c(T\mathbb{CP}^2)=(1+h)^3$ gives $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$, and $\int_{\mathbb{CP}^2}h^2=1$). A signed eigenvalue count equals a curvature integral — the same miracle, one dimension up.
+> where $\mathrm{sign}(M)$ is the signature of the intersection form on $H^2(M)$ (a purely topological integer: $\#$positive $-$ $\#$negative eigenvalues) and $p_1$ is the first Pontryagin class (§s8). For $\mathbb{CP}^2$, $\mathrm{sign}=1$ and indeed $\tfrac13\int p_1=\tfrac13\cdot 3=1$ (here $\int_{\mathbb{CP}^2}p_1=3$ because the total Chern class $c(T\mathbb{CP}^2)=(1+h)^3$ gives $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$, and $\int_{\mathbb{CP}^2}h^2=1$). A signed eigenvalue count equals a curvature integral — the same miracle, one dimension up.
 
 ---
 

@@ -247,7 +247,7 @@ $$
 - **缩并**令一个上指标与一个下指标相等并求和，使型降低 $(1,1)$。例如，由 $T^\mu{}_\nu$ 得到的**迹** $T^\mu{}_\mu$ 是一个标量，在坐标变换下不变（雅可比因子如 s3 那样相消）。
 - **升降指标**使用度量（见下一节）：$V_\mu = g_{\mu\nu}V^\nu$ 下降，$V^\mu = g^{\mu\nu}V_\nu$ 上升，其中 $g^{\mu\nu}$ 是逆度量。由于 $g$ 是张量，这些运算与坐标无关。
 
-> **常见陷阱。** $df$ 的分量 $\partial_\mu f$ 构成一个余向量（下指标），*而非*向量，尽管我们称它为"梯度"。要把它变成向量（最陡上升的方向）需要用度量升指标：$(\operatorname{grad} f)^\mu = g^{\mu\nu}\partial_\nu f$。在平坦笛卡尔空间中 $g^{\mu\nu}=\delta^{\mu\nu}$，所以这种区别不可见——这正是它常被忽视的原因。
+> **常见陷阱。** $df$ 的分量 $\partial_\mu f$ 构成一个余向量（下指标），*而非*向量，尽管我们称它为"梯度"。要把它变成向量（最陡上升的方向）需要用度量升指标：$(\mathrm{grad} f)^\mu = g^{\mu\nu}\partial_\nu f$。在平坦笛卡尔空间中 $g^{\mu\nu}=\delta^{\mu\nu}$，所以这种区别不可见——这正是它常被忽视的原因。
 
 <a id="s5"></a>
 ### 度量张量 —— 长度、角度与指标体操
@@ -342,7 +342,7 @@ $$
 4. 对所有 $\mu,\nu$ 求和的（关于 $\mu\nu$ 对称）乘以（关于 $\mu\nu$ 反对称）为零：交换哑名 $\mu\leftrightarrow\nu$ 使对称因子不变而反对称因子变号，故该和等于自身的相反数，因此为 $0$。具体地 $\sum_{\mu,\nu}\partial_\nu\partial_\mu f\,dx^\nu\wedge dx^\mu = \tfrac12\sum_{\mu,\nu}(\partial_\nu\partial_\mu f-\partial_\mu\partial_\nu f)\,dx^\nu\wedge dx^\mu = 0$。
 5. 对一般的 $k$-形式，额外的外因子 $dx^{\mu_1}\wedge\cdots$ 原封不动地随行，而对两个新的求导指标的同样的对称乘反对称相消给出 $d(d\omega)=0$。$\blacksquare$
 
-> **与向量微积分的联系。** 在 $\mathbb{R}^3$ 中：$d$ 作用于 $0$-形式是 $\operatorname{grad}$；作用于 $1$-形式是 $\operatorname{curl}$；作用于 $2$-形式是 $\operatorname{div}$。于是 $d^2=0$ 一举编码了两个经典恒等式 $\operatorname{curl}\,\operatorname{grad}=0$ 与 $\operatorname{div}\,\operatorname{curl}=0$。这正是形式之所以是自然语言的原因。
+> **与向量微积分的联系。** 在 $\mathbb{R}^3$ 中：$d$ 作用于 $0$-形式是 $\mathrm{grad}$；作用于 $1$-形式是 $\mathrm{curl}$；作用于 $2$-形式是 $\mathrm{div}$。于是 $d^2=0$ 一举编码了两个经典恒等式 $\mathrm{curl}\,\mathrm{grad}=0$ 与 $\mathrm{div}\,\mathrm{curl}=0$。这正是形式之所以是自然语言的原因。
 
 <a id="s7"></a>
 ### 形式的积分与广义斯托克斯定理

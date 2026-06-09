@@ -66,25 +66,25 @@ The factorial $n!=1\cdot 2\cdots n$ counts arrangements of $n$ objects and appea
 
 #### Definition
 
-> **Definition — the Gamma function (Euler integral).** For a complex number $z$ with positive real part, $\operatorname{Re}(z)>0$,
+> **Definition — the Gamma function (Euler integral).** For a complex number $z$ with positive real part, $\mathrm{Re}(z)>0$,
 > $$
 > \Gamma(z)=\int_0^\infty t^{\,z-1}e^{-t}\,dt .
 > $$
 
-Here $t$ is a real integration variable, $e^{-t}$ is the exponential decay that makes the integral converge at $t\to\infty$, and $t^{z-1}=e^{(z-1)\ln t}$ is a power. The condition $\operatorname{Re}(z)>0$ is needed so the integrand $t^{z-1}$ is integrable near $t=0$: near the origin $\int_0 t^{z-1}\,dt$ converges exactly when $\operatorname{Re}(z-1)>-1$, i.e. $\operatorname{Re}(z)>0$.
+Here $t$ is a real integration variable, $e^{-t}$ is the exponential decay that makes the integral converge at $t\to\infty$, and $t^{z-1}=e^{(z-1)\ln t}$ is a power. The condition $\mathrm{Re}(z)>0$ is needed so the integrand $t^{z-1}$ is integrable near $t=0$: near the origin $\int_0 t^{z-1}\,dt$ converges exactly when $\mathrm{Re}(z-1)>-1$, i.e. $\mathrm{Re}(z)>0$.
 
 #### The recurrence $\Gamma(z+1)=z\,\Gamma(z)$ — proof
 
 This single identity is the engine of the whole subject: it is the "factorial property" $n!=n\cdot(n-1)!$ in continuous form.
 
-> **Theorem.** For all $z$ with $\operatorname{Re}(z)>0$, $\ \Gamma(z+1)=z\,\Gamma(z)$.
+> **Theorem.** For all $z$ with $\mathrm{Re}(z)>0$, $\ \Gamma(z+1)=z\,\Gamma(z)$.
 
 **Proof (integration by parts).**
 
 1. Start from the definition with $z+1$ in the slot: $\displaystyle\Gamma(z+1)=\int_0^\infty t^{\,z}e^{-t}\,dt$. *(Reason: substitute $z\mapsto z+1$ in the Euler integral; the exponent $z-1$ becomes $z$.)*
 2. Apply **integration by parts** $\int u\,dv = uv-\int v\,du$ with the choice $u=t^{z}$ and $dv=e^{-t}\,dt$. Then $du=z\,t^{z-1}\,dt$ (power rule) and $v=-e^{-t}$ (antiderivative of $e^{-t}$). *(Reason: integration by parts is valid for these continuously differentiable factors on $(0,\infty)$.)*
 3. This gives $\displaystyle\Gamma(z+1)=\Big[-t^{z}e^{-t}\Big]_0^\infty+\int_0^\infty z\,t^{z-1}e^{-t}\,dt$.
-4. Evaluate the boundary term $\big[-t^{z}e^{-t}\big]_0^\infty$. As $t\to\infty$, $e^{-t}$ decays faster than any power $t^{z}$ grows, so the product $\to 0$. As $t\to 0^+$, $t^{z}\to 0$ because $\operatorname{Re}(z)>0$, so the product $\to 0$. Hence the boundary term is $0$. *(Reason: exponential beats polynomial at infinity; positive real exponent kills the power at zero.)*
+4. Evaluate the boundary term $\big[-t^{z}e^{-t}\big]_0^\infty$. As $t\to\infty$, $e^{-t}$ decays faster than any power $t^{z}$ grows, so the product $\to 0$. As $t\to 0^+$, $t^{z}\to 0$ because $\mathrm{Re}(z)>0$, so the product $\to 0$. Hence the boundary term is $0$. *(Reason: exponential beats polynomial at infinity; positive real exponent kills the power at zero.)*
 5. The remaining integral is $z\int_0^\infty t^{z-1}e^{-t}\,dt=z\,\Gamma(z)$ by the definition of $\Gamma(z)$. *(Reason: pull the constant $z$ out of the integral; recognize the Euler integral.)*
 6. Therefore $\Gamma(z+1)=z\,\Gamma(z)$. $\blacksquare$
 
@@ -101,7 +101,7 @@ So $\Gamma$ shifts the factorial by one: $\Gamma(z+1)$ "is" $z!$. The shift is a
 
 #### Key values and extension
 
-The recurrence also lets us *extend* $\Gamma$ to negative arguments: rewrite it as $\Gamma(z)=\Gamma(z+1)/z$. The right side makes sense whenever $\operatorname{Re}(z)>-1$ (and $z\ne0$), defining $\Gamma$ there; repeating the trick covers the whole plane except the non-positive integers $0,-1,-2,\dots$, where the $1/z$-type factors blow up. Thus $\Gamma$ has **simple poles** at $z=0,-1,-2,\dots$ and is finite and smooth everywhere else.
+The recurrence also lets us *extend* $\Gamma$ to negative arguments: rewrite it as $\Gamma(z)=\Gamma(z+1)/z$. The right side makes sense whenever $\mathrm{Re}(z)>-1$ (and $z\ne0$), defining $\Gamma$ there; repeating the trick covers the whole plane except the non-positive integers $0,-1,-2,\dots$, where the $1/z$-type factors blow up. Thus $\Gamma$ has **simple poles** at $z=0,-1,-2,\dots$ and is finite and smooth everywhere else.
 
 One value is famous and worth recording. The **half-integer** value is
 
@@ -165,7 +165,7 @@ Many integrals over a *finite* interval $[0,1]$ — probabilities of Beta-distri
 
 #### Definition
 
-> **Definition — the Beta function.** For $\operatorname{Re}(p)>0$ and $\operatorname{Re}(q)>0$,
+> **Definition — the Beta function.** For $\mathrm{Re}(p)>0$ and $\mathrm{Re}(q)>0$,
 > $$
 > B(p,q)=\int_0^1 x^{\,p-1}(1-x)^{\,q-1}\,dx .
 > $$
@@ -174,7 +174,7 @@ The two factors $x^{p-1}$ and $(1-x)^{q-1}$ are symmetric about the midpoint, wh
 
 #### The relation $B(p,q)=\dfrac{\Gamma(p)\,\Gamma(q)}{\Gamma(p+q)}$ — proof
 
-> **Theorem.** For $\operatorname{Re}(p)>0,\operatorname{Re}(q)>0$, $\ B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$.
+> **Theorem.** For $\mathrm{Re}(p)>0,\mathrm{Re}(q)>0$, $\ B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$.
 
 **Proof.**
 1. Write the product $\Gamma(p)\Gamma(q)=\Big(\int_0^\infty s^{p-1}e^{-s}ds\Big)\Big(\int_0^\infty t^{q-1}e^{-t}dt\Big)=\iint_{s,t>0} s^{p-1}t^{q-1}e^{-(s+t)}\,ds\,dt$. *(Reason: a product of integrals in independent variables is the double integral over the quadrant — Fubini's theorem, valid since the integrand is positive.)*

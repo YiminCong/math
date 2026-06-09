@@ -342,13 +342,13 @@ $$\text{(B1)}\ \ \bigcup_{B\in\mathcal B}B=X;\qquad \text{(B2)}\ \ x\in B_1\cap 
 
 **定义 — 内部、闭包、边界**
 
-$$\operatorname{int}A=\bigcup\{U\subseteq A: U\text{ open}\},\qquad \overline{A}=\bigcap\{C\supseteq A: C\text{ closed}\}$$
+$$\mathrm{int}A=\bigcup\{U\subseteq A: U\text{ open}\},\qquad \overline{A}=\bigcap\{C\supseteq A: C\text{ closed}\}$$
 
-$$\partial A=\overline{A}\setminus\operatorname{int}A=\overline A\cap\overline{A^c}$$
+$$\partial A=\overline{A}\setminus\mathrm{int}A=\overline A\cap\overline{A^c}$$
 
-用文字说：**内部** $\operatorname{int}A$ 是包含于 $A$ 的全部开集的并——它是开的（开集的并，由 T2）且是 $A$ 内部*最大*的开集。**闭包** $\overline A$ 是包含 $A$ 的全部闭集的交——它是闭的（闭集的交是闭的，下面证明）且是围绕 $A$ *最小*的闭集。**边界** $\partial A$ 是从闭包中去掉内部之后剩下的：那"边缘"。符号 $A\setminus B$（集合差）表示 $\{x\in A:x\notin B\}$。
+用文字说：**内部** $\mathrm{int}A$ 是包含于 $A$ 的全部开集的并——它是开的（开集的并，由 T2）且是 $A$ 内部*最大*的开集。**闭包** $\overline A$ 是包含 $A$ 的全部闭集的交——它是闭的（闭集的交是闭的，下面证明）且是围绕 $A$ *最小*的闭集。**边界** $\partial A$ 是从闭包中去掉内部之后剩下的：那"边缘"。符号 $A\setminus B$（集合差）表示 $\{x\in A:x\notin B\}$。
 
-*所以总有 $\operatorname{int}A\subseteq A\subseteq\overline A$。*
+*所以总有 $\mathrm{int}A\subseteq A\subseteq\overline A$。*
 
 **演示 — 任意多个闭集的交是闭的（所以 $\overline A$ 是闭的）**
 
@@ -370,13 +370,13 @@ $$\overline{A}=A\cup A'=\{x: \text{every open } U\ni x \text{ has } U\cap A\neq\
 1. ($\Rightarrow$) 设某个开 $U\ni x$ 不与 $A$ 相遇，即 $U\cap A=\varnothing$，所以 $A\subseteq U^c$。现在 $U^c$ 是闭的（开集的补）且包含 $A$，所以根据闭包的定义 $\overline A\subseteq U^c$。由于 $x\in U$，$x\notin U^c$，因此 $x\notin\overline A$。取逆否：若 $x\in\overline A$ 则每个开 $U\ni x$ 与 $A$ 相遇。
 2. ($\Leftarrow$) 设 $x\notin\overline A$。那么 $x$ 在闭集 $\overline A$ 之外，所以 $x\in(\overline A)^c$，后者是开的、含 $x$ 却不与 $A$ 相遇（因为 $A\subseteq\overline A$）。所以*确实*存在一个围绕 $x$ 而不与 $A$ 相遇的开集。取逆否：若每个开 $U\ni x$ 与 $A$ 相遇，则 $x\in\overline A$。
 
-> 演算实例。在 $\mathbb R$ 中取 $A=(0,1)$：$\operatorname{int}A=(0,1)$（已经是开的），$\overline A=[0,1]$（端点是极限点：围绕 $0$ 的每个区间都含有 $(0,1)$ 的点），且 $\partial A=\{0,1\}$。对 $A=\mathbb Q$：$\operatorname{int}\mathbb Q=\varnothing$（没有区间全是有理数），$\overline{\mathbb Q}=\mathbb R$（每个区间都含一个有理数），所以 $\partial\mathbb Q=\mathbb R$。
+> 演算实例。在 $\mathbb R$ 中取 $A=(0,1)$：$\mathrm{int}A=(0,1)$（已经是开的），$\overline A=[0,1]$（端点是极限点：围绕 $0$ 的每个区间都含有 $(0,1)$ 的点），且 $\partial A=\{0,1\}$。对 $A=\mathbb Q$：$\mathrm{int}\mathbb Q=\varnothing$（没有区间全是有理数），$\overline{\mathbb Q}=\mathbb R$（每个区间都含一个有理数），所以 $\partial\mathbb Q=\mathbb R$。
 
 **演示 — 一个集合是开的当且仅当它等于自己的内部**
 
-1. ($\Leftarrow$) 设 $A=\operatorname{int}A$。根据定义 $\operatorname{int}A$ 是开集的并，因而是开的（T2）；所以 $A$ 是开的。
-2. ($\Rightarrow$) 设 $A$ 是开的。那么 $A$ 本身就是定义 $\operatorname{int}A$ 的并中出现的那些开集 $U\subseteq A$ 之一，所以 $A\subseteq\operatorname{int}A$。
-3. 反向的 $\operatorname{int}A\subseteq A$ 总成立，因为并中每个 $U$ 都是 $A$ 的子集。综合第 2、3 步，$\operatorname{int}A=A$。
+1. ($\Leftarrow$) 设 $A=\mathrm{int}A$。根据定义 $\mathrm{int}A$ 是开集的并，因而是开的（T2）；所以 $A$ 是开的。
+2. ($\Rightarrow$) 设 $A$ 是开的。那么 $A$ 本身就是定义 $\mathrm{int}A$ 的并中出现的那些开集 $U\subseteq A$ 之一，所以 $A\subseteq\mathrm{int}A$。
+3. 反向的 $\mathrm{int}A\subseteq A$ 总成立，因为并中每个 $U$ 都是 $A$ 的子集。综合第 2、3 步，$\mathrm{int}A=A$。
 
 *对偶地，$A$ 是闭的 $\iff A=\overline A\iff A'\subseteq A$（一个集合是闭的恰当它已经包含其全部极限点）。*
 
@@ -981,7 +981,7 @@ $$\widehat d\big(\langle x_n\rangle,\langle y_n\rangle\big)=\lim_n d(x_n,y_n).$$
 
 **定义 — 无处稠密、贫**
 
-一个集合是**无处稠密的**，如果它的闭包有空内部（$\operatorname{int}\overline A=\varnothing$，§s5）——直观地，它如此之薄，以至于即便填进极限点之后也不含任何小开块。一个集合是**贫的**（或**第一纲**），如果它是可数个无处稠密集的并；否则它是**非贫的**（**第二纲**）。
+一个集合是**无处稠密的**，如果它的闭包有空内部（$\mathrm{int}\overline A=\varnothing$，§s5）——直观地，它如此之薄，以至于即便填进极限点之后也不含任何小开块。一个集合是**贫的**（或**第一纲**），如果它是可数个无处稠密集的并；否则它是**非贫的**（**第二纲**）。
 
 > 演算实例。在 $\mathbb R$ 中，单个点 $\{p\}$ 是无处稠密的（它的闭包是自身，有空内部）。任何可数集，如 $\mathbb Q$，是贫的，作为可数个点的并。下面的 Baire 定理将表明 $\mathbb R$ 自身*不*贫，这就是为何 $\mathbb R\ne\mathbb Q$ 在某种强意义上成立。
 

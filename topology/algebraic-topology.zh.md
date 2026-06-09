@@ -29,7 +29,7 @@
 > $G$ 的一个**子群** $H$ 是这样一个子集：它在同一运算下自身也构成一个群——它包含 $e$，并且对运算及取逆封闭（$a,b\in H\Rightarrow ab\in H$ 且 $a^{-1}\in H$）。我们记作 $H\le G$。*例：* 偶数 $2\mathbb{Z}=\{\dots,-2,0,2,4,\dots\}$ 构成 $(\mathbb{Z},+)$ 的一个子群。
 
 > **定义 —— 同态、核、像、同构。**
-> 一个**同态**是群之间的一个保持运算的映射 $\varphi:G\to H$：$\varphi(ab)=\varphi(a)\varphi(b)$。它会自动把单位元送到单位元，把逆元送到逆元。它的**核**是 $\ker\varphi=\{g\in G:\varphi(g)=e_H\}$（被压成单位元的那些元素）；它的**像**是 $\operatorname{im}\varphi=\{\varphi(g):g\in G\}$。一个**同构**是同时还是双射（既单且满）的同态；此时 $G$ 与 $H$ 是"同一个群、只是元素被重新标号"，记作 $G\cong H$。*例：* $\varphi:\mathbb{Z}\to\mathbb{Z}$，$\varphi(n)=2n$ 是一个同态，其核为 $\{0\}$，像为 $2\mathbb{Z}$。
+> 一个**同态**是群之间的一个保持运算的映射 $\varphi:G\to H$：$\varphi(ab)=\varphi(a)\varphi(b)$。它会自动把单位元送到单位元，把逆元送到逆元。它的**核**是 $\ker\varphi=\{g\in G:\varphi(g)=e_H\}$（被压成单位元的那些元素）；它的**像**是 $\mathrm{im}\varphi=\{\varphi(g):g\in G\}$。一个**同构**是同时还是双射（既单且满）的同态；此时 $G$ 与 $H$ 是"同一个群、只是元素被重新标号"，记作 $G\cong H$。*例：* $\varphi:\mathbb{Z}\to\mathbb{Z}$，$\varphi(n)=2n$ 是一个同态，其核为 $\{0\}$，像为 $2\mathbb{Z}$。
 
 > **定义 —— 正规子群与商群。**
 > 子群 $N\le G$ 称为**正规的**，记作 $N\trianglelefteq G$，如果对每个 $g\in G$ 有 $gNg^{-1}=N$（用任何元素对 $N$ 作共轭都落回 $N$ 中）。当 $N$ 正规时，我们可以构造**商群** $G/N$：它的元素是*陪集* $gN=\{gn:n\in N\}$，乘法为 $(gN)(hN)=(gh)N$。正规性恰恰是使这个乘法有意义的条件。*例：* 在 $(\mathbb{Z},+)$ 中每个子群都正规（这个群是阿贝尔的）；$\mathbb{Z}/2\mathbb{Z}$ 有两个元素，"偶" $=0+2\mathbb{Z}$ 和"奇" $=1+2\mathbb{Z}$，满足 $\text{odd}+\text{odd}=\text{even}$——这就是奇偶算术。
@@ -41,7 +41,7 @@
 > **自由积** $G*H$ 由混合 $G$ 与 $H$ 的元素的所有交替字构成，两者之间除各自内部的关系外没有别的关系。**合并自由积** $G*_K H$ 进一步把一个映入两者的公共子群 $K$ 粘合起来，方法是添加关系 $i(k)=j(k)$（$k\in K$）。它们是"粘合"的群论版本。*例：* $\mathbb{Z}*\mathbb{Z}=F_2$，即两个生成元上的自由群。
 
 > **定义 —— 正合序列。**
-> 一列群与同态 $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ 在 $B$ 处**正合**，如果 $\operatorname{im}f=\ker g$——从 $A$ 出来的东西恰好就是在通往 $C$ 的途中被压垮的东西。一个**短正合序列** $0\to A\xrightarrow{f}B\xrightarrow{g}C\to 0$ 打包了"$f$ 是单射，$g$ 是满射，且 $A$ 恰好是 $g$ 的核"，于是 $C\cong B/A$。（这里 $0$ 表示平凡的单元素群。）这是整个学科的核心记账工具。
+> 一列群与同态 $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ 在 $B$ 处**正合**，如果 $\mathrm{im}f=\ker g$——从 $A$ 出来的东西恰好就是在通往 $C$ 的途中被压垮的东西。一个**短正合序列** $0\to A\xrightarrow{f}B\xrightarrow{g}C\to 0$ 打包了"$f$ 是单射，$g$ 是满射，且 $A$ 恰好是 $g$ 的核"，于是 $C\cong B/A$。（这里 $0$ 表示平凡的单元素群。）这是整个学科的核心记账工具。
 
 ---
 
@@ -387,11 +387,11 @@ $$\partial_2[v_0,v_1,v_2]=[v_1,v_2]-[v_0,v_2]+[v_0,v_1].$$
 $$\partial_1\big([v_1,v_2]-[v_0,v_2]+[v_0,v_1]\big)=([v_2]-[v_1])-([v_2]-[v_0])+([v_1]-[v_0])=0.$$
 每个顶点都恰好各带一种符号出现一次并相消。这是最小具体情形下的 $\partial^2=0$。$\;\blacksquare$
 
-恒等式 $\partial^2=0$ 是同调的代数核心：它保证 $\operatorname{im}\partial_{n+1}\subseteq\ker\partial_n$，于是商 $\ker\partial_n/\operatorname{im}\partial_{n+1}$ 有意义。
+恒等式 $\partial^2=0$ 是同调的代数核心：它保证 $\mathrm{im}\partial_{n+1}\subseteq\ker\partial_n$，于是商 $\ker\partial_n/\mathrm{im}\partial_{n+1}$ 有意义。
 
 > **联系 —— 与线性代数。**
 >
-> 固定一个系数环，通常是 $\mathbb{Z}$。**$n$-链** $C_n$ 构成 $n$-胞腔上的自由阿贝尔群（胞腔的形式整系数组合），而每个 $\partial_n$ 是一个整数矩阵。于是同调是整数矩阵的 $\ker/\operatorname{im}$——可通过化为*史密斯标准形*来计算。
+> 固定一个系数环，通常是 $\mathbb{Z}$。**$n$-链** $C_n$ 构成 $n$-胞腔上的自由阿贝尔群（胞腔的形式整系数组合），而每个 $\partial_n$ 是一个整数矩阵。于是同调是整数矩阵的 $\ker/\mathrm{im}$——可通过化为*史密斯标准形*来计算。
 
 <a id="s10"></a>
 ### 奇异同调
@@ -403,8 +403,8 @@ $$\partial_1\big([v_1,v_2]-[v_0,v_2]+[v_0,v_1]\big)=([v_2]-[v_1])-([v_2]-[v_0])+
 > $X$ 中的一个**奇异 $n$-单形**是*任意*连续映射 $\sigma:\Delta^n\to X$（该单形无需嵌入——它可以折叠或塌缩）。**链群** $C_n(X)$ 是所有奇异 $n$-单形上的自由阿贝尔群：它的元素是有限形式和 $\sum_i n_i\sigma_i$，其中 $n_i\in\mathbb{Z}$。**边界** $\partial_n:C_n(X)\to C_{n-1}(X)$ 使用与 §s9 相同的交替面公式，其中 $\sigma$ 被限制在每个面上。由 §s9 的计算 $\partial^2=0$，给出一个**链复形**
 > $$\cdots\xrightarrow{\ \partial_{n+1}\ }C_n(X)\xrightarrow{\ \partial_n\ }C_{n-1}(X)\xrightarrow{\ \partial_{n-1}\ }\cdots\xrightarrow{\ \partial_1\ }C_0(X)\to 0.$$
 > **第 $n$ 个同调群**是
-> $$H_n(X)=\frac{\ker\partial_n}{\operatorname{im}\partial_{n+1}}=\frac{\text{cycles }Z_n}{\text{boundaries }B_n}.$$
-> （这个商是合法的，因为 $B_n=\operatorname{im}\partial_{n+1}\subseteq\ker\partial_n=Z_n$，且这里所有群都是阿贝尔的，故每个子群都正规——见袖珍辞典。）
+> $$H_n(X)=\frac{\ker\partial_n}{\mathrm{im}\partial_{n+1}}=\frac{\text{cycles }Z_n}{\text{boundaries }B_n}.$$
+> （这个商是合法的，因为 $B_n=\mathrm{im}\partial_{n+1}\subseteq\ker\partial_n=Z_n$，且这里所有群都是阿贝尔的，故每个子群都正规——见袖珍辞典。）
 
 > **概念 —— $H_n$ 度量什么。**
 >
@@ -413,7 +413,7 @@ $$\partial_1\big([v_1,v_2]-[v_0,v_2]+[v_0,v_1]\big)=([v_2]-[v_1])-([v_2]-[v_0])+
 **演示 —— $H_0(X)\cong\mathbb{Z}^{(\#\text{path-components})}$。**
 
 1. 由于 $\partial_0=0$（目标是零群），每个 $0$-链都是闭链：$Z_0=C_0(X)$，即 $X$ 的点上的自由阿贝尔群。
-2. 一个奇异 $1$-单形是一条道路 $\sigma:[0,1]\to X$，满足 $\partial_1\sigma=\sigma(1)-\sigma(0)$。所以 $B_0=\operatorname{im}\partial_1$ 由所有差 $q-p$ 生成，其中 $p,q$ 由一条道路相连。
+2. 一个奇异 $1$-单形是一条道路 $\sigma:[0,1]\to X$，满足 $\partial_1\sigma=\sigma(1)-\sigma(0)$。所以 $B_0=\mathrm{im}\partial_1$ 由所有差 $q-p$ 生成，其中 $p,q$ 由一条道路相连。
 3. 因此在 $H_0=Z_0/B_0$ 中，两点变得相等恰当一条道路连接它们时，即当它们落在同一道路分支中时。每个道路分支选一个点给出一组基，所以 $H_0$ 是自由阿贝尔群，每个道路分支对应一个 $\mathbb{Z}$。$\;\blacksquare$ *（$\partial_1$ 的定义 + 对边界作商）*
 
 对于道路连通的 $X$ 这给出 $H_0(X)\cong\mathbb{Z}$。**增广**映射 $\sum n_i\sigma_i\mapsto\sum n_i$ 使该同构明确化，把每个点送到 $1$。
@@ -438,7 +438,7 @@ $$(g\circ f)_*=g_*\circ f_*,\qquad (\mathrm{id})_*=\mathrm{id},\qquad f\simeq g\
 
 > **概念 —— 正合序列（回忆袖珍辞典）。**
 >
-> 一列 $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ 在 $B$ 处**正合**，如果 $\operatorname{im}f=\ker g$。正合性让一个未知群可由它的邻居钉死。一个**短正合序列** $0\to A\to B\to C\to0$ 编码了"$A$ 单射进 $B$，$B$ 满射到 $C$，且 $A=\ker(B\to C)$"，所以 $C\cong B/A$。
+> 一列 $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ 在 $B$ 处**正合**，如果 $\mathrm{im}f=\ker g$。正合性让一个未知群可由它的邻居钉死。一个**短正合序列** $0\to A\to B\to C\to0$ 编码了"$A$ 单射进 $B$，$B$ 满射到 $C$，且 $A=\ker(B\to C)$"，所以 $C\cong B/A$。
 
 **对 $(X,A)$ 的长正合序列。** 对于子空间 $A\subseteq X$，**相对同调** $H_n(X,A)$ 度量 $X$ "模" $A$（$X$ 中的链，忽略那些住在 $A$ 中的）。它们嵌入一个无限正合序列：
 $$\cdots\to H_n(A)\xrightarrow{i_*}H_n(X)\xrightarrow{j_*}H_n(X,A)\xrightarrow{\ \partial\ }H_{n-1}(A)\xrightarrow{i_*}H_{n-1}(X)\to\cdots$$
@@ -475,7 +475,7 @@ $$\cdots\to H_n(U\cap V)\xrightarrow{(i_*,j_*)}H_n(U)\oplus H_n(V)\xrightarrow{k
 
 1. **$S^1$** 由一个顶点 $v$ 与一条边 $a$ 粘成一个环。则 $\partial_1 a=v-v=0$，所以每个 $1$-链都是闭链：$Z_1=\mathbb{Z}\langle a\rangle$。没有 $2$-胞腔，所以 $B_1=0$，给出 $H_1(S^1)=\mathbb{Z}$。又 $H_0=\mathbb{Z}$（连通，§s10）。所以 $H_*(S^1)=(\mathbb{Z},\mathbb{Z},0,\dots)$。
 2. **$S^2$** 由两个三角形沿它们整条公共边界粘合（一个"枕套"的顶与底）、一个顶点，……粘合后，两个带相反定向的 $2$-胞腔其边界相消：$\partial_2(f_{\text{top}}-f_{\text{bot}})=0$，给出一个不围住任何东西的 $2$-闭链，所以 $H_2=\mathbb{Z}$；同时 $H_1=0$ 且 $H_0=\mathbb{Z}$。所以 $H_*(S^2)=(\mathbb{Z},0,\mathbb{Z},0,\dots)$，与 §s11 相符。
-3. **环面 $T^2$** 由带边字 $aba^{-1}b^{-1}$ 的正方形得到：一个顶点 $v$、两条边 $a,b$、一个面 $f$。计算边界。$\partial_1 a=v-v=0$ 且 $\partial_1 b=0$，所以 $Z_1=\mathbb{Z} a\oplus\mathbb{Z} b=\mathbb{Z}^2$。面的边界遵循边字：$\partial_2 f=a+b-a-b=0$，所以 $f$ 是一个 $2$-闭链且 $B_1=\operatorname{im}\partial_2=0$。因此 $H_2=\mathbb{Z}\langle f\rangle=\mathbb{Z}$，$H_1=Z_1/B_1=\mathbb{Z}^2$，$H_0=\mathbb{Z}$。
+3. **环面 $T^2$** 由带边字 $aba^{-1}b^{-1}$ 的正方形得到：一个顶点 $v$、两条边 $a,b$、一个面 $f$。计算边界。$\partial_1 a=v-v=0$ 且 $\partial_1 b=0$，所以 $Z_1=\mathbb{Z} a\oplus\mathbb{Z} b=\mathbb{Z}^2$。面的边界遵循边字：$\partial_2 f=a+b-a-b=0$，所以 $f$ 是一个 $2$-闭链且 $B_1=\mathrm{im}\partial_2=0$。因此 $H_2=\mathbb{Z}\langle f\rangle=\mathbb{Z}$，$H_1=Z_1/B_1=\mathbb{Z}^2$，$H_0=\mathbb{Z}$。
    $$H_*(T^2)=(\mathbb{Z},\ \mathbb{Z}^2,\ \mathbb{Z},\ 0,\dots).$$
    一个分支，两条独立环路（绕管子与穿洞），一个被围的空腔。$\;\blacksquare$
 
@@ -486,15 +486,15 @@ $$f_*:H_n(S^n)=\mathbb{Z}\to H_n(S^n)=\mathbb{Z}\quad\text{is multiplication by 
 **实例 —— $S^1$ 与 $S^2$ 上的对径映射。** 在 $S^1$ 上，$x\mapsto-x$ 是按 $\pi$ 的旋转，同伦于恒等映射，所以度数 $(-1)^{1+1}=1$。在 $S^2$ 上，对径映射反转定向，度数为 $(-1)^{2+1}=-1$；由于 $-1\ne1$，它*不*同伦于恒等映射——这正是毛球定理的关键（你无法把球面上的毛梳平）。$\;\blacksquare$
 
 **贝蒂数与欧拉示性数。** **第 $n$ 个贝蒂数**是 $H_n$ 的秩（独立的 $\mathbb{Z}$ 直和项的个数）：
-$$b_n=\operatorname{rank}H_n(X)=\dim_{\mathbb{Q}}H_n(X;\mathbb{Q}),\qquad \chi(X)=\sum_{n\ge0}(-1)^n b_n.$$
+$$b_n=\mathrm{rank}H_n(X)=\dim_{\mathbb{Q}}H_n(X;\mathbb{Q}),\qquad \chi(X)=\sum_{n\ge0}(-1)^n b_n.$$
 所以 $b_0=$ 分支数，$b_1=$ 独立环路数，$b_2=$ 独立空腔数。**挠**（像 $\mathbb{RP}^2$ 中的 $\mathbb{Z}/2$ 这样的有限部分）对 $b_n$ 与 $\chi$ 不可见。
 
 **演示 —— 由胞腔算出的欧拉示性数等于由同调算出的欧拉示性数。**
 
-1. 对一个有限复形，设 $c_n$ = $n$-胞腔的个数，并在 $C_n$ 内写 $z_n=\operatorname{rank}Z_n$（闭链的秩）与 $r_n=\operatorname{rank}B_n=\operatorname{rank}(\operatorname{im}\partial_{n+1})$（*进入* $n$ 次的边界的秩）。对 $\partial_n:C_n\to C_{n-1}$ 的秩–零化度说 $\operatorname{rank}C_n=\operatorname{rank}\ker\partial_n+\operatorname{rank}\operatorname{im}\partial_n$，即
+1. 对一个有限复形，设 $c_n$ = $n$-胞腔的个数，并在 $C_n$ 内写 $z_n=\mathrm{rank}Z_n$（闭链的秩）与 $r_n=\mathrm{rank}B_n=\mathrm{rank}(\mathrm{im}\partial_{n+1})$（*进入* $n$ 次的边界的秩）。对 $\partial_n:C_n\to C_{n-1}$ 的秩–零化度说 $\mathrm{rank}C_n=\mathrm{rank}\ker\partial_n+\mathrm{rank}\mathrm{im}\partial_n$，即
    $$c_n=z_n+r_{n-1}.$$
-   *（线性代数的秩–零化度定理；$\operatorname{im}\partial_n$ 的秩为 $r_{n-1}$，因为它落在 $n-1$ 次）*
-2. 由同调的定义，$b_n=\operatorname{rank}H_n=z_n-r_n$（闭链的秩减边界的秩）。*（$H_n$ 的定义，§s10）*
+   *（线性代数的秩–零化度定理；$\mathrm{im}\partial_n$ 的秩为 $r_{n-1}$，因为它落在 $n-1$ 次）*
+2. 由同调的定义，$b_n=\mathrm{rank}H_n=z_n-r_n$（闭链的秩减边界的秩）。*（$H_n$ 的定义，§s10）*
 3. 作第 1 步的交替和：
    $$\sum_n(-1)^n c_n=\sum_n(-1)^n\big(z_n+r_{n-1}\big)=\sum_n(-1)^n z_n+\sum_n(-1)^n r_{n-1}.$$
    在第二个和中移动指标（$n\to n+1$）：$\sum_n(-1)^n r_{n-1}=-\sum_n(-1)^n r_n$。因此
@@ -527,12 +527,12 @@ $$b_n=\operatorname{rank}H_n(X)=\dim_{\mathbb{Q}}H_n(X;\mathbb{Q}),\qquad \chi(X
 *对链作对偶给出上同调——具有相同的贝蒂数，但现在携带着同调所缺乏的一种**环**结构。这额外的乘法区分开了同调无法区分的空间。*
 
 **上链复形与上同调。** 固定一个系数环 $R$（如 $\mathbb{Z}$ 或一个域）。**$n$-上链**是从链到 $R$ 的同态：
-$$C^n(X;R)=\operatorname{Hom}(C_n(X),R),\qquad \delta=\partial^{*}:C^n\to C^{n+1},\qquad H^n(X;R)=\frac{\ker\delta}{\operatorname{im}\delta}.$$
+$$C^n(X;R)=\mathrm{Hom}(C_n(X),R),\qquad \delta=\partial^{*}:C^n\to C^{n+1},\qquad H^n(X;R)=\frac{\ker\delta}{\mathrm{im}\delta}.$$
 **上边界** $\delta$ 是 $\partial$ 的转置（对偶）：$(\delta\varphi)(c)=\varphi(\partial c)$。因为 $\partial^2=0$（§s9），我们得到 $\delta^2=0$，所以上同调良定义。如今箭头在次数上指**向上**，使上同调成为**反变的**：映射 $f:X\to Y$ 诱导 $f^*:H^n(Y)\to H^n(X)$（注意方向反转）。
 
 **万有系数。** 存在一个短正合序列（回忆：袖珍辞典）
-$$0\to \operatorname{Ext}^1_{\mathbb{Z}}(H_{n-1}(X),R)\to H^n(X;R)\to \operatorname{Hom}(H_n(X),R)\to 0.$$
-在一个域 $R$ 上，$\operatorname{Ext}$ 项消失，且 $H^n\cong\operatorname{Hom}(H_n,R)$，所以上同调具有与同调*相同的贝蒂数*。因此真正新的内容不是加法性的，而是**乘法性的**：
+$$0\to \mathrm{Ext}^1_{\mathbb{Z}}(H_{n-1}(X),R)\to H^n(X;R)\to \mathrm{Hom}(H_n(X),R)\to 0.$$
+在一个域 $R$ 上，$\mathrm{Ext}$ 项消失，且 $H^n\cong\mathrm{Hom}(H_n,R)$，所以上同调具有与同调*相同的贝蒂数*。因此真正新的内容不是加法性的，而是**乘法性的**：
 
 > **定义 —— 上积与上同调环。**
 >
