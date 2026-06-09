@@ -109,7 +109,7 @@ Killing 形式不依赖于基（它是一个迹）——正是我们在 s1 中�
 
 **证明：非零阿贝尔理想迫使退化（故非退化 $\Rightarrow$ 半单）。**
 1. 设 $\mathfrak{a}\ne\{0\}$ 是一个阿贝尔理想（$[\mathfrak{a},\mathfrak{a}]=0$）。取 $A\in\mathfrak{a}$、$X\in\mathfrak{g}$；我们来证明 $\kappa(A,X)=0$，于是每个 $A\in\mathfrak{a}$ 都落在退化子空间中，使得 $\kappa$ 退化。
-2. 考虑算子 $T=\operatorname{ad}_A\operatorname{ad}_X$。因为 $\mathfrak{a}$ 是理想，$\operatorname{ad}_X$ 把 $\mathfrak{g}$ 映入……而 $\operatorname{ad}_A$ 把 $\mathfrak{g}$ 映*入* $\mathfrak{a}$（因为 $[A,\,\cdot\,]\in\mathfrak{a}$，由于 $\mathfrak{a}$ 是理想）。所以 $\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$。
+2. 考虑算子 $T=\operatorname{ad}_A\operatorname{ad}_X$。映射 $\operatorname{ad}_X$ 把 $\mathfrak{g}$ 映入 $\mathfrak{g}$，而因为 $\mathfrak{a}$ 是理想，$\operatorname{ad}_A$ 把 $\mathfrak{g}$ 映*入* $\mathfrak{a}$（因为 $[A,\,\cdot\,]\in\mathfrak{a}$，由于 $\mathfrak{a}$ 是理想）。所以 $\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$。
 3. 那么 $T(\mathfrak{g})=\operatorname{ad}_A(\operatorname{ad}_X\mathfrak{g})\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$，且 $T(\mathfrak{a})=\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$；此外 $T^2(\mathfrak{g})\subseteq\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{a}=[A,\mathfrak{a}]\subseteq[\mathfrak{a},\mathfrak{a}]=0$，这里用到 $\mathfrak{a}$ 是*阿贝尔的*。所以 $T$ 是**幂零的**（$T^2=0$）。
 4. 幂零算子的所有特征值都是 $0$，因此迹为 $0$：$\kappa(A,X)=\operatorname{tr}T=0$。由于 $X$ 任意，$A$ 在退化子空间中。$\blacksquare$
 
@@ -329,7 +329,7 @@ $M(\lambda)$ 是*无穷维*的——我们无限制地施加了降算子。它�
 **从特征标公式导出维数公式。**
 1. $\dim V(\lambda)$ 是把每个 $e^\mu$ 设为 $1$ 的特征标。但令 $e^\mu\to1$ 会使 Weyl 特征标公式的分子和分母都消失（每个都是在"原点"取 $0$ 的交错和），是一个不定式 $0/0$。
 2. 用标准的取极限技巧解决它：把 $e^\mu\to e^{t(\mu,\rho)}$ 换入一个实参数 $t$ 并令 $t\to0$（这相当于对交错和求导；合法是因为两者都关于 $t$ 解析）。
-3. 分母变成 $\prod_{\alpha>0}\big(e^{t(\alpha,\rho)/2}-e^{-t(\alpha,\rho)/2}\big)\sim\prod_{\alpha>0} t(\alpha,\rho)$，当 $t\to0$，用到 $e^x-e^{-x}\sim 2\sinh(x/2)\cdot\!$……具体地，到主导阶 $\sim t(\alpha,\rho)$。
+3. 分母变成 $\prod_{\alpha>0}\big(e^{t(\alpha,\rho)/2}-e^{-t(\alpha,\rho)/2}\big)\sim\prod_{\alpha>0} t(\alpha,\rho)$，当 $t\to0$，因为每个因子 $e^{x}-e^{-x}=2\sinh x\sim 2x$（到主导阶），此处 $x=t(\alpha,\rho)/2$，故 $\sim t(\alpha,\rho)$。
 4. 分子，由同样的展开但以 $\lambda+\rho$ 代替 $\rho$，变成 $\sim\prod_{\alpha>0}t(\alpha,\lambda+\rho)$。
 5. 取比值，$t$ 的幂次相消（各有 $|\Phi^+|$ 个因子），得
 $$
