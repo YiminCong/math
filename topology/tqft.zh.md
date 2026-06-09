@@ -258,9 +258,9 @@
 
 > **亏格公式。** 对一个带 Frobenius 代数 $A$ 的 $2$d TQFT $Z$，亏格为 $g$ 的闭可定向曲面 $\Sigma_g$（带 $g$ 个把手的球面）的不变量为，当 $g\ge 1$ 时，
 > $$
-> Z(\Sigma_g)=\operatorname{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
+> Z(\Sigma_g)=\mathrm{tr}\!\big(H^{\,g-1}\big),\quad H:=m\circ\Delta:A\to A,
 > $$
-> 其中 $H=m\circ\Delta$ 是**把手算子**，而球面为 $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$。*原因：* 一个亏格为 $g$ 的曲面读作 $\varnothing\to\varnothing$ 是一个帽 $u$，然后 $g$ 个把手（每个把手是"余裤子再裤子"，即 $H$），然后一个杯 $\varepsilon$，给出标量 $\varepsilon\circ H^{g}\circ u$；帽-杯这对贡献一份圆柱量级的非退化配对，故当 $g\ge 1$ 时它坍缩为 $\operatorname{tr}(H^{g-1})$。特别地环面（$g=1$）给出 $Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A$，正如环面配分函数所必须。
+> 其中 $H=m\circ\Delta$ 是**把手算子**，而球面为 $Z(\Sigma_0)=\varepsilon\circ u=\varepsilon(u(1))$。*原因：* 一个亏格为 $g$ 的曲面读作 $\varnothing\to\varnothing$ 是一个帽 $u$，然后 $g$ 个把手（每个把手是"余裤子再裤子"，即 $H$），然后一个杯 $\varepsilon$，给出标量 $\varepsilon\circ H^{g}\circ u$；帽-杯这对贡献一份圆柱量级的非退化配对，故当 $g\ge 1$ 时它坍缩为 $\mathrm{tr}(H^{g-1})$。特别地环面（$g=1$）给出 $Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A$，正如环面配分函数所必须。
 
 > **例题 — $\mathbb{Z}/2$ 的群代数。** 设 $A=k[\mathbb{Z}/2]=k\{1,t\}$，其中 $t^2=1$，在 $k=\mathbb{C}$ 上。这是一个维数为 $2$ 的交换代数，单位 $u(1)=1$，乘法为
 > $$
@@ -287,7 +287,7 @@ H(t)=m(1\otimes1+t\otimes t)=1+1=2\cdot 1.
 $$
 所以在基 $\{1,t\}$ 下，$H=\begin{pmatrix}0&2\\2&0\end{pmatrix}$。
 
-第 4 步 — **曲面不变量。** 球面 $\Sigma_0$：$Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$。环面 $\Sigma_1$：$Z(\Sigma_1)=\operatorname{tr}(H^0)=\operatorname{tr}(1_A)=\dim A=2$，正如其所必须。亏格二曲面：$Z(\Sigma_2)=\operatorname{tr}(H)=0$。亏格三曲面：$Z(\Sigma_3)=\operatorname{tr}(H^2)$，而 $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$，所以 $\operatorname{tr}(H^2)=8$。一般地 $\operatorname{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$，因为 $H$ 有本征值 $\pm 2$；于是 $Z(\Sigma_g)=2^{g}$ 当 $g$ 为奇数，$0$ 当 $g$ 为偶数。这些是曲面的真正同胚不变量，纯粹由代数计算得出——从粘合中获得不变量的实战。
+第 4 步 — **曲面不变量。** 球面 $\Sigma_0$：$Z(\Sigma_0)=\varepsilon(u(1))=\varepsilon(1)=0$。环面 $\Sigma_1$：$Z(\Sigma_1)=\mathrm{tr}(H^0)=\mathrm{tr}(1_A)=\dim A=2$，正如其所必须。亏格二曲面：$Z(\Sigma_2)=\mathrm{tr}(H)=0$。亏格三曲面：$Z(\Sigma_3)=\mathrm{tr}(H^2)$，而 $H^2=\begin{pmatrix}4&0\\0&4\end{pmatrix}$，所以 $\mathrm{tr}(H^2)=8$。一般地 $\mathrm{tr}(H^{g-1})=2^{g-1}\big(1+(-1)^{g-1}\big)$，因为 $H$ 有本征值 $\pm 2$；于是 $Z(\Sigma_g)=2^{g}$ 当 $g$ 为奇数，$0$ 当 $g$ 为偶数。这些是曲面的真正同胚不变量，纯粹由代数计算得出——从粘合中获得不变量的实战。
 
 > **一个更干净的选择 — 半单代数与计数。** 如果改取 $A=k^N$（乘积代数，$N$ 个正交幂等元 $e_1,\dots,e_N$，满足 $e_ie_j=\delta_{ij}e_i$）且 $\varepsilon(e_i)=1/\theta_i$，其中 $\theta_i$ 是非零标量，那么 $H=m\circ\Delta$ 在 $e_i$ 上作用为乘以 $\theta_i$，并且
 > $$
@@ -305,7 +305,7 @@ $$
 **是什么与为什么。** 在维数三中，故事比一个单独的代数要丰富得多。态空间 $Z(\Sigma)$ 附属于曲面，线性映射附属于 $3$-流形，而——关键地——现在粘合数据不再由一个 Frobenius 代数控制，而由一整个"标号"的*范畴*——一个**模张量范畴**——控制。两个里程碑式的构造实现了这一点：*代数的* Reshetikhin–Turaev 构造与*物理的* Witten–Chern–Simons 构造。我们概览二者。
 
 > **定义 — 缎带/模张量范畴（非正式但足够精确）。**
-> 一个**（辫子）张量范畴**是一个范畴 $\mathcal{C}$，带有张量积 $\otimes$、单位对象 $\mathbf{1}$，以及一个辫子 $\beta_{X,Y}:X\otimes Y\to Y\otimes X$，它*不必*满足 $\beta^2=1$（所以交换两次可以是非平凡的——纽结的源头）。一个**缎带范畴**加上相容的对偶 $X^\ast$ 与一个*扭转* $\theta_X:X\to X$。一个**模张量范畴（MTC）**是一个*半单的*缎带范畴，有有限多个单对象 $\{X_0=\mathbf{1},X_1,\dots,X_r\}$，使得 **$S$-矩阵** $S_{ij}=\operatorname{tr}(\beta_{X_j,X_i}\circ\beta_{X_i,X_j})$（"双辫子迹"，一个 Hopf 链环不变量）*可逆*。$S$ 的可逆性就是"模性"——它正是使 $3$-流形的粘合数据相容的条件。
+> 一个**（辫子）张量范畴**是一个范畴 $\mathcal{C}$，带有张量积 $\otimes$、单位对象 $\mathbf{1}$，以及一个辫子 $\beta_{X,Y}:X\otimes Y\to Y\otimes X$，它*不必*满足 $\beta^2=1$（所以交换两次可以是非平凡的——纽结的源头）。一个**缎带范畴**加上相容的对偶 $X^\ast$ 与一个*扭转* $\theta_X:X\to X$。一个**模张量范畴（MTC）**是一个*半单的*缎带范畴，有有限多个单对象 $\{X_0=\mathbf{1},X_1,\dots,X_r\}$，使得 **$S$-矩阵** $S_{ij}=\mathrm{tr}(\beta_{X_j,X_i}\circ\beta_{X_i,X_j})$（"双辫子迹"，一个 Hopf 链环不变量）*可逆*。$S$ 的可逆性就是"模性"——它正是使 $3$-流形的粘合数据相容的条件。
 
 > **定理（Reshetikhin–Turaev，陈述）。** 每个模张量范畴 $\mathcal{C}$ 产生一个 $3$ 维 TQFT $Z_{\mathcal{C}}$。它赋予：
 > - 给一个带有用单对象标号的标记点的闭曲面 $\Sigma$ 一个有限维向量空间 $Z_{\mathcal{C}}(\Sigma)$——**共形块的空间**；
@@ -317,7 +317,7 @@ $$
 
 > **Witten–Chern–Simons（物理起源）。** Witten 从一个量子场论构造了*同样的* $3$d 不变量：对紧致规范群 $G$（比如 $G=SU(2)$）在整数**级** $k$ 处的 **Chern–Simons** 理论。它在带联络 $A$ 的 $3$-流形 $M$ 上的作用量是
 > $$
-> S_{\mathrm{CS}}[A]=\frac{k}{4\pi}\int_M \operatorname{tr}\!\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
+> S_{\mathrm{CS}}[A]=\frac{k}{4\pi}\int_M \mathrm{tr}\!\Big(A\wedge dA+\tfrac{2}{3}A\wedge A\wedge A\Big).
 > $$
 > 配分函数 $Z(M)=\int \mathcal{D}A\,e^{iS_{\mathrm{CS}}[A]}$ 是*与度量无关的*（作用量不用度量，只用定向），因而是一个拓扑不变量。它的数学化身是 $SU(2)_k$ 的 MTC 的 Reshetikhin–Turaev 不变量——相应的量子群/仿射李代数在级 $k$ 处的表示。
 

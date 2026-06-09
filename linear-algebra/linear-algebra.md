@@ -75,7 +75,7 @@ These eight rules look like a lot, but they are just the algebra you already do 
 
 **What and why.** We want a small list of vectors from which *every* vector can be built by adding and scaling, with no redundancy. That minimal-and-complete list is a **basis**, and its length will turn out to be an intrinsic number, the **dimension**. This is the single most important structural fact in the subject, so we build it carefully.
 
-> **Definition — linear combination and span.** A **linear combination** of vectors $v_1,\dots,v_k$ is any vector $\lambda_1 v_1+\dots+\lambda_k v_k$ with scalars $\lambda_i\in\mathbb{F}$. The **span** $\operatorname{span}(v_1,\dots,v_k)$ is the set of *all* such combinations. The span is always a subspace (it is closed under addition and scaling, since a sum/scaling of combinations is again a combination). We say the $v_i$ **span** $V$ if their span is all of $V$.
+> **Definition — linear combination and span.** A **linear combination** of vectors $v_1,\dots,v_k$ is any vector $\lambda_1 v_1+\dots+\lambda_k v_k$ with scalars $\lambda_i\in\mathbb{F}$. The **span** $\mathrm{span}(v_1,\dots,v_k)$ is the set of *all* such combinations. The span is always a subspace (it is closed under addition and scaling, since a sum/scaling of combinations is again a combination). We say the $v_i$ **span** $V$ if their span is all of $V$.
 
 > **Definition — linear independence.** Vectors $v_1,\dots,v_k$ are **linearly independent** if the only way to combine them into the zero vector is the trivial way: $\lambda_1 v_1+\dots+\lambda_k v_k=0$ forces $\lambda_1=\dots=\lambda_k=0$. Otherwise they are **linearly dependent**, meaning some nontrivial combination vanishes — equivalently, one of them is a combination of the others (a redundancy).
 
@@ -90,7 +90,7 @@ The crux is that "dimension" does not depend on which basis you pick. We prove i
 **Proof (by exchanging $w$'s into the spanning list, one at a time).**
 1. Since the $v_i$ span $V$, we can write $w_1$ as a combination $w_1=\sum_{i=1}^m a_i v_i$. *(definition of span)*
 2. Not all $a_i$ are zero, because if they were, $w_1=0$ would be a nontrivial dependency among the $w$'s (the coefficient $1$ on $w_1$), contradicting independence. Reorder so $a_1\ne 0$. *(independence of the $w$'s rules out $w_1=0$)*
-3. Solve for $v_1$: $v_1=\tfrac{1}{a_1}\big(w_1-\sum_{i\ge2}a_i v_i\big)$, allowed because $a_1\ne0$ so we may divide in the field. Hence $v_1\in\operatorname{span}(w_1,v_2,\dots,v_m)$, and therefore the list $w_1,v_2,\dots,v_m$ still spans $V$ (anything expressible using $v_1$ is now expressible using $w_1$ instead). *(field division; substitution into spans)*
+3. Solve for $v_1$: $v_1=\tfrac{1}{a_1}\big(w_1-\sum_{i\ge2}a_i v_i\big)$, allowed because $a_1\ne0$ so we may divide in the field. Hence $v_1\in\mathrm{span}(w_1,v_2,\dots,v_m)$, and therefore the list $w_1,v_2,\dots,v_m$ still spans $V$ (anything expressible using $v_1$ is now expressible using $w_1$ instead). *(field division; substitution into spans)*
 4. Repeat: assume after $k$ steps the list $w_1,\dots,w_k,v_{k+1},\dots,v_m$ spans $V$ (with $k\le n$ and $k\le m$ so far). Write $w_{k+1}=\sum_{j\le k}b_j w_j+\sum_{i>k}c_i v_i$ using this spanning list. *(definition of span)*
 5. Some $c_i\ne0$: otherwise $w_{k+1}=\sum_{j\le k}b_j w_j$, a nontrivial dependency among $w_1,\dots,w_{k+1}$, contradicting independence of the $w$'s. In particular this forces that there *is* a $v$ still left to replace, i.e. $k<m$. Reorder the remaining $v$'s so $c_{k+1}\ne0$, and as in step 3 swap $v_{k+1}$ out for $w_{k+1}$, keeping a spanning list. *(independence forbids $c_i$ all zero, which also forces $m>k$)*
 6. We can keep exchanging as long as there are $w$'s left. Step 5 shows that each new $w$ requires an unused $v$ to replace it, so the number of $w$'s cannot exceed the number of $v$'s: $n\le m$. $\blacksquare$
@@ -124,7 +124,7 @@ The crux is that "dimension" does not depend on which basis you pick. We prove i
 >
 > A linear map from $V$ to itself is called a **linear operator**. (Note $T(0)=T(0\cdot 0)=0\cdot T(0)=0$: linear maps fix the zero vector.)
 
-> **Definition — kernel and image.** The **kernel** is $\ker T=\{v\in V : T(v)=0\}$ (everything sent to zero). The **image** is $\operatorname{im}T=\{T(v):v\in V\}$ (everything actually hit). Both are subspaces: the kernel because $T(u)=T(v)=0\Rightarrow T(u+\lambda v)=0$; the image because $T(u)+\lambda T(v)=T(u+\lambda v)$. The dimension of the kernel is the **nullity**; the dimension of the image is the **rank**.
+> **Definition — kernel and image.** The **kernel** is $\ker T=\{v\in V : T(v)=0\}$ (everything sent to zero). The **image** is $\mathrm{im}T=\{T(v):v\in V\}$ (everything actually hit). Both are subspaces: the kernel because $T(u)=T(v)=0\Rightarrow T(u+\lambda v)=0$; the image because $T(u)+\lambda T(v)=T(u+\lambda v)$. The dimension of the kernel is the **nullity**; the dimension of the image is the **rank**.
 
 > **Lemma — injective iff trivial kernel.** A linear map $T$ is **injective** (one-to-one) if and only if $\ker T=\{0\}$.
 **Proof.** If $T$ is injective and $T(v)=0=T(0)$ then $v=0$, so the kernel is trivial. Conversely if $\ker T=\{0\}$ and $T(u)=T(v)$, then $T(u-v)=T(u)-T(v)=0$ (linearity), so $u-v\in\ker T=\{0\}$, giving $u=v$. $\blacksquare$
@@ -132,22 +132,22 @@ The crux is that "dimension" does not depend on which basis you pick. We prove i
 > **Theorem — Rank–Nullity.** If $V$ is finite-dimensional and $T:V\to W$ is linear, then
 >
 > $$
-> \dim(\ker T)+\dim(\operatorname{im}T)=\dim V.
+> \dim(\ker T)+\dim(\mathrm{im}T)=\dim V.
 > $$
 
 **Proof (extend a kernel basis and track where it goes).**
 1. Let $\dim V=n$ and let $u_1,\dots,u_k$ be a basis of $\ker T$, so $\dim(\ker T)=k$. *(every finite-dimensional space has a basis)*
 2. A linearly independent set can be extended to a basis of the whole space (add vectors not in the current span until you span $V$; this terminates because dimension is finite). Extend to a basis $u_1,\dots,u_k,w_1,\dots,w_{n-k}$ of $V$. *(basis extension)*
-3. **Claim:** $T(w_1),\dots,T(w_{n-k})$ is a basis of $\operatorname{im}T$. If we prove this, then $\dim(\operatorname{im}T)=n-k$, so $k+(n-k)=n=\dim V$, as desired.
-4. *(They span the image.)* Any element of $\operatorname{im}T$ is $T(v)$ for some $v\in V$. Write $v=\sum a_i u_i+\sum b_j w_j$ in the basis. Apply $T$: $T(v)=\sum a_i T(u_i)+\sum b_j T(w_j)=\sum b_j T(w_j)$, since each $u_i\in\ker T$ makes $T(u_i)=0$. So every image element is a combination of the $T(w_j)$. *(linearity; $u_i$ in kernel)*
+3. **Claim:** $T(w_1),\dots,T(w_{n-k})$ is a basis of $\mathrm{im}T$. If we prove this, then $\dim(\mathrm{im}T)=n-k$, so $k+(n-k)=n=\dim V$, as desired.
+4. *(They span the image.)* Any element of $\mathrm{im}T$ is $T(v)$ for some $v\in V$. Write $v=\sum a_i u_i+\sum b_j w_j$ in the basis. Apply $T$: $T(v)=\sum a_i T(u_i)+\sum b_j T(w_j)=\sum b_j T(w_j)$, since each $u_i\in\ker T$ makes $T(u_i)=0$. So every image element is a combination of the $T(w_j)$. *(linearity; $u_i$ in kernel)*
 5. *(They are independent.)* Suppose $\sum b_j T(w_j)=0$. By linearity $T\!\left(\sum b_j w_j\right)=0$, so $\sum b_j w_j\in\ker T$, hence equals some combination $\sum a_i u_i$ of the kernel basis. Then $\sum b_j w_j-\sum a_i u_i=0$. But $u_1,\dots,u_k,w_1,\dots,w_{n-k}$ are independent (a basis), so all coefficients vanish; in particular every $b_j=0$. *(membership in kernel; independence of the full basis)*
 6. By steps 4–5 the $T(w_j)$ form a basis of the image, proving the claim and the theorem. $\blacksquare$
 
-**Worked example.** Let $T:\mathbb{R}^3\to\mathbb{R}^2$, $T(x,y,z)=(x+y,\ y+z)$. The kernel solves $x+y=0,\ y+z=0$, i.e. $y=-x,\ z=-y=x$, so $\ker T=\{(x,-x,x)\}=\operatorname{span}\big((1,-1,1)\big)$, nullity $1$. The image contains $T(e_1)=(1,0)$ and $T(e_2)=(1,1)$, which are independent and span $\mathbb{R}^2$, so rank $2$. Check: $1+2=3=\dim\mathbb{R}^3$. 
+**Worked example.** Let $T:\mathbb{R}^3\to\mathbb{R}^2$, $T(x,y,z)=(x+y,\ y+z)$. The kernel solves $x+y=0,\ y+z=0$, i.e. $y=-x,\ z=-y=x$, so $\ker T=\{(x,-x,x)\}=\mathrm{span}\big((1,-1,1)\big)$, nullity $1$. The image contains $T(e_1)=(1,0)$ and $T(e_2)=(1,1)$, which are independent and span $\mathbb{R}^2$, so rank $2$. Check: $1+2=3=\dim\mathbb{R}^3$. 
 
 **Second worked example — differentiation as a linear map.** On $P_3$ (polynomials of degree $\le3$, dimension $4$), the derivative $D(p)=p'$ is linear because $(p+q)'=p'+q'$ and $(\lambda p)'=\lambda p'$ — the familiar calculus rules *are* the linearity axioms. Its kernel is the constants $\{a\}$, nullity $1$; its image is $P_2$ (every quadratic is the derivative of some cubic), rank $3$. Rank–nullity: $1+3=4=\dim P_3$. Notice $D$ is *not* injective (constants vanish) yet *is* surjective onto $P_2$ — exactly what a non-zero nullity forces.
 
-> **Corollary — for operators on a finite-dimensional space, injective $\Leftrightarrow$ surjective.** If $T:V\to V$ with $\dim V<\infty$, then $T$ injective $\iff$ $\ker T=\{0\}$ $\iff$ $\dim(\operatorname{im}T)=\dim V$ (by rank–nullity) $\iff$ $\operatorname{im}T=V$ $\iff$ $T$ surjective. So a square system either has a unique solution for every right-hand side, or fails both ways. (This collapses in infinite dimensions: the shift operator on sequences is injective but not surjective — a fact at the heart of functional analysis.)
+> **Corollary — for operators on a finite-dimensional space, injective $\Leftrightarrow$ surjective.** If $T:V\to V$ with $\dim V<\infty$, then $T$ injective $\iff$ $\ker T=\{0\}$ $\iff$ $\dim(\mathrm{im}T)=\dim V$ (by rank–nullity) $\iff$ $\mathrm{im}T=V$ $\iff$ $T$ surjective. So a square system either has a unique solution for every right-hand side, or fails both ways. (This collapses in infinite dimensions: the shift operator on sequences is injective but not surjective — a fact at the heart of functional analysis.)
 
 **Pitfall.** Rank–nullity is about *dimensions*, not the subspaces themselves. The kernel and image can even live in different spaces (when $V\ne W$), and there is in general no natural way to "add" them back into $V$; what is conserved is only the count of dimensions.
 
@@ -204,13 +204,13 @@ Matrices related by $A'=P^{-1}AP$ are called **similar** (§s8). They are the sa
 
 > **Definition — rank.** The **rank** of $A$ is the number of pivots in its echelon form — equivalently (and this needs proof) the dimension of the image, i.e. the number of independent columns.
 
-> **Proposition — pivots count independent columns.** The number of pivots equals $\dim(\operatorname{im}A)$, the column rank.
+> **Proposition — pivots count independent columns.** The number of pivots equals $\dim(\mathrm{im}A)$, the column rank.
 **Proof.**
 1. Row operations are left-multiplications by invertible matrices, so they do not change *linear relations among columns*: if $\sum c_j a_j=0$ for columns of $A$, the same coefficients give $\sum c_j a'_j=0$ after any row operation, and conversely. *(invertible left-multiply preserves $A\mathbf c=0$)*
 2. In echelon form, the **pivot columns** are independent (each pivot sits in a row where the others are zero, so no nontrivial combination of pivot columns can cancel), while each **non-pivot column** is a combination of the pivot columns to its left (back-substitution expresses it). *(structure of echelon form)*
-3. Hence the pivot columns form a basis of the column space, so their count — the number of pivots — equals $\dim(\operatorname{im}A)$. By step 1 this is the same for $A$. $\blacksquare$
+3. Hence the pivot columns form a basis of the column space, so their count — the number of pivots — equals $\dim(\mathrm{im}A)$. By step 1 this is the same for $A$. $\blacksquare$
 
-> **Existence/uniqueness of solutions.** The system $A\mathbf x=\mathbf b$ is **consistent** (has a solution) iff $\mathbf b$ lies in $\operatorname{im}A$, detected as: no echelon row of the form $[0\,\cdots\,0\,|\,c]$ with $c\ne0$. When consistent, the solution is **unique** iff every column is a pivot column (no free variables); otherwise the free variables parametrize an affine family of solutions. This is rank–nullity (§s3) in disguise: $\#\text{free variables}=\dim(\ker A)=n-\operatorname{rank}A$.
+> **Existence/uniqueness of solutions.** The system $A\mathbf x=\mathbf b$ is **consistent** (has a solution) iff $\mathbf b$ lies in $\mathrm{im}A$, detected as: no echelon row of the form $[0\,\cdots\,0\,|\,c]$ with $c\ne0$. When consistent, the solution is **unique** iff every column is a pivot column (no free variables); otherwise the free variables parametrize an affine family of solutions. This is rank–nullity (§s3) in disguise: $\#\text{free variables}=\dim(\ker A)=n-\mathrm{rank}A$.
 
 **Worked example.** Solve $\begin{cases}x+2y+z=4\\ 2x+y-z=1\\ x-y-2z=-3\end{cases}$.
 Augmented matrix and elimination:
@@ -233,9 +233,9 @@ Two pivots (columns $1,2$), so rank $2$; the zero bottom row is consistent. With
 > **Definition — determinant.** For an $n\times n$ matrix $A=[A_{ij}]$,
 >
 > $$
-> \det A=\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)\,A_{1\sigma(1)}A_{2\sigma(2)}\cdots A_{n\sigma(n)},
+> \det A=\sum_{\sigma\in S_n}\mathrm{sgn}(\sigma)\,A_{1\sigma(1)}A_{2\sigma(2)}\cdots A_{n\sigma(n)},
 > $$
-> where the sum runs over all **permutations** $\sigma$ of $\{1,\dots,n\}$ (rearrangements), and $\operatorname{sgn}(\sigma)=\pm1$ is $+1$ if $\sigma$ is built from an even number of swaps and $-1$ if odd. For $2\times2$: $\det\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix}=ad-bc$. For $3\times3$ this is the familiar six-term rule.
+> where the sum runs over all **permutations** $\sigma$ of $\{1,\dots,n\}$ (rearrangements), and $\mathrm{sgn}(\sigma)=\pm1$ is $+1$ if $\sigma$ is built from an even number of swaps and $-1$ if odd. For $2\times2$: $\det\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix}=ad-bc$. For $3\times3$ this is the familiar six-term rule.
 
 The defining formula is unwieldy; what we actually use are its **characterizing properties**, which we now state and which uniquely pin down the determinant.
 
@@ -243,7 +243,7 @@ The defining formula is unwieldy; what we actually use are its **characterizing 
 
 **Proof sketch that properties (a)–(d) follow from the definition, then determine it.**
 1. *(Multilinearity, a.)* Each product term contains exactly one factor from each column, so each term is linear in any single column; summing keeps linearity. *(each term linear $\Rightarrow$ sum linear)*
-2. *(Alternating, c.)* Swapping columns $p,q$ relabels each permutation $\sigma\mapsto\sigma\circ(p\,q)$, which multiplies $\operatorname{sgn}$ by $-1$; reindexing the sum shows $\det$ negates. *(sign of a transposition is $-1$)*
+2. *(Alternating, c.)* Swapping columns $p,q$ relabels each permutation $\sigma\mapsto\sigma\circ(p\,q)$, which multiplies $\mathrm{sgn}$ by $-1$; reindexing the sum shows $\det$ negates. *(sign of a transposition is $-1$)*
 3. *(b follows.)* If two columns are equal, swapping them both negates the determinant (by c) and leaves it unchanged (same matrix), so $\det=-\det$, giving $\det=0$. Adding $\lambda(\text{col }q)$ to col $p$ adds $\lambda\det(\text{matrix with col }q\text{ in two slots})=0$. *(alternating $\Rightarrow$ repeated column gives }0)*
 4. *(Uniqueness.)* Any multilinear alternating function with $\det I=1$, expanded over columns written in the standard basis, collapses by (a)–(c) to exactly the permutation sum — so the formula is forced. $\blacksquare$
 
@@ -292,7 +292,7 @@ Because $\det(A-\lambda I)$ is a degree-$n$ polynomial in $\lambda$, over $\math
 
 **Second worked example — no real eigenvalues.** The rotation by $90^\circ$, $R=\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$, has $p(\lambda)=\lambda^2+1$, whose roots are $\pm i$ — *not real*. Over $\mathbb{R}$ this matrix has **no** eigenvectors, which matches the geometry: a $90^\circ$ rotation leaves no direction unmoved. Over $\mathbb{C}$ it has eigenvalues $\pm i$ with eigenvectors $(1,\mp i)$. This is the cleanest illustration of why the field matters and why complex scalars guarantee a spectrum.
 
-> **Trace and determinant from eigenvalues.** Expanding $p(\lambda)=\det(A-\lambda I)=(-1)^n\big(\lambda^n-(\operatorname{tr}A)\lambda^{n-1}+\dots+(-1)^n\det A\big)$ and comparing with $\prod(\lambda-\lambda_k)$ shows the sum of eigenvalues equals the **trace** (sum of diagonal entries) and their product equals the **determinant**. For the example $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$: eigenvalues $1+3=4=\operatorname{tr}A$ and $1\cdot3=3=\det A$. These two checks catch most arithmetic errors instantly.
+> **Trace and determinant from eigenvalues.** Expanding $p(\lambda)=\det(A-\lambda I)=(-1)^n\big(\lambda^n-(\mathrm{tr}A)\lambda^{n-1}+\dots+(-1)^n\det A\big)$ and comparing with $\prod(\lambda-\lambda_k)$ shows the sum of eigenvalues equals the **trace** (sum of diagonal entries) and their product equals the **determinant**. For the example $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$: eigenvalues $1+3=4=\mathrm{tr}A$ and $1\cdot3=3=\det A$. These two checks catch most arithmetic errors instantly.
 
 **Pitfall.** An eigenvector is by definition nonzero; the equation $T(0)=\lambda 0$ holds for *every* $\lambda$, so allowing $v=0$ would make every scalar an "eigenvalue." The zero vector lives in every eigenspace but is never an eigenvector.
 
@@ -306,7 +306,7 @@ Because $\det(A-\lambda I)$ is a degree-$n$ polynomial in $\lambda$, over $\math
 > **Theorem — eigenvector basis $\Leftrightarrow$ diagonalizable.** $A$ is diagonalizable iff $V$ has a basis consisting of eigenvectors of $A$; and then the columns of $P$ are those eigenvectors while the diagonal entries of $D$ are the corresponding eigenvalues.
 
 **Proof.**
-1. Suppose $v_1,\dots,v_n$ are eigenvectors forming a basis, $Av_j=\lambda_j v_j$. Let $P$ have these as columns. Then $AP$ has $j$-th column $Av_j=\lambda_j v_j$, while $PD$ (with $D=\operatorname{diag}(\lambda_j)$) has $j$-th column $\lambda_j v_j$ too. So $AP=PD$, hence $P^{-1}AP=D$. *(column-by-column matrix identity; $P$ invertible since its columns are a basis)*
+1. Suppose $v_1,\dots,v_n$ are eigenvectors forming a basis, $Av_j=\lambda_j v_j$. Let $P$ have these as columns. Then $AP$ has $j$-th column $Av_j=\lambda_j v_j$, while $PD$ (with $D=\mathrm{diag}(\lambda_j)$) has $j$-th column $\lambda_j v_j$ too. So $AP=PD$, hence $P^{-1}AP=D$. *(column-by-column matrix identity; $P$ invertible since its columns are a basis)*
 2. Conversely if $P^{-1}AP=D$ is diagonal, reverse the computation: $AP=PD$ says $A(\text{col}_j P)=\lambda_j(\text{col}_j P)$, so the columns of $P$ are eigenvectors, and being columns of an invertible matrix they form a basis. $\blacksquare$
 
 > **Theorem — eigenvectors for distinct eigenvalues are independent.** Hence an $n\times n$ matrix with $n$ distinct eigenvalues is diagonalizable.
@@ -321,7 +321,7 @@ Because $\det(A-\lambda I)$ is a degree-$n$ polynomial in $\lambda$, over $\math
 
 **Worked example (diagonalizable).** Reusing $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$ with eigenpairs $(3,(1,1)),(1,(1,-1))$: set $P=\begin{psmallmatrix}1&1\\1&-1\end{psmallmatrix}$, $D=\begin{psmallmatrix}3&0\\0&1\end{psmallmatrix}$. Then $P^{-1}AP=D$, and $A^n=PD^nP^{-1}$ is instant to compute.
 
-**Worked example (defective).** $N=\begin{psmallmatrix}0&1\\0&0\end{psmallmatrix}$ has characteristic polynomial $\lambda^2$, so $\lambda=0$ with algebraic multiplicity $2$, but $\ker N=\operatorname{span}((1,0))$ has dimension $1$. Geometric $<$ algebraic, so $N$ is **not** diagonalizable. (Such a matrix is the smallest **Jordan block**; the Jordan form is the systematic "best possible" near-diagonalization for defective matrices, but Hermitian operators — the ones quantum mechanics cares about — are never defective, as §s11 proves.)
+**Worked example (defective).** $N=\begin{psmallmatrix}0&1\\0&0\end{psmallmatrix}$ has characteristic polynomial $\lambda^2$, so $\lambda=0$ with algebraic multiplicity $2$, but $\ker N=\mathrm{span}((1,0))$ has dimension $1$. Geometric $<$ algebraic, so $N$ is **not** diagonalizable. (Such a matrix is the smallest **Jordan block**; the Jordan form is the systematic "best possible" near-diagonalization for defective matrices, but Hermitian operators — the ones quantum mechanics cares about — are never defective, as §s11 proves.)
 
 **Why diagonalization is useful — computing $A^{100}$.** If $A=PDP^{-1}$ then $A^k=PD^kP^{-1}$, because the inner $P^{-1}P$ pairs telescope: $A^2=PDP^{-1}PDP^{-1}=PD^2P^{-1}$, and induction continues. Raising a *diagonal* matrix to a power just raises each diagonal entry. So for $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$, $A^{100}=P\begin{psmallmatrix}3^{100}&0\\0&1\end{psmallmatrix}P^{-1}$ — a closed form, no repeated multiplication. The same trick defines the **matrix exponential** $e^{A}=Pe^{D}P^{-1}$, which solves linear differential equations $\dot x=Ax$ and, with $A=-iHt/\hbar$, generates quantum time evolution (§s14).
 
@@ -353,7 +353,7 @@ The standard examples: on $\mathbb{R}^n$, $\langle x,y\rangle=\sum x_iy_i$ (dot 
 5. Rearrange: $|\langle u,v\rangle|^2\le\|u\|^2\|v\|^2$; take square roots. Equality holds iff $w=0$, i.e. $u=\lambda v$ — linear dependence. $\blacksquare$
 
 > **Corollary — triangle inequality.** $\|u+v\|\le\|u\|+\|v\|$.
-**Proof.** $\|u+v\|^2=\|u\|^2+2\operatorname{Re}\langle u,v\rangle+\|v\|^2\le\|u\|^2+2\|u\|\|v\|+\|v\|^2=(\|u\|+\|v\|)^2$, using $\operatorname{Re}\langle u,v\rangle\le|\langle u,v\rangle|\le\|u\|\|v\|$ (Cauchy–Schwarz). Take roots. $\blacksquare$
+**Proof.** $\|u+v\|^2=\|u\|^2+2\mathrm{Re}\langle u,v\rangle+\|v\|^2\le\|u\|^2+2\|u\|\|v\|+\|v\|^2=(\|u\|+\|v\|)^2$, using $\mathrm{Re}\langle u,v\rangle\le|\langle u,v\rangle|\le\|u\|\|v\|$ (Cauchy–Schwarz). Take roots. $\blacksquare$
 
 > **Definition — orthonormal basis.** A basis $(e_1,\dots,e_n)$ is **orthonormal** if $\langle e_i,e_j\rangle=\delta_{ij}$ (equal to $1$ if $i=j$, else $0$). In such a basis coordinates are just inner products: $v=\sum_i\langle v,e_i\rangle e_i$.
 
@@ -362,7 +362,7 @@ The standard examples: on $\mathbb{R}^n$, $\langle x,y\rangle=\sum x_iy_i$ (dot 
 **Proof (constructive algorithm).**
 1. Set $u_1=v_1$ and $e_1=u_1/\|u_1\|$ (allowed: $v_1\ne0$ since independent). *(normalize the first)*
 2. Having $e_1,\dots,e_{j-1}$ orthonormal, subtract from $v_j$ its components along them: $u_j=v_j-\sum_{i<j}\langle v_j,e_i\rangle e_i$. *(project out the previous directions)*
-3. Then $u_j\ne0$: if it were $0$, $v_j$ would lie in $\operatorname{span}(e_1,\dots,e_{j-1})=\operatorname{span}(v_1,\dots,v_{j-1})$, contradicting independence. Set $e_j=u_j/\|u_j\|$. *(independence keeps $u_j$ nonzero)*
+3. Then $u_j\ne0$: if it were $0$, $v_j$ would lie in $\mathrm{span}(e_1,\dots,e_{j-1})=\mathrm{span}(v_1,\dots,v_{j-1})$, contradicting independence. Set $e_j=u_j/\|u_j\|$. *(independence keeps $u_j$ nonzero)*
 4. Check orthogonality: for $i<j$, $\langle u_j,e_i\rangle=\langle v_j,e_i\rangle-\langle v_j,e_i\rangle\langle e_i,e_i\rangle=\langle v_j,e_i\rangle-\langle v_j,e_i\rangle=0$ (other terms drop by orthonormality of earlier $e$'s). So each new $e_j$ is orthogonal to all previous, and the spans match at every stage. $\blacksquare$
 
 **Worked example.** Orthonormalize $v_1=(1,1,0),v_2=(1,0,1)$ in $\mathbb{R}^3$. $e_1=\tfrac1{\sqrt2}(1,1,0)$. Then $\langle v_2,e_1\rangle=\tfrac1{\sqrt2}$, so $u_2=(1,0,1)-\tfrac1{\sqrt2}\cdot\tfrac1{\sqrt2}(1,1,0)=(1,0,1)-(\tfrac12,\tfrac12,0)=(\tfrac12,-\tfrac12,1)$, and $\|u_2\|=\sqrt{\tfrac14+\tfrac14+1}=\sqrt{\tfrac32}$, giving $e_2=\sqrt{\tfrac23}(\tfrac12,-\tfrac12,1)$. One checks $\langle e_1,e_2\rangle=0$.
@@ -429,7 +429,7 @@ We build the proof from two lemmas.
 
 > **Spectral decomposition.** Equivalently, a Hermitian/normal $T$ can be written $T=\sum_k\lambda_k P_k$, where $P_k$ is the orthogonal projection onto the eigenspace $E_{\lambda_k}$. In Dirac notation (§s14), $T=\sum_k\lambda_k|e_k\rangle\langle e_k|$. This *is* the quantum measurement postulate: an observable is its eigenvalues weighted by projectors onto definite-value states.
 
-**Worked example.** $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$ is real symmetric (Hermitian). Eigenpairs $(3,(1,1)),(1,(1,-1))$ — eigenvalues real, eigenvectors orthogonal. Normalizing: $e_1=\tfrac1{\sqrt2}(1,1),e_2=\tfrac1{\sqrt2}(1,-1)$. With orthogonal $Q=\tfrac1{\sqrt2}\begin{psmallmatrix}1&1\\1&-1\end{psmallmatrix}$, $Q^{*}AQ=\operatorname{diag}(3,1)$ and the spectral decomposition is $A=3\,e_1e_1^{*}+1\,e_2e_2^{*}$.
+**Worked example.** $A=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}$ is real symmetric (Hermitian). Eigenpairs $(3,(1,1)),(1,(1,-1))$ — eigenvalues real, eigenvectors orthogonal. Normalizing: $e_1=\tfrac1{\sqrt2}(1,1),e_2=\tfrac1{\sqrt2}(1,-1)$. With orthogonal $Q=\tfrac1{\sqrt2}\begin{psmallmatrix}1&1\\1&-1\end{psmallmatrix}$, $Q^{*}AQ=\mathrm{diag}(3,1)$ and the spectral decomposition is $A=3\,e_1e_1^{*}+1\,e_2e_2^{*}$.
 
 > **Why this is the deepest theorem in the guide.** Three separate miracles happen at once for a Hermitian operator: (1) eigenvalues are *real* (so they can be physical measured values); (2) eigenvectors can be chosen *orthonormal* (so distinct outcomes are mutually exclusive states); (3) they form a *complete basis* (so every state is a superposition of definite-value states). No special structure beyond $T=T^*$ is needed. The entire measurement framework of quantum mechanics is downstream of these three facts.
 
@@ -448,7 +448,7 @@ We build the proof from two lemmas.
 
 > **Definition — quadratic form.** A **quadratic form** is $q(v)=\langle Av,v\rangle=\sum_{i,j}A_{ij}\,\overline{v_i}\,v_j$ for Hermitian $A$. The spectral theorem **diagonalizes** it: in the eigenbasis, $q=\sum_k\lambda_k|c_k|^2$ — a weighted sum of squares (the *principal axes*). This is why the spectral theorem classifies conic sections and stability of equilibria.
 
-> **Theorem — Singular Value Decomposition.** Every $m\times n$ matrix $A$ (over $\mathbb{C}$) factors as $A=U\Sigma V^*$, where $U$ ($m\times m$) and $V$ ($n\times n$) are unitary and $\Sigma$ is $m\times n$ diagonal with real entries $\sigma_1\ge\dots\ge\sigma_r>0$ (the **singular values**) followed by zeros, $r=\operatorname{rank}A$.
+> **Theorem — Singular Value Decomposition.** Every $m\times n$ matrix $A$ (over $\mathbb{C}$) factors as $A=U\Sigma V^*$, where $U$ ($m\times m$) and $V$ ($n\times n$) are unitary and $\Sigma$ is $m\times n$ diagonal with real entries $\sigma_1\ge\dots\ge\sigma_r>0$ (the **singular values**) followed by zeros, $r=\mathrm{rank}A$.
 
 **Proof (build it from the spectral theorem applied to $A^*A$).**
 1. $A^*A$ is Hermitian ($(A^*A)^*=A^*A$) and positive-semidefinite ($\langle A^*Av,v\rangle=\langle Av,Av\rangle=\|Av\|^2\ge0$). By the spectral theorem it has an orthonormal eigenbasis $v_1,\dots,v_n$ with real eigenvalues $\lambda_i\ge0$. Order them so $\lambda_1\ge\dots\ge\lambda_n\ge0$; let $r$ be the number of positive ones and set $\sigma_i=\sqrt{\lambda_i}$. *(spectral theorem on $A^*A$; eigenvalues nonnegative)*

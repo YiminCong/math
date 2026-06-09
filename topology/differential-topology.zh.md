@@ -48,7 +48,7 @@
 接下来是那件主力工具。微积分是局部的，但我们时常需要把局部数据（逐卡定义的向量场、整个流形上的积分）*拼装*成一个无缝的整体对象。完成黏合的装置就是单位分解。
 
 > **定义 —— 支集；单位分解。**
-> 函数 $f:M\to\mathbb{R}$ 的**支集**是 $\operatorname{supp} f=\overline{\{p:f(p)\neq 0\}}$，即 $f$ 非零之处的集合的闭包。一族函数 $\{f_\alpha\}$ 称为**局部有限**的，如果每个点都有一个邻域，只与有限多个 $\alpha$ 的 $\operatorname{supp} f_\alpha$ 相交。给定 $M$ 的一个开覆盖 $\{U_\alpha\}$，一个**从属于 $\{U_\alpha\}$ 的单位分解**是一族光滑函数 $\rho_\alpha:M\to[0,1]$，满足 (i) $\operatorname{supp}\rho_\alpha\subseteq U_\alpha$，(ii) 该族局部有限，且 (iii) 对每个 $p\in M$ 有 $\sum_\alpha \rho_\alpha(p)=1$（由 (ii)，每点处都是有限和）。
+> 函数 $f:M\to\mathbb{R}$ 的**支集**是 $\mathrm{supp} f=\overline{\{p:f(p)\neq 0\}}$，即 $f$ 非零之处的集合的闭包。一族函数 $\{f_\alpha\}$ 称为**局部有限**的，如果每个点都有一个邻域，只与有限多个 $\alpha$ 的 $\mathrm{supp} f_\alpha$ 相交。给定 $M$ 的一个开覆盖 $\{U_\alpha\}$，一个**从属于 $\{U_\alpha\}$ 的单位分解**是一族光滑函数 $\rho_\alpha:M\to[0,1]$，满足 (i) $\mathrm{supp}\rho_\alpha\subseteq U_\alpha$，(ii) 该族局部有限，且 (iii) 对每个 $p\in M$ 有 $\sum_\alpha \rho_\alpha(p)=1$（由 (ii)，每点处都是有限和）。
 
 > **定理（单位分解的存在性）。** 每个光滑流形（Hausdorff、第二可数）都容许一个从属于任意给定开覆盖的光滑单位分解。
 
@@ -60,7 +60,7 @@
 2. 令 $g(t)=h(t)\,h(1-t)$。则 $g>0$ 恰好在 $0<t<1$ 上成立，其余处 $g=0$，且作为 $C^\infty$ 函数之积，$g\in C^\infty$。*（乘法法则保持光滑性）*
 3. 令 $G(t)=\dfrac{\int_t^\infty g}{\int_0^1 g}$（一个归一化的尾部积分）。由微积分基本定理，$G$ 是 $C^\infty$ 的，且 $t\le 0$ 时 $G(t)=1$，$t\ge 1$ 时 $G(t)=0$，中间递减——一条从 $1$ 光滑下降到 $0$ 的台阶。*（对 $C^\infty$ 函数积分得到 $C^\infty$ 函数）*
 4. 现在在 $\mathbb{R}^n$ 上定义经过重新标度的**碰撞函数** $\beta(x)=G(|x|^2)$：对选定的 $0<r<R$，在球 $|x|\le r$ 上 $\beta=1$，在 $|x|\le R$ 之外 $\beta=0$，光滑且取值于 $[0,1]$。于是我们得到一个在某点附近等于 $1$、且支集落在任意指定邻域内的 $C^\infty$ 函数。*（把光滑的 $G$ 与光滑的 $x\mapsto|x|^2$ 复合）*
-5. 来构造单位分解：由第二可数性与 Hausdorff 性，$M$ 容许 $\{U_\alpha\}$ 的一个由卡定义域组成的局部有限加细 $\{V_i\}$，每个 $V_i$ 带一个碰撞函数 $\beta_i\ge 0$，满足 $\operatorname{supp}\beta_i\subseteq V_i$ 且处处 $\sum_i\beta_i>0$（每个点都落在某个 $V_i$ 内，其碰撞函数在该处为正）。令 $\rho_i=\beta_i/\sum_j\beta_j$。该和局部有限，故 $\rho_i\in C^\infty$，$\rho_i\ge 0$，且 $\sum_i\rho_i=1$。把 $V_i$ 重新归入原来的 $U_\alpha$，便得到所声称的单位分解。$\;\blacksquare$
+5. 来构造单位分解：由第二可数性与 Hausdorff 性，$M$ 容许 $\{U_\alpha\}$ 的一个由卡定义域组成的局部有限加细 $\{V_i\}$，每个 $V_i$ 带一个碰撞函数 $\beta_i\ge 0$，满足 $\mathrm{supp}\beta_i\subseteq V_i$ 且处处 $\sum_i\beta_i>0$（每个点都落在某个 $V_i$ 内，其碰撞函数在该处为正）。令 $\rho_i=\beta_i/\sum_j\beta_j$。该和局部有限，故 $\rho_i\in C^\infty$，$\rho_i\ge 0$，且 $\sum_i\rho_i=1$。把 $V_i$ 重新归入原来的 $U_\alpha$，便得到所声称的单位分解。$\;\blacksquare$
 
 **单位分解给你带来什么。** 我们反复用到三件事。(a) *把局部对象整体化：* 若每个 $U_\alpha$ 带一个对象 $s_\alpha$（一个度量、一个联络、一个函数），则只要这些对象生活在一个*凸*集中、使得加权平均有意义，$\sum_\alpha\rho_\alpha s_\alpha$ 就是一个整体对象——这正是每个流形获得 Riemann 度量的方式（§s11），以及向量丛获得联络的方式（§s10）。(b) *定义 $M$ 上的积分：* 写 $\int_M\omega=\sum_\alpha\int_M\rho_\alpha\omega$，每个被加项的支集落在单个卡内，那里普通的多元积分适用（§s7）。(c) *延拓函数：* 在闭集附近定义的函数，可通过乘以一个碰撞函数光滑地延拓到整个 $M$。光滑范畴是*柔软*的——这些构造对解析函数或全纯函数没有类比，因为刚性禁止碰撞函数的存在。
 
@@ -107,7 +107,7 @@ $$
 
 **演示 —— 每个紧 $n$ 维流形都嵌入某个 $\mathbb{R}^N$。**
 
-1. 紧性给出一个有限图册 $(U_1,\varphi_1),\dots,(U_k,\varphi_k)$ 以及一个从属的单位分解 $\rho_1,\dots,\rho_k$，满足 $\operatorname{supp}\rho_i\subseteq U_i$（§s1）。*（单位分解存在）*
+1. 紧性给出一个有限图册 $(U_1,\varphi_1),\dots,(U_k,\varphi_k)$ 以及一个从属的单位分解 $\rho_1,\dots,\rho_k$，满足 $\mathrm{supp}\rho_i\subseteq U_i$（§s1）。*（单位分解存在）*
 2. 定义 $F:M\to\mathbb{R}^{k(n+1)}$ 为 $F(p)=\big(\rho_1(p)\varphi_1(p),\dots,\rho_k(p)\varphi_k(p),\;\rho_1(p),\dots,\rho_k(p)\big)$，其中 $\rho_i\varphi_i$ 在 $U_i$ 之外以 $0$ 延拓（因 $\rho_i$ 在 $\partial U_i$ 附近为零，故光滑）。$F$ 光滑。*（每个光滑块的光滑性；§s1 的碰撞函数延拓）*
 3. $F$ 是浸入：固定 $p$，选取使 $\rho_i(p)>0$ 的 $i$；在 $p$ 附近，块 $\rho_i\varphi_i$ 连同 $\rho_i$ 可恢复出 $\varphi_i$（除以 $\rho_i$），而 $\varphi_i$ 的微分可逆，故 $dF_p$ 是单射。*（卡是微分同胚，故 $d\varphi_i$ 可逆）*
 4. $F$ 是单射：若 $F(p)=F(q)$，则所有 $\rho_i(p)=\rho_i(q)$；选取使 $\rho_i(p)>0$ 的 $i$，则同时 $\rho_i(q)>0$，故 $p,q\in U_i$，又 $\rho_i(p)\varphi_i(p)=\rho_i(q)\varphi_i(q)$ 且 $\rho_i$ 相等且为正，迫使 $\varphi_i(p)=\varphi_i(q)$，从而由 $\varphi_i$ 单射得 $p=q$。*（卡是单射）*
@@ -173,7 +173,7 @@ $$
 
 **演示（原像版本）。**
 
-1. 在点 $c\in Z$ 附近，把 $Z$ 局部写成一个正则水平集：在 $N$ 中 $c$ 的某邻域 $V$ 上存在淹没 $g:V\to\mathbb{R}^{k}$，使 $Z\cap V=g^{-1}(0)$，其中 $k=\operatorname{codim}Z$。*（子流形局部是正则水平集，由 §s3 正规形式）*
+1. 在点 $c\in Z$ 附近，把 $Z$ 局部写成一个正则水平集：在 $N$ 中 $c$ 的某邻域 $V$ 上存在淹没 $g:V\to\mathbb{R}^{k}$，使 $Z\cap V=g^{-1}(0)$，其中 $k=\mathrm{codim}Z$。*（子流形局部是正则水平集，由 §s3 正规形式）*
 2. 考虑 $p\in f^{-1}(Z)$ 附近的 $g\circ f$。其微分是 $dg_{f(p)}\circ df_p$。横截性条件 $df_p(T_pM)+T_{f(p)}Z=T_{f(p)}N$ 连同 $T_{f(p)}Z=\ker dg_{f(p)}$，蕴含 $dg_{f(p)}\big(df_p(T_pM)\big)=dg_{f(p)}(T_{f(p)}N)=\mathbb{R}^k$。所以 $d(g\circ f)_p$ 满射。*（对两个被加项作用 $dg$；$dg$ 杀死 $T_pZ$ 且满射）*
 3. 因此 $0$ 是 $g\circ f$ 的正则值，由原像定理（§s3），$f^{-1}(Z)=(g\circ f)^{-1}(0)$ 局部是一个余维数 $k$ 的子流形。在 $Z$ 上拼合即得整体陈述。$\;\blacksquare$
 
@@ -220,8 +220,8 @@ $$
 要得到*整数*（更多信息），就给一切定向并带符号地计数。
 
 > **定义 —— 定向与整数度。**
-> 流形的**定向**是在每个切空间中对“正定向”有序基的一致选取，且连续变化；等价地，是对处处非零的最高次形式的选取。设 $M,N$ 是闭的、定向的、连通的，$\dim M=\dim N=n$。在正则值 $c$ 处，每个 $p\in f^{-1}(c)$ 都使 $df_p:T_pM\to T_cN$ 成为同构（维数相等，满射）；令**局部符号** $\operatorname{sign}(df_p)=+1$ 若 $df_p$ 保定向（在定向基中 $\det>0$），$-1$ 若它反定向。定义
-> $$\deg(f)=\sum_{p\in f^{-1}(c)}\operatorname{sign}(df_p)\ \in\ \mathbb{Z}.$$
+> 流形的**定向**是在每个切空间中对“正定向”有序基的一致选取，且连续变化；等价地，是对处处非零的最高次形式的选取。设 $M,N$ 是闭的、定向的、连通的，$\dim M=\dim N=n$。在正则值 $c$ 处，每个 $p\in f^{-1}(c)$ 都使 $df_p:T_pM\to T_cN$ 成为同构（维数相等，满射）；令**局部符号** $\mathrm{sign}(df_p)=+1$ 若 $df_p$ 保定向（在定向基中 $\det>0$），$-1$ 若它反定向。定义
+> $$\deg(f)=\sum_{p\in f^{-1}(c)}\mathrm{sign}(df_p)\ \in\ \mathbb{Z}.$$
 
 与上面相同的配边论证，现在追踪边界一维流形的定向（区间的两个端点带*相反*的诱导定向），把“偶基数”升级为“带符号计数相消”，证明 $\deg(f)$ 与 $c$ 无关且同伦不变。在上同调中，$\deg(f)$ 是 $f^*$ 乘以基本上同调类时的那个整数：在归一化 $\int_N\omega'=1$ 之后 $f^*[\omega]=\deg(f)\,[\omega']$，等价地 $\int_M f^*\omega=\deg(f)\int_N\omega$（这是我们在 §s7 中通过积分计算度的方式）。
 
@@ -235,7 +235,7 @@ $$
 
 **应用 1 —— 代数基本定理。** 设 $p(z)=z^n+a_{n-1}z^{n-1}+\dots+a_0$，$n\ge 1$。假设 $p$ 没有根。则 $p:\mathbb{C}\to\mathbb{C}\setminus\{0\}$，而紧化到球面 $S^2=\mathbb{C}\cup\{\infty\}$ 之后，$p$ 延拓为光滑映射 $S^2\to S^2$。对大的 $|z|$，$p(z)\approx z^n$，其度为 $n$；低次项是一个同伦（标度 $a_i\to t a_i$），故 $\deg(p)=\deg(z^n)=n\ge 1$。但一个漏掉值 $0$ 的映射穿过 $S^2\setminus\{0\}$，后者可缩，迫使 $\deg(p)=0$。矛盾：$n\ge1$ 对 $0$。所以 $p$ 有根。*（度是同伦不变量并检测满射性）*
 
-**应用 2 —— 毛球定理。** *偶维球面 $S^{2m}$ 上不存在处处非零的连续切向量场。* 假设 $v(x)$ 是 $S^{2m}$ 上的一个单位切向量场（把一个非零场归一化）。定义 $H(x,t)=\cos(\pi t)\,x+\sin(\pi t)\,v(x)$。每个 $H(\cdot,t):S^{2m}\to S^{2m}$ 都光滑（因 $x\perp v(x)$，模为单位），且 $H(\cdot,0)=\operatorname{id}$（度 $+1$），$H(\cdot,1)=-\operatorname{id}$ 即对径映射。$S^n$ 的对径映射度为 $(-1)^{n+1}$；对 $n=2m$ 即 $(-1)^{2m+1}=-1$。于是一个同伦把度 $+1$ 的映射连到度 $-1$ 的映射，与度的同伦不变性矛盾（$+1\neq-1$）。故不存在这样的 $v$——“你无法把毛球梳平”。（在*奇*维球面 $S^{2m-1}$ 上存在不消没的场，例如 $v(x_1,x_2,\dots)=(-x_2,x_1,\dots)$，与度 $+1=+1$ 相容。）$\;\blacksquare$
+**应用 2 —— 毛球定理。** *偶维球面 $S^{2m}$ 上不存在处处非零的连续切向量场。* 假设 $v(x)$ 是 $S^{2m}$ 上的一个单位切向量场（把一个非零场归一化）。定义 $H(x,t)=\cos(\pi t)\,x+\sin(\pi t)\,v(x)$。每个 $H(\cdot,t):S^{2m}\to S^{2m}$ 都光滑（因 $x\perp v(x)$，模为单位），且 $H(\cdot,0)=\mathrm{id}$（度 $+1$），$H(\cdot,1)=-\mathrm{id}$ 即对径映射。$S^n$ 的对径映射度为 $(-1)^{n+1}$；对 $n=2m$ 即 $(-1)^{2m+1}=-1$。于是一个同伦把度 $+1$ 的映射连到度 $-1$ 的映射，与度的同伦不变性矛盾（$+1\neq-1$）。故不存在这样的 $v$——“你无法把毛球梳平”。（在*奇*维球面 $S^{2m-1}$ 上存在不消没的场，例如 $v(x_1,x_2,\dots)=(-x_2,x_1,\dots)$，与度 $+1=+1$ 相容。）$\;\blacksquare$
 
 <a id="s6"></a>
 ### 欧拉示性数与 Poincaré–Hopf
@@ -243,28 +243,28 @@ $$
 $M$ 上的向量场是在每个 $p$ 处对切向量 $X(p)\in T_pM$ 的光滑选取。毛球定理说 $S^2$ 不能承载一个不消没的向量场。Poincaré–Hopf 解释了*为什么*以及*相差多少*：零点带一个称为指标的符号计数，必须加起来等于一个拓扑不变量——欧拉示性数。
 
 > **定义 —— 孤立零点的指标。**
-> 设 $X$ 是一个向量场，在 $p$ 处有孤立零点（即在一个小去心邻域上 $X\neq 0$）。在一个卡中，把 $X$ 限制到 $p$ 周围的小球面 $S^{n-1}_\varepsilon$ 上并归一化为 $X/|X|$，便定义出一个映射 $S^{n-1}_\varepsilon\to S^{n-1}$（**场的 Gauss 映射**）。它的度（§s5）就是**指标** $\operatorname{ind}_p(X)\in\mathbb{Z}$。它度量场绕 $p$ 旋转了多少次。
+> 设 $X$ 是一个向量场，在 $p$ 处有孤立零点（即在一个小去心邻域上 $X\neq 0$）。在一个卡中，把 $X$ 限制到 $p$ 周围的小球面 $S^{n-1}_\varepsilon$ 上并归一化为 $X/|X|$，便定义出一个映射 $S^{n-1}_\varepsilon\to S^{n-1}$（**场的 Gauss 映射**）。它的度（§s5）就是**指标** $\mathrm{ind}_p(X)\in\mathbb{Z}$。它度量场绕 $p$ 旋转了多少次。
 
 平面情形（$n=2$）的直觉：*源*（箭头向外）与*汇*（箭头向内）的指标都是 $+1$；*鞍点*的指标是 $-1$；*中心*（闭轨道）的指标是 $+1$。在 $p$ 附近微扰 $X$ 不改变指标，因为度是同伦不变的（§s5）。
 
 **例题 —— 平面场的指标。** 把平面等同于 $\mathbb{C}$，把 $X(z)=z^m$ 视为向量场（$z$ 处的向量是复数 $z^m$）。在小圆 $z=\varepsilon e^{i\theta}$ 上，归一化的场是 $e^{im\theta}$，当 $\theta$ 绕一圈时它缠绕 $m$ 次，故
 $$
-\operatorname{ind}_0(z^m)=m.
+\mathrm{ind}_0(z^m)=m.
 $$
 于是 $X(z)=z$（恒等，一个源）的指标是 $+1$；$X(z)=\bar z$ 改写成一个鞍点，可验证指标为 $-1$；$X(z)=z^2$ 是一个指标为 $2$ 的“猴鞍”。把局部缠绕求和，正是 Poincaré–Hopf 所整体化的。
 
 > **定理（Poincaré–Hopf）。** 对闭流形 $M$ 上只有孤立零点的向量场 $X$，
-> $$\sum_{p:\,X(p)=0}\operatorname{ind}_p(X)\ =\ \chi(M),$$
+> $$\sum_{p:\,X(p)=0}\mathrm{ind}_p(X)\ =\ \chi(M),$$
 > 即欧拉示性数——与场 $X$ 无关。
 
 **演示 —— 证明的结构，连同曲面情形的显式说明。**
 
-1. *该和与 $X$ 无关。* 给定两个有孤立零点的场 $X_0,X_1$，在它们之间作一个一般的同伦 $X_t$（横截性，§s4），作为 $M\times[0,1]$ 上的截面；其零集是一个紧一维流形，其边界是 $X_0$ 与 $X_1$ 的（带符号）零集。紧定向一维流形的带符号边界计数为 $0$（每个区间在其两端贡献 $+1$ 与 $-1$），故 $\sum\operatorname{ind}(X_0)=\sum\operatorname{ind}(X_1)$。*（与 §s5 类似的配边/边界论证，现在用于截面）*
+1. *该和与 $X$ 无关。* 给定两个有孤立零点的场 $X_0,X_1$，在它们之间作一个一般的同伦 $X_t$（横截性，§s4），作为 $M\times[0,1]$ 上的截面；其零集是一个紧一维流形，其边界是 $X_0$ 与 $X_1$ 的（带符号）零集。紧定向一维流形的带符号边界计数为 $0$（每个区间在其两端贡献 $+1$ 与 $-1$），故 $\sum\mathrm{ind}(X_0)=\sum\mathrm{ind}(X_1)$。*（与 §s5 类似的配边/边界论证，现在用于截面）*
 2. *该公共值是 $\chi(M)$。* 选一个由三角剖分（或一个 Morse 函数，见下）构造出的方便场，其指标之和明显是 $\chi$。对三角剖分，在每个顶点放一个源（指标 $+1$），在每条边的中点放一个鞍点（指标 $-1$），在每个面的中心放一个源（二维下指标 $+1$）。总和是 $V-E+F$，由代数拓扑定义 $\chi=\sum(-1)^k(\#k\text{-胞腔})$ 即为 $\chi(M)$。由第 1 步，每个场都给出这同一个和。$\;\blacksquare$
 
 > **定义 —— Morse 函数及其与 $\chi$ 的联系。**
 > **Morse 函数** $f:M\to\mathbb{R}$ 是一个光滑函数，其临界点（$df=0$ 处）全都**非退化**（那里二阶导数的 Hessian 矩阵可逆）。一个非退化临界点的**指标**是 Hessian 的负特征值个数（“下坡”方向的计数）。梯度场 $\nabla f$ 恰在每个临界点处有一个零点，其向量场指标为 $(-1)^{\text{Morse 指标}}$，故 Poincaré–Hopf 给出
-> $$\chi(M)=\sum_{\text{crit }p}(-1)^{\operatorname{ind}_M(p)}.$$
+> $$\chi(M)=\sum_{\text{crit }p}(-1)^{\mathrm{ind}_M(p)}.$$
 
 **例题 —— 环面。** 在竖立的环面 $T^2$ 上，高度给出一个有四个临界点的 Morse 函数：底部一个极小（指标 $0$，符号 $+$），内圈两个鞍点（各指标 $1$，符号 $-$），顶部一个极大（指标 $2$，符号 $+$）。符号之和：$1-1-1+1=0$，故 $\chi(T^2)=0$——与环面容许一个不消没的向量场一致（确实如此：沿“环管”一圈的常向量场）。对球面 $S^2$，高度给出一个极小与一个极大，和为 $1+1=2=\chi(S^2)$，而毛球障碍恰好就是 $\chi(S^2)=2\neq0$。本指南的两部分就此握手。
 
@@ -277,7 +277,7 @@ $$
 
 > **定义 —— de Rham 上同调。**
 > $M$ 的**第 $k$ 个 de Rham 上同调**是
-> $$H^k_{\mathrm{dR}}(M)=\frac{\{\text{闭 }k\text{ 形式}\}}{\{\text{恰当 }k\text{ 形式}\}}=\frac{\ker(d:\Omega^k\to\Omega^{k+1})}{\operatorname{im}(d:\Omega^{k-1}\to\Omega^k)}.$$
+> $$H^k_{\mathrm{dR}}(M)=\frac{\{\text{闭 }k\text{ 形式}\}}{\{\text{恰当 }k\text{ 形式}\}}=\frac{\ker(d:\Omega^k\to\Omega^{k+1})}{\mathrm{im}(d:\Omega^{k-1}\to\Omega^k)}.$$
 > 一个类 $[\omega]$ 记录“闭模恰当”。
 
 > **定理（de Rham）。** 对光滑流形，$H^k_{\mathrm{dR}}(M)\cong H^k(M;\mathbb{R})$，即代数拓扑指南中的实奇异上同调。分析（形式）计算出拓扑（上同调），而这个同构由把形式在闭链上积分给出：$[\omega]\mapsto\big(c\mapsto\int_c\omega\big)$，其良好定义由 **Stokes 定理** $\int_c d\eta=\int_{\partial c}\eta$ 保证。
@@ -310,7 +310,7 @@ $$
 ### 向量丛与示性类（公理化）
 
 > **定义 —— 向量丛。**
-> $M$ 上的**秩 $r$ 实向量丛**是一个光滑流形 $E$ 连同一个光滑满射 $\pi:E\to M$，使得每个**纤维** $E_p=\pi^{-1}(p)$ 是一个 $r$ 维实向量空间，且 $E$ **局部平凡**：每个 $p$ 有一个邻域 $U$ 配以一个微分同胚 $\pi^{-1}(U)\cong U\times\mathbb{R}^r$，它在纤维上线性且与到 $U$ 的投影交换。**复向量丛**用 $\mathbb{C}^r$ 纤维。一个**截面**是满足 $\pi\circ s=\operatorname{id}$ 的光滑映射 $s:M\to E$（在每个纤维中选一个向量）。**平凡丛**是 $M\times\mathbb{R}^r$。**切丛** $TM=\bigsqcup_p T_pM$ 是原型。
+> $M$ 上的**秩 $r$ 实向量丛**是一个光滑流形 $E$ 连同一个光滑满射 $\pi:E\to M$，使得每个**纤维** $E_p=\pi^{-1}(p)$ 是一个 $r$ 维实向量空间，且 $E$ **局部平凡**：每个 $p$ 有一个邻域 $U$ 配以一个微分同胚 $\pi^{-1}(U)\cong U\times\mathbb{R}^r$，它在纤维上线性且与到 $U$ 的投影交换。**复向量丛**用 $\mathbb{C}^r$ 纤维。一个**截面**是满足 $\pi\circ s=\mathrm{id}$ 的光滑映射 $s:M\to E$（在每个纤维中选一个向量）。**平凡丛**是 $M\times\mathbb{R}^r$。**切丛** $TM=\bigsqcup_p T_pM$ 是原型。
 
 一个丛是*平凡*的，如果整体上 $E\cong M\times\mathbb{R}^r$。大多数都不是——Möbius 带是 $S^1$ 上一个非平凡的秩 $1$ 丛。**示性类**是检测这种非平凡性的上同调类：它们对平凡丛消没，故一个非零的类证明了非平凡性。它们是*自然*的：沿一个映射拉回丛，会把类以同样方式拉回。
 
@@ -318,10 +318,10 @@ $$
 > 1. **自然性：** 对光滑 $f$ 有 $w(f^*E)=f^*w(E)$。
 > 2. **Whitney 和：** $w(E\oplus F)=w(E)\smile w(F)$（杯积）。
 > 3. **归一化：** 对 $\mathbb{RP}^1$ 上的重言线丛 $\gamma^1$，$w_1(\gamma^1)\neq 0$。
-> 4. **秩界：** 当 $i>\operatorname{rank}E$ 时 $w_i(E)=0$。
+> 4. **秩界：** 当 $i>\mathrm{rank}E$ 时 $w_i(E)=0$。
 > 这些公理唯一地确定 $w_i$。
 
-> **定义 / 定理（Chern 类，公理化）。** 对每个*复*向量丛 $E\to M$，赋予 $c(E)=1+c_1(E)+c_2(E)+\dots$，其中 $c_i(E)\in H^{2i}(M;\mathbb{Z})$（整系数，偶次！），满足同样的自然性、Whitney 和 $c(E\oplus F)=c(E)\smile c(F)$、$\mathbb{CP}^1$ 上重言线丛上的归一化，以及当 $i>\operatorname{rank}_{\mathbb C}E$ 时 $c_i=0$。
+> **定义 / 定理（Chern 类，公理化）。** 对每个*复*向量丛 $E\to M$，赋予 $c(E)=1+c_1(E)+c_2(E)+\dots$，其中 $c_i(E)\in H^{2i}(M;\mathbb{Z})$（整系数，偶次！），满足同样的自然性、Whitney 和 $c(E\oplus F)=c(E)\smile c(F)$、$\mathbb{CP}^1$ 上重言线丛上的归一化，以及当 $i>\mathrm{rank}_{\mathbb C}E$ 时 $c_i=0$。
 
 > **定义（Pontryagin 类）。** 对实丛 $E$，复化（$E\otimes\mathbb{C}$）并令 $p_i(E)=(-1)^i c_{2i}(E\otimes\mathbb{C})\in H^{4i}(M;\mathbb{Z})$。（复化的奇 Chern 类是 $2$ 阶挠的，故弃去。）
 
@@ -368,8 +368,8 @@ $$
 **演示 —— 为什么这等于欧拉示性数。**
 
 1. 切丛 $TM$ 的截面恰是 $M$ 上的向量场 $X$（在每点处一个切向量）。*（$TM$ 的定义，§s8）*
-2. 一个一般的这样的截面的零集，就是一个一般向量场的零集；其 Poincaré 对偶类在 $M$ 上积分是 $X$ 零点的**带符号计数**，局部符号正是 §s6 的向量场指标 $\operatorname{ind}_p(X)$。*（横截零点是孤立的，并由局部度赋符号）*
-3. 所以 $\int_M e(TM)=\sum_p\operatorname{ind}_p(X)$。由 Poincaré–Hopf（§s6），此和为 $\chi(M)$。因此 $\int_M e(TM)=\chi(M)$。$\;\blacksquare$
+2. 一个一般的这样的截面的零集，就是一个一般向量场的零集；其 Poincaré 对偶类在 $M$ 上积分是 $X$ 零点的**带符号计数**，局部符号正是 §s6 的向量场指标 $\mathrm{ind}_p(X)$。*（横截零点是孤立的，并由局部度赋符号）*
+3. 所以 $\int_M e(TM)=\sum_p\mathrm{ind}_p(X)$。由 Poincaré–Hopf（§s6），此和为 $\chi(M)$。因此 $\int_M e(TM)=\chi(M)$。$\;\blacksquare$
 
 **与其他类的关系。** 对复线丛（秩 $2$ 实、定向），$e=c_1$，即第一 Chern 类——此时欧拉类*就是*一个 Chern 类。对秩 $r$ 定向实丛，当 $r$ 为偶时 $e(E)^2=p_{\,r/2}(E)$（顶 Pontryagin 类）。而顶 Stiefel–Whitney 类是模 $2$ 约化 $w_r(E)=e(E)\bmod 2$，这就是为什么即使没有定向，$\chi(M)\bmod 2$ 也构成不消没场的障碍。
 
@@ -377,7 +377,7 @@ $$
 
 **例题 —— 通过欧拉数计数零点。** 假设有人在 $S^2$ 上造了一个恰有三个零点的向量场，两个源加一个指标未知 $k$ 的零点。欧拉类恒等式迫使带符号的总数：
 $$
-\sum_p\operatorname{ind}_p(X)=\int_{S^2}e(TS^2)=\chi(S^2)=2 \;\Longrightarrow\; 1+1+k=2 \;\Longrightarrow\; k=0.
+\sum_p\mathrm{ind}_p(X)=\int_{S^2}e(TS^2)=\chi(S^2)=2 \;\Longrightarrow\; 1+1+k=2 \;\Longrightarrow\; k=0.
 $$
 所以这样一个第三个零点必定是*退化*的（一个微扰把它分裂成指标相消的零点）。欧拉数约束了什么样的零点构型才有可能——拓扑规训分析。
 
@@ -392,7 +392,7 @@ $$
 > 度量“绕小环路平行传输”使向量返回时不变这一性质的失败程度。每个丛都容许一个联络（构造局部的，用单位分解黏合，§s1）。
 
 > **定理（Chern–Weil）。** 设 $P$ 是矩阵上的一个不变多项式（满足 $P(g X g^{-1})=P(X)$ 对可逆 $g$——例如迹、行列式，或 $\det(I+\tfrac{t}{2\pi i}X)$ 的系数）。则把曲率代入而成的形式 $P(\Omega)$ 是**闭**的，且其 de Rham 类**与联络无关**。把这些类赋给丛，便重现 §s8–s9 中公理化定义的 Chern 类（以及通过复化的 Pontryagin 类与欧拉类）。具体地，对复丛，
-> $$c(E)=\Big[\det\Big(I+\tfrac{i}{2\pi}\Omega\Big)\Big],\qquad c_1(E)=\Big[\tfrac{i}{2\pi}\operatorname{tr}\Omega\Big].$$
+> $$c(E)=\Big[\det\Big(I+\tfrac{i}{2\pi}\Omega\Big)\Big],\qquad c_1(E)=\Big[\tfrac{i}{2\pi}\mathrm{tr}\Omega\Big].$$
 
 **演示 —— $P(\Omega)$ 闭且与联络无关。**
 
@@ -427,8 +427,8 @@ $$
 
 1. *几何 $\to$ 欧拉类。* 对定向 Riemann 曲面，$T\Sigma$ 上的 Levi–Civita 联络有一个曲率 $2$ 形式，其 Chern–Weil 欧拉代表元是 $\tfrac{1}{2\pi}K\,dA$。*（Chern–Weil，§s10，应用于秩 $2$ 定向切丛）*
 2. *欧拉类 $\to$ 拓扑。* 由 §s9，$\int_\Sigma e(T\Sigma)=\chi(\Sigma)$。*（欧拉类积分成欧拉示性数）*
-3. *拓扑 $\to$ 计数。* 由 §s6，对任意向量场 $\chi(\Sigma)=\sum_p\operatorname{ind}_p(X)$，即交错胞腔计数 $V-E+F$。*（Poincaré–Hopf）*
-4. 串联：$\tfrac{1}{2\pi}\int_\Sigma K\,dA=\int_\Sigma e(T\Sigma)=\chi(\Sigma)=\sum\operatorname{ind}$。一个分析积分、一个拓扑不变量与一个几何计数是同一个数。$\;\blacksquare$
+3. *拓扑 $\to$ 计数。* 由 §s6，对任意向量场 $\chi(\Sigma)=\sum_p\mathrm{ind}_p(X)$，即交错胞腔计数 $V-E+F$。*（Poincaré–Hopf）*
+4. 串联：$\tfrac{1}{2\pi}\int_\Sigma K\,dA=\int_\Sigma e(T\Sigma)=\chi(\Sigma)=\sum\mathrm{ind}$。一个分析积分、一个拓扑不变量与一个几何计数是同一个数。$\;\blacksquare$
 
 **例题。** 单位球面处处 $K=1$，面积 $4\pi$，故 $\tfrac{1}{2\pi}\int K\,dA=\tfrac{1}{2\pi}(4\pi)=2=\chi(S^2)$ ✓。平坦环面 $K\equiv 0$，给出 $0=\chi(T^2)$ ✓。亏格 $g$ 曲面对 $g\ge 2$ 必须平均出负曲率，因为 $\tfrac1{2\pi}\int K\,dA=2-2g<0$——几何被拓扑*强迫*。
 
@@ -436,29 +436,29 @@ $$
 $$
 \int_T K\,dA = (\alpha+\beta+\gamma)-\pi.
 $$
-在平坦平面上 $K=0$，所以诸角之和恰为 $\pi$——普通欧氏几何。在单位球面上 $K=1$，故 $\alpha+\beta+\gamma-\pi=\operatorname{Area}(T)>0$：球面三角形有等于其面积的角盈（一个有三个直角的三角形覆盖八分之一球面，面积 $\pi/2$，盈 $3\cdot\tfrac\pi2-\pi=\tfrac\pi2$ ✓）。在鞍面（$K<0$）上三角形是角*亏*的。把这个局部陈述沿一个三角剖分求和，内角在每个顶点拼成 $2\pi$，边界项叠缩相消，产生整体的 $\tfrac1{2\pi}\int_\Sigma K\,dA=\chi$——这就是 Gauss 与 Bonnet 在丛存在之前最初发现它的方式。
+在平坦平面上 $K=0$，所以诸角之和恰为 $\pi$——普通欧氏几何。在单位球面上 $K=1$，故 $\alpha+\beta+\gamma-\pi=\mathrm{Area}(T)>0$：球面三角形有等于其面积的角盈（一个有三个直角的三角形覆盖八分之一球面，面积 $\pi/2$，盈 $3\cdot\tfrac\pi2-\pi=\tfrac\pi2$ ✓）。在鞍面（$K<0$）上三角形是角*亏*的。把这个局部陈述沿一个三角剖分求和，内角在每个顶点拼成 $2\pi$，边界项叠缩相消，产生整体的 $\tfrac1{2\pi}\int_\Sigma K\,dA=\chi$——这就是 Gauss 与 Bonnet 在丛存在之前最初发现它的方式。
 
 那个宏大的推广把“$\chi$ 作为上同调的交错和”替换为“一个微分算子解空间维数的交错和”。
 
 > **定理（Atiyah–Singer 指标定理，陈述）。** 设 $D$ 是闭流形 $M$ 上的一个**椭圆微分算子**（椭圆：其最高阶部分在每个非零方向上可逆，这一条件保证核与余核有限维）。它的**分析指标**是
-> $$\operatorname{ind}_a(D)=\dim\ker D-\dim\operatorname{coker}D,$$
+> $$\mathrm{ind}_a(D)=\dim\ker D-\dim\mathrm{coker}D,$$
 > 即解的净数目。定理断言这个*分析*整数等于一个*拓扑*整数：
-> $$\operatorname{ind}_a(D)=\int_M \operatorname{ch}(\sigma D)\,\operatorname{Td}(TM),$$
-> 一个由 $D$ 的符号（其 Chern 特征 $\operatorname{ch}$）与流形的切丛（其 Todd 类 $\operatorname{Td}$）构造的示性类积分。
+> $$\mathrm{ind}_a(D)=\int_M \mathrm{ch}(\sigma D)\,\mathrm{Td}(TM),$$
+> 一个由 $D$ 的符号（其 Chern 特征 $\mathrm{ch}$）与流形的切丛（其 Todd 类 $\mathrm{Td}$）构造的示性类积分。
 
 Gauss–Bonnet 是 $D$ 为 de Rham 算子 $d+d^*$ 的特例：它的指标恰是 Betti 数的交错和，即 $\chi(M)$，而右端积分是 $\int_M e(TM)$。$D$ 的其他选取给出 Riemann–Roch 定理（全纯欧拉示性数）、符号定理（Hirzebruch 的 $L$ 亏格）以及自旋/Dirac 指标（$\hat A$ 亏格）——每一个都是一个“解的数目 $=$ 一个示性数”的恒等式。在物理中这是反常相消与瞬子计数背后的引擎。它是本指南那个单一思想的成熟形式：**局部分析数据，经积分，计算出一个整体拓扑不变量。**
 
 > **例题 —— 指标定理逐项重现 Gauss–Bonnet。** 取 $M$ 为闭定向曲面，$D=d+d^\ast:\Omega^{\mathrm{even}}\to\Omega^{\mathrm{odd}}$（按奇偶重新分组的 de Rham 算子）。由 **Hodge 理论**，$D$ 的核是偶调和形式，余核是奇调和形式，而调和形式代表上同调，所以
 > $$
-> \operatorname{ind}_a(D)=\big(b_0+b_2\big)-b_1=\sum_k(-1)^k b_k=\chi(M).
+> \mathrm{ind}_a(D)=\big(b_0+b_2\big)-b_1=\sum_k(-1)^k b_k=\chi(M).
 > $$
 > 对这个 $D$，Atiyah–Singer 的右端特化为欧拉类积分 $\int_M e(TM)=\tfrac1{2\pi}\int_M K\,dA$。把两端等同起来正是 Gauss–Bonnet。指标定理因而*包含*了本指南的高潮，并把“Betti 数的交错和”替换为“调和解的净计数”——分析再次等于拓扑。
 
 > **例题 —— 一个四维流形的符号。** 对闭定向四维流形 $M$，选 $D$ 为符号算子给出 Hirzebruch 的恒等式
 > $$
-> \operatorname{sign}(M)=\frac{1}{3}\int_M p_1(TM),
+> \mathrm{sign}(M)=\frac{1}{3}\int_M p_1(TM),
 > $$
-> 其中 $\operatorname{sign}(M)$ 是 $H^2(M)$ 上相交形式的符号（一个纯拓扑整数：$\#$正 $-$ $\#$负特征值），$p_1$ 是第一 Pontryagin 类（§s8）。对 $\mathbb{CP}^2$，$\operatorname{sign}=1$，而确实 $\tfrac13\int p_1=\tfrac13\cdot 3=1$（这里 $\int_{\mathbb{CP}^2}p_1=3$，因为总 Chern 类 $c(T\mathbb{CP}^2)=(1+h)^3$ 给出 $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$，且 $\int_{\mathbb{CP}^2}h^2=1$）。一个带符号的特征值计数等于一个曲率积分——同样的奇迹，升高一维。
+> 其中 $\mathrm{sign}(M)$ 是 $H^2(M)$ 上相交形式的符号（一个纯拓扑整数：$\#$正 $-$ $\#$负特征值），$p_1$ 是第一 Pontryagin 类（§s8）。对 $\mathbb{CP}^2$，$\mathrm{sign}=1$，而确实 $\tfrac13\int p_1=\tfrac13\cdot 3=1$（这里 $\int_{\mathbb{CP}^2}p_1=3$，因为总 Chern 类 $c(T\mathbb{CP}^2)=(1+h)^3$ 给出 $p_1=c_1^2-2c_2=9h^2-6h^2=3h^2$，且 $\int_{\mathbb{CP}^2}h^2=1$）。一个带符号的特征值计数等于一个曲率积分——同样的奇迹，升高一维。
 
 ---
 

@@ -91,38 +91,38 @@ $$X_1,\dots,X_n \ \text{i.i.d.}\ \sim f(x\mid\theta),\qquad \text{joint density 
 
 **样本均值的期望与方差**
 
-$$E[\bar X]=\mu,\qquad \operatorname{Var}(\bar X)=\frac{\sigma^2}{n},\qquad \text{SE}(\bar X)=\frac{\sigma}{\sqrt n}$$
+$$E[\bar X]=\mu,\qquad \mathrm{Var}(\bar X)=\frac{\sigma^2}{n},\qquad \text{SE}(\bar X)=\frac{\sigma}{\sqrt n}$$
 
-新符号：$E[\,\cdot\,]$ 是**期望值**（一个随机量的长期平均）；$\mu$（希腊字母“mu”）是总体均值 $E[X]$；$\operatorname{Var}$ 是**方差**（到均值的平方距离的平均，衡量离散程度）；$\sigma^2$（sigma 平方）是总体方差 $\operatorname{Var}(X)$；$\sigma$ 是**标准差**（方差的平方根）；SE 是**标准误**，即*估计量*的标准差。
+新符号：$E[\,\cdot\,]$ 是**期望值**（一个随机量的长期平均）；$\mu$（希腊字母“mu”）是总体均值 $E[X]$；$\mathrm{Var}$ 是**方差**（到均值的平方距离的平均，衡量离散程度）；$\sigma^2$（sigma 平方）是总体方差 $\mathrm{Var}(X)$；$\sigma$ 是**标准差**（方差的平方根）；SE 是**标准误**，即*估计量*的标准差。
 
 **演示 —— $\bar X$ 的期望与方差，每一步都有依据**
 
 1. 由定义 $\bar X=\frac1n\sum_{i=1}^n X_i$。
 2. 应用**期望的线性性质**（和的期望等于期望的和，且常数因子可以提出）：$E[\bar X]=\frac1n\sum_{i=1}^n E[X_i]$。
 3. 每个 $X_i$ 同分布，均值为 $\mu$，故对每个 $i$ 有 $E[X_i]=\mu$。把 $n$ 份 $\mu$ 加起来得 $\frac1n\cdot n\mu=\mu$。因此 $E[\bar X]=\mu$。
-4. 对于方差，使用这条规则：对**独立**变量，和的方差等于方差之和，且常数因子 $c$ 以平方形式提出：$\operatorname{Var}(cY)=c^2\operatorname{Var}(Y)$。取 $c=\frac1n$，
+4. 对于方差，使用这条规则：对**独立**变量，和的方差等于方差之和，且常数因子 $c$ 以平方形式提出：$\mathrm{Var}(cY)=c^2\mathrm{Var}(Y)$。取 $c=\frac1n$，
 
-   $$\operatorname{Var}(\bar X)=\operatorname{Var}\!\Big(\tfrac1n\sum_{i=1}^n X_i\Big)=\tfrac{1}{n^2}\sum_{i=1}^n \operatorname{Var}(X_i).$$
-5. 每个 $\operatorname{Var}(X_i)=\sigma^2$，把 $n$ 份相加得 $\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}$。取平方根得到标准误 $\sigma/\sqrt n$。
+   $$\mathrm{Var}(\bar X)=\mathrm{Var}\!\Big(\tfrac1n\sum_{i=1}^n X_i\Big)=\tfrac{1}{n^2}\sum_{i=1}^n \mathrm{Var}(X_i).$$
+5. 每个 $\mathrm{Var}(X_i)=\sigma^2$，把 $n$ 份相加得 $\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}$。取平方根得到标准误 $\sigma/\sqrt n$。
 
 *估计量 $\bar X$ 以真值为中心（$E[\bar X]=\mu$），并随 $n$ 增大而变得更集中（方差以 $1/n$ 缩小）——这是相合性（第 6 节）的种子。*
 
-**数值演算例子。** 设某总体均值 $\mu=10$，标准差 $\sigma=4$。取样本量 $n=16$。则 $E[\bar X]=10$ 且 $\operatorname{Var}(\bar X)=\frac{4^2}{16}=\frac{16}{16}=1$，故 $\text{SE}(\bar X)=\sqrt 1=1$。把样本量翻两番至 $n=64$ 将给出 $\text{SE}=4/\sqrt{64}=4/8=0.5$——要把误差减半，你必须把数据翻两番。
+**数值演算例子。** 设某总体均值 $\mu=10$，标准差 $\sigma=4$。取样本量 $n=16$。则 $E[\bar X]=10$ 且 $\mathrm{Var}(\bar X)=\frac{4^2}{16}=\frac{16}{16}=1$，故 $\text{SE}(\bar X)=\sqrt 1=1$。把样本量翻两番至 $n=64$ 将给出 $\text{SE}=4/\sqrt{64}=4/8=0.5$——要把误差减半，你必须把数据翻两番。
 
 **演示 —— 正态样本下 $\bar X$ 的抽样分布**
 
 1. 设 $X_i\ \text{i.i.d.}\ \sim N(\mu,\sigma^2)$。记号 $N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的**正态**（钟形曲线）分布。概率论中的一个标准事实是：独立正态变量的任意线性组合仍是正态的。由于 $\bar X$ 是一个线性组合（$\frac1n$ 乘以一个和），$\bar X$ 是正态的。
-2. 它的均值与方差已在上面算出：$E[\bar X]=\mu$，$\operatorname{Var}(\bar X)=\sigma^2/n$。一个正态分布完全由其均值与方差决定，所以
+2. 它的均值与方差已在上面算出：$E[\bar X]=\mu$，$\mathrm{Var}(\bar X)=\sigma^2/n$。一个正态分布完全由其均值与方差决定，所以
 
    $$\bar X\sim N\!\left(\mu,\ \frac{\sigma^2}{n}\right),\qquad Z=\frac{\bar X-\mu}{\sigma/\sqrt n}\sim N(0,1).$$
-3. 第 2 步中的变换，即减去均值再除以标准差，称为**标准化**；它把任意正态变为**标准正态** $N(0,1)$（均值 $0$，方差 $1$）。我们验证：$E[Z]=\frac{E[\bar X]-\mu}{\sigma/\sqrt n}=0$ 且 $\operatorname{Var}(Z)=\frac{\operatorname{Var}(\bar X)}{\sigma^2/n}=1$。
+3. 第 2 步中的变换，即减去均值再除以标准差，称为**标准化**；它把任意正态变为**标准正态** $N(0,1)$（均值 $0$，方差 $1$）。我们验证：$E[Z]=\frac{E[\bar X]-\mu}{\sigma/\sqrt n}=0$ 且 $\mathrm{Var}(Z)=\frac{\mathrm{Var}(\bar X)}{\sigma^2/n}=1$。
 4. 对于非正态总体，**中心极限定理（CLT）**给出相同的极限形式：当 $n\to\infty$ 时 $Z\xrightarrow{d}N(0,1)$。箭头 $\xrightarrow{d}$ 表示“依分布收敛”——对大 $n$，无论总体形状如何，$Z$ 的分布都近似为标准正态。
 
 *对正态精确，一般情形下渐近成立——这一单个分布支撑起 C 部分的 $z$ 区间与 $t$ 区间。*
 
 > **联系 —— 概率论指南（CLT 与 MGF）**
 >
-> 对正态数据 $\bar X$ 是正态的，否则渐近正态——这正是那里用矩母函数（MGF）证明的 CLT。抽样分布无非是随机变量的变换；概率论中 $E$、$\operatorname{Var}$ 与 MGF 的代数运算就是工具箱。
+> 对正态数据 $\bar X$ 是正态的，否则渐近正态——这正是那里用矩母函数（MGF）证明的 CLT。抽样分布无非是随机变量的变换；概率论中 $E$、$\mathrm{Var}$ 与 MGF 的代数运算就是工具箱。
 
 #### 常见误区
 
@@ -262,7 +262,7 @@ $$\text{set } \mu_k(\theta)=E_\theta[X^k] \ \text{equal to}\ m_k=\frac1n\sum_{i=
 
 1. **泊松($\lambda$)。** 泊松分布对稀有事件计数，并具有性质 $E[X]=\lambda$（它唯一的参数也是其均值）。把第一理论矩 $\lambda$ 与第一经验矩 $\bar X$ 相匹配给出一个方程 $\lambda=\bar X$，故 $\hat\lambda_{\text{MoM}}=\bar X$。
 2. **伯努利($p$)。** 此处 $E[X]=p$。与 $\bar X$ 匹配给出 $\hat p_{\text{MoM}}=\bar X$——成功的样本比例。
-3. **正态($\mu,\sigma^2$)。** 两个未知量，所以我们需要两个方程。第一矩 $E[X]=\mu$ 与 $\bar X$ 匹配给出 $\hat\mu=\bar X$。第二矩是 $E[X^2]=\operatorname{Var}(X)+(E[X])^2=\sigma^2+\mu^2$（使用恒等式 $\operatorname{Var}(X)=E[X^2]-(E[X])^2$ 整理而得）。把它与 $\frac1n\sum X_i^2$ 匹配：
+3. **正态($\mu,\sigma^2$)。** 两个未知量，所以我们需要两个方程。第一矩 $E[X]=\mu$ 与 $\bar X$ 匹配给出 $\hat\mu=\bar X$。第二矩是 $E[X^2]=\mathrm{Var}(X)+(E[X])^2=\sigma^2+\mu^2$（使用恒等式 $\mathrm{Var}(X)=E[X^2]-(E[X])^2$ 整理而得）。把它与 $\frac1n\sum X_i^2$ 匹配：
 
    $$\sigma^2+\mu^2=\frac1n\sum_{i=1}^n X_i^2 \ \Rightarrow\ \hat\sigma^2_{\text{MoM}}=\frac1n\sum_{i=1}^n X_i^2-\hat\mu^2=\frac1n\sum_{i=1}^n X_i^2-\bar X^2.$$
 4. 最后，代数恒等式 $\frac1n\sum X_i^2-\bar X^2=\frac1n\sum (X_i-\bar X)^2$（展开右边即可证明：$\frac1n\sum(X_i^2-2X_i\bar X+\bar X^2)=\frac1n\sum X_i^2-2\bar X\cdot\bar X+\bar X^2=\frac1n\sum X_i^2-\bar X^2$）让我们可以写成
@@ -355,9 +355,9 @@ $$\sqrt n\,(\hat\theta_{\text{MLE}}-\theta)\ \xrightarrow{d}\ N\!\Big(0,\ \frac{
 
 **偏差、方差与均方误差**
 
-$$\operatorname{Bias}(\hat\theta)=E[\hat\theta]-\theta,\qquad \operatorname{MSE}(\hat\theta)=E\big[(\hat\theta-\theta)^2\big]$$
+$$\mathrm{Bias}(\hat\theta)=E[\hat\theta]-\theta,\qquad \mathrm{MSE}(\hat\theta)=E\big[(\hat\theta-\theta)^2\big]$$
 
-$$\operatorname{MSE}(\hat\theta)=\operatorname{Var}(\hat\theta)+\big[\operatorname{Bias}(\hat\theta)\big]^2$$
+$$\mathrm{MSE}(\hat\theta)=\mathrm{Var}(\hat\theta)+\big[\mathrm{Bias}(\hat\theta)\big]^2$$
 
 用文字说：偏差是估计量的平均落点离真值有多远；MSE 是平均的平方偏差；而 MSE 恰好分裂为散布加偏移平方。
 
@@ -372,30 +372,30 @@ $$\operatorname{MSE}(\hat\theta)=\operatorname{Var}(\hat\theta)+\big[\operatorna
 
    这里 $(E\hat\theta-\theta)$ 是常数，所以它在交叉项中可以从期望里提出。
 3. 交叉项消失，因为 $E[\hat\theta-E\hat\theta]=E[\hat\theta]-E[\hat\theta]=0$（对均值的偏离的均值为零）。
-4. 剩下的是 $E[(\hat\theta-E\hat\theta)^2]$，这是**方差的定义** $\operatorname{Var}(\hat\theta)$，加上 $(E\hat\theta-\theta)^2$，即 $\operatorname{Bias}(\hat\theta)^2$。因此 $\operatorname{MSE}=\operatorname{Var}+\operatorname{Bias}^2$。
+4. 剩下的是 $E[(\hat\theta-E\hat\theta)^2]$，这是**方差的定义** $\mathrm{Var}(\hat\theta)$，加上 $(E\hat\theta-\theta)^2$，即 $\mathrm{Bias}(\hat\theta)^2$。因此 $\mathrm{MSE}=\mathrm{Var}+\mathrm{Bias}^2$。
 
-*同样的“加上又减去均值”手法也是恒等式 $\operatorname{Var}(X)=E[X^2]-(E[X])^2$ 的基础。*
+*同样的“加上又减去均值”手法也是恒等式 $\mathrm{Var}(X)=E[X^2]-(E[X])^2$ 的基础。*
 
 **演示 —— 正态方差的 MLE 是有偏的，及其 MSE**
 
 1. 回顾第 5 节，$\hat\sigma^2_{\text{MLE}}=\frac1n\sum(X_i-\bar X)^2$。定义**无偏样本方差** $S^2=\frac{1}{n-1}\sum(X_i-\bar X)^2$。比较两者，$\hat\sigma^2_{\text{MLE}}=\frac{n-1}{n}S^2$（因为 $\frac{1}{n}=\frac{n-1}{n}\cdot\frac{1}{n-1}$）。
-2. 正态数据的一个关键抽样事实（在概率论指南中证明）：$\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$，其中 $\chi^2_{n-1}$ 是**自由度为 $n-1$ 的卡方分布**——$n-1$ 个独立标准正态的平方和的分布，其均值为 $n-1$，方差为 $2(n-1)$。由此 $E[S^2]=\sigma^2$（所以 $S^2$ 无偏）且 $\operatorname{Var}(S^2)=\frac{2\sigma^4}{n-1}$（重标度：$\operatorname{Var}(S^2)=(\frac{\sigma^2}{n-1})^2\operatorname{Var}(\chi^2_{n-1})=\frac{\sigma^4}{(n-1)^2}\cdot 2(n-1)=\frac{2\sigma^4}{n-1}$）。
+2. 正态数据的一个关键抽样事实（在概率论指南中证明）：$\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$，其中 $\chi^2_{n-1}$ 是**自由度为 $n-1$ 的卡方分布**——$n-1$ 个独立标准正态的平方和的分布，其均值为 $n-1$，方差为 $2(n-1)$。由此 $E[S^2]=\sigma^2$（所以 $S^2$ 无偏）且 $\mathrm{Var}(S^2)=\frac{2\sigma^4}{n-1}$（重标度：$\mathrm{Var}(S^2)=(\frac{\sigma^2}{n-1})^2\mathrm{Var}(\chi^2_{n-1})=\frac{\sigma^4}{(n-1)^2}\cdot 2(n-1)=\frac{2\sigma^4}{n-1}$）。
 3. 对第 1 步取期望：$E[\hat\sigma^2_{\text{MLE}}]=\frac{n-1}{n}E[S^2]=\frac{n-1}{n}\sigma^2$。因此
 
-   $$\operatorname{Bias}=\frac{n-1}{n}\sigma^2-\sigma^2=-\frac{\sigma^2}{n}.$$
+   $$\mathrm{Bias}=\frac{n-1}{n}\sigma^2-\sigma^2=-\frac{\sigma^2}{n}.$$
 
    偏差为负：MLE 平均而言*低*估了方差。
-4. 方差：$\operatorname{Var}(\hat\sigma^2_{\text{MLE}})=\big(\tfrac{n-1}{n}\big)^2\operatorname{Var}(S^2)=\big(\tfrac{n-1}{n}\big)^2\frac{2\sigma^4}{n-1}=\frac{2(n-1)\sigma^4}{n^2}$。加上偏差平方 $\big(\frac{\sigma^2}{n}\big)^2=\frac{\sigma^4}{n^2}$：
+4. 方差：$\mathrm{Var}(\hat\sigma^2_{\text{MLE}})=\big(\tfrac{n-1}{n}\big)^2\mathrm{Var}(S^2)=\big(\tfrac{n-1}{n}\big)^2\frac{2\sigma^4}{n-1}=\frac{2(n-1)\sigma^4}{n^2}$。加上偏差平方 $\big(\frac{\sigma^2}{n}\big)^2=\frac{\sigma^4}{n^2}$：
 
-   $$\operatorname{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2(n-1)\sigma^4}{n^2}+\frac{\sigma^4}{n^2}=\frac{(2n-1)\,\sigma^4}{n^2}.$$
+   $$\mathrm{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2(n-1)\sigma^4}{n^2}+\frac{\sigma^4}{n^2}=\frac{(2n-1)\,\sigma^4}{n^2}.$$
 
 *引人注目的是，$\hat\sigma^2_{\text{MLE}}$ 的 MSE 比无偏的 $S^2$（其 MSE 即其方差 $2\sigma^4/(n-1)$）**更小**：这是接受一点偏差以降低总误差的教科书案例。*
 
-**数值演算例子。** 设 $\sigma^2=1$ 且 $n=5$。则 $\operatorname{MSE}(S^2)=\frac{2}{4}=0.5$，而 $\operatorname{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2\cdot5-1}{25}=\frac{9}{25}=0.36$。这里有偏的 MLE 在 MSE 上胜出。
+**数值演算例子。** 设 $\sigma^2=1$ 且 $n=5$。则 $\mathrm{MSE}(S^2)=\frac{2}{4}=0.5$，而 $\mathrm{MSE}(\hat\sigma^2_{\text{MLE}})=\frac{2\cdot5-1}{25}=\frac{9}{25}=0.36$。这里有偏的 MLE 在 MSE 上胜出。
 
 > **原理 —— 相合性**
 >
-> 若当 $n\to\infty$ 时 $\hat\theta_n\xrightarrow{p}\theta$（箭头 $\xrightarrow{p}$ 表示“依概率收敛”：对任意微小容差，偏离 $\theta$ 超过该容差的概率趋于 $0$），则估计量是**相合的**。一个充分条件是 $\operatorname{MSE}(\hat\theta_n)\to 0$（均方相合），它通过**切比雪夫不等式** $P(|\hat\theta-\theta|\ge\varepsilon)\le \operatorname{MSE}/\varepsilon^2$ 强制依概率收敛。有偏与无偏的方差估计量都是相合的，因为它们的偏差（$\sim 1/n$）与方差（$\sim 1/n$）都趋于零——偏差在小样本中要紧，在极限下不要紧。
+> 若当 $n\to\infty$ 时 $\hat\theta_n\xrightarrow{p}\theta$（箭头 $\xrightarrow{p}$ 表示“依概率收敛”：对任意微小容差，偏离 $\theta$ 超过该容差的概率趋于 $0$），则估计量是**相合的**。一个充分条件是 $\mathrm{MSE}(\hat\theta_n)\to 0$（均方相合），它通过**切比雪夫不等式** $P(|\hat\theta-\theta|\ge\varepsilon)\le \mathrm{MSE}/\varepsilon^2$ 强制依概率收敛。有偏与无偏的方差估计量都是相合的，因为它们的偏差（$\sim 1/n$）与方差（$\sim 1/n$）都趋于零——偏差在小样本中要紧，在极限下不要紧。
 
 > **联系 —— 入门指南中的 $n-1$ 终于得到解释**
 >
@@ -445,24 +445,24 @@ $$I_n(\theta)=n\,I_1(\theta)\quad\text{(information adds over i.i.d. observation
 
 **Cramér–Rao 下界（CRLB）**
 
-$$\text{for any unbiased }\hat\theta:\qquad \operatorname{Var}(\hat\theta)\ \ge\ \frac{1}{I_n(\theta)}=\frac{1}{n\,I_1(\theta)}$$
+$$\text{for any unbiased }\hat\theta:\qquad \mathrm{Var}(\hat\theta)\ \ge\ \frac{1}{I_n(\theta)}=\frac{1}{n\,I_1(\theta)}$$
 
 *没有无偏估计量能击败这一方差。达到它的估计量是**有效的**；其**相对效率**是界与其实际方差之比（一个介于 $0$ 与 $1$ 之间的数，$1$ 表示完全有效）。*
 
 **演示 —— Cramér–Rao 界**
 
-1. 设 $\hat\theta$ 无偏，并设 $U=U(\theta)$ 为得分，有 $E[U]=0$（第 3 节）且 $\operatorname{Var}(U)=I_n(\theta)$（信息作为得分方差的定义）。
-2. 我们证明 $\operatorname{Cov}(\hat\theta,U)=1$。从无偏性 $E[\hat\theta]=\int \hat\theta(\mathbf x) f(\mathbf x\mid\theta)\,d\mathbf x=\theta$ 出发。对 $\theta$ 求导（正则性允许移入）：$\int \hat\theta\,\partial_\theta f\,d\mathbf x=1$。代入 $\partial_\theta f=f\,U$（对数导数恒等式）：$\int \hat\theta\,U\,f\,d\mathbf x = E[\hat\theta U]=1$。由于 $E[U]=0$，协方差为 $\operatorname{Cov}(\hat\theta,U)=E[\hat\theta U]-E[\hat\theta]E[U]=1-0=1$。
-3. 对协方差应用 **Cauchy–Schwarz 不等式** $\operatorname{Cov}(A,B)^2\le\operatorname{Var}(A)\operatorname{Var}(B)$（协方差永不超过散布之积）。取 $A=\hat\theta$，$B=U$：
+1. 设 $\hat\theta$ 无偏，并设 $U=U(\theta)$ 为得分，有 $E[U]=0$（第 3 节）且 $\mathrm{Var}(U)=I_n(\theta)$（信息作为得分方差的定义）。
+2. 我们证明 $\mathrm{Cov}(\hat\theta,U)=1$。从无偏性 $E[\hat\theta]=\int \hat\theta(\mathbf x) f(\mathbf x\mid\theta)\,d\mathbf x=\theta$ 出发。对 $\theta$ 求导（正则性允许移入）：$\int \hat\theta\,\partial_\theta f\,d\mathbf x=1$。代入 $\partial_\theta f=f\,U$（对数导数恒等式）：$\int \hat\theta\,U\,f\,d\mathbf x = E[\hat\theta U]=1$。由于 $E[U]=0$，协方差为 $\mathrm{Cov}(\hat\theta,U)=E[\hat\theta U]-E[\hat\theta]E[U]=1-0=1$。
+3. 对协方差应用 **Cauchy–Schwarz 不等式** $\mathrm{Cov}(A,B)^2\le\mathrm{Var}(A)\mathrm{Var}(B)$（协方差永不超过散布之积）。取 $A=\hat\theta$，$B=U$：
 
-   $$1=\operatorname{Cov}(\hat\theta,U)^2\le \operatorname{Var}(\hat\theta)\,\operatorname{Var}(U)=\operatorname{Var}(\hat\theta)\,I_n(\theta).$$
+   $$1=\mathrm{Cov}(\hat\theta,U)^2\le \mathrm{Var}(\hat\theta)\,\mathrm{Var}(U)=\mathrm{Var}(\hat\theta)\,I_n(\theta).$$
 4. 两边除以 $I_n(\theta)>0$：
 
-   $$\operatorname{Var}(\hat\theta)\ge\frac{1}{I_n(\theta)}.$$
+   $$\mathrm{Var}(\hat\theta)\ge\frac{1}{I_n(\theta)}.$$
 
-*示例：对伯努利，$\hat p=\bar X$ 有 $\operatorname{Var}(\bar X)=\frac{p(1-p)}{n}$（第 1 节，因为对伯努利 $\operatorname{Var}(X)=p(1-p)$）。界是 $\frac{1}{I_n(p)}=\frac{p(1-p)}{n}$——两者相等，所以 $\bar X$ 达到下限，是**有效的**。*
+*示例：对伯努利，$\hat p=\bar X$ 有 $\mathrm{Var}(\bar X)=\frac{p(1-p)}{n}$（第 1 节，因为对伯努利 $\mathrm{Var}(X)=p(1-p)$）。界是 $\frac{1}{I_n(p)}=\frac{p(1-p)}{n}$——两者相等，所以 $\bar X$ 达到下限，是**有效的**。*
 
-**数值演算例子。** 当 $p=0.5$ 且 $n=100$ 时，$I_n=\frac{100}{0.5\cdot0.5}=400$，所以 CRLB 是 $1/400=0.0025$，而确实 $\operatorname{Var}(\bar X)=\frac{0.25}{100}=0.0025$。标准误是 $\sqrt{0.0025}=0.05$。
+**数值演算例子。** 当 $p=0.5$ 且 $n=100$ 时，$I_n=\frac{100}{0.5\cdot0.5}=400$，所以 CRLB 是 $1/400=0.0025$，而确实 $\mathrm{Var}(\bar X)=\frac{0.25}{100}=0.0025$。标准误是 $\sqrt{0.0025}=0.05$。
 
 > **联系 —— 曲率、微积分与 MLE**
 >
@@ -484,12 +484,12 @@ $$\text{for any unbiased }\hat\theta:\qquad \operatorname{Var}(\hat\theta)\ \ge\
 
 **Rao–Blackwell 定理**
 
-$$\text{if } E[\tilde\theta]=\theta \text{ and } T \text{ is sufficient, then } \hat\theta=E[\tilde\theta\mid T] \text{ satisfies } E[\hat\theta]=\theta,\quad \operatorname{Var}(\hat\theta)\le \operatorname{Var}(\tilde\theta)$$
+$$\text{if } E[\tilde\theta]=\theta \text{ and } T \text{ is sufficient, then } \hat\theta=E[\tilde\theta\mid T] \text{ satisfies } E[\hat\theta]=\theta,\quad \mathrm{Var}(\hat\theta)\le \mathrm{Var}(\tilde\theta)$$
 
 **演示 —— 为什么 Rao–Blackwell 有效**
 
 1. **无偏性被保持。** **全期望律**说 $E\big[E[\tilde\theta\mid T]\big]=E[\tilde\theta]$。由于 $\hat\theta=E[\tilde\theta\mid T]$，这给出 $E[\hat\theta]=E[\tilde\theta]=\theta$。
-2. **方差不增加。** **全方差律**陈述 $\operatorname{Var}(\tilde\theta)=\operatorname{Var}\big(E[\tilde\theta\mid T]\big)+E\big[\operatorname{Var}(\tilde\theta\mid T)\big]$。第一项是 $\operatorname{Var}(\hat\theta)$；第二项是方差的平均，因此 $\ge 0$。去掉一个非负项，$\operatorname{Var}(\tilde\theta)\ge\operatorname{Var}(\hat\theta)$。
+2. **方差不增加。** **全方差律**陈述 $\mathrm{Var}(\tilde\theta)=\mathrm{Var}\big(E[\tilde\theta\mid T]\big)+E\big[\mathrm{Var}(\tilde\theta\mid T)\big]$。第一项是 $\mathrm{Var}(\hat\theta)$；第二项是方差的平均，因此 $\ge 0$。去掉一个非负项，$\mathrm{Var}(\tilde\theta)\ge\mathrm{Var}(\hat\theta)$。
 3. **为什么 $T$ 必须充分。** 若 $T$ 不充分，$E[\tilde\theta\mid T]$ 仍可能（通过条件分布）依赖于未知的 $\theta$，使它不可计算且不是有效统计量。充分性保证条件分布不含 $\theta$，所以 $\hat\theta$ 是一个真正的估计量。
 
 **演示 —— 对一个粗糙的泊松估计量做 Rao–Blackwell 化**
@@ -675,9 +675,9 @@ $$\Lambda=\frac{\sup_{\theta\in\Theta_0} L(\theta)}{\sup_{\theta\in\Theta} L(\th
 
 **Wald 与得分（Rao）检验**
 
-$$W=\frac{(\hat\theta-\theta_0)^2}{\widehat{\operatorname{Var}}(\hat\theta)}=I_n(\hat\theta)\,(\hat\theta-\theta_0)^2,\qquad R=\frac{U(\theta_0)^2}{I_n(\theta_0)}$$
+$$W=\frac{(\hat\theta-\theta_0)^2}{\widehat{\mathrm{Var}}(\hat\theta)}=I_n(\hat\theta)\,(\hat\theta-\theta_0)^2,\qquad R=\frac{U(\theta_0)^2}{I_n(\theta_0)}$$
 
-*两个统计量都 $\xrightarrow{d}\chi^2_r$。**Wald** 检验使用 MLE $\hat\theta$ 及那里的曲率（$\widehat{\operatorname{Var}}(\hat\theta)=1/I_n(\hat\theta)$，来自第 7 节）；**得分**检验使用 $\ell$ 在 $\theta_0$ 处的斜率 $U(\theta_0)$，根本不需要 MLE。LRT、Wald 与得分渐近一致。*
+*两个统计量都 $\xrightarrow{d}\chi^2_r$。**Wald** 检验使用 MLE $\hat\theta$ 及那里的曲率（$\widehat{\mathrm{Var}}(\hat\theta)=1/I_n(\hat\theta)$，来自第 7 节）；**得分**检验使用 $\ell$ 在 $\theta_0$ 处的斜率 $U(\theta_0)$，根本不需要 MLE。LRT、Wald 与得分渐近一致。*
 
 **数值演算例子（Wald，伯努利）。** 从 $n=100$ 次抛掷得 $40$ 次正面检验 $H_0:p=0.5$，所以 $\hat p=0.4$。MLE 处的信息是 $I_n(\hat p)=\frac{n}{\hat p(1-\hat p)}=\frac{100}{0.4\cdot0.6}=416.67$。则 $W=416.67\times(0.4-0.5)^2=416.67\times0.01=4.17>3.84$，所以在 5% 水平拒绝。
 
@@ -940,11 +940,11 @@ $$\sqrt n\,(\hat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)\ \Longrightarrow\ \sq
 
 1. 把 $g$ 在 $\theta$ 处**Taylor 展开**到一阶（微积分事实：光滑函数在局部被其切线很好地逼近）：$g(\hat\theta)\approx g(\theta)+g'(\theta)(\hat\theta-\theta)$。误差是 $(\hat\theta-\theta)^2$ 阶的，当 $\hat\theta\to\theta$ 时相对于线性项可忽略。
 2. 减去 $g(\theta)$ 并乘以 $\sqrt n$：$\sqrt n\,(g(\hat\theta)-g(\theta))\approx g'(\theta)\cdot\sqrt n\,(\hat\theta-\theta)$。
-3. 由假设 $\sqrt n(\hat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$。把一个收敛到 $N(0,\sigma^2)$ 的量乘以常数 $g'(\theta)$ 会把它的方差按 $[g'(\theta)]^2$ 缩放（回顾 $\operatorname{Var}(cY)=c^2\operatorname{Var}(Y)$，第 1 节）。由 **Slutsky 定理**（它让我们把一个依分布收敛的序列与常数结合），右边 $\xrightarrow{d}N(0,[g'(\theta)]^2\sigma^2)$，左边也如此。
+3. 由假设 $\sqrt n(\hat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$。把一个收敛到 $N(0,\sigma^2)$ 的量乘以常数 $g'(\theta)$ 会把它的方差按 $[g'(\theta)]^2$ 缩放（回顾 $\mathrm{Var}(cY)=c^2\mathrm{Var}(Y)$，第 1 节）。由 **Slutsky 定理**（它让我们把一个依分布收敛的序列与常数结合），右边 $\xrightarrow{d}N(0,[g'(\theta)]^2\sigma^2)$，左边也如此。
 
 *这就是如何为比值、率以及其他变换参数得到标准误的。*
 
-**数值演算例子。** 设 $\hat p=0.4$ 来自 $n=100$，其中 $\operatorname{Var}(\hat p)=\frac{p(1-p)}{n}\approx\frac{0.4\cdot0.6}{100}=0.0024$。我们想要**对数比值** $g(p)=\log\frac{p}{1-p}$ 的标准误。它的导数是 $g'(p)=\frac{1}{p(1-p)}=\frac{1}{0.24}\approx 4.167$。由 delta 方法，$\operatorname{Var}(g(\hat p))\approx [g'(\hat p)]^2\operatorname{Var}(\hat p)=4.167^2\times 0.0024\approx 0.0417$，所以对数比值的标准误是 $\sqrt{0.0417}\approx 0.204$。
+**数值演算例子。** 设 $\hat p=0.4$ 来自 $n=100$，其中 $\mathrm{Var}(\hat p)=\frac{p(1-p)}{n}\approx\frac{0.4\cdot0.6}{100}=0.0024$。我们想要**对数比值** $g(p)=\log\frac{p}{1-p}$ 的标准误。它的导数是 $g'(p)=\frac{1}{p(1-p)}=\frac{1}{0.24}\approx 4.167$。由 delta 方法，$\mathrm{Var}(g(\hat p))\approx [g'(\hat p)]^2\mathrm{Var}(\hat p)=4.167^2\times 0.0024\approx 0.0417$，所以对数比值的标准误是 $\sqrt{0.0417}\approx 0.204$。
 
 > **原理 —— MLE 的渐近至上性**
 >

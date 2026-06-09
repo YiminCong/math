@@ -247,7 +247,7 @@ This follows directly from multilinearity and the basis transformation laws of s
 - **Contraction** sets one upper and one lower index equal and sums, lowering the type by $(1,1)$. E.g. from $T^\mu{}_\nu$ the **trace** $T^\mu{}_\mu$ is a scalar, invariant under coordinate change (the Jacobians cancel as in s3).
 - **Raising and lowering** indices uses the metric (next section): $V_\mu = g_{\mu\nu}V^\nu$ lowers, $V^\mu = g^{\mu\nu}V_\nu$ raises, where $g^{\mu\nu}$ is the inverse metric. These are coordinate-free because $g$ is a tensor.
 
-> **Common pitfall.** The components $\partial_\mu f$ of $df$ form a covector (lower index), *not* a vector, even though we call it "the gradient." Turning it into a vector (the direction of steepest ascent) requires the metric to raise the index: $(\operatorname{grad} f)^\mu = g^{\mu\nu}\partial_\nu f$. In flat Cartesian space $g^{\mu\nu}=\delta^{\mu\nu}$, so the distinction is invisible — which is why it is so often missed.
+> **Common pitfall.** The components $\partial_\mu f$ of $df$ form a covector (lower index), *not* a vector, even though we call it "the gradient." Turning it into a vector (the direction of steepest ascent) requires the metric to raise the index: $(\mathrm{grad} f)^\mu = g^{\mu\nu}\partial_\nu f$. In flat Cartesian space $g^{\mu\nu}=\delta^{\mu\nu}$, so the distinction is invisible — which is why it is so often missed.
 
 <a id="s5"></a>
 ### The metric tensor — lengths, angles, and index gymnastics
@@ -342,7 +342,7 @@ Every $k$-form is $\omega = \tfrac{1}{k!}\,\omega_{\mu_1\cdots\mu_k}\,dx^{\mu_1}
 4. A sum over all $\mu,\nu$ of (symmetric in $\mu\nu$) times (antisymmetric in $\mu\nu$) is zero: swapping the dummy names $\mu\leftrightarrow\nu$ leaves the symmetric factor unchanged but flips the antisymmetric one, so the sum equals its own negative, hence is $0$. Concretely $\sum_{\mu,\nu}\partial_\nu\partial_\mu f\,dx^\nu\wedge dx^\mu = \tfrac12\sum_{\mu,\nu}(\partial_\nu\partial_\mu f-\partial_\mu\partial_\nu f)\,dx^\nu\wedge dx^\mu = 0$.
 5. For a general $k$-form the extra exterior factors $dx^{\mu_1}\wedge\cdots$ ride along unchanged, and the same symmetric-times-antisymmetric cancellation in the two new derivative indices gives $d(d\omega)=0$. $\blacksquare$
 
-> **Connection to vector calculus.** In $\mathbb{R}^3$: $d$ on a $0$-form is $\operatorname{grad}$; on a $1$-form it is $\operatorname{curl}$; on a $2$-form it is $\operatorname{div}$. Then $d^2=0$ encodes the two classical identities $\operatorname{curl}\,\operatorname{grad}=0$ and $\operatorname{div}\,\operatorname{curl}=0$ at once. This is why forms are the natural language.
+> **Connection to vector calculus.** In $\mathbb{R}^3$: $d$ on a $0$-form is $\mathrm{grad}$; on a $1$-form it is $\mathrm{curl}$; on a $2$-form it is $\mathrm{div}$. Then $d^2=0$ encodes the two classical identities $\mathrm{curl}\,\mathrm{grad}=0$ and $\mathrm{div}\,\mathrm{curl}=0$ at once. This is why forms are the natural language.
 
 <a id="s7"></a>
 ### Integration of forms and the general Stokes' theorem

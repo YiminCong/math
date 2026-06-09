@@ -50,25 +50,25 @@ Before axioms we need the alphabet. Everything in a vertex algebra is built from
 
 #### Formal distributions
 
-Fix a vector space $V$ over the complex numbers $\mathbb{C}$, and let $\operatorname{End}V$ denote the space of linear maps $V\to V$ (its "endomorphisms" — the operators).
+Fix a vector space $V$ over the complex numbers $\mathbb{C}$, and let $\mathrm{End}V$ denote the space of linear maps $V\to V$ (its "endomorphisms" — the operators).
 
-> **Definition — formal distribution.** A **formal distribution** in the variable $z$ with values in $\operatorname{End}V$ is a doubly infinite series
+> **Definition — formal distribution.** A **formal distribution** in the variable $z$ with values in $\mathrm{End}V$ is a doubly infinite series
 > $$
-> a(z)\;=\;\sum_{n\in\mathbb{Z}} a_{(n)}\,z^{-n-1},\qquad a_{(n)}\in\operatorname{End}V.
+> a(z)\;=\;\sum_{n\in\mathbb{Z}} a_{(n)}\,z^{-n-1},\qquad a_{(n)}\in\mathrm{End}V.
 > $$
-> The space of all such is written $(\operatorname{End}V)[[z,z^{-1}]]$. The number $a_{(n)}$ is the **$n$-th mode** of $a(z)$. The peculiar exponent $-n-1$ is a convention chosen so that $a_{(n)}$ is recovered by a formal residue (defined below); it makes later formulas clean.
+> The space of all such is written $(\mathrm{End}V)[[z,z^{-1}]]$. The number $a_{(n)}$ is the **$n$-th mode** of $a(z)$. The peculiar exponent $-n-1$ is a convention chosen so that $a_{(n)}$ is recovered by a formal residue (defined below); it makes later formulas clean.
 
 The double square brackets mean "all coefficients allowed, both positive and negative powers, no convergence required." We *cannot* in general multiply two such series (the coefficient of a given power would be an infinite sum). Multiplication is only defined under the field condition next.
 
 > **Definition — formal residue.** The **residue** of a formal distribution is the coefficient of $z^{-1}$:
 > $$
-> \operatorname{Res}_z a(z)\;=\;a_{(0)}.
+> \mathrm{Res}_z a(z)\;=\;a_{(0)}.
 > $$
-> This is the algebraic analogue of $\frac1{2\pi i}\oint a(z)\,dz$ from contour integration (see [Complex Analysis](../complex-analysis/complex-analysis.md): the contour integral of a Laurent series picks out the $z^{-1}$ coefficient). We use $\operatorname{Res}$ purely formally — no contour, no convergence.
+> This is the algebraic analogue of $\frac1{2\pi i}\oint a(z)\,dz$ from contour integration (see [Complex Analysis](../complex-analysis/complex-analysis.md): the contour integral of a Laurent series picks out the $z^{-1}$ coefficient). We use $\mathrm{Res}$ purely formally — no contour, no convergence.
 
 #### Fields
 
-> **Definition — field.** A formal distribution $a(z)=\sum_n a_{(n)} z^{-n-1}\in(\operatorname{End}V)[[z,z^{-1}]]$ is a **field** on $V$ if for every vector $v\in V$ only finitely many *positive*-mode terms act nontrivially:
+> **Definition — field.** A formal distribution $a(z)=\sum_n a_{(n)} z^{-n-1}\in(\mathrm{End}V)[[z,z^{-1}]]$ is a **field** on $V$ if for every vector $v\in V$ only finitely many *positive*-mode terms act nontrivially:
 > $$
 > a_{(n)}\,v=0\quad\text{for all }n\text{ sufficiently large (depending on }v).
 > $$
@@ -88,13 +88,13 @@ It is a formal distribution in $z$ and $w$ together. Its defining property is th
 
 > **Lemma (sifting).** For any field $a(z)$,
 > $$
-> \operatorname{Res}_z\,a(z)\,\delta(z-w)\;=\;a(w).
+> \mathrm{Res}_z\,a(z)\,\delta(z-w)\;=\;a(w).
 > $$
 
 *Proof.*
 1. Write $a(z)=\sum_m a_{(m)} z^{-m-1}$ and $\delta(z-w)=\sum_n z^{-n-1}w^n$. *(Definitions.)*
 2. Their product, collecting powers, is $\sum_{m,n} a_{(m)}\, z^{-m-1}z^{-n-1} w^n=\sum_{m,n} a_{(m)} w^n z^{-m-n-2}$. *(Multiply series; this is legal here because for each fixed power of $z$ the $w$-coefficient is a single operator, no infinite sum arises.)*
-3. Take $\operatorname{Res}_z$, i.e. keep the coefficient of $z^{-1}$. This requires $-m-n-2=-1$, i.e. $m=-n-1$. *(Definition of residue.)*
+3. Take $\mathrm{Res}_z$, i.e. keep the coefficient of $z^{-1}$. This requires $-m-n-2=-1$, i.e. $m=-n-1$. *(Definition of residue.)*
 4. Substituting $m=-n-1$ leaves $\sum_n a_{(-n-1)} w^n=\sum_n a_{(-n-1)} w^n$. Reindex $k=-n-1$, so $n=-k-1$: $\sum_k a_{(k)} w^{-k-1}=a(w)$. *(Reindexing a sum over all integers, allowed.)*
 $\blacksquare$
 
@@ -157,16 +157,16 @@ We now write the definition. A vertex algebra packages a vector space of **state
 > - $V$ is a $\mathbb{C}$-vector space, the **space of states**;
 > - $|0\rangle\in V$ is the **vacuum vector**, a distinguished state;
 > - $T:V\to V$ is a linear map, the **translation operator** (also called the **infinitesimal translation**);
-> - $Y(\cdot,z):V\to(\operatorname{End}V)[[z,z^{-1}]]$ is the **state–field correspondence**, sending each state $A\in V$ to a field
+> - $Y(\cdot,z):V\to(\mathrm{End}V)[[z,z^{-1}]]$ is the **state–field correspondence**, sending each state $A\in V$ to a field
 > $$
-> Y(A,z)=\sum_{n\in\mathbb{Z}} A_{(n)}\,z^{-n-1},\qquad A_{(n)}\in\operatorname{End}V,
+> Y(A,z)=\sum_{n\in\mathbb{Z}} A_{(n)}\,z^{-n-1},\qquad A_{(n)}\in\mathrm{End}V,
 > $$
 > called the **vertex operator** of $A$;
 >
 > subject to the axioms:
 >
 > 1. **(Field axiom)** For every $A$, $Y(A,z)$ is a field: $A_{(n)}B=0$ for $n$ large (depending on $A,B$).
-> 2. **(Vacuum axiom)** $Y(|0\rangle,z)=\operatorname{id}_V$ (the identity field, all modes zero except the constant term), and for every $A$,
+> 2. **(Vacuum axiom)** $Y(|0\rangle,z)=\mathrm{id}_V$ (the identity field, all modes zero except the constant term), and for every $A$,
 > $$
 > Y(A,z)|0\rangle\;\in\;A+zV[[z]],\qquad\text{i.e.}\quad Y(A,z)|0\rangle\big|_{z=0}=A.
 > $$
@@ -227,7 +227,7 @@ In words: swapping the two arguments of a vertex operator costs a sign change in
 
 #### Worked micro-example
 
-The simplest vertex algebra is $V=\mathbb{C}$, the **trivial** one: $|0\rangle=1$, $T=0$, $Y(\lambda,z)=\lambda\cdot\operatorname{id}$. All axioms hold ($Y(|0\rangle,z)=\operatorname{id}$; $Y(A,z)|0\rangle=\lambda\to\lambda=A$; $[T,\cdot]=0=\partial_z(\text{constant})$; commutators vanish so $N=0$). It is the "point" of vertex-algebra geometry — small, but it shows the axioms are consistent.
+The simplest vertex algebra is $V=\mathbb{C}$, the **trivial** one: $|0\rangle=1$, $T=0$, $Y(\lambda,z)=\lambda\cdot\mathrm{id}$. All axioms hold ($Y(|0\rangle,z)=\mathrm{id}$; $Y(A,z)|0\rangle=\lambda\to\lambda=A$; $[T,\cdot]=0=\partial_z(\text{constant})$; commutators vanish so $N=0$). It is the "point" of vertex-algebra geometry — small, but it shows the axioms are consistent.
 
 #### Pitfall
 
@@ -307,7 +307,7 @@ From the [CFT guide](conformal-field-theory.md): the **Virasoro algebra** is the
 $$
 [L_m,L_n]=(m-n)L_{m+n}+\frac{C}{12}\,(m^3-m)\,\delta_{m+n,0},\qquad [L_m,C]=0.
 $$
-On a representation $C$ acts as a scalar $c\cdot\operatorname{id}$, the **central charge**. It is the unique (up to scale) central extension of the **Witt algebra** $[L_m,L_n]=(m-n)L_{m+n}$ of holomorphic vector fields $-z^{n+1}\partial_z$.
+On a representation $C$ acts as a scalar $c\cdot\mathrm{id}$, the **central charge**. It is the unique (up to scale) central extension of the **Witt algebra** $[L_m,L_n]=(m-n)L_{m+n}$ of holomorphic vector fields $-z^{n+1}\partial_z$.
 
 #### Definition of a conformal structure
 
@@ -339,7 +339,7 @@ which is the general mode-commutator formula $[a_{(p)},b_{(q)}]=\sum_j\binom{p}{
 2. Only $j=0,1,3$ contribute, since $\omega_{(j)}\omega=0$ otherwise. *(From the OPE data above.)*
 3. **$j=0$:** $\binom{m+1}{0}(\omega_{(0)}\omega)_{(m+n+2)}=(T\omega)_{(m+n+2)}=(\partial\omega)_{(m+n+2)}$. On modes the translation operator acts by $(\partial A)_{(k)}=-k\,A_{(k-1)}$, so with $k=m+n+2$ this is $-(m+n+2)\,\omega_{(m+n+1)}=-(m+n+2)\,L_{m+n}$. *(Property $TA=\partial A$ shifts a mode and brings down its index.)*
 4. **$j=1$:** $\binom{m+1}{1}(\omega_{(1)}\omega)_{(m+n+1)}=(m+1)\,(2\omega)_{(m+n+1)}=2(m+1)\,\omega_{(m+n+1)}=2(m+1)\,L_{m+n}$. Adding steps 3 and 4, the coefficient of $L_{m+n}$ is $-(m+n+2)+2(m+1)=(m-n)$, giving the term $(m-n)L_{m+n}$. *(Arithmetic of the two contributions.)*
-5. **$j=3$:** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-1)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-1)}$. Since $|0\rangle_{(k)}=\delta_{k,-1}\operatorname{id}$, the mode $(m+n-1)$ acts as the identity exactly when $m+n-1=-1$, i.e. $m+n=0$, giving the term $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$. *(Vacuum mode acts as identity only in degree $-1$.)*
+5. **$j=3$:** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-1)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-1)}$. Since $|0\rangle_{(k)}=\delta_{k,-1}\mathrm{id}$, the mode $(m+n-1)$ acts as the identity exactly when $m+n-1=-1$, i.e. $m+n=0$, giving the term $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$. *(Vacuum mode acts as identity only in degree $-1$.)*
 6. Finally $\frac{c}{2}\binom{m+1}{3}=\frac{c}{2}\cdot\frac{(m+1)m(m-1)}{6}=\frac{c}{12}(m^3-m)$. *(Expand the binomial: $(m+1)m(m-1)=m^3-m$.)*
 7. Assembling: $[L_m,L_n]=(m-n)L_{m+n}+\frac{c}{12}(m^3-m)\delta_{m+n,0}$, exactly the Virasoro algebra. $\blacksquare$
 
@@ -410,7 +410,7 @@ The numerical anchor: a *single* free boson carries central charge $c=1$. (We wi
 
 #### Pinning down the anomaly coefficient by hand
 
-To make step 3 above non-hand-wavy, compute the central term directly for the smallest case. We want the number $A(m)$ defined by $[L_m,L_{-m}]=2mL_0+A(m)\cdot\operatorname{id}$ on the vacuum sector.
+To make step 3 above non-hand-wavy, compute the central term directly for the smallest case. We want the number $A(m)$ defined by $[L_m,L_{-m}]=2mL_0+A(m)\cdot\mathrm{id}$ on the vacuum sector.
 1. From $L_n=\tfrac12\sum_k {:}a_k a_{n-k}{:}$, expand $[L_m,L_{-m}]$ and apply it to $|0\rangle$. Only terms whose net mode is $0$ and which produce a pure number (all oscillators contracted) survive on $|0\rangle$ once we project onto the vacuum. *(Field condition: uncontracted annihilators kill $|0\rangle$.)*
 2. The double contraction of the four oscillators in $L_m L_{-m}$, minus the reordered piece in $L_{-m}L_m$, leaves the finite sum
 $$
@@ -563,8 +563,8 @@ A vertex algebra is the algebra of *symmetries*; its **modules** are the spaces 
 
 #### Definition of a module
 
-> **Definition — module.** A **module** over a vertex algebra $V$ is a vector space $M$ together with a state–field map $Y_M(\cdot,z):V\to(\operatorname{End}M)[[z,z^{-1}]]$, $Y_M(A,z)=\sum_n A^M_{(n)}z^{-n-1}$, such that:
-> 1. $Y_M(|0\rangle,z)=\operatorname{id}_M$;
+> **Definition — module.** A **module** over a vertex algebra $V$ is a vector space $M$ together with a state–field map $Y_M(\cdot,z):V\to(\mathrm{End}M)[[z,z^{-1}]]$, $Y_M(A,z)=\sum_n A^M_{(n)}z^{-n-1}$, such that:
+> 1. $Y_M(|0\rangle,z)=\mathrm{id}_M$;
 > 2. each $Y_M(A,z)$ is a field on $M$;
 > 3. the **Borcherds identity** holds for the $Y_M$-products with one factor in $M$ — i.e. the same master identity of §s2 but with $C\in M$.
 
@@ -572,11 +572,11 @@ In words: $M$ carries an action of *all* the vertex operators, compatibly with t
 
 For a conformal $V$, a module is graded by $L_0$-eigenvalue: $M=\bigoplus_{\Delta} M_\Delta$, with the smallest $\Delta$ the **conformal weight** of the module (the [CFT guide](conformal-field-theory.md)'s primary weight $h$). The lowest-weight vectors are the **primary states** of that sector; the rest are **descendants**, obtained by acting with creation modes $L_{-n}$ and (for an affine algebra) $t^a_{-n}$, exactly mirroring the Verma-module construction of the [CFT guide](conformal-field-theory.md). A module is **irreducible** if it has no proper nonzero submodule closed under all vertex operators — physically, a single irreducible "tower" built on one primary.
 
-There is also a notion of **intertwining operator** (the [CFT guide](conformal-field-theory.md)'s fusion of primaries): a field $\mathcal{Y}(\cdot,z)$ taking a state of one module to maps between two others, $\mathcal{Y}:M^1\to\operatorname{Hom}(M^2,M^3)[[z^{\pm}]]z^{\Delta}$. The dimensions of the spaces of these are the **fusion rules** $N_{ij}^k$, the integers counting how module $M^i$ and $M^j$ combine to produce $M^k$. Their consistency with modularity is the celebrated **Verlinde formula**, $N_{ij}^k=\sum_l \frac{S_{il}S_{jl}\overline{S_{kl}}}{S_{0l}}$, which computes fusion from the $S$-matrix of §s10 — one of the most striking outputs of the whole theory.
+There is also a notion of **intertwining operator** (the [CFT guide](conformal-field-theory.md)'s fusion of primaries): a field $\mathcal{Y}(\cdot,z)$ taking a state of one module to maps between two others, $\mathcal{Y}:M^1\to\mathrm{Hom}(M^2,M^3)[[z^{\pm}]]z^{\Delta}$. The dimensions of the spaces of these are the **fusion rules** $N_{ij}^k$, the integers counting how module $M^i$ and $M^j$ combine to produce $M^k$. Their consistency with modularity is the celebrated **Verlinde formula**, $N_{ij}^k=\sum_l \frac{S_{il}S_{jl}\overline{S_{kl}}}{S_{0l}}$, which computes fusion from the $S$-matrix of §s10 — one of the most striking outputs of the whole theory.
 
 #### Rationality
 
-> **Definition — rational vertex algebra (working version).** A conformal vertex algebra is **rational** if every module is completely reducible (a direct sum of irreducibles) and there are only **finitely many** isomorphism classes of irreducible modules. A closely related finiteness, **$C_2$-cofiniteness** (the space $V/C_2(V)$ is finite-dimensional, where $C_2(V)=\operatorname{span}\{A_{(-2)}B\}$), is the technical hypothesis under which the modularity theorem of §s10 is proved.
+> **Definition — rational vertex algebra (working version).** A conformal vertex algebra is **rational** if every module is completely reducible (a direct sum of irreducibles) and there are only **finitely many** isomorphism classes of irreducible modules. A closely related finiteness, **$C_2$-cofiniteness** (the space $V/C_2(V)$ is finite-dimensional, where $C_2(V)=\mathrm{span}\{A_{(-2)}B\}$), is the technical hypothesis under which the modularity theorem of §s10 is proved.
 
 Rationality is the algebraic meaning of "the CFT has a finite, well-behaved spectrum." Lattice VOAs $V_L$ for $L$ even positive-definite, and affine $V_k(\mathfrak g)$ at positive *integer* level $k$, are rational; the bare Heisenberg algebra is *not* (it has a continuum of Fock modules $\pi_\alpha$).
 
@@ -599,10 +599,10 @@ Counting and classifying vertex-algebra modules looks hard — they are infinite
 
 > **Definition — Zhu's algebra.** On a conformal vertex algebra $V$, define two bilinear operations using shifted modes:
 > $$
-> A*B=\operatorname{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z}\,B,\qquad
-> A\circ B=\operatorname{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z^2}\,B,
+> A*B=\mathrm{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z}\,B,\qquad
+> A\circ B=\mathrm{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z^2}\,B,
 > $$
-> for $A$ of weight $\Delta_A$ (extended linearly). Let $O(V)=\operatorname{span}\{A\circ B\}$ and define
+> for $A$ of weight $\Delta_A$ (extended linearly). Let $O(V)=\mathrm{span}\{A\circ B\}$ and define
 > $$
 > A(V)=V/O(V),
 > $$
@@ -626,7 +626,7 @@ For the Virasoro vertex algebra at central charge $c$, Zhu's algebra is a *polyn
 
 #### Why the weighted residue — intuition
 
-The strange factors $(1+z)^{\Delta_A}$ are a change of coordinate from the plane to the cylinder (equivalently, the torus's time circle). Under the exponential map $z\mapsto\log(1+z)$ a weight-$\Delta_A$ field picks up the Jacobian $(1+z)^{\Delta_A}$; the residue then extracts the **zero mode** $o(A)=A_{(\Delta_A-1)}$, the only mode that preserves the energy grading and hence acts on a fixed weight space. So Zhu's product $A*B$ is, conceptually, "compose zero modes on the lowest-weight space," and $O(V)$ is exactly the kernel of the map $V\to\operatorname{End}(M_{\Delta_{\min}})$. This is why $A(V)$-modules and lowest-weight spaces of $V$-modules coincide: both are "what the zero modes do."
+The strange factors $(1+z)^{\Delta_A}$ are a change of coordinate from the plane to the cylinder (equivalently, the torus's time circle). Under the exponential map $z\mapsto\log(1+z)$ a weight-$\Delta_A$ field picks up the Jacobian $(1+z)^{\Delta_A}$; the residue then extracts the **zero mode** $o(A)=A_{(\Delta_A-1)}$, the only mode that preserves the energy grading and hence acts on a fixed weight space. So Zhu's product $A*B$ is, conceptually, "compose zero modes on the lowest-weight space," and $O(V)$ is exactly the kernel of the map $V\to\mathrm{End}(M_{\Delta_{\min}})$. This is why $A(V)$-modules and lowest-weight spaces of $V$-modules coincide: both are "what the zero modes do."
 
 #### Pitfall
 
@@ -643,11 +643,11 @@ The **character** of a module records the dimensions of its energy levels in one
 
 > **Definition — character.** For a module $M=\bigoplus_\Delta M_\Delta$ of a conformal $V$ with central charge $c$, the **character** (or **graded dimension**) is
 > $$
-> \chi_M(\tau)=\operatorname{tr}_M\,q^{\,L_0-c/24}=q^{\,\Delta_{\min}-c/24}\sum_{n\ge0}(\dim M_{\Delta_{\min}+n})\,q^{n},\qquad q=e^{2\pi i\tau},
+> \chi_M(\tau)=\mathrm{tr}_M\,q^{\,L_0-c/24}=q^{\,\Delta_{\min}-c/24}\sum_{n\ge0}(\dim M_{\Delta_{\min}+n})\,q^{n},\qquad q=e^{2\pi i\tau},
 > $$
-> with $\tau$ in the upper half-plane ($\operatorname{Im}\tau>0$, so $|q|<1$ and the series converges). The shift $-c/24$ is the **Casimir/Virasoro shift**; it is exactly what makes the character modular.
+> with $\tau$ in the upper half-plane ($\mathrm{Im}\tau>0$, so $|q|<1$ and the series converges). The shift $-c/24$ is the **Casimir/Virasoro shift**; it is exactly what makes the character modular.
 
-The variable $\tau$ is the **modular parameter** of a torus (a [Complex Analysis](../complex-analysis/complex-analysis.md) object): the torus is $\mathbb{C}/(\mathbb{Z}+\tau\mathbb{Z})$, and $\operatorname{tr}\,q^{L_0-c/24}$ is the **partition function** of the CFT on that torus.
+The variable $\tau$ is the **modular parameter** of a torus (a [Complex Analysis](../complex-analysis/complex-analysis.md) object): the torus is $\mathbb{C}/(\mathbb{Z}+\tau\mathbb{Z})$, and $\mathrm{tr}\,q^{L_0-c/24}$ is the **partition function** of the CFT on that torus.
 
 #### The modular group
 
@@ -687,7 +687,7 @@ The two modules (weights $0$ and $\frac14$, §s8) have characters that are ratio
 $$
 S=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},
 $$
-and one checks $S^2=\operatorname{id}$ (since $\frac12\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}1&1\\1&-1\end{pmatrix}=\frac12\begin{pmatrix}2&0\\0&2\end{pmatrix}=\operatorname{id}$), consistent with the modular relation $S^2=\operatorname{id}$ in $PSL(2,\mathbb{Z})$. The modular-invariant combination $|\chi_0|^2+|\chi_{1/2}|^2$ is the partition function. This is a finite-dimensional $SL(2,\mathbb{Z})$ representation, exactly as the theorem promises.
+and one checks $S^2=\mathrm{id}$ (since $\frac12\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}1&1\\1&-1\end{pmatrix}=\frac12\begin{pmatrix}2&0\\0&2\end{pmatrix}=\mathrm{id}$), consistent with the modular relation $S^2=\mathrm{id}$ in $PSL(2,\mathbb{Z})$. The modular-invariant combination $|\chi_0|^2+|\chi_{1/2}|^2$ is the partition function. This is a finite-dimensional $SL(2,\mathbb{Z})$ representation, exactly as the theorem promises.
 
 #### Pitfall
 
@@ -713,7 +713,7 @@ the unique (up to constant) $SL(2,\mathbb{Z})$-invariant holomorphic function on
 > **Theorem (Frenkel–Lepowsky–Meurman; Borcherds).** There is a vertex operator algebra $V^\natural$, the **Moonshine module**, with central charge $c=24$, such that:
 > 1. its automorphism group is exactly the Monster $\mathbb{M}$;
 > 2. its graded dimension is $\sum_n(\dim V^\natural_n)q^{n-1}=j(\tau)-744$;
-> 3. for each Monster element $g$, the graded **trace** (a "twisted character") $T_g(\tau)=\sum_n\operatorname{tr}(g\,|\,V^\natural_n)q^{n-1}$ is a special modular function — a **Hauptmodul** — as Conway and Norton conjectured.
+> 3. for each Monster element $g$, the graded **trace** (a "twisted character") $T_g(\tau)=\sum_n\mathrm{tr}(g\,|\,V^\natural_n)q^{n-1}$ is a special modular function — a **Hauptmodul** — as Conway and Norton conjectured.
 
 *How it is built (in our language).* $V^\natural$ is constructed from the **Leech lattice** $\Lambda$ (the unique even self-dual rank-24 lattice with no vectors of squared length 2): take the lattice VOA $V_\Lambda$ of §s6 (central charge $c=24$), then form a $\mathbb{Z}_2$-**orbifold** — keep the part invariant under the lattice symmetry $\alpha\mapsto-\alpha$ and adjoin a "twisted module." The Monster emerges as the symmetry group of this orbifold VOA. So the Monster is, literally, the automorphism group of a particular chiral algebra — the §s2 axioms applied to one extraordinary example. Borcherds proved the full Moonshine conjectures by inventing **generalized Kac–Moody (Borcherds) algebras** and a "no-ghost" argument tying $V^\natural$ to a Lie algebra whose denominator identity forces the $T_g$ to be Hauptmoduls — work for which he received the Fields Medal in 1998.
 

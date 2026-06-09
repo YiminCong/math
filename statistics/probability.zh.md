@@ -316,11 +316,11 @@ $$E[g(X)]=\sum_x g(x)\,p_X(x)\quad\text{or}\quad \int g(x)\,f_X(x)\,dx$$
 
 **方差**度量 $X$ 平均偏离其均值 $\mu=E[X]$ 有多远；它是平均的*平方*偏差。我们取平方，以使超出和不足不会相互抵消。
 
-$$\operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2$$
+$$\mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2$$
 
 方差的平方根是**标准差** $\sigma$，与 $X$ 同单位。
 
-$$E[aX+b]=aE[X]+b,\qquad \operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)$$
+$$E[aX+b]=aE[X]+b,\qquad \mathrm{Var}(aX+b)=a^2\mathrm{Var}(X)$$
 
 这些式子说期望是**线性的**（按 $a$ 缩放、按 $b$ 平移都可直接穿过），而方差忽略平移 $b$（平移使整个分布移动而不改变其分散程度）并按 $a^2$ 缩放（取平方是因为方差是一个平方量）。
 
@@ -340,23 +340,23 @@ $$\mu_k=E\big[(X-\mu)^k\big]:\quad \text{skewness}=\tfrac{\mu_3}{\sigma^3},\quad
 
 1. **展开定义中的平方**，用 $\mu=E[X]$（一个常数）：
 
-   $$\operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].$$
+   $$\mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].$$
 2. **运用线性性**（刚证）以及 $E[X]=\mu$ 这一事实：
 
    $$=E[X^2]-2\mu\,E[X]+\mu^2=E[X^2]-2\mu^2+\mu^2.$$
 3. **合并各项：**
 
-   $$\operatorname{Var}(X)=E[X^2]-\mu^2=E[X^2]-(E[X])^2.$$
+   $$\mathrm{Var}(X)=E[X^2]-\mu^2=E[X^2]-(E[X])^2.$$
 
 *"平方的均值减去均值的平方"——日常使用的方差公式。*
 
-**算例 — 一颗骰子的方差。** 我们有 $\mu=3.5$。平方的均值是 $E[X^2]=\tfrac{1^2+2^2+3^2+4^2+5^2+6^2}{6}=\tfrac{91}{6}\approx15.167$。所以 $\operatorname{Var}(X)=15.167-3.5^2=15.167-12.25=2.917$，标准差是 $\sqrt{2.917}\approx1.708$。
+**算例 — 一颗骰子的方差。** 我们有 $\mu=3.5$。平方的均值是 $E[X^2]=\tfrac{1^2+2^2+3^2+4^2+5^2+6^2}{6}=\tfrac{91}{6}\approx15.167$。所以 $\mathrm{Var}(X)=15.167-3.5^2=15.167-12.25=2.917$，标准差是 $\sqrt{2.917}\approx1.708$。
 
 **演示 — 方差按 $a^2$ 缩放。**
 
 1. 设 $Y=aX+b$。它的均值是 $E[Y]=a\mu+b$（线性性）。
 2. 偏差是 $Y-E[Y]=(aX+b)-(a\mu+b)=a(X-\mu)$——平移 $b$ 被抵消。
-3. 平方再取期望：$\operatorname{Var}(Y)=E[a^2(X-\mu)^2]=a^2E[(X-\mu)^2]=a^2\operatorname{Var}(X)$，这里用线性性把常数 $a^2$ 提出。
+3. 平方再取期望：$\mathrm{Var}(Y)=E[a^2(X-\mu)^2]=a^2E[(X-\mu)^2]=a^2\mathrm{Var}(X)$，这里用线性性把常数 $a^2$ 提出。
 
 **演示 — 非负变量经其尾部求 $E[X]$**
 
@@ -412,9 +412,9 @@ $$M_X^{(k)}(0)=E[X^k],\qquad M_X(t)=\sum_{k=0}^{\infty}\frac{E[X^k]}{k!}\,t^k$$
 2. **一阶导给出均值。** $M'(t)=\dfrac{\lambda}{(\lambda-t)^2}$，故 $E[X]=M'(0)=\lambda/\lambda^2=1/\lambda$。
 3. **二阶导给出二阶矩。** $M''(t)=\dfrac{2\lambda}{(\lambda-t)^3}$，故 $E[X^2]=M''(0)=2\lambda/\lambda^3=2/\lambda^2$，再由方差公式（§s5）：
 
-   $$\operatorname{Var}(X)=\frac{2}{\lambda^2}-\frac1{\lambda^2}=\frac1{\lambda^2}.$$
+   $$\mathrm{Var}(X)=\frac{2}{\lambda^2}-\frac1{\lambda^2}=\frac1{\lambda^2}.$$
 
-**算例 — 具体数字。** 若 $\lambda=2$，则 $E[X]=1/2=0.5$ 且 $\operatorname{Var}(X)=1/4=0.25$，标准差为 $0.5$。（对指数分布，均值与标准差总是相等。）
+**算例 — 具体数字。** 若 $\lambda=2$，则 $E[X]=1/2=0.5$ 且 $\mathrm{Var}(X)=1/4=0.25$，标准差为 $0.5$。（对指数分布，均值与标准差总是相等。）
 
 **关键性质：和的 MGF**
 
@@ -447,13 +447,13 @@ $$X\perp Y\ \Rightarrow\ M_{X+Y}(t)=M_X(t)\,M_Y(t)$$
 
 **演示 — 从伯努利构建二项（均值与方差）**
 
-1. **分解。** 把 $X=X_1+\cdots+X_n$ 写成独立同分布（"i.i.d."）的伯努利($p$) 指示量之和，每个对一次成功记 $1$。每个有 $E[X_i]=p$（因为 $E[X_i]=1\cdot p+0\cdot(1-p)=p$）以及 $\operatorname{Var}(X_i)=p(1-p)$（因为 $X_i^2=X_i$ 故 $E[X_i^2]=p$，于是方差 $=p-p^2=p(1-p)$）。
+1. **分解。** 把 $X=X_1+\cdots+X_n$ 写成独立同分布（"i.i.d."）的伯努利($p$) 指示量之和，每个对一次成功记 $1$。每个有 $E[X_i]=p$（因为 $E[X_i]=1\cdot p+0\cdot(1-p)=p$）以及 $\mathrm{Var}(X_i)=p(1-p)$（因为 $X_i^2=X_i$ 故 $E[X_i^2]=p$，于是方差 $=p-p^2=p(1-p)$）。
 2. **用期望的线性性把各均值相加**（§s5；无需独立性）：
 
    $$E[X]=\sum_{i=1}^n E[X_i]=np.$$
 3. **把各方差相加。** 对*独立*变量，方差相加（在 §s11 中证明）：
 
-   $$\operatorname{Var}(X)=\sum_{i=1}^n \operatorname{Var}(X_i)=np(1-p).$$
+   $$\mathrm{Var}(X)=\sum_{i=1}^n \mathrm{Var}(X_i)=np(1-p).$$
 4. **把各 MGF 相乘。** 每个伯努利有 $M_{X_i}(t)=E[e^{tX_i}]=(1-p)e^{0}+pe^{t}=1-p+pe^t$；由于 $X_i$ 独立，MGF 相乘（§s6），所以 $M_X(t)=(1-p+pe^t)^n$，证实了表格。
 
 *分解成简单的小块，再求和——这是概率论中反复出现的招数。*
@@ -470,7 +470,7 @@ $$X\perp Y\ \Rightarrow\ M_{X+Y}(t)=M_X(t)\,M_Y(t)$$
 2. **经 MGF 验证。** 由 $M(t)=e^{\lambda(e^t-1)}$，链式法则给出 $M'(t)=\lambda e^t M(t)$，故 $E[X]=M'(0)=\lambda\cdot1\cdot1=\lambda$。
 3. **二阶矩与方差。** 再求一次导：$M''(t)=\lambda e^t M(t)+(\lambda e^t)^2 M(t)$，故 $M''(0)=\lambda+\lambda^2=E[X^2]$，于是
 
-   $$\operatorname{Var}(X)=\lambda+\lambda^2-\lambda^2=\lambda.$$
+   $$\mathrm{Var}(X)=\lambda+\lambda^2-\lambda^2=\lambda.$$
 
 *泊松的标志性特征：其均值与方差相等。*
 
@@ -520,7 +520,7 @@ $$X\perp Y\ \Rightarrow\ M_{X+Y}(t)=M_X(t)\,M_Y(t)$$
    $$E[X^2]=\int_a^b\frac{x^2}{b-a}\,dx=\frac{b^3-a^3}{3(b-a)}=\frac{a^2+ab+b^2}{3}.$$
 3. **减去均值的平方**（§s5）并在公分母 $12$ 上化简代数：
 
-   $$\operatorname{Var}(X)=\frac{a^2+ab+b^2}{3}-\frac{(a+b)^2}{4}=\frac{4(a^2+ab+b^2)-3(a+b)^2}{12}=\frac{(b-a)^2}{12}.$$
+   $$\mathrm{Var}(X)=\frac{a^2+ab+b^2}{3}-\frac{(a+b)^2}{4}=\frac{4(a^2+ab+b^2)-3(a+b)^2}{12}=\frac{(b-a)^2}{12}.$$
 
 *分散程度只依赖于宽度 $b-a$，正如对称性所要求。*
 
@@ -534,7 +534,7 @@ $$X\perp Y\ \Rightarrow\ M_{X+Y}(t)=M_X(t)\,M_Y(t)$$
 
    边界项消失，因为 $x\to\infty$ 时 $xe^{-\lambda x}\to0$，而在 $x=0$ 处为 $0$。
 2. **二阶矩**同理（或作两次分部积分）：$E[X^2]=\int_0^\infty x^2\lambda e^{-\lambda x}\,dx=\dfrac{2}{\lambda^2}$。
-3. **方差**（§s5）：$\operatorname{Var}(X)=\dfrac{2}{\lambda^2}-\dfrac{1}{\lambda^2}=\dfrac{1}{\lambda^2}$，与 §s6 的 MGF 结果一致。
+3. **方差**（§s5）：$\mathrm{Var}(X)=\dfrac{2}{\lambda^2}-\dfrac{1}{\lambda^2}=\dfrac{1}{\lambda^2}$，与 §s6 的 MGF 结果一致。
 
 *指数分布是无记忆的：$P(X\gt s+t\mid X\gt s)=e^{-\lambda t}=P(X\gt t)$*（与 §s7 中几何分布相同的代数，这里 $P(X>x)=e^{-\lambda x}$）。
 
@@ -546,7 +546,7 @@ $$X\perp Y\ \Rightarrow\ M_{X+Y}(t)=M_X(t)\,M_Y(t)$$
 
    剩下的积分是一个（平移后的）标准正态密度下方的总面积，它等于 $1$（§s4）。
 2. **经平移与缩放求一般正态。** 任何 $X\sim N(\mu,\sigma^2)$ 都可写成 $X=\mu+\sigma Z$。则 $M_X(t)=E[e^{t(\mu+\sigma Z)}]=e^{\mu t}E[e^{(\sigma t)Z}]=e^{\mu t}M_Z(\sigma t)=e^{\mu t+\sigma^2 t^2/2}$。
-3. **在 $0$ 处求导**（§s6）：$M_X'(0)=\mu$ 给出 $E[X]=\mu$，而 $M_X''(0)=\mu^2+\sigma^2$ 给出 $E[X^2]=\mu^2+\sigma^2$，故 $\operatorname{Var}(X)=\sigma^2$。
+3. **在 $0$ 处求导**（§s6）：$M_X'(0)=\mu$ 给出 $E[X]=\mu$，而 $M_X''(0)=\mu^2+\sigma^2$ 给出 $E[X^2]=\mu^2+\sigma^2$，故 $\mathrm{Var}(X)=\sigma^2$。
 
 *两个参数 $\mu,\sigma^2$ 就是字面意义上的均值与方差——而标准化 $Z=(X-\mu)/\sigma$ 就是统计学指南中的 z 分数。*
 
@@ -657,44 +657,44 @@ $$X\perp Y \iff f(x,y)=f_X(x)\,f_Y(y)$$
 
 **协方差、相关与和的方差**
 
-$$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y],\qquad \rho=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}$$
+$$\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y],\qquad \rho=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}$$
 
 当 $X$ 与 $Y$ 倾向于一起大（也一起小）时**协方差**为正，当一个倾向于大而另一个倾向于小时为负。**相关** $\rho$（希腊字母"rho"）把协方差除以两个标准差 $\sigma_X,\sigma_Y$，产生一个介于 $-1$ 与 $1$ 之间、没有量纲的纯数。
 
-$$\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y)$$
+$$\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)+2\mathrm{Cov}(X,Y)$$
 
-$$\operatorname{Cov}(aX+b,\,cY+d)=ac\,\operatorname{Cov}(X,Y)$$
+$$\mathrm{Cov}(aX+b,\,cY+d)=ac\,\mathrm{Cov}(X,Y)$$
 
 最后一行：协方差忽略平移 $b,d$，并按两个乘数的乘积 $ac$ 缩放。
 
-*$\rho\in[-1,1]$ 是两个变量 z 分数乘积的平均。独立 $\Rightarrow$ $\operatorname{Cov}=0$，但反之不然。*
+*$\rho\in[-1,1]$ 是两个变量 z 分数乘积的平均。独立 $\Rightarrow$ $\mathrm{Cov}=0$，但反之不然。*
 
 **演示 — 和的方差，以及为何独立时方差相加。**
 
 1. 由方差的定义并展开 $((X+Y)-(\mu_X+\mu_Y))^2=((X-\mu_X)+(Y-\mu_Y))^2$：
 
-   $$\operatorname{Var}(X+Y)=E\big[(X-\mu_X)^2\big]+E\big[(Y-\mu_Y)^2\big]+2E\big[(X-\mu_X)(Y-\mu_Y)\big].$$
-2. 前两项是 $\operatorname{Var}(X)$ 与 $\operatorname{Var}(Y)$；交叉项按定义是 $2\operatorname{Cov}(X,Y)$。于是得方框中的公式。
-3. 若 $X\perp Y$ 则 $\operatorname{Cov}(X,Y)=0$（下一个演示），故交叉项消失，$\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$——这就是 §s7 中对二项所用的法则。
+   $$\mathrm{Var}(X+Y)=E\big[(X-\mu_X)^2\big]+E\big[(Y-\mu_Y)^2\big]+2E\big[(X-\mu_X)(Y-\mu_Y)\big].$$
+2. 前两项是 $\mathrm{Var}(X)$ 与 $\mathrm{Var}(Y)$；交叉项按定义是 $2\mathrm{Cov}(X,Y)$。于是得方框中的公式。
+3. 若 $X\perp Y$ 则 $\mathrm{Cov}(X,Y)=0$（下一个演示），故交叉项消失，$\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)$——这就是 §s7 中对二项所用的法则。
 
 **演示 — 独立蕴含零协方差（以及为何反之不成立）**
 
 1. **分解联合期望。** 若 $X\perp Y$，联合密度分解（§s10），所以
 
    $$E[XY]=\iint xy\,f_X(x)f_Y(y)\,dx\,dy=\Big(\int x f_X(x)dx\Big)\Big(\int y f_Y(y)dy\Big)=E[X]E[Y].$$
-2. **协方差为零。** 于是 $\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]=0$。
-3. **反向不成立。** 设 $X\sim N(0,1)$ 且 $Y=X^2$。由对称性 $E[X]=0$ 且 $E[X^3]=0$，所以 $E[XY]=E[X^3]=0=E[X]E[Y]$，给出 $\operatorname{Cov}=0$。然而 $Y$ 完全由 $X$ 决定——它们相依到了极致。
+2. **协方差为零。** 于是 $\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y]=0$。
+3. **反向不成立。** 设 $X\sim N(0,1)$ 且 $Y=X^2$。由对称性 $E[X]=0$ 且 $E[X^3]=0$，所以 $E[XY]=E[X^3]=0=E[X]E[Y]$，给出 $\mathrm{Cov}=0$。然而 $Y$ 完全由 $X$ 决定——它们相依到了极致。
 
 *协方差只看到*线性*关联；零协方差并非独立。*
 
-**算例 — 两颗骰子及其和的协方差。** 设 $X,Y$ 为独立的均匀骰子。则 $\operatorname{Cov}(X,Y)=0$，故 $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)=2.917+2.917=5.833$（用 §s5 中的 $\operatorname{Var}=2.917$）。
+**算例 — 两颗骰子及其和的协方差。** 设 $X,Y$ 为独立的均匀骰子。则 $\mathrm{Cov}(X,Y)=0$，故 $\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)=2.917+2.917=5.833$（用 §s5 中的 $\mathrm{Var}=2.917$）。
 
 **演示 — 经柯西–施瓦茨证 $|\rho|\le1$**
 
 1. **陈述工具。** 随机变量的柯西–施瓦茨不等式说对任意 $U,V$ 有 $\big(E[UV]\big)^2\le E[U^2]\,E[V^2]$（在 §s14 中作为一个不等式被证明）。
-2. **应用于中心化变量** $U=X-\mu_X$、$V=Y-\mu_Y$。则 $E[UV]=\operatorname{Cov}(X,Y)$、$E[U^2]=\operatorname{Var}(X)$、$E[V^2]=\operatorname{Var}(Y)$，所以
+2. **应用于中心化变量** $U=X-\mu_X$、$V=Y-\mu_Y$。则 $E[UV]=\mathrm{Cov}(X,Y)$、$E[U^2]=\mathrm{Var}(X)$、$E[V^2]=\mathrm{Var}(Y)$，所以
 
-   $$\operatorname{Cov}(X,Y)^2\le \operatorname{Var}(X)\,\operatorname{Var}(Y).$$
+   $$\mathrm{Cov}(X,Y)^2\le \mathrm{Var}(X)\,\mathrm{Var}(Y).$$
 3. **除以 $\sigma_X^2\sigma_Y^2$：**
 
    $$\rho^2\le1\ \Rightarrow\ -1\le\rho\le1,$$
@@ -720,7 +720,7 @@ $E[X\mid Y=y]$ 是*一旦我们得知* $Y=y$ 后 $X$ 的平均——对 §s10 �
 
 $$\text{tower: }\ E\big[E[X\mid Y]\big]=E[X]$$
 
-$$\text{law of total variance: }\ \operatorname{Var}(X)=E\big[\operatorname{Var}(X\mid Y)\big]+\operatorname{Var}\big(E[X\mid Y]\big)$$
+$$\text{law of total variance: }\ \mathrm{Var}(X)=E\big[\mathrm{Var}(X\mid Y)\big]+\mathrm{Var}\big(E[X\mid Y]\big)$$
 
 *$E[X\mid Y]$ 是在均方意义下最佳预测 $X$ 的那个 $Y$ 的函数。由于 $Y$ 是随机的，它本身也是随机的。*
 
@@ -742,11 +742,11 @@ $$\text{law of total variance: }\ \operatorname{Var}(X)=E\big[\operatorname{Var}
 
 **演示 — 由塔性质导出全方差**
 
-1. **定义条件均值** $m(Y)=E[X\mid Y]$，并写出条件方差 $\operatorname{Var}(X\mid Y)=E[X^2\mid Y]-m(Y)^2$（§s5 的方差公式在条件作用之内的应用）。
-2. **取期望**并对 $E[X^2\mid Y]$ 应用塔性质：$E[\operatorname{Var}(X\mid Y)]=E[X^2]-E[m(Y)^2]$。
-3. **加上条件均值的方差** $\operatorname{Var}(m(Y))=E[m(Y)^2]-(E[m(Y)])^2=E[m(Y)^2]-(E[X])^2$（用塔性质的 $E[m(Y)]=E[X]$）。相加时 $E[m(Y)^2]$ 各项相消，留下
+1. **定义条件均值** $m(Y)=E[X\mid Y]$，并写出条件方差 $\mathrm{Var}(X\mid Y)=E[X^2\mid Y]-m(Y)^2$（§s5 的方差公式在条件作用之内的应用）。
+2. **取期望**并对 $E[X^2\mid Y]$ 应用塔性质：$E[\mathrm{Var}(X\mid Y)]=E[X^2]-E[m(Y)^2]$。
+3. **加上条件均值的方差** $\mathrm{Var}(m(Y))=E[m(Y)^2]-(E[m(Y)])^2=E[m(Y)^2]-(E[X])^2$（用塔性质的 $E[m(Y)]=E[X]$）。相加时 $E[m(Y)^2]$ 各项相消，留下
 
-   $$E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mid Y])=E[X^2]-(E[X])^2=\operatorname{Var}(X).$$
+   $$E[\mathrm{Var}(X\mid Y)]+\mathrm{Var}(E[X\mid Y])=E[X^2]-(E[X])^2=\mathrm{Var}(X).$$
 
 *方差分裂成"组内"加"组间"——正是方差分析（ANOVA）背后的分解。*
 
@@ -907,12 +907,12 @@ $$\text{SLLN: }\ \bar X_n\xrightarrow{a.s.}\mu\quad\text{(almost-sure convergenc
 **演示 — 经切比雪夫证弱大数定律**
 
 1. **平均的均值。** 设 $X_1,\dots,X_n$ 为 i.i.d.，均值 $\mu$、方差 $\sigma^2$。由线性性（§s5），$E[\bar X_n]=\tfrac1n\sum E[X_i]=\tfrac1n(n\mu)=\mu$。
-2. **平均的方差收缩。** 由于 $X_i$ 独立，它们的方差相加（§s11），且 $\operatorname{Var}(cX)=c^2\operatorname{Var}(X)$ 取 $c=1/n$：
+2. **平均的方差收缩。** 由于 $X_i$ 独立，它们的方差相加（§s11），且 $\mathrm{Var}(cX)=c^2\mathrm{Var}(X)$ 取 $c=1/n$：
 
-   $$\operatorname{Var}(\bar X_n)=\frac{1}{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}.$$
+   $$\mathrm{Var}(\bar X_n)=\frac{1}{n^2}\sum_{i=1}^n\mathrm{Var}(X_i)=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}.$$
 3. **把切比雪夫**（§s14）应用于均值为 $\mu$ 的 $\bar X_n$：
 
-   $$P\big(|\bar X_n-\mu|\ge\varepsilon\big)\le\frac{\operatorname{Var}(\bar X_n)}{\varepsilon^2}=\frac{\sigma^2}{n\varepsilon^2}\xrightarrow[n\to\infty]{}0.$$
+   $$P\big(|\bar X_n-\mu|\ge\varepsilon\big)\le\frac{\mathrm{Var}(\bar X_n)}{\varepsilon^2}=\frac{\sigma^2}{n\varepsilon^2}\xrightarrow[n\to\infty]{}0.$$
 
    这个界趋于 $0$，即依概率收敛——弱大数定律。
 
@@ -920,7 +920,7 @@ $$\text{SLLN: }\ \bar X_n\xrightarrow{a.s.}\mu\quad\text{(almost-sure convergenc
 
 > **联系 — 为何标准误里有一个 $\sqrt n$**
 >
-> 同一个计算 $\operatorname{Var}(\bar X_n)=\sigma^2/n$ 给出统计学指南中的标准误 $\sigma/\sqrt n$。大数定律说估计会收敛；CLT（下一节）说它收敛得*有多快*、收敛成*什么形状*。
+> 同一个计算 $\mathrm{Var}(\bar X_n)=\sigma^2/n$ 给出统计学指南中的标准误 $\sigma/\sqrt n$。大数定律说估计会收敛；CLT（下一节）说它收敛得*有多快*、收敛成*什么形状*。
 
 <a id="s17"></a>
 ### 中心极限定理
@@ -937,7 +937,7 @@ $$\frac{\bar X_n-\mu}{\sigma/\sqrt n}\ \xrightarrow{d}\ N(0,1)\qquad\Longleftrig
 
 **演示 — 经 MGF／特征函数证 CLT**
 
-1. **标准化每一项。** 令 $Y_i=(X_i-\mu)/\sigma$，于是 $E[Y_i]=0$ 且 $\operatorname{Var}(Y_i)=E[Y_i^2]=1$（§s5）。标准化的和是 $S_n=\tfrac{1}{\sqrt n}\sum_{i=1}^n Y_i$，它等于定理的左端。
+1. **标准化每一项。** 令 $Y_i=(X_i-\mu)/\sigma$，于是 $E[Y_i]=0$ 且 $\mathrm{Var}(Y_i)=E[Y_i^2]=1$（§s5）。标准化的和是 $S_n=\tfrac{1}{\sqrt n}\sum_{i=1}^n Y_i$，它等于定理的左端。
 2. **MGF 相乘。** 因为 $Y_i$ 是 i.i.d.，且这个和按 $1/\sqrt n$ 缩放，和的 MGF 法则（§s6）给出 $M_{S_n}(t)=\big[M_Y\!\big(t/\sqrt n\big)\big]^n$。
 3. **在 $0$ 处对 $M_Y$ 作泰勒展开**，用 $M_Y(0)=1$、$M_Y'(0)=E[Y]=0$、$M_Y''(0)=E[Y^2]=1$（§s6）：
 

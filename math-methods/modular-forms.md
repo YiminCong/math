@@ -41,7 +41,7 @@ We first build the stage and the actors. The stage is the upper half-plane $\mat
 
 #### Definitions
 
-> **Definition — upper half-plane.** $\mathbb{H} = \{\tau \in \mathbb{C} : \operatorname{Im}\tau > 0\}$, the set of complex numbers $\tau = x + iy$ with $y>0$. We write $\operatorname{Im}\tau$ for the imaginary part $y$ and $\operatorname{Re}\tau$ for the real part $x$.
+> **Definition — upper half-plane.** $\mathbb{H} = \{\tau \in \mathbb{C} : \mathrm{Im}\tau > 0\}$, the set of complex numbers $\tau = x + iy$ with $y>0$. We write $\mathrm{Im}\tau$ for the imaginary part $y$ and $\mathrm{Re}\tau$ for the real part $x$.
 
 > **Definition — the modular group.** $SL(2,\mathbb{Z})$ is the set of $2\times 2$ matrices $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ with **integer** entries $a,b,c,d$ and **determinant** $ad-bc=1$. ("$SL$" stands for *special* — determinant one — *linear* group; "$\mathbb{Z}$" because the entries are integers.) It is a group under matrix multiplication, with identity $I=\begin{pmatrix}1&0\\0&1\end{pmatrix}$.
 
@@ -59,26 +59,26 @@ We first build the stage and the actors. The stage is the upper half-plane $\mat
 
 **Proof (gap-free).**
 
-1. Write $\tau = x+iy$ with $y=\operatorname{Im}\tau>0$. Compute the imaginary part of $\gamma\cdot\tau$. Multiply numerator and denominator by the complex conjugate $\overline{c\tau+d}=c\bar\tau+d$:
+1. Write $\tau = x+iy$ with $y=\mathrm{Im}\tau>0$. Compute the imaginary part of $\gamma\cdot\tau$. Multiply numerator and denominator by the complex conjugate $\overline{c\tau+d}=c\bar\tau+d$:
    $$
    \frac{a\tau+b}{c\tau+d} = \frac{(a\tau+b)(c\bar\tau+d)}{|c\tau+d|^2}.
    $$
    *(Reason: $\frac{z}{w}=\frac{z\bar w}{|w|^2}$, the standard rationalization of a complex denominator, valid because $|w|^2=w\bar w$ is real and positive when $w\ne0$.)*
-2. Expand the numerator: $(a\tau+b)(c\bar\tau+d) = ac\,|\tau|^2 + ad\,\tau + bc\,\bar\tau + bd$. Its imaginary part: $|\tau|^2$ and $bd$ are real (contribute $0$); $\operatorname{Im}(ad\,\tau)=ad\,y$ and $\operatorname{Im}(bc\,\bar\tau)=-bc\,y$. So
+2. Expand the numerator: $(a\tau+b)(c\bar\tau+d) = ac\,|\tau|^2 + ad\,\tau + bc\,\bar\tau + bd$. Its imaginary part: $|\tau|^2$ and $bd$ are real (contribute $0$); $\mathrm{Im}(ad\,\tau)=ad\,y$ and $\mathrm{Im}(bc\,\bar\tau)=-bc\,y$. So
    $$
-   \operatorname{Im}\big((a\tau+b)(c\bar\tau+d)\big) = (ad-bc)\,y.
+   \mathrm{Im}\big((a\tau+b)(c\bar\tau+d)\big) = (ad-bc)\,y.
    $$
-   *(Reason: for real $r$, $\operatorname{Im}(r\tau)=r\,y$ and $\operatorname{Im}(r\bar\tau)=-r\,y$, since $\bar\tau=x-iy$.)*
+   *(Reason: for real $r$, $\mathrm{Im}(r\tau)=r\,y$ and $\mathrm{Im}(r\bar\tau)=-r\,y$, since $\bar\tau=x-iy$.)*
 3. Therefore
    $$
-   \operatorname{Im}(\gamma\cdot\tau) = \frac{(ad-bc)\,y}{|c\tau+d|^2} = \frac{y}{|c\tau+d|^2},
+   \mathrm{Im}(\gamma\cdot\tau) = \frac{(ad-bc)\,y}{|c\tau+d|^2} = \frac{y}{|c\tau+d|^2},
    $$
    using $ad-bc=1$. *(Reason: definition of $SL(2,\mathbb{Z})$.)*
-4. Since $y>0$ and $|c\tau+d|^2>0$ (the denominator is nonzero because if $c\tau+d=0$ then $\tau=-d/c$ would be real, contradicting $y>0$, or $c=d=0$ contradicting $ad-bc=1$), we get $\operatorname{Im}(\gamma\cdot\tau)>0$, i.e. $\gamma\cdot\tau\in\mathbb{H}$. $\blacksquare$
+4. Since $y>0$ and $|c\tau+d|^2>0$ (the denominator is nonzero because if $c\tau+d=0$ then $\tau=-d/c$ would be real, contradicting $y>0$, or $c=d=0$ contradicting $ad-bc=1$), we get $\mathrm{Im}(\gamma\cdot\tau)>0$, i.e. $\gamma\cdot\tau\in\mathbb{H}$. $\blacksquare$
 
 The identity in step 3,
 $$
-\operatorname{Im}(\gamma\cdot\tau) = \frac{\operatorname{Im}\tau}{|c\tau+d|^2},
+\mathrm{Im}(\gamma\cdot\tau) = \frac{\mathrm{Im}\tau}{|c\tau+d|^2},
 $$
 will be used constantly; commit it to memory.
 
@@ -117,7 +117,7 @@ When we discuss the abstract symmetry of $\mathbb{H}$ we mean $PSL(2,\mathbb{Z})
 
 #### Worked example
 
-Take $\gamma=\begin{pmatrix}1&3\\1&4\end{pmatrix}$ (check: $1\cdot4-3\cdot1=1$, valid) and $\tau=i$. Then $\gamma\cdot i = \frac{i+3}{i+4} = \frac{(3+i)(4-i)}{|4+i|^2}=\frac{12-3i+4i+1}{17}=\frac{13+i}{17}$, with imaginary part $\frac{1}{17}$. The master formula predicts $\operatorname{Im}=\frac{\operatorname{Im} i}{|i+4|^2}=\frac{1}{17}$ — agreement.
+Take $\gamma=\begin{pmatrix}1&3\\1&4\end{pmatrix}$ (check: $1\cdot4-3\cdot1=1$, valid) and $\tau=i$. Then $\gamma\cdot i = \frac{i+3}{i+4} = \frac{(3+i)(4-i)}{|4+i|^2}=\frac{12-3i+4i+1}{17}=\frac{13+i}{17}$, with imaginary part $\frac{1}{17}$. The master formula predicts $\mathrm{Im}=\frac{\mathrm{Im} i}{|i+4|^2}=\frac{1}{17}$ — agreement.
 
 #### Intuition: why integer matrices, and what they "do"
 
@@ -147,9 +147,9 @@ Two relations, checked by matrix multiplication: $S^2 = \begin{pmatrix}-1&0\\0&-
 
 > **Definition — the standard fundamental domain.**
 > $$
-> \mathcal{F} = \left\{ \tau\in\mathbb{H} : |\operatorname{Re}\tau|\le \tfrac12 \ \text{ and } \ |\tau|\ge 1 \right\}.
+> \mathcal{F} = \left\{ \tau\in\mathbb{H} : |\mathrm{Re}\tau|\le \tfrac12 \ \text{ and } \ |\tau|\ge 1 \right\}.
 > $$
-> It is the region above the unit circle and between the vertical lines $\operatorname{Re}\tau=\pm\frac12$.
+> It is the region above the unit circle and between the vertical lines $\mathrm{Re}\tau=\pm\frac12$.
 
 #### Theorem 3 — $S$ and $T$ generate, and $\mathcal{F}$ is a fundamental domain
 
@@ -157,12 +157,12 @@ Two relations, checked by matrix multiplication: $S^2 = \begin{pmatrix}-1&0\\0&-
 
 **Proof (the two claims are proved together by the standard reduction algorithm).**
 
-1. Fix $\tau\in\mathbb{H}$. Consider the subgroup $G=\langle S,T\rangle$, and look at the orbit $G\cdot\tau$. Recall from §s1 that $\operatorname{Im}(\gamma\cdot\tau)=\operatorname{Im}\tau/|c\tau+d|^2$. As $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ ranges over $G$, the integers $(c,d)$ take values in a set of integer pairs; for fixed $\tau$, $|c\tau+d|^2 = (c x + d)^2 + (cy)^2$ grows without bound as $|c|,|d|\to\infty$, so it attains a *minimum* over the lattice of pairs. *(Reason: a positive-definite quadratic form in integers $(c,d)$ takes only finitely many values below any bound, so a minimum exists.)* Choose $\gamma_0\in G$ achieving the **maximum** of $\operatorname{Im}(\gamma\cdot\tau)$. Set $\tau' = \gamma_0\cdot\tau$; among all $G$-images, $\tau'$ has the largest imaginary part.
-2. Apply a power of $T$ to bring the real part into range: replace $\tau'$ by $T^n\tau' = \tau'+n$ choosing the integer $n$ so that $|\operatorname{Re}(\tau'+n)|\le\frac12$. *(Reason: translating by integers shifts the real part by integers; one of them lands in any half-open interval of length $1$.)* This does not change the imaginary part, so $\tau'$ is still of maximal imaginary part in its orbit. Rename this point $\tau'$.
-3. **Claim: $|\tau'|\ge 1$.** Suppose not, $|\tau'|<1$. Apply $S$: $S\tau' = -1/\tau'$ has imaginary part $\operatorname{Im}(\tau')/|\tau'|^2 > \operatorname{Im}(\tau')$ (since $|\tau'|^2<1$). *(Reason: master formula with $c=1,d=0$.)* This contradicts maximality of $\operatorname{Im}\tau'$. Hence $|\tau'|\ge1$.
+1. Fix $\tau\in\mathbb{H}$. Consider the subgroup $G=\langle S,T\rangle$, and look at the orbit $G\cdot\tau$. Recall from §s1 that $\mathrm{Im}(\gamma\cdot\tau)=\mathrm{Im}\tau/|c\tau+d|^2$. As $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ ranges over $G$, the integers $(c,d)$ take values in a set of integer pairs; for fixed $\tau$, $|c\tau+d|^2 = (c x + d)^2 + (cy)^2$ grows without bound as $|c|,|d|\to\infty$, so it attains a *minimum* over the lattice of pairs. *(Reason: a positive-definite quadratic form in integers $(c,d)$ takes only finitely many values below any bound, so a minimum exists.)* Choose $\gamma_0\in G$ achieving the **maximum** of $\mathrm{Im}(\gamma\cdot\tau)$. Set $\tau' = \gamma_0\cdot\tau$; among all $G$-images, $\tau'$ has the largest imaginary part.
+2. Apply a power of $T$ to bring the real part into range: replace $\tau'$ by $T^n\tau' = \tau'+n$ choosing the integer $n$ so that $|\mathrm{Re}(\tau'+n)|\le\frac12$. *(Reason: translating by integers shifts the real part by integers; one of them lands in any half-open interval of length $1$.)* This does not change the imaginary part, so $\tau'$ is still of maximal imaginary part in its orbit. Rename this point $\tau'$.
+3. **Claim: $|\tau'|\ge 1$.** Suppose not, $|\tau'|<1$. Apply $S$: $S\tau' = -1/\tau'$ has imaginary part $\mathrm{Im}(\tau')/|\tau'|^2 > \mathrm{Im}(\tau')$ (since $|\tau'|^2<1$). *(Reason: master formula with $c=1,d=0$.)* This contradicts maximality of $\mathrm{Im}\tau'$. Hence $|\tau'|\ge1$.
 4. Steps 2–3 put $\tau'\in\mathcal{F}$, and $\tau'$ was obtained from $\tau$ using only $S$ and $T$. This proves **(i)** with the image landing in $\mathcal{F}$ via an element of $G$.
 5. **Now prove (ii).** Let $\gamma\in PSL(2,\mathbb{Z})$ be *arbitrary*. Pick any point $\tau_0$ in the *interior* of $\mathcal{F}$ (so it is not on the boundary, e.g. $\tau_0 = 2i$). By step 4 there is $g\in G$ with $g\cdot(\gamma\cdot\tau_0)\in\mathcal{F}$. We will show $g\gamma\in G$, hence $\gamma=g^{-1}(g\gamma)\in G$. To finish we need the **uniqueness** part below.
-6. **Uniqueness of interior representatives.** *Claim:* if $\tau_0$ is interior to $\mathcal{F}$ and $h\cdot\tau_0\in\mathcal{F}$ for some $h\in PSL(2,\mathbb{Z})$, then $h=1$ and $h\cdot\tau_0=\tau_0$. Write $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. Both $\tau_0$ and $h\tau_0$ lie in $\mathcal{F}$, so both have imaginary part $\ge \sqrt3/2$ (the minimum height in $\mathcal F$, attained at the corners $e^{\pm i\pi/3}$). Suppose $c\ne0$. Replacing $h$ by $h^{-1}$ if necessary, we may assume $\operatorname{Im}(h\tau_0)\ge\operatorname{Im}\tau_0$, i.e. $|c\tau_0+d|^2\le 1$. But $|c\tau_0+d|^2 = (c\operatorname{Re}\tau_0+d)^2+c^2\operatorname{Im}\tau_0^2 \ge c^2\operatorname{Im}\tau_0^2 > c^2\cdot\tfrac34$, using the strict interior bound $\operatorname{Im}\tau_0>\sqrt3/2$. For $|c|\ge2$ this already gives $|c\tau_0+d|^2 > 4\cdot\tfrac34 = 3 > 1$, a contradiction. For $|c|=1$ we get $|c\tau_0+d|^2 > \tfrac34 + (\pm\operatorname{Re}\tau_0+d)^2$; since $|\operatorname{Re}\tau_0|<\tfrac12$ strictly, the only integer $d$ that can keep this $\le1$ is the one with $|{\pm\operatorname{Re}\tau_0+d}|<\tfrac12$, namely $d=0$, giving $|c\tau_0+d|^2=|\tau_0|^2>1$ (as $\tau_0$ is strictly above the unit circle) — again $>1$, a contradiction. So $c=0$. Then $ad=1$ with integers gives $a=d=\pm1$, so $h=\pm\begin{pmatrix}1&b\\0&1\end{pmatrix}=T^b$ in $PSL$, acting as $\tau_0\mapsto\tau_0+b$; for $\tau_0+b$ to stay with $|\operatorname{Re}|\le\frac12$ while $|\operatorname{Re}\tau_0|<\frac12$ strictly forces $b=0$. Thus $h=1$.
+6. **Uniqueness of interior representatives.** *Claim:* if $\tau_0$ is interior to $\mathcal{F}$ and $h\cdot\tau_0\in\mathcal{F}$ for some $h\in PSL(2,\mathbb{Z})$, then $h=1$ and $h\cdot\tau_0=\tau_0$. Write $h=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. Both $\tau_0$ and $h\tau_0$ lie in $\mathcal{F}$, so both have imaginary part $\ge \sqrt3/2$ (the minimum height in $\mathcal F$, attained at the corners $e^{\pm i\pi/3}$). Suppose $c\ne0$. Replacing $h$ by $h^{-1}$ if necessary, we may assume $\mathrm{Im}(h\tau_0)\ge\mathrm{Im}\tau_0$, i.e. $|c\tau_0+d|^2\le 1$. But $|c\tau_0+d|^2 = (c\mathrm{Re}\tau_0+d)^2+c^2\mathrm{Im}\tau_0^2 \ge c^2\mathrm{Im}\tau_0^2 > c^2\cdot\tfrac34$, using the strict interior bound $\mathrm{Im}\tau_0>\sqrt3/2$. For $|c|\ge2$ this already gives $|c\tau_0+d|^2 > 4\cdot\tfrac34 = 3 > 1$, a contradiction. For $|c|=1$ we get $|c\tau_0+d|^2 > \tfrac34 + (\pm\mathrm{Re}\tau_0+d)^2$; since $|\mathrm{Re}\tau_0|<\tfrac12$ strictly, the only integer $d$ that can keep this $\le1$ is the one with $|{\pm\mathrm{Re}\tau_0+d}|<\tfrac12$, namely $d=0$, giving $|c\tau_0+d|^2=|\tau_0|^2>1$ (as $\tau_0$ is strictly above the unit circle) — again $>1$, a contradiction. So $c=0$. Then $ad=1$ with integers gives $a=d=\pm1$, so $h=\pm\begin{pmatrix}1&b\\0&1\end{pmatrix}=T^b$ in $PSL$, acting as $\tau_0\mapsto\tau_0+b$; for $\tau_0+b$ to stay with $|\mathrm{Re}|\le\frac12$ while $|\mathrm{Re}\tau_0|<\frac12$ strictly forces $b=0$. Thus $h=1$.
 7. Apply step 6 to $h=g\gamma$ with the interior point $\tau_0$: $g\gamma\cdot\tau_0\in\mathcal{F}$ and $\tau_0$ interior force $g\gamma=1$, i.e. $\gamma=g^{-1}\in G$. Since $\gamma$ was arbitrary, $G=PSL(2,\mathbb{Z})$. $\blacksquare$
 
 This simultaneously shows $\mathcal{F}$ is a fundamental domain: every orbit meets it, and an *interior* point of $\mathcal F$ is the unique representative of its orbit (boundary points are identified in pairs — left edge with right edge by $T$, and the two halves of the lower arc by $S$).
@@ -173,11 +173,11 @@ Reduce $\tau = \frac{1}{2}+ \frac{1}{4}i$... actually take $\tau= 2 + \tfrac{1}{
 
 #### A second worked reduction
 
-Reduce $\tau = -\tfrac{3}{7}+\tfrac{1}{14}i$. It already has $|\operatorname{Re}\tau|=\tfrac37\le\tfrac12$, but $|\tau|^2=\tfrac{9}{49}+\tfrac{1}{196}<1$, so it is below the arc. Apply $S$: $S\tau=-1/\tau$. Compute $-1/\tau = -\overline\tau/|\tau|^2$; with $|\tau|^2=\frac{36+1}{196}=\frac{37}{196}$ and $\overline\tau=-\frac37-\frac{1}{14}i$, we get $-1/\tau=\frac{(3/7)+(1/14)i}{37/196}=\frac{196}{37}\big(\tfrac37+\tfrac{1}{14}i\big)=\frac{84}{37}+\frac{14}{37}i$. The new height is $\frac{14}{37}$, larger than $\frac{1}{14}$ as promised by step 3. Now bring the real part in: $\frac{84}{37}\approx2.27$, subtract $T^2$ to get $\frac{84}{37}-2=\frac{10}{37}\approx0.27$, within $|\cdot|\le\frac12$, and $|\tfrac{10}{37}+\tfrac{14}{37}i|^2=\frac{100+196}{1369}=\frac{296}{1369}<1$ — still below the arc, so repeat $S$ once more. Each pass strictly increases the height, and since heights in an orbit have a maximum, the algorithm terminates inside $\mathcal F$. This is the constructive content of Theorem 3.
+Reduce $\tau = -\tfrac{3}{7}+\tfrac{1}{14}i$. It already has $|\mathrm{Re}\tau|=\tfrac37\le\tfrac12$, but $|\tau|^2=\tfrac{9}{49}+\tfrac{1}{196}<1$, so it is below the arc. Apply $S$: $S\tau=-1/\tau$. Compute $-1/\tau = -\overline\tau/|\tau|^2$; with $|\tau|^2=\frac{36+1}{196}=\frac{37}{196}$ and $\overline\tau=-\frac37-\frac{1}{14}i$, we get $-1/\tau=\frac{(3/7)+(1/14)i}{37/196}=\frac{196}{37}\big(\tfrac37+\tfrac{1}{14}i\big)=\frac{84}{37}+\frac{14}{37}i$. The new height is $\frac{14}{37}$, larger than $\frac{1}{14}$ as promised by step 3. Now bring the real part in: $\frac{84}{37}\approx2.27$, subtract $T^2$ to get $\frac{84}{37}-2=\frac{10}{37}\approx0.27$, within $|\cdot|\le\frac12$, and $|\tfrac{10}{37}+\tfrac{14}{37}i|^2=\frac{100+196}{1369}=\frac{296}{1369}<1$ — still below the arc, so repeat $S$ once more. Each pass strictly increases the height, and since heights in an orbit have a maximum, the algorithm terminates inside $\mathcal F$. This is the constructive content of Theorem 3.
 
 #### The orbifold picture and pitfalls
 
-The quotient $\mathbb{H}/PSL(2,\mathbb{Z})$, made by gluing the edges of $\mathcal F$, is a sphere with two special **orbifold points** — at $\tau=i$ (fixed by $S$, an order-2 symmetry) and at $\tau=\rho:=e^{2\pi i/3}$ (fixed by $ST$, order 3) — plus one **cusp** at $\tau\to i\infty$. The cusp is the "point at infinity" where $\operatorname{Im}\tau\to\infty$; it is where we will demand good behavior of modular forms. The order-2 and order-3 symmetries here are the source of the $\tfrac12$ and $\tfrac13$ that will appear in the valence formula (§s6) and in the dimension formula (§s5) — every appearance of those fractions traces back to these two fixed points.
+The quotient $\mathbb{H}/PSL(2,\mathbb{Z})$, made by gluing the edges of $\mathcal F$, is a sphere with two special **orbifold points** — at $\tau=i$ (fixed by $S$, an order-2 symmetry) and at $\tau=\rho:=e^{2\pi i/3}$ (fixed by $ST$, order 3) — plus one **cusp** at $\tau\to i\infty$. The cusp is the "point at infinity" where $\mathrm{Im}\tau\to\infty$; it is where we will demand good behavior of modular forms. The order-2 and order-3 symmetries here are the source of the $\tfrac12$ and $\tfrac13$ that will appear in the valence formula (§s6) and in the dimension formula (§s5) — every appearance of those fractions traces back to these two fixed points.
 
 *Pitfalls:* (i) the boundary of $\mathcal F$ is not "free" — points on it are glued, so $\mathcal F$ has only the interior as unique representatives. (ii) The presentation of $PSL(2,\mathbb Z)$ is $\langle S,T\mid S^2=(ST)^3=1\rangle$, which makes it the **free product** $\mathbb Z/2 * \mathbb Z/3$; this means a generic element has a *unique* reduced word in $S$ and $T$, the algebraic shadow of the unique reduction path.
 
@@ -198,9 +198,9 @@ We now define the objects of study. A modular form is holomorphic on $\mathbb{H}
 > $$
 > f\!\left(\frac{a\tau+b}{c\tau+d}\right) = (c\tau+d)^k\, f(\tau).
 > $$
-> 3. **(Holomorphy at the cusp)** $f$ stays bounded as $\operatorname{Im}\tau\to\infty$.
+> 3. **(Holomorphy at the cusp)** $f$ stays bounded as $\mathrm{Im}\tau\to\infty$.
 >
-> If in addition $f\to 0$ as $\operatorname{Im}\tau\to\infty$ (the constant term of its expansion below vanishes), $f$ is a **cusp form**.
+> If in addition $f\to 0$ as $\mathrm{Im}\tau\to\infty$ (the constant term of its expansion below vanishes), $f$ is a **cusp form**.
 
 > **Definition — modular function.** A **modular function** is a *weight-zero* meromorphic (allowed poles) function with $f(\gamma\cdot\tau)=f(\tau)$ — genuinely invariant — and at most a pole at the cusp. The $j$-invariant (§s5) is the prototype.
 
@@ -210,7 +210,7 @@ We now define the objects of study. A modular form is holomorphic on $\mathbb{H}
    $$
    q := e^{2\pi i\tau},
    $$
-   the **nome**. *(Reason: $\tau\mapsto q$ maps the strip $0\le\operatorname{Re}\tau<1$ onto the punctured unit disk; periodicity makes $f$ a single-valued function of $q$, hence a Laurent series $\sum_{n} a_n q^n$ by the complex-analysis theorem on annular domains.)* As $\operatorname{Im}\tau\to\infty$, $q=e^{2\pi i(x+iy)}=e^{2\pi i x}e^{-2\pi y}\to 0$. So the cusp is $q=0$, and condition 3 (boundedness) becomes: **no negative powers of $q$**, i.e.
+   the **nome**. *(Reason: $\tau\mapsto q$ maps the strip $0\le\mathrm{Re}\tau<1$ onto the punctured unit disk; periodicity makes $f$ a single-valued function of $q$, hence a Laurent series $\sum_{n} a_n q^n$ by the complex-analysis theorem on annular domains.)* As $\mathrm{Im}\tau\to\infty$, $q=e^{2\pi i(x+iy)}=e^{2\pi i x}e^{-2\pi y}\to 0$. So the cusp is $q=0$, and condition 3 (boundedness) becomes: **no negative powers of $q$**, i.e.
    $$
    f(\tau) = \sum_{n=0}^{\infty} a_n q^n.
    $$
@@ -261,7 +261,7 @@ We need actual nonzero examples. The most natural way to *build* a weight-$k$ fu
    $$
    where reordering the absolutely convergent sum over the bijected indices is legitimate. $\blacksquare$
 
-Holomorphy on $\mathbb{H}$ and boundedness at the cusp follow because the series converges uniformly on compacta and term-by-term $\to n^{-2k}$ as $\operatorname{Im}\tau\to\infty$. So $G_{2k}$ is a genuine modular form of weight $2k$.
+Holomorphy on $\mathbb{H}$ and boundedness at the cusp follow because the series converges uniformly on compacta and term-by-term $\to n^{-2k}$ as $\mathrm{Im}\tau\to\infty$. So $G_{2k}$ is a genuine modular form of weight $2k$.
 
 #### Deriving the $q$-expansion
 
@@ -276,7 +276,7 @@ $$
    $$
    \pi\cot(\pi\tau) = \frac1\tau + \sum_{n=1}^\infty\Big(\frac{1}{\tau+n}+\frac{1}{\tau-n}\Big) = \sum_{n=-\infty}^\infty \frac{1}{\tau+n}.
    $$
-2. Independently, $\pi\cot\pi\tau = \pi\frac{\cos\pi\tau}{\sin\pi\tau}$. Write $\cos,\sin$ via exponentials: $\pi\cot\pi\tau = \pi i\,\frac{e^{i\pi\tau}+e^{-i\pi\tau}}{e^{i\pi\tau}-e^{-i\pi\tau}} = \pi i\,\frac{q+1}{q-1}$ with $q=e^{2\pi i\tau}$. Rearrange: $\pi i\frac{q+1}{q-1} = \pi i\big(1+\frac{2}{q-1}\big) = \pi i - 2\pi i\frac{1}{1-q} = \pi i -2\pi i\sum_{r=0}^\infty q^r$. *(Reason: geometric series $\frac{1}{1-q}=\sum q^r$, valid since $|q|<1$ for $\operatorname{Im}\tau>0$.)*
+2. Independently, $\pi\cot\pi\tau = \pi\frac{\cos\pi\tau}{\sin\pi\tau}$. Write $\cos,\sin$ via exponentials: $\pi\cot\pi\tau = \pi i\,\frac{e^{i\pi\tau}+e^{-i\pi\tau}}{e^{i\pi\tau}-e^{-i\pi\tau}} = \pi i\,\frac{q+1}{q-1}$ with $q=e^{2\pi i\tau}$. Rearrange: $\pi i\frac{q+1}{q-1} = \pi i\big(1+\frac{2}{q-1}\big) = \pi i - 2\pi i\frac{1}{1-q} = \pi i -2\pi i\sum_{r=0}^\infty q^r$. *(Reason: geometric series $\frac{1}{1-q}=\sum q^r$, valid since $|q|<1$ for $\mathrm{Im}\tau>0$.)*
 3. Equate steps 1 and 2: $\sum_{n}\frac{1}{\tau+n} = \pi i - 2\pi i\sum_{r=0}^\infty q^r = -\pi i - 2\pi i\sum_{r=1}^\infty q^r$.
 4. Differentiate both sides $2k-1$ times with respect to $\tau$. On the left, $\frac{d^{2k-1}}{d\tau^{2k-1}}\frac{1}{\tau+n} = \frac{(-1)^{2k-1}(2k-1)!}{(\tau+n)^{2k}}=\frac{-(2k-1)!}{(\tau+n)^{2k}}$. On the right, $\frac{d}{d\tau}q^r = 2\pi i\,r\,q^r$, so differentiating $2k-1$ times multiplies the $r$-th term by $(2\pi i r)^{2k-1}$. *(Reason: term-by-term differentiation of a uniformly convergent series of holomorphic functions, allowed on $\mathbb H$.)* This yields
    $$
@@ -317,7 +317,7 @@ It is holomorphic and $1$-periodic but **fails** the $S$-transformation by an ad
 $$
 E_2\!\left(-\tfrac1\tau\right) = \tau^2 E_2(\tau) + \frac{12\tau}{2\pi i} = \tau^2 E_2(\tau) - \frac{6i\tau}{\pi}.
 $$
-*Reason in one line:* the conditional rearrangement of the borderline-divergent double sum picks up a boundary term, exactly the extra $\frac{6i\tau}{\pi}$. $E_2$ is the prototype of a **quasimodular form**. The combination $\widehat{E}_2(\tau)=E_2(\tau)-\frac{3}{\pi\operatorname{Im}\tau}$ *is* modular of weight 2 but no longer holomorphic — the same trade-off (holomorphy vs. exact modularity) that recurs as the "modular anomaly" in §s9 and §s11.
+*Reason in one line:* the conditional rearrangement of the borderline-divergent double sum picks up a boundary term, exactly the extra $\frac{6i\tau}{\pi}$. $E_2$ is the prototype of a **quasimodular form**. The combination $\widehat{E}_2(\tau)=E_2(\tau)-\frac{3}{\pi\mathrm{Im}\tau}$ *is* modular of weight 2 but no longer holomorphic — the same trade-off (holomorphy vs. exact modularity) that recurs as the "modular anomaly" in §s9 and §s11.
 
 #### Worked example: the Ramanujan derivative identities
 
@@ -398,11 +398,11 @@ The dimension formula above rests on a single counting law: a nonzero modular fo
 
 #### Statement
 
-> **Theorem 5 (Valence formula).** Let $f\ne0$ be a modular form of weight $k$. Write $\operatorname{ord}_p(f)$ for the order of vanishing of $f$ at a point $p$. Then
+> **Theorem 5 (Valence formula).** Let $f\ne0$ be a modular form of weight $k$. Write $\mathrm{ord}_p(f)$ for the order of vanishing of $f$ at a point $p$. Then
 > $$
-> \operatorname{ord}_\infty(f) + \tfrac12\operatorname{ord}_i(f) + \tfrac13\operatorname{ord}_\rho(f) + \sum_{p\ne i,\rho,\infty} \operatorname{ord}_p(f) \;=\; \frac{k}{12},
+> \mathrm{ord}_\infty(f) + \tfrac12\mathrm{ord}_i(f) + \tfrac13\mathrm{ord}_\rho(f) + \sum_{p\ne i,\rho,\infty} \mathrm{ord}_p(f) \;=\; \frac{k}{12},
 > $$
-> where $\rho=e^{2\pi i/3}$, $\operatorname{ord}_\infty$ is the order in $q$ at the cusp, and the sum is over orbit-representatives in $\mathcal F$ interior plus boundary (counted once).
+> where $\rho=e^{2\pi i/3}$, $\mathrm{ord}_\infty$ is the order in $q$ at the cusp, and the sum is over orbit-representatives in $\mathcal F$ interior plus boundary (counted once).
 
 The fractions $\tfrac12,\tfrac13$ reflect the orbifold symmetry orders at $i$ and $\rho$ (§s2).
 
@@ -410,17 +410,17 @@ The fractions $\tfrac12,\tfrac13$ reflect the orbifold symmetry orders at $i$ an
 
 The idea: by the **argument principle** (restated from [Complex Analysis](../complex-analysis/complex-analysis.md): $\frac{1}{2\pi i}\oint \frac{f'}{f}\,d\tau$ equals the number of zeros minus poles enclosed), integrate $\frac{1}{2\pi i}\frac{f'}{f}$ around $\partial\mathcal F$. Since $f$ is holomorphic (no poles in $\mathbb H$), the integral counts the interior zeros; we then evaluate the same integral edge-by-edge using modularity, and the two evaluations are equated.
 
-1. **The contour.** Take $\partial\mathcal F$: up the right edge $\operatorname{Re}\tau=\frac12$ to a high cutoff $\operatorname{Im}\tau=Y$, across the top, down the left edge $\operatorname{Re}\tau=-\frac12$, and along the bottom arc $|\tau|=1$. Indent with small circular arcs around the corner points $i,\rho,\rho+1$ (so the contour avoids zeros there), and use a horizontal segment at height $Y$ near the cusp. Assume (generic case) $f$ has no zeros on the edges except possibly at $i,\rho$.
-2. **Top segment $\leftrightarrow$ cusp.** The horizontal piece at height $Y$, traversed right-to-left, contributes $\frac{1}{2\pi i}\int \frac{f'}{f}d\tau$. Change variable to $q=e^{2\pi i\tau}$: this segment maps to a small circle around $q=0$ traversed clockwise, and the integral equals $-\operatorname{ord}_\infty(f)$. *(Reason: $\frac{1}{2\pi i}\oint_{|q|=\epsilon}\frac{dq}{q}\cdot(\text{order})$; the leading $q$-power of $f$ gives its order at the cusp.)* So this part contributes $-\operatorname{ord}_\infty(f)$ to the count.
+1. **The contour.** Take $\partial\mathcal F$: up the right edge $\mathrm{Re}\tau=\frac12$ to a high cutoff $\mathrm{Im}\tau=Y$, across the top, down the left edge $\mathrm{Re}\tau=-\frac12$, and along the bottom arc $|\tau|=1$. Indent with small circular arcs around the corner points $i,\rho,\rho+1$ (so the contour avoids zeros there), and use a horizontal segment at height $Y$ near the cusp. Assume (generic case) $f$ has no zeros on the edges except possibly at $i,\rho$.
+2. **Top segment $\leftrightarrow$ cusp.** The horizontal piece at height $Y$, traversed right-to-left, contributes $\frac{1}{2\pi i}\int \frac{f'}{f}d\tau$. Change variable to $q=e^{2\pi i\tau}$: this segment maps to a small circle around $q=0$ traversed clockwise, and the integral equals $-\mathrm{ord}_\infty(f)$. *(Reason: $\frac{1}{2\pi i}\oint_{|q|=\epsilon}\frac{dq}{q}\cdot(\text{order})$; the leading $q$-power of $f$ gives its order at the cusp.)* So this part contributes $-\mathrm{ord}_\infty(f)$ to the count.
 3. **Left and right edges cancel via $T$.** The map $T:\tau\mapsto\tau+1$ carries the left edge to the right edge. Since $f(\tau+1)=f(\tau)$, the integrand $\frac{f'}{f}$ takes equal values at corresponding points, but the two edges are traversed in *opposite* directions, so their contributions **cancel**. *(Reason: periodicity of $f$ under $T$.)*
 4. **The bottom arc splits at $i$; $S$ relates the halves.** The arc $|\tau|=1$ is mapped to itself by $S:\tau\mapsto-1/\tau$, which swaps the two halves (from $\rho$ to $i$, and from $i$ to $\rho+1$). Modularity $f(-1/\tau)=\tau^k f(\tau)$ gives, on differentiating logarithmically, $\frac{f'}{f}(-1/\tau)\cdot\frac{1}{\tau^2} = \frac{k}{\tau}+\frac{f'}{f}(\tau)$. Integrating the difference of the two half-arcs leaves the residual $\frac{1}{2\pi i}\int \frac{k}{\tau}\,d\tau$ over a quarter-turn (from $\rho$ to $i$ is a $\frac{1}{12}$ turn of argument from $\frac{2\pi}{3}$ to $\frac{\pi}{2}$), evaluating to $\frac{k}{12}$. *(Reason: $\frac{1}{2\pi i}\int_C \frac{d\tau}{\tau}=\frac{\Delta(\arg)}{2\pi}$; the net argument swept is $\frac{2\pi}{12}$.)* This produces the $\frac{k}{12}$ on the right-hand side.
-5. **Corner indentations give the orbifold fractions.** The small arc around $i$ subtends angle $\pi$ (half a full turn, since $i$ is a fixed point of order 2 and the domain has interior angle $\pi$ there), contributing $-\frac12\operatorname{ord}_i(f)$. The arcs around $\rho$ and $\rho+1$ together subtend angle $\frac{2\pi}{3}$ (order-3 fixed point), contributing $-\frac13\operatorname{ord}_\rho(f)$. *(Reason: an indentation of angle $\theta$ around a zero of order $m$ contributes $-\frac{\theta}{2\pi}m$ to the argument-principle count.)*
-6. **Equate.** The total contour integral equals $\sum_{p\,\text{interior}}\operatorname{ord}_p(f)$ (the genuine interior zeros, by the argument principle). Summing the edge contributions from steps 2–5 and moving terms across gives exactly the valence formula. $\blacksquare$
+5. **Corner indentations give the orbifold fractions.** The small arc around $i$ subtends angle $\pi$ (half a full turn, since $i$ is a fixed point of order 2 and the domain has interior angle $\pi$ there), contributing $-\frac12\mathrm{ord}_i(f)$. The arcs around $\rho$ and $\rho+1$ together subtend angle $\frac{2\pi}{3}$ (order-3 fixed point), contributing $-\frac13\mathrm{ord}_\rho(f)$. *(Reason: an indentation of angle $\theta$ around a zero of order $m$ contributes $-\frac{\theta}{2\pi}m$ to the argument-principle count.)*
+6. **Equate.** The total contour integral equals $\sum_{p\,\text{interior}}\mathrm{ord}_p(f)$ (the genuine interior zeros, by the argument principle). Summing the edge contributions from steps 2–5 and moving terms across gives exactly the valence formula. $\blacksquare$
 
 #### Worked consequences
 
-- $\Delta$ has weight $12$, so total zero count $=1$. Its $q$-expansion starts $q$, i.e. $\operatorname{ord}_\infty\Delta=1$. That *uses up the entire budget*, so $\Delta$ has **no zeros in $\mathbb H$** — confirming the claim of §s5 and justifying that division by $\Delta$ is allowed.
-- $E_4$ has weight $4$: budget $\frac{4}{12}=\frac13$, which can only be $\frac13\operatorname{ord}_\rho$, so $E_4(\rho)=0$ and $E_4$ vanishes nowhere else. Likewise $E_6$ has budget $\frac{6}{12}=\frac12$: $E_6(i)=0$ and nowhere else.
+- $\Delta$ has weight $12$, so total zero count $=1$. Its $q$-expansion starts $q$, i.e. $\mathrm{ord}_\infty\Delta=1$. That *uses up the entire budget*, so $\Delta$ has **no zeros in $\mathbb H$** — confirming the claim of §s5 and justifying that division by $\Delta$ is allowed.
+- $E_4$ has weight $4$: budget $\frac{4}{12}=\frac13$, which can only be $\frac13\mathrm{ord}_\rho$, so $E_4(\rho)=0$ and $E_4$ vanishes nowhere else. Likewise $E_6$ has budget $\frac{6}{12}=\frac12$: $E_6(i)=0$ and nowhere else.
 
 #### How the valence formula yields the dimension formula
 
@@ -560,11 +560,11 @@ $$
 
 In a $1+1$ dimensional conformal field theory on a torus of modular parameter $\tau$, the partition function is
 $$
-Z(\tau,\bar\tau) = \operatorname{Tr}\,q^{L_0-c/24}\,\bar q^{\bar L_0 - c/24},
+Z(\tau,\bar\tau) = \mathrm{Tr}\,q^{L_0-c/24}\,\bar q^{\bar L_0 - c/24},
 $$
 where $L_0$ is the energy operator, $c$ is the **central charge** (a number measuring the "number of degrees of freedom"), and the shift $-c/24$ is the **Casimir energy** of the cylinder. (Restated from the [Conformal Field Theory](conformal-field-theory.md) guide: modular invariance of $Z$ is the torus consistency condition.) For a single free boson ($c=1$),
 $$
-Z_{\text{boson}}(\tau) \propto \frac{1}{\sqrt{\operatorname{Im}\tau}\;|\eta(\tau)|^2}.
+Z_{\text{boson}}(\tau) \propto \frac{1}{\sqrt{\mathrm{Im}\tau}\;|\eta(\tau)|^2}.
 $$
 
 **The modular anomaly = central charge.** Under $S:\tau\to-1/\tau$, the factor $q^{-c/24}=e^{-2\pi i\tau(-c/24)}$ combines with the $\eta$ inversion law. The would-be anomalous phase $e^{\pi i/12}$ under $T$ is exactly $e^{2\pi i\, c/24}$ with $c=1$ (the Dedekind $\eta$ is the full $c=1$ free boson, since $e^{2\pi i\cdot 1/24}=e^{\pi i/12}$) — so the requirement that $Z$ be modular invariant forces the $-c/24$ shift to take its precise value. The "$24$" in $\eta$ and the "$26$" critical dimension of the bosonic string ($26 = 24 + 2$ transverse vs. light-cone) are the *same* $24$: cancelling the modular ($\eta$) anomaly requires $24$ transverse oscillators, hence $c=24\cdot1=24$ matching the $\eta^{24}=\Delta$ weight-12 structure.
@@ -582,7 +582,7 @@ Attached to a modular form is a **Dirichlet series** built from its coefficients
 > $$
 > L(f,s) = \sum_{n=1}^\infty \frac{a_n}{n^s},
 > $$
-> a **Dirichlet series** in the complex variable $s$, convergent for $\operatorname{Re}s$ large.
+> a **Dirichlet series** in the complex variable $s$, convergent for $\mathrm{Re}s$ large.
 
 > **Definition — Mellin transform.** For a function $h(t)$ on $(0,\infty)$, $\ \mathcal M[h](s)=\int_0^\infty h(t)\,t^{s}\,\frac{dt}{t}$.
 
@@ -616,7 +616,7 @@ This is the Taniyama–Shimura–Weil conjecture, proved by Wiles and Taylor (an
 
 #### Worked example
 
-For $\Delta$ (weight $12$), $L(\Delta,s)=\sum\tau(n)n^{-s}$, and the functional equation relates $s\leftrightarrow 12-s$ with sign $(-1)^6=+1$, so $\Lambda(\Delta,s)=\Lambda(\Delta,12-s)$, symmetric about $\operatorname{Re}s=6$. Multiplicativity of $\tau$ (§s7) makes $L(\Delta,s)$ factor as an **Euler product** $\prod_p(1-\tau(p)p^{-s}+p^{11-2s})^{-1}$.
+For $\Delta$ (weight $12$), $L(\Delta,s)=\sum\tau(n)n^{-s}$, and the functional equation relates $s\leftrightarrow 12-s$ with sign $(-1)^6=+1$, so $\Lambda(\Delta,s)=\Lambda(\Delta,12-s)$, symmetric about $\mathrm{Re}s=6$. Multiplicativity of $\tau$ (§s7) makes $L(\Delta,s)$ factor as an **Euler product** $\prod_p(1-\tau(p)p^{-s}+p^{11-2s})^{-1}$.
 
 #### Why the Mellin transform is the right bridge
 
@@ -641,9 +641,9 @@ A two-dimensional field theory on a torus is specified by a modular parameter $\
 
 > **Physical requirement.** The partition function must satisfy $Z(\gamma\cdot\tau,\overline{\gamma\cdot\tau}) = Z(\tau,\bar\tau)$ for all $\gamma\in SL(2,\mathbb{Z})$.
 
-For the free boson (§s9), $Z=\frac{1}{\sqrt{\operatorname{Im}\tau}|\eta(\tau)|^2}$ is invariant precisely because:
-1. $\operatorname{Im}\tau$ transforms as $\operatorname{Im}(\gamma\tau)=\operatorname{Im}\tau/|c\tau+d|^2$ (master formula, §s1), contributing $|c\tau+d|$;
-2. $|\eta(\gamma\tau)|^2$ transforms by $|c\tau+d|^{1}$ from each of $\eta,\bar\eta$ (weight $\tfrac12$ each), contributing $|c\tau+d|^{-1}$ when in the denominator squared... the powers cancel exactly. *(Reason: the weight-$\frac12$ of $\eta$ and the weight-$(-\frac12)$ of $(\operatorname{Im}\tau)^{-1/2}$ are tuned to cancel — this is the modular-invariance condition, and it is what fixes $c=1$ for a single boson and the $-c/24$ Casimir shift.)*
+For the free boson (§s9), $Z=\frac{1}{\sqrt{\mathrm{Im}\tau}|\eta(\tau)|^2}$ is invariant precisely because:
+1. $\mathrm{Im}\tau$ transforms as $\mathrm{Im}(\gamma\tau)=\mathrm{Im}\tau/|c\tau+d|^2$ (master formula, §s1), contributing $|c\tau+d|$;
+2. $|\eta(\gamma\tau)|^2$ transforms by $|c\tau+d|^{1}$ from each of $\eta,\bar\eta$ (weight $\tfrac12$ each), contributing $|c\tau+d|^{-1}$ when in the denominator squared... the powers cancel exactly. *(Reason: the weight-$\frac12$ of $\eta$ and the weight-$(-\frac12)$ of $(\mathrm{Im}\tau)^{-1/2}$ are tuned to cancel — this is the modular-invariance condition, and it is what fixes $c=1$ for a single boson and the $-c/24$ Casimir shift.)*
 
 The constraint is so strong that for a CFT to be consistent, its spectrum of states must organize into a modular-invariant combination of characters — the **modular bootstrap**.
 
@@ -659,17 +659,17 @@ exchanging momentum and winding ($\alpha'$ is the string length-squared). This i
 
 The low-energy effective action of type IIB string theory contains a famous **$R^4$ correction** (a four-graviton interaction). Its coefficient, as a function of the complex coupling $\tau = \frac{\theta}{2\pi}+\frac{i}{g_s}$ (axion–dilaton, with string coupling $g_s$), is required by S-duality $SL(2,\mathbb{Z})$ to be modular invariant of weight $0$, and it equals the **non-holomorphic Eisenstein series**
 $$
-E_{3/2}(\tau) = \sum_{(m,n)\ne(0,0)} \frac{(\operatorname{Im}\tau)^{3/2}}{|m\tau+n|^{3}}.
+E_{3/2}(\tau) = \sum_{(m,n)\ne(0,0)} \frac{(\mathrm{Im}\tau)^{3/2}}{|m\tau+n|^{3}}.
 $$
 Its $q$-expansion has exactly two power-law terms (tree-level and one-loop in $g_s$) plus exponentially small **D-instanton** corrections — a structure *predicted purely by modularity*. The appearance of $E_{3/2}$ (and higher $E_s$ for higher corrections) is one of the cleanest places where the Eisenstein series of §s4 enter physics directly, their automorphy encoding the non-perturbative completion of a perturbative expansion.
 
 #### Worked structure of $E_{3/2}$: how modularity predicts physics
 
-The non-holomorphic Eisenstein series $E_s(\tau)=\sum_{(m,n)\ne0}\frac{(\operatorname{Im}\tau)^s}{|m\tau+n|^{2s}}$ has, by a Poisson-summation computation in the $n$ variable (the same tool as §s8), an exact expansion of the form
+The non-holomorphic Eisenstein series $E_s(\tau)=\sum_{(m,n)\ne0}\frac{(\mathrm{Im}\tau)^s}{|m\tau+n|^{2s}}$ has, by a Poisson-summation computation in the $n$ variable (the same tool as §s8), an exact expansion of the form
 $$
 E_s(\tau)=2\zeta(2s)\,y^s + 2\sqrt\pi\,\frac{\Gamma(s-\tfrac12)\zeta(2s-1)}{\Gamma(s)}\,y^{1-s} + (\text{exponentially small in } y),
 $$
-with $y=\operatorname{Im}\tau=1/g_s$. Read physically at $s=\tfrac32$: the first term $\sim y^{3/2}=g_s^{-3/2}$ is the **tree-level** contribution, the second $\sim y^{-1/2}=g_s^{1/2}$ is the **one-loop** contribution, and the exponentially small remainder $\sim e^{-2\pi y}=e^{-2\pi/g_s}$ are the **D-instanton** effects. *(Reason: powers of $y=1/g_s$ are powers of the coupling, and $e^{-1/g_s}$ is the hallmark of a non-perturbative instanton.)* Crucially, perturbation theory alone could never tell you there are *exactly two* power-law terms and no others — that the series truncates after tree and one loop is a *theorem* forced by $SL(2,\mathbb Z)$ invariance plus the eigenvalue equation $\Delta_{\mathbb H}E_s=s(s-1)E_s$ (with $\Delta_{\mathbb H}$ the hyperbolic Laplacian). Modularity thereby *predicts* the entire non-perturbative coupling dependence of a physical coefficient. This is the sharpest payoff of the whole guide: rigidity becomes prediction.
+with $y=\mathrm{Im}\tau=1/g_s$. Read physically at $s=\tfrac32$: the first term $\sim y^{3/2}=g_s^{-3/2}$ is the **tree-level** contribution, the second $\sim y^{-1/2}=g_s^{1/2}$ is the **one-loop** contribution, and the exponentially small remainder $\sim e^{-2\pi y}=e^{-2\pi/g_s}$ are the **D-instanton** effects. *(Reason: powers of $y=1/g_s$ are powers of the coupling, and $e^{-1/g_s}$ is the hallmark of a non-perturbative instanton.)* Crucially, perturbation theory alone could never tell you there are *exactly two* power-law terms and no others — that the series truncates after tree and one loop is a *theorem* forced by $SL(2,\mathbb Z)$ invariance plus the eigenvalue equation $\Delta_{\mathbb H}E_s=s(s-1)E_s$ (with $\Delta_{\mathbb H}$ the hyperbolic Laplacian). Modularity thereby *predicts* the entire non-perturbative coupling dependence of a physical coefficient. This is the sharpest payoff of the whole guide: rigidity becomes prediction.
 
 #### Pitfalls and the unifying picture
 

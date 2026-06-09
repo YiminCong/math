@@ -50,25 +50,25 @@ $$
 
 #### 形式分布
 
-固定一个复数域 $\mathbb{C}$ 上的向量空间 $V$，并令 $\operatorname{End}V$ 表示线性映射 $V\to V$ 构成的空间（其"自同态"——即算子）。
+固定一个复数域 $\mathbb{C}$ 上的向量空间 $V$，并令 $\mathrm{End}V$ 表示线性映射 $V\to V$ 构成的空间（其"自同态"——即算子）。
 
-> **定义 — 形式分布。** 变量 $z$ 的、取值于 $\operatorname{End}V$ 的**形式分布**是双向无限级数
+> **定义 — 形式分布。** 变量 $z$ 的、取值于 $\mathrm{End}V$ 的**形式分布**是双向无限级数
 > $$
-> a(z)\;=\;\sum_{n\in\mathbb{Z}} a_{(n)}\,z^{-n-1},\qquad a_{(n)}\in\operatorname{End}V.
+> a(z)\;=\;\sum_{n\in\mathbb{Z}} a_{(n)}\,z^{-n-1},\qquad a_{(n)}\in\mathrm{End}V.
 > $$
-> 所有这类级数的空间记作 $(\operatorname{End}V)[[z,z^{-1}]]$。数 $a_{(n)}$ 是 $a(z)$ 的**第 $n$ 个模**。古怪的指数 $-n-1$ 是一种约定，选它是为了让 $a_{(n)}$ 能通过形式留数（下文定义）恢复出来；它使后面的公式更整洁。
+> 所有这类级数的空间记作 $(\mathrm{End}V)[[z,z^{-1}]]$。数 $a_{(n)}$ 是 $a(z)$ 的**第 $n$ 个模**。古怪的指数 $-n-1$ 是一种约定，选它是为了让 $a_{(n)}$ 能通过形式留数（下文定义）恢复出来；它使后面的公式更整洁。
 
 双层方括号意为"允许一切系数，正负幂均可，不要求收敛"。一般而言我们*无法*把两个这样的级数相乘（给定幂次的系数会是一个无穷和）。乘法只在下文的场条件下才有定义。
 
 > **定义 — 形式留数。** 形式分布的**留数**是 $z^{-1}$ 的系数：
 > $$
-> \operatorname{Res}_z a(z)\;=\;a_{(0)}.
+> \mathrm{Res}_z a(z)\;=\;a_{(0)}.
 > $$
-> 这是围道积分中 $\frac1{2\pi i}\oint a(z)\,dz$ 的代数类比（见[复分析](../complex-analysis/complex-analysis.md)：Laurent 级数的围道积分挑出 $z^{-1}$ 系数）。我们纯形式地使用 $\operatorname{Res}$——无围道、无收敛。
+> 这是围道积分中 $\frac1{2\pi i}\oint a(z)\,dz$ 的代数类比（见[复分析](../complex-analysis/complex-analysis.md)：Laurent 级数的围道积分挑出 $z^{-1}$ 系数）。我们纯形式地使用 $\mathrm{Res}$——无围道、无收敛。
 
 #### 场
 
-> **定义 — 场。** 形式分布 $a(z)=\sum_n a_{(n)} z^{-n-1}\in(\operatorname{End}V)[[z,z^{-1}]]$ 是 $V$ 上的**场**，如果对每个向量 $v\in V$，只有有限多个*正模*项非平凡地作用：
+> **定义 — 场。** 形式分布 $a(z)=\sum_n a_{(n)} z^{-n-1}\in(\mathrm{End}V)[[z,z^{-1}]]$ 是 $V$ 上的**场**，如果对每个向量 $v\in V$，只有有限多个*正模*项非平凡地作用：
 > $$
 > a_{(n)}\,v=0\quad\text{for all }n\text{ sufficiently large (depending on }v).
 > $$
@@ -88,13 +88,13 @@ $$
 
 > **引理（筛选）。** 对任意场 $a(z)$，
 > $$
-> \operatorname{Res}_z\,a(z)\,\delta(z-w)\;=\;a(w).
+> \mathrm{Res}_z\,a(z)\,\delta(z-w)\;=\;a(w).
 > $$
 
 *证明。*
 1. 写 $a(z)=\sum_m a_{(m)} z^{-m-1}$ 且 $\delta(z-w)=\sum_n z^{-n-1}w^n$。*（定义。）*
 2. 它们的乘积，按幂次归并，为 $\sum_{m,n} a_{(m)}\, z^{-m-1}z^{-n-1} w^n=\sum_{m,n} a_{(m)} w^n z^{-m-n-2}$。*（级数相乘；这里合法，因为对每个固定的 $z$ 幂，$w$ 系数是单个算子，不出现无穷和。）*
-3. 取 $\operatorname{Res}_z$，即保留 $z^{-1}$ 的系数。这要求 $-m-n-2=-1$，即 $m=-n-1$。*（留数的定义。）*
+3. 取 $\mathrm{Res}_z$，即保留 $z^{-1}$ 的系数。这要求 $-m-n-2=-1$，即 $m=-n-1$。*（留数的定义。）*
 4. 代入 $m=-n-1$ 得 $\sum_n a_{(-n-1)} w^n=\sum_n a_{(-n-1)} w^n$。重新编号 $k=-n-1$，故 $n=-k-1$：$\sum_k a_{(k)} w^{-k-1}=a(w)$。*（对全体整数求和的重新编号，允许。）*
 $\blacksquare$
 
@@ -157,16 +157,16 @@ $$
 > - $V$ 是一个 $\mathbb{C}$-向量空间，即**态空间**；
 > - $|0\rangle\in V$ 是**真空向量**，一个特选的态；
 > - $T:V\to V$ 是线性映射，即**平移算子**（也称**无穷小平移**）；
-> - $Y(\cdot,z):V\to(\operatorname{End}V)[[z,z^{-1}]]$ 是**态-场对应**，把每个态 $A\in V$ 送到一个场
+> - $Y(\cdot,z):V\to(\mathrm{End}V)[[z,z^{-1}]]$ 是**态-场对应**，把每个态 $A\in V$ 送到一个场
 > $$
-> Y(A,z)=\sum_{n\in\mathbb{Z}} A_{(n)}\,z^{-n-1},\qquad A_{(n)}\in\operatorname{End}V,
+> Y(A,z)=\sum_{n\in\mathbb{Z}} A_{(n)}\,z^{-n-1},\qquad A_{(n)}\in\mathrm{End}V,
 > $$
 > 称为 $A$ 的**顶点算子**；
 >
 > 并服从以下公理：
 >
 > 1. **（场公理）** 对每个 $A$，$Y(A,z)$ 是场：当 $n$ 大时 $A_{(n)}B=0$（依赖于 $A,B$）。
-> 2. **（真空公理）** $Y(|0\rangle,z)=\operatorname{id}_V$（恒等场，除常数项外所有模为零），且对每个 $A$，
+> 2. **（真空公理）** $Y(|0\rangle,z)=\mathrm{id}_V$（恒等场，除常数项外所有模为零），且对每个 $A$，
 > $$
 > Y(A,z)|0\rangle\;\in\;A+zV[[z]],\qquad\text{i.e.}\quad Y(A,z)|0\rangle\big|_{z=0}=A.
 > $$
@@ -227,7 +227,7 @@ $$
 
 #### 微型计算实例
 
-最简单的顶点代数是 $V=\mathbb{C}$，即**平凡**代数：$|0\rangle=1$，$T=0$，$Y(\lambda,z)=\lambda\cdot\operatorname{id}$。所有公理成立（$Y(|0\rangle,z)=\operatorname{id}$；$Y(A,z)|0\rangle=\lambda\to\lambda=A$；$[T,\cdot]=0=\partial_z(\text{constant})$；对易子消失故 $N=0$）。它是顶点代数几何的那个"点"——很小，但它表明公理是自洽的。
+最简单的顶点代数是 $V=\mathbb{C}$，即**平凡**代数：$|0\rangle=1$，$T=0$，$Y(\lambda,z)=\lambda\cdot\mathrm{id}$。所有公理成立（$Y(|0\rangle,z)=\mathrm{id}$；$Y(A,z)|0\rangle=\lambda\to\lambda=A$；$[T,\cdot]=0=\partial_z(\text{constant})$；对易子消失故 $N=0$）。它是顶点代数几何的那个"点"——很小，但它表明公理是自洽的。
 
 #### 易错点
 
@@ -307,7 +307,7 @@ $$
 $$
 [L_m,L_n]=(m-n)L_{m+n}+\frac{C}{12}\,(m^3-m)\,\delta_{m+n,0},\qquad [L_m,C]=0.
 $$
-在一个表示上 $C$ 作为标量 $c\cdot\operatorname{id}$ 作用，即**中心荷**。它是全纯向量场 $-z^{n+1}\partial_z$ 的 **Witt 代数** $[L_m,L_n]=(m-n)L_{m+n}$ 的唯一（至多差一个标度）中心扩张。
+在一个表示上 $C$ 作为标量 $c\cdot\mathrm{id}$ 作用，即**中心荷**。它是全纯向量场 $-z^{n+1}\partial_z$ 的 **Witt 代数** $[L_m,L_n]=(m-n)L_{m+n}$ 的唯一（至多差一个标度）中心扩张。
 
 #### 共形结构的定义
 
@@ -339,7 +339,7 @@ $$
 2. 只有 $j=0,1,3$ 有贡献，因为否则 $\omega_{(j)}\omega=0$。*（来自上面的 OPE 数据。）*
 3. **$j=0$：** $\binom{m+1}{0}(\omega_{(0)}\omega)_{(m+n+2)}=(T\omega)_{(m+n+2)}=(\partial\omega)_{(m+n+2)}$。在模上平移算子作用为 $(\partial A)_{(k)}=-k\,A_{(k-1)}$，故取 $k=m+n+2$ 得 $-(m+n+2)\,\omega_{(m+n+1)}=-(m+n+2)\,L_{m+n}$。*（性质 $T A=\partial A$ 移动一个模并把它的指标降下来。）*
 4. **$j=1$：** $\binom{m+1}{1}(\omega_{(1)}\omega)_{(m+n+1)}=(m+1)\,(2\omega)_{(m+n+1)}=2(m+1)\,\omega_{(m+n+1)}=2(m+1)\,L_{m+n}$。把第 3、4 步相加，$L_{m+n}$ 的系数为 $-(m+n+2)+2(m+1)=(m-n)$，给出项 $(m-n)L_{m+n}$。*（两个贡献的算术。）*
-5. **$j=3$：** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-1)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-1)}$。由于 $|0\rangle_{(k)}=\delta_{k,-1}\operatorname{id}$，模 $(m+n-1)$ 恰当 $m+n-1=-1$，即 $m+n=0$ 时作为恒等作用，给出项 $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$。*（真空模仅在次数 $-1$ 时作为恒等作用。）*
+5. **$j=3$：** $\binom{m+1}{3}(\omega_{(3)}\omega)_{(m+n-1)}=\binom{m+1}{3}\big(\tfrac{c}{2}|0\rangle\big)_{(m+n-1)}$。由于 $|0\rangle_{(k)}=\delta_{k,-1}\mathrm{id}$，模 $(m+n-1)$ 恰当 $m+n-1=-1$，即 $m+n=0$ 时作为恒等作用，给出项 $\frac{c}{2}\binom{m+1}{3}\delta_{m+n,0}$。*（真空模仅在次数 $-1$ 时作为恒等作用。）*
 6. 最后 $\frac{c}{2}\binom{m+1}{3}=\frac{c}{2}\cdot\frac{(m+1)m(m-1)}{6}=\frac{c}{12}(m^3-m)$。*（展开二项式：$(m+1)m(m-1)=m^3-m$。）*
 7. 组装起来：$[L_m,L_n]=(m-n)L_{m+n}+\frac{c}{12}(m^3-m)\delta_{m+n,0}$，恰是 Virasoro 代数。$\blacksquare$
 
@@ -410,7 +410,7 @@ $$
 
 #### 亲手钉死反常系数
 
-为了使上面第 3 步不再含糊其辞，我们对最小情形直接计算中心项。我们想要由 $[L_m,L_{-m}]=2mL_0+A(m)\cdot\operatorname{id}$ 在真空扇区定义的数 $A(m)$。
+为了使上面第 3 步不再含糊其辞，我们对最小情形直接计算中心项。我们想要由 $[L_m,L_{-m}]=2mL_0+A(m)\cdot\mathrm{id}$ 在真空扇区定义的数 $A(m)$。
 1. 由 $L_n=\tfrac12\sum_k {:}a_k a_{n-k}{:}$，展开 $[L_m,L_{-m}]$ 并作用于 $|0\rangle$。一旦投影到真空，只有净模为 $0$、且产生纯数（所有振子都缩并）的项在 $|0\rangle$ 上存活。*（场条件：未缩并的湮灭算子杀死 $|0\rangle$。）*
 2. $L_m L_{-m}$ 中四个振子的双重缩并，减去 $L_{-m}L_m$ 中重排后的部分，留下有限和
 $$
@@ -563,8 +563,8 @@ $$
 
 #### 模的定义
 
-> **定义 — 模。** 顶点代数 $V$ 上的一个**模**是一个向量空间 $M$，连同一个态-场映射 $Y_M(\cdot,z):V\to(\operatorname{End}M)[[z,z^{-1}]]$，$Y_M(A,z)=\sum_n A^M_{(n)}z^{-n-1}$，使得：
-> 1. $Y_M(|0\rangle,z)=\operatorname{id}_M$；
+> **定义 — 模。** 顶点代数 $V$ 上的一个**模**是一个向量空间 $M$，连同一个态-场映射 $Y_M(\cdot,z):V\to(\mathrm{End}M)[[z,z^{-1}]]$，$Y_M(A,z)=\sum_n A^M_{(n)}z^{-n-1}$，使得：
+> 1. $Y_M(|0\rangle,z)=\mathrm{id}_M$；
 > 2. 每个 $Y_M(A,z)$ 是 $M$ 上的场；
 > 3. 对一个因子落在 $M$ 中的 $Y_M$-乘积成立 **Borcherds 恒等式**——即 §s2 同一个主恒等式，但 $C\in M$。
 
@@ -572,11 +572,11 @@ $$
 
 对一个共形的 $V$，模按 $L_0$ 特征值分次：$M=\bigoplus_{\Delta} M_\Delta$，其中最小的 $\Delta$ 是该模的**共形权重**（[CFT 指南](conformal-field-theory.md)的初级权重 $h$）。最低权向量是该扇区的**初级态**；其余是**后代**，由产生模 $L_{-n}$ 以及（对仿射代数）$t^a_{-n}$ 作用而得，恰好镜像了 [CFT 指南](conformal-field-theory.md)的 Verma 模构造。一个模是**不可约**的，如果它没有在所有顶点算子下封闭的真非零子模——物理上，即建立在一个初级态上的单一不可约"塔"。
 
-还有一个**纠缠算子**（intertwining operator）的概念（[CFT 指南](conformal-field-theory.md)中初级场的融合）：一个场 $\mathcal{Y}(\cdot,z)$，把一个模的态送到另两个模之间的映射，$\mathcal{Y}:M^1\to\operatorname{Hom}(M^2,M^3)[[z^{\pm}]]z^{\Delta}$。这些空间的维数是**融合规则** $N_{ij}^k$，即计数模 $M^i$ 与 $M^j$ 如何组合产生 $M^k$ 的整数。它们与模性的相容性是著名的 **Verlinde 公式**，$N_{ij}^k=\sum_l \frac{S_{il}S_{jl}\overline{S_{kl}}}{S_{0l}}$，它从 §s10 的 $S$-矩阵计算融合——是整套理论最惊人的产出之一。
+还有一个**纠缠算子**（intertwining operator）的概念（[CFT 指南](conformal-field-theory.md)中初级场的融合）：一个场 $\mathcal{Y}(\cdot,z)$，把一个模的态送到另两个模之间的映射，$\mathcal{Y}:M^1\to\mathrm{Hom}(M^2,M^3)[[z^{\pm}]]z^{\Delta}$。这些空间的维数是**融合规则** $N_{ij}^k$，即计数模 $M^i$ 与 $M^j$ 如何组合产生 $M^k$ 的整数。它们与模性的相容性是著名的 **Verlinde 公式**，$N_{ij}^k=\sum_l \frac{S_{il}S_{jl}\overline{S_{kl}}}{S_{0l}}$，它从 §s10 的 $S$-矩阵计算融合——是整套理论最惊人的产出之一。
 
 #### 有理性
 
-> **定义 — 有理顶点代数（工作版本）。** 一个共形顶点代数是**有理**的，如果每个模都完全可约（不可约模的直和），并且只有**有限多个**不可约模的同构类。一个密切相关的有限性，**$C_2$-余有限性**（空间 $V/C_2(V)$ 有限维，其中 $C_2(V)=\operatorname{span}\{A_{(-2)}B\}$），是 §s10 模性定理得以证明的技术性假设。
+> **定义 — 有理顶点代数（工作版本）。** 一个共形顶点代数是**有理**的，如果每个模都完全可约（不可约模的直和），并且只有**有限多个**不可约模的同构类。一个密切相关的有限性，**$C_2$-余有限性**（空间 $V/C_2(V)$ 有限维，其中 $C_2(V)=\mathrm{span}\{A_{(-2)}B\}$），是 §s10 模性定理得以证明的技术性假设。
 
 有理性是"CFT 具有一个有限、良态的谱"的代数含义。$L$ 为偶正定的格 VOA $V_L$，以及正*整数* level $k$ 的仿射 $V_k(\mathfrak g)$，都是有理的；裸 Heisenberg 代数*不是*（它有一个连续族的 Fock 模 $\pi_\alpha$）。
 
@@ -599,10 +599,10 @@ $$
 
 > **定义 — Zhu 代数。** 在一个共形顶点代数 $V$ 上，用位移模定义两个双线性运算：
 > $$
-> A*B=\operatorname{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z}\,B,\qquad
-> A\circ B=\operatorname{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z^2}\,B,
+> A*B=\mathrm{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z}\,B,\qquad
+> A\circ B=\mathrm{Res}_z\,Y(A,z)\frac{(1+z)^{\Delta_A}}{z^2}\,B,
 > $$
-> 对权重为 $\Delta_A$ 的 $A$（线性延拓）。令 $O(V)=\operatorname{span}\{A\circ B\}$ 并定义
+> 对权重为 $\Delta_A$ 的 $A$（线性延拓）。令 $O(V)=\mathrm{span}\{A\circ B\}$ 并定义
 > $$
 > A(V)=V/O(V),
 > $$
@@ -626,7 +626,7 @@ $$
 
 #### 为何用加权留数——直觉
 
-奇怪的因子 $(1+z)^{\Delta_A}$ 是从平面到柱面（等价地，环面的时间圈）的坐标变换。在指数映射 $z\mapsto\log(1+z)$ 下，一个权重 $\Delta_A$ 的场获得 Jacobi 因子 $(1+z)^{\Delta_A}$；留数随即提取**零模** $o(A)=A_{(\Delta_A-1)}$，即唯一保持能量分次、从而作用在固定权重空间上的模。所以从概念上说，Zhu 乘积 $A*B$ 是"在最低权空间上复合零模"，而 $O(V)$ 恰是映射 $V\to\operatorname{End}(M_{\Delta_{\min}})$ 的核。这就是为什么 $A(V)$-模与 $V$-模的最低权空间相一致：二者都是"零模所做的事"。
+奇怪的因子 $(1+z)^{\Delta_A}$ 是从平面到柱面（等价地，环面的时间圈）的坐标变换。在指数映射 $z\mapsto\log(1+z)$ 下，一个权重 $\Delta_A$ 的场获得 Jacobi 因子 $(1+z)^{\Delta_A}$；留数随即提取**零模** $o(A)=A_{(\Delta_A-1)}$，即唯一保持能量分次、从而作用在固定权重空间上的模。所以从概念上说，Zhu 乘积 $A*B$ 是"在最低权空间上复合零模"，而 $O(V)$ 恰是映射 $V\to\mathrm{End}(M_{\Delta_{\min}})$ 的核。这就是为什么 $A(V)$-模与 $V$-模的最低权空间相一致：二者都是"零模所做的事"。
 
 #### 易错点
 
@@ -643,11 +643,11 @@ Zhu 代数只看见**最低权空间**与**零模**；它遗忘了更高的后�
 
 > **定义 — 特征标。** 对中心荷 $c$ 的共形 $V$ 的一个模 $M=\bigoplus_\Delta M_\Delta$，**特征标**（或**分次维数**）是
 > $$
-> \chi_M(\tau)=\operatorname{tr}_M\,q^{\,L_0-c/24}=q^{\,\Delta_{\min}-c/24}\sum_{n\ge0}(\dim M_{\Delta_{\min}+n})\,q^{n},\qquad q=e^{2\pi i\tau},
+> \chi_M(\tau)=\mathrm{tr}_M\,q^{\,L_0-c/24}=q^{\,\Delta_{\min}-c/24}\sum_{n\ge0}(\dim M_{\Delta_{\min}+n})\,q^{n},\qquad q=e^{2\pi i\tau},
 > $$
-> 其中 $\tau$ 在上半平面（$\operatorname{Im}\tau>0$，故 $|q|<1$ 且级数收敛）。位移 $-c/24$ 是 **Casimir/Virasoro 位移**；它恰是使特征标可模化的东西。
+> 其中 $\tau$ 在上半平面（$\mathrm{Im}\tau>0$，故 $|q|<1$ 且级数收敛）。位移 $-c/24$ 是 **Casimir/Virasoro 位移**；它恰是使特征标可模化的东西。
 
-变量 $\tau$ 是一个环面的**模参数**（一个[复分析](../complex-analysis/complex-analysis.md)对象）：该环面是 $\mathbb{C}/(\mathbb{Z}+\tau\mathbb{Z})$，而 $\operatorname{tr}\,q^{L_0-c/24}$ 是该 CFT 在那个环面上的**配分函数**。
+变量 $\tau$ 是一个环面的**模参数**（一个[复分析](../complex-analysis/complex-analysis.md)对象）：该环面是 $\mathbb{C}/(\mathbb{Z}+\tau\mathbb{Z})$，而 $\mathrm{tr}\,q^{L_0-c/24}$ 是该 CFT 在那个环面上的**配分函数**。
 
 #### 模群
 
@@ -687,7 +687,7 @@ $$
 $$
 S=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},
 $$
-混合，并且人们验证 $S^2=\operatorname{id}$（因为 $\frac12\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}1&1\\1&-1\end{pmatrix}=\frac12\begin{pmatrix}2&0\\0&2\end{pmatrix}=\operatorname{id}$），与 $PSL(2,\mathbb{Z})$ 中的模关系 $S^2=\operatorname{id}$ 一致。模不变的组合 $|\chi_0|^2+|\chi_{1/2}|^2$ 是配分函数。这是一个有限维的 $SL(2,\mathbb{Z})$ 表示，恰如定理所承诺。
+混合，并且人们验证 $S^2=\mathrm{id}$（因为 $\frac12\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}1&1\\1&-1\end{pmatrix}=\frac12\begin{pmatrix}2&0\\0&2\end{pmatrix}=\mathrm{id}$），与 $PSL(2,\mathbb{Z})$ 中的模关系 $S^2=\mathrm{id}$ 一致。模不变的组合 $|\chi_0|^2+|\chi_{1/2}|^2$ 是配分函数。这是一个有限维的 $SL(2,\mathbb{Z})$ 表示，恰如定理所承诺。
 
 #### 易错点
 
@@ -713,7 +713,7 @@ $$
 > **定理（Frenkel–Lepowsky–Meurman；Borcherds）。** 存在一个顶点算子代数 $V^\natural$，即**月光模**，中心荷 $c=24$，使得：
 > 1. 它的自同构群恰是魔群 $\mathbb{M}$；
 > 2. 它的分次维数是 $\sum_n(\dim V^\natural_n)q^{n-1}=j(\tau)-744$；
-> 3. 对每个魔群元 $g$，分次**迹**（一个"挠扭特征标"）$T_g(\tau)=\sum_n\operatorname{tr}(g\,|\,V^\natural_n)q^{n-1}$ 是一个特殊的模函数——一个 **Hauptmodul**——正如 Conway 与 Norton 所猜想。
+> 3. 对每个魔群元 $g$，分次**迹**（一个"挠扭特征标"）$T_g(\tau)=\sum_n\mathrm{tr}(g\,|\,V^\natural_n)q^{n-1}$ 是一个特殊的模函数——一个 **Hauptmodul**——正如 Conway 与 Norton 所猜想。
 
 *它如何构造（用我们的语言）。* $V^\natural$ 由 **Leech 格** $\Lambda$（唯一一个没有平方长度为 2 的向量的偶自对偶秩 24 格）构造而来：取 §s6 的格 VOA $V_\Lambda$（中心荷 $c=24$），然后做一个 $\mathbb{Z}_2$-**轨形（orbifold）**——保留在格对称 $\alpha\mapsto-\alpha$ 下不变的部分，并附加一个"挠扭模"。魔群作为这个轨形 VOA 的对称群涌现出来。所以魔群字面上就是一个特定手征代数的自同构群——§s2 的公理应用于一个非凡的例子。Borcherds 通过发明**广义 Kac–Moody（Borcherds）代数**与一个把 $V^\natural$ 与一个李代数联系起来的"无鬼"论证证明了完整的月光猜想，该李代数的分母恒等式强制诸 $T_g$ 为 Hauptmodul——他凭借这项工作获得了 1998 年的 Fields 奖。
 

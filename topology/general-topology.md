@@ -342,13 +342,13 @@ Let $\tau$ be the family of sets $U$ such that every $x\in U$ has a basis elemen
 
 **Definition — interior, closure, boundary**
 
-$$\operatorname{int}A=\bigcup\{U\subseteq A: U\text{ open}\},\qquad \overline{A}=\bigcap\{C\supseteq A: C\text{ closed}\}$$
+$$\mathrm{int}A=\bigcup\{U\subseteq A: U\text{ open}\},\qquad \overline{A}=\bigcap\{C\supseteq A: C\text{ closed}\}$$
 
-$$\partial A=\overline{A}\setminus\operatorname{int}A=\overline A\cap\overline{A^c}$$
+$$\partial A=\overline{A}\setminus\mathrm{int}A=\overline A\cap\overline{A^c}$$
 
-In words: the **interior** $\operatorname{int}A$ is the union of all open sets contained in $A$ — it is open (a union of open sets, by T2) and it is the *largest* open set inside $A$. The **closure** $\overline A$ is the intersection of all closed sets containing $A$ — it is closed (an intersection of closed sets is closed, proved below) and the *smallest* closed set around $A$. The **boundary** $\partial A$ is what is left of the closure after removing the interior: the "rim." The symbol $A\setminus B$ (set difference) means $\{x\in A:x\notin B\}$.
+In words: the **interior** $\mathrm{int}A$ is the union of all open sets contained in $A$ — it is open (a union of open sets, by T2) and it is the *largest* open set inside $A$. The **closure** $\overline A$ is the intersection of all closed sets containing $A$ — it is closed (an intersection of closed sets is closed, proved below) and the *smallest* closed set around $A$. The **boundary** $\partial A$ is what is left of the closure after removing the interior: the "rim." The symbol $A\setminus B$ (set difference) means $\{x\in A:x\notin B\}$.
 
-*So always $\operatorname{int}A\subseteq A\subseteq\overline A$.*
+*So always $\mathrm{int}A\subseteq A\subseteq\overline A$.*
 
 **Demonstration — an arbitrary intersection of closed sets is closed (so $\overline A$ is closed)**
 
@@ -370,13 +370,13 @@ $$\overline{A}=A\cup A'=\{x: \text{every open } U\ni x \text{ has } U\cap A\neq\
 1. ($\Rightarrow$) Suppose some open $U\ni x$ misses $A$, i.e. $U\cap A=\varnothing$, so $A\subseteq U^c$. Now $U^c$ is closed (complement of open) and contains $A$, so by definition of closure $\overline A\subseteq U^c$. Since $x\in U$, $x\notin U^c$, hence $x\notin\overline A$. Contrapositive: if $x\in\overline A$ then every open $U\ni x$ meets $A$.
 2. ($\Leftarrow$) Suppose $x\notin\overline A$. Then $x$ is outside the closed set $\overline A$, so $x\in(\overline A)^c$, which is open and contains $x$ but misses $A$ (since $A\subseteq\overline A$). So there *is* an open set around $x$ missing $A$. Contrapositive: if every open $U\ni x$ meets $A$, then $x\in\overline A$.
 
-> Worked example. In $\mathbb R$ with $A=(0,1)$: $\operatorname{int}A=(0,1)$ (already open), $\overline A=[0,1]$ (the endpoints are limit points: every interval around $0$ contains points of $(0,1)$), and $\partial A=\{0,1\}$. For $A=\mathbb Q$: $\operatorname{int}\mathbb Q=\varnothing$ (no interval is all-rational), $\overline{\mathbb Q}=\mathbb R$ (every interval contains a rational), so $\partial\mathbb Q=\mathbb R$.
+> Worked example. In $\mathbb R$ with $A=(0,1)$: $\mathrm{int}A=(0,1)$ (already open), $\overline A=[0,1]$ (the endpoints are limit points: every interval around $0$ contains points of $(0,1)$), and $\partial A=\{0,1\}$. For $A=\mathbb Q$: $\mathrm{int}\mathbb Q=\varnothing$ (no interval is all-rational), $\overline{\mathbb Q}=\mathbb R$ (every interval contains a rational), so $\partial\mathbb Q=\mathbb R$.
 
 **Demonstration — a set is open iff it equals its interior**
 
-1. ($\Leftarrow$) Suppose $A=\operatorname{int}A$. By definition $\operatorname{int}A$ is a union of open sets, hence open (T2); so $A$ is open.
-2. ($\Rightarrow$) Suppose $A$ is open. Then $A$ is itself one of the open sets $U\subseteq A$ appearing in the union defining $\operatorname{int}A$, so $A\subseteq\operatorname{int}A$.
-3. The reverse $\operatorname{int}A\subseteq A$ always holds, since every $U$ in the union is a subset of $A$. Combining steps 2 and 3, $\operatorname{int}A=A$.
+1. ($\Leftarrow$) Suppose $A=\mathrm{int}A$. By definition $\mathrm{int}A$ is a union of open sets, hence open (T2); so $A$ is open.
+2. ($\Rightarrow$) Suppose $A$ is open. Then $A$ is itself one of the open sets $U\subseteq A$ appearing in the union defining $\mathrm{int}A$, so $A\subseteq\mathrm{int}A$.
+3. The reverse $\mathrm{int}A\subseteq A$ always holds, since every $U$ in the union is a subset of $A$. Combining steps 2 and 3, $\mathrm{int}A=A$.
 
 *Dually, $A$ is closed $\iff A=\overline A\iff A'\subseteq A$ (a set is closed exactly when it already contains all its limit points).*
 
@@ -981,7 +981,7 @@ For example $\widehat{\mathbb Q}=\mathbb R$ — the real numbers *are* the compl
 
 **Definitions — nowhere dense, meager**
 
-A set is **nowhere dense** if its closure has empty interior ($\operatorname{int}\overline A=\varnothing$, §s5) — intuitively, it is so thin that even after filling in limit points it contains no little open patch. A set is **meager** (or **first category**) if it is a countable union of nowhere dense sets; otherwise it is **nonmeager** (**second category**).
+A set is **nowhere dense** if its closure has empty interior ($\mathrm{int}\overline A=\varnothing$, §s5) — intuitively, it is so thin that even after filling in limit points it contains no little open patch. A set is **meager** (or **first category**) if it is a countable union of nowhere dense sets; otherwise it is **nonmeager** (**second category**).
 
 > Worked example. In $\mathbb R$, a single point $\{p\}$ is nowhere dense (its closure is itself, with empty interior). Any countable set, like $\mathbb Q$, is meager, being a countable union of points. The Baire theorem below will show $\mathbb R$ itself is *not* meager, which is why $\mathbb R\ne\mathbb Q$ in a strong sense.
 

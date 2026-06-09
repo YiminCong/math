@@ -29,7 +29,7 @@ We collect the algebraic vocabulary here so you can return to it. Each item is r
 > A **subgroup** $H$ of $G$ is a subset that is itself a group with the same operation: it contains $e$, and is closed under the operation and under inverses ($a,b\in H\Rightarrow ab\in H$ and $a^{-1}\in H$). We write $H\le G$. *Example:* the even integers $2\mathbb{Z}=\{\dots,-2,0,2,4,\dots\}$ form a subgroup of $(\mathbb{Z},+)$.
 
 > **Definition — homomorphism, kernel, image, isomorphism.**
-> A **homomorphism** is a map $\varphi:G\to H$ between groups that respects the operations: $\varphi(ab)=\varphi(a)\varphi(b)$. It automatically sends identity to identity and inverses to inverses. Its **kernel** is $\ker\varphi=\{g\in G:\varphi(g)=e_H\}$ (what gets crushed to the identity); its **image** is $\operatorname{im}\varphi=\{\varphi(g):g\in G\}$. An **isomorphism** is a homomorphism that is also a bijection (one-to-one and onto); then $G$ and $H$ are "the same group with relabelled elements," written $G\cong H$. *Example:* $\varphi:\mathbb{Z}\to\mathbb{Z}$, $\varphi(n)=2n$ is a homomorphism with kernel $\{0\}$ and image $2\mathbb{Z}$.
+> A **homomorphism** is a map $\varphi:G\to H$ between groups that respects the operations: $\varphi(ab)=\varphi(a)\varphi(b)$. It automatically sends identity to identity and inverses to inverses. Its **kernel** is $\ker\varphi=\{g\in G:\varphi(g)=e_H\}$ (what gets crushed to the identity); its **image** is $\mathrm{im}\varphi=\{\varphi(g):g\in G\}$. An **isomorphism** is a homomorphism that is also a bijection (one-to-one and onto); then $G$ and $H$ are "the same group with relabelled elements," written $G\cong H$. *Example:* $\varphi:\mathbb{Z}\to\mathbb{Z}$, $\varphi(n)=2n$ is a homomorphism with kernel $\{0\}$ and image $2\mathbb{Z}$.
 
 > **Definition — normal subgroup and quotient group.**
 > A subgroup $N\le G$ is **normal**, written $N\trianglelefteq G$, if $gNg^{-1}=N$ for every $g\in G$ (conjugating $N$ by anything lands back in $N$). When $N$ is normal we can form the **quotient group** $G/N$: its elements are the *cosets* $gN=\{gn:n\in N\}$, with multiplication $(gN)(hN)=(gh)N$. Normality is exactly the condition that makes this multiplication well defined. *Example:* in $(\mathbb{Z},+)$ every subgroup is normal (the group is abelian); $\mathbb{Z}/2\mathbb{Z}$ has two elements, "even" $=0+2\mathbb{Z}$ and "odd" $=1+2\mathbb{Z}$, with $\text{odd}+\text{odd}=\text{even}$ — this is parity arithmetic.
@@ -41,7 +41,7 @@ We collect the algebraic vocabulary here so you can return to it. Each item is r
 > The **free product** $G*H$ consists of all alternating words mixing elements of $G$ and $H$, with no relations between the two except their own internal ones. The **amalgamated free product** $G*_K H$ further glues a common subgroup $K$ that maps into both, by adding the relations $i(k)=j(k)$ for $k\in K$. These are the group-theory versions of "gluing." *Example:* $\mathbb{Z}*\mathbb{Z}=F_2$, the free group on two generators.
 
 > **Definition — exact sequence.**
-> A chain of groups and homomorphisms $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ is **exact at $B$** if $\operatorname{im}f=\ker g$ — the things coming out of $A$ are exactly the things crushed on the way to $C$. A **short exact sequence** $0\to A\xrightarrow{f}B\xrightarrow{g}C\to 0$ packages "$f$ is injective, $g$ is surjective, and $A$ is precisely the kernel of $g$," so $C\cong B/A$. (Here $0$ denotes the trivial one-element group.) This is the central bookkeeping device of the whole subject.
+> A chain of groups and homomorphisms $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ is **exact at $B$** if $\mathrm{im}f=\ker g$ — the things coming out of $A$ are exactly the things crushed on the way to $C$. A **short exact sequence** $0\to A\xrightarrow{f}B\xrightarrow{g}C\to 0$ packages "$f$ is injective, $g$ is surjective, and $A$ is precisely the kernel of $g$," so $C\cong B/A$. (Here $0$ denotes the trivial one-element group.) This is the central bookkeeping device of the whole subject.
 
 ---
 
@@ -387,11 +387,11 @@ Apply $\partial_1$ (recall $\partial_1[a,b]=[b]-[a]$):
 $$\partial_1\big([v_1,v_2]-[v_0,v_2]+[v_0,v_1]\big)=([v_2]-[v_1])-([v_2]-[v_0])+([v_1]-[v_0])=0.$$
 Every vertex appears once with each sign and cancels. This is $\partial^2=0$ in the smallest concrete case. $\;\blacksquare$
 
-The identity $\partial^2=0$ is the algebraic heart of homology: it guarantees $\operatorname{im}\partial_{n+1}\subseteq\ker\partial_n$, so the quotient $\ker\partial_n/\operatorname{im}\partial_{n+1}$ makes sense.
+The identity $\partial^2=0$ is the algebraic heart of homology: it guarantees $\mathrm{im}\partial_{n+1}\subseteq\ker\partial_n$, so the quotient $\ker\partial_n/\mathrm{im}\partial_{n+1}$ makes sense.
 
 > **Connection — to linear algebra.**
 >
-> Fix a coefficient ring, usually $\mathbb{Z}$. The **$n$-chains** $C_n$ form the free abelian group on the $n$-cells (formal integer combinations of cells), and each $\partial_n$ is an integer matrix. Homology is then $\ker/\operatorname{im}$ of integer matrices — computable by reducing to *Smith normal form*.
+> Fix a coefficient ring, usually $\mathbb{Z}$. The **$n$-chains** $C_n$ form the free abelian group on the $n$-cells (formal integer combinations of cells), and each $\partial_n$ is an integer matrix. Homology is then $\ker/\mathrm{im}$ of integer matrices — computable by reducing to *Smith normal form*.
 
 <a id="s10"></a>
 ### Singular homology
@@ -403,8 +403,8 @@ The identity $\partial^2=0$ is the algebraic heart of homology: it guarantees $\
 > A **singular $n$-simplex** in $X$ is *any* continuous map $\sigma:\Delta^n\to X$ (the simplex need not be embedded — it can fold or collapse). The **chain group** $C_n(X)$ is the free abelian group on all singular $n$-simplices: its elements are finite formal sums $\sum_i n_i\sigma_i$ with $n_i\in\mathbb{Z}$. The **boundary** $\partial_n:C_n(X)\to C_{n-1}(X)$ uses the same alternating-face formula as §s9, with $\sigma$ restricted to each face. By the §s9 computation $\partial^2=0$, giving a **chain complex**
 > $$\cdots\xrightarrow{\ \partial_{n+1}\ }C_n(X)\xrightarrow{\ \partial_n\ }C_{n-1}(X)\xrightarrow{\ \partial_{n-1}\ }\cdots\xrightarrow{\ \partial_1\ }C_0(X)\to 0.$$
 > The **$n$-th homology group** is
-> $$H_n(X)=\frac{\ker\partial_n}{\operatorname{im}\partial_{n+1}}=\frac{\text{cycles }Z_n}{\text{boundaries }B_n}.$$
-> (This quotient is legal because $B_n=\operatorname{im}\partial_{n+1}\subseteq\ker\partial_n=Z_n$, and all groups here are abelian so every subgroup is normal — pocket dictionary.)
+> $$H_n(X)=\frac{\ker\partial_n}{\mathrm{im}\partial_{n+1}}=\frac{\text{cycles }Z_n}{\text{boundaries }B_n}.$$
+> (This quotient is legal because $B_n=\mathrm{im}\partial_{n+1}\subseteq\ker\partial_n=Z_n$, and all groups here are abelian so every subgroup is normal — pocket dictionary.)
 
 > **Concept — what $H_n$ measures.**
 >
@@ -413,7 +413,7 @@ The identity $\partial^2=0$ is the algebraic heart of homology: it guarantees $\
 **Demonstration — $H_0(X)\cong\mathbb{Z}^{(\#\text{path-components})}$.**
 
 1. Since $\partial_0=0$ (the target is the zero group), every $0$-chain is a cycle: $Z_0=C_0(X)$, the free abelian group on the points of $X$.
-2. A singular $1$-simplex is a path $\sigma:[0,1]\to X$ with $\partial_1\sigma=\sigma(1)-\sigma(0)$. So $B_0=\operatorname{im}\partial_1$ is generated by all differences $q-p$ where $p,q$ are joined by a path.
+2. A singular $1$-simplex is a path $\sigma:[0,1]\to X$ with $\partial_1\sigma=\sigma(1)-\sigma(0)$. So $B_0=\mathrm{im}\partial_1$ is generated by all differences $q-p$ where $p,q$ are joined by a path.
 3. Therefore in $H_0=Z_0/B_0$ two points become equal exactly when a path joins them, i.e. when they lie in the same path-component. Choosing one point per path-component gives a basis, so $H_0$ is free abelian with one $\mathbb{Z}$ per path-component. $\;\blacksquare$ *(definition of $\partial_1$ + quotient by boundaries)*
 
 For path-connected $X$ this gives $H_0(X)\cong\mathbb{Z}$. The **augmentation** map $\sum n_i\sigma_i\mapsto\sum n_i$ makes the isomorphism explicit, sending each point to $1$.
@@ -438,7 +438,7 @@ By the §s0 argument, $X\simeq Y\Rightarrow H_n(X)\cong H_n(Y)$. In particular a
 
 > **Concept — exact sequences (recall pocket dictionary).**
 >
-> A sequence $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ is **exact at $B$** if $\operatorname{im}f=\ker g$. Exactness lets an unknown group be pinned down by its neighbors. A **short exact sequence** $0\to A\to B\to C\to0$ encodes "$A$ injects into $B$, $B$ surjects onto $C$, and $A=\ker(B\to C)$," so $C\cong B/A$.
+> A sequence $\cdots\to A\xrightarrow{f}B\xrightarrow{g}C\to\cdots$ is **exact at $B$** if $\mathrm{im}f=\ker g$. Exactness lets an unknown group be pinned down by its neighbors. A **short exact sequence** $0\to A\to B\to C\to0$ encodes "$A$ injects into $B$, $B$ surjects onto $C$, and $A=\ker(B\to C)$," so $C\cong B/A$.
 
 **Long exact sequence of a pair $(X,A)$.** For a subspace $A\subseteq X$, the **relative homology** $H_n(X,A)$ measures $X$ "modulo" $A$ (chains in $X$, ignoring those living in $A$). These fit into an infinite exact sequence:
 $$\cdots\to H_n(A)\xrightarrow{i_*}H_n(X)\xrightarrow{j_*}H_n(X,A)\xrightarrow{\ \partial\ }H_{n-1}(A)\xrightarrow{i_*}H_{n-1}(X)\to\cdots$$
@@ -475,7 +475,7 @@ This is the homology analogue of van Kampen (§s4): it assembles the homology of
 
 1. **$S^1$** as one vertex $v$ and one edge $a$ glued into a loop. Then $\partial_1 a=v-v=0$, so every $1$-chain is a cycle: $Z_1=\mathbb{Z}\langle a\rangle$. There are no $2$-cells, so $B_1=0$, giving $H_1(S^1)=\mathbb{Z}$. Also $H_0=\mathbb{Z}$ (connected, §s10). So $H_*(S^1)=(\mathbb{Z},\mathbb{Z},0,\dots)$.
 2. **$S^2$** as two triangles glued along their entire common boundary (top and bottom of a "pillowcase"), one vertex, ... after the gluing the two $2$-cells with opposite orientations have boundaries that cancel: $\partial_2(f_{\text{top}}-f_{\text{bot}})=0$, giving a $2$-cycle that bounds nothing, so $H_2=\mathbb{Z}$; meanwhile $H_1=0$ and $H_0=\mathbb{Z}$. So $H_*(S^2)=(\mathbb{Z},0,\mathbb{Z},0,\dots)$, matching §s11.
-3. **Torus $T^2$** from the square with edge word $aba^{-1}b^{-1}$: one vertex $v$, two edges $a,b$, one face $f$. Compute boundaries. $\partial_1 a=v-v=0$ and $\partial_1 b=0$, so $Z_1=\mathbb{Z} a\oplus\mathbb{Z} b=\mathbb{Z}^2$. The face boundary follows the edge word: $\partial_2 f=a+b-a-b=0$, so $f$ is a $2$-cycle and $B_1=\operatorname{im}\partial_2=0$. Therefore $H_2=\mathbb{Z}\langle f\rangle=\mathbb{Z}$, $H_1=Z_1/B_1=\mathbb{Z}^2$, $H_0=\mathbb{Z}$.
+3. **Torus $T^2$** from the square with edge word $aba^{-1}b^{-1}$: one vertex $v$, two edges $a,b$, one face $f$. Compute boundaries. $\partial_1 a=v-v=0$ and $\partial_1 b=0$, so $Z_1=\mathbb{Z} a\oplus\mathbb{Z} b=\mathbb{Z}^2$. The face boundary follows the edge word: $\partial_2 f=a+b-a-b=0$, so $f$ is a $2$-cycle and $B_1=\mathrm{im}\partial_2=0$. Therefore $H_2=\mathbb{Z}\langle f\rangle=\mathbb{Z}$, $H_1=Z_1/B_1=\mathbb{Z}^2$, $H_0=\mathbb{Z}$.
    $$H_*(T^2)=(\mathbb{Z},\ \mathbb{Z}^2,\ \mathbb{Z},\ 0,\dots).$$
    One component, two independent loops (around the tube and through the hole), one enclosed void. $\;\blacksquare$
 
@@ -486,15 +486,15 @@ Its key properties (all from functoriality, §s11): $\deg(\mathrm{id})=1$, $\deg
 **Worked example — the antipodal map on $S^1$ and $S^2$.** On $S^1$, $x\mapsto-x$ is rotation by $\pi$, homotopic to the identity, so degree $(-1)^{1+1}=1$. On $S^2$, the antipodal map reverses orientation and has degree $(-1)^{2+1}=-1$; since $-1\ne1$ it is *not* homotopic to the identity — which is the crux of the hairy-ball theorem (you cannot comb a sphere). $\;\blacksquare$
 
 **Betti numbers & Euler characteristic.** The **$n$-th Betti number** is the rank (number of independent $\mathbb{Z}$ summands) of $H_n$:
-$$b_n=\operatorname{rank}H_n(X)=\dim_{\mathbb{Q}}H_n(X;\mathbb{Q}),\qquad \chi(X)=\sum_{n\ge0}(-1)^n b_n.$$
+$$b_n=\mathrm{rank}H_n(X)=\dim_{\mathbb{Q}}H_n(X;\mathbb{Q}),\qquad \chi(X)=\sum_{n\ge0}(-1)^n b_n.$$
 So $b_0=\#$components, $b_1=\#$independent loops, $b_2=\#$independent voids. **Torsion** (finite pieces like the $\mathbb{Z}/2$ in $\mathbb{RP}^2$) is invisible to $b_n$ and $\chi$.
 
 **Demonstration — Euler characteristic from cells equals Euler characteristic from homology.**
 
-1. For a finite complex let $c_n$ = number of $n$-cells, and within $C_n$ write $z_n=\operatorname{rank}Z_n$ (rank of cycles) and $r_n=\operatorname{rank}B_n=\operatorname{rank}(\operatorname{im}\partial_{n+1})$ (rank of boundaries coming *into* degree $n$). Rank–nullity for $\partial_n:C_n\to C_{n-1}$ says $\operatorname{rank}C_n=\operatorname{rank}\ker\partial_n+\operatorname{rank}\operatorname{im}\partial_n$, i.e.
+1. For a finite complex let $c_n$ = number of $n$-cells, and within $C_n$ write $z_n=\mathrm{rank}Z_n$ (rank of cycles) and $r_n=\mathrm{rank}B_n=\mathrm{rank}(\mathrm{im}\partial_{n+1})$ (rank of boundaries coming *into* degree $n$). Rank–nullity for $\partial_n:C_n\to C_{n-1}$ says $\mathrm{rank}C_n=\mathrm{rank}\ker\partial_n+\mathrm{rank}\mathrm{im}\partial_n$, i.e.
    $$c_n=z_n+r_{n-1}.$$
-   *(rank–nullity theorem from linear algebra; $\operatorname{im}\partial_n$ has rank $r_{n-1}$ because it lands in degree $n-1$)*
-2. By definition of homology, $b_n=\operatorname{rank}H_n=z_n-r_n$ (rank of cycles minus rank of boundaries). *(definition of $H_n$, §s10)*
+   *(rank–nullity theorem from linear algebra; $\mathrm{im}\partial_n$ has rank $r_{n-1}$ because it lands in degree $n-1$)*
+2. By definition of homology, $b_n=\mathrm{rank}H_n=z_n-r_n$ (rank of cycles minus rank of boundaries). *(definition of $H_n$, §s10)*
 3. Form the alternating sum of step 1:
    $$\sum_n(-1)^n c_n=\sum_n(-1)^n\big(z_n+r_{n-1}\big)=\sum_n(-1)^n z_n+\sum_n(-1)^n r_{n-1}.$$
    In the second sum shift the index ($n\to n+1$): $\sum_n(-1)^n r_{n-1}=-\sum_n(-1)^n r_n$. Hence
@@ -527,12 +527,12 @@ So $\chi$ computed by counting cells equals $\chi$ computed from homology — a 
 *Dualizing chains gives cohomology — the same Betti numbers, but now carrying a **ring** structure that homology lacks. The extra multiplication separates spaces that homology cannot.*
 
 **The cochain complex & cohomology.** Fix a coefficient ring $R$ (e.g. $\mathbb{Z}$ or a field). The **$n$-cochains** are the homomorphisms from chains to $R$:
-$$C^n(X;R)=\operatorname{Hom}(C_n(X),R),\qquad \delta=\partial^{*}:C^n\to C^{n+1},\qquad H^n(X;R)=\frac{\ker\delta}{\operatorname{im}\delta}.$$
+$$C^n(X;R)=\mathrm{Hom}(C_n(X),R),\qquad \delta=\partial^{*}:C^n\to C^{n+1},\qquad H^n(X;R)=\frac{\ker\delta}{\mathrm{im}\delta}.$$
 The **coboundary** $\delta$ is the transpose (dual) of $\partial$: $(\delta\varphi)(c)=\varphi(\partial c)$. Because $\partial^2=0$ (§s9) we get $\delta^2=0$, so cohomology is well defined. The arrows now point **up** in degree, making cohomology **contravariant**: a map $f:X\to Y$ induces $f^*:H^n(Y)\to H^n(X)$ (note the reversed direction).
 
 **Universal coefficients.** There is a short exact sequence (recall: pocket dictionary)
-$$0\to \operatorname{Ext}^1_{\mathbb{Z}}(H_{n-1}(X),R)\to H^n(X;R)\to \operatorname{Hom}(H_n(X),R)\to 0.$$
-Over a field $R$, the $\operatorname{Ext}$ term vanishes and $H^n\cong\operatorname{Hom}(H_n,R)$, so cohomology has the *same Betti numbers* as homology. The genuinely new content is therefore not additive but **multiplicative**:
+$$0\to \mathrm{Ext}^1_{\mathbb{Z}}(H_{n-1}(X),R)\to H^n(X;R)\to \mathrm{Hom}(H_n(X),R)\to 0.$$
+Over a field $R$, the $\mathrm{Ext}$ term vanishes and $H^n\cong\mathrm{Hom}(H_n,R)$, so cohomology has the *same Betti numbers* as homology. The genuinely new content is therefore not additive but **multiplicative**:
 
 > **Definition — cup product & cohomology ring.**
 >

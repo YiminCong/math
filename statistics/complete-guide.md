@@ -180,7 +180,7 @@ So the raw deviations carry no information about size — which is exactly why w
    \sum (x_i-\mu)^2=\sum(x_i-\bar x)^2+n(\bar x-\mu)^2.
    $$
 6. Rearranging, $\sum(x_i-\bar x)^2=\sum(x_i-\mu)^2-n(\bar x-\mu)^2$. The second piece is positive, confirming step 2: the deviations from $\bar x$ are smaller than those from $\mu$.
-7. Take expectations (long-run averages). The average of $\sum(x_i-\mu)^2$ is $n\sigma^2$ (each term averages to $\sigma^2$, by the definition of $\sigma^2$). The average of $n(\bar x-\mu)^2$ is $n\cdot\operatorname{Var}(\bar x)=n\cdot\frac{\sigma^2}{n}=\sigma^2$ (using the standard-error result proved in §s9). Therefore:
+7. Take expectations (long-run averages). The average of $\sum(x_i-\mu)^2$ is $n\sigma^2$ (each term averages to $\sigma^2$, by the definition of $\sigma^2$). The average of $n(\bar x-\mu)^2$ is $n\cdot\mathrm{Var}(\bar x)=n\cdot\frac{\sigma^2}{n}=\sigma^2$ (using the standard-error result proved in §s9). Therefore:
    $$
    E\!\left[\sum(x_i-\bar x)^2\right]=n\sigma^2-\sigma^2=(n-1)\sigma^2.
    $$
@@ -376,14 +376,14 @@ E[X]=\sum_x x\,P(x)\quad\text{(discrete)},\qquad E[X]=\int x\,f(x)\,dx\quad\text
 $$
 
 $$
-\operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2
+\mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E[X^2]-\big(E[X]\big)^2
 $$
 
 Definitions:
 
 - For a **discrete** variable, $P(x)$ is the probability that $X$ equals the value $x$, and we sum over all possible values.
 - For a **continuous** variable, $f(x)$ is the **probability density function** — a curve whose height represents relative likelihood — and the integral $\int$ is the continuous version of the sum.
-- $\operatorname{Var}(X)$ is the **variance** of $X$: the expected squared distance from its mean $\mu=E[X]$. Its square root is the standard deviation of $X$.
+- $\mathrm{Var}(X)$ is the **variance** of $X$: the expected squared distance from its mean $\mu=E[X]$. Its square root is the standard deviation of $X$.
 - More generally, the expectation of *any function* of $X$ is found by the same weighted average: $E[g(X)]=\sum_x g(x)\,P(x)$ (discrete) or $\int g(x)f(x)\,dx$ (continuous). In particular $E[X^2]=\sum_x x^2\,P(x)$ — used in the variance shortcut and the die example below.
 
 > **Connection — this is where calculus enters**
@@ -401,7 +401,7 @@ E[aX+b]=a\,E[X]+b,\qquad E[X+Y]=E[X]+E[Y]
 $$
 
 $$
-\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X),\qquad \operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\ \text{(if independent)}
+\mathrm{Var}(aX+b)=a^2\mathrm{Var}(X),\qquad \mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)\ \text{(if independent)}
 $$
 
 Here $a$ and $b$ are fixed constants, and $Y$ is another random variable. "Linearity of expectation" — the rule $E[X+Y]=E[X]+E[Y]$ — is remarkable because it holds **even when $X$ and $Y$ are not independent**. Variance only adds for *independent* variables.
@@ -421,11 +421,11 @@ Here $a$ and $b$ are fixed constants, and $Y$ is another random variable. "Linea
    =a\,E[X]+b\cdot 1=a\,E[X]+b.
    $$
 
-**Demonstration — the variance shortcut $\operatorname{Var}(X)=E[X^2]-(E[X])^2$**
+**Demonstration — the variance shortcut $\mathrm{Var}(X)=E[X^2]-(E[X])^2$**
 
 1. Begin from the definition of variance and expand the square inside, using $(X-\mu)^2=X^2-2\mu X+\mu^2$:
    $$
-   \operatorname{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].
+   \mathrm{Var}(X)=E\big[(X-\mu)^2\big]=E\big[X^2-2\mu X+\mu^2\big].
    $$
 2. Apply linearity of expectation (the rule just proved) to break the expectation across the three terms; note $\mu$ is a constant so it pulls outside:
    $$
@@ -437,7 +437,7 @@ Here $a$ and $b$ are fixed constants, and $Y$ is another random variable. "Linea
    $$
 4. Writing $\mu=E[X]$ back gives the headline form, the handy "mean of the square minus the square of the mean":
    $$
-   \operatorname{Var}(X)=E[X^2]-\big(E[X]\big)^2.
+   \mathrm{Var}(X)=E[X^2]-\big(E[X]\big)^2.
    $$
 
 **Worked example — expectation and variance of a die**
@@ -446,7 +446,7 @@ Roll a fair six-sided die; $X$ is the number shown, each value with probability 
 
 1. $E[X]=\sum_{x=1}^{6} x\cdot\frac16=\frac{1+2+3+4+5+6}{6}=\frac{21}{6}=3.5$.
 2. $E[X^2]=\frac{1^2+2^2+3^2+4^2+5^2+6^2}{6}=\frac{1+4+9+16+25+36}{6}=\frac{91}{6}\approx15.17$.
-3. By the shortcut, $\operatorname{Var}(X)=E[X^2]-(E[X])^2=\frac{91}{6}-(3.5)^2=15.1\overline{6}-12.25=2.91\overline{6}$.
+3. By the shortcut, $\mathrm{Var}(X)=E[X^2]-(E[X])^2=\frac{91}{6}-(3.5)^2=15.1\overline{6}-12.25=2.91\overline{6}$.
 4. Standard deviation: $\sqrt{2.9167}\approx1.71$. So a single roll typically lands about $1.7$ away from the average of $3.5$ — sensible for values spread over $1$ to $6$.
 
 <a id="s7"></a>
@@ -486,10 +486,10 @@ Definition of the new symbol: $\binom{n}{k}$ ("$n$ choose $k$") is the **number 
    $$
    E[X]=E[X_1]+\cdots+E[X_n]=\underbrace{p+\cdots+p}_{n\text{ terms}}=np.
    $$
-4. Find the variance of one trial via the shortcut $\operatorname{Var}(X_i)=E[X_i^2]-(E[X_i])^2$ (§s6). Since $X_i$ is $0$ or $1$, $X_i^2=X_i$, so $E[X_i^2]=p$, giving $\operatorname{Var}(X_i)=p-p^2=p(1-p)$.
+4. Find the variance of one trial via the shortcut $\mathrm{Var}(X_i)=E[X_i^2]-(E[X_i])^2$ (§s6). Since $X_i$ is $0$ or $1$, $X_i^2=X_i$, so $E[X_i^2]=p$, giving $\mathrm{Var}(X_i)=p-p^2=p(1-p)$.
 5. Because the trials are **independent**, variances add (§s6):
    $$
-   \operatorname{Var}(X)=\sum_{i=1}^{n}\operatorname{Var}(X_i)=np(1-p).
+   \mathrm{Var}(X)=\sum_{i=1}^{n}\mathrm{Var}(X_i)=np(1-p).
    $$
 
 The recurring move of probability is on display: **decompose a complicated variable into simple independent pieces, handle one piece, then sum.**
@@ -579,17 +579,17 @@ Here $\hat p$ is the sample proportion (the fraction of "successes" in the sampl
    \bar X=\frac1n\big(X_1+X_2+\cdots+X_n\big),
    $$
    where the $X_i$ are independent draws, each with variance $\sigma^2$.
-2. Use the scaling rule for variance, $\operatorname{Var}(aX)=a^2\operatorname{Var}(X)$ (§s6), with $a=\frac1n$, together with the rule that independent variances add (§s6):
+2. Use the scaling rule for variance, $\mathrm{Var}(aX)=a^2\mathrm{Var}(X)$ (§s6), with $a=\frac1n$, together with the rule that independent variances add (§s6):
    $$
-   \operatorname{Var}(\bar X)=\frac{1}{n^2}\operatorname{Var}(X_1+\cdots+X_n)=\frac{1}{n^2}\sum_{i=1}^{n}\operatorname{Var}(X_i).
+   \mathrm{Var}(\bar X)=\frac{1}{n^2}\mathrm{Var}(X_1+\cdots+X_n)=\frac{1}{n^2}\sum_{i=1}^{n}\mathrm{Var}(X_i).
    $$
 3. Each of the $n$ terms equals $\sigma^2$, so the sum is $n\sigma^2$:
    $$
-   \operatorname{Var}(\bar X)=\frac{1}{n^2}\,(n\sigma^2)=\frac{\sigma^2}{n}.
+   \mathrm{Var}(\bar X)=\frac{1}{n^2}\,(n\sigma^2)=\frac{\sigma^2}{n}.
    $$
 4. The standard error is the standard deviation of $\bar X$, i.e. the square root of its variance:
    $$
-   \text{SE}(\bar X)=\sqrt{\operatorname{Var}(\bar X)}=\sqrt{\frac{\sigma^2}{n}}=\frac{\sigma}{\sqrt n}.
+   \text{SE}(\bar X)=\sqrt{\mathrm{Var}(\bar X)}=\sqrt{\frac{\sigma^2}{n}}=\frac{\sigma}{\sqrt n}.
    $$
 
 The $\sqrt n$ on the bottom has a famous consequence: to **halve** your uncertainty you must **quadruple** the sample size (because $\sqrt{4}=2$). This is the law of diminishing returns that governs every poll and experiment.
@@ -744,12 +744,12 @@ Roll a die $60$ times; under "the die is fair," each face is expected $E=10$ tim
 > **What it says and why we care.** **Covariance** measures whether two variables tend to move together (both above their means at once) or in opposite directions. **Correlation** $r$ is covariance rescaled to a clean, unit-free number between $-1$ and $1$ that you can compare across any datasets.
 
 $$
-\operatorname{Cov}(X,Y)=E[XY]-E[X]\,E[Y],\qquad r=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\,\sigma_Y}
+\mathrm{Cov}(X,Y)=E[XY]-E[X]\,E[Y],\qquad r=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\,\sigma_Y}
 $$
 
 Definitions: $\sigma_X$ and $\sigma_Y$ are the standard deviations of $X$ and $Y$; $E[XY]$ is the average of the product. A positive covariance means "when $X$ is high, $Y$ tends to be high"; a negative one means the opposite.
 
-**Why $r$ is the average product of z-scores (justification).** From §s3, the z-score of $X$ is $z_X=\frac{X-\mu_X}{\sigma_X}$, and similarly $z_Y$. Their average product is $E[z_X z_Y]=E\!\left[\frac{(X-\mu_X)(Y-\mu_Y)}{\sigma_X\sigma_Y}\right]=\frac{E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X\sigma_Y}=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}=r$. So **correlation is literally the average product of the two variables' z-scores** — large and positive when both variables are simultaneously above (or below) average. Because z-scores are unit-free, $r$ is too, and it can be shown to stay within $[-1,1]$: $r=\pm1$ means a perfect straight-line relationship; $r=0$ means no *linear* relationship.
+**Why $r$ is the average product of z-scores (justification).** From §s3, the z-score of $X$ is $z_X=\frac{X-\mu_X}{\sigma_X}$, and similarly $z_Y$. Their average product is $E[z_X z_Y]=E\!\left[\frac{(X-\mu_X)(Y-\mu_Y)}{\sigma_X\sigma_Y}\right]=\frac{E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X\sigma_Y}=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}=r$. So **correlation is literally the average product of the two variables' z-scores** — large and positive when both variables are simultaneously above (or below) average. Because z-scores are unit-free, $r$ is too, and it can be shown to stay within $[-1,1]$: $r=\pm1$ means a perfect straight-line relationship; $r=0$ means no *linear* relationship.
 
 **The least-squares regression line**
 
@@ -788,7 +788,7 @@ Definitions: $\hat y$ ("y-hat") is the line's **predicted** value of $y$ for a g
    $$
    b_1=\frac{\sum (x_i-\bar x)(y_i-\bar y)}{\sum (x_i-\bar x)^2}.
    $$
-6. Recognize the pieces: the numerator divided by $n$ is the covariance and the denominator divided by $n$ is $s_x^2$, so $b_1=\frac{\operatorname{Cov}(x,y)}{s_x^2}=\frac{\operatorname{Cov}(x,y)}{s_x s_y}\cdot\frac{s_y}{s_x}=r\,\frac{s_y}{s_x}$, matching the boxed formula.
+6. Recognize the pieces: the numerator divided by $n$ is the covariance and the denominator divided by $n$ is $s_x^2$, so $b_1=\frac{\mathrm{Cov}(x,y)}{s_x^2}=\frac{\mathrm{Cov}(x,y)}{s_x s_y}\cdot\frac{s_y}{s_x}=r\,\frac{s_y}{s_x}$, matching the boxed formula.
 
 This is the calculus optimization of the companion guide — "set the derivative to zero" — applied to data.
 

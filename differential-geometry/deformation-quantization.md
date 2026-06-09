@@ -96,7 +96,7 @@ Every symplectic manifold is a Poisson manifold. Given a symplectic form $\omega
 
 #### Symplectic leaves
 
-A degenerate Poisson manifold is not a single symplectic space but a *stack* of them. The key device is the **Hamiltonian vector field** of a function: $X_f:=\{f,\cdot\}=\pi(df,\cdot)=\pi^\sharp(df)$, the vector field that differentiates by bracketing with $f$. At each point $x$, as $f$ ranges over all functions, the vectors $X_f(x)=\pi^\sharp(df_x)$ sweep out a subspace $D_x:=\operatorname{im}(\pi^\sharp_x)\subseteq T_xM$, the image of the bivector. Its dimension is the rank of the matrix $\pi^{ij}(x)$, necessarily even (an antisymmetric matrix has even rank).
+A degenerate Poisson manifold is not a single symplectic space but a *stack* of them. The key device is the **Hamiltonian vector field** of a function: $X_f:=\{f,\cdot\}=\pi(df,\cdot)=\pi^\sharp(df)$, the vector field that differentiates by bracketing with $f$. At each point $x$, as $f$ ranges over all functions, the vectors $X_f(x)=\pi^\sharp(df_x)$ sweep out a subspace $D_x:=\mathrm{im}(\pi^\sharp_x)\subseteq T_xM$, the image of the bivector. Its dimension is the rank of the matrix $\pi^{ij}(x)$, necessarily even (an antisymmetric matrix has even rank).
 
 > **Theorem (symplectic foliation).** The distribution $x\mapsto D_x$ is integrable: $M$ is partitioned into immersed submanifolds, the **symplectic leaves**, such that the tangent space of the leaf through $x$ is exactly $D_x$. On each leaf the Poisson bivector restricts to an invertible bivector, i.e. each leaf is a symplectic manifold, and the Poisson bracket of two functions depends only on their restrictions to leaves.
 

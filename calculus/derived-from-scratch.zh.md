@@ -412,7 +412,7 @@ $$(\arcsin x)'=\frac{1}{\sqrt{1-x^2}},\quad (\arccos x)'=-\frac{1}{\sqrt{1-x^2}}
 
 $$\sinh x=\frac{e^x-e^{-x}}{2},\quad \cosh x=\frac{e^x+e^{-x}}{2}$$
 
-$$(\sinh x)'=\cosh x,\quad (\cosh x)'=\sinh x,\quad (\tanh x)'=\operatorname{sech}^2 x$$
+$$(\sinh x)'=\cosh x,\quad (\cosh x)'=\sinh x,\quad (\tanh x)'=\mathrm{sech}^2 x$$
 
 **双曲正弦／余弦**（$\sinh, \cosh$，读作“sinch, cosh”）是 $\sin,\cos$ 的表亲，由 $e^x$ 而非圆构造而来；它们描述悬挂的缆绳和相对论。
 

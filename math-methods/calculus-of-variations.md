@@ -261,7 +261,7 @@ Spin a curve $y(x)\ge0$ about the $x$-axis; the surface (think of a soap film be
    $$
    y\sqrt{1+y'^2}-y'\cdot\frac{y\,y'}{\sqrt{1+y'^2}}=\frac{y}{\sqrt{1+y'^2}}=c .
    $$
-3. **Solve.** Thus $y=c\sqrt{1+y'^2}$, i.e. $y'=\sqrt{(y/c)^2-1}$. Separating variables, $\displaystyle\int\frac{dy}{\sqrt{(y/c)^2-1}}=\int dx$ gives $c\,\operatorname{arccosh}(y/c)=x-x_0$, hence
+3. **Solve.** Thus $y=c\sqrt{1+y'^2}$, i.e. $y'=\sqrt{(y/c)^2-1}$. Separating variables, $\displaystyle\int\frac{dy}{\sqrt{(y/c)^2-1}}=\int dx$ gives $c\,\mathrm{arccosh}(y/c)=x-x_0$, hence
    $$
    y=c\,\cosh\!\frac{x-x_0}{c}.
    $$

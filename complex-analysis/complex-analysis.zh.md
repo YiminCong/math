@@ -21,7 +21,7 @@
 
 > **定义 — 复数**
 >
-> 一个**复数**是形如 $z = x + iy$ 的表达式，其中 $x,y$ 是实数，$i$ 是满足 $i^2=-1$ 的符号。我们称 $x = \operatorname{Re} z$ 为**实部**，$y = \operatorname{Im} z$ 为**虚部**（注意：$\operatorname{Im} z$ 是*实数* $y$，而非 $iy$）。所有复数的集合记作 $\mathbb{C}$。
+> 一个**复数**是形如 $z = x + iy$ 的表达式，其中 $x,y$ 是实数，$i$ 是满足 $i^2=-1$ 的符号。我们称 $x = \mathrm{Re} z$ 为**实部**，$y = \mathrm{Im} z$ 为**虚部**（注意：$\mathrm{Im} z$ 是*实数* $y$，而非 $iy$）。所有复数的集合记作 $\mathbb{C}$。
 
 两个复数**相等**当且仅当它们的实部相等且虚部相等。加法与乘法的定义方式是把 $i$ 当作普通量来对待，并把 $i^2$ 化为 $-1$：
 
@@ -63,7 +63,7 @@ $$
 >
 > $\dfrac{1}{2+3i} = \dfrac{2-3i}{2^2+3^2} = \dfrac{2-3i}{13} = \dfrac{2}{13} - \dfrac{3}{13}i.$ 验证：$(2+3i)\left(\tfrac{2}{13}-\tfrac{3}{13}i\right) = \tfrac{1}{13}(2+3i)(2-3i) = \tfrac{1}{13}(4+9) = 1$。✓
 
-我们将反复使用两条共轭法则，每条都由直接计算证明：$\overline{z_1+z_2} = \bar z_1 + \bar z_2$ 与 $\overline{z_1 z_2} = \bar z_1\,\bar z_2$。此外 $\operatorname{Re} z = \tfrac12(z+\bar z)$，$\operatorname{Im} z = \tfrac{1}{2i}(z-\bar z)$。
+我们将反复使用两条共轭法则，每条都由直接计算证明：$\overline{z_1+z_2} = \bar z_1 + \bar z_2$ 与 $\overline{z_1 z_2} = \bar z_1\,\bar z_2$。此外 $\mathrm{Re} z = \tfrac12(z+\bar z)$，$\mathrm{Im} z = \tfrac{1}{2i}(z-\bar z)$。
 
 #### 复平面
 
@@ -77,7 +77,7 @@ $$
 
 > **定义 — 模与辐角**
 >
-> 对 $z\ne 0$，记 $r = |z| = \sqrt{x^2+y^2}$，并设 $\theta$ 为满足 $x = r\cos\theta$，$y = r\sin\theta$ 的角。则 $z = r(\cos\theta + i\sin\theta)$ 是**极坐标形式**，$r$ 是模，$\theta$ 是 $z$ 的一个**辐角**，记作 $\arg z$。由于 $\cos$ 与 $\sin$ 以 $2\pi$ 为周期，辐角只确定到相差 $2\pi$ 的整数倍；位于 $(-\pi,\pi]$ 中的唯一值是**主辐角** $\operatorname{Arg} z$。
+> 对 $z\ne 0$，记 $r = |z| = \sqrt{x^2+y^2}$，并设 $\theta$ 为满足 $x = r\cos\theta$，$y = r\sin\theta$ 的角。则 $z = r(\cos\theta + i\sin\theta)$ 是**极坐标形式**，$r$ 是模，$\theta$ 是 $z$ 的一个**辐角**，记作 $\arg z$。由于 $\cos$ 与 $\sin$ 以 $2\pi$ 为周期，辐角只确定到相差 $2\pi$ 的整数倍；位于 $(-\pi,\pi]$ 中的唯一值是**主辐角** $\mathrm{Arg} z$。
 
 现在我们推导**欧拉公式**，即恒等式 $e^{i\theta} = \cos\theta + i\sin\theta$。我们把实泰勒（麦克劳林）级数当作已知，它们对一切实参数收敛（这是微积分的先决知识）：
 
@@ -107,7 +107,7 @@ $$
 
 > **常见陷阱**
 >
-> - $\operatorname{Im} z$ 是一个实数（$y$），而非 $iy$。 - 在你固定一个取值范围之前，辐角不是一个函数；$\arg(1) = 0$ 与 $\arg(1)=2\pi$ 都是“正确的”。 - $\mathbb{C}$ 上**没有**与算术相容的序：对非实复数而言“$z_1 < z_2$”毫无意义。只有 $|z|$ 可以比较。
+> - $\mathrm{Im} z$ 是一个实数（$y$），而非 $iy$。 - 在你固定一个取值范围之前，辐角不是一个函数；$\arg(1) = 0$ 与 $\arg(1)=2\pi$ 都是“正确的”。 - $\mathbb{C}$ 上**没有**与算术相容的序：对非实复数而言“$z_1 < z_2$”毫无意义。只有 $|z|$ 可以比较。
 
 <a id="s1"></a>
 ### 复变函数：平面中的极限与连续性
@@ -118,7 +118,7 @@ $$
 
 > **定义 — 复函数**
 >
-> 设 $D\subseteq\mathbb{C}$。一个**复变函数**是一条规则 $f:D\to\mathbb{C}$，它给每个 $z\in D$ 指派单一的值 $w=f(z)$。写 $z = x+iy$ 与 $f = u+iv$，单一的复方程 $w=f(z)$ 打包了**两个**二元实函数：$u(x,y) = \operatorname{Re} f$ 与 $v(x,y) = \operatorname{Im} f$。
+> 设 $D\subseteq\mathbb{C}$。一个**复变函数**是一条规则 $f:D\to\mathbb{C}$，它给每个 $z\in D$ 指派单一的值 $w=f(z)$。写 $z = x+iy$ 与 $f = u+iv$，单一的复方程 $w=f(z)$ 打包了**两个**二元实函数：$u(x,y) = \mathrm{Re} f$ 与 $v(x,y) = \mathrm{Im} f$。
 
 例如 $f(z) = z^2 = (x+iy)^2 = (x^2-y^2) + i(2xy)$，所以 $u = x^2 - y^2$，$v = 2xy$。
 
@@ -233,7 +233,7 @@ $$
 
 > **直觉与 $\bar z$ 判别法**
 >
-> 定义 $\partial/\partial\bar z = \tfrac12(\partial_x + i\partial_y)$。一个简短的计算表明 CR 方程等价于 $\partial f/\partial\bar z = 0$。其口号：*全纯函数就是那些只依赖于 $z$、不依赖于 $\bar z$ 的函数。* 公式中任何真实出现的 $\bar z$、$|z|$、$\operatorname{Re} z$ 或 $\operatorname{Im} z$ 都是该函数很可能不全纯的警示。
+> 定义 $\partial/\partial\bar z = \tfrac12(\partial_x + i\partial_y)$。一个简短的计算表明 CR 方程等价于 $\partial f/\partial\bar z = 0$。其口号：*全纯函数就是那些只依赖于 $z$、不依赖于 $\bar z$ 的函数。* 公式中任何真实出现的 $\bar z$、$|z|$、$\mathrm{Re} z$ 或 $\mathrm{Im} z$ 都是该函数很可能不全纯的警示。
 
 <a id="s3"></a>
 ### 调和函数、与全纯性的联系，以及共形性质
@@ -307,25 +307,25 @@ $$
 
 > **定义 — 复对数**
 >
-> 对 $z\ne 0$，**（多值）对数**是 $\log z = \ln|z| + i\arg z$，其中 $\arg z$ 取遍其所有值，彼此相差 $2\pi$ 的倍数。**主对数**取主辐角：$\operatorname{Log} z = \ln|z| + i\operatorname{Arg} z$，其中 $\operatorname{Arg} z\in(-\pi,\pi]$。
+> 对 $z\ne 0$，**（多值）对数**是 $\log z = \ln|z| + i\arg z$，其中 $\arg z$ 取遍其所有值，彼此相差 $2\pi$ 的倍数。**主对数**取主辐角：$\mathrm{Log} z = \ln|z| + i\mathrm{Arg} z$，其中 $\mathrm{Arg} z\in(-\pi,\pi]$。
 
 > **例**
 >
-> $\log(-1)$：此处 $|-1| = 1$ 故 $\ln|z| = 0$，而 $\arg(-1) = \pi + 2\pi k$。所以 $\log(-1) = i(\pi + 2\pi k) = i\pi, 3i\pi, -i\pi,\dots$。主值是 $\operatorname{Log}(-1) = i\pi$——这给了“负数的对数”一个干净的含义，这在 $\mathbb{R}$ 上是不可能的。
+> $\log(-1)$：此处 $|-1| = 1$ 故 $\ln|z| = 0$，而 $\arg(-1) = \pi + 2\pi k$。所以 $\log(-1) = i(\pi + 2\pi k) = i\pi, 3i\pi, -i\pi,\dots$。主值是 $\mathrm{Log}(-1) = i\pi$——这给了“负数的对数”一个干净的含义，这在 $\mathbb{R}$ 上是不可能的。
 
 #### 分支割线
 
-多值函数的一个**分支**是使它在某区域上单值且连续的一种选择。主对数处处连续，唯独沿负实轴例外，那里 $\operatorname{Arg}$ 从接近 $\pi$ 跳到接近 $-\pi$。我们排除这条射线：
+多值函数的一个**分支**是使它在某区域上单值且连续的一种选择。主对数处处连续，唯独沿负实轴例外，那里 $\mathrm{Arg}$ 从接近 $\pi$ 跳到接近 $-\pi$。我们排除这条射线：
 
 > **定义 — 分支割线**
 >
-> **分支割线**是从平面中移除的一条曲线，用以使多值函数单值且连续。$\operatorname{Log}$ 的标准**主分支**使用沿 $(-\infty, 0]$ 的割线。在被切开的平面 $\mathbb{C}\setminus(-\infty,0]$ 上，$\operatorname{Log}$ 全纯，且 $(\operatorname{Log} z)' = 1/z$。一个无法绕一圈而不迫使发生跳变的点（此处 $z=0$）是一个**分支点**。
+> **分支割线**是从平面中移除的一条曲线，用以使多值函数单值且连续。$\mathrm{Log}$ 的标准**主分支**使用沿 $(-\infty, 0]$ 的割线。在被切开的平面 $\mathbb{C}\setminus(-\infty,0]$ 上，$\mathrm{Log}$ 全纯，且 $(\mathrm{Log} z)' = 1/z$。一个无法绕一圈而不迫使发生跳变的点（此处 $z=0$）是一个**分支点**。
 
 #### 复幂、三角与双曲函数
 
 > **定义 — 复幂**
 >
-> 对 $z\ne0$ 与任意复数 $\alpha$，定义 $z^\alpha = e^{\alpha\log z}$。使用多值的 $\log$ 时它一般是多值的；使用 $\operatorname{Log}$ 给出主值。
+> 对 $z\ne0$ 与任意复数 $\alpha$，定义 $z^\alpha = e^{\alpha\log z}$。使用多值的 $\log$ 时它一般是多值的；使用 $\mathrm{Log}$ 给出主值。
 
 > **例**
 >
@@ -390,7 +390,7 @@ $\mathbb{C}$ 中的积分是沿路径的积分。本学科中最重要的量—�
 > $$
 
 **证明。**
-1. 首先，对 $[a,b]$ 上任意复值 $g(t)$，$\left|\int_a^b g\,dt\right| \le \int_a^b |g|\,dt$。为看出这一点，把 $\int_a^b g\,dt = Re^{i\phi}$ 写成极坐标形式（$R\ge 0$）。则 $R = e^{-i\phi}\int_a^b g\,dt = \int_a^b e^{-i\phi}g\,dt$。由于 $R$ 是实数，它等于其实部：$R = \int_a^b \operatorname{Re}(e^{-i\phi}g)\,dt \le \int_a^b |e^{-i\phi}g|\,dt = \int_a^b |g|\,dt$（因为一个复数的实部绝不超过它的模，且 $|e^{-i\phi}|=1$）。
+1. 首先，对 $[a,b]$ 上任意复值 $g(t)$，$\left|\int_a^b g\,dt\right| \le \int_a^b |g|\,dt$。为看出这一点，把 $\int_a^b g\,dt = Re^{i\phi}$ 写成极坐标形式（$R\ge 0$）。则 $R = e^{-i\phi}\int_a^b g\,dt = \int_a^b e^{-i\phi}g\,dt$。由于 $R$ 是实数，它等于其实部：$R = \int_a^b \mathrm{Re}(e^{-i\phi}g)\,dt \le \int_a^b |e^{-i\phi}g|\,dt = \int_a^b |g|\,dt$（因为一个复数的实部绝不超过它的模，且 $|e^{-i\phi}|=1$）。
 2. 把第 1 步应用于 $g(t) = f(z(t))z'(t)$：
 $$
 \left|\int_\gamma f\,dz\right| = \left|\int_a^b f(z(t))z'(t)\,dt\right| \le \int_a^b |f(z(t))|\,|z'(t)|\,dt.
@@ -551,7 +551,7 @@ $$
 
 > **例**
 >
-> 在闭单位圆盘上，$|e^z|$ 在何处最大？由于 $|e^z| = e^{\operatorname{Re} z} = e^x$，且 $f=e^z$ 非常数，最大值在边界 $|z|=1$ 上，在 $x=1$ 处，即 $z=1$：值为 $e$。该原理正确地预言了最大值在边界上。
+> 在闭单位圆盘上，$|e^z|$ 在何处最大？由于 $|e^z| = e^{\mathrm{Re} z} = e^x$，且 $f=e^z$ 非常数，最大值在边界 $|z|=1$ 上，在 $x=1$ 处，即 $z=1$：值为 $e$。该原理正确地预言了最大值在边界上。
 
 ## D 部分 · 级数与留数
 
@@ -632,7 +632,7 @@ $$
 >
 > $f$ 在孤立奇点 $z_0$ 处的**留数**是洛朗系数 $a_{-1}$：
 > $$
-> \operatorname{Res}(f,z_0) = a_{-1} = \frac{1}{2\pi i}\oint_C f(z)\,dz,
+> \mathrm{Res}(f,z_0) = a_{-1} = \frac{1}{2\pi i}\oint_C f(z)\,dz,
 > $$
 > 其中 $C$ 是围绕 $z_0$ 的小圆。
 
@@ -640,7 +640,7 @@ $$
 >
 > 设 $f$ 在正向定向的简单闭围道 $\gamma$ 上及其内部全纯，唯独 $\gamma$ 内部有限多个孤立奇点 $z_1,\dots,z_k$ 例外。则
 > $$
-> \oint_\gamma f(z)\,dz = 2\pi i\sum_{j=1}^k \operatorname{Res}(f,z_j).
+> \oint_\gamma f(z)\,dz = 2\pi i\sum_{j=1}^k \mathrm{Res}(f,z_j).
 > $$
 
 **证明。**
@@ -651,24 +651,24 @@ $$
 0 = \oint_\gamma f\,dz - \sum_{j=1}^k \oint_{C_j} f\,dz,
 $$
 其中负号把每个顺时针圆转换为逆时针。
-4. 由留数的定义（上面那一步的方框），$\oint_{C_j} f\,dz = 2\pi i\operatorname{Res}(f,z_j)$。代入：
+4. 由留数的定义（上面那一步的方框），$\oint_{C_j} f\,dz = 2\pi i\mathrm{Res}(f,z_j)$。代入：
 $$
-\oint_\gamma f\,dz = \sum_{j=1}^k 2\pi i\,\operatorname{Res}(f,z_j) = 2\pi i\sum_{j=1}^k \operatorname{Res}(f,z_j). \qquad \blacksquare
+\oint_\gamma f\,dz = \sum_{j=1}^k 2\pi i\,\mathrm{Res}(f,z_j) = 2\pi i\sum_{j=1}^k \mathrm{Res}(f,z_j). \qquad \blacksquare
 $$
 
 #### 计算留数
 
 > **公式 — 极点处的留数**
 >
-> - 单极点：$\operatorname{Res}(f,z_0) = \lim_{z\to z_0}(z-z_0)f(z)$。
-> - 若 $f = p/q$，$p(z_0)\ne 0$ 且 $q$ 在 $z_0$ 处有单零点：$\operatorname{Res}(f,z_0) = p(z_0)/q'(z_0)$。
-> - $m$ 阶极点：$\operatorname{Res}(f,z_0) = \dfrac{1}{(m-1)!}\lim_{z\to z_0}\dfrac{d^{m-1}}{dz^{m-1}}\bigl[(z-z_0)^m f(z)\bigr]$。
+> - 单极点：$\mathrm{Res}(f,z_0) = \lim_{z\to z_0}(z-z_0)f(z)$。
+> - 若 $f = p/q$，$p(z_0)\ne 0$ 且 $q$ 在 $z_0$ 处有单零点：$\mathrm{Res}(f,z_0) = p(z_0)/q'(z_0)$。
+> - $m$ 阶极点：$\mathrm{Res}(f,z_0) = \dfrac{1}{(m-1)!}\lim_{z\to z_0}\dfrac{d^{m-1}}{dz^{m-1}}\bigl[(z-z_0)^m f(z)\bigr]$。
 
 单极点公式成立是因为 $(z-z_0)f(z) = a_{-1} + a_0(z-z_0)+\cdots$，其极限为 $a_{-1}$。$m$ 阶公式把极点乘掉以留下一个泰勒级数，然后求导 $m-1$ 次以分离出 $a_{-1}$。
 
 > **例**
 >
-> $\operatorname{Res}\left(\frac{e^z}{z^2-1}, 1\right)$：在 $z=1$ 处的单极点，$p=e^z$，$q=z^2-1$，$q'=2z$。留数 $= e^1/(2\cdot 1) = e/2$。
+> $\mathrm{Res}\left(\frac{e^z}{z^2-1}, 1\right)$：在 $z=1$ 处的单极点，$p=e^z$，$q=z^2-1$，$q'=2z$。留数 $= e^1/(2\cdot 1) = e/2$。
 
 <a id="s12"></a>
 ### 用留数计算实定积分
@@ -703,7 +703,7 @@ $$
 
 > **例**
 >
-> $\displaystyle\int_{-\infty}^\infty\frac{\cos x}{1+x^2}\,dx = \operatorname{Re}\int_{-\infty}^\infty\frac{e^{ix}}{1+x^2}\,dx$。$z=i$ 处的极点在上半平面；$\frac{e^{iz}}{1+z^2}$ 在那里的留数是 $\frac{e^{i\cdot i}}{2i} = \frac{e^{-1}}{2i}$。所以积分 $= 2\pi i\cdot\frac{e^{-1}}{2i} = \pi e^{-1} = \pi/e$（已是实数，我们取其实部）。结果：$\pi/e$。
+> $\displaystyle\int_{-\infty}^\infty\frac{\cos x}{1+x^2}\,dx = \mathrm{Re}\int_{-\infty}^\infty\frac{e^{ix}}{1+x^2}\,dx$。$z=i$ 处的极点在上半平面；$\frac{e^{iz}}{1+z^2}$ 在那里的留数是 $\frac{e^{i\cdot i}}{2i} = \frac{e^{-1}}{2i}$。所以积分 $= 2\pi i\cdot\frac{e^{-1}}{2i} = \pi e^{-1} = \pi/e$（已是实数，我们取其实部）。结果：$\pi/e$。
 
 #### 主值与围道上的极点
 
@@ -711,7 +711,7 @@ $$
 
 > **例**
 >
-> $\displaystyle\int_{-\infty}^\infty \frac{\sin x}{x}\,dx$。用 $\frac{e^{iz}}{z}$，它在轴上的 $0$ 处有单极点。在极点**上方**用一个小半圆凹进去（把围道推入上半平面，从而把该极点留在*外面*）。于是整条闭围道不围住任何极点，所以它的积分为 $0$；小半圆是**顺时针**走的，所以它贡献 $-\pi i\operatorname{Res}(e^{iz}/z,0) = -\pi i\cdot 1$（即 $2\pi i\cdot\text{Res}$ 的负一半）；大弧由约当消失。平衡给出 $\mathrm{P}\!\int_{-\infty}^\infty \frac{e^{ix}}{x}\,dx = \pi i$。取虚部：$\int_{-\infty}^\infty\frac{\sin x}{x}\,dx = \pi$。
+> $\displaystyle\int_{-\infty}^\infty \frac{\sin x}{x}\,dx$。用 $\frac{e^{iz}}{z}$，它在轴上的 $0$ 处有单极点。在极点**上方**用一个小半圆凹进去（把围道推入上半平面，从而把该极点留在*外面*）。于是整条闭围道不围住任何极点，所以它的积分为 $0$；小半圆是**顺时针**走的，所以它贡献 $-\pi i\mathrm{Res}(e^{iz}/z,0) = -\pi i\cdot 1$（即 $2\pi i\cdot\text{Res}$ 的负一半）；大弧由约当消失。平衡给出 $\mathrm{P}\!\int_{-\infty}^\infty \frac{e^{ix}}{x}\,dx = \pi i$。取虚部：$\int_{-\infty}^\infty\frac{\sin x}{x}\,dx = \pi$。
 
 <a id="s13"></a>
 ### 辐角原理与儒歇定理
@@ -771,7 +771,7 @@ s3 节表明全纯映射保持角度。这里我们用它来*设计*把一个区
 >
 > 每个莫比乌斯变换把直线与圆的族映到自身（直线是“过 $\infty$ 的圆”）。
 
-**证明概要。** 任何莫比乌斯映射都是平移 $z\mapsto z+b$、缩放/旋转 $z\mapsto az$ 以及反演 $z\mapsto 1/z$ 的复合（在代数上分解 $\frac{az+b}{cz+d}$）。前两者保持直线与圆（平移或旋转/缩放把任何直线送到直线、任何圆送到圆）；通过直接计算可验证 $z\mapsto 1/z$ 把一般的广义圆方程 $A|z|^2 + \operatorname{Re}(\bar Bz) + C = 0$ 送到另一个同样形式的方程。$\blacksquare$
+**证明概要。** 任何莫比乌斯映射都是平移 $z\mapsto z+b$、缩放/旋转 $z\mapsto az$ 以及反演 $z\mapsto 1/z$ 的复合（在代数上分解 $\frac{az+b}{cz+d}$）。前两者保持直线与圆（平移或旋转/缩放把任何直线送到直线、任何圆送到圆）；通过直接计算可验证 $z\mapsto 1/z$ 把一般的广义圆方程 $A|z|^2 + \mathrm{Re}(\bar Bz) + C = 0$ 送到另一个同样形式的方程。$\blacksquare$
 
 > **定理 — 三点确定一个莫比乌斯映射**
 >
@@ -781,7 +781,7 @@ s3 节表明全纯映射保持角度。这里我们用它来*设计*把一个区
 
 > **例 — 上半平面到单位圆盘**
 >
-> 映射 $T(z) = \dfrac{z-i}{z+i}$ 把上半平面 $\{\operatorname{Im} z>0\}$ 共形地映满单位圆盘 $\{|w|<1\}$。验证边界：对实数 $z$，$|z-i| = |z+i| = \sqrt{z^2+1}$，所以 $|T(z)| = 1$——实轴映到单位圆。且 $T(i) = 0$，一个内部点，确认上半平面映到内部。这是用来把圆盘上的结果转移到半平面问题的标准桥梁。
+> 映射 $T(z) = \dfrac{z-i}{z+i}$ 把上半平面 $\{\mathrm{Im} z>0\}$ 共形地映满单位圆盘 $\{|w|<1\}$。验证边界：对实数 $z$，$|z-i| = |z+i| = \sqrt{z^2+1}$，所以 $|T(z)| = 1$——实轴映到单位圆。且 $T(i) = 0$，一个内部点，确认上半平面映到内部。这是用来把圆盘上的结果转移到半平面问题的标准桥梁。
 
 > **物理学家为何在意**
 >
@@ -806,7 +806,7 @@ s3 节表明全纯映射保持角度。这里我们用它来*设计*把一个区
 
 > **例 — 对数的单值性**
 >
-> 从 $z=1$ 附近的 $\operatorname{Log} z$（值为 $0$）开始。逆时针绕原点延拓它。每一步虚部（辐角）连续增加；绕完一整圈后值增长了 $2\pi i$——我们回到 $z=1$ 但值为 $2\pi i$，而非 $0$。函数没有回到自身。原点是一个分支点；环绕它永久地移动了分支。
+> 从 $z=1$ 附近的 $\mathrm{Log} z$（值为 $0$）开始。逆时针绕原点延拓它。每一步虚部（辐角）连续增加；绕完一整圈后值增长了 $2\pi i$——我们回到 $z=1$ 但值为 $2\pi i$，而非 $0$。函数没有回到自身。原点是一个分支点；环绕它永久地移动了分支。
 
 这种非单值性不是要用分支割线（§s4）打补丁的缺陷，而是一个有其自然归宿的特征。
 

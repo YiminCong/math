@@ -148,9 +148,9 @@ $$\hat\beta_1 = r\,\frac{s_y}{s_x},\qquad r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}$$
 
 $$E[\hat\beta_1]=\beta_1,\qquad E[\hat\beta_0]=\beta_0$$
 
-$$\operatorname{Var}(\hat\beta_1)=\frac{\sigma^2}{S_{xx}},\qquad \operatorname{Var}(\hat\beta_0)=\sigma^2\!\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right)$$
+$$\mathrm{Var}(\hat\beta_1)=\frac{\sigma^2}{S_{xx}},\qquad \mathrm{Var}(\hat\beta_0)=\sigma^2\!\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right)$$
 
-第一行表示最小二乘平均而言命中真截距和真斜率。第二行给出方差：注意 $S_{xx}$ 位于 $\operatorname{Var}(\hat\beta_1)$ 的分母，所以*$x$ 的离散越大（$S_{xx}$ 越大），斜率被钉得越牢*。这正是为什么好的实验设计要把预测变量的值拉得很开。
+第一行表示最小二乘平均而言命中真截距和真斜率。第二行给出方差：注意 $S_{xx}$ 位于 $\mathrm{Var}(\hat\beta_1)$ 的分母，所以*$x$ 的离散越大（$S_{xx}$ 越大），斜率被钉得越牢*。这正是为什么好的实验设计要把预测变量的值拉得很开。
 
 **演示 — $\hat\beta_1$ 无偏并求其方差**
 
@@ -162,13 +162,13 @@ $$\operatorname{Var}(\hat\beta_1)=\frac{\sigma^2}{S_{xx}},\qquad \operatorname{V
    *理由：*期望的线性以及步骤 1 中的两个权重事实。
 3. **计算方差。** 对*独立*的量，加权和的方差是各平方权重乘以各方差之和（交叉项消失，因为独立变量不协同变化），而每个 $y_i$ 的方差为 $\sigma^2$：
 
-   $$\operatorname{Var}(\hat\beta_1)=\sum c_i^2\,\operatorname{Var}(y_i)=\sigma^2\sum c_i^2=\frac{\sigma^2}{S_{xx}^2}\sum(x_i-\bar x)^2=\frac{\sigma^2}{S_{xx}^2}\,S_{xx}=\frac{\sigma^2}{S_{xx}}.$$
+   $$\mathrm{Var}(\hat\beta_1)=\sum c_i^2\,\mathrm{Var}(y_i)=\sigma^2\sum c_i^2=\frac{\sigma^2}{S_{xx}^2}\sum(x_i-\bar x)^2=\frac{\sigma^2}{S_{xx}^2}\,S_{xx}=\frac{\sigma^2}{S_{xx}}.$$
 
    *理由：*独立项之和的方差规则，再加 $\sum c_i^2 = \sum (x_i-\bar x)^2/S_{xx}^2 = S_{xx}/S_{xx}^2 = 1/S_{xx}$。
 
 *这里不需要任何正态性假设——只需 $E[\varepsilon] = 0$、常数方差 $\sigma^2$ 和独立性。*
 
-**算例（续）。** 假设真实噪声水平为 $\sigma = 2$，故 $\sigma^2 = 4$。用学生数据的 $S_{xx} = 10$，$\operatorname{Var}(\hat\beta_1) = 4/10 = 0.4$，给出斜率的标准差为 $\sqrt{0.4} \approx 0.632$。若改将学习时间铺在 $0,2,4,6,8$ 小时上（同样五个点，但更宽），$S_{xx}$ 将为 $40$，斜率方差降到 $4/40 = 0.1$ ——仅靠更宽的设计就精确了四倍。
+**算例（续）。** 假设真实噪声水平为 $\sigma = 2$，故 $\sigma^2 = 4$。用学生数据的 $S_{xx} = 10$，$\mathrm{Var}(\hat\beta_1) = 4/10 = 0.4$，给出斜率的标准差为 $\sqrt{0.4} \approx 0.632$。若改将学习时间铺在 $0,2,4,6,8$ 小时上（同样五个点，但更宽），$S_{xx}$ 将为 $40$，斜率方差降到 $4/40 = 0.1$ ——仅靠更宽的设计就精确了四倍。
 
 > **原理 — 高斯—马尔可夫：OLS 是 BLUE**
 >
@@ -180,10 +180,10 @@ $$\operatorname{Var}(\hat\beta_1)=\frac{\sigma^2}{S_{xx}},\qquad \operatorname{V
 2. **把对手权重从 OLS 权重中分离出来。** 写 $d_i = c_i + \delta_i$，定义*差* $\delta_i = d_i - c_i$。把约束成对相减，$\sum \delta_i = \sum d_i - \sum c_i = 0 - 0 = 0$ 且 $\sum \delta_i x_i = \sum d_i x_i - \sum c_i x_i = 1 - 1 = 0$。由此，**交叉项**消失：$\sum c_i \delta_i = \sum \frac{x_i - \bar x}{S_{xx}}\delta_i = \frac{1}{S_{xx}}\big(\sum x_i \delta_i - \bar x \sum \delta_i\big) = \frac{1}{S_{xx}}(0 - 0) = 0$。*理由：*代入 $c_i = (x_i-\bar x)/S_{xx}$ 并应用关于 $\delta_i$ 的两个事实。
 3. **拆分方差。** 因为 $y_i$ 独立且方差为 $\sigma^2$：
 
-   $$\operatorname{Var}(\tilde\beta_1)=\sigma^2\sum d_i^2=\sigma^2\sum (c_i+\delta_i)^2=\sigma^2\Big(\sum c_i^2 + 2\sum c_i\delta_i + \sum \delta_i^2\Big)=\operatorname{Var}(\hat\beta_1)+\sigma^2\sum\delta_i^2.$$
+   $$\mathrm{Var}(\tilde\beta_1)=\sigma^2\sum d_i^2=\sigma^2\sum (c_i+\delta_i)^2=\sigma^2\Big(\sum c_i^2 + 2\sum c_i\delta_i + \sum \delta_i^2\Big)=\mathrm{Var}(\hat\beta_1)+\sigma^2\sum\delta_i^2.$$
 
-   *理由：*展开平方；中间交叉项由步骤 2 为零；$\sigma^2 \sum c_i^2 = \operatorname{Var}(\hat\beta_1)$ 由前文得出。
-4. **作结。** 平方和永不为负，所以 $\sum \delta_i^2 \ge 0$，因此 $\operatorname{Var}(\tilde\beta_1) \ge \operatorname{Var}(\hat\beta_1)$，仅当每个 $\delta_i = 0$ 时取等，即对手*就是* OLS。*理由：*平方非负。因此没有线性无偏估计量在方差上胜过 OLS。
+   *理由：*展开平方；中间交叉项由步骤 2 为零；$\sigma^2 \sum c_i^2 = \mathrm{Var}(\hat\beta_1)$ 由前文得出。
+4. **作结。** 平方和永不为负，所以 $\sum \delta_i^2 \ge 0$，因此 $\mathrm{Var}(\tilde\beta_1) \ge \mathrm{Var}(\hat\beta_1)$，仅当每个 $\delta_i = 0$ 时取等，即对手*就是* OLS。*理由：*平方非负。因此没有线性无偏估计量在方差上胜过 OLS。
 
 *在所有线性无偏竞争者中，OLS 坐在方差碗的最底部——高斯—马尔可夫最优点。*
 
@@ -208,7 +208,7 @@ $$\hat\sigma^2 = s^2 = \frac{1}{n-2}\sum_{i=1}^n e_i^2 = \frac{\text{SSE}}{n-2}$
 
 **系数的 t 统计量**
 
-$$t = \frac{\hat\beta_1 - \beta_1^{(0)}}{\operatorname{SE}(\hat\beta_1)},\qquad \operatorname{SE}(\hat\beta_1)=\frac{s}{\sqrt{S_{xx}}}$$
+$$t = \frac{\hat\beta_1 - \beta_1^{(0)}}{\mathrm{SE}(\hat\beta_1)},\qquad \mathrm{SE}(\hat\beta_1)=\frac{s}{\sqrt{S_{xx}}}$$
 
 分子是"估计值落在离假设值 $\beta_1^{(0)}$ 多远的地方"；分母把那段距离重新标度为*标准误单位*。标准误把 $\sqrt{\sigma^2/S_{xx}} = \sigma/\sqrt{S_{xx}}$（来自 §s2）中的未知 $\sigma$ 换成其估计 $s$。
 
@@ -224,7 +224,7 @@ $$\hat\beta_1 \pm t^{*}_{n-2}\;\frac{s}{\sqrt{S_{xx}}}$$
 
 这就是通用模板"估计值 $\pm$ 临界值 $\times$ 标准误"。**临界值** $t^*_{n-2}$ 是 $t$ 分布上留出所需尾部概率的截断点（对于 95% 置信度，中央 95% 落在 $-t^*$ 与 $+t^*$ 之间）。
 
-**算例（续）。** $\operatorname{SE}(\hat\beta_1) = s/\sqrt{S_{xx}} = 1.461/\sqrt{10} = 1.461/3.162 = 0.462$。检验 $H_0: \beta_1 = 0$：$t = 5.6/0.462 = 12.1$，自由度 $n - 2 = 3$。双侧 5% 临界值是 $t^*_3 = 3.182$。由于 $12.1 > 3.182$，我们拒绝 $H_0$ ——斜率确凿地非零。斜率的 95% 置信区间是 $5.6 \pm 3.182 \times 0.462 = 5.6 \pm 1.47 = [4.13,\,7.07]$。
+**算例（续）。** $\mathrm{SE}(\hat\beta_1) = s/\sqrt{S_{xx}} = 1.461/\sqrt{10} = 1.461/3.162 = 0.462$。检验 $H_0: \beta_1 = 0$：$t = 5.6/0.462 = 12.1$，自由度 $n - 2 = 3$。双侧 5% 临界值是 $t^*_3 = 3.182$。由于 $12.1 > 3.182$，我们拒绝 $H_0$ ——斜率确凿地非零。斜率的 95% 置信区间是 $5.6 \pm 3.182 \times 0.462 = 5.6 \pm 1.47 = [4.13,\,7.07]$。
 
 > **原理 — 置信区间 vs 预测区间**
 >
@@ -241,13 +241,13 @@ $$\hat y_0 \pm t^{*}_{n-2}\,s\sqrt{1+\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}}\quad
 **演示 — 为什么两个区间都在远离 $\bar x$ 处变宽**
 
 1. **重写拟合均值。** 利用 $\hat\beta_0 = \bar y - \hat\beta_1\bar x$（来自 §s1），在 $x_0$ 处的预测是 $\hat y_0 = \hat\beta_0 + \hat\beta_1 x_0 = \bar y - \hat\beta_1 \bar x + \hat\beta_1 x_0 = \bar y + \hat\beta_1 (x_0 - \bar x)$。*理由：*代入截距公式并把斜率项归组。
-2. **合并两个方差来源。** $\bar y$ 与 $\hat\beta_1$ 不相关：$\operatorname{Cov}(\bar y,\hat\beta_1)=\operatorname{Cov}\!\big(\tfrac1n\sum y_i,\sum c_i y_i\big)=\tfrac{\sigma^2}{n}\sum c_i=0$，因为权重 $c_i=(x_i-\bar x)/S_{xx}$ 之和为零（§s2 演示的第 1 步）。所以它们组合的方差是各部分之和。由 $\operatorname{Var}(\bar y) = \sigma^2/n$（$n$ 个独立点之平均的方差）和 $\operatorname{Var}(\hat\beta_1) = \sigma^2/S_{xx}$（来自 §s2）：
+2. **合并两个方差来源。** $\bar y$ 与 $\hat\beta_1$ 不相关：$\mathrm{Cov}(\bar y,\hat\beta_1)=\mathrm{Cov}\!\big(\tfrac1n\sum y_i,\sum c_i y_i\big)=\tfrac{\sigma^2}{n}\sum c_i=0$，因为权重 $c_i=(x_i-\bar x)/S_{xx}$ 之和为零（§s2 演示的第 1 步）。所以它们组合的方差是各部分之和。由 $\mathrm{Var}(\bar y) = \sigma^2/n$（$n$ 个独立点之平均的方差）和 $\mathrm{Var}(\hat\beta_1) = \sigma^2/S_{xx}$（来自 §s2）：
 
-   $$\operatorname{Var}(\hat y_0)=\operatorname{Var}(\bar y)+(x_0-\bar x)^2\operatorname{Var}(\hat\beta_1)=\frac{\sigma^2}{n}+(x_0-\bar x)^2\frac{\sigma^2}{S_{xx}}=\sigma^2\!\left(\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}\right).$$
+   $$\mathrm{Var}(\hat y_0)=\mathrm{Var}(\bar y)+(x_0-\bar x)^2\mathrm{Var}(\hat\beta_1)=\frac{\sigma^2}{n}+(x_0-\bar x)^2\frac{\sigma^2}{S_{xx}}=\sigma^2\!\left(\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}\right).$$
 
    *理由：*不相关项之和的方差，常数 $(x_0-\bar x)$ 平方提出。用 $s^2$ 估计 $\sigma^2$ 并取平方根给出均值响应区间的宽度。
 3. **读出形状。** 项 $(x_0 - \bar x)^2$ 随 $x_0$ 离开中心而*二次*增长，所以区间向外弯成一条双曲线——在 $\bar x$ 处最窄，向两个方向越来越宽。*理由：*平方距离无界增长。
-4. **加上新点自身的噪声。** 对于预测单个新 $y_0 = \beta_0 + \beta_1 x_0 + \varepsilon_0$，新误差 $\varepsilon_0$ 独立于拟合直线且方差为 $\sigma^2$，所以它叠加上去：$\operatorname{Var}(y_0 - \hat y_0) = \sigma^2 + \operatorname{Var}(\hat y_0) = \sigma^2\big(1 + \frac1n + \frac{(x_0-\bar x)^2}{S_{xx}}\big)$。*理由：*独立性使方差相加；这产生了多出来的 $+1$。
+4. **加上新点自身的噪声。** 对于预测单个新 $y_0 = \beta_0 + \beta_1 x_0 + \varepsilon_0$，新误差 $\varepsilon_0$ 独立于拟合直线且方差为 $\sigma^2$，所以它叠加上去：$\mathrm{Var}(y_0 - \hat y_0) = \sigma^2 + \mathrm{Var}(\hat y_0) = \sigma^2\big(1 + \frac1n + \frac{(x_0-\bar x)^2}{S_{xx}}\big)$。*理由：*独立性使方差相加；这产生了多出来的 $+1$。
 
 *预测在观测到的 $x$ 范围核心附近最可信；远到该范围之外去外推是危险的。*
 
@@ -320,11 +320,11 @@ $R^2$（读作"R 平方"）是**模型解释的 $y$ 方差的比例**——介�
 
 **堆叠成矩阵的模型**
 
-$$\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},\qquad E[\boldsymbol{\varepsilon}]=\mathbf{0},\quad \operatorname{Cov}(\boldsymbol{\varepsilon})=\sigma^2\mathbf{I}$$
+$$\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},\qquad E[\boldsymbol{\varepsilon}]=\mathbf{0},\quad \mathrm{Cov}(\boldsymbol{\varepsilon})=\sigma^2\mathbf{I}$$
 
 $$\mathbf{y}\in\mathbb{R}^{n},\quad \mathbf{X}\in\mathbb{R}^{n\times p},\quad \boldsymbol{\beta}\in\mathbb{R}^{p}$$
 
-来读它：$\mathbf{y}$ 是长度为 $n$ 的响应向量；$\mathbf{X}$ 是 $n \times p$ 的**设计矩阵**，其第 $i$ 行装着观测 $i$ 的预测变量（通常有一个全 $1$ 的前导列以承载截距）；$\boldsymbol\beta$ 是长度为 $p$ 的系数向量；$\boldsymbol\varepsilon$ 是长度为 $n$ 的误差向量。记号"$\in \mathbb{R}^n$"表示"是一列 $n$ 个实数"。$E[\boldsymbol\varepsilon] = \mathbf{0}$ 表示每个误差平均为零。$\operatorname{Cov}(\boldsymbol\varepsilon) = \sigma^2\mathbf{I}$ 是误差的**协方差矩阵**：其对角线 $\sigma^2$ 表示每个误差有相同方差（同方差性），其零非对角线表示不同误差不相关（独立性）。单行 $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$ 一次性编码了全部 $n$ 个标量方程 $y_i = \beta_0 + \beta_1 x_{i1} + \cdots + \varepsilon_i$。
+来读它：$\mathbf{y}$ 是长度为 $n$ 的响应向量；$\mathbf{X}$ 是 $n \times p$ 的**设计矩阵**，其第 $i$ 行装着观测 $i$ 的预测变量（通常有一个全 $1$ 的前导列以承载截距）；$\boldsymbol\beta$ 是长度为 $p$ 的系数向量；$\boldsymbol\varepsilon$ 是长度为 $n$ 的误差向量。记号"$\in \mathbb{R}^n$"表示"是一列 $n$ 个实数"。$E[\boldsymbol\varepsilon] = \mathbf{0}$ 表示每个误差平均为零。$\mathrm{Cov}(\boldsymbol\varepsilon) = \sigma^2\mathbf{I}$ 是误差的**协方差矩阵**：其对角线 $\sigma^2$ 表示每个误差有相同方差（同方差性），其零非对角线表示不同误差不相关（独立性）。单行 $\mathbf{y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$ 一次性编码了全部 $n$ 个标量方程 $y_i = \beta_0 + \beta_1 x_{i1} + \cdots + \varepsilon_i$。
 
 > **概念 — 设计矩阵 $\mathbf{X}$**
 >
@@ -416,13 +416,13 @@ $$\hat{\mathbf{y}}=\mathbf{X}\hat{\boldsymbol\beta}=\underbrace{\mathbf{X}(\math
 
 **估计量的协方差**
 
-$$\operatorname{Cov}(\hat{\boldsymbol\beta})=\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$$
+$$\mathrm{Cov}(\hat{\boldsymbol\beta})=\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$$
 
-**协方差矩阵** $\operatorname{Cov}(\hat{\boldsymbol\beta})$ 收集每个系数的方差（在其对角线上）和成对之间的协方差（非对角线）。其对角线的平方根就是标准误。*几何上：预测变量携带变异很少的方向（$\mathbf{X}^\top\mathbf{X}$ 的小特征值）产生大的系数方差——这是 §s7 中多重共线性的种子。*
+**协方差矩阵** $\mathrm{Cov}(\hat{\boldsymbol\beta})$ 收集每个系数的方差（在其对角线上）和成对之间的协方差（非对角线）。其对角线的平方根就是标准误。*几何上：预测变量携带变异很少的方向（$\mathbf{X}^\top\mathbf{X}$ 的小特征值）产生大的系数方差——这是 §s7 中多重共线性的种子。*
 
-**演示 — 协方差公式。** 把 $\hat{\boldsymbol\beta} = \mathbf{A}\mathbf{y}$ 写出，其中常数矩阵 $\mathbf{A} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$，由规则 $\operatorname{Cov}(\mathbf{A}\mathbf{y}) = \mathbf{A}\operatorname{Cov}(\mathbf{y})\mathbf{A}^\top$ 与 $\operatorname{Cov}(\mathbf{y}) = \sigma^2\mathbf{I}$ 给出 $\operatorname{Cov}(\hat{\boldsymbol\beta}) = \sigma^2\mathbf{A}\mathbf{A}^\top = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1} = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$，因为中间的 $\mathbf{X}^\top\mathbf{X}$ 约掉一个逆。*理由：*协方差的线性变换规则和上面步骤 2 的逆—约消。
+**演示 — 协方差公式。** 把 $\hat{\boldsymbol\beta} = \mathbf{A}\mathbf{y}$ 写出，其中常数矩阵 $\mathbf{A} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$，由规则 $\mathrm{Cov}(\mathbf{A}\mathbf{y}) = \mathbf{A}\mathrm{Cov}(\mathbf{y})\mathbf{A}^\top$ 与 $\mathrm{Cov}(\mathbf{y}) = \sigma^2\mathbf{I}$ 给出 $\mathrm{Cov}(\hat{\boldsymbol\beta}) = \sigma^2\mathbf{A}\mathbf{A}^\top = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1} = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$，因为中间的 $\mathbf{X}^\top\mathbf{X}$ 约掉一个逆。*理由：*协方差的线性变换规则和上面步骤 2 的逆—约消。
 
-**算例（续）。** 用 $s^2 = 2.133$ 估计 $\sigma^2$，并取 $(\mathbf{X}^\top\mathbf{X})^{-1} = \frac{1}{50}\begin{psmallmatrix}55&-15\\-15&5\end{psmallmatrix}$，斜率的方差是右下元素乘以 $s^2$：$\frac{5}{50}\times 2.133 = 0.1\times 2.133 = 0.2133$，所以 $\operatorname{SE}(\hat\beta_1) = \sqrt{0.2133} = 0.462$ ——与 §s3 精确吻合。
+**算例（续）。** 用 $s^2 = 2.133$ 估计 $\sigma^2$，并取 $(\mathbf{X}^\top\mathbf{X})^{-1} = \frac{1}{50}\begin{psmallmatrix}55&-15\\-15&5\end{psmallmatrix}$，斜率的方差是右下元素乘以 $s^2$：$\frac{5}{50}\times 2.133 = 0.1\times 2.133 = 0.2133$，所以 $\mathrm{SE}(\hat\beta_1) = \sqrt{0.2133} = 0.462$ ——与 §s3 精确吻合。
 
 > **联系 — 来自线性代数的投影与特征值**
 >
@@ -435,7 +435,7 @@ $$\operatorname{Cov}(\hat{\boldsymbol\beta})=\sigma^2(\mathbf{X}^\top\mathbf{X})
 
 **单个系数的 t 检验**
 
-$$t_j = \frac{\hat\beta_j}{\operatorname{SE}(\hat\beta_j)},\qquad \operatorname{SE}(\hat\beta_j)=s\sqrt{[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}}$$
+$$t_j = \frac{\hat\beta_j}{\mathrm{SE}(\hat\beta_j)},\qquad \mathrm{SE}(\hat\beta_j)=s\sqrt{[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}}$$
 
 记号 $[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}$ 表示该逆矩阵的第 $j$ 个对角元素——来自 §s6 协方差中每个系数对应的那块。比值 $t_j$ 度量估计值离零有多少个标准误。
 
@@ -447,11 +447,11 @@ $$t_j = \frac{\hat\beta_j}{\operatorname{SE}(\hat\beta_j)},\qquad \operatorname{
 
 **方差膨胀因子**
 
-$$\operatorname{VIF}_j=\frac{1}{1-R_j^2}$$
+$$\mathrm{VIF}_j=\frac{1}{1-R_j^2}$$
 
-这里 $R_j^2$ 是把预测变量 $x_j$ 对*所有其他预测变量*回归所得到的 $R^2$。如果 $x_j$ 几乎可由其他变量预测，$R_j^2$ 接近 $1$，VIF 就会暴涨。*经验法则：$\operatorname{VIF}_j > 5$ 到 $10$ 标示有问题的共线性——$\hat\beta_j$ 的方差被相对于完全正交设计精确地膨胀了这一倍数。*
+这里 $R_j^2$ 是把预测变量 $x_j$ 对*所有其他预测变量*回归所得到的 $R^2$。如果 $x_j$ 几乎可由其他变量预测，$R_j^2$ 接近 $1$，VIF 就会暴涨。*经验法则：$\mathrm{VIF}_j > 5$ 到 $10$ 标示有问题的共线性——$\hat\beta_j$ 的方差被相对于完全正交设计精确地膨胀了这一倍数。*
 
-**算例 — VIF。** 如果把 $x_2$ 对其余预测变量回归得到 $R_2^2 = 0.9$，则 $\operatorname{VIF}_2 = 1/(1-0.9) = 10$：$\hat\beta_2$ 的标准误比 $x_2$ 与其他变量不相关时大 $\sqrt{10} \approx 3.16$ 倍。一个适中的 $R_2^2 = 0.5$ 只给出 $\operatorname{VIF}_2 = 2$（$\sqrt2 \approx 1.41$ 倍膨胀）——通常可以容忍。
+**算例 — VIF。** 如果把 $x_2$ 对其余预测变量回归得到 $R_2^2 = 0.9$，则 $\mathrm{VIF}_2 = 1/(1-0.9) = 10$：$\hat\beta_2$ 的标准误比 $x_2$ 与其他变量不相关时大 $\sqrt{10} \approx 3.16$ 倍。一个适中的 $R_2^2 = 0.5$ 只给出 $\mathrm{VIF}_2 = 2$（$\sqrt2 \approx 1.41$ 倍膨胀）——通常可以容忍。
 
 | 准则 | 公式 / 思想 | 它奖励什么 |
 | --- | --- | --- |
@@ -563,7 +563,7 @@ $$y=\beta_0+\beta_1 x+\beta_2 D+\beta_3\,(x\cdot D)+\varepsilon$$
 
 **逻辑模型与 logit 联系**
 
-$$p(\mathbf{x})=\frac{1}{1+e^{-\boldsymbol{\beta}^\top\mathbf{x}}},\qquad \operatorname{logit}(p)=\ln\frac{p}{1-p}=\boldsymbol{\beta}^\top\mathbf{x}$$
+$$p(\mathbf{x})=\frac{1}{1+e^{-\boldsymbol{\beta}^\top\mathbf{x}}},\qquad \mathrm{logit}(p)=\ln\frac{p}{1-p}=\boldsymbol{\beta}^\top\mathbf{x}$$
 
 左边方程是 sigmoid：当线性预测量 $\boldsymbol\beta^\top\mathbf{x}$ 从 $-\infty$ 跑到 $+\infty$ 时，$p$ 从 $0$ 平滑上升到 $1$。一个事件的**几率**是 $p/(1-p)$（例如 $p = 0.8$ 给出几率 $4$，"4 比 1"）；**logit** 是几率的自然对数。*右边方程说对数几率是预测变量的一个普通线性函数。因此 $e^{\beta_j}$ 是一个**几率比**——$x_j$ 增加一个单位时 $y=1$ 的几率改变的乘法因子。*
 

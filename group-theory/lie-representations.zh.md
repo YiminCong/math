@@ -50,25 +50,25 @@
 
 理想是正规子群在李代数中的类比。整个代数 $\mathfrak{g}$ 和零子空间 $\{0\}$ 总是理想（**平凡**理想）。没有其他理想的代数（且 $\dim\mathfrak{g}>1$，括号非零）称为**单**代数——这些就是我们要分类的不可分原子。
 
-> **定义 — 伴随表示。** 对 $X\in\mathfrak{g}$ 定义线性映射 $\operatorname{ad}_X:\mathfrak{g}\to\mathfrak{g}$ 为 $\operatorname{ad}_X(Y)=[X,Y]$。指派 $X\mapsto\operatorname{ad}_X$ 称为**伴随表示**，$\operatorname{ad}:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})$，其中 $\mathfrak{gl}(\mathfrak{g})$ 是 $\mathfrak{g}$ 上所有线性映射在对易子下构成的代数。
+> **定义 — 伴随表示。** 对 $X\in\mathfrak{g}$ 定义线性映射 $\mathrm{ad}_X:\mathfrak{g}\to\mathfrak{g}$ 为 $\mathrm{ad}_X(Y)=[X,Y]$。指派 $X\mapsto\mathrm{ad}_X$ 称为**伴随表示**，$\mathrm{ad}:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})$，其中 $\mathfrak{gl}(\mathfrak{g})$ 是 $\mathfrak{g}$ 上所有线性映射在对易子下构成的代数。
 
-> **引理 — 伴随表示是李代数同态。** 对所有 $X,Y\in\mathfrak{g}$，$\operatorname{ad}_{[X,Y]}=[\operatorname{ad}_X,\operatorname{ad}_Y]$，其中右边的括号是算子的对易子。
+> **引理 — 伴随表示是李代数同态。** 对所有 $X,Y\in\mathfrak{g}$，$\mathrm{ad}_{[X,Y]}=[\mathrm{ad}_X,\mathrm{ad}_Y]$，其中右边的括号是算子的对易子。
 
 **证明。**
 1. 把两边作用于任意 $Z\in\mathfrak{g}$；只需证明它们在每个 $Z$ 上相等（线性映射由其取值确定，依*线性性*）。
-2. 左边：$\operatorname{ad}_{[X,Y]}(Z)=[[X,Y],Z]$，依 $\operatorname{ad}$ 的*定义*。
-3. 右边：$[\operatorname{ad}_X,\operatorname{ad}_Y](Z)=\operatorname{ad}_X\operatorname{ad}_Y(Z)-\operatorname{ad}_Y\operatorname{ad}_X(Z)=[X,[Y,Z]]-[Y,[X,Z]]$，依*算子对易子的定义*和 $\operatorname{ad}$ 的定义。
+2. 左边：$\mathrm{ad}_{[X,Y]}(Z)=[[X,Y],Z]$，依 $\mathrm{ad}$ 的*定义*。
+3. 右边：$[\mathrm{ad}_X,\mathrm{ad}_Y](Z)=\mathrm{ad}_X\mathrm{ad}_Y(Z)-\mathrm{ad}_Y\mathrm{ad}_X(Z)=[X,[Y,Z]]-[Y,[X,Z]]$，依*算子对易子的定义*和 $\mathrm{ad}$ 的定义。
 4. 把 Jacobi 恒等式写成 $[[X,Y],Z]=[X,[Y,Z]]-[Y,[X,Z]]$（用*反对称性*对最后一项整理三个循环项），便表明第 2 步与第 3 步相等。$\blacksquare$
 
 这个引理表明伴随表示确实是一个表示：它把括号送到对易子，正是李代数同态的定义性质。伴随表示是*根*将要栖身之处（s3）。
 
-**习题例 — $\mathfrak{su}(2)$ 的结构常数与伴随表示。** 取标准生成元 $J_1,J_2,J_3$，满足 $[J_a,J_b]=\sum_c \varepsilon_{abc}J_c$，其中 $\varepsilon_{abc}$ 是全反对称符号（$\varepsilon_{123}=+1$）。故结构常数是 $f_{ab}{}^{c}=\varepsilon_{abc}$。在基 $(J_1,J_2,J_3)$ 中计算 $\operatorname{ad}_{J_3}$：
+**习题例 — $\mathfrak{su}(2)$ 的结构常数与伴随表示。** 取标准生成元 $J_1,J_2,J_3$，满足 $[J_a,J_b]=\sum_c \varepsilon_{abc}J_c$，其中 $\varepsilon_{abc}$ 是全反对称符号（$\varepsilon_{123}=+1$）。故结构常数是 $f_{ab}{}^{c}=\varepsilon_{abc}$。在基 $(J_1,J_2,J_3)$ 中计算 $\mathrm{ad}_{J_3}$：
 $$
-\operatorname{ad}_{J_3}(J_1)=[J_3,J_1]=J_2,\quad \operatorname{ad}_{J_3}(J_2)=[J_3,J_2]=-J_1,\quad \operatorname{ad}_{J_3}(J_3)=0 .
+\mathrm{ad}_{J_3}(J_1)=[J_3,J_1]=J_2,\quad \mathrm{ad}_{J_3}(J_2)=[J_3,J_2]=-J_1,\quad \mathrm{ad}_{J_3}(J_3)=0 .
 $$
 作为矩阵（列 = $J_1,J_2,J_3$ 的像）：
 $$
-\operatorname{ad}_{J_3}=\begin{pmatrix}0&-1&0\\ 1&0&0\\ 0&0&0\end{pmatrix}.
+\mathrm{ad}_{J_3}=\begin{pmatrix}0&-1&0\\ 1&0&0\\ 0&0&0\end{pmatrix}.
 $$
 这是绕 $3$ 轴旋转的生成元作用在一个 $3$ 维向量上——$\mathfrak{su}(2)$ 的伴随表示就是向量（自旋 $1$）表示，从纯代数恢复了前置指南中的一个事实。我们也来*数值地验证 Jacobi*，在 $(J_1,J_2,J_3)$ 上：$[J_1,[J_2,J_3]]+[J_2,[J_3,J_1]]+[J_3,[J_1,J_2]] = [J_1,J_1]+[J_2,J_2]+[J_3,J_3]=0+0+0=0$。很好。
 
@@ -85,21 +85,21 @@ $$
 
 **例子。** 每个**阿贝尔**代数（所有括号为零）都是幂零的：已有 $\mathfrak{g}^{(1)}=\{0\}$。严格上三角 $n\times n$ 矩阵（对角线及其下方为零）的代数是幂零的——每次对易都把非零带推得离对角线更远一步，直到掉出去。*所有*上三角矩阵的代数是可解的但不是幂零的。
 
-> **定义 — 根与半单。** 每个有限维李代数都有唯一的极大可解理想，即**根** $\operatorname{rad}\mathfrak{g}$（所有可解理想之和仍可解，故存在一个最大者）。$\mathfrak{g}$ 是**半单的**，若 $\operatorname{rad}\mathfrak{g}=\{0\}$——根本没有非零的可解理想。等价地（我们要用的一条定理，归功于 Cartan），半单代数是单代数的直和。
+> **定义 — 根与半单。** 每个有限维李代数都有唯一的极大可解理想，即**根** $\mathrm{rad}\mathfrak{g}$（所有可解理想之和仍可解，故存在一个最大者）。$\mathfrak{g}$ 是**半单的**，若 $\mathrm{rad}\mathfrak{g}=\{0\}$——根本没有非零的可解理想。等价地（我们要用的一条定理，归功于 Cartan），半单代数是单代数的直和。
 
 半单是最佳位置："尽可能远离可解"。我们现在来构建检测器。
 
 > **定义 — Killing 形式。** **Killing 形式**是对称双线性形式 $\kappa:\mathfrak{g}\times\mathfrak{g}\to\mathbb{F}$，
 > $$
-> \kappa(X,Y)=\operatorname{tr}\big(\operatorname{ad}_X\,\operatorname{ad}_Y\big),
+> \kappa(X,Y)=\mathrm{tr}\big(\mathrm{ad}_X\,\mathrm{ad}_Y\big),
 > $$
-> 即两个伴随算子复合的迹。它是对称的，因为 $\operatorname{tr}(AB)=\operatorname{tr}(BA)$；它还是**不变的**：$\kappa([X,Y],Z)=\kappa(X,[Y,Z])$。
+> 即两个伴随算子复合的迹。它是对称的，因为 $\mathrm{tr}(AB)=\mathrm{tr}(BA)$；它还是**不变的**：$\kappa([X,Y],Z)=\kappa(X,[Y,Z])$。
 
 **不变性的证明。**
-1. 由 s1 的引理，$\operatorname{ad}_{[X,Y]}=\operatorname{ad}_X\operatorname{ad}_Y-\operatorname{ad}_Y\operatorname{ad}_X$。记 $A=\operatorname{ad}_X,B=\operatorname{ad}_Y,C=\operatorname{ad}_Z$。
-2. 那么 $\kappa([X,Y],Z)=\operatorname{tr}((AB-BA)C)=\operatorname{tr}(ABC)-\operatorname{tr}(BAC)$，依*迹的线性性*与第 1 步。
-3. 同样地 $\kappa(X,[Y,Z])=\operatorname{tr}(A(BC-CB))=\operatorname{tr}(ABC)-\operatorname{tr}(ACB)$。
-4. 由*迹的循环性*，$\operatorname{tr}(BAC)=\operatorname{tr}(ACB)$。因此第 2 步与第 3 步相等。$\blacksquare$
+1. 由 s1 的引理，$\mathrm{ad}_{[X,Y]}=\mathrm{ad}_X\mathrm{ad}_Y-\mathrm{ad}_Y\mathrm{ad}_X$。记 $A=\mathrm{ad}_X,B=\mathrm{ad}_Y,C=\mathrm{ad}_Z$。
+2. 那么 $\kappa([X,Y],Z)=\mathrm{tr}((AB-BA)C)=\mathrm{tr}(ABC)-\mathrm{tr}(BAC)$，依*迹的线性性*与第 1 步。
+3. 同样地 $\kappa(X,[Y,Z])=\mathrm{tr}(A(BC-CB))=\mathrm{tr}(ABC)-\mathrm{tr}(ACB)$。
+4. 由*迹的循环性*，$\mathrm{tr}(BAC)=\mathrm{tr}(ACB)$。因此第 2 步与第 3 步相等。$\blacksquare$
 
 Killing 形式不依赖于基（它是一个迹）——正是我们在 s1 中想要的不变对象。它的关键特征是**非退化性**：$\kappa$ 非退化，若使得 $\kappa(X,Y)=0$ 对所有 $Y$ 成立的唯一 $X$ 是 $X=0$。
 
@@ -109,13 +109,13 @@ Killing 形式不依赖于基（它是一个迹）——正是我们在 s1 中�
 
 **证明：非零阿贝尔理想迫使退化（故非退化 $\Rightarrow$ 半单）。**
 1. 设 $\mathfrak{a}\ne\{0\}$ 是一个阿贝尔理想（$[\mathfrak{a},\mathfrak{a}]=0$）。取 $A\in\mathfrak{a}$、$X\in\mathfrak{g}$；我们来证明 $\kappa(A,X)=0$，于是每个 $A\in\mathfrak{a}$ 都落在退化子空间中，使得 $\kappa$ 退化。
-2. 考虑算子 $T=\operatorname{ad}_A\operatorname{ad}_X$。映射 $\operatorname{ad}_X$ 把 $\mathfrak{g}$ 映入 $\mathfrak{g}$，而因为 $\mathfrak{a}$ 是理想，$\operatorname{ad}_A$ 把 $\mathfrak{g}$ 映*入* $\mathfrak{a}$（因为 $[A,\,\cdot\,]\in\mathfrak{a}$，由于 $\mathfrak{a}$ 是理想）。所以 $\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$。
-3. 那么 $T(\mathfrak{g})=\operatorname{ad}_A(\operatorname{ad}_X\mathfrak{g})\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$，且 $T(\mathfrak{a})=\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$；此外 $T^2(\mathfrak{g})\subseteq\operatorname{ad}_A\operatorname{ad}_X\mathfrak{a}\subseteq\operatorname{ad}_A\mathfrak{a}=[A,\mathfrak{a}]\subseteq[\mathfrak{a},\mathfrak{a}]=0$，这里用到 $\mathfrak{a}$ 是*阿贝尔的*。所以 $T$ 是**幂零的**（$T^2=0$）。
-4. 幂零算子的所有特征值都是 $0$，因此迹为 $0$：$\kappa(A,X)=\operatorname{tr}T=0$。由于 $X$ 任意，$A$ 在退化子空间中。$\blacksquare$
+2. 考虑算子 $T=\mathrm{ad}_A\mathrm{ad}_X$。映射 $\mathrm{ad}_X$ 把 $\mathfrak{g}$ 映入 $\mathfrak{g}$，而因为 $\mathfrak{a}$ 是理想，$\mathrm{ad}_A$ 把 $\mathfrak{g}$ 映*入* $\mathfrak{a}$（因为 $[A,\,\cdot\,]\in\mathfrak{a}$，由于 $\mathfrak{a}$ 是理想）。所以 $\mathrm{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$。
+3. 那么 $T(\mathfrak{g})=\mathrm{ad}_A(\mathrm{ad}_X\mathfrak{g})\subseteq\mathrm{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$，且 $T(\mathfrak{a})=\mathrm{ad}_A\mathrm{ad}_X\mathfrak{a}\subseteq\mathrm{ad}_A\mathfrak{g}\subseteq\mathfrak{a}$；此外 $T^2(\mathfrak{g})\subseteq\mathrm{ad}_A\mathrm{ad}_X\mathfrak{a}\subseteq\mathrm{ad}_A\mathfrak{a}=[A,\mathfrak{a}]\subseteq[\mathfrak{a},\mathfrak{a}]=0$，这里用到 $\mathfrak{a}$ 是*阿贝尔的*。所以 $T$ 是**幂零的**（$T^2=0$）。
+4. 幂零算子的所有特征值都是 $0$，因此迹为 $0$：$\kappa(A,X)=\mathrm{tr}T=0$。由于 $X$ 任意，$A$ 在退化子空间中。$\blacksquare$
 
-**习题例 — $\mathfrak{su}(2)$ 的 $\kappa$。** 用 $f_{ab}{}^c=\varepsilon_{abc}$，$\operatorname{ad}_{T_a}$ 的矩阵元是 $(\operatorname{ad}_{T_a})_{cb}=\varepsilon_{acb}$。那么
+**习题例 — $\mathfrak{su}(2)$ 的 $\kappa$。** 用 $f_{ab}{}^c=\varepsilon_{abc}$，$\mathrm{ad}_{T_a}$ 的矩阵元是 $(\mathrm{ad}_{T_a})_{cb}=\varepsilon_{acb}$。那么
 $$
-\kappa(T_a,T_b)=\operatorname{tr}(\operatorname{ad}_{T_a}\operatorname{ad}_{T_b})=\sum_{c,d}\varepsilon_{acd}\varepsilon_{bdc}=-\sum_{c,d}\varepsilon_{acd}\varepsilon_{bcd}=-2\,\delta_{ab},
+\kappa(T_a,T_b)=\mathrm{tr}(\mathrm{ad}_{T_a}\mathrm{ad}_{T_b})=\sum_{c,d}\varepsilon_{acd}\varepsilon_{bdc}=-\sum_{c,d}\varepsilon_{acd}\varepsilon_{bcd}=-2\,\delta_{ab},
 $$
 这里用到恒等式 $\sum_{c,d}\varepsilon_{acd}\varepsilon_{bcd}=2\delta_{ab}$。所以 $\kappa=-2\,I$，它是非退化的（$\det=-8\ne0$）：由 Cartan 判据 $\mathfrak{su}(2)$ 是半单的，实际上是单的。这个形式是负定的——这是**紧**代数的标志，正因如此 $\mathfrak{su}(2)$ 积分成紧群 $SU(2)$。
 
@@ -130,9 +130,9 @@ $$
 
 我们从现在起在 $\mathbb{C}$ 上工作（把代数复化；例如 $\mathfrak{su}(2)$ 复化成 $\mathfrak{sl}(2,\mathbb{C})$，由下面的 $H,E,F$ 张成）。在 $\mathbb{C}$ 上算子可对角化，而分析正需要这一点。
 
-> **定义 — Cartan 子代数（CSA）。** **Cartan 子代数** $\mathfrak{h}\subseteq\mathfrak{g}$ 是一个极大阿贝尔子代数，其所有元素在 $\operatorname{ad}$ 下都可对角化作用（这类元素称为**半单的**）。它的维数是 $\mathfrak{g}$ 的**秩** $r$。对半单的 $\mathfrak{g}$，所有 Cartan 子代数有相同的维数，故秩定义良好。
+> **定义 — Cartan 子代数（CSA）。** **Cartan 子代数** $\mathfrak{h}\subseteq\mathfrak{g}$ 是一个极大阿贝尔子代数，其所有元素在 $\mathrm{ad}$ 下都可对角化作用（这类元素称为**半单的**）。它的维数是 $\mathfrak{g}$ 的**秩** $r$。对半单的 $\mathfrak{g}$，所有 Cartan 子代数有相同的维数，故秩定义良好。
 
-因为 $\mathfrak{h}$ 的元素彼此对易，它们的伴随算子 $\{\operatorname{ad}_H:H\in\mathfrak{h}\}$ 也对易，而对易的可对角化算子是**可同时对角化的**（一个标准的线性代数事实：存在公共特征基）。所以 $\mathfrak{g}$ 分裂为联合特征空间。
+因为 $\mathfrak{h}$ 的元素彼此对易，它们的伴随算子 $\{\mathrm{ad}_H:H\in\mathfrak{h}\}$ 也对易，而对易的可对角化算子是**可同时对角化的**（一个标准的线性代数事实：存在公共特征基）。所以 $\mathfrak{g}$ 分裂为联合特征空间。
 
 > **定义 — 根空间分解。** 对线性泛函 $\alpha\in\mathfrak{h}^{*}$（线性映射 $\mathfrak{h}\to\mathbb{C}$）定义**根空间**
 > $$
@@ -155,13 +155,13 @@ $$
 $$
 [H,[X,Y]]=[[H,X],Y]+[X,[H,Y]]
 $$
-依 *Jacobi 恒等式*（以 $\operatorname{ad}_H$ 是导子的形式）。第一项是 $[\alpha(H)X,Y]=\alpha(H)[X,Y]$，第二项是 $\beta(H)[X,Y]$，依*根空间的定义*与*双线性性*。相加得 $[H,[X,Y]]=(\alpha+\beta)(H)\,[X,Y]$，所以 $[X,Y]\in\mathfrak{g}_{\alpha+\beta}$。$\blacksquare$
+依 *Jacobi 恒等式*（以 $\mathrm{ad}_H$ 是导子的形式）。第一项是 $[\alpha(H)X,Y]=\alpha(H)[X,Y]$，第二项是 $\beta(H)[X,Y]$，依*根空间的定义*与*双线性性*。相加得 $[H,[X,Y]]=(\alpha+\beta)(H)\,[X,Y]$，所以 $[X,Y]\in\mathfrak{g}_{\alpha+\beta}$。$\blacksquare$
 
 性质 (4) 是整个理论的引擎：**每个根都给出一份 $\mathfrak{su}(2)$ 阶梯的副本**。因为我们已经完全知道 $\mathfrak{su}(2)$ 的表示（$H$ 的特征值是整数，关于 $0$ 对称），我们可以把那个知识转移过来，约束根与权彼此之间如何排布（s4、s6）。
 
 > **每个根内部的 $\mathfrak{sl}(2)$。** 归一化使得 $H_\alpha,E_\alpha,E_{-\alpha}$ 满足 $[H_\alpha,E_\alpha]=2E_\alpha$、$[H_\alpha,E_{-\alpha}]=-2E_{-\alpha}$、$[E_\alpha,E_{-\alpha}]=H_\alpha$。这*恰是* $\mathfrak{sl}(2,\mathbb{C})$ 的关系，对应 $H\leftrightarrow H_\alpha$。元素 $H_\alpha\in\mathfrak{h}$ 是 $\alpha$ 的**余根**。
 
-**习题例 — $\mathfrak{su}(3)$ 根系。** 复化成 $\mathfrak{sl}(3,\mathbb{C})$，即无迹 $3\times3$ 复矩阵，维数 $8$。CSA $\mathfrak{h}$ 是对角无迹矩阵，秩 $2$。设 $E_{ij}$（$i\ne j$）是在第 $i$ 行、第 $j$ 列处单独一个 $1$ 的矩阵。对对角阵 $H=\operatorname{diag}(h_1,h_2,h_3)$（满足 $h_1+h_2+h_3=0$），
+**习题例 — $\mathfrak{su}(3)$ 根系。** 复化成 $\mathfrak{sl}(3,\mathbb{C})$，即无迹 $3\times3$ 复矩阵，维数 $8$。CSA $\mathfrak{h}$ 是对角无迹矩阵，秩 $2$。设 $E_{ij}$（$i\ne j$）是在第 $i$ 行、第 $j$ 列处单独一个 $1$ 的矩阵。对对角阵 $H=\mathrm{diag}(h_1,h_2,h_3)$（满足 $h_1+h_2+h_3=0$），
 $$
 [H,E_{ij}]=(h_i-h_j)\,E_{ij},
 $$
@@ -191,7 +191,7 @@ $$
 
 一个连续量（夹角）被钉死在四个离散值上，这正是为什么只有有限多个根系。我们现在把数据进一步约简。
 
-> **定义 — 正根与单根。** 在 $E$ 上选一个在每个根上都非零的线性泛函（一个"通用方向"）。一个根是**正的**（$\alpha>0$）若其值为正，否则为**负的**；$\Phi=\Phi^{+}\sqcup\Phi^{-}$，其中 $\Phi^{-}=-\Phi^{+}$。一个正根是**单的**若它*不是*两个正根之和。单根的集合 $\Delta=\{\alpha_1,\dots,\alpha_r\}$ 是 $E$ 的一组**基**（$r=\operatorname{rank}$），且每个正根都是单根的*非负整数组合*。
+> **定义 — 正根与单根。** 在 $E$ 上选一个在每个根上都非零的线性泛函（一个"通用方向"）。一个根是**正的**（$\alpha>0$）若其值为正，否则为**负的**；$\Phi=\Phi^{+}\sqcup\Phi^{-}$，其中 $\Phi^{-}=-\Phi^{+}$。一个正根是**单的**若它*不是*两个正根之和。单根的集合 $\Delta=\{\alpha_1,\dots,\alpha_r\}$ 是 $E$ 的一组**基**（$r=\mathrm{rank}$），且每个正根都是单根的*非负整数组合*。
 
 > **定义 — Cartan 矩阵。** 取单根 $\alpha_1,\dots,\alpha_r$，**Cartan 矩阵**是 $r\times r$ 整数矩阵
 > $$
@@ -308,13 +308,13 @@ $M(\lambda)$ 是*无穷维*的——我们无限制地施加了降算子。它�
 
 > **定义 — Weyl 群。** **Weyl 群** $W$ 是由单根上的反射 $s_{\alpha_i}$ 生成的群，按 $s_\alpha(\mu)=\mu-\langle\mu,\alpha\rangle\,\alpha$ 作用于权空间。它是有限的，置换诸根，并在正系统的各种可能选择上单可迁地作用。对 $\mathfrak{su}(2)$，$W=\mathbb{Z}_2$（$\mu\mapsto-\mu$）；对 $\mathfrak{su}(3)=A_2$，$W$ 是六边形的对称群，即 $6$ 阶二面体群 $S_3$。
 
-> **定义 — 特征标。** 表示 $V$ 的**特征标**是关于权的形式和 $\operatorname{ch} V=\sum_\mu (\dim V_\mu)\,e^{\mu}$，其中 $e^\mu$ 是形式指数，满足 $e^\mu e^\nu=e^{\mu+\nu}$。它一次性记录所有权和重数，且 $\operatorname{ch}V|_{\text{set }e^\mu\to1}=\dim V$。
+> **定义 — 特征标。** 表示 $V$ 的**特征标**是关于权的形式和 $\mathrm{ch} V=\sum_\mu (\dim V_\mu)\,e^{\mu}$，其中 $e^\mu$ 是形式指数，满足 $e^\mu e^\nu=e^{\mu+\nu}$。它一次性记录所有权和重数，且 $\mathrm{ch}V|_{\text{set }e^\mu\to1}=\dim V$。
 
 > **定义 — Weyl 向量与符号。** 令 $\rho=\tfrac12\sum_{\alpha>0}\alpha$ 为 **Weyl 向量**（正根之和的一半；等于 $\sum_i\omega_i$）。对 $w\in W$ 令 $\det(w)=(-1)^{\ell(w)}$，其中 $\ell(w)$ 是写出 $w$ 所需的反射个数（$w$ 的**符号**）。
 
 > **定理 — Weyl 特征标公式。** 对最高权 $\lambda$ 为支配整权的不可约表示 $V(\lambda)$，
 > $$
-> \operatorname{ch}V(\lambda)\ =\ \frac{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\lambda+\rho)}}{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\rho)}} .
+> \mathrm{ch}V(\lambda)\ =\ \frac{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\lambda+\rho)}}{\displaystyle\sum_{w\in W}\det(w)\,e^{\,w(\rho)}} .
 > $$
 > 分母等于 **Weyl 分母** $\displaystyle\prod_{\alpha>0}\big(e^{\alpha/2}-e^{-\alpha/2}\big)$。
 
@@ -379,7 +379,7 @@ Gell-Mann–Nishijima 关系 $Q=t_3+\tfrac12 y$ 把每个权转换为电荷；�
 
 **是什么以及为什么。** 把系统组合起来（两个夸克，夸克 + 反夸克）意味着对表示取张量积；结果是可约的，而分解它就是"多重态的相加"。对 $\mathfrak{su}(n)$ 有一套优美的组合记账法——**Young 表**——它通过画方块来完成这些分解。
 
-> **定义 — 表示的张量积。** 给定 $\rho:\mathfrak{g}\to\mathfrak{gl}(V)$ 和 $\sigma:\mathfrak{g}\to\mathfrak{gl}(W)$，**张量积**按生成元的**和**作用于 $V\otimes W$（维数 $\dim V\cdot\dim W$）：$(\rho\otimes\sigma)(X)=\rho(X)\otimes I+I\otimes\sigma(X)$。因此权*相加*：$V\otimes W$ 的权是 $\{\mu+\nu:\mu\in\operatorname{wt}V,\nu\in\operatorname{wt}W\}$，重数相乘。
+> **定义 — 表示的张量积。** 给定 $\rho:\mathfrak{g}\to\mathfrak{gl}(V)$ 和 $\sigma:\mathfrak{g}\to\mathfrak{gl}(W)$，**张量积**按生成元的**和**作用于 $V\otimes W$（维数 $\dim V\cdot\dim W$）：$(\rho\otimes\sigma)(X)=\rho(X)\otimes I+I\otimes\sigma(X)$。因此权*相加*：$V\otimes W$ 的权是 $\{\mu+\nu:\mu\in\mathrm{wt}V,\nu\in\mathrm{wt}W\}$，重数相乘。
 
 > **方法 — 按权分解。** 要分解 $V\otimes W=\bigoplus_i V(\lambda_i)$：列出所有相加得到的权，找到最高的那个，剥离以该最高权为最高权的不可约表示（减去它已知的权图），然后重复。这是 $\mathfrak{su}(2)$ Clebsch–Gordan 算法的多维版本。
 
