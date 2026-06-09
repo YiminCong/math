@@ -23,7 +23,7 @@
 
 - **扩散。** 把墨水滴入水中，它会扩散开来。浓度服从一个确定性的偏微分方程（**扩散方程**或**热方程**），然而每一个墨水分子都在进行不规则的随机游走。这门学科的成就之一，便是证明这两种描述——对*群体*的光滑方程和对*个体*的随机路径——是同一枚硬币的两面（§s8）。
 
-- **费曼对历史的求和。** 一个经典粒子从 $A$ 到 $B$ 走一条路径。理查德·费曼 1948 年对量子力学的重新表述说，量子粒子同时走*所有*路径，每条路径贡献一个复数 $e^{iS/\hbar}$，其中 $S$ 是经典作用量，而观测到的振幅是对每一种可设想的历史求和。这个**路径积分**（§s11）在形式上看起来与对布朗路径的平均（§s10）完全相同——二者之间的桥梁正是 E 部分的主题。
+- **费曼对历史的求和。** 一个经典粒子从 $A$ 到 $B$ 走一条路径。理查德·费曼 1948 年对量子力学的重新表述说，量子粒子同时走*所有*路径，每条路径贡献一个复数 $e^{iS/\hbar}$ ，其中 $S$ 是经典作用量，而观测到的振幅是对每一种可设想的历史求和。这个**路径积分**（§s11）在形式上看起来与对布朗路径的平均（§s10）完全相同——二者之间的桥梁正是 E 部分的主题。
 
 #### 整份指南浓缩为一行
 
@@ -31,7 +31,7 @@
 
 #### 唯一的预备知识，重新陈述
 
-我们依赖配套的**概率论**指南。我们最常倚重的几个事实，各用一行重述，使这份指南得以独立成篇：一个**随机变量** $X$ 是其取值由偶然性支配的一个数；它的**期望**（均值）是 $\mathbb{E}[X]$，即长期平均值；它的**方差**是 $\mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]$，即平方离散程度的平均；而一个均值为 $\mu$、方差为 $\sigma^2$ 的**正态（高斯）**随机变量，记作 $X\sim\mathcal{N}(\mu,\sigma^2)$，其概率密度为
+我们依赖配套的**概率论**指南。我们最常倚重的几个事实，各用一行重述，使这份指南得以独立成篇：一个**随机变量** $X$ 是其取值由偶然性支配的一个数；它的**期望**（均值）是 $\mathbb{E}[X]$ ，即长期平均值；它的**方差**是 $\mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]$ ，即平方离散程度的平均；而一个均值为 $\mu$ 、方差为 $\sigma^2$ 的**正态（高斯）**随机变量，记作 $X\sim\mathcal{N}(\mu,\sigma^2)$ ，其概率密度为
 $$
 p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right).
 $$
@@ -51,41 +51,41 @@ $$
 
 #### 从零定义每个术语
 
-- **指标集** $T$ 是我们观察该量的"时间"的集合。若 $T=\{0,1,2,\dots\}$，我们有**离散时间**（快照）；若 $T=[0,\infty)$，我们有**连续时间**（一段影片）。
-- **状态空间** $S$ 是该量可能取的值的集合（例如整数，或所有实数 $\mathbb{R}$）。
-- 一切之下是一个**概率空间** $(\Omega,\mathcal{F},\mathbb{P})$：所有可能*结果* $\omega$ 的集合 $\Omega$（可以想成"我们落入了哪个随机世界"），一族**事件** $\mathcal{F}$（我们为之赋予概率的 $\Omega$ 的子集），以及一个**概率测度** $\mathbb{P}$，它为每个事件赋予 $[0,1]$ 中的一个数，且满足 $\mathbb{P}(\Omega)=1$。
+- **指标集** $T$ 是我们观察该量的"时间"的集合。若 $T=\{0,1,2,\dots\}$ ，我们有**离散时间**（快照）；若 $T=[0,\infty)$ ，我们有**连续时间**（一段影片）。
+- **状态空间** $S$ 是该量可能取的值的集合（例如整数，或所有实数 $\mathbb{R}$ ）。
+- 一切之下是一个**概率空间** $(\Omega,\mathcal{F},\mathbb{P})$ ：所有可能*结果* $\omega$ 的集合 $\Omega$ （可以想成"我们落入了哪个随机世界"），一族**事件** $\mathcal{F}$ （我们为之赋予概率的 $\Omega$ 的子集），以及一个**概率测度** $\mathbb{P}$ ，它为每个事件赋予 $[0,1]$ 中的一个数，且满足 $\mathbb{P}(\Omega)=1$ 。
 
 > **定义 — 随机过程**
 >
-> 一个**随机过程**是一族由 $T$ 编号的随机变量 $\{X_t\}_{t\in T}$，它们全部定义在同一个概率空间 $(\Omega,\mathcal{F},\mathbb{P})$ 上，取值于 $S$。等价地，它是一个*两个*自变量的函数 $X:T\times\Omega\to S$，记作 $X_t(\omega)$。
+> 一个**随机过程**是一族由 $T$ 编号的随机变量 $\{X_t\}_{t\in T}$ ，它们全部定义在同一个概率空间 $(\Omega,\mathcal{F},\mathbb{P})$ 上，取值于 $S$ 。等价地，它是一个*两个*自变量的函数 $X:T\times\Omega\to S$ ，记作 $X_t(\omega)$ 。
 
 这种双自变量的观点解释了两种互补的读法：
 
-- 固定时间 $t$，让结果 $\omega$ 变化：$X_t(\cdot)$ 是一个普通的随机变量——"在所有随机世界中，粒子在时刻 $t$ 处于何处？"
-- 固定结果 $\omega$，让时间 $t$ 变化：$t\mapsto X_t(\omega)$ 是单一的时间函数，称为**样本路径**或**实现**——"粒子旅程的一段真实影片。"
+- 固定时间 $t$ ，让结果 $\omega$ 变化： $X_t(\cdot)$ 是一个普通的随机变量——"在所有随机世界中，粒子在时刻 $t$ 处于何处？"
+- 固定结果 $\omega$ ，让时间 $t$ 变化： $t\mapsto X_t(\omega)$ 是单一的时间函数，称为**样本路径**或**实现**——"粒子旅程的一段真实影片。"
 
 #### 有限维分布
 
-我们永远无法同时观测整个时间连续统。我们*能够*确定的是，对于任意有限的一列时间 $t_1<t_2<\dots<t_n$，快照向量 $(X_{t_1},\dots,X_{t_n})$ 的联合概率律。对每一个有限列而言的这些联合律，就是**有限维分布**（fdds）。柯尔莫哥洛夫扩张定理（我们从概率论中信而取之）说：*一族相容的有限维分布唯一决定一个随机过程。* 换言之——要确定一个过程，只需说明每一个有限的快照集合是如何联合分布的即可。
+我们永远无法同时观测整个时间连续统。我们*能够*确定的是，对于任意有限的一列时间 $t_1<t_2<\dots<t_n$ ，快照向量 $(X_{t_1},\dots,X_{t_n})$ 的联合概率律。对每一个有限列而言的这些联合律，就是**有限维分布**（fdds）。柯尔莫哥洛夫扩张定理（我们从概率论中信而取之）说：*一族相容的有限维分布唯一决定一个随机过程。* 换言之——要确定一个过程，只需说明每一个有限的快照集合是如何联合分布的即可。
 
 #### 平稳性
 
-- 一个过程是**（严格）平稳**的，若将所有时间平移相同的量后，每个有限维分布都保持不变：对每个平移 $h$ 和时间 $t_1,\dots,t_n$，$(X_{t_1+h},\dots,X_{t_n+h})$ 的律等于 $(X_{t_1},\dots,X_{t_n})$ 的律。直觉：无论你何时开始观看，统计规律"看起来都一样"。
-- 一个更弱、更实用的概念是**广义（或弱）平稳**：均值 $\mathbb{E}[X_t]=\mu$ 关于时间为常数，且**自协方差** $\mathrm{Cov}(X_s,X_t)=\mathbb{E}[(X_s-\mu)(X_t-\mu)]$ 只依赖于时滞 $t-s$，而不分别依赖于 $s$ 和 $t$。
+- 一个过程是**（严格）平稳**的，若将所有时间平移相同的量后，每个有限维分布都保持不变：对每个平移 $h$ 和时间 $t_1,\dots,t_n$ ， $(X_{t_1+h},\dots,X_{t_n+h})$ 的律等于 $(X_{t_1},\dots,X_{t_n})$ 的律。直觉：无论你何时开始观看，统计规律"看起来都一样"。
+- 一个更弱、更实用的概念是**广义（或弱）平稳**：均值 $\mathbb{E}[X_t]=\mu$ 关于时间为常数，且**自协方差** $\mathrm{Cov}(X_s,X_t)=\mathbb{E}[(X_s-\mu)(X_t-\mu)]$ 只依赖于时滞 $t-s$ ，而不分别依赖于 $s$ 和 $t$ 。
 
 #### 第一个完整算例——简单随机游走
 
-设 $\xi_1,\xi_2,\dots$ 为独立的步长，每个以概率 $\tfrac12$ 等于 $+1$ 或 $-1$。定义**简单对称随机游走**为 $X_0=0$ 且 $X_n=\xi_1+\dots+\xi_n$。这里 $T=\{0,1,2,\dots\}$ 且 $S=\mathbb{Z}$（整数）。它的均值与方差：
+设 $\xi_1,\xi_2,\dots$ 为独立的步长，每个以概率 $\tfrac12$ 等于 $+1$ 或 $-1$ 。定义**简单对称随机游走**为 $X_0=0$ 且 $X_n=\xi_1+\dots+\xi_n$ 。这里 $T=\{0,1,2,\dots\}$ 且 $S=\mathbb{Z}$ （整数）。它的均值与方差：
 
-1. 由期望的定义，$\mathbb{E}[\xi_k]=(+1)\cdot\tfrac12+(-1)\cdot\tfrac12=0$，故由期望的线性性 $\mathbb{E}[X_n]=\sum_{k=1}^n\mathbb{E}[\xi_k]=0$。
-2. $\mathrm{Var}(\xi_k)=\mathbb{E}[\xi_k^2]-(\mathbb{E}[\xi_k])^2=1-0=1$，因为 $\xi_k^2=1$ 恒成立。
-3. 由于 $\xi_k$ 相互独立，方差可加：$\mathrm{Var}(X_n)=\sum_{k=1}^n\mathrm{Var}(\xi_k)=n$。
+1. 由期望的定义， $\mathbb{E}[\xi_k]=(+1)\cdot\tfrac12+(-1)\cdot\tfrac12=0$ ，故由期望的线性性 $\mathbb{E}[X_n]=\sum_{k=1}^n\mathbb{E}[\xi_k]=0$ 。
+2. $\mathrm{Var}(\xi_k)=\mathbb{E}[\xi_k^2]-(\mathbb{E}[\xi_k])^2=1-0=1$ ，因为 $\xi_k^2=1$ 恒成立。
+3. 由于 $\xi_k$ 相互独立，方差可加： $\mathrm{Var}(X_n)=\sum_{k=1}^n\mathrm{Var}(\xi_k)=n$ 。
 
 所以这个游走平均而言不漂移，但以标准差 $\sqrt{n}$ 扩散。那个 $\sqrt{n}$ 的增长是一切的种子：经过正确的重新标度，这个游走收敛到布朗运动（§s4）。
 
 #### 常见陷阱
 
-- 一个过程*不是*它的平均。$\mathbb{E}[X_t]$ 可以为常数，而每条样本路径却剧烈游荡。
+- 一个过程*不是*它的平均。 $\mathbb{E}[X_t]$ 可以为常数，而每条样本路径却剧烈游荡。
 - 广义平稳只关乎前两阶矩；一个过程可以是广义平稳但并非严格平稳。
 
 <a id="s2"></a>
@@ -97,22 +97,22 @@ $$
 
 #### 定义
 
-- 一个**马尔可夫链**（离散时间、离散状态空间）是一个过程 $X_0,X_1,X_2,\dots$，其状态取自有限或可数集合 $S$，使得对所有时间 $n$ 和状态 $i_0,\dots,i_{n+1}$，
+- 一个**马尔可夫链**（离散时间、离散状态空间）是一个过程 $X_0,X_1,X_2,\dots$ ，其状态取自有限或可数集合 $S$ ，使得对所有时间 $n$ 和状态 $i_0,\dots,i_{n+1}$ ，
 $$
 \mathbb{P}(X_{n+1}=j \mid X_n=i,\,X_{n-1}=i_{n-1},\dots,X_0=i_0)=\mathbb{P}(X_{n+1}=j\mid X_n=i).
 $$
 左边是一个**条件概率**（"在所列历史给定下 $X_{n+1}=j$ 的概率"）；这个等式说只有当前的 $X_n=i$ 才要紧。
-- 该链是**时间齐次**的，若这个概率不依赖于 $n$。我们于是记**转移概率** $P_{ij}=\mathbb{P}(X_{n+1}=j\mid X_n=i)$，并把它们汇集成**转移矩阵** $P=(P_{ij})$。每一行都是一个概率分布：$P_{ij}\ge 0$ 且 $\sum_j P_{ij}=1$（具有这两条性质的矩阵称为**随机矩阵**）。
+- 该链是**时间齐次**的，若这个概率不依赖于 $n$ 。我们于是记**转移概率** $P_{ij}=\mathbb{P}(X_{n+1}=j\mid X_n=i)$ ，并把它们汇集成**转移矩阵** $P=(P_{ij})$ 。每一行都是一个概率分布： $P_{ij}\ge 0$ 且 $\sum_j P_{ij}=1$ （具有这两条性质的矩阵称为**随机矩阵**）。
 
 #### 多步转移与查普曼–柯尔莫哥洛夫方程
 
 记 $P^{(n)}_{ij}=\mathbb{P}(X_n=j\mid X_0=i)$ 表示恰好 $n$ 步内从 $i$ 到 $j$ 的概率。核心的计算事实：
 
-> **定理 — 查普曼–柯尔莫哥洛夫。** 对所有 $m,n\ge 0$，$\;P^{(m+n)}_{ij}=\sum_{k\in S}P^{(m)}_{ik}\,P^{(n)}_{kj}$。用矩阵形式 $P^{(m+n)}=P^{(m)}P^{(n)}$，故 $P^{(n)}=P^n$（第 $n$ 个矩阵幂）。
+> **定理 — 查普曼–柯尔莫哥洛夫。** 对所有 $m,n\ge 0$ ， $\;P^{(m+n)}_{ij}=\sum_{k\in S}P^{(m)}_{ik}\,P^{(n)}_{kj}$ 。用矩阵形式 $P^{(m+n)}=P^{(m)}P^{(n)}$ ，故 $P^{(n)}=P^n$ （第 $n$ 个矩阵幂）。
 
 *推导，无跳步。*
 
-1. 从**全概率公式**出发：要在 $m+n$ 步内从 $i$ 到 $j$，该链在 $m$ 步后必处于*某个*状态 $k$，而这些中间状态互斥且穷尽。因此
+1. 从**全概率公式**出发：要在 $m+n$ 步内从 $i$ 到 $j$ ，该链在 $m$ 步后必处于*某个*状态 $k$ ，而这些中间状态互斥且穷尽。因此
 $$
 \mathbb{P}(X_{m+n}=j\mid X_0=i)=\sum_{k\in S}\mathbb{P}(X_{m+n}=j,\,X_m=k\mid X_0=i).
 $$
@@ -120,30 +120,30 @@ $$
 $$
 =\sum_{k}\mathbb{P}(X_{m+n}=j\mid X_m=k,\,X_0=i)\,\mathbb{P}(X_m=k\mid X_0=i).
 $$
-3. 应用**马尔可夫性**：在 $X_m=k$ 给定下，更早的值 $X_0=i$ 无关紧要，故 $\mathbb{P}(X_{m+n}=j\mid X_m=k,X_0=i)=\mathbb{P}(X_{m+n}=j\mid X_m=k)=P^{(n)}_{kj}$（利用时间齐次性来平移时钟的起点）。
-4. 余下的因子按定义是 $P^{(m)}_{ik}$。代入即得 $P^{(m+n)}_{ij}=\sum_k P^{(m)}_{ik}P^{(n)}_{kj}$，这恰是矩阵乘积 $P^{(m)}P^{(n)}$ 的 $(i,j)$ 元。令 $m=n=1$ 并迭代即得 $P^{(n)}=P^n$。$\blacksquare$
+3. 应用**马尔可夫性**：在 $X_m=k$ 给定下，更早的值 $X_0=i$ 无关紧要，故 $\mathbb{P}(X_{m+n}=j\mid X_m=k,X_0=i)=\mathbb{P}(X_{m+n}=j\mid X_m=k)=P^{(n)}_{kj}$ （利用时间齐次性来平移时钟的起点）。
+4. 余下的因子按定义是 $P^{(m)}_{ik}$ 。代入即得 $P^{(m+n)}_{ij}=\sum_k P^{(m)}_{ik}P^{(n)}_{kj}$ ，这恰是矩阵乘积 $P^{(m)}P^{(n)}$ 的 $(i,j)$ 元。令 $m=n=1$ 并迭代即得 $P^{(n)}=P^n$ 。 $\blacksquare$
 
 #### 平稳分布
 
-一个满足 $\pi_i\ge0$ 且 $\sum_i\pi_i=1$ 的行向量 $\pi=(\pi_i)$ 是一个**平稳分布**，若 $\pi P=\pi$，即对所有 $j$ 有 $\sum_i\pi_i P_{ij}=\pi_j$。其含义是：若该链当前的状态按 $\pi$ 分布，那么一步之后它*仍然*按 $\pi$ 分布——这是动力学的一个平衡态。对于一个**不可约**（每个状态都可从任意其他状态到达）且**非周期**的链，分布 $P^{(n)}_{ij}$ 当 $n\to\infty$ 时收敛到唯一的 $\pi_j$，且与起点 $i$ 无关（**马尔可夫链的基本极限定理**）。
+一个满足 $\pi_i\ge0$ 且 $\sum_i\pi_i=1$ 的行向量 $\pi=(\pi_i)$ 是一个**平稳分布**，若 $\pi P=\pi$ ，即对所有 $j$ 有 $\sum_i\pi_i P_{ij}=\pi_j$ 。其含义是：若该链当前的状态按 $\pi$ 分布，那么一步之后它*仍然*按 $\pi$ 分布——这是动力学的一个平衡态。对于一个**不可约**（每个状态都可从任意其他状态到达）且**非周期**的链，分布 $P^{(n)}_{ij}$ 当 $n\to\infty$ 时收敛到唯一的 $\pi_j$ ，且与起点 $i$ 无关（**马尔可夫链的基本极限定理**）。
 
 #### 算例——两状态天气链
 
-状态 $S=\{\text{晴},\text{雨}\}=\{1,2\}$。设一个晴天之后以概率 $0.8$ 继续晴，一个雨天之后以概率 $0.6$ 继续雨：
+状态 $S=\{\text{晴},\text{雨}\}=\{1,2\}$ 。设一个晴天之后以概率 $0.8$ 继续晴，一个雨天之后以概率 $0.6$ 继续雨：
 $$
 P=\begin{pmatrix}0.8 & 0.2\\[2pt] 0.4 & 0.6\end{pmatrix}.
 $$
-求晴天的长期占比。我们在 $\pi=(\pi_1,\pi_2)$ 且 $\pi_1+\pi_2=1$ 下求解 $\pi P=\pi$。
+求晴天的长期占比。我们在 $\pi=(\pi_1,\pi_2)$ 且 $\pi_1+\pi_2=1$ 下求解 $\pi P=\pi$ 。
 
-1. $\pi P=\pi$ 的第一个分量：$0.8\,\pi_1+0.4\,\pi_2=\pi_1$，即 $0.4\,\pi_2=0.2\,\pi_1$，故 $\pi_1=2\pi_2$。
-2. 代入归一化条件 $\pi_1+\pi_2=1$：$2\pi_2+\pi_2=1$，得 $\pi_2=\tfrac13$ 和 $\pi_1=\tfrac23$。
-3. 验证第二个分量：$0.2\,\pi_1+0.6\,\pi_2=0.2\cdot\tfrac23+0.6\cdot\tfrac13=\tfrac{0.4}{3}+\tfrac{0.6}{3}=\tfrac13=\pi_2$。一致。
+1. $\pi P=\pi$ 的第一个分量： $0.8\,\pi_1+0.4\,\pi_2=\pi_1$ ，即 $0.4\,\pi_2=0.2\,\pi_1$ ，故 $\pi_1=2\pi_2$ 。
+2. 代入归一化条件 $\pi_1+\pi_2=1$ ： $2\pi_2+\pi_2=1$ ，得 $\pi_2=\tfrac13$ 和 $\pi_1=\tfrac23$ 。
+3. 验证第二个分量： $0.2\,\pi_1+0.6\,\pi_2=0.2\cdot\tfrac23+0.6\cdot\tfrac13=\tfrac{0.4}{3}+\tfrac{0.6}{3}=\tfrac13=\pi_2$ 。一致。
 
-所以从长远看，无论今天天气如何，晴天的时间占 $2/3$。要看出这种收敛，$P^2=\begin{pmatrix}0.72&0.28\\0.56&0.44\end{pmatrix}$，而更高的幂使每一行都向 $(\tfrac23,\tfrac13)=(0.667,0.333)$ 进发。
+所以从长远看，无论今天天气如何，晴天的时间占 $2/3$ 。要看出这种收敛， $P^2=\begin{pmatrix}0.72&0.28\\0.56&0.44\end{pmatrix}$ ，而更高的幂使每一行都向 $(\tfrac23,\tfrac13)=(0.667,0.333)$ 进发。
 
 #### 常见陷阱
 
-- 平稳分布总是 $\pi P=\pi$ 的解，但该链只在不可约且非周期的条件下才*收敛*到它。一个周期链（例如严格交替状态的链）有一个平稳的 $\pi$，但 $P^{(n)}$ 永不安定。
+- 平稳分布总是 $\pi P=\pi$ 的解，但该链只在不可约且非周期的条件下才*收敛*到它。一个周期链（例如严格交替状态的链）有一个平稳的 $\pi$ ，但 $P^{(n)}$ 永不安定。
 - $\pi P=\pi$ 使 $\pi$ 成为 $P$ 对应于特征值 $1$ 的**左**特征向量。混淆左、右特征向量是一个常见错误。
 
 <a id="s3"></a>
@@ -158,49 +158,49 @@ $$
 我们想要一个计数过程 $N_t$ = "到时刻 $t$ 为止的事件数"，从 $N_0=0$ 开始，具有三条性质：
 
 1. **独立增量：** 在不相交时间区间上的计数是相互独立的随机变量。
-2. **平稳增量：** $N_{t+s}-N_s$ 的律只依赖于长度 $t$，而不依赖于 $s$。
+2. **平稳增量：** $N_{t+s}-N_s$ 的律只依赖于长度 $t$ ，而不依赖于 $s$ 。
 3. **无同时性：** 事件逐个到达；在无穷小区间内出现两个的机会可忽略不计。
 
-我们用一个**速率** $\lambda>0$（单位时间内的平均事件数）使性质 3 精确化：在长度为 $h$ 的微小区间上，
+我们用一个**速率** $\lambda>0$ （单位时间内的平均事件数）使性质 3 精确化：在长度为 $h$ 的微小区间上，
 $$
 \mathbb{P}(\text{one event in }h)=\lambda h+o(h),\qquad \mathbb{P}(\text{two or more in }h)=o(h),
 $$
-其中 $o(h)$（"$h$ 的小 o"）表示任何比 $h$ 消失得更快的量，即当 $h\to0$ 时 $o(h)/h\to0$。
+其中 $o(h)$ （"$h$ 的小 o"）表示任何比 $h$ 消失得更快的量，即当 $h\to0$ 时 $o(h)/h\to0$ 。
 
 #### 推导 $N_t$ 的泊松分布
 
-设 $p_n(t)=\mathbb{P}(N_t=n)$。我们为它推导一个微分方程。
+设 $p_n(t)=\mathbb{P}(N_t=n)$ 。我们为它推导一个微分方程。
 
-1. 要使 $N_{t+h}=n$，要么到时刻 $t$ 已有 $n$ 个事件且在 $(t,t+h]$ 内无事件，要么到时刻 $t$ 有 $n-1$ 个且在 $(t,t+h]$ 内恰有一个（两个或更多是 $o(h)$）。由独立且平稳增量，
+1. 要使 $N_{t+h}=n$ ，要么到时刻 $t$ 已有 $n$ 个事件且在 $(t,t+h]$ 内无事件，要么到时刻 $t$ 有 $n-1$ 个且在 $(t,t+h]$ 内恰有一个（两个或更多是 $o(h)$ ）。由独立且平稳增量，
 $$
 p_n(t+h)=p_n(t)\,(1-\lambda h)+p_{n-1}(t)\,\lambda h+o(h).
 $$
-2. 重排：$\dfrac{p_n(t+h)-p_n(t)}{h}=-\lambda p_n(t)+\lambda p_{n-1}(t)+\dfrac{o(h)}{h}$。
-3. 令 $h\to0$；由 $o(h)$ 的定义，最后一项消失，给出方程组
+2. 重排： $\dfrac{p_n(t+h)-p_n(t)}{h}=-\lambda p_n(t)+\lambda p_{n-1}(t)+\dfrac{o(h)}{h}$ 。
+3. 令 $h\to0$ ；由 $o(h)$ 的定义，最后一项消失，给出方程组
 $$
 p_n'(t)=-\lambda p_n(t)+\lambda p_{n-1}(t),\qquad p_0'(t)=-\lambda p_0(t),
 $$
-初始条件为 $p_n(0)=\mathbf 1\{n=0\}$（初始时确定无事件）。
-4. 求解 $p_0'=-\lambda p_0$，$p_0(0)=1$：这是标准的指数衰减常微分方程，$p_0(t)=e^{-\lambda t}$。
-5. 断言 $p_n(t)=\dfrac{(\lambda t)^n}{n!}e^{-\lambda t}$。用归纳法验证。它对 $n=0$ 成立。假设它对 $n-1$ 成立并代入第 3 步：
+初始条件为 $p_n(0)=\mathbf 1\{n=0\}$ （初始时确定无事件）。
+4. 求解 $p_0'=-\lambda p_0$ ， $p_0(0)=1$ ：这是标准的指数衰减常微分方程， $p_0(t)=e^{-\lambda t}$ 。
+5. 断言 $p_n(t)=\dfrac{(\lambda t)^n}{n!}e^{-\lambda t}$ 。用归纳法验证。它对 $n=0$ 成立。假设它对 $n-1$ 成立并代入第 3 步：
 $$
 p_n'(t)+\lambda p_n(t)=\lambda\,\frac{(\lambda t)^{n-1}}{(n-1)!}e^{-\lambda t}.
 $$
-两边乘以积分因子 $e^{\lambda t}$：由乘积法则，左边变为 $\frac{d}{dt}\!\big(e^{\lambda t}p_n(t)\big)$，右边是 $\lambda^n t^{n-1}/(n-1)!$。从 $0$ 到 $t$ 积分（对 $n\ge1$ 有 $p_n(0)=0$）：$e^{\lambda t}p_n(t)=\lambda^n t^n/n!$，故 $p_n(t)=\frac{(\lambda t)^n}{n!}e^{-\lambda t}$。$\blacksquare$
+两边乘以积分因子 $e^{\lambda t}$ ：由乘积法则，左边变为 $\frac{d}{dt}\!\big(e^{\lambda t}p_n(t)\big)$ ，右边是 $\lambda^n t^{n-1}/(n-1)!$ 。从 $0$ 到 $t$ 积分（对 $n\ge1$ 有 $p_n(0)=0$ ）： $e^{\lambda t}p_n(t)=\lambda^n t^n/n!$ ，故 $p_n(t)=\frac{(\lambda t)^n}{n!}e^{-\lambda t}$ 。 $\blacksquare$
 
-所以 $N_t$ 服从参数为 $\lambda t$ 的**泊松分布**：$\mathbb{P}(N_t=n)=e^{-\lambda t}(\lambda t)^n/n!$，且 $\mathbb{E}[N_t]=\lambda t$ 和 $\mathrm{Var}(N_t)=\lambda t$。
+所以 $N_t$ 服从参数为 $\lambda t$ 的**泊松分布**： $\mathbb{P}(N_t=n)=e^{-\lambda t}(\lambda t)^n/n!$ ，且 $\mathbb{E}[N_t]=\lambda t$ 和 $\mathrm{Var}(N_t)=\lambda t$ 。
 
 #### 到达间隔时间是指数分布
 
-到第一个事件的等待时间 $\tau$ 满足 $\mathbb{P}(\tau>t)=\mathbb{P}(N_t=0)=e^{-\lambda t}$。因此 $\tau$ 服从密度为 $\lambda e^{-\lambda t}$、均值为 $1/\lambda$ 的**指数分布**。由平稳独立增量，所有到达间隔时间都是相互独立的指数分布——这就是**无记忆性**：$\mathbb{P}(\tau>s+t\mid\tau>s)=\mathbb{P}(\tau>t)$，是马尔可夫性在连续时间中的回响。
+到第一个事件的等待时间 $\tau$ 满足 $\mathbb{P}(\tau>t)=\mathbb{P}(N_t=0)=e^{-\lambda t}$ 。因此 $\tau$ 服从密度为 $\lambda e^{-\lambda t}$ 、均值为 $1/\lambda$ 的**指数分布**。由平稳独立增量，所有到达间隔时间都是相互独立的指数分布——这就是**无记忆性**： $\mathbb{P}(\tau>s+t\mid\tau>s)=\mathbb{P}(\tau>t)$ ，是马尔可夫性在连续时间中的回响。
 
 #### 算例
 
-某呼叫中心以 $\lambda=3$ 次每分钟的速率接到来电。在给定的一分钟内恰好接到 $2$ 次来电的概率为 $p_2(1)=e^{-3}\,3^2/2!=e^{-3}\cdot4.5\approx0.0498\cdot4.5\approx0.224$。第一次来电的期望等待时间为 $1/\lambda=1/3$ 分钟 $=20$ 秒。
+某呼叫中心以 $\lambda=3$ 次每分钟的速率接到来电。在给定的一分钟内恰好接到 $2$ 次来电的概率为 $p_2(1)=e^{-3}\,3^2/2!=e^{-3}\cdot4.5\approx0.0498\cdot4.5\approx0.224$ 。第一次来电的期望等待时间为 $1/\lambda=1/3$ 分钟 $=20$ 秒。
 
 #### 一般的连续时间马尔可夫链
 
-一个**连续时间马尔可夫链**对此加以推广：过程在某状态停留一个指数分布的驻留时间，然后跳跃。它的动力学编码在一个**生成元矩阵** $Q=(q_{ij})$ 中，其非对角元 $q_{ij}\ge0$（从 $i$ 到 $j$ 的跳跃速率），对角元 $q_{ii}=-\sum_{j\ne i}q_{ij}$（使行和为 $0$）。转移概率 $P(t)=(\mathbb{P}(X_t=j\mid X_0=i))$ 满足**柯尔莫哥洛夫前向方程** $P'(t)=P(t)Q$，初值 $P(0)=I$，其解是**矩阵指数** $P(t)=e^{tQ}=\sum_{k\ge0}(tQ)^k/k!$。泊松过程是状态为 $0,1,2,\dots$ 且 $q_{i,i+1}=\lambda$ 的特例。
+一个**连续时间马尔可夫链**对此加以推广：过程在某状态停留一个指数分布的驻留时间，然后跳跃。它的动力学编码在一个**生成元矩阵** $Q=(q_{ij})$ 中，其非对角元 $q_{ij}\ge0$ （从 $i$ 到 $j$ 的跳跃速率），对角元 $q_{ii}=-\sum_{j\ne i}q_{ij}$ （使行和为 $0$ ）。转移概率 $P(t)=(\mathbb{P}(X_t=j\mid X_0=i))$ 满足**柯尔莫哥洛夫前向方程** $P'(t)=P(t)Q$ ，初值 $P(0)=I$ ，其解是**矩阵指数** $P(t)=e^{tQ}=\sum_{k\ge0}(tQ)^k/k!$ 。泊松过程是状态为 $0,1,2,\dots$ 且 $q_{i,i+1}=\lambda$ 的特例。
 
 #### 常见陷阱
 
@@ -219,45 +219,45 @@ $$
 #### 定义
 
 > **定义 — 标准布朗运动。** 一个过程 $\{W_t\}_{t\ge0}$ 是**标准布朗运动**，若：
-> 1. $W_0=0$。
-> 2. **独立增量：** 对 $0\le t_1<t_2<\dots<t_n$，增量 $W_{t_2}-W_{t_1},\dots,W_{t_n}-W_{t_{n-1}}$ 相互独立。
-> 3. **高斯增量：** 对 $s<t$，$\;W_t-W_s\sim\mathcal{N}(0,\,t-s)$——均值为 $0$、方差等于流逝时间 $t-s$ 的正态分布。
-> 4. **连续路径：** 以概率 $1$，映射 $t\mapsto W_t$ 是连续的。
+> 1. $W_0=0$ 。
+> 2. **独立增量：** 对 $0\le t_1<t_2<\dots<t_n$ ，增量 $W_{t_2}-W_{t_1},\dots,W_{t_n}-W_{t_{n-1}}$ 相互独立。
+> 3. **高斯增量：** 对 $s<t$ ， $\;W_t-W_s\sim\mathcal{N}(0,\,t-s)$ ——均值为 $0$ 、方差等于流逝时间 $t-s$ 的正态分布。
+> 4. **连续路径：** 以概率 $1$ ，映射 $t\mapsto W_t$ 是连续的。
 
-由此我们读出均值与**协方差**：$\mathbb{E}[W_t]=0$，且对 $s\le t$，
+由此我们读出均值与**协方差**： $\mathbb{E}[W_t]=0$ ，且对 $s\le t$ ，
 $$
 \mathrm{Cov}(W_s,W_t)=\mathbb{E}[W_s W_t]=\min(s,t).
 $$
-*推导。* 写 $W_t=W_s+(W_t-W_s)$。则 $\mathbb{E}[W_sW_t]=\mathbb{E}[W_s^2]+\mathbb{E}[W_s(W_t-W_s)]$。第一项是 $\mathrm{Var}(W_s)=s$。第二项中，$W_s=W_s-W_0$ 与 $W_t-W_s$ 是不相交区间上的增量，因而独立（性质 2），故其乘积的期望分解为 $\mathbb{E}[W_s]\,\mathbb{E}[W_t-W_s]=0\cdot0=0$。于是 $\mathbb{E}[W_sW_t]=s=\min(s,t)$。$\blacksquare$
+*推导。* 写 $W_t=W_s+(W_t-W_s)$ 。则 $\mathbb{E}[W_sW_t]=\mathbb{E}[W_s^2]+\mathbb{E}[W_s(W_t-W_s)]$ 。第一项是 $\mathrm{Var}(W_s)=s$ 。第二项中， $W_s=W_s-W_0$ 与 $W_t-W_s$ 是不相交区间上的增量，因而独立（性质 2），故其乘积的期望分解为 $\mathbb{E}[W_s]\,\mathbb{E}[W_t-W_s]=0\cdot0=0$ 。于是 $\mathbb{E}[W_sW_t]=s=\min(s,t)$ 。 $\blacksquare$
 
 #### 从随机游走到布朗运动（为何方差 $=$ 时间）
 
-取简单随机游走（§s1），但使步长变小且变频繁。在时间 $t$ 内走 $n=t/\Delta t$ 步，每步大小为 $\pm\sqrt{\Delta t}$。位置是 $W^{(n)}_t=\sqrt{\Delta t}\,(\xi_1+\dots+\xi_n)$。
+取简单随机游走（§s1），但使步长变小且变频繁。在时间 $t$ 内走 $n=t/\Delta t$ 步，每步大小为 $\pm\sqrt{\Delta t}$ 。位置是 $W^{(n)}_t=\sqrt{\Delta t}\,(\xi_1+\dots+\xi_n)$ 。
 
-1. 均值 $\mathbb{E}[W^{(n)}_t]=\sqrt{\Delta t}\cdot 0=0$。
-2. 方差 $\mathrm{Var}(W^{(n)}_t)=\Delta t\cdot\mathrm{Var}(\xi_1+\dots+\xi_n)=\Delta t\cdot n=\Delta t\cdot(t/\Delta t)=t$。
-3. 由**中心极限定理**（许多独立同分布步长的归一化和趋于高斯），当 $\Delta t\to0$ 时 $W^{(n)}_t$ 的分布趋于 $\mathcal{N}(0,t)$。
+1. 均值 $\mathbb{E}[W^{(n)}_t]=\sqrt{\Delta t}\cdot 0=0$ 。
+2. 方差 $\mathrm{Var}(W^{(n)}_t)=\Delta t\cdot\mathrm{Var}(\xi_1+\dots+\xi_n)=\Delta t\cdot n=\Delta t\cdot(t/\Delta t)=t$ 。
+3. 由**中心极限定理**（许多独立同分布步长的归一化和趋于高斯），当 $\Delta t\to0$ 时 $W^{(n)}_t$ 的分布趋于 $\mathcal{N}(0,t)$ 。
 
-步长取 $\sqrt{\Delta t}$——而非 $\Delta t$——是被迫的：它是唯一在极限下给出有限非零方差的标度。这一个事实，"位移按时间的平方根标度"，是扩散的指纹，也是规则 $(dW)^2=dt$（§s6）的来源。
+步长取 $\sqrt{\Delta t}$ ——而非 $\Delta t$ ——是被迫的：它是唯一在极限下给出有限非零方差的标度。这一个事实，"位移按时间的平方根标度"，是扩散的指纹，也是规则 $(dW)^2=dt$ （§s6）的来源。
 
 #### 为何路径连续却处处不可微
 
 连续性由性质 4 保证。令人震惊的部分是不可微性。下面是启发性但诚实的论证：
 
 1. 在 $t$ 处的导数，若存在，将是差商 $\dfrac{W_{t+h}-W_t}{h}$ 的极限。
-2. 分子 $W_{t+h}-W_t\sim\mathcal{N}(0,h)$，故其典型大小是它的标准差 $\sqrt{h}$。
-3. 因此该商的典型大小为 $\sqrt{h}/h=1/\sqrt{h}$，当 $h\to0$ 时它**爆炸**到 $\infty$。差商不会安定到一个有限极限；它以越来越大的振幅振荡。
+2. 分子 $W_{t+h}-W_t\sim\mathcal{N}(0,h)$ ，故其典型大小是它的标准差 $\sqrt{h}$ 。
+3. 因此该商的典型大小为 $\sqrt{h}/h=1/\sqrt{h}$ ，当 $h\to0$ 时它**爆炸**到 $\infty$ 。差商不会安定到一个有限极限；它以越来越大的振幅振荡。
 4. 严格化之后（佩利–维纳–齐格蒙德，1933），这表明以概率 $1$ 该路径在*任何*点都不可微。
 
 直觉：该游走在每个时间尺度上都改变方向，所以它从来没有一个良定义的瞬时速度。这正是为何普通微积分无法对 $dW$ 积分——我们需要伊藤积分（§s6）。
 
-#### 二次变差——$(dW)^2=dt$ 的精确陈述
+#### 二次变差—— $(dW)^2=dt$ 的精确陈述
 
-把 $[0,t]$ 分成 $n$ 个等长片段，每段长 $\Delta t=t/n$。**二次变差**是增量平方之和的极限：
+把 $[0,t]$ 分成 $n$ 个等长片段，每段长 $\Delta t=t/n$ 。**二次变差**是增量平方之和的极限：
 $$
 \sum_{k=1}^{n}\big(W_{t_k}-W_{t_{k-1}}\big)^2 \xrightarrow[n\to\infty]{} t.
 $$
-*为什么。* 每个增量平方的均值为 $\mathbb{E}[(\Delta W)^2]=\mathrm{Var}(\Delta W)=\Delta t$，故 $n$ 个之和的均值为 $n\Delta t=t$。它的方差像 $1/n$ 那样缩小（增量独立，而 $n$ 个各为 $\sim(\Delta t)^2$ 大小的独立项之和的方差为 $\sim n(\Delta t)^2=t^2/n\to0$）。一个均值为 $t$ 且方差消失的随机量必收敛到常数 $t$。这就是符号规则 $(dW)^2=dt$ 的严格内涵：在任何区间上，*平方*涨落之和并不为零（如对光滑曲线那样），而是等于流逝的时间。
+*为什么。* 每个增量平方的均值为 $\mathbb{E}[(\Delta W)^2]=\mathrm{Var}(\Delta W)=\Delta t$ ，故 $n$ 个之和的均值为 $n\Delta t=t$ 。它的方差像 $1/n$ 那样缩小（增量独立，而 $n$ 个各为 $\sim(\Delta t)^2$ 大小的独立项之和的方差为 $\sim n(\Delta t)^2=t^2/n\to0$ ）。一个均值为 $t$ 且方差消失的随机量必收敛到常数 $t$ 。这就是符号规则 $(dW)^2=dt$ 的严格内涵：在任何区间上，*平方*涨落之和并不为零（如对光滑曲线那样），而是等于流逝的时间。
 
 #### 常见陷阱
 
@@ -273,19 +273,21 @@ $$
 
 #### 滤流与条件期望
 
-- **滤流** $\{\mathcal{F}_t\}_{t\ge0}$ 是一族递增的事件族，对 $s\le t$ 有 $\mathcal{F}_s\subseteq\mathcal{F}_t$。把 $\mathcal{F}_t$ 读作"到时刻 $t$ 为止可观测的所有信息"。递增意味着信息从不被遗忘。
-- 一个过程 $X_t$ 关于 $\{\mathcal{F}_t\}$ 是**适应**的，若一旦知道 $\mathcal{F}_t$ 便知道 $X_t$（其值只依赖于到 $t$ 为止的信息）。
-- **条件期望** $\mathbb{E}[X\mid\mathcal{F}_t]$ 是在信息 $\mathcal{F}_t$ 给定下对 $X$ 的最佳预报；它本身是一个随机变量。我们用到两条性质：**塔性质** $\mathbb{E}[\mathbb{E}[X\mid\mathcal{F}_t]\mid\mathcal{F}_s]=\mathbb{E}[X\mid\mathcal{F}_s]$（$s\le t$）（对你的预报再做预报，就得到较早的那个预报），以及**取出已知量**，当 $Y$ 是 $\mathcal{F}_t$ 可测（到时刻 $t$ 已知）时，$\mathbb{E}[YX\mid\mathcal{F}_t]=Y\,\mathbb{E}[X\mid\mathcal{F}_t]$。
+- **滤流** $\{\mathcal{F}_t\}_{t\ge0}$ 是一族递增的事件族，对 $s\le t$ 有 $\mathcal{F}_s\subseteq\mathcal{F}_t$ 。把 $\mathcal{F}_t$ 读作"到时刻 $t$ 为止可观测的所有信息"。递增意味着信息从不被遗忘。
+- 一个过程 $X_t$ 关于 $\{\mathcal{F}_t\}$ 是**适应**的，若一旦知道 $\mathcal{F}_t$ 便知道 $X_t$ （其值只依赖于到 $t$ 为止的信息）。
+- **条件期望** $\mathbb{E}[X\mid\mathcal{F}_t]$ 是在信息 $\mathcal{F}_t$ 给定下对 $X$ 的最佳预报；它本身是一个随机变量。我们用到两条性质：**塔性质** $\mathbb{E}[\mathbb{E}[X\mid\mathcal{F}_t]\mid\mathcal{F}_s]=\mathbb{E}[X\mid\mathcal{F}_s]$ （ $s\le t$ ）（对你的预报再做预报，就得到较早的那个预报），以及**取出已知量**，当 $Y$ 是 $\mathcal{F}_t$ 可测（到时刻 $t$ 已知）时， $\mathbb{E}[YX\mid\mathcal{F}_t]=Y\,\mathbb{E}[X\mid\mathcal{F}_t]$ 。
 
 #### 鞅
 
-> **定义 — 鞅。** 一个满足 $\mathbb{E}|M_t|<\infty$ 的适应过程 $\{M_t\}$ 是关于 $\{\mathcal{F}_t\}$ 的**鞅**，若对所有 $s\le t$，
+> **定义 — 鞅。** 一个满足 $\mathbb{E}|M_t|<\infty$ 的适应过程 $\{M_t\}$ 是关于 $\{\mathcal{F}_t\}$ 的**鞅**，若对所有 $s\le t$ ，
+>
 > $$
 > \mathbb{E}[M_t\mid\mathcal{F}_s]=M_s.
 > $$
+>
 > 若把"$=$"换成"$\ge$"则为**下鞅**（有利博弈）；换成"$\le$"则为**上鞅**（不利博弈）。
 
-*例：布朗运动是一个鞅。* 对 $s\le t$，$\mathbb{E}[W_t\mid\mathcal{F}_s]=\mathbb{E}[W_s+(W_t-W_s)\mid\mathcal{F}_s]=W_s+\mathbb{E}[W_t-W_s\mid\mathcal{F}_s]$。增量 $W_t-W_s$ 独立于 $\mathcal{F}_s$（过去），故其条件期望等于其普通期望 $0$。于是 $\mathbb{E}[W_t\mid\mathcal{F}_s]=W_s$。类似地，$W_t^2-t$ 是一个鞅（这是 $(dW)^2=dt$ 的鞅形式）。
+*例：布朗运动是一个鞅。* 对 $s\le t$ ， $\mathbb{E}[W_t\mid\mathcal{F}_s]=\mathbb{E}[W_s+(W_t-W_s)\mid\mathcal{F}_s]=W_s+\mathbb{E}[W_t-W_s\mid\mathcal{F}_s]$ 。增量 $W_t-W_s$ 独立于 $\mathcal{F}_s$ （过去），故其条件期望等于其普通期望 $0$ 。于是 $\mathbb{E}[W_t\mid\mathcal{F}_s]=W_s$ 。类似地， $W_t^2-t$ 是一个鞅（这是 $(dW)^2=dt$ 的鞅形式）。
 
 #### 停时
 
@@ -293,25 +295,25 @@ $$
 
 #### 可选停时定理
 
-> **定理 — 可选停时。** 若 $\{M_t\}$ 是一个鞅，$\tau$ 是一个有界（或满足适当的可积/有限性条件）的停时，则 $\mathbb{E}[M_\tau]=\mathbb{E}[M_0]$。
+> **定理 — 可选停时。** 若 $\{M_t\}$ 是一个鞅， $\tau$ 是一个有界（或满足适当的可积/有限性条件）的停时，则 $\mathbb{E}[M_\tau]=\mathbb{E}[M_0]$ 。
 
 换言之：*你无法用任何不预测未来的停止策略战胜公平博弈*——在你选择退出的那一刻你财富的期望等于你的起始财富。
 
 #### 赌博算例——赌徒破产
 
-一个赌徒以 $a$ 元开始，每次公平抛硬币押注一元，在破产（$0$）或达到目标 $N$ 元时退出（故 $0<a<N$）。在到达 $0$ 之前到达 $N$ 的概率 $q$ 是多少？
+一个赌徒以 $a$ 元开始，每次公平抛硬币押注一元，在破产（ $0$ ）或达到目标 $N$ 元时退出（故 $0<a<N$ ）。在到达 $0$ 之前到达 $N$ 的概率 $q$ 是多少？
 
-1. 把财富建模为随机游走 $X_n=a+\xi_1+\dots+\xi_n$（步长 $\pm1$，公平）。则 $X_n$ 是一个鞅：$\mathbb{E}[X_{n+1}\mid\mathcal{F}_n]=X_n+\mathbb{E}[\xi_{n+1}]=X_n+0=X_n$。
-2. 设 $\tau$ 为财富首次触及 $0$ 或 $N$ 的时刻——一个停时。可以证明 $\tau$ 以概率 $1$ 有限。可选停时之所以适用，是因为*被停止的*财富 $X_{n\wedge\tau}$ 被限制在区间 $[0,N]$ 内（停止前它严格介于二者之间，停止时它等于 $0$ 或 $N$），因而一致有界；一个有界的鞅满足该定理的控制收敛假设，故 $\mathbb{E}[X_\tau]=\mathbb{E}[X_0]$ 得以成立。
-3. 应用可选停时：$\mathbb{E}[X_\tau]=\mathbb{E}[X_0]=a$。
-4. 在时刻 $\tau$，财富要么是 $0$（概率 $1-q$），要么是 $N$（概率 $q$）。所以 $\mathbb{E}[X_\tau]=0\cdot(1-q)+N\cdot q=Nq$。
-5. 令二者相等：$Nq=a$，故 $q=a/N$。
+1. 把财富建模为随机游走 $X_n=a+\xi_1+\dots+\xi_n$ （步长 $\pm1$ ，公平）。则 $X_n$ 是一个鞅： $\mathbb{E}[X_{n+1}\mid\mathcal{F}_n]=X_n+\mathbb{E}[\xi_{n+1}]=X_n+0=X_n$ 。
+2. 设 $\tau$ 为财富首次触及 $0$ 或 $N$ 的时刻——一个停时。可以证明 $\tau$ 以概率 $1$ 有限。可选停时之所以适用，是因为*被停止的*财富 $X_{n\wedge\tau}$ 被限制在区间 $[0,N]$ 内（停止前它严格介于二者之间，停止时它等于 $0$ 或 $N$ ），因而一致有界；一个有界的鞅满足该定理的控制收敛假设，故 $\mathbb{E}[X_\tau]=\mathbb{E}[X_0]$ 得以成立。
+3. 应用可选停时： $\mathbb{E}[X_\tau]=\mathbb{E}[X_0]=a$ 。
+4. 在时刻 $\tau$ ，财富要么是 $0$ （概率 $1-q$ ），要么是 $N$ （概率 $q$ ）。所以 $\mathbb{E}[X_\tau]=0\cdot(1-q)+N\cdot q=Nq$ 。
+5. 令二者相等： $Nq=a$ ，故 $q=a/N$ 。
 
-具体地说，以 $\$30$ 开始、目标 $\$100$，你在破产之前到达目标的概率为 $30/100=0.3$。注意一行方程 $\mathbb{E}[M_\tau]=\mathbb{E}[M_0]$ 如何化解了一个本来需要差分方程才能解决的问题。
+具体地说，以 $\$30$ 开始、目标 $\$100$ ，你在破产之前到达目标的概率为 $30/100=0.3$ 。注意一行方程 $\mathbb{E}[M_\tau]=\mathbb{E}[M_0]$ 如何化解了一个本来需要差分方程才能解决的问题。
 
 #### 常见陷阱
 
-- 若没有可积/有界性条件，可选停时可能*失效*。经典反例：在公平博弈中，"押注直到你领先 $\$1$ 再退出"。这个停时以概率 $1$ 有限，并必然产生 $\$1$——看似战胜了公平博弈——但它无界且需要无限资本，故该定理不适用。
+- 若没有可积/有界性条件，可选停时可能*失效*。经典反例：在公平博弈中，"押注直到你领先 $\$1$ 再退出"。这个停时以概率 $1$ 有限，并必然产生 $\$1$ ——看似战胜了公平博弈——但它无界且需要无限资本，故该定理不适用。
 - 停止规则不可窥视未来。这种不预测性正是该定义的全部内容。
 
 <a id="s6"></a>
@@ -323,24 +325,25 @@ $$
 
 #### 构造伊藤积分
 
-对一个适应于滤流的过程 $f_t$，把 $[0,t]$ 划分为 $0=t_0<\dots<t_n=t$，并用每个子区间*左*端点处 $f$ 的值构造**伊藤和**：
+对一个适应于滤流的过程 $f_t$ ，把 $[0,t]$ 划分为 $0=t_0<\dots<t_n=t$ ，并用每个子区间*左*端点处 $f$ 的值构造**伊藤和**：
 $$
 \int_0^t f_s\,dW_s := \lim_{n\to\infty}\sum_{k=0}^{n-1} f_{t_k}\,\big(W_{t_{k+1}}-W_{t_k}\big),
 $$
-极限取在**均方**意义下（即该和与极限之差的期望平方趋于 $0$）。左端点的选取是关键：因为 $f_{t_k}$ 在时刻 $t_k$ 已知，而增量 $W_{t_{k+1}}-W_{t_k}$ 完全位于未来，所以每一项的条件均值为零，故该积分是一个**鞅**。（右端点或中点法则给出不同的值——斯特拉托诺维奇积分——因为那样被积函数与增量将变得相关。）
+极限取在**均方**意义下（即该和与极限之差的期望平方趋于 $0$ ）。左端点的选取是关键：因为 $f_{t_k}$ 在时刻 $t_k$ 已知，而增量 $W_{t_{k+1}}-W_{t_k}$ 完全位于未来，所以每一项的条件均值为零，故该积分是一个**鞅**。（右端点或中点法则给出不同的值——斯特拉托诺维奇积分——因为那样被积函数与增量将变得相关。）
 
 由此得到两条关键性质：
-- **零均值：** $\mathbb{E}\!\left[\int_0^t f_s\,dW_s\right]=0$。
-- **伊藤等距：** $\;\mathbb{E}\!\left[\left(\int_0^t f_s\,dW_s\right)^2\right]=\int_0^t\mathbb{E}[f_s^2]\,ds$。*为什么：* 展开该和的平方；交叉项 $f_{t_j}f_{t_k}\Delta W_j\Delta W_k$（$j\ne k$）在期望下消失，因为较晚的增量独立于此前的一切且均值为 $0$；对角项给出 $\mathbb{E}[f_{t_k}^2]\,\mathbb{E}[(\Delta W_k)^2]=\mathbb{E}[f_{t_k}^2]\,\Delta t_k$，其和趋于所述的积分。
+- **零均值：** $\mathbb{E}\!\left[\int_0^t f_s\,dW_s\right]=0$ 。
+- **伊藤等距：** $\;\mathbb{E}\!\left[\left(\int_0^t f_s\,dW_s\right)^2\right]=\int_0^t\mathbb{E}[f_s^2]\,ds$ 。*为什么：* 展开该和的平方；交叉项 $f_{t_j}f_{t_k}\Delta W_j\Delta W_k$ （ $j\ne k$ ）在期望下消失，因为较晚的增量独立于此前的一切且均值为 $0$ ；对角项给出 $\mathbb{E}[f_{t_k}^2]\,\mathbb{E}[(\Delta W_k)^2]=\mathbb{E}[f_{t_k}^2]\,\Delta t_k$ ，其和趋于所述的积分。
 
 #### 伊藤引理——随机微积分的链式法则
 
-> **定理 — 伊藤引理（一维）。** 设 $X_t$ 满足 $dX_t=a_t\,dt+b_t\,dW_t$（带**漂移** $a_t$ 和**扩散** $b_t$ 的伊藤过程的简写），且设 $f(t,x)$ 二次连续可微。则
+> **定理 — 伊藤引理（一维）。** 设 $X_t$ 满足 $dX_t=a_t\,dt+b_t\,dW_t$ （带**漂移** $a_t$ 和**扩散** $b_t$ 的伊藤过程的简写），且设 $f(t,x)$ 二次连续可微。则
+>
 > $$
 > df(t,X_t)=\left(\frac{\partial f}{\partial t}+a_t\frac{\partial f}{\partial x}+\tfrac12 b_t^2\frac{\partial^2 f}{\partial x^2}\right)dt+b_t\frac{\partial f}{\partial x}\,dW_t.
 > $$
 
-那个普通微积分中没有的额外项 $\tfrac12 b_t^2\,\partial_{xx}f$ 是全部的新意所在；它来自 $(dW)^2=dt$。
+那个普通微积分中没有的额外项 $\tfrac12 b_t^2\,\partial_{xx}f$ 是全部的新意所在；它来自 $(dW)^2=dt$ 。
 
 *完整推导。*
 
@@ -348,26 +351,26 @@ $$
 $$
 df=\frac{\partial f}{\partial t}\,dt+\frac{\partial f}{\partial x}\,dX+\tfrac12\frac{\partial^2 f}{\partial x^2}\,(dX)^2+\tfrac12\frac{\partial^2 f}{\partial t^2}(dt)^2+\frac{\partial^2 f}{\partial t\,\partial x}\,dt\,dX+\cdots
 $$
-2. 代入 $dX=a\,dt+b\,dW$ 并计算 $(dX)^2=(a\,dt+b\,dW)^2=a^2(dt)^2+2ab\,dt\,dW+b^2(dW)^2$。
+2. 代入 $dX=a\,dt+b\,dW$ 并计算 $(dX)^2=(a\,dt+b\,dW)^2=a^2(dt)^2+2ab\,dt\,dW+b^2(dW)^2$ 。
 3. 现在应用伊藤微积分的**乘法表**，其每一项都由 §s4 中确立的阶来证明：
 $$
 (dW)^2=dt,\qquad dt\,dW=0,\qquad (dt)^2=0.
 $$
-- $(dW)^2=dt$ 是二次变差结果（§s4）：布朗增量的平方以每单位时间 $1$ 的速率累积。关键在于 $(dW)^2$ **不**消失，尽管人们或许会以为一个"二阶"项理应消失。原因是一个均值/方差论证：在一步之内，$\mathbb{E}[(\Delta W)^2]=\Delta t$（其均值恰好是 $\Delta t$，而非零），而它围绕该均值的涨落本身是更高阶的——$\mathrm{Var}[(\Delta W)^2]=2(\Delta t)^2$，求和后 $\to0$。所以在极限下可用其确定性均值 $\Delta t$ 替换 $(\Delta W)^2$，得 $(dW)^2=dt$——这是一个*存留*的一阶项，而非零。
-- $(dt)^2=0$ 和 $dt\,dW=0$ 消失则是出于不同的原因。这里同样以均值作为判据：$\mathbb{E}[\Delta t\,\Delta W]=\Delta t\,\mathbb{E}[\Delta W]=0$，所以与 $(\Delta W)^2$ 不同，这个乘积在 $dt$ 阶上没有存留的确定性均值。它的大小确实是更高阶（$dt\,dW\sim\Delta t\cdot\sqrt{\Delta t}=(\Delta t)^{3/2}$，且 $(dt)^2\sim(\Delta t)^2$），故在 $\sim t/\Delta t$ 步上求和时它在均方极限下消失。这种对比正是要点所在：$(dW)^2$ 存留是因为其均值为 $dt$，而 $dt\,dW$ 消亡是因为其均值为零且其标度是次主导的。
-4. 因此 $(dX)^2=b^2\,dt$，所有其他二阶项消失，$\partial_{tt}$ 和混合项也消失。汇集存留的部分：
+- $(dW)^2=dt$ 是二次变差结果（§s4）：布朗增量的平方以每单位时间 $1$ 的速率累积。关键在于 $(dW)^2$ **不**消失，尽管人们或许会以为一个"二阶"项理应消失。原因是一个均值/方差论证：在一步之内， $\mathbb{E}[(\Delta W)^2]=\Delta t$ （其均值恰好是 $\Delta t$ ，而非零），而它围绕该均值的涨落本身是更高阶的—— $\mathrm{Var}[(\Delta W)^2]=2(\Delta t)^2$ ，求和后 $\to0$ 。所以在极限下可用其确定性均值 $\Delta t$ 替换 $(\Delta W)^2$ ，得 $(dW)^2=dt$ ——这是一个*存留*的一阶项，而非零。
+- $(dt)^2=0$ 和 $dt\,dW=0$ 消失则是出于不同的原因。这里同样以均值作为判据： $\mathbb{E}[\Delta t\,\Delta W]=\Delta t\,\mathbb{E}[\Delta W]=0$ ，所以与 $(\Delta W)^2$ 不同，这个乘积在 $dt$ 阶上没有存留的确定性均值。它的大小确实是更高阶（ $dt\,dW\sim\Delta t\cdot\sqrt{\Delta t}=(\Delta t)^{3/2}$ ，且 $(dt)^2\sim(\Delta t)^2$ ），故在 $\sim t/\Delta t$ 步上求和时它在均方极限下消失。这种对比正是要点所在： $(dW)^2$ 存留是因为其均值为 $dt$ ，而 $dt\,dW$ 消亡是因为其均值为零且其标度是次主导的。
+4. 因此 $(dX)^2=b^2\,dt$ ，所有其他二阶项消失， $\partial_{tt}$ 和混合项也消失。汇集存留的部分：
 $$
 df=\frac{\partial f}{\partial t}\,dt+\frac{\partial f}{\partial x}(a\,dt+b\,dW)+\tfrac12\frac{\partial^2 f}{\partial x^2}\,b^2\,dt,
 $$
-将 $dt$ 项归并后恰是所述的公式。$\blacksquare$
+将 $dt$ 项归并后恰是所述的公式。 $\blacksquare$
 
-#### 算例——$f(W_t)=W_t^2$
+#### 算例—— $f(W_t)=W_t^2$
 
-这里 $X_t=W_t$，故 $a=0$，$b=1$，且 $f(x)=x^2$，$f_x=2x$，$f_{xx}=2$。伊藤引理给出
+这里 $X_t=W_t$ ，故 $a=0$ ， $b=1$ ，且 $f(x)=x^2$ ， $f_x=2x$ ， $f_{xx}=2$ 。伊藤引理给出
 $$
 d(W_t^2)=\big(0+0+\tfrac12\cdot1\cdot2\big)dt+1\cdot2W_t\,dW_t=dt+2W_t\,dW_t.
 $$
-从 $0$ 到 $t$ 积分：$\;W_t^2=t+2\int_0^t W_s\,dW_s$。重排后，$\int_0^t W_s\,dW_s=\tfrac12 W_t^2-\tfrac12 t$。那个"$-\tfrac12 t$"是伊藤修正项；天真的微积分会写出 $\int_0^t W\,dW=\tfrac12 W_t^2$，这是*错误*的。这单个例子展示了新微积分的实际运作，并证实（取期望，$\mathbb{E}[W_t^2]=t$）$\mathbb{E}[\int_0^t W\,dW]=0$，与鞅性质一致。
+从 $0$ 到 $t$ 积分： $\;W_t^2=t+2\int_0^t W_s\,dW_s$ 。重排后， $\int_0^t W_s\,dW_s=\tfrac12 W_t^2-\tfrac12 t$ 。那个"$-\tfrac12 t$"是伊藤修正项；天真的微积分会写出 $\int_0^t W\,dW=\tfrac12 W_t^2$ ，这是*错误*的。这单个例子展示了新微积分的实际运作，并证实（取期望， $\mathbb{E}[W_t^2]=t$ ） $\mathbb{E}[\int_0^t W\,dW]=0$ ，与鞅性质一致。
 
 #### 常见陷阱
 
@@ -385,51 +388,51 @@ $$
 $$
 dX_t=\mu(t,X_t)\,dt+\sigma(t,X_t)\,dW_t,
 $$
-其中 $\mu$ 是**漂移系数**（平均变化率），$\sigma$ 是**扩散系数**（随机踢击的大小）。这是积分方程 $X_t=X_0+\int_0^t\mu\,ds+\int_0^t\sigma\,dW_s$ 的简写，最后一项是伊藤积分（§s6）。我们将两个最重要的例子完整求解。
+其中 $\mu$ 是**漂移系数**（平均变化率）， $\sigma$ 是**扩散系数**（随机踢击的大小）。这是积分方程 $X_t=X_0+\int_0^t\mu\,ds+\int_0^t\sigma\,dW_s$ 的简写，最后一项是伊藤积分（§s6）。我们将两个最重要的例子完整求解。
 
 #### 几何布朗运动（股价模型）
 
-这个 SDE 是 $dX_t=\mu X_t\,dt+\sigma X_t\,dW_t$，其中 $\mu,\sigma$ 为常数且 $X_0>0$：随机的是百分比变化而非绝对变化，这使价格保持为正。
+这个 SDE 是 $dX_t=\mu X_t\,dt+\sigma X_t\,dW_t$ ，其中 $\mu,\sigma$ 为常数且 $X_0>0$ ：随机的是百分比变化而非绝对变化，这使价格保持为正。
 
-1. 受乘性结构启发，猜测 $\log X_t$ 更简单。对 $f(x)=\log x$ 应用伊藤引理，其中 $f_x=1/x$，$f_{xx}=-1/x^2$，且（由 SDE）$a=\mu X$，$b=\sigma X$：
+1. 受乘性结构启发，猜测 $\log X_t$ 更简单。对 $f(x)=\log x$ 应用伊藤引理，其中 $f_x=1/x$ ， $f_{xx}=-1/x^2$ ，且（由 SDE） $a=\mu X$ ， $b=\sigma X$ ：
 $$
 d(\log X_t)=\Big(\mu X\cdot\tfrac1X+\tfrac12(\sigma X)^2\cdot(-\tfrac1{X^2})\Big)dt+\sigma X\cdot\tfrac1X\,dW_t.
 $$
-2. 化简每一部分：$dt$ 的系数是 $\mu-\tfrac12\sigma^2$（$X$ 的消去正是这个代换的关键），而 $dW$ 的系数是 $\sigma$。所以
+2. 化简每一部分： $dt$ 的系数是 $\mu-\tfrac12\sigma^2$ （ $X$ 的消去正是这个代换的关键），而 $dW$ 的系数是 $\sigma$ 。所以
 $$
 d(\log X_t)=\big(\mu-\tfrac12\sigma^2\big)dt+\sigma\,dW_t.
 $$
-3. 右边具有*常*系数，故从 $0$ 到 $t$ 直接积分：$\log X_t-\log X_0=(\mu-\tfrac12\sigma^2)t+\sigma W_t$。
+3. 右边具有*常*系数，故从 $0$ 到 $t$ 直接积分： $\log X_t-\log X_0=(\mu-\tfrac12\sigma^2)t+\sigma W_t$ 。
 4. 取指数：
 $$
 X_t=X_0\exp\!\Big(\big(\mu-\tfrac12\sigma^2\big)t+\sigma W_t\Big).
 $$
 
-由于 $\sigma W_t\sim\mathcal{N}(0,\sigma^2 t)$，$X_t$ 服从**对数正态**分布。*对数*所看到的漂移是 $\mu-\tfrac12\sigma^2$，而非 $\mu$——这就是著名的"波动率拖累"，是伊藤修正项的直接后果。具体地说，取 $X_0=100$，$\mu=0.1$，$\sigma=0.2$，一年后的中位价格为 $100\exp((0.1-0.02)\cdot1)=100e^{0.08}\approx108.3$。
+由于 $\sigma W_t\sim\mathcal{N}(0,\sigma^2 t)$ ， $X_t$ 服从**对数正态**分布。*对数*所看到的漂移是 $\mu-\tfrac12\sigma^2$ ，而非 $\mu$ ——这就是著名的"波动率拖累"，是伊藤修正项的直接后果。具体地说，取 $X_0=100$ ， $\mu=0.1$ ， $\sigma=0.2$ ，一年后的中位价格为 $100\exp((0.1-0.02)\cdot1)=100e^{0.08}\approx108.3$ 。
 
 #### 奥恩斯坦–乌伦贝克过程（均值回复噪声）
 
-这个 SDE 是 $dX_t=-\theta X_t\,dt+\sigma\,dW_t$，其中 $\theta>0$：一个恢复性的漂移把 $X$ 拉回向 $0$（一根有噪声的弹簧；带摩擦的布朗粒子的速度）。
+这个 SDE 是 $dX_t=-\theta X_t\,dt+\sigma\,dW_t$ ，其中 $\theta>0$ ：一个恢复性的漂移把 $X$ 拉回向 $0$ （一根有噪声的弹簧；带摩擦的布朗粒子的速度）。
 
-1. 漂移*不*为常数，故我们使用一个**积分因子**，正如对线性常微分方程 $x'=-\theta x$ 那样。对 $Y_t=e^{\theta t}X_t$，即 $f(t,x)=e^{\theta t}x$ 应用伊藤引理，其中 $f_t=\theta e^{\theta t}x$，$f_x=e^{\theta t}$，$f_{xx}=0$，且 $a=-\theta X$，$b=\sigma$：
+1. 漂移*不*为常数，故我们使用一个**积分因子**，正如对线性常微分方程 $x'=-\theta x$ 那样。对 $Y_t=e^{\theta t}X_t$ ，即 $f(t,x)=e^{\theta t}x$ 应用伊藤引理，其中 $f_t=\theta e^{\theta t}x$ ， $f_x=e^{\theta t}$ ， $f_{xx}=0$ ，且 $a=-\theta X$ ， $b=\sigma$ ：
 $$
 dY_t=\big(\theta e^{\theta t}X_t+e^{\theta t}(-\theta X_t)+0\big)dt+e^{\theta t}\sigma\,dW_t.
 $$
-2. $dt$ 项恰好相消（积分因子的设计目的），余下 $dY_t=\sigma e^{\theta t}\,dW_t$。
-3. 积分：$Y_t-Y_0=\sigma\int_0^t e^{\theta s}\,dW_s$，又因 $Y_0=X_0$，
+2. $dt$ 项恰好相消（积分因子的设计目的），余下 $dY_t=\sigma e^{\theta t}\,dW_t$ 。
+3. 积分： $Y_t-Y_0=\sigma\int_0^t e^{\theta s}\,dW_s$ ，又因 $Y_0=X_0$ ，
 $$
 X_t=e^{-\theta t}X_0+\sigma\int_0^t e^{-\theta(t-s)}\,dW_s.
 $$
-4. 读出统计量。均值是 $\mathbb{E}[X_t]=e^{-\theta t}X_0$（伊藤积分均值为 $0$），向 $0$ 衰减。方差，由**伊藤等距**（§s6），
+4. 读出统计量。均值是 $\mathbb{E}[X_t]=e^{-\theta t}X_0$ （伊藤积分均值为 $0$ ），向 $0$ 衰减。方差，由**伊藤等距**（§s6），
 $$
 \mathrm{Var}(X_t)=\sigma^2\int_0^t e^{-2\theta(t-s)}\,ds=\frac{\sigma^2}{2\theta}\big(1-e^{-2\theta t}\big)\xrightarrow[t\to\infty]{}\frac{\sigma^2}{2\theta}.
 $$
 
-所以与布朗运动（其方差无界增长）不同，OU 过程达到一个**平稳分布** $\mathcal{N}(0,\sigma^2/2\theta)$：恢复性漂移平衡了扩散。这是平衡噪声的原型（以及爱因斯坦联系扩散、温度与摩擦的关系式）。
+所以与布朗运动（其方差无界增长）不同，OU 过程达到一个**平稳分布** $\mathcal{N}(0,\sigma^2/2\theta)$ ：恢复性漂移平衡了扩散。这是平衡噪声的原型（以及爱因斯坦联系扩散、温度与摩擦的关系式）。
 
 #### 常见陷阱
 
-- 在几何布朗运动中，*典型*路径的长期增长率是 $\mu-\tfrac12\sigma^2$，当波动率很大时即便 $\mu>0$ 它也可能为负——这是真实效应，而非假象。
+- 在几何布朗运动中，*典型*路径的长期增长率是 $\mu-\tfrac12\sigma^2$ ，当波动率很大时即便 $\mu>0$ 它也可能为负——这是真实效应，而非假象。
 - 对 SDE 解的函数，总用伊藤引理，绝不用普通的链式法则。
 
 <a id="s8"></a>
@@ -437,33 +440,34 @@ $$
 
 #### 是什么与为什么
 
-一个 SDE 跟踪一条随机路径。我们常常想要在时刻 $t$ 在位置 $x$ 找到粒子的*概率密度* $p(x,t)$——对整个系综的描述。**福克–普朗克方程**（亦即**前向柯尔莫哥洛夫方程**）就是该密度所服从的确定性偏微分方程。它精确地陈述了"尽管每个个体都在抖动，群体却光滑地扩散"。
+一个 SDE 跟踪一条随机路径。我们常常想要在时刻 $t$ 在位置 $x$ 找到粒子的*概率密度* $p(x,t)$ ——对整个系综的描述。**福克–普朗克方程**（亦即**前向柯尔莫哥洛夫方程**）就是该密度所服从的确定性偏微分方程。它精确地陈述了"尽管每个个体都在抖动，群体却光滑地扩散"。
 
 #### 方程
 
-> **定理 — 福克–普朗克。** 若 $dX_t=\mu(x)\,dt+\sigma(x)\,dW_t$，则 $X_t$ 的密度 $p(x,t)$ 满足
+> **定理 — 福克–普朗克。** 若 $dX_t=\mu(x)\,dt+\sigma(x)\,dW_t$ ，则 $X_t$ 的密度 $p(x,t)$ 满足
+>
 > $$
 > \frac{\partial p}{\partial t}=-\frac{\partial}{\partial x}\big(\mu(x)\,p\big)+\frac12\frac{\partial^2}{\partial x^2}\big(\sigma(x)^2\,p\big).
 > $$
 
-*借助检验函数的推导。* 设 $\phi(x)$ 为任意在 $\pm\infty$ 处消失的光滑函数（一个**检验函数**）。我们用两种方式计算 $\frac{d}{dt}\mathbb{E}[\phi(X_t)]$。
+*借助检验函数的推导。* 设 $\phi(x)$ 为任意在 $\pm\infty$ 处消失的光滑函数（一个**检验函数**）。我们用两种方式计算 $\frac{d}{dt}\mathbb{E}[\phi(X_t)]$ 。
 
-1. 对 $\phi(X_t)$ 应用伊藤引理（无显式 $t$ 依赖，$a=\mu$，$b=\sigma$）：
+1. 对 $\phi(X_t)$ 应用伊藤引理（无显式 $t$ 依赖， $a=\mu$ ， $b=\sigma$ ）：
 $$
 d\phi(X_t)=\big(\mu\,\phi'+\tfrac12\sigma^2\phi''\big)dt+\sigma\phi'\,dW_t.
 $$
-2. 取期望。$dW$ 项均值为 $0$（伊藤积分是鞅，§s6），故
+2. 取期望。 $dW$ 项均值为 $0$ （伊藤积分是鞅，§s6），故
 $$
 \frac{d}{dt}\mathbb{E}[\phi(X_t)]=\mathbb{E}\big[\mu\,\phi'+\tfrac12\sigma^2\phi''\big]=\int\big(\mu(x)\phi'(x)+\tfrac12\sigma(x)^2\phi''(x)\big)p(x,t)\,dx,
 $$
 这里用了期望作为对密度 $p$ 的积分的定义。
-3. 另一方面，$\mathbb{E}[\phi(X_t)]=\int\phi(x)p(x,t)\,dx$，故 $\frac{d}{dt}\mathbb{E}[\phi(X_t)]=\int\phi(x)\,\partial_t p\,dx$。
-4. 令两个表达式相等，并通过**分部积分**把所有导数从 $\phi$ 上移到 $p$ 上（边界项消失，因为 $\phi$ 及其导数在 $\pm\infty$ 处趋于零）：每个 $\int\mu\phi' p\,dx=-\int\phi\,\partial_x(\mu p)\,dx$，且 $\int\tfrac12\sigma^2\phi'' p\,dx=+\int\tfrac12\phi\,\partial_{xx}(\sigma^2 p)\,dx$（两次分部积分）。
-5. 结果是对*每个*检验函数 $\phi$ 有 $\int\phi\big[\partial_t p+\partial_x(\mu p)-\tfrac12\partial_{xx}(\sigma^2 p)\big]dx=0$。一个连续的量若对每个检验函数的积分为零，则它本身必为零（**变分法基本引理**）。因此方括号内消失，这就是福克–普朗克方程。$\blacksquare$
+3. 另一方面， $\mathbb{E}[\phi(X_t)]=\int\phi(x)p(x,t)\,dx$ ，故 $\frac{d}{dt}\mathbb{E}[\phi(X_t)]=\int\phi(x)\,\partial_t p\,dx$ 。
+4. 令两个表达式相等，并通过**分部积分**把所有导数从 $\phi$ 上移到 $p$ 上（边界项消失，因为 $\phi$ 及其导数在 $\pm\infty$ 处趋于零）：每个 $\int\mu\phi' p\,dx=-\int\phi\,\partial_x(\mu p)\,dx$ ，且 $\int\tfrac12\sigma^2\phi'' p\,dx=+\int\tfrac12\phi\,\partial_{xx}(\sigma^2 p)\,dx$ （两次分部积分）。
+5. 结果是对*每个*检验函数 $\phi$ 有 $\int\phi\big[\partial_t p+\partial_x(\mu p)-\tfrac12\partial_{xx}(\sigma^2 p)\big]dx=0$ 。一个连续的量若对每个检验函数的积分为零，则它本身必为零（**变分法基本引理**）。因此方括号内消失，这就是福克–普朗克方程。 $\blacksquare$
 
 #### 与扩散 / 热方程的联系
 
-取纯布朗运动：$\mu=0$，$\sigma=1$，$X_0=0$。福克–普朗克方程退化为
+取纯布朗运动： $\mu=0$ ， $\sigma=1$ ， $X_0=0$ 。福克–普朗克方程退化为
 $$
 \frac{\partial p}{\partial t}=\frac12\frac{\partial^2 p}{\partial x^2},
 $$
@@ -471,11 +475,11 @@ $$
 $$
 p(x,t)=\frac{1}{\sqrt{2\pi t}}\exp\!\Big(-\frac{x^2}{2t}\Big),
 $$
-我们验证它是 $W_t\sim\mathcal{N}(0,t)$ 的密度——从而闭合了回路：布朗运动的随机路径定义（§s4）与光滑的扩散偏微分方程给出*同一个*扩散的高斯。我们可以直接验证它满足该偏微分方程：取 $p=\frac{1}{\sqrt{2\pi t}}e^{-x^2/2t}$，计算 $\partial_t p$ 和 $\tfrac12\partial_{xx}p$ 表明两者都等于 $\frac{1}{\sqrt{2\pi t}}e^{-x^2/2t}\big(\frac{x^2}{2t^2}-\frac{1}{2t}\big)$，故方程成立。
+我们验证它是 $W_t\sim\mathcal{N}(0,t)$ 的密度——从而闭合了回路：布朗运动的随机路径定义（§s4）与光滑的扩散偏微分方程给出*同一个*扩散的高斯。我们可以直接验证它满足该偏微分方程：取 $p=\frac{1}{\sqrt{2\pi t}}e^{-x^2/2t}$ ，计算 $\partial_t p$ 和 $\tfrac12\partial_{xx}p$ 表明两者都等于 $\frac{1}{\sqrt{2\pi t}}e^{-x^2/2t}\big(\frac{x^2}{2t^2}-\frac{1}{2t}\big)$ ，故方程成立。
 
 #### 常见陷阱
 
-- 漂移项是 $-\partial_x(\mu p)$，在导数*内部*——对依赖于状态的 $\mu(x)$，你不能把 $\mu$ 提出来。对二阶导数内部的 $\sigma(x)^2$ 同理。
+- 漂移项是 $-\partial_x(\mu p)$ ，在导数*内部*——对依赖于状态的 $\mu(x)$ ，你不能把 $\mu$ 提出来。对二阶导数内部的 $\sigma(x)^2$ 同理。
 - **后向**柯尔莫哥洛夫方程（用于费曼–卡茨，§s9）作用于起点而非终点，是一个不同的方程；切勿混淆前向与后向。
 
 <a id="s9"></a>
@@ -488,22 +492,26 @@ $$
 #### 陈述
 
 > **定理 — 费曼–卡茨。** 设 $u(x,t)$ 在 $t\le T$ 上求解后向偏微分方程
+>
 > $$
 > \frac{\partial u}{\partial t}+\mu(x)\frac{\partial u}{\partial x}+\tfrac12\sigma(x)^2\frac{\partial^2 u}{\partial x^2}-V(x)\,u=0,\qquad u(x,T)=g(x),
 > $$
-> 其中 $V(x)\ge0$ 是一个"势"，$g$ 是一个终端收益。则
+>
+> 其中 $V(x)\ge0$ 是一个"势"， $g$ 是一个终端收益。则
+>
 > $$
 > u(x,t)=\mathbb{E}\!\left[\exp\!\Big(-\int_t^T V(X_s)\,ds\Big)\,g(X_T)\;\Big|\;X_t=x\right],
 > $$
-> 其中 $X_s$ 求解 $dX_s=\mu\,ds+\sigma\,dW_s$，从 $X_t=x$ 起步。
+>
+> 其中 $X_s$ 求解 $dX_s=\mu\,ds+\sigma\,dW_s$ ，从 $X_t=x$ 起步。
 
 #### 推导
 
 我们证明这个随机期望表达式求解了该偏微分方程。
 
-1. 定义**贴现因子** $D_s=\exp\!\big(-\int_t^s V(X_r)\,dr\big)$，故 $D_t=1$，且由微积分基本定理，$dD_s=-V(X_s)D_s\,ds$（这是普通微分而非随机微分，因为 $D$ 没有 $dW$ 项）。
-2. 考虑过程 $M_s=D_s\,u(X_s,s)$，$t\le s\le T$。应用**乘积法则**（这里有效，因为 $D$ 关于 $s$ 光滑）：$dM_s=u\,dD_s+D_s\,du$。
-3. 用**伊藤引理**（§s6）计算 $du=du(X_s,s)$，带漂移 $\mu$、扩散 $\sigma$：
+1. 定义**贴现因子** $D_s=\exp\!\big(-\int_t^s V(X_r)\,dr\big)$ ，故 $D_t=1$ ，且由微积分基本定理， $dD_s=-V(X_s)D_s\,ds$ （这是普通微分而非随机微分，因为 $D$ 没有 $dW$ 项）。
+2. 考虑过程 $M_s=D_s\,u(X_s,s)$ ， $t\le s\le T$ 。应用**乘积法则**（这里有效，因为 $D$ 关于 $s$ 光滑）： $dM_s=u\,dD_s+D_s\,du$ 。
+3. 用**伊藤引理**（§s6）计算 $du=du(X_s,s)$ ，带漂移 $\mu$ 、扩散 $\sigma$ ：
 $$
 du=\Big(\partial_s u+\mu\,\partial_x u+\tfrac12\sigma^2\partial_{xx}u\Big)ds+\sigma\,\partial_x u\,dW_s.
 $$
@@ -511,13 +519,13 @@ $$
 $$
 dM_s=D_s\Big(\underbrace{\partial_s u+\mu\,\partial_x u+\tfrac12\sigma^2\partial_{xx}u-V\,u}_{=\,0\text{ by the PDE}}\Big)ds+D_s\,\sigma\,\partial_x u\,dW_s.
 $$
-5. 那个 $ds$ 的方括号恰是后向偏微分方程的左端，它为零。因此 $dM_s=D_s\sigma\partial_x u\,dW_s$——一个纯伊藤积分，从而是一个**鞅**（§s6），故 $\mathbb{E}[M_s]$ 关于 $s$ 为常数。
-6. 令该鞅在 $s=t$ 和 $s=T$ 处的值相等。在 $s=t$：$M_t=D_t\,u(X_t,t)=1\cdot u(x,t)=u(x,t)$。在 $s=T$：用终端条件 $u(\cdot,T)=g$，$M_T=D_T\,u(X_T,T)=\exp(-\int_t^T V\,dr)\,g(X_T)$。
-7. 因此 $u(x,t)=\mathbb{E}[M_t]=\mathbb{E}[M_T]=\mathbb{E}\big[\exp(-\int_t^T V\,ds)\,g(X_T)\mid X_t=x\big]$，即所断言的公式。$\blacksquare$
+5. 那个 $ds$ 的方括号恰是后向偏微分方程的左端，它为零。因此 $dM_s=D_s\sigma\partial_x u\,dW_s$ ——一个纯伊藤积分，从而是一个**鞅**（§s6），故 $\mathbb{E}[M_s]$ 关于 $s$ 为常数。
+6. 令该鞅在 $s=t$ 和 $s=T$ 处的值相等。在 $s=t$ ： $M_t=D_t\,u(X_t,t)=1\cdot u(x,t)=u(x,t)$ 。在 $s=T$ ：用终端条件 $u(\cdot,T)=g$ ， $M_T=D_T\,u(X_T,T)=\exp(-\int_t^T V\,dr)\,g(X_T)$ 。
+7. 因此 $u(x,t)=\mathbb{E}[M_t]=\mathbb{E}[M_T]=\mathbb{E}\big[\exp(-\int_t^T V\,ds)\,g(X_T)\mid X_t=x\big]$ ，即所断言的公式。 $\blacksquare$
 
 #### 特例算例——无势的热方程
 
-令 $\mu=0$，$\sigma=1$，$V=0$。该偏微分方程是后向热方程 $\partial_t u+\tfrac12\partial_{xx}u=0$，带 $u(x,T)=g(x)$，而费曼–卡茨给出 $u(x,t)=\mathbb{E}[g(X_T)\mid X_t=x]$，其中 $X_T-x\sim\mathcal{N}(0,T-t)$。显式地，
+令 $\mu=0$ ， $\sigma=1$ ， $V=0$ 。该偏微分方程是后向热方程 $\partial_t u+\tfrac12\partial_{xx}u=0$ ，带 $u(x,T)=g(x)$ ，而费曼–卡茨给出 $u(x,t)=\mathbb{E}[g(X_T)\mid X_t=x]$ ，其中 $X_T-x\sim\mathcal{N}(0,T-t)$ 。显式地，
 $$
 u(x,t)=\int_{-\infty}^{\infty} g(y)\,\frac{1}{\sqrt{2\pi(T-t)}}\exp\!\Big(-\frac{(y-x)^2}{2(T-t)}\Big)\,dy,
 $$
@@ -539,22 +547,22 @@ $$
 
 #### 离散化一条布朗路径
 
-固定端点：从时刻 $0$ 的 $x_0=0$ 到时刻 $t$ 的 $x_n=x$ 的路径。把 $[0,t]$ 切成 $n$ 步，每步长 $\epsilon=t/n$，时刻为 $t_k=k\epsilon$，并用一条路径在内部节点处的值 $(x_1,\dots,x_{n-1})$ 来近似它。
+固定端点：从时刻 $0$ 的 $x_0=0$ 到时刻 $t$ 的 $x_n=x$ 的路径。把 $[0,t]$ 切成 $n$ 步，每步长 $\epsilon=t/n$ ，时刻为 $t_k=k\epsilon$ ，并用一条路径在内部节点处的值 $(x_1,\dots,x_{n-1})$ 来近似它。
 
-1. 由独立高斯增量（§s4），每个增量 $x_k-x_{k-1}\sim\mathcal{N}(0,\epsilon)$，密度为 $\frac{1}{\sqrt{2\pi\epsilon}}\exp(-\frac{(x_k-x_{k-1})^2}{2\epsilon})$。
+1. 由独立高斯增量（§s4），每个增量 $x_k-x_{k-1}\sim\mathcal{N}(0,\epsilon)$ ，密度为 $\frac{1}{\sqrt{2\pi\epsilon}}\exp(-\frac{(x_k-x_{k-1})^2}{2\epsilon})$ 。
 2. 由独立性，增量的联合密度是对 $k=1,\dots,n$ 的乘积：
 $$
 \rho_n(x_1,\dots,x_{n-1})=\prod_{k=1}^{n}\frac{1}{\sqrt{2\pi\epsilon}}\exp\!\Big(-\frac{(x_k-x_{k-1})^2}{2\epsilon}\Big)
 =\Big(\frac{1}{2\pi\epsilon}\Big)^{n/2}\exp\!\Big(-\frac{1}{2\epsilon}\sum_{k=1}^{n}(x_k-x_{k-1})^2\Big).
 $$
-3. 辨认这个指数。把 $\frac{x_k-x_{k-1}}{\epsilon}$ 写成离散速度 $\dot x$，该和变为 $\frac1\epsilon\sum_k(x_k-x_{k-1})^2=\sum_k\big(\tfrac{x_k-x_{k-1}}{\epsilon}\big)^2\epsilon\to\int_0^t\dot x(s)^2\,ds$，当 $\epsilon\to0$。所以形式上
+3. 辨认这个指数。把 $\frac{x_k-x_{k-1}}{\epsilon}$ 写成离散速度 $\dot x$ ，该和变为 $\frac1\epsilon\sum_k(x_k-x_{k-1})^2=\sum_k\big(\tfrac{x_k-x_{k-1}}{\epsilon}\big)^2\epsilon\to\int_0^t\dot x(s)^2\,ds$ ，当 $\epsilon\to0$ 。所以形式上
 $$
 \rho\,\propto\,\exp\!\Big(-\frac12\int_0^t\dot x(s)^2\,ds\Big).
 $$
 
 #### 维纳测度与维纳积分
 
-这个极限定义了路径空间上的**维纳测度** $\mathcal{D}W$，而对于一个泛函 $F[x(\cdot)]$，**维纳积分**是有限维积分的形式极限：
+这个极限定义了路径空间上的**维纳测度** $\mathcal{D}W$ ，而对于一个泛函 $F[x(\cdot)]$ ，**维纳积分**是有限维积分的形式极限：
 $$
 \mathbb{E}\big[F\big]=\int F[x(\cdot)]\;\mathcal{D}W
 =\lim_{n\to\infty}\Big(\frac{1}{2\pi\epsilon}\Big)^{n/2}\!\int F\,\exp\!\Big(-\frac{1}{2\epsilon}\sum_{k=1}^{n}(x_k-x_{k-1})^2\Big)\,dx_1\cdots dx_{n-1}.
@@ -570,7 +578,7 @@ $$
 
 #### 算例检验——由切片得到自由传播子
 
-通过反复的高斯卷积积掉*所有*内部节点（方差只是简单相加，$\epsilon+\epsilon+\dots=n\epsilon=t$），给出从 $0$ 到 $x$ 在时间 $t$ 内的总转移密度：
+通过反复的高斯卷积积掉*所有*内部节点（方差只是简单相加， $\epsilon+\epsilon+\dots=n\epsilon=t$ ），给出从 $0$ 到 $x$ 在时间 $t$ 内的总转移密度：
 $$
 \int_{x(0)=0}^{x(t)=x}\mathcal{D}W=\frac{1}{\sqrt{2\pi t}}\exp\!\Big(-\frac{x^2}{2t}\Big),
 $$
@@ -578,61 +586,62 @@ $$
 
 #### 常见陷阱
 
-- 路径空间上不存在勒贝格"$dx$"；只有*归一化的*高斯极限才有意义。务必始终保留前因子 $(2\pi\epsilon)^{-n/2}$。
-- 指数 $\int\dot x^2$ 是启发式的；严格地说应该用增量来处理，绝不用（不存在的）导数 $\dot x$。
+- 路径空间上不存在勒贝格"$dx$"；只有*归一化的*高斯极限才有意义。务必始终保留前因子 $(2\pi\epsilon)^{-n/2}$ 。
+- 指数 $\int\dot x^2$ 是启发式的；严格地说应该用增量来处理，绝不用（不存在的）导数 $\dot x$ 。
 
 <a id="s11"></a>
 ### 量子力学中的费曼路径积分：自由粒子传播子与重新得到薛定谔方程
 
 #### 是什么与为什么
 
-费曼的想法：一个量子粒子从 $a$ 到 $b$ 的振幅是对**所有**路径求和，每条路径以 $e^{iS[x]/\hbar}$ 为权重，其中 $S=\int L\,dt$ 是**经典作用量**（**拉格朗日量** $L=\tfrac12 m\dot x^2-V(x)$ 的时间积分；参见《变分法》指南），$\hbar$ 是约化普朗克常数。形式上它就是维纳积分（§s10），只是把实高斯权重换成了一个振荡相位——代换 $\tfrac12\dot x^2\to\tfrac{i}{\hbar}L$。
+费曼的想法：一个量子粒子从 $a$ 到 $b$ 的振幅是对**所有**路径求和，每条路径以 $e^{iS[x]/\hbar}$ 为权重，其中 $S=\int L\,dt$ 是**经典作用量**（**拉格朗日量** $L=\tfrac12 m\dot x^2-V(x)$ 的时间积分；参见《变分法》指南）， $\hbar$ 是约化普朗克常数。形式上它就是维纳积分（§s10），只是把实高斯权重换成了一个振荡相位——代换 $\tfrac12\dot x^2\to\tfrac{i}{\hbar}L$ 。
 
 #### 作为路径积分的传播子
 
-> **定义。** **传播子** $K(x_b,t_b;x_a,t_a)$ 是粒子在时刻 $t_a$ 处于 $x_a$、在时刻 $t_b$ 被发现于 $x_b$ 的振幅。费曼的处方：
+> **定义。** **传播子** $K(x_b,t_b;x_a,t_a)$ 是粒子在时刻 $t_a$ 处于 $x_a$ 、在时刻 $t_b$ 被发现于 $x_b$ 的振幅。费曼的处方：
+>
 > $$
 > K(x_b,t_b;x_a,t_a)=\int_{x(t_a)=x_a}^{x(t_b)=x_b}\exp\!\Big(\frac{i}{\hbar}S[x(\cdot)]\Big)\,\mathcal{D}x.
 > $$
 
-与 §s10 相同的时间切片使其成为普通（现在是复数）高斯积分的极限，每个切片贡献 $\exp\!\big(\frac{i}{\hbar}\,\frac{m}{2}\frac{(x_k-x_{k-1})^2}{\epsilon}-\frac{i}{\hbar}\epsilon V\big)$，以及每个切片的归一化前因子 $\big(\frac{m}{2\pi i\hbar\epsilon}\big)^{1/2}$。
+与 §s10 相同的时间切片使其成为普通（现在是复数）高斯积分的极限，每个切片贡献 $\exp\!\big(\frac{i}{\hbar}\,\frac{m}{2}\frac{(x_k-x_{k-1})^2}{\epsilon}-\frac{i}{\hbar}\epsilon V\big)$ ，以及每个切片的归一化前因子 $\big(\frac{m}{2\pi i\hbar\epsilon}\big)^{1/2}$ 。
 
 #### 算例——自由粒子传播子
 
-自由粒子：$V=0$，$L=\tfrac12 m\dot x^2$。用 $n$ 个长度为 $\epsilon$ 的切片离散化，并对内部节点做高斯积分。
+自由粒子： $V=0$ ， $L=\tfrac12 m\dot x^2$ 。用 $n$ 个长度为 $\epsilon$ 的切片离散化，并对内部节点做高斯积分。
 
-1. 切片权重是 $\big(\tfrac{m}{2\pi i\hbar\epsilon}\big)^{1/2}\exp\!\big(\tfrac{im}{2\hbar\epsilon}(x_k-x_{k-1})^2\big)$——一个关于增量、带*虚*方差 $\tfrac{i\hbar\epsilon}{m}$ 的高斯。
-2. 用复高斯卷积：合并两个相邻切片会积掉 $x_k$，给出一个"时间"加倍的切片，$\big(\tfrac{m}{2\pi i\hbar(2\epsilon)}\big)^{1/2}\exp\!\big(\tfrac{im}{2\hbar(2\epsilon)}(x_{k+1}-x_{k-1})^2\big)$——与 §s10 相同的卷积法则，只是 $\epsilon\to i\hbar\epsilon/m$。
-3. 对所有 $n$ 个切片迭代使时间相加为 $n\epsilon=t_b-t_a=:T$：
+1. 切片权重是 $\big(\tfrac{m}{2\pi i\hbar\epsilon}\big)^{1/2}\exp\!\big(\tfrac{im}{2\hbar\epsilon}(x_k-x_{k-1})^2\big)$ ——一个关于增量、带*虚*方差 $\tfrac{i\hbar\epsilon}{m}$ 的高斯。
+2. 用复高斯卷积：合并两个相邻切片会积掉 $x_k$ ，给出一个"时间"加倍的切片， $\big(\tfrac{m}{2\pi i\hbar(2\epsilon)}\big)^{1/2}\exp\!\big(\tfrac{im}{2\hbar(2\epsilon)}(x_{k+1}-x_{k-1})^2\big)$ ——与 §s10 相同的卷积法则，只是 $\epsilon\to i\hbar\epsilon/m$ 。
+3. 对所有 $n$ 个切片迭代使时间相加为 $n\epsilon=t_b-t_a=:T$ ：
 $$
 K(x_b,t_b;x_a,t_a)=\sqrt{\frac{m}{2\pi i\hbar T}}\;\exp\!\Big(\frac{im\,(x_b-x_a)^2}{2\hbar T}\Big).
 $$
-4. 解释：那个指数恰是 $\frac{i}{\hbar}S_{\text{cl}}$，其中 $S_{\text{cl}}=\frac{m(x_b-x_a)^2}{2T}$ 是自由直线路径（匀速 $(x_b-x_a)/T$）的经典作用量。量子振幅就是*相位中的经典作用量*，乘以一个高斯涨落前因子。
+4. 解释：那个指数恰是 $\frac{i}{\hbar}S_{\text{cl}}$ ，其中 $S_{\text{cl}}=\frac{m(x_b-x_a)^2}{2T}$ 是自由直线路径（匀速 $(x_b-x_a)/T$ ）的经典作用量。量子振幅就是*相位中的经典作用量*，乘以一个高斯涨落前因子。
 
-这正是 §s10 维纳热核的精确解析延拓：替换 $t\to i\hbar t/m$，扩散高斯便变成自由传播子。
+这正是 §s10 维纳热核的精确解析延拓：替换 $t\to i\hbar t/m$ ，扩散高斯便变成自由传播子。
 
 #### 重新得到薛定谔方程
 
-传播子推进波函数 $\psi(x,t)=\int K(x,t;y,t-\epsilon)\,\psi(y,t-\epsilon)\,dy$。我们通过对小 $\epsilon$ 展开来提取薛定谔方程。
+传播子推进波函数 $\psi(x,t)=\int K(x,t;y,t-\epsilon)\,\psi(y,t-\epsilon)\,dy$ 。我们通过对小 $\epsilon$ 展开来提取薛定谔方程。
 
-1. 对带势 $V$ 的一个短步，$K(x,t;y,t-\epsilon)=\big(\tfrac{m}{2\pi i\hbar\epsilon}\big)^{1/2}\exp\!\big(\tfrac{im(x-y)^2}{2\hbar\epsilon}-\tfrac{i}{\hbar}\epsilon V(x)\big)$。
-2. 高斯因子尖锐地峰化：它迫使 $y$ 接近 $x$，典型展度为 $(x-y)^2\sim\hbar\epsilon/m$。代入 $\eta=y-x$ 并泰勒展开 $\psi(y)=\psi(x)+\eta\psi_x+\tfrac12\eta^2\psi_{xx}+\cdots$。
-3. 做所得的对 $\eta$ 的高斯矩积分（带虚方差）：$\int e^{im\eta^2/2\hbar\epsilon}\,d\eta=(2\pi i\hbar\epsilon/m)^{1/2}$（把前因子归一化为 $1$）；奇数阶矩 $\int\eta\,(\cdots)\,d\eta=0$；而 $\int\eta^2(\cdots)\,d\eta=(2\pi i\hbar\epsilon/m)^{1/2}\cdot\tfrac{i\hbar\epsilon}{m}$。
-4. 收集到 $\epsilon$ 一阶的项，并展开 $e^{-i\epsilon V/\hbar}\approx1-\tfrac{i}{\hbar}\epsilon V$ 与左边 $\psi(x,t)\approx\psi(x,t-\epsilon)+\epsilon\,\partial_t\psi$：
+1. 对带势 $V$ 的一个短步， $K(x,t;y,t-\epsilon)=\big(\tfrac{m}{2\pi i\hbar\epsilon}\big)^{1/2}\exp\!\big(\tfrac{im(x-y)^2}{2\hbar\epsilon}-\tfrac{i}{\hbar}\epsilon V(x)\big)$ 。
+2. 高斯因子尖锐地峰化：它迫使 $y$ 接近 $x$ ，典型展度为 $(x-y)^2\sim\hbar\epsilon/m$ 。代入 $\eta=y-x$ 并泰勒展开 $\psi(y)=\psi(x)+\eta\psi_x+\tfrac12\eta^2\psi_{xx}+\cdots$ 。
+3. 做所得的对 $\eta$ 的高斯矩积分（带虚方差）： $\int e^{im\eta^2/2\hbar\epsilon}\,d\eta=(2\pi i\hbar\epsilon/m)^{1/2}$ （把前因子归一化为 $1$ ）；奇数阶矩 $\int\eta\,(\cdots)\,d\eta=0$ ；而 $\int\eta^2(\cdots)\,d\eta=(2\pi i\hbar\epsilon/m)^{1/2}\cdot\tfrac{i\hbar\epsilon}{m}$ 。
+4. 收集到 $\epsilon$ 一阶的项，并展开 $e^{-i\epsilon V/\hbar}\approx1-\tfrac{i}{\hbar}\epsilon V$ 与左边 $\psi(x,t)\approx\psi(x,t-\epsilon)+\epsilon\,\partial_t\psi$ ：
 $$
 \psi+\epsilon\,\partial_t\psi=\psi+\frac{i\hbar\epsilon}{2m}\,\partial_{xx}\psi-\frac{i\epsilon}{\hbar}V\psi+O(\epsilon^2).
 $$
-5. 消去 $\psi$，除以 $\epsilon$，乘以 $i\hbar$，并令 $\epsilon\to0$：
+5. 消去 $\psi$ ，除以 $\epsilon$ ，乘以 $i\hbar$ ，并令 $\epsilon\to0$ ：
 $$
 i\hbar\,\frac{\partial\psi}{\partial t}=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V(x)\,\psi,
 $$
-即**薛定谔方程**。$\blacksquare$
+即**薛定谔方程**。 $\blacksquare$
 
-于是路径积分与薛定谔偏微分方程是同一理论的两种描述——正如 §s8 中布朗路径与扩散偏微分方程那样。$i$ 因子是唯一的区别。
+于是路径积分与薛定谔偏微分方程是同一理论的两种描述——正如 §s8 中布朗路径与扩散偏微分方程那样。 $i$ 因子是唯一的区别。
 
 #### 常见陷阱
 
-- 路径积分的"测度" $\mathcal{D}x$，比维纳情形更甚，只能通过时间切片极限来定义；每个切片的前因子 $(m/2\pi i\hbar\epsilon)^{1/2}$ 是其定义的一部分。
+- 路径积分的"测度" $\mathcal{D}x$ ，比维纳情形更甚，只能通过时间切片极限来定义；每个切片的前因子 $(m/2\pi i\hbar\epsilon)^{1/2}$ 是其定义的一部分。
 - 振荡（复）高斯只是条件收敛；严格性通常通过维克转动到 §s12 的欧几里得积分来进行，那里权重再次是一个真正的概率。
 
 <a id="s12"></a>
@@ -640,31 +649,31 @@ $$
 
 #### 是什么与为什么
 
-自由传播子（§s11）是一个带*虚*时间的高斯。把时间旋转为虚的，$t\to -i\tau$（一次**维克转动**），把振荡相位 $e^{iS/\hbar}$ 变成一个衰减权重 $e^{-S_E/\hbar}$——一个实概率，恰是 §s10 的维纳权重。这不是花招：它把虚时间中的量子力学与经典统计力学等同起来，并赋予路径积分最坚实的数学基础。
+自由传播子（§s11）是一个带*虚*时间的高斯。把时间旋转为虚的， $t\to -i\tau$ （一次**维克转动**），把振荡相位 $e^{iS/\hbar}$ 变成一个衰减权重 $e^{-S_E/\hbar}$ ——一个实概率，恰是 §s10 的维纳权重。这不是花招：它把虚时间中的量子力学与经典统计力学等同起来，并赋予路径积分最坚实的数学基础。
 
 #### 维克转动
 
-设 $t=-i\tau$，$\tau$ 为实（"欧几里得时间"）。则作用量中的时间积分发生变换，**欧几里得作用量**变为
+设 $t=-i\tau$ ， $\tau$ 为实（"欧几里得时间"）。则作用量中的时间积分发生变换，**欧几里得作用量**变为
 $$
 S_E=\int\Big(\tfrac12 m\big(\tfrac{dx}{d\tau}\big)^2+V(x)\Big)d\tau,
 $$
-带一个关键的符号翻转：拉格朗日量 $\tfrac12 m\dot x^2-V$ 变成*能量* $\tfrac12 m x'^2+V$（动能加势能）。相位因子变成一个实的玻尔兹曼型权重：
+带一个关键的符号翻转：拉格朗日量 $\tfrac12 m\dot x^2-V$ 变成*能量* $\tfrac12 m x'^2+V$ （动能加势能）。相位因子变成一个实的玻尔兹曼型权重：
 $$
 e^{iS/\hbar}\;\longrightarrow\;e^{-S_E/\hbar}.
 $$
-*为何符号翻转。* 由 $t=-i\tau$，有 $dt=-i\,d\tau$ 且 $\dot x=dx/dt=i\,dx/d\tau=ix'$（记 $x'=dx/d\tau$）。把作用量的两项分开处理。**动能**项：$\tfrac12 m\dot x^2\,dt=\tfrac12 m(ix')^2(-i\,d\tau)=\tfrac12 m\,(-x'^2)(-i)\,d\tau=+\tfrac{i}{2} m\,x'^2\,d\tau$。**势能**项：$-V\,dt=-V\,(-i\,d\tau)=+iV\,d\tau$。两者相加，拉格朗日量的时间积分变为 $S=\int\big(\tfrac12 m\dot x^2-V\big)dt=i\int\big(\tfrac12 m x'^2+V\big)d\tau=i\,S_E$，其中 $S_E=\int\big(\tfrac12 m x'^2+V\big)d\tau$ 正是上面的能量（动能加势能）积分。于是 $iS/\hbar=i(iS_E)/\hbar=-S_E/\hbar$，恰是所述的符号翻转。振荡测度已变成 §s10 中真正收敛的维纳型测度（其中 $\hbar$ 扮演着那里 $\epsilon$ 所扮演的角色）。
+*为何符号翻转。* 由 $t=-i\tau$ ，有 $dt=-i\,d\tau$ 且 $\dot x=dx/dt=i\,dx/d\tau=ix'$ （记 $x'=dx/d\tau$ ）。把作用量的两项分开处理。**动能**项： $\tfrac12 m\dot x^2\,dt=\tfrac12 m(ix')^2(-i\,d\tau)=\tfrac12 m\,(-x'^2)(-i)\,d\tau=+\tfrac{i}{2} m\,x'^2\,d\tau$ 。**势能**项： $-V\,dt=-V\,(-i\,d\tau)=+iV\,d\tau$ 。两者相加，拉格朗日量的时间积分变为 $S=\int\big(\tfrac12 m\dot x^2-V\big)dt=i\int\big(\tfrac12 m x'^2+V\big)d\tau=i\,S_E$ ，其中 $S_E=\int\big(\tfrac12 m x'^2+V\big)d\tau$ 正是上面的能量（动能加势能）积分。于是 $iS/\hbar=i(iS_E)/\hbar=-S_E/\hbar$ ，恰是所述的符号翻转。振荡测度已变成 §s10 中真正收敛的维纳型测度（其中 $\hbar$ 扮演着那里 $\epsilon$ 所扮演的角色）。
 
 #### 配分函数的联系
 
-在统计力学中，温度 $T$ 下处于热平衡的系统具有**配分函数** $Z=\sum_{\text{states}}e^{-E/k_BT}=\mathrm{Tr}\,e^{-\beta H}$，其中 $H$ 是**哈密顿量**（能量算符），$\beta=1/k_BT$ 是**逆温度**，$k_B$ 是玻尔兹曼常数，$\mathrm{Tr}$（迹）是对所有位形求对角元 $\langle x|\cdot|x\rangle$ 之和。
+在统计力学中，温度 $T$ 下处于热平衡的系统具有**配分函数** $Z=\sum_{\text{states}}e^{-E/k_BT}=\mathrm{Tr}\,e^{-\beta H}$ ，其中 $H$ 是**哈密顿量**（能量算符）， $\beta=1/k_BT$ 是**逆温度**， $k_B$ 是玻尔兹曼常数， $\mathrm{Tr}$ （迹）是对所有位形求对角元 $\langle x|\cdot|x\rangle$ 之和。
 
-桥梁：量子**时间演化算符**是 $e^{-iHt/\hbar}$，而欧几里得传播子是 $\langle x_b|e^{-H\tau/\hbar}|x_a\rangle$——即取 $t=-i\tau$ 的*同一个*算符。与 $e^{-\beta H}$ 比较给出等同关系
+桥梁：量子**时间演化算符**是 $e^{-iHt/\hbar}$ ，而欧几里得传播子是 $\langle x_b|e^{-H\tau/\hbar}|x_a\rangle$ ——即取 $t=-i\tau$ 的*同一个*算符。与 $e^{-\beta H}$ 比较给出等同关系
 $$
 \tau/\hbar \;=\;\beta\;=\;\frac{1}{k_BT}.
 $$
 所以**虚时间就是逆温度**。因此：
 
-1. 在"长度"为 $\tau=\hbar\beta$ 的时间区间上的欧几里得路径积分计算矩阵元 $\langle x_b|e^{-\beta H}|x_a\rangle$。
+1. 在"长度"为 $\tau=\hbar\beta$ 的时间区间上的欧几里得路径积分计算矩阵元 $\langle x_b|e^{-\beta H}|x_a\rangle$ 。
 2. 取**迹**意味着令 $x_b=x_a$ 并对该公共值积分——即对所有**周期**路径 $x(0)=x(\hbar\beta)$ 求和：
 $$
 Z=\mathrm{Tr}\,e^{-\beta H}=\oint_{x(0)=x(\hbar\beta)}\exp\!\Big(-\frac{1}{\hbar}\int_0^{\hbar\beta}\Big[\tfrac12 m\,x'^2+V(x)\Big]d\tau\Big)\,\mathcal{D}x.
@@ -674,13 +683,13 @@ $$
 
 #### 算例检验——高温（经典）极限
 
-当 $T\to\infty$，$\beta\to0$，故回路时长 $\hbar\beta\to0$：每条周期路径都被挤压成单个点，而动能项压制任何运动。只有常数路径幸存，回路积分坍缩为 $\int e^{-\beta V(x)}\,dx$（乘以一个给出**热德布罗意**前因子的动能高斯），我们便重新得到*经典*配分函数 $Z_{\text{cl}}\propto\int e^{-\beta V(x)}\,dx$。路径积分在高温极限下正确地退化为经典玻尔兹曼统计——这是整个构造自洽的一个检验。
+当 $T\to\infty$ ， $\beta\to0$ ，故回路时长 $\hbar\beta\to0$ ：每条周期路径都被挤压成单个点，而动能项压制任何运动。只有常数路径幸存，回路积分坍缩为 $\int e^{-\beta V(x)}\,dx$ （乘以一个给出**热德布罗意**前因子的动能高斯），我们便重新得到*经典*配分函数 $Z_{\text{cl}}\propto\int e^{-\beta V(x)}\,dx$ 。路径积分在高温极限下正确地退化为经典玻尔兹曼统计——这是整个构造自洽的一个检验。
 
 #### 常见陷阱
 
-- 维克转动是一种解析延拓；在欧几里得时间中计算的结果必须旋转回去（$\tau\to it$）才能恢复实时间的量子振幅，而这种反向旋转可能很微妙。
+- 维克转动是一种解析延拓；在欧几里得时间中计算的结果必须旋转回去（ $\tau\to it$ ）才能恢复实时间的量子振幅，而这种反向旋转可能很微妙。
 - 迹强制*周期*边界条件（闭合回路）；开放传播子使用固定端点。把它们混淆会改变答案。
 
 ---
 
-*这份指南从头构建了运动中随机性的数学：随机过程及其有限维律，带查普曼–柯尔莫哥洛夫方程和平稳分布的马尔可夫链，泊松过程与连续时间链，以及布朗运动——连续却处处不可微，具有二次变差 $(dW)^2=dt$。在这一基础上，我们竖起了伊藤积分，闭式求解了几何布朗运动与奥恩斯坦–乌伦贝克 SDE，并通过福克–普朗克和费曼–卡茨公式跨越了通往确定性偏微分方程的伟大桥梁。最后，维纳路径积分把路径空间离散化为一个高斯测度，费曼路径积分把那个想法——只差一个 $i$ 因子——带入量子力学并再生了薛定谔方程，而维克转动揭示虚时间即为逆温度，把量子振幅与统计力学的配分函数熔为一体。唯一的主线：对所有随机历史求平均，把单条路径的抖动变成系综的光滑规律，而同一个高斯式的路径求和既描述扩散，也描述金融，也描述量子世界。*
+*这份指南从头构建了运动中随机性的数学：随机过程及其有限维律，带查普曼–柯尔莫哥洛夫方程和平稳分布的马尔可夫链，泊松过程与连续时间链，以及布朗运动——连续却处处不可微，具有二次变差 $(dW)^2=dt$ 。在这一基础上，我们竖起了伊藤积分，闭式求解了几何布朗运动与奥恩斯坦–乌伦贝克 SDE，并通过福克–普朗克和费曼–卡茨公式跨越了通往确定性偏微分方程的伟大桥梁。最后，维纳路径积分把路径空间离散化为一个高斯测度，费曼路径积分把那个想法——只差一个 $i$ 因子——带入量子力学并再生了薛定谔方程，而维克转动揭示虚时间即为逆温度，把量子振幅与统计力学的配分函数熔为一体。唯一的主线：对所有随机历史求平均，把单条路径的抖动变成系综的光滑规律，而同一个高斯式的路径求和既描述扩散，也描述金融，也描述量子世界。*
