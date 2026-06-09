@@ -222,10 +222,14 @@ Now the payoff used to find the field equations.
 
 *Proof.*
 1. Start from the second Bianchi identity in the form $\nabla_\lambda R_{\rho\sigma\mu\nu}+\nabla_\mu R_{\rho\sigma\nu\lambda}+\nabla_\nu R_{\rho\sigma\lambda\mu}=0$ (a relabeling of the antisymmetrized statement using the last-pair antisymmetry).
-2. Contract with $g^{\rho\mu}$. Since $\nabla g=0$, $g^{\rho\mu}$ passes through $\nabla$. Using $g^{\rho\mu}R_{\rho\sigma\mu\nu}=R_{\sigma\nu}$ (Ricci) and $g^{\rho\mu}R_{\rho\sigma\nu\lambda}=-R^\mu{}_{\sigma\nu\lambda}g\to$ careful index work gives:
-   $\nabla_\lambda R_{\sigma\nu}-\nabla_\mu R^\mu{}_{\sigma\nu\lambda}-\nabla_\nu R_{\sigma\lambda}=0$, where the middle term used $g^{\rho\mu}R_{\rho\sigma\nu\lambda}=R^\mu{}_{\sigma\nu\lambda}$ and the sign from swapping the last pair.
-3. Contract again with $g^{\sigma\nu}$. Using $g^{\sigma\nu}R_{\sigma\nu}=R$, $g^{\sigma\nu}\nabla_\nu R_{\sigma\lambda}=\nabla^\sigma R_{\sigma\lambda}$, and $g^{\sigma\nu}\nabla_\mu R^\mu{}_{\sigma\nu\lambda}=\nabla_\mu R^\mu{}_{\lambda}$ (contracting Riemann to Ricci again):
-   $\nabla_\lambda R-\nabla_\mu R^\mu{}_\lambda-\nabla^\sigma R_{\sigma\lambda}=0$, i.e. $\nabla_\lambda R-2\nabla^\mu R_{\mu\lambda}=0$.
+2. Contract with $g^{\rho\mu}$. Since $\nabla g=0$, $g^{\rho\mu}$ passes through $\nabla$, and raising the first index is simply $g^{\rho\mu}R_{\rho\sigma\nu\lambda}=R^\mu{}_{\sigma\nu\lambda}$. Apply this to all three terms:
+   - First term: $g^{\rho\mu}R_{\rho\sigma\mu\nu}=R^\mu{}_{\sigma\mu\nu}=R_{\sigma\nu}$ (Ricci, first–third contraction).
+   - Second term: $g^{\rho\mu}R_{\rho\sigma\nu\lambda}=R^\mu{}_{\sigma\nu\lambda}$ (left with the free index $\mu$).
+   - Third term: $g^{\rho\mu}R_{\rho\sigma\lambda\mu}=R^\mu{}_{\sigma\lambda\mu}=-R^\mu{}_{\sigma\mu\lambda}=-R_{\sigma\lambda}$, using the last-pair antisymmetry $R_{\rho\sigma\lambda\mu}=-R_{\rho\sigma\mu\lambda}$.
+
+   This gives $\nabla_\lambda R_{\sigma\nu}+\nabla_\mu R^\mu{}_{\sigma\nu\lambda}-\nabla_\nu R_{\sigma\lambda}=0$.
+3. Contract again with $g^{\sigma\nu}$. Using $g^{\sigma\nu}R_{\sigma\nu}=R$; $g^{\sigma\nu}\nabla_\nu R_{\sigma\lambda}=\nabla^\sigma R_{\sigma\lambda}=\nabla^\mu R_{\mu\lambda}$; and $g^{\sigma\nu}R^\mu{}_{\sigma\nu\lambda}=-R^\mu{}_\lambda$ (the second–third contraction of Riemann gives minus Ricci, by the first-pair antisymmetry $R_{\mu\sigma\nu\lambda}=-R_{\sigma\mu\nu\lambda}$):
+   $\nabla_\lambda R-\nabla_\mu R^\mu{}_\lambda-\nabla^\mu R_{\mu\lambda}=0$, i.e. the two equal middle/last terms combine to give $\nabla_\lambda R-2\nabla^\mu R_{\mu\lambda}=0$.
 4. Rewrite: $\nabla^\mu R_{\mu\lambda}=\tfrac12\nabla_\lambda R=\tfrac12\nabla^\mu(g_{\mu\lambda}R)$ (using $\nabla g=0$ to pull $g$ inside).
 5. Therefore $\nabla^\mu\big(R_{\mu\lambda}-\tfrac12 g_{\mu\lambda}R\big)=\nabla^\mu G_{\mu\lambda}=0$. $\blacksquare$
 
@@ -251,7 +255,7 @@ We now make precise the claim of s0 that tidal effects — the part of gravity t
 2. Compute $\frac{D^2\xi}{d\tau^2}=\nabla_u\nabla_u\xi=\nabla_u\nabla_\xi u$ by step 1.
 3. Use the curvature definition $\nabla_u\nabla_\xi u-\nabla_\xi\nabla_u u=R(u,\xi)u+\nabla_{[u,\xi]}u$. Since $[u,\xi]=0$, the last term drops: $\nabla_u\nabla_\xi u=\nabla_\xi\nabla_u u+R(u,\xi)u$.
 4. But each curve is a geodesic, so $\nabla_u u=0$; hence $\nabla_\xi\nabla_u u=0$.
-5. Therefore $\frac{D^2\xi}{d\tau^2}=R(u,\xi)u$. In components $R(u,\xi)u$ has $\mu$-component $R^\mu{}_{\nu\rho\sigma}u^\nu\xi^\rho u^\sigma$; matching the sign convention of our Riemann definition gives the stated form with the minus sign. $\blacksquare$
+5. Therefore $\frac{D^2\xi}{d\tau^2}=R(u,\xi)u$. By our convention $R(X,Y)Z$ has $\mu$-component $R^\mu{}_{\nu\rho\sigma}Z^\nu X^\rho Y^\sigma$, so with $X=u$, $Y=\xi$, $Z=u$ this reads $[R(u,\xi)u]^\mu=R^\mu{}_{\nu\rho\sigma}u^\nu u^\rho\xi^\sigma$. Now use the last-pair antisymmetry $R^\mu{}_{\nu\rho\sigma}=-R^\mu{}_{\nu\sigma\rho}$ and relabel the dummy indices $\rho\leftrightarrow\sigma$: $R^\mu{}_{\nu\rho\sigma}u^\nu u^\rho\xi^\sigma=-R^\mu{}_{\nu\rho\sigma}u^\nu\xi^\rho u^\sigma$. Hence $\frac{D^2\xi^\mu}{d\tau^2}=-R^\mu{}_{\nu\rho\sigma}u^\nu\xi^\rho u^\sigma$, the boxed form with its minus sign. $\blacksquare$
 
 #### Tidal forces
 

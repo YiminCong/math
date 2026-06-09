@@ -253,16 +253,16 @@ $\omega(v,v)=0$ 这一行是核心所在：辛形式无法度量单个向量的�
 
 > **定义 —— 泊松括号。** 对 $f,g\in C^\infty(M)$，
 > $$
-> \{f,g\} := \omega(X_f,X_g) = X_f(g) = -X_g(f).
+> \{f,g\} := \omega(X_f,X_g).
 > $$
-> 这些表达式相符：$\omega(X_f,X_g)=(\iota_{X_f}\omega)(X_g)=df(X_g)=X_g(f)$，而由 $\omega$ 的反对称性这也等于反过来作用的 $-(\iota_{X_g}\omega)(X_f)=-dg(X_f)=-X_g(f)$。我们采用约定 $\{f,g\}=X_f(g)=-X_g(f)$，一劳永逸地固定整体符号。
+> 一次计算即可求出它：$\omega(X_f,X_g)=(\iota_{X_f}\omega)(X_g)=df(X_g)=X_g(f)$，其中第二个等号是 $\iota_{X_f}\omega=df$，第三个是 $1$-形式 $df$ 作用于向量 $X_g$。于是 $\{f,g\}=X_g(f)$，一劳永逸地固定整体符号。
 
 > **坐标形式。**
 > $$
 > \{f,g\} = \sum_{i=1}^n\left(\frac{\partial f}{\partial q^i}\frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q^i}\right).
 > $$
 
-**推导。** 利用 $\{f,g\}=X_f(g)$ 与上面 $X_f$ 的坐标形式：$X_f(g)=\sum_i(\partial_{p_i}f\,\partial_{q^i}g - \partial_{q^i}f\,\partial_{p_i}g)$。把两项的标记反转即得所示的反对称表达式（标准约定）。基本括号为 $\{q^i,q^j\}=0$，$\{p_i,p_j\}=0$，$\{q^i,p_j\}=\delta^i_j$。
+**推导。** 利用 $\{f,g\}=X_g(f)$ 与上面 $X_g=\sum_i(\partial_{p_i}g\,\partial_{q^i} - \partial_{q^i}g\,\partial_{p_i})$ 的坐标形式：$X_g(f)=\sum_i(\partial_{p_i}g\,\partial_{q^i}f - \partial_{q^i}g\,\partial_{p_i}f)=\sum_i(\partial_{q^i}f\,\partial_{p_i}g - \partial_{p_i}f\,\partial_{q^i}g)$，这正是所示表达式。基本括号为 $\{q^i,q^j\}=0$，$\{p_i,p_j\}=0$，$\{q^i,p_j\}=\delta^i_j$。
 
 该括号是 **双线性** 且 **反对称** 的（$\{f,g\}=-\{g,f\}$，由 $\omega$ 反对称立得），并满足 **莱布尼茨法则** $\{f,gh\}=\{f,g\}h+g\{f,h\}$（因为 $X_f$ 是一个求导）。其深刻性质是：
 
@@ -546,9 +546,9 @@ $$
 
 #### 2-球面与自旋的量子化
 
-> **设置。** $M=S^2$，半径 $r$，面积形式 $\omega = r\,\sin\phi\,d\phi\wedge d\theta$（球坐标），总面积 $\int_{S^2}\omega = 4\pi r$。把 $S^2$ 与 $\mathbb{CP}^1$ 等同；它是凯勒的（s8）。这是 **经典自旋相空间**：一个点是自旋向量的一个方向。
+> **设置。** $M=S^2$，半径 $r$，面积形式 $\omega = r^2\,\sin\phi\,d\phi\wedge d\theta$（球坐标），总面积 $\int_{S^2}\omega = 4\pi r^2$。把 $S^2$ 与 $\mathbb{CP}^1$ 等同；它是凯勒的（s8）。这是 **经典自旋相空间**：一个点是自旋向量的一个方向。
 
-1. **整性 / 玻尔–索末菲。** 预量子丛存在当且仅当 $\frac{1}{2\pi\hbar}\int_{S^2}\omega\in\mathbb{Z}$，即 $\frac{4\pi r}{2\pi\hbar}=\frac{2r}{\hbar}=:k\in\mathbb{Z}_{\ge0}$。*理由：* 韦伊整性定理（s9）。故球面面积被量子化：$\text{面积}=2\pi\hbar k = hk$。
+1. **整性 / 玻尔–索末菲。** 预量子丛存在当且仅当 $\frac{1}{2\pi\hbar}\int_{S^2}\omega\in\mathbb{Z}$，即 $\frac{4\pi r^2}{2\pi\hbar}=\frac{2r^2}{\hbar}=:k\in\mathbb{Z}_{\ge0}$。*理由：* 韦伊整性定理（s9）。故球面面积被量子化：$\text{面积}=2\pi\hbar k = hk$。
 2. **丛。** $\mathbb{CP}^1$ 上陈数为 $k$ 的线丛是 $\mathcal O(k)$，即超平面丛的 $k$ 次幂。*理由：* $\mathbb{CP}^1$ 上的线丛由一个整数（其次数，等于曲率积分）分类。
 3. **希尔伯特空间。** $\mathcal O(k)$ 的全纯（凯勒极化）截面是两个复变量 $(z_0,z_1)$ 的 $k$ 次齐次多项式，构成一个维数为
 $$

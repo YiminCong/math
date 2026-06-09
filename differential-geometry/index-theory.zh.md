@@ -103,16 +103,15 @@ $$
 1. 设 $T$ 为 Fredholm 算子，拟逆为 $P$，故 $PT = I + K_1$，$TP = I + K_2$，其中 $K_i$ 紧。对紧算子 $K$，算子 $T+K$ 满足 $P(T+K) = I + K_1 + PK$ 与 $(T+K)P = I + K_2 + KP$；由于 $PK$ 与 $KP$ 紧（紧算子与有界算子复合为紧），$T+K$ 也以 $P$ 为拟逆，故由 Atkinson 定理（⇐，它来自 Riesz 理论：$I + \text{紧}$ 是指标为 $0$ 的 Fredholm 算子）知 $T+K$ 为 Fredholm 算子。*理由：* 拟逆条件正是 Fredholm 性之所是。
 2. 为看出指标不变，考虑路径 $T_t = T + tK$，$t \in [0,1]$。由第 1 步每个 $T_t$ 都是 Fredholm 算子。我们证明 $t \mapsto \operatorname{ind} T_t$ 是局部常值的；它取整数值且（下面将证）连续，故在 $[0,1]$ 上为常值。
 
-**稳定性 (b) 之证明，局部常值性。** 这是关键引理；(a) 的常值性随之而来。
-1. 固定 Fredholm 算子 $T$。选一个有限秩算子 $F: H_1 \to H_2$，其值域是 $\operatorname{im} T$ 在 $H_2$ 中的补，即 $F$ 把 $\operatorname{coker} T$ 的一个拷贝同构地映到 $(\operatorname{im} T)^\perp$ 上并消灭 $(\ker T)^\perp$……更简单地说，令 $F$ 是从 $\ker T$ 到某个选定补 $C \cong \operatorname{coker} T$ 的同构，并以零延拓。考虑*增广*算子
+**稳定性 (b) 之证明，局部常值性。** 这是关键引理；(a) 的常值性随之而来。我们用关于指标的两个标准事实，二者都可由泛函分析指南中的定义证得：指标在**复合下可加**，对 Fredholm 算子 $A,B$ 有 $\operatorname{ind}(AB)=\operatorname{ind} A+\operatorname{ind} B$；指标在**可逆算子及 $I+(\text{紧})$ 上为零**（后者即 Riesz 理论：$I+\text{紧}$ 是指标为 $0$ 的 Fredholm 算子）。
+1. 固定 Fredholm 算子 $T$ 及其拟逆 $P$（Atkinson 定理），故 $PT=I+K_1$，$K_1$ 紧。对 $PT$ 用可加性得 $\operatorname{ind} P+\operatorname{ind} T=\operatorname{ind}(I+K_1)=0$，故 $\operatorname{ind} P=-\operatorname{ind} T$。*理由：* 可加性与 $I+\text{紧}$ 的指标。
+2. 取任意有界 $B$，满足 $\|B\|<\varepsilon:=1/\|P\|$（若 $P=0$ 则 $T$ 本身可逆，结论平凡）。于是 $\|PB\|\le\|P\|\,\|B\|<1$，故由 Neumann 级数 $\sum(-PB)^k$ 知 $I+PB$ 可逆。*理由：* 恒等算子的范数 $<1$ 扰动可逆。
+3. 计算 $P(T+B)=PT+PB=I+K_1+PB=(I+PB)+K_1$。把可逆部分提出：
 $$
-\widehat T = T + F.
+P(T+B)=(I+PB)\big(I+(I+PB)^{-1}K_1\big).
 $$
-2. 由构造 $\widehat T$ 既满又单，即可逆：任意 $x = x_0 + x_1$（$x_0 \in \ker T$，$x_1 \in (\ker T)^\perp$）映到 $F x_0 + T x_1 \in C \oplus \operatorname{im} T = H_2$，这是双射，因为 $F|_{\ker T}$ 与 $T|_{(\ker T)^\perp}$ 都是到互补的闭子空间上的双射。*理由：* 两个同构到互补直和项上的直和。
-3. 由于可逆性是开条件（可逆算子构成开集，因 $\|B\| < \|\widehat T^{-1}\|^{-1}$ 时由 Neumann 级数 $\sum (-\widehat T^{-1}B)^k$ 保持 $\widehat T + B$ 可逆），存在 $\varepsilon > 0$ 使得 $\|B\| < \varepsilon$ 蕴含 $\widehat T + B = (T + B) + F$ 可逆。
-4. 现对这样的 $B$，$T+B = (\widehat T + B) - F$ 是可逆算子的一个有限秩（$\operatorname{rank} F = \dim\ker T =: k$）扰动。可逆算子的有限秩扰动是 Fredholm 算子，其指标为 $0 - 0 = 0$ 经秩记账平移后所得；精确地说：
-5. **$A - F$ 的指标，其中 $A$ 可逆，$\operatorname{rank} F = k$。** 记 $L = A^{-1}F$，一个秩 $k$ 算子，故 $T + B = A(I - L)$。乘以可逆的 $A$ 不改变指标（与同构复合在 $\ker$ 与 $\operatorname{coker}$ 上是双射），故 $\operatorname{ind}(T+B) = \operatorname{ind}(I - L)$。对有限秩的 $L$，$I - L$ 在有限维子空间 $W = \operatorname{im} L + (\text{相关的有限空间})$ 之外作为恒等作用，在 $W$ 上作为 $I - L|_W$ 作用；在补空间上它是恒等（指标 $0$），而在有限维空间 $W$ 上，由方阵 $I - L|_W$ 的秩—零化度定理，指标为 $\dim W - \dim W = 0$。故 $\operatorname{ind}(I - L) = 0$。
-6. 因此对一切 $\|B\| < \varepsilon$，$\operatorname{ind}(T+B) = \operatorname{ind}(\widehat T + B) + (\text{修正}) = 0 + 0$？我们必须仔细追踪修正项。简洁的陈述是：对 $\|B\| < \varepsilon$，$\operatorname{ind}(T+B)$ *不依赖于 $B$*，因为第 5 步中的计算对每个这样的 $B$ 都产生了*相同*的值（相对可逆参照即 $\operatorname{ind}(I-L)=0$）。取 $B = 0$ 给出对一切小 $B$ 有 $\operatorname{ind}(T+B) = \operatorname{ind} T$。*理由：* 一个在 $0$ 的某邻域上为常值且取整数值的函数，在 $0$ 处取值即 $\operatorname{ind} T$。$\qquad\blacksquare$
+此处 $(I+PB)^{-1}K_1$ 紧（有界 $\circ$ 紧），故右因子为 $I+(\text{紧})$，指标为 $0$，而左因子可逆，指标为 $0$。由可加性 $\operatorname{ind}\big(P(T+B)\big)=0$。特别地 $T+B$ 为 Fredholm 算子（其拟逆为 $(\text{右因子})^{-1}\!\!\mod\text{紧}\cdot(I+PB)^{-1}P$）。*理由：* 可加性与可逆算子、$I+\text{紧}$ 的指标。
+4. 对乘积 $P(T+B)$ 再次用可加性：$\operatorname{ind} P+\operatorname{ind}(T+B)=\operatorname{ind}\big(P(T+B)\big)=0$，故由第 1 步 $\operatorname{ind}(T+B)=-\operatorname{ind} P=\operatorname{ind} T$。这对一切 $\|B\|<\varepsilon$ 成立，正是局部常值性。$\qquad\blacksquare$
 
 对 (a)，沿路径 $T_t = T + tK$ 应用 (b)：用有限多个区间覆盖 $[0,1]$，在每个区间上指标常值，故 $\operatorname{ind} T_0 = \operatorname{ind} T_1$，即 $\operatorname{ind}(T) = \operatorname{ind}(T+K)$。
 
