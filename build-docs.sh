@@ -4,7 +4,7 @@ rm -rf docs && mkdir -p docs/assets
 cp -r calculus complex-analysis differential-geometry functional-analysis \
       group-theory linear-algebra math-methods statistics topology docs/
 cp README.md README.zh.md docs/
-cp assets/mathjax.js docs/assets/
+cp assets/mathjax.js assets/langtoggle.js docs/assets/
 # Adapt the copied Markdown for the MkDocs + i18n build:
 #  1) drop the manual top-of-file language switcher (Material has its own selector;
 #     the relative .zh.md link doesn't resolve under the i18n suffix layout)
